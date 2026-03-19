@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eskupilota Stats — Pelota Vasca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f5f0; --surface:#fff; --surface2:#eef0eb; --border:#d0d5cc;
+  --green:#007A3D; --red:#C8102E; --text:#1a1f1a; --muted:#7a8a7a;
+  --mono:'IBM Plex Mono',monospace; --sans:'IBM Plex Sans',sans-serif; --display:'Bebas Neue',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden;}
+
+header{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,0.97);backdrop-filter:blur(12px);z-index:100;box-shadow:0 2px 12px rgba(0,122,61,0.08);}
+.logo{font-family:var(--display);font-size:1.9rem;letter-spacing:.05em;color:var(--green);}
+.logo span{color:var(--red);}
+nav{display:flex;gap:.2rem;flex-wrap:wrap;}
+nav button{background:none;border:1px solid transparent;color:var(--muted);font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.4rem .85rem;cursor:pointer;transition:all .2s;border-radius:2px;}
+nav button:hover{color:var(--text);border-color:var(--border);}
+nav button.active{color:var(--green);border-color:var(--green);background:rgba(0,122,61,.07);}
+.last-update{font-family:var(--mono);font-size:.6rem;color:var(--muted);white-space:nowrap;}
+
+main{padding:2rem 2.5rem;max-width:1400px;margin:0 auto;}
+.section{display:none;} .section.active{display:block;}
+
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2rem;}
+.kpi{background:var(--surface);border:1px solid var(--border);padding:1.2rem 1.4rem;position:relative;overflow:hidden;}
+.kpi::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--green);}
+.kpi-label{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.35rem;}
+.kpi-value{font-family:var(--display);font-size:2.4rem;line-height:1;}
+.kpi-sub{font-size:.66rem;color:var(--muted);margin-top:.2rem;font-family:var(--mono);}
+
+.sec-title{font-family:var(--display);font-size:1.5rem;letter-spacing:.06em;margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem;}
+.badge{font-family:var(--mono);font-size:.56rem;padding:.18rem .45rem;letter-spacing:.1em;border-radius:1px;}
+.bg{background:var(--green);color:#fff;}
+.br{background:var(--red);color:#fff;}
+
+.tipo-pills{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.1rem;}
+.pill{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;padding:.3rem .75rem;border:1px solid var(--border);background:none;cursor:pointer;transition:all .15s;border-radius:2px;color:var(--muted);}
+.pill:hover{border-color:var(--green);color:var(--green);}
+.pill.on{background:var(--green);border-color:var(--green);color:#fff;}
+.pill.onF{background:var(--red);border-color:var(--red);color:#fff;}
+.pill.onM{background:#6a0dad;border-color:#6a0dad;color:#fff;}
+
+.filters{display:flex;gap:.6rem;margin-bottom:1.1rem;flex-wrap:wrap;align-items:flex-end;}
+.fg{display:flex;flex-direction:column;gap:.25rem;}
+.flabel{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+select,input[type=text]{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:.7rem;padding:.42rem .7rem;outline:none;}
+select:focus,input[type=text]:focus{border-color:var(--green);}
+input.wide{min-width:200px;}
+
+.twrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.78rem;}
+thead tr{border-bottom:2px solid var(--green);}
+th{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);text-align:left;padding:.6rem .75rem;white-space:nowrap;cursor:pointer;user-select:none;}
+th:hover{color:var(--green);}
+td{padding:.6rem .75rem;border-bottom:1px solid var(--border);vertical-align:middle;}
+tr:hover td{background:var(--surface2);}
+.sc{font-family:var(--display);font-size:1.4rem;}
+.sc.w{color:var(--green);} .sc.l{color:var(--muted);}
+
+.tag{font-family:var(--mono);font-size:.56rem;padding:.12rem .38rem;letter-spacing:.08em;white-space:nowrap;border-radius:1px;border:1px solid var(--border);color:var(--muted);background:var(--surface2);}
+.tA{border-color:var(--green);color:var(--green);background:rgba(0,122,61,.07);}
+.tB{border-color:#b8860b;color:#b8860b;background:rgba(184,134,11,.07);}
+.tF{border-color:var(--red);color:var(--red);background:rgba(200,16,46,.07);}
+.tM{border-color:#6a0dad;color:#6a0dad;background:rgba(106,13,173,.07);}
+.tC{border-color:#b8860b;color:#b8860b;background:rgba(184,134,11,.07);}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
+.pcard{background:var(--surface);border:1px solid var(--border);padding:1.1rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;}
+.pcard:hover{border-left-color:var(--green);box-shadow:0 2px 12px rgba(0,122,61,.08);}
+.pcard .pname{font-family:var(--display);font-size:1.25rem;letter-spacing:.04em;margin-bottom:.45rem;}
+.pcard .pstats{display:flex;gap:.9rem;}
+.pcard .ps .val{font-family:var(--display);font-size:1.15rem;display:block;}
+.pcard .ps .lbl{color:var(--muted);font-family:var(--mono);font-size:.56rem;text-transform:uppercase;}
+.pbar-bg{height:4px;background:var(--border);border-radius:2px;margin-top:.5rem;}
+.pbar-fill{height:100%;border-radius:2px;background:var(--green);}
+
+.rk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
+.rk-card{background:var(--surface);border:1px solid var(--border);padding:1.3rem;border-top:3px solid var(--green);}
+.rk-card h3{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
+.rk-row{display:grid;grid-template-columns:1.8rem 1fr repeat(4,auto);gap:.55rem;align-items:center;padding:.45rem 0;border-bottom:1px solid rgba(200,200,195,.5);}
+.rk-pos{font-family:var(--display);font-size:1.25rem;color:var(--muted);text-align:center;}
+.rk-pos.p1{color:var(--green);} .rk-pos.p2{color:#888;} .rk-pos.p3{color:#cd7f32;}
+.rk-name{font-weight:500;font-size:.8rem;}
+.rk-stat{font-family:var(--mono);font-size:.65rem;text-align:right;white-space:nowrap;}
+.rk-stat.pg{color:var(--green);}
+.wbar-bg{height:3px;background:var(--border);border-radius:2px;margin-top:.15rem;grid-column:2/-1;}
+.wbar-fill{height:100%;background:var(--green);border-radius:2px;transition:width .6s;}
+
+.h2h-box{background:var(--surface);border:1px solid var(--border);padding:1.8rem;margin-bottom:1.4rem;}
+.h2h-inputs{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;margin-bottom:1rem;}
+.h2h-vs{font-family:var(--display);font-size:2rem;color:var(--muted);text-align:center;}
+.h2h-bar{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;text-align:center;padding:1.4rem;background:var(--surface2);margin-bottom:1.2rem;}
+.h2h-wins{font-family:var(--display);font-size:4.2rem;line-height:1;}
+.h2h-wins.izq{color:var(--green);} .h2h-wins.der{color:var(--red);}
+.h2h-pj{font-family:var(--display);font-size:1.5rem;color:var(--muted);}
+.h2h-nm{font-family:var(--display);font-size:1.3rem;letter-spacing:.03em;}
+.h2h-sb{font-family:var(--mono);font-size:.6rem;color:var(--muted);}
+.h2h-mod-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.6rem;}
+.h2h-mod-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap;min-width:6rem;}
+.h2h-sub-pills{display:flex;gap:.3rem;flex-wrap:wrap;}
+.h2h-sub-pill{font-family:var(--mono);font-size:.58rem;padding:.25rem .6rem;border:1px solid var(--border);background:none;cursor:pointer;border-radius:2px;color:var(--muted);transition:all .15s;}
+.h2h-sub-pill:hover{border-color:var(--green);color:var(--green);}
+.h2h-sub-pill.on{background:var(--green);border-color:var(--green);color:#fff;}
+.h2h-mod-btn{font-family:var(--mono);font-size:.65rem;padding:.4rem .9rem;border:1px solid var(--border);background:none;cursor:pointer;border-radius:2px;color:var(--muted);transition:all .15s;text-transform:uppercase;letter-spacing:.08em;}
+.h2h-mod-btn:hover{border-color:var(--green);color:var(--green);}
+.h2h-mod-btn.on{background:var(--green);border-color:var(--green);color:#fff;font-weight:600;}
+.h2h-mod-btn.on-mano{background:#6a0dad;border-color:#6a0dad;color:#fff;font-weight:600;}
+.h2h-mod-btn.on-cuatro{background:#b8860b;border-color:#b8860b;color:#fff;font-weight:600;}
+
+.c4-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:1.2rem;align-items:start;}
+.c4-eq{border:2px solid var(--border);padding:1.4rem;position:relative;}
+.c4-eq.colorado{border-color:#c0392b;background:rgba(192,57,43,.03);}
+.c4-eq.azul{border-color:#2471a3;background:rgba(36,113,163,.03);}
+.c4-eq .eq-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;padding-bottom:.7rem;border-bottom:1px solid var(--border);}
+.c4-eq .eq-dot{width:12px;height:12px;border-radius:50%;}
+.c4-eq.colorado .eq-dot{background:#c0392b;}
+.c4-eq.azul .eq-dot{background:#2471a3;}
+.c4-eq .eq-title{font-family:var(--display);font-size:1.1rem;letter-spacing:.06em;}
+.c4-eq.colorado .eq-title{color:#c0392b;}
+.c4-eq.azul .eq-title{color:#2471a3;}
+.c4-eq select{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:.7rem;padding:.5rem .7rem;margin-bottom:.6rem;outline:none;cursor:pointer;border-radius:2px;}
+.c4-eq select:focus{border-color:var(--green);}
+.c4-eq select:disabled{opacity:.45;cursor:default;}
+.c4-lbl{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem;display:block;margin-top:.5rem;}
+.c4-sep{display:flex;align-items:center;justify-content:center;padding-top:3.5rem;}
+.c4-bloque{margin-top:2rem;}
+.c4-bloque-title{font-family:var(--display);font-size:1.1rem;letter-spacing:.05em;margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;}
+.c4-marcador{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;text-align:center;padding:1.2rem;margin-bottom:1rem;}
+.c4-marcador.col{background:rgba(192,57,43,.05);border:1px solid rgba(192,57,43,.2);}
+.c4-marcador.az{background:rgba(36,113,163,.05);border:1px solid rgba(36,113,163,.2);}
+.c4-marcador.neu{background:var(--surface2);border:1px solid var(--border);}
+.c4-mnombre{font-family:var(--display);font-size:1.2rem;}
+.c4-mwins{font-family:var(--display);font-size:3.5rem;line-height:1;}
+.c4-mwins.col{color:#c0392b;} .c4-mwins.az{color:#2471a3;}
+.c4-mpj{font-family:var(--mono);font-size:.65rem;color:var(--muted);}
+
+.pfwrap{display:grid;grid-template-columns:270px 1fr;gap:1.4rem;}
+.pf-header{background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--green);padding:1.4rem;text-align:center;margin-bottom:1rem;}
+.pf-nombre{font-family:var(--display);font-size:1.9rem;letter-spacing:.04em;}
+.pf-sgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
+.pf-s{background:var(--surface);padding:.75rem;text-align:center;}
+.pf-s .v{font-family:var(--display);font-size:1.7rem;}
+.pf-s .l{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);}
+.pf-s .v.g{color:var(--green);} .pf-s .v.r{color:var(--red);}
+.pf-main{display:flex;flex-direction:column;gap:1rem;}
+
+
+
+.comp-table{width:100%;border-collapse:collapse;font-size:.76rem;}
+.comp-table td,.comp-table th{padding:.45rem .65rem;border-bottom:1px solid var(--border);}
+.comp-table thead tr{border-bottom:2px solid var(--green);}
+
+.fronton-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;}
+.fronton-card{background:var(--surface);border:1px solid var(--border);padding:1rem 1.2rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;display:flex;justify-content:space-between;align-items:center;}
+.fronton-card:hover{border-left-color:var(--green);box-shadow:0 2px 8px rgba(0,122,61,.08);}
+.fronton-card .fname{font-weight:600;font-size:.85rem;}
+.fronton-card .fcount{font-family:var(--mono);font-size:.7rem;color:var(--muted);}
+.fronton-card .fcity{font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:.15rem;}
+.kpi.clickable{cursor:pointer;transition:box-shadow .2s;}
+.kpi.clickable:hover{box-shadow:0 4px 16px rgba(0,122,61,.12);}
+.kpi.clickable:hover .kpi-value{color:var(--green);}
+
+.btn{background:var(--green);color:#fff;border:none;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;padding:.55rem 1.3rem;cursor:pointer;transition:opacity .2s;font-weight:600;}
+.btn:hover{opacity:.85;}
+.nodata{text-align:center;padding:2.5rem;color:var(--muted);font-family:var(--mono);font-size:.75rem;}
+.nodata .ic{font-size:2.2rem;margin-bottom:.6rem;}
+.clk{cursor:pointer;color:var(--green);text-decoration:underline;font-weight:500;}
+.clk:hover{opacity:.7;}
+
+@media(max-width:900px){
+  header{padding:.8rem 1rem;flex-wrap:wrap;gap:.6rem;}
+  main{padding:1.2rem 1rem;}
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .rk-grid,.ch-grid,.c4-grid,.pfwrap,.c4-results{grid-template-columns:1fr;}
+  .c4-sep{padding-top:0;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">ESKUPILOTA<span>STATS</span></div>
+  <nav>
+    <button class="active" onclick="showSec('resultados',this)">Resultados</button>
+    <button onclick="showSec('pelotaris',this)">Pelotaris</button>
+    <button onclick="showSec('ranking',this)">Ranking</button>
+    <button onclick="showSec('h2h',this)">Head to Head</button>
+    <button onclick="showSec('comp4',this)">Comparador 4</button>
+    <button onclick="showSec('frontones',this)">Frontones</button>
+
+  </nav>
+  <div class="last-update" id="lastUpdate">—</div>
+</header>
+
+<main>
+<div class="kpi-row" id="kpiRow"></div>
+
+<!-- RESULTADOS -->
+<div class="section active" id="sec-resultados">
+  <div class="sec-title">Resultados</div>
+  <div class="tipo-pills" id="pillsRes"></div>
+  <div class="filters">
+    <div class="fg"><span class="flabel">Buscar pelotari</span><input class="wide" type="text" id="sInput" placeholder="Ej: Altuna, Laso…" oninput="renderTabla()"></div>
+    <div class="fg"><span class="flabel">Competición</span><select id="fComp" onchange="renderTabla()"><option value="">Todas</option></select></div>
+    <div class="fg"><span class="flabel">Frontón</span><select id="fFron" onchange="renderTabla()"><option value="">Todos</option></select></div>
+  </div>
+  <div class="twrap">
+    <table>
+      <thead><tr>
+        <th onclick="sortT('fecha')">Fecha ↕</th><th>Tipo</th><th>Frontón</th>
+        <th>Equipo 1</th><th style="text-align:center">Marcador</th><th>Equipo 2</th><th>Competición</th>
+      </tr></thead>
+      <tbody id="tBody"></tbody>
+    </table>
+  </div>
+  <div id="tCount" style="font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.7rem;"></div>
+</div>
+
+<!-- PELOTARIS -->
+<div class="section" id="sec-pelotaris">
+  <div class="sec-title">Pelotaris <span class="badge bg">Individual</span></div>
+  <input type="text" id="pSearch" class="wide" style="margin-bottom:.8rem;width:100%;max-width:340px;" placeholder="Buscar pelotari…" oninput="renderPCards()">
+  <div class="tipo-pills" id="pillsPel"></div>
+  <div class="cards-grid" id="pCards"></div>
+  <div id="perfilSec" style="display:none;margin-top:1.5rem;">
+    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+      <button class="btn" onclick="closePerfil()">← Volver</button>
+      <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
+    </div>
+    <div class="pfwrap" id="pfWrap"></div>
+  </div>
+</div>
+
+<!-- RANKING -->
+<div class="section" id="sec-ranking">
+  <div class="sec-title">Ranking <span class="badge bg">Pelotaris</span></div>
+  <div class="tipo-pills" id="pillsRk"></div>
+  <div class="rk-grid" id="rkGrid"></div>
+</div>
+
+<!-- H2H -->
+<div class="section" id="sec-h2h">
+  <div class="sec-title">Head to Head <span class="badge bg">Individual</span></div>
+  <div class="h2h-box">
+    <div class="h2h-inputs">
+      <div>
+        <div class="flabel" style="margin-bottom:.35rem">Pelotari 1</div>
+        <select id="h2hP1" style="width:100%;" onchange="renderH2H()"><option value="">— Selecciona —</option></select>
+      </div>
+      <div class="h2h-vs">VS</div>
+      <div>
+        <div class="flabel" style="margin-bottom:.35rem">Pelotari 2</div>
+        <select id="h2hP2" style="width:100%;" onchange="renderH2H()"><option value="">— Selecciona —</option></select>
+      </div>
+    </div>
+
+    <!-- Filtros de modalidad + serie -->
+    <div style="margin-bottom:1.2rem;background:var(--surface2);padding:.9rem 1rem;border:1px solid var(--border);">
+      <div class="h2h-mod-row" style="margin-bottom:.7rem;">
+        <span class="h2h-mod-label">Modalidad</span>
+        <button class="h2h-mod-btn on"    data-mod="parejas"    onclick="setH2HMod('parejas')">Parejas</button>
+        <button class="h2h-mod-btn"       data-mod="manomanista" onclick="setH2HMod('manomanista')">Manomanista</button>
+        <button class="h2h-mod-btn"       data-mod="cuatro"     onclick="setH2HMod('cuatro')">4 y Medio</button>
+      </div>
+      <div class="h2h-mod-row">
+        <span class="h2h-mod-label">Serie</span>
+        <div class="h2h-sub-pills">
+          <button class="h2h-sub-pill on" data-serie="todas"    onclick="setH2HSerie('todas')">Todas</button>
+          <button class="h2h-sub-pill"    data-serie="a"        onclick="setH2HSerie('a')">Serie A</button>
+          <button class="h2h-sub-pill"    data-serie="b"        onclick="setH2HSerie('b')">Serie B</button>
+          <button class="h2h-sub-pill"    data-serie="festival" onclick="setH2HSerie('festival')">Festivales</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="h2hRes"><div class="nodata"><div class="ic">🏸</div>Selecciona dos pelotaris distintos</div></div>
+  </div>
+</div>
+
+<!-- COMPARADOR 4 -->
+<div class="section" id="sec-comp4">
+  <div class="sec-title">Comparador de Partido <span class="badge br">4 Pelotaris</span></div>
+  <div class="c4-grid">
+    <div class="c4-eq colorado">
+      <div class="eq-header">
+        <div class="eq-dot"></div>
+        <div class="eq-title">PAREJA COLORADA</div>
+      </div>
+      <span class="c4-lbl">Delantero</span>
+      <select id="c4d1" onchange="c4DelanteroChange(1)"><option value="">— Selecciona delantero —</option></select>
+      <span class="c4-lbl">Zaguero</span>
+      <select id="c4z1" onchange="renderC4()" disabled><option value="">— Primero elige delantero —</option></select>
+    </div>
+    <div class="c4-sep"><span style="font-family:var(--display);font-size:2.8rem;color:var(--muted)">VS</span></div>
+    <div class="c4-eq azul">
+      <div class="eq-header">
+        <div class="eq-dot"></div>
+        <div class="eq-title">PAREJA AZUL</div>
+      </div>
+      <span class="c4-lbl">Delantero</span>
+      <select id="c4d2" onchange="c4DelanteroChange(2)"><option value="">— Selecciona delantero —</option></select>
+      <span class="c4-lbl">Zaguero</span>
+      <select id="c4z2" onchange="renderC4()" disabled><option value="">— Primero elige delantero —</option></select>
+    </div>
+  </div>
+  <div id="c4Res"></div>
+</div>
+
+
+<!-- FRONTONES -->
+<div class="section" id="sec-frontones">
+  <div class="sec-title">Frontones <span class="badge bg" id="frontonesCount"></span></div>
+  <input type="text" id="frontonSearch" class="wide" style="margin-bottom:1rem;width:100%;max-width:340px;" placeholder="Buscar frontón…" oninput="renderFrontones()">
+  <div class="fronton-grid" id="frontonGrid"></div>
+</div>
+
+</main>
+<script>
+// ════════════ MODELO ════════════
+// Partido: { fecha, fronton, ciudad, provincia,
+//   tipo: "campeonato-a"|"campeonato-b"|"festival"|"manomanista",
+//   competicion: string,
+//   equipo1: { delantero, zaguero|null },
+//   puntos1, equipo2: { delantero, zaguero|null }, puntos2,
+//   ganador: "equipo1"|"equipo2"|null }
+
+let PARTIDOS=[], PELOTARIS={};
+let activeTipo='todos', sortFld='fecha', sortAsc=false;
+let c4t=null;
+
+const TIPOS=[
+  {k:'todos',      lbl:'Todos',       cls:''},
+  {k:'campeonato', lbl:'Parejas',     cls:''},
+  {k:'festival',   lbl:'Festival',    cls:'F'},
+  {k:'manomanista',lbl:'Manomanista', cls:'M'},
+  {k:'cuatro',     lbl:'4 y Medio',   cls:''},
+];
+const TTAG={
+  'campeonato-a':   {cls:'tA',lbl:'Serie A'},
+  'campeonato-b':   {cls:'tB',lbl:'Serie B'},
+  'festival':       {cls:'tF',lbl:'Festival'},
+  'manomanista':    {cls:'tM',lbl:'Manomanista'},
+  'manomanista-a':  {cls:'tM',lbl:'Manomanista A'},
+  'manomanista-b':  {cls:'tM',lbl:'Manomanista B'},
+  'festival-mano':  {cls:'tM',lbl:'Festival Mano'},
+  'cuatro-medio-a': {cls:'tC',lbl:'4½ Serie A'},
+  'cuatro-medio-b': {cls:'tC',lbl:'4½ Serie B'},
+  'festival-cuatro':{cls:'tC',lbl:'Festival 4½'},
+};
+
+async function loadData(){
+  try{ const r=await fetch('data/partidos.json'); PARTIDOS=await r.json(); }
+  catch{ PARTIDOS=IDATA; }
+  PARTIDOS=PARTIDOS.map(norm);
+  buildPelotaris();
+  init();
+}
+
+function norm(p){
+  if(typeof p.equipo1==='string'){
+    const a=p.equipo1.split('/').map(s=>s.trim());
+    const b=p.equipo2.split('/').map(s=>s.trim());
+    const g=p.ganador||'';
+    p.equipo1={delantero:a[0],zaguero:a[1]||null};
+    p.equipo2={delantero:b[0],zaguero:b[1]||null};
+    p.ganador=g.includes(a[0])?'equipo1':g.includes(b[0])?'equipo2':null;
+  }
+  if(!p.tipo){
+    const c=(p.competicion||'').toLowerCase();
+    if(c.includes('festival')||c.includes('amistoso'))p.tipo='festival';
+    else if(c.includes('manomanista'))p.tipo='manomanista';
+    else if(c.includes('serie a')||c.includes('1a'))p.tipo='campeonato-a';
+    else if(c.includes('serie b')||c.includes('2a'))p.tipo='campeonato-b';
+    else p.tipo='campeonato-a';
+  }
+  return p;
+}
+
+function pels(eq){if(!eq)return[];return[eq.delantero,eq.zaguero].filter(Boolean);}
+function neq(eq){if(!eq)return'—';return eq.zaguero?`${eq.delantero} / ${eq.zaguero}`:eq.delantero;}
+
+function buildPelotaris(){
+  PELOTARIS={};
+  PARTIDOS.forEach(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    [...e1,...e2].forEach(n=>{if(!PELOTARIS[n])PELOTARIS[n]={pj:0,pg:0,pp:0,pf:0,pc:0};});
+    e1.forEach(n=>{PELOTARIS[n].pj++;PELOTARIS[n].pf+=p.puntos1;PELOTARIS[n].pc+=p.puntos2;if(p.ganador==='equipo1')PELOTARIS[n].pg++;else PELOTARIS[n].pp++;});
+    e2.forEach(n=>{PELOTARIS[n].pj++;PELOTARIS[n].pf+=p.puntos2;PELOTARIS[n].pc+=p.puntos1;if(p.ganador==='equipo2')PELOTARIS[n].pg++;else PELOTARIS[n].pp++;});
+  });
+}
+
+function calcStats(parts){
+  const s={};
+  parts.forEach(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    [...e1,...e2].forEach(n=>{if(!s[n])s[n]={pj:0,pg:0,pp:0,pf:0,pc:0};});
+    e1.forEach(n=>{s[n].pj++;s[n].pf+=p.puntos1;s[n].pc+=p.puntos2;if(p.ganador==='equipo1')s[n].pg++;else s[n].pp++;});
+    e2.forEach(n=>{s[n].pj++;s[n].pf+=p.puntos2;s[n].pc+=p.puntos1;if(p.ganador==='equipo2')s[n].pg++;else s[n].pp++;});
+  });
+  return s;
+}
+
+function tipoMatch(tipo, filtro){
+  if(filtro==='todos') return true;
+  if(filtro==='campeonato') return tipo==='campeonato-a'||tipo==='campeonato-b'||tipo==='festival';
+  if(filtro==='manomanista') return tipo==='manomanista-a'||tipo==='manomanista-b'||tipo==='manomanista'||tipo==='festival-mano';
+  if(filtro==='cuatro') return tipo==='cuatro-medio-a'||tipo==='cuatro-medio-b'||tipo==='festival-cuatro';
+  return tipo===filtro;
+}
+function filtTipo(){ return activeTipo==='todos'?PARTIDOS:PARTIDOS.filter(p=>tipoMatch(p.tipo,activeTipo)); }
+
+function init(){
+  buildKPIs();
+  buildPills();
+  buildFilters();
+  renderTabla();
+  buildH2HSels();
+  buildH2HPills();
+  renderPCards();
+  populateC4Sels();
+  renderFrontones();
+  document.getElementById('lastUpdate').textContent='Actualizado: '+(PARTIDOS[0]?.fecha||'—');
+}
+
+function showSec(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// KPIs
+function buildKPIs(){
+  const kpis=[
+    {l:'Partidos',   v:PARTIDOS.length,                                          s:'registrados'},
+    {l:'Pelotaris',  v:Object.keys(PELOTARIS).length,                            s:'distintos',       onclick:"goToNav('pelotaris')"},
+    {l:'Frontones',  v:new Set(PARTIDOS.map(p=>p.fronton)).size,                 s:'pulsa para ver',  onclick:"goToNav('frontones')"},
+    {l:'Campeonato', v:PARTIDOS.filter(p=>p.tipo!=='festival').length,           s:'partidos oficiales'},
+    {l:'Festivales', v:PARTIDOS.filter(p=>p.tipo==='festival').length,           s:'partidos amistosos'},
+  ];
+  document.getElementById('kpiRow').innerHTML=kpis.map(k=>`
+    <div class="kpi ${k.onclick?'clickable':''}" ${k.onclick?`onclick="${k.onclick}"`:''}>
+      <div class="kpi-label">${k.l}</div>
+      <div class="kpi-value">${k.v}</div>
+      <div class="kpi-sub">${k.sub||k.s}</div>
+    </div>`).join('');
+}
+
+// PILLS
+function buildPills(){
+  ['pillsRes','pillsPel','pillsRk'].forEach(id=>{
+    const el=document.getElementById(id);if(!el)return;
+    el.innerHTML=TIPOS.map(t=>`<button class="pill ${t.k==='todos'?'on':''}" onclick="setTipo('${t.k}','${id}')">${t.lbl}</button>`).join('');
+  });
+}
+
+function setTipo(k,id){
+  activeTipo=k;
+  document.querySelectorAll(`#${id} .pill`).forEach(b=>b.classList.remove('on','onF','onM'));
+  const active=document.querySelector(`#${id} .pill:nth-child(${TIPOS.findIndex(t=>t.k===k)+1})`);
+  if(active)active.classList.add(k==='festival'?'onF':k==='manomanista'?'onM':'on');
+  if(id==='pillsRes')renderTabla();
+  else if(id==='pillsPel')renderPCards();
+  else if(id==='pillsRk')buildRanking();
+}
+
+// FILTERS
+function buildFilters(){
+  const fc=document.getElementById('fComp');
+  [...new Set(PARTIDOS.map(p=>p.competicion))].forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;fc.appendChild(o);});
+  const ff=document.getElementById('fFron');
+  [...new Set(PARTIDOS.map(p=>p.fronton))].sort().forEach(f=>{const o=document.createElement('option');o.value=f;o.textContent=f;ff.appendChild(o);});
+}
+
+// TABLA
+function sortT(f){if(sortFld===f)sortAsc=!sortAsc;else{sortFld=f;sortAsc=false;}renderTabla();}
+
+function renderTabla(){
+  const q=document.getElementById('sInput').value.toLowerCase();
+  const comp=document.getElementById('fComp').value;
+  const fron=document.getElementById('fFron').value;
+  let data=PARTIDOS.filter(p=>{
+    if(!tipoMatch(p.tipo,activeTipo))return false;
+    if(comp&&p.competicion!==comp)return false;
+    if(fron&&p.fronton!==fron)return false;
+    if(q&&!(neq(p.equipo1)+' '+neq(p.equipo2)).toLowerCase().includes(q))return false;
+    return true;
+  });
+  data.sort((a,b)=>{
+    let av=a[sortFld],bv=b[sortFld];
+    if(sortFld==='fecha'){const pf=s=>{const[d,m,y]=s.split('/');return new Date(y,m-1,d);};av=pf(av);bv=pf(bv);}
+    return sortAsc?(av>bv?1:-1):(av<bv?1:-1);
+  });
+  const tt=TTAG;
+  document.getElementById('tBody').innerHTML=data.map(p=>{
+    const w1=p.ganador==='equipo1',w2=p.ganador==='equipo2';
+    const ti=tt[p.tipo]||{cls:'',lbl:p.tipo};
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
+      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
+      <td style="font-size:.74rem">${p.fronton}<br><span style="font-size:.6rem;color:var(--muted)">${p.ciudad||''}</span></td>
+      <td style="font-weight:${w1?700:400};color:${w1?'var(--text)':'var(--muted)'}">${neq(p.equipo1)}</td>
+      <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
+      <td style="font-weight:${w2?700:400};color:${w2?'var(--text)':'var(--muted)'}">${neq(p.equipo2)}</td>
+      <td style="font-size:.7rem;color:var(--muted)">${p.competicion}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('tCount').textContent=`Mostrando ${data.length} de ${PARTIDOS.length} partidos`;
+}
+
+// PELOTARI CARDS
+function renderPCards(){
+  const q=document.getElementById('pSearch').value.toLowerCase();
+  closePerfil();
+  const st=calcStats(filtTipo());
+  let ns=Object.keys(st).filter(n=>!q||n.toLowerCase().includes(q));
+  ns.sort((a,b)=>st[b].pg-st[a].pg);
+  document.getElementById('pCards').innerHTML=ns.map(n=>{
+    const s=st[n];const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
+    return`<div class="pcard" onclick="openPerfil('${n.replace(/'/g,"\\'")}')">
+      <div class="pname">${n}</div>
+      <div class="pstats">
+        <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">Victorias</span></div>
+        <div class="ps"><span class="val">${s.pj}</span><span class="lbl">Partidos</span></div>
+        <div class="ps"><span class="val">${pct}%</span><span class="lbl">% Vic</span></div>
+      </div>
+      <div class="pbar-bg"><div class="pbar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+// PERFIL
+function openPerfil(nombre){
+  document.getElementById('pCards').style.display='none';
+  document.getElementById('pSearch').style.display='none';
+  document.getElementById('pillsPel').style.display='none';
+  const ps=document.getElementById('perfilSec');
+  ps.style.display='block';
+  document.getElementById('perfilTitle').textContent=nombre;
+  const s=PELOTARIS[nombre]||{pj:0,pg:0,pp:0,pf:0,pc:0};
+  const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
+  const pmf=s.pj>0?(s.pf/s.pj).toFixed(1):'—';
+  const diff=s.pf-s.pc;
+
+  // Compañeros
+  const comp={};
+  PARTIDOS.forEach(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    const enE1=e1.includes(nombre),enE2=e2.includes(nombre);
+    if(!enE1&&!enE2)return;
+    const mis=enE1?e1:e2, gano=(enE1&&p.ganador==='equipo1')||(enE2&&p.ganador==='equipo2');
+    mis.filter(n=>n!==nombre).forEach(c=>{
+      if(!comp[c])comp[c]={pj:0,pg:0};comp[c].pj++;if(gano)comp[c].pg++;
+    });
+  });
+
+  // Rivales
+  const riv={};
+  PARTIDOS.forEach(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    const enE1=e1.includes(nombre),enE2=e2.includes(nombre);
+    if(!enE1&&!enE2)return;
+    const ellos=enE1?e2:e1, gano=(enE1&&p.ganador==='equipo1')||(enE2&&p.ganador==='equipo2');
+    ellos.forEach(r=>{if(!riv[r])riv[r]={pj:0,pg:0};riv[r].pj++;if(gano)riv[r].pg++;});
+  });
+
+  const esc=n=>n.replace(/'/g,"\\'");
+  const compRows=Object.entries(comp).sort((a,b)=>b[1].pj-a[1].pj).map(([n,s])=>`
+    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${n}</td>
+    <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
+    <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
+    <td style="font-family:var(--mono);text-align:center">${s.pj}</td>
+    <td style="font-family:var(--mono);text-align:center">${s.pj>0?Math.round(s.pg/s.pj*100):'—'}%</td></tr>`).join('')||'<tr><td colspan="5" class="nodata">Sin compañeros registrados</td></tr>';
+
+  const rivRows=Object.entries(riv).sort((a,b)=>b[1].pj-a[1].pj).slice(0,10).map(([n,s])=>`
+    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${n}</td>
+    <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
+    <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
+    <td style="font-family:var(--mono);text-align:center">${s.pj}</td></tr>`).join('')||'<tr><td colspan="4" class="nodata">Sin rivales registrados</td></tr>';
+
+  document.getElementById('pfWrap').innerHTML=`
+    <div>
+      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-top:.25rem">Pelota a Mano</div></div>
+      <div class="pf-sgrid">
+        <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">Victorias</div></div>
+        <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">Derrotas</div></div>
+        <div class="pf-s"><div class="v">${s.pj}</div><div class="l">Partidos</div></div>
+        <div class="pf-s"><div class="v ${pct>=50?'g':'r'}">${pct}%</div><div class="l">% Victorias</div></div>
+        <div class="pf-s"><div class="v">${pmf}</div><div class="l">Pts/partido</div></div>
+        <div class="pf-s"><div class="v ${diff>=0?'g':'r'}">${diff>0?'+':''}${diff}</div><div class="l">Diferencia</div></div>
+      </div>
+    </div>
+    <div class="pf-main">
+      <div class="ch-card gr">
+        <h3>Compañeros de pareja</h3>
+        <table class="comp-table"><thead><tr><th>Compañero</th><th>V</th><th>D</th><th>PJ</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
+      </div>
+      <div class="ch-card">
+        <h3>Rivales más frecuentes</h3>
+        <table class="comp-table"><thead><tr><th>Rival</th><th>Vict.</th><th>Derr.</th><th>PJ</th></tr></thead><tbody>${rivRows}</tbody></table>
+      </div>
+    </div>`;
+}
+
+function closePerfil(){
+  document.getElementById('perfilSec').style.display='none';
+  document.getElementById('pCards').style.display='grid';
+  document.getElementById('pSearch').style.display='block';
+  document.getElementById('pillsPel').style.display='flex';
+}
+
+// RANKING
+function buildRanking(){
+  const parts=filtTipo();
+  const st=calcStats(parts);
+  const sorted=Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc));
+  const mx=sorted[0]?.[1].pg||1;
+  const esc=n=>n.replace(/'/g,"\\'");
+
+  const mkCard=(titulo,lista)=>`
+    <div class="rk-card"><h3>${titulo}</h3>
+    ${lista.map(([n,s],i)=>`
+      <div class="rk-row">
+        <div class="rk-pos ${i===0?'p1':i===1?'p2':i===2?'p3':''}">${i+1}</div>
+        <div class="rk-name clk" onclick="goToPel('${esc(n)}')">${n}</div>
+        <div class="rk-stat pg">${s.pg}V</div>
+        <div class="rk-stat" style="color:var(--red)">${s.pp}D</div>
+        <div class="rk-stat">${s.pj}PJ</div>
+        <div class="rk-stat" style="color:${s.pf-s.pc>=0?'var(--green)':'var(--red)'}">${s.pf-s.pc>0?'+':''}${s.pf-s.pc}</div>
+      </div>
+      <div class="wbar-bg"><div class="wbar-fill" style="width:${(s.pg/mx)*100}%"></div></div>
+    `).join('')}
+    </div>`;
+
+  const top=sorted.slice(0,20);
+  const h=Math.ceil(top.length/2);
+  document.getElementById('rkGrid').innerHTML=mkCard(`1º — ${h}º`,top.slice(0,h))+mkCard(`${h+1}º — ${top.length}º`,top.slice(h));
+}
+
+function goToPel(n){document.querySelector('nav button:nth-child(2)').click();setTimeout(()=>openPerfil(n),60);}
+
+// H2H
+function buildH2HSels(){
+  const ns=Object.keys(PELOTARIS).sort();
+  ['h2hP1','h2hP2'].forEach(id=>{
+    const s=document.getElementById(id);
+    ns.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  });
+}
+
+function buildH2HPills(){ /* pills now in HTML, no-op */ }
+
+// Modalidad activa: 'parejas' | 'manomanista' | 'cuatro'
+let h2hMod='parejas';
+// Serie activa: 'todas' | 'a' | 'b' | 'festival'
+let h2hSerie='todas';
+
+// Qué tipos de partido corresponden a cada combinación mod+serie
+function h2hTipos(){
+  const MAP={
+    parejas:{
+      todas:    ['campeonato-a','campeonato-b','festival'],
+      a:        ['campeonato-a'],
+      b:        ['campeonato-b'],
+      festival: ['festival'],
+    },
+    manomanista:{
+      todas:    ['manomanista-a','manomanista-b','manomanista','festival-mano'],
+      a:        ['manomanista-a'],
+      b:        ['manomanista-b'],
+      festival: ['festival-mano','manomanista'],
+    },
+    cuatro:{
+      todas:    ['cuatro-medio-a','cuatro-medio-b','festival-cuatro'],
+      a:        ['cuatro-medio-a'],
+      b:        ['cuatro-medio-b'],
+      festival: ['festival-cuatro'],
+    },
+  };
+  return MAP[h2hMod]?.[h2hSerie] || null;
+}
+
+function setH2HMod(mod){
+  h2hMod=mod;
+  // Actualizar botones modalidad
+  document.querySelectorAll('.h2h-mod-btn').forEach(b=>{
+    b.classList.remove('on','on-mano','on-cuatro');
+  });
+  const cls=mod==='manomanista'?'on-mano':mod==='cuatro'?'on-cuatro':'on';
+  document.querySelector(`.h2h-mod-btn[data-mod="${mod}"]`)?.classList.add(cls);
+  renderH2H();
+}
+
+function setH2HSerie(serie){
+  h2hSerie=serie;
+  document.querySelectorAll('.h2h-sub-pill').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`.h2h-sub-pill[data-serie="${serie}"]`)?.classList.add('on');
+  renderH2H();
+}
+
+function renderH2H(){
+  const p1=document.getElementById('h2hP1').value;
+  const p2=document.getElementById('h2hP2').value;
+  const el=document.getElementById('h2hRes');
+  if(!p1||!p2||p1===p2){
+    el.innerHTML='<div class="nodata"><div class="ic">🏸</div>Selecciona dos pelotaris distintos</div>';
+    return;
+  }
+
+  const tiposPermitidos=h2hTipos();
+
+  const enfs=PARTIDOS.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    const enfrentan=(e1.includes(p1)&&e2.includes(p2))||(e1.includes(p2)&&e2.includes(p1));
+    if(!enfrentan) return false;
+    if(tiposPermitidos) return tiposPermitidos.includes(p.tipo);
+    return true;
+  });
+
+  // Etiqueta descriptiva del filtro activo
+  const modLbl={parejas:'Parejas',manomanista:'Manomanista',cuatro:'4 y Medio'}[h2hMod];
+  const serieLbl={todas:'todas las series',a:'Serie A',b:'Serie B',festival:'Festivales'}[h2hSerie];
+
+  if(!enfs.length){
+    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>
+      Sin enfrentamientos en <strong>${modLbl} — ${serieLbl}</strong> entre ${p1} y ${p2}</div>`;
+    return;
+  }
+
+  let w1=0,w2=0,pf1=0,pf2=0;
+  enfs.forEach(p=>{
+    const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
+    const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
+    pf1+=a; pf2+=b;
+    if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
+  });
+
+  const tt=TTAG;
+  const filas=enfs.map(p=>{
+    const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
+    const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
+    const gP1=(p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2');
+    const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
+    const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
+    const ti=tt[p.tipo]||{cls:'',lbl:p.tipo};
+    // Ocultar columna de compañero en manomanista (no hay)
+    const esMano=h2hMod==='manomanista';
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
+      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
+      <td>${p.fronton}</td>
+      ${esMano?'':
+        `<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
+      <td style="color:${gP1?'var(--green)':'var(--muted)'};font-weight:${gP1?700:400};font-family:var(--mono)">${a}</td>
+      <td style="color:var(--muted);text-align:center">—</td>
+      <td style="color:${!gP1?'var(--red)':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
+      ${esMano?'':
+        `<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
+    </tr>`;
+  }).join('');
+
+  const esMano=h2hMod==='manomanista';
+  el.innerHTML=`
+    <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">
+      ${modLbl} · ${serieLbl} · ${enfs.length} partido${enfs.length!==1?'s':''}
+    </div>
+    <div class="h2h-bar">
+      <div>
+        <div class="h2h-nm">${p1}</div>
+        <div class="h2h-wins izq">${w1}</div>
+        <div class="h2h-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div>
+      </div>
+      <div><div class="h2h-pj">${enfs.length} PJ</div></div>
+      <div>
+        <div class="h2h-nm">${p2}</div>
+        <div class="h2h-wins der">${w2}</div>
+        <div class="h2h-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div>
+      </div>
+    </div>
+    <div class="twrap"><table><thead><tr>
+      <th>Fecha</th><th>Tipo</th><th>Frontón</th>
+      ${esMano?'':`<th>Comp. ${p1}</th>`}
+      <th>${p1}</th><th></th><th>${p2}</th>
+      ${esMano?'':`<th>Comp. ${p2}</th>`}
+    </tr></thead><tbody>${filas}</tbody></table></div>`;
+}
+
+// COMPARADOR 4
+function populateC4Sels(){
+  // Solo delanteros al inicio; zagueros se rellenan dinámicamente
+  const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))].filter(Boolean).sort();
+  ['c4d1','c4d2'].forEach(id=>{
+    const s=document.getElementById(id);
+    delants.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  });
+}
+
+function c4DelanteroChange(num){
+  // Cuando se elige delantero, rellenar el zaguero con sus compañeros reales
+  const del=document.getElementById('c4d'+num).value;
+  const zagSel=document.getElementById('c4z'+num);
+  zagSel.innerHTML='';
+
+  if(!del){
+    zagSel.disabled=true;
+    zagSel.innerHTML='<option value="">— Primero elige delantero —</option>';
+    renderC4(); return;
+  }
+
+  // Compañeros zagueros con los que ha jugado este delantero
+  const compañeros=new Map(); // zaguero → nº partidos juntos
+  PARTIDOS.forEach(p=>{
+    const e1=p.equipo1, e2=p.equipo2;
+    let z=null;
+    if(e1.delantero===del && e1.zaguero) z=e1.zaguero;
+    else if(e2.delantero===del && e2.zaguero) z=e2.zaguero;
+    if(z) compañeros.set(z,(compañeros.get(z)||0)+1);
+  });
+
+  zagSel.disabled=false;
+  const opt0=document.createElement('option');
+  opt0.value=''; opt0.textContent='— Cualquier zaguero —';
+  zagSel.appendChild(opt0);
+
+  // Ordenar por frecuencia desc
+  [...compañeros.entries()]
+    .sort((a,b)=>b[1]-a[1])
+    .forEach(([z,n])=>{
+      const o=document.createElement('option');
+      o.value=z; o.textContent=`${z} (${n} partidos)`;
+      zagSel.appendChild(o);
+    });
+
+  renderC4();
+}
+
+function c4Partidos(d1,z1,d2,z2){
+  // Partidos donde la pareja colorada y azul se enfrentaron
+  return PARTIDOS.filter(p=>{
+    const e1=pels(p.equipo1), e2=pels(p.equipo2);
+    const eq1col = e1.includes(d1) && (!z1||e1.includes(z1));
+    const eq2col = e2.includes(d1) && (!z1||e2.includes(z1));
+    const eq1az  = e1.includes(d2) && (!z2||e1.includes(z2));
+    const eq2az  = e2.includes(d2) && (!z2||e2.includes(z2));
+    return (eq1col&&eq2az)||(eq2col&&eq1az);
+  });
+}
+
+function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
+  // pivotCol: nombre que identifica al equipo colorado (delantero o zaguero)
+  // pivotAz:  nombre que identifica al equipo azul
+  if(!partidos.length) return `<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin enfrentamientos</div>`;
+  const tt=TTAG;
+  const filas=partidos.map(p=>{
+    const e1=pels(p.equipo1);
+    // El equipo colorado es el que contiene el pivote colorado
+    const colEnE1=e1.includes(pivotCol);
+    const ptCol=colEnE1?p.puntos1:p.puntos2;
+    const ptAz =colEnE1?p.puntos2:p.puntos1;
+    // Compañeros: todos los del equipo menos el propio pivote
+    const compCol=(colEnE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==pivotCol).join('/')||'—';
+    const compAz =(colEnE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==pivotAz).join('/')||'—';
+    const ganCol=(colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2');
+    const ti=tt[p.tipo]||{cls:'',lbl:p.tipo};
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
+      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
+      <td style="font-size:.74rem">${p.fronton}</td>
+      <td style="font-size:.7rem;color:#c0392b">${compCol}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'#c0392b':'var(--muted)'};font-weight:${ganCol?700:400}">${ptCol}</td>
+      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'#2471a3':'var(--muted)'};font-weight:${!ganCol?700:400}">${ptAz}</td>
+      <td style="font-size:.7rem;color:#2471a3">${compAz}</td>
+    </tr>`;
+  }).join('');
+  return`<div class="twrap"><table>
+    <thead><tr>
+      <th>Fecha</th><th>Tipo</th><th>Frontón</th>
+      <th style="color:#c0392b">Comp. colorado</th>
+      <th style="color:#c0392b">${colLabel}</th><th></th>
+      <th style="color:#2471a3">${azLabel}</th>
+      <th style="color:#2471a3">Comp. azul</th>
+    </tr></thead>
+    <tbody>${filas}</tbody>
+  </table></div>`;
+}
+
+function c4MarcadorBar(partidos, pivot_col, pivot_az, label){
+  let wCol=0,wAz=0,pfCol=0,pfAz=0;
+  partidos.forEach(p=>{
+    const colEnE1=pels(p.equipo1).includes(pivot_col);
+    const ptC=colEnE1?p.puntos1:p.puntos2;
+    const ptA=colEnE1?p.puntos2:p.puntos1;
+    pfCol+=ptC; pfAz+=ptA;
+    if((colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2'))wCol++;else wAz++;
+  });
+  const n=partidos.length;
+  return`<div class="c4-marcador neu" style="margin-bottom:.8rem">
+    <div>
+      <div class="c4-mnombre" style="color:#c0392b">${pivot_col}</div>
+      <div class="c4-mwins col">${wCol}</div>
+      <div class="c4-mpj">${n>0?(pfCol/n).toFixed(1):0} pts/p</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-family:var(--display);font-size:1.1rem;color:var(--muted)">${n} PJ</div>
+      <div style="font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:.2rem">${label}</div>
+    </div>
+    <div>
+      <div class="c4-mnombre" style="color:#2471a3">${pivot_az}</div>
+      <div class="c4-mwins az">${wAz}</div>
+      <div class="c4-mpj">${n>0?(pfAz/n).toFixed(1):0} pts/p</div>
+    </div>
+  </div>`;
+}
+
+function renderC4(){
+  const d1=document.getElementById('c4d1').value||null;
+  const z1=document.getElementById('c4z1').value||null;
+  const d2=document.getElementById('c4d2').value||null;
+  const z2=document.getElementById('c4z2').value||null;
+  const el=document.getElementById('c4Res');
+
+  if(!d1||!d2){
+    el.innerHTML='';
+    return;
+  }
+
+  // ── Partido exacto ────────────────────────────────────────────────────────
+  const exactos=c4Partidos(d1,z1,d2,z2);
+
+  // ── Delanteros cara a cara ────────────────────────────────────────────────
+  const delants=PARTIDOS.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return(e1.includes(d1)&&e2.includes(d2))||(e1.includes(d2)&&e2.includes(d1));
+  });
+
+  // ── Zagueros cara a cara ──────────────────────────────────────────────────
+  const zagueros=z1&&z2?PARTIDOS.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return(e1.includes(z1)&&e2.includes(z2))||(e1.includes(z2)&&e2.includes(z1));
+  }):[];
+
+  const colLabel = z1 ? `${d1} / ${z1}` : d1;
+  const azLabel  = z2 ? `${d2} / ${z2}` : d2;
+
+  el.innerHTML=`
+    <!-- BLOQUE 1: Partido exacto -->
+    <div class="c4-bloque">
+      <div class="c4-bloque-title">
+        ⚡ Partido idéntico
+        <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${exactos.length} partido${exactos.length!==1?'s':''}</span>
+      </div>
+      ${exactos.length?c4MarcadorBar(exactos,d1,d2,'pareja exacta'):''}
+      ${c4TablaPartidos(exactos,d1,d2,colLabel,azLabel)}
+    </div>
+
+    <!-- BLOQUE 2: Delanteros H2H -->
+    <div class="c4-bloque">
+      <div class="c4-bloque-title">
+        🔴 Delanteros — ${d1} vs ${d2}
+        <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${delants.length} partidos</span>
+      </div>
+      ${delants.length?c4MarcadorBar(delants,d1,d2,'cualquier zaguero'):''}
+      ${c4TablaPartidos(delants,d1,d2,d1,d2)}
+    </div>
+
+    <!-- BLOQUE 3: Zagueros H2H -->
+    <div class="c4-bloque">
+      <div class="c4-bloque-title">
+        🔵 Zagueros — ${z1||'?'} vs ${z2||'?'}
+        <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${zagueros.length} partidos</span>
+      </div>
+      ${z1&&z2&&zagueros.length?c4MarcadorBar(zagueros,z1,z2,'zagueros cara a cara'):''}
+      ${z1&&z2?c4TablaPartidos(zagueros,z1,z2,z1,z2)
+        :`<div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>Selecciona los zagueros para ver su H2H</div>`}
+    </div>`;
+}
+
+// FRONTONES
+function renderFrontones(){
+  const q=(document.getElementById('frontonSearch')?.value||'').toLowerCase();
+  
+  // Calcular stats por frontón
+  const stats={};
+  PARTIDOS.forEach(p=>{
+    const f=p.fronton;
+    if(!stats[f]) stats[f]={partidos:0,ciudad:p.ciudad||'',tipos:{}};
+    stats[f].partidos++;
+    stats[f].tipos[p.tipo]=(stats[f].tipos[p.tipo]||0)+1;
+    if(p.ciudad && !stats[f].ciudad) stats[f].ciudad=p.ciudad;
+  });
+
+  const lista=Object.entries(stats)
+    .filter(([f])=>!q||f.toLowerCase().includes(q))
+    .sort((a,b)=>b[1].partidos-a[1].partidos);
+
+  document.getElementById('frontonesCount').textContent=lista.length;
+
+  document.getElementById('frontonGrid').innerHTML=lista.map(([f,s])=>`
+    <div class="fronton-card" onclick="filtrarPorFronton('${f.replace(/'/g,"\'")}')">
+      <div>
+        <div class="fname">${f}</div>
+        ${s.ciudad?`<div class="fcity">${s.ciudad}</div>`:''}
+      </div>
+      <div class="fcount">${s.partidos} partidos</div>
+    </div>`).join('');
+}
+
+function filtrarPorFronton(fronton){
+  // Ir a resultados con el frontón filtrado
+  goToNav('resultados');
+  setTimeout(()=>{
+    const sel=document.getElementById('fFron');
+    if(sel){
+      sel.value=fronton;
+      renderTabla();
+      // Scroll suave a la tabla
+      document.querySelector('.table-wrap')?.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  }, 80);
+}
+
+function goToNav(secId){
+  const btn=document.querySelector(`nav button[onclick*="${secId}"]`);
+  if(btn) btn.click();
+}
+
+// ════ DATOS INLINE ════
+const IDATA=[
+  {"fecha":"15/03/2026","fronton":"Adarraga","ciudad":"Logroño","provincia":"La Rioja","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"ZABALA","zaguero":"Eskuza"},"puntos1":13,"equipo2":{"delantero":"LARRAZABAL","zaguero":"ARANGUREN"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"15/03/2026","fronton":"Adarraga","ciudad":"Logroño","provincia":"La Rioja","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"Elordi","zaguero":"ZABALETA"},"puntos1":21,"equipo2":{"delantero":"LASO","zaguero":"ALBISU"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"15/03/2026","fronton":"Adarraga","ciudad":"Logroño","provincia":"La Rioja","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"BAKAIKOA","zaguero":"ESKIROZ"},"puntos1":21,"equipo2":{"delantero":"Rekalde","zaguero":"Aldabe"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"14/03/2026","fronton":"Beotibar","ciudad":"Tolosa","provincia":"Gipuzkoa","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"ARTOLA","zaguero":"IMAZ"},"puntos1":22,"equipo2":{"delantero":"P.ETXEBERRIA","zaguero":"MARTIJA"},"puntos2":14,"ganador":"equipo1"},
+  {"fecha":"14/03/2026","fronton":"Beotibar","ciudad":"Tolosa","provincia":"Gipuzkoa","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"JAKA","zaguero":"IZTUETA"},"puntos1":7,"equipo2":{"delantero":"Darío","zaguero":"Ezkurdia"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"14/03/2026","fronton":"Beotibar","ciudad":"Tolosa","provincia":"Gipuzkoa","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"ALBERDI II","zaguero":"Erostarbe"},"puntos1":22,"equipo2":{"delantero":"SENAR","zaguero":"UGARTEMENDIA"},"puntos2":20,"ganador":"equipo1"},
+  {"fecha":"13/03/2026","fronton":"Loiu","ciudad":"Loiu","provincia":"Bizkaia","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"Darío","zaguero":"Loza"},"puntos1":10,"equipo2":{"delantero":"PEÑA II","zaguero":"LANDA"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"13/03/2026","fronton":"Loiu","ciudad":"Loiu","provincia":"Bizkaia","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"Salaberria","zaguero":"Gaskue"},"puntos1":2,"equipo2":{"delantero":"Murua","zaguero":"Gabirondo"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"08/03/2026","fronton":"Ogueta","ciudad":"Vitoria-Gasteiz","provincia":"Álava","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"ALBERDI II","zaguero":"MARTIJA"},"puntos1":16,"equipo2":{"delantero":"ZUBIZARRETA IV","zaguero":"IMAZ"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"08/03/2026","fronton":"Ogueta","ciudad":"Vitoria-Gasteiz","provincia":"Álava","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"Altuna III","zaguero":"Ezkurdia"},"puntos1":22,"equipo2":{"delantero":"LASO","zaguero":"ALBISU"},"puntos2":15,"ganador":"equipo1"},
+  {"fecha":"08/03/2026","fronton":"Ogueta","ciudad":"Vitoria-Gasteiz","provincia":"Álava","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"ZUBIZARRETA III","zaguero":"MORGAETXEBARRIA"},"puntos1":15,"equipo2":{"delantero":"Rekalde","zaguero":"Erostarbe"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"07/03/2026","fronton":"Atano III","ciudad":"Donostia","provincia":"Gipuzkoa","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"ARTOLA","zaguero":"ARANGUREN"},"puntos1":17,"equipo2":{"delantero":"ALBERDI II","zaguero":"REZUSTA"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"07/03/2026","fronton":"Atano III","ciudad":"Donostia","provincia":"Gipuzkoa","tipo":"campeonato-a","competicion":"Campeonato Parejas Serie A - Liga de semifinales","equipo1":{"delantero":"JAKA","zaguero":"IZTUETA"},"puntos1":11,"equipo2":{"delantero":"Elordi","zaguero":"ZABALETA"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"07/03/2026","fronton":"Atano III","ciudad":"Donostia","provincia":"Gipuzkoa","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"SENAR","zaguero":"UGARTEMENDIA"},"puntos1":18,"equipo2":{"delantero":"Rekalde","zaguero":"Aldabe"},"puntos2":22,"ganador":"equipo2"},
+  {"fecha":"07/03/2026","fronton":"Arnedo","ciudad":"Arnedo","provincia":"La Rioja","tipo":"festival","competicion":"Festival de pelota","equipo1":{"delantero":"P.ETXEBERRIA","zaguero":"Erostarbe"},"puntos1":22,"equipo2":{"delantero":"ZABALA","zaguero":"Bikuña"},"puntos2":17,"ganador":"equipo1"},
+  {"fecha":"07/03/2026","fronton":"Arnedo","ciudad":"Arnedo","provincia":"La Rioja","tipo":"festival","competicion":"Festival de pelota","equipo1":{"delantero":"Darío","zaguero":"Loza"},"puntos1":22,"equipo2":{"delantero":"Murua","zaguero":"Gabirondo"},"puntos2":12,"ganador":"equipo1"},
+  {"fecha":"06/03/2026","fronton":"Fernando Garaita","ciudad":"Legutio","provincia":"Álava","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"P.ETXEBERRIA","zaguero":"Eskuza"},"puntos1":22,"equipo2":{"delantero":"LARRAZABAL","zaguero":"MORGAETXEBARRIA"},"puntos2":14,"ganador":"equipo1"},
+  {"fecha":"06/03/2026","fronton":"Fernando Garaita","ciudad":"Legutio","provincia":"Álava","tipo":"campeonato-b","competicion":"Campeonato Parejas Serie B - Liga de semifinales","equipo1":{"delantero":"PEÑA II","zaguero":"LANDA"},"puntos1":22,"equipo2":{"delantero":"Salaberria","zaguero":"Gaskue"},"puntos2":14,"ganador":"equipo1"}
+];
+
+loadData();
+</script>
+</body>
+</html>
