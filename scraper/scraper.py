@@ -1,20 +1,29 @@
 """
 Eskupilota Stats — Scraper de resultados
-Usa Selenium para cargar la página con JavaScript y extraer los partidos.
+Lee https://www.baikopilota.eus/resultados/ y añade al JSON
+los partidos nuevos que encuentre.
 
 Requisitos:
-    pip install selenium beautifulsoup4 requests
+    pip install requests beautifulsoup4
 """
 
-import json, re, os, time
+from __future__ import annotations
+import json, re, os
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "../data/partidos.json")
 URL       = "https://www.baikopilota.eus/resultados/"
+
+USER_AGENT = (
+    "Mozilla/5.0 (X11; Linux x86_64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/122.0 Safari/537.36 baiko-resultados-scraper/1.0"
+)
+
+DATE_RE  = re.compile(r"^\d{2}/\d{2}/\d{4}$")
+SCORE_RE = re.compile(r"^\d{1,2}$")
 
 PELOTARI_MAP = {
     'ALTUNA':            'ALTUNA III',
@@ -28,15 +37,6 @@ PELOTARI_MAP = {
     'DARIO':             'DARÍO',
     'P. ETXEBARRIA':     'P.ETXEBERRIA',
 }
-
-def norm(nombre):
-    if not nombre: return nombre
-    n = re.sub(r'\s*\(\d+\)\s*', '', nombre.strip()).strip()
-    n = re.sub(r'\s*\d+\s*$', '', n).strip().upper()
-    return PELOTARI_MAP.get(n, n)
-
-def clean_text(el):
-    return ' '.join(el.get_text(separator=' ').split())
 
 COMP_NORM = {
     'campeonato parejas serie a':    ('campeonato-a',    'Campeonato Parejas Serie A'),
@@ -66,6 +66,15 @@ COMP_NORM = {
     'torneo bizkaia 4 1/2':          ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
+def norm(nombre):
+    if not nombre: return nombre
+    n = re.sub(r'\s*\(\d+\)\s*', '', nombre.strip()).strip()
+    n = re.sub(r'\s*\d+\s*$', '', n).strip().upper()
+    return PELOTARI_MAP.get(n, n)
+
+def normalize_text(text):
+    return " ".join(text.replace("\xa0", " ").split())
+
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
         base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
@@ -81,136 +90,111 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
     else:
         return 'festival-mano', f'Festival Manomanista {anio}'
 
-def parse_ul_equipo(ul):
-    """
-    Extrae (delantero, zaguero, tantos) de un <ul> de equipo.
-    Estructura: <li>NOMBRE</li><li>-</li><li>ZAGUERO</li> y tantos aparte
-    o: <li>NOMBRE</li><li>-</li><li>NOMBRE</li><li>tantos</li>
-    """
-    items = ul.find_all('li', recursive=False)
-    nombres = []
-    tantos  = None
-    for li in items:
-        t = re.sub(r'\(\d+\)', '', clean_text(li)).strip()
-        if t == '-' or not t:
-            continue
-        if re.match(r'^\d+$', t) and int(t) <= 30:
-            tantos = int(t)
-        else:
-            nombres.append(t)
-    delantero = norm(nombres[0]) if nombres else None
-    zaguero   = norm(nombres[1]) if len(nombres) > 1 else None
-    return delantero, zaguero, tantos
+def extract_tokens(html):
+    soup = BeautifulSoup(html, "html.parser")
+    raw = [normalize_text(t) for t in soup.stripped_strings]
+    raw = [t for t in raw if t]
 
-def parsear_resultados(html):
-    soup = BeautifulSoup(html, 'html.parser')
+    try:
+        start = raw.index("DE LOS PARTIDOS DE PELOTA A MANO") + 1
+    except ValueError:
+        raise RuntimeError("No se encontró el bloque de resultados en la página.")
+
+    end_markers = {"Frontón", "LA REVISTA DE LA PELOTA",
+                   "NOTICIAS, ENTREVISTAS….. TODA LA INFORMACIÓN DE LA PELOTA"}
+    end = len(raw)
+    for pos in range(start, len(raw)):
+        if raw[pos] in end_markers:
+            end = pos
+            break
+
+    return raw[start:end]
+
+def parse_tokens(tokens):
     partidos = []
-    fecha_actual = fronton_actual = ciudad_actual = comp_actual = None
-
-    main_el = soup.find('main') or soup.find('div', id='primary') or soup.body
-
-    # Recorrer todos los elementos en orden
-    elementos = main_el.find_all(['h5', 'p', 'ul', 'div'])
+    fecha    = fronton = ciudad = comp = None
+    expect_venue = False
 
     i = 0
-    while i < len(elementos):
-        el   = elementos[i]
-        tag  = el.name
-        text = clean_text(el)
+    while i < len(tokens):
+        t = tokens[i]
 
-        # ── Fecha ──────────────────────────────────────────────────────
-        if tag == 'h5' and re.match(r'^\d{2}/\d{2}/\d{4}$', text):
-            fecha_actual = text
-            comp_actual  = None
-            i += 1; continue
+        # Fecha
+        if DATE_RE.fullmatch(t):
+            fecha = t
+            fronton = ciudad = comp = None
+            expect_venue = True
+            i += 1
+            continue
 
-        # ── Frontón ────────────────────────────────────────────────────
-        if tag == 'h5' and ' - ' in text and fecha_actual and not re.match(r'^\d', text):
-            partes         = [x.strip() for x in text.split(' - ')]
-            fronton_actual = partes[0].upper()
-            ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
-            comp_actual    = None
-            i += 1; continue
+        # Frontón
+        if expect_venue and ' - ' in t:
+            partes  = [x.strip() for x in t.split(' - ')]
+            fronton = partes[0].upper()
+            ciudad  = partes[1].upper() if len(partes) > 1 else ''
+            expect_venue = False
+            i += 1
+            continue
 
-        # ── Competición ────────────────────────────────────────────────
-        if tag == 'p' and fecha_actual and len(text) > 5:
-            if 'sustituye' not in text.lower():
-                tl = text.lower()
-                if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
-                    comp_actual = text
-            i += 1; continue
+        # Notas / sustituciones — ignorar
+        if t.startswith('- ') or t.startswith('^{') or 'sustituye' in t.lower():
+            i += 1
+            continue
 
-        # ── Par de ul consecutivos = un partido ────────────────────────
-        # Equipo 1 (ul rojo) seguido de equipo 2 (ul azul)
-        if tag == 'ul' and fecha_actual and fronton_actual:
-            # Buscar el siguiente ul
-            j = i + 1
-            while j < len(elementos) and elementos[j].name != 'ul':
-                # Si hay un p de competición entre los dos ul, capturarlo
-                if elementos[j].name == 'p':
-                    t2 = clean_text(elementos[j])
-                    if 'sustituye' not in t2.lower():
-                        tl = t2.lower()
-                        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
-                            comp_actual = t2
-                j += 1
+        # Competición indicada (antes del partido)
+        tl = t.lower()
+        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
+            comp = t
+            i += 1
+            continue
 
-            if j < len(elementos) and elementos[j].name == 'ul':
-                ul1 = el
-                ul2 = elementos[j]
-                try:
-                    d1, z1, t1 = parse_ul_equipo(ul1)
-                    d2, z2, t2 = parse_ul_equipo(ul2)
-
-                    if d1 and d2 and t1 is not None and t2 is not None:
-                        if not (t1 == 0 and t2 == 0):
-                            anio          = fecha_actual[-4:]
-                            tiene_zaguero = bool(z1 or z2)
-                            tipo, comp_nombre = inferir_comp(comp_actual, tiene_zaguero, anio)
-                            ganador = 'equipo1' if t1 > t2 else ('equipo2' if t2 > t1 else None)
-
-                            partidos.append({
-                                'fecha': fecha_actual, 'fronton': fronton_actual, 'ciudad': ciudad_actual,
-                                'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
-                                'equipo1': {'delantero': d1, 'zaguero': z1}, 'puntos1': t1,
-                                'equipo2': {'delantero': d2, 'zaguero': z2}, 'puntos2': t2,
-                                'ganador': ganador,
-                            })
-                            i = j + 1
-                            continue
-                except:
-                    pass
+        # Intento de partido: token, '-', token, score, token, '-', token, score
+        if i + 7 < len(tokens):
+            t0,t1,t2,t3,t4,t5,t6,t7 = tokens[i:i+8]
+            if t1 == '-' and SCORE_RE.fullmatch(t3) and t5 == '-' and SCORE_RE.fullmatch(t7):
+                d1, z1 = norm(t0), norm(t2)
+                d2, z2 = norm(t4), norm(t6)
+                p1, p2 = int(t3), int(t7)
+                if p1 == 0 and p2 == 0:
+                    i += 8
+                    continue
+                anio = fecha[-4:] if fecha else ''
+                tiene_zaguero = bool(z1 or z2)
+                tipo, comp_nombre = inferir_comp(comp, tiene_zaguero, anio)
+                ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
+                partidos.append({
+                    'fecha':    fecha,
+                    'fronton':  fronton or '',
+                    'ciudad':   ciudad or '',
+                    'provincia':'',
+                    'tipo':     tipo,
+                    'competicion': comp_nombre,
+                    'equipo1':  {'delantero': d1, 'zaguero': z1 if z1 else None},
+                    'puntos1':  p1,
+                    'equipo2':  {'delantero': d2, 'zaguero': z2 if z2 else None},
+                    'puntos2':  p2,
+                    'ganador':  ganador,
+                })
+                comp = None  # reset competición tras cada partido
+                i += 8
+                continue
 
         i += 1
 
     return partidos
 
-def get_html(url):
-    opts = Options()
-    opts.add_argument('--headless')
-    opts.add_argument('--no-sandbox')
-    opts.add_argument('--disable-dev-shm-usage')
-    opts.add_argument('--disable-gpu')
-    opts.add_argument('--window-size=1920,1080')
-    opts.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-    driver = webdriver.Chrome(options=opts)
-    try:
-        driver.get(url)
-        time.sleep(5)
-        html = driver.page_source
-    finally:
-        driver.quit()
-    return html
-
 def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
 
-    print("Cargando página con Selenium...")
-    html = get_html(URL)
-    print(f"HTML recibido: {len(html)} chars")
+    resp = requests.get(URL, headers={"User-Agent": USER_AGENT}, timeout=30)
+    resp.raise_for_status()
+    print(f"Status: {resp.status_code} — {len(resp.text)} chars")
 
-    nuevos = parsear_resultados(html)
+    tokens = extract_tokens(resp.text)
+    print(f"Tokens extraídos: {len(tokens)}")
+
+    nuevos = parse_tokens(tokens)
     print(f"Partidos encontrados: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
