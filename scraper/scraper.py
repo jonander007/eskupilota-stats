@@ -154,6 +154,10 @@ def main():
         print(f"ERROR al descargar la página: {e}")
         return
 
+    print("=== HTML ===")
+    print(resp.text[:3000])
+    print("============")
+
     nuevos = parsear_resultados(resp.text)
     print(f"Partidos encontrados en la web: {len(nuevos)}")
     for p in nuevos:
