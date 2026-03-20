@@ -1,0 +1,33 @@
+name: 🤖 Actualizar partidos
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # Todos los días a las 8:00 AM UTC
+  workflow_dispatch:        # También se puede lanzar manualmente desde GitHub
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install requests beautifulsoup4
+
+      - name: Ejecutar scraper
+        run: python scraper/scraper.py
+
+      - name: Guardar cambios si hay partidos nuevos
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Actualizar partidos - $(date +'%d/%m/%Y')"
+          file_pattern: data/partidos.json

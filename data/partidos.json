@@ -3957,10 +3957,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -3976,7 +3976,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "GABIRONDO"
@@ -3995,7 +3995,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "IZTUETA"
@@ -4033,7 +4033,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "REZUSTA"
@@ -4041,7 +4041,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 16,
     "ganador": "equipo1"
@@ -4071,7 +4071,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IMAZ"
@@ -4090,7 +4090,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "UGARTEMENDIA"
@@ -4166,14 +4166,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "LIZEAGA"
     },
     "puntos2": 19,
@@ -4185,9 +4185,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 22,
@@ -4204,7 +4204,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "GASKUE"
@@ -4223,7 +4223,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "REZUSTA"
@@ -4242,14 +4242,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ALBISU"
     },
     "puntos1": 20,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "IZTUETA"
     },
     "puntos2": 22,
@@ -4261,7 +4261,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "LIZEAGA"
@@ -4356,15 +4356,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "SALABERRIA",
       "zaguero": "ESKUZA"
     },
     "puntos1": 18,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "SALAVERRI"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 11,
     "ganador": "equipo1"
@@ -4375,7 +4375,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "REZUSTA"
@@ -4470,7 +4470,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IMAZ"
@@ -4478,7 +4478,7 @@
     "puntos1": 10,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -4565,7 +4565,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "GABIRONDO"
@@ -4584,10 +4584,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -4603,7 +4603,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "ESKUZA"
@@ -4622,9 +4622,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 16,
@@ -4679,7 +4679,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "LIZEAGA"
@@ -4698,10 +4698,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 15,
     "equipo2": {
@@ -4812,7 +4812,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "SALABERRIA",
       "zaguero": "EROSTARBE"
@@ -4831,7 +4831,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -4839,7 +4839,7 @@
     "puntos1": 18,
     "equipo2": {
       "delantero": "ALBERDI",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 11,
     "ganador": "equipo1"
@@ -4888,7 +4888,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "UGARTEMENDIA"
@@ -4945,14 +4945,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "GABIRONDO"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "EROSTARBE"
     },
     "puntos2": 14,
@@ -4964,9 +4964,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 21,
@@ -4983,7 +4983,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -4991,7 +4991,7 @@
     "puntos1": 13,
     "equipo2": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -5040,7 +5040,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ALBISU"
@@ -5059,14 +5059,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 13,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ZABALETA"
     },
     "puntos2": 22,
@@ -5173,15 +5173,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ZABALETA"
     },
     "puntos1": 22,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 16,
     "ganador": "equipo1"
@@ -5192,7 +5192,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ALBISU"
@@ -5211,7 +5211,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ESKIROZ"
@@ -5230,7 +5230,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": "REZUSTA"
@@ -5249,10 +5249,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 10,
     "equipo2": {
@@ -5268,9 +5268,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 11,
@@ -5287,9 +5287,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 18,
@@ -5306,7 +5306,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "UGARTEMENDIA"
@@ -5325,9 +5325,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos1": 18,
@@ -5344,7 +5344,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "GABIRONDO"
@@ -5363,7 +5363,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "ESKUZA"
@@ -5382,15 +5382,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "GASKUE"
     },
     "puntos1": 16,
     "equipo2": {
       "delantero": "ARTOLA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -5401,7 +5401,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "MARTIJA"
@@ -5420,7 +5420,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "IZTUETA"
@@ -5439,7 +5439,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "GABIRONDO"
@@ -5458,10 +5458,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 9,
     "equipo2": {
@@ -5477,7 +5477,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "LIZEAGA"
@@ -5496,9 +5496,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "ALDABE"
     },
     "puntos1": 20,
@@ -5515,14 +5515,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "BIKUÑA"
     },
     "puntos1": 4,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 18,
@@ -5534,7 +5534,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "UGARTEMENDIA"
@@ -5553,14 +5553,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "IZTUETA"
     },
     "puntos1": 20,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 22,
@@ -5572,7 +5572,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -5591,10 +5591,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -5610,7 +5610,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "LIZEAGA"
@@ -5629,7 +5629,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -5648,7 +5648,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "MARTIJA"
@@ -5667,7 +5667,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "GASKUE"
@@ -5675,7 +5675,7 @@
     "puntos1": 12,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 18,
     "ganador": "equipo2"
@@ -5686,7 +5686,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ESKIROZ"
@@ -5705,10 +5705,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -5724,7 +5724,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "ZABALETA"
@@ -5743,10 +5743,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -5762,7 +5762,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "GASKUE"
@@ -5781,7 +5781,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
@@ -5800,15 +5800,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 17,
     "ganador": "equipo1"
@@ -5819,7 +5819,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -5838,10 +5838,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 19,
     "equipo2": {
@@ -5857,7 +5857,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ESKIROZ"
@@ -5865,7 +5865,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 19,
     "ganador": "equipo1"
@@ -5876,10 +5876,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 21,
     "equipo2": {
@@ -5895,14 +5895,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 18,
@@ -5914,9 +5914,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ALDABE"
     },
     "puntos1": 22,
@@ -5933,10 +5933,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -5952,14 +5952,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 20,
@@ -5971,10 +5971,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 18,
     "equipo2": {
@@ -5990,9 +5990,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ZABALETA"
     },
     "puntos1": 22,
@@ -6009,7 +6009,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ALBISU"
@@ -6017,7 +6017,7 @@
     "puntos1": 13,
     "equipo2": {
       "delantero": "LASO",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6028,9 +6028,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "GASKUE"
     },
     "puntos1": 22,
@@ -6047,9 +6047,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 22,
@@ -6066,10 +6066,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 13,
     "equipo2": {
@@ -6085,7 +6085,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
@@ -6104,10 +6104,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 21,
     "equipo2": {
@@ -6123,14 +6123,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALBISU"
     },
     "puntos1": 14,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ZABALETA"
     },
     "puntos2": 22,
@@ -6142,15 +6142,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 17,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6161,14 +6161,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 21,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 22,
@@ -6180,10 +6180,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -6199,9 +6199,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 20,
@@ -6218,7 +6218,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ARANGUREN"
@@ -6226,7 +6226,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 20,
     "ganador": "equipo1"
@@ -6237,7 +6237,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "GASKUE"
@@ -6256,7 +6256,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "LIZEAGA"
@@ -6275,7 +6275,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
@@ -6294,10 +6294,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -6313,7 +6313,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "ELIZEGI"
@@ -6321,7 +6321,7 @@
     "puntos1": 20,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6332,7 +6332,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ESKIROZ"
@@ -6340,7 +6340,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "ARTOLA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 21,
     "ganador": "equipo1"
@@ -6351,7 +6351,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "TOLOSA"
@@ -6370,9 +6370,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
@@ -6389,10 +6389,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 20,
     "equipo2": {
@@ -6408,9 +6408,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 18,
@@ -6427,9 +6427,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
@@ -6446,7 +6446,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ESKIROZ"
@@ -6465,7 +6465,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DE LA FUENTE",
       "zaguero": "ALDABE"
@@ -6484,7 +6484,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ELIZEGI"
@@ -6503,14 +6503,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ALBISU"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 20,
@@ -6522,7 +6522,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "LIZEAGA"
@@ -6541,7 +6541,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALDABE"
@@ -6560,9 +6560,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 20,
@@ -6579,7 +6579,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "EROSTARBE"
@@ -6598,15 +6598,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "GABIRONDO"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "PEÑA II",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 9,
     "ganador": "equipo1"
@@ -6617,10 +6617,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 13,
     "equipo2": {
@@ -6636,9 +6636,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "LIZEAGA"
     },
     "puntos1": 18,
@@ -6655,7 +6655,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ARANGUREN"
@@ -6674,9 +6674,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
@@ -6693,15 +6693,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 18,
     "equipo2": {
       "delantero": "ALBERDI",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 14,
     "ganador": "equipo1"
@@ -6712,7 +6712,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALBISU"
@@ -6731,7 +6731,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ARANGUREN"
@@ -6750,15 +6750,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "ALBISU"
     },
     "puntos1": 19,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6769,7 +6769,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -6788,7 +6788,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -6796,7 +6796,7 @@
     "puntos1": 17,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6807,7 +6807,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "TOLOSA"
@@ -6826,7 +6826,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "ELIZEGI"
@@ -6834,7 +6834,7 @@
     "puntos1": 19,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6845,7 +6845,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
@@ -6853,7 +6853,7 @@
     "puntos1": 7,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6864,7 +6864,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ELIZEGI"
@@ -6872,7 +6872,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 12,
     "ganador": "equipo1"
@@ -6883,7 +6883,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "REZUSTA"
@@ -6902,7 +6902,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "GABIRONDO"
@@ -6910,7 +6910,7 @@
     "puntos1": 8,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6921,9 +6921,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
@@ -6940,14 +6940,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 18,
     "equipo2": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "GASKUE"
     },
     "puntos2": 14,
@@ -6959,7 +6959,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ESKIROZ"
@@ -6978,10 +6978,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -6997,9 +6997,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
@@ -7016,7 +7016,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "IMAZ"
@@ -7035,10 +7035,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "SALAVERRI"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 18,
     "equipo2": {
@@ -7054,7 +7054,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -7073,7 +7073,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "GASKUE"
@@ -7092,7 +7092,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "GABIRONDO"
@@ -7111,15 +7111,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 21,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7130,7 +7130,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "UGARTEMENDIA"
@@ -7138,7 +7138,7 @@
     "puntos1": 17,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7149,7 +7149,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "REZUSTA"
@@ -7168,9 +7168,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "GASKUE"
     },
     "puntos1": 22,
@@ -7187,7 +7187,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALBISU"
@@ -7206,10 +7206,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -7225,9 +7225,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 22,
@@ -7244,14 +7244,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "BIKUÑA"
     },
     "puntos2": 17,
@@ -7263,7 +7263,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -7282,7 +7282,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "GASKUE"
@@ -7301,7 +7301,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALBISU"
@@ -7309,7 +7309,7 @@
     "puntos1": 11,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7320,14 +7320,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ALBISU"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos2": 21,
@@ -7339,15 +7339,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "LIZEAGA"
     },
     "puntos1": 22,
     "equipo2": {
       "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 9,
     "ganador": "equipo1"
@@ -7358,7 +7358,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "MARTIJA"
@@ -7377,7 +7377,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "ESKUZA"
@@ -7396,15 +7396,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 19,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7415,9 +7415,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 22,
@@ -7434,7 +7434,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -7453,7 +7453,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "LIZEAGA"
@@ -7461,7 +7461,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 17,
     "ganador": "equipo1"
@@ -7472,14 +7472,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "TOLOSA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ARANGUREN"
     },
     "puntos2": 11,
@@ -7491,15 +7491,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "BIKUÑA"
     },
     "puntos1": 21,
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7510,10 +7510,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 11,
     "equipo2": {
@@ -7529,7 +7529,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALBISU"
@@ -7548,10 +7548,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -7567,7 +7567,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "REZUSTA"
@@ -7586,10 +7586,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -7605,7 +7605,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -7624,7 +7624,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -7643,9 +7643,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "EROSTARBE"
     },
     "puntos1": 22,
@@ -7662,9 +7662,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "IZTUETA"
     },
     "puntos1": 22,
@@ -7681,10 +7681,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 16,
     "equipo2": {
@@ -7700,10 +7700,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 17,
     "equipo2": {
@@ -7719,7 +7719,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ESKIROZ"
@@ -7738,15 +7738,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 19,
     "ganador": "equipo1"
@@ -7757,15 +7757,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "IMAZ"
     },
     "puntos1": 17,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7776,10 +7776,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MORGAETXEBARRIA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 18,
     "equipo2": {
@@ -7795,7 +7795,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ZABALETA"
@@ -7814,9 +7814,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
@@ -7833,7 +7833,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "LIZEAGA"
@@ -7852,7 +7852,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "IZTUETA"
@@ -7871,10 +7871,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -7890,9 +7890,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 15,
@@ -7909,10 +7909,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 16,
     "equipo2": {
@@ -7928,9 +7928,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 20,
@@ -7947,7 +7947,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -7966,7 +7966,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "BIKUÑA"
@@ -7985,7 +7985,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "IMAZ"
@@ -8004,7 +8004,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "BIKUÑA"
@@ -8023,7 +8023,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IZTUETA"
@@ -8042,7 +8042,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ALBISU"
@@ -8061,15 +8061,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ALDABE"
     },
     "puntos1": 18,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 17,
     "ganador": "equipo1"
@@ -8080,7 +8080,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "EROSTARBE"
@@ -8099,7 +8099,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "SALABERRIA",
       "zaguero": "GABIRONDO"
@@ -8118,9 +8118,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 18,
@@ -8137,7 +8137,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -8156,7 +8156,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "BIKUÑA"
@@ -8164,7 +8164,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "BAKAIKOA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 18,
     "ganador": "equipo1"
@@ -8175,7 +8175,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -8194,7 +8194,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
       "zaguero": "UGARTEMENDIA"
@@ -8213,7 +8213,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -8221,7 +8221,7 @@
     "puntos1": 12,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8232,15 +8232,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ALBISU"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 19,
     "ganador": "equipo1"
@@ -8251,14 +8251,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "LIZEAGA"
     },
     "puntos2": 12,
@@ -8270,7 +8270,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IZTUETA"
@@ -8289,7 +8289,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ARANGUREN"
@@ -8308,15 +8308,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ARANGUREN"
     },
     "puntos1": 17,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8327,9 +8327,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
@@ -8346,7 +8346,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "IMAZ"
@@ -8354,7 +8354,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 19,
     "ganador": "equipo1"
@@ -8365,15 +8365,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IZTUETA"
     },
     "puntos1": 21,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8384,14 +8384,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "IMAZ"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 16,
@@ -8403,7 +8403,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ALBISU"
@@ -8422,10 +8422,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 15,
     "equipo2": {
@@ -8441,10 +8441,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -8460,7 +8460,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -8468,7 +8468,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "JAKA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 21,
     "ganador": "equipo1"
@@ -8479,10 +8479,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -8517,15 +8517,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "MARTIJA"
     },
     "puntos1": 12,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8555,7 +8555,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "BIKUÑA"
@@ -8574,7 +8574,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -8612,14 +8612,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "TOLOSA"
     },
     "puntos1": 19,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "IZTUETA"
     },
     "puntos2": 22,
@@ -8631,14 +8631,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "SALABERRIA",
       "zaguero": "ALDABE"
     },
     "puntos1": 18,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos2": 14,
@@ -8669,9 +8669,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 14,
@@ -8688,9 +8688,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos1": 17,
@@ -8726,7 +8726,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -8745,10 +8745,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 18,
     "equipo2": {
@@ -8802,7 +8802,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "ZABALETA"
@@ -8821,9 +8821,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "LIZEAGA"
     },
     "puntos1": 9,
@@ -8859,7 +8859,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "MARTIJA"
@@ -8878,7 +8878,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "GABIRONDO"
@@ -8916,14 +8916,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ALBISU"
     },
     "puntos1": 15,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos2": 22,
@@ -8954,10 +8954,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 9,
     "equipo2": {
@@ -8973,14 +8973,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 13,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ARANGUREN"
     },
     "puntos2": 22,
@@ -9011,7 +9011,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "ESKUZA"
@@ -9049,15 +9049,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "IMAZ"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
-      "zaguero": "MARIEZKURRENA"
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 14,
     "ganador": "equipo1"
@@ -9068,7 +9068,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "LIZEAGA"
@@ -9087,7 +9087,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -9144,7 +9144,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": "GABIRONDO"
@@ -9201,7 +9201,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "MARTIJA"
@@ -9258,7 +9258,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "UGARTEMENDIA"
@@ -9353,7 +9353,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "LIZEAGA"
@@ -9467,7 +9467,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -9524,15 +9524,15 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 19,
     "equipo2": {
       "delantero": "ALBERDI",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -9619,7 +9619,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -9638,14 +9638,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "TOLOSA"
     },
     "puntos2": 20,
@@ -9695,7 +9695,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -9714,7 +9714,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "LIZEAGA"
@@ -9722,7 +9722,7 @@
     "puntos1": 15,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 18,
     "ganador": "equipo2"
@@ -9771,7 +9771,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "REZUSTA"
@@ -9790,9 +9790,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 20,
@@ -9828,7 +9828,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "ARANGUREN"
@@ -9847,10 +9847,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -9885,14 +9885,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ESKIROZ"
     },
     "puntos1": 16,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 22,
@@ -9942,7 +9942,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -9961,7 +9961,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "TOLOSA"
@@ -9980,9 +9980,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
@@ -9999,10 +9999,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 17,
     "equipo2": {
@@ -10018,14 +10018,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "REZUSTA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 18,
@@ -10037,7 +10037,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ESKIROZ"
@@ -10056,7 +10056,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -10075,7 +10075,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ALBISU"
@@ -10094,14 +10094,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 13,
     "equipo2": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos2": 22,
@@ -10113,7 +10113,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "SALABERRIA",
       "zaguero": "ALDABE"
@@ -10132,14 +10132,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ARANGUREN"
     },
     "puntos2": 20,
@@ -10151,7 +10151,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -10170,9 +10170,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 11,
@@ -10189,7 +10189,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -10208,7 +10208,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ALBISU"
@@ -10227,9 +10227,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 14,
@@ -10246,7 +10246,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "TOLOSA"
@@ -10265,10 +10265,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 13,
     "equipo2": {
@@ -10284,7 +10284,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -10303,9 +10303,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 22,
@@ -10322,7 +10322,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -10341,14 +10341,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 20,
@@ -10360,7 +10360,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "ESKIROZ"
@@ -10379,9 +10379,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 15,
@@ -10398,14 +10398,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
     },
     "puntos1": 15,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 22,
@@ -10417,7 +10417,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "LIZEAGA"
@@ -10436,7 +10436,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ARANGUREN"
@@ -10455,14 +10455,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "IMAZ"
     },
     "puntos1": 11,
     "equipo2": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos2": 22,
@@ -10474,7 +10474,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "MATA",
       "zaguero": "ALDABE"
@@ -10482,7 +10482,7 @@
     "puntos1": 10,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 18,
     "ganador": "equipo2"
@@ -10493,7 +10493,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -10512,7 +10512,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -10531,7 +10531,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "EROSTARBE"
@@ -10550,7 +10550,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -10569,9 +10569,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 22,
@@ -10588,7 +10588,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -10596,7 +10596,7 @@
     "puntos1": 20,
     "equipo2": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -10607,7 +10607,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "ESKUZA"
@@ -10626,9 +10626,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos1": 16,
@@ -10645,7 +10645,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -10664,7 +10664,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -10672,7 +10672,7 @@
     "puntos1": 7,
     "equipo2": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -10683,7 +10683,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "ESKIROZ"
@@ -10702,7 +10702,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -10721,7 +10721,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -10740,7 +10740,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -10759,9 +10759,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos1": 22,
@@ -10778,14 +10778,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos2": 9,
@@ -10797,7 +10797,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ESKIROZ"
@@ -10816,7 +10816,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -10835,14 +10835,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 13,
@@ -10854,7 +10854,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -10873,7 +10873,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ZABALA",
       "zaguero": "ALDABE"
@@ -10892,10 +10892,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 5,
     "equipo2": {
@@ -10911,7 +10911,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "ESKIROZ"
@@ -10930,10 +10930,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 16,
     "equipo2": {
@@ -10949,14 +10949,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
     },
     "puntos1": 13,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 22,
@@ -10968,14 +10968,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
     },
     "puntos1": 13,
     "equipo2": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos2": 22,
@@ -10987,9 +10987,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 22,
@@ -11006,7 +11006,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "LARRAZABAL",
       "zaguero": "ESKIROZ"
@@ -11025,7 +11025,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "IZTUETA"
@@ -11033,7 +11033,7 @@
     "puntos1": 16,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11044,14 +11044,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "LASO",
       "zaguero": "ARANGUREN"
     },
     "puntos1": 12,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 22,
@@ -11063,10 +11063,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 18,
     "equipo2": {
@@ -11082,14 +11082,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-b",
-    "competicion": "B",
+    "competicion": "Campeonato Parejas Serie B 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
     },
     "puntos1": 21,
     "equipo2": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos2": 22,
@@ -11101,7 +11101,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "EROSTARBE"
@@ -11120,7 +11120,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -11139,9 +11139,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 19,
@@ -11158,7 +11158,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "DARÍO",
       "zaguero": "EROSTARBE"
@@ -11177,7 +11177,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "IZTUETA"
@@ -11185,7 +11185,7 @@
     "puntos1": 19,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11196,9 +11196,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 22,
@@ -11215,7 +11215,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -11234,14 +11234,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 19,
@@ -11253,7 +11253,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
       "zaguero": "GASKUE"
@@ -11272,7 +11272,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -11291,9 +11291,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 15,
@@ -11310,14 +11310,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 15,
@@ -11329,10 +11329,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -11348,7 +11348,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ELIZEGI"
@@ -11356,7 +11356,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 11,
     "ganador": "equipo1"
@@ -11367,14 +11367,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
     },
     "puntos1": 18,
     "equipo2": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos2": 22,
@@ -11386,7 +11386,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "ALDABE"
@@ -11405,9 +11405,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ALDABE"
     },
     "puntos1": 22,
@@ -11424,7 +11424,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "TOLOSA"
@@ -11443,14 +11443,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBARRIA"
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos1": 21,
     "equipo2": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ALDABE"
     },
     "puntos2": 22,
@@ -11462,14 +11462,14 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
-      "delantero": "ALTUNA",
+      "delantero": "ALTUNA III",
       "zaguero": "MARTIJA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 9,
@@ -11481,7 +11481,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "ZABALA",
       "zaguero": "BIKUÑA"
@@ -11500,7 +11500,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "CAMP",
+    "competicion": "Campeonato Parejas Serie A 2023",
     "equipo1": {
       "delantero": "ARTOLA",
       "zaguero": "IMAZ"
@@ -11519,7 +11519,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "UGARTEMENDIA"
@@ -11538,7 +11538,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
       "delantero": "ELORDI",
       "zaguero": "REZUSTA"
@@ -11557,10 +11557,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -11576,10 +11576,10 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
       "delantero": "JAKA",
-      "zaguero": "MARIEZKURRENA"
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos1": 22,
     "equipo2": {
@@ -11595,9 +11595,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
-      "delantero": "PEÑA",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos1": 17,
@@ -11614,9 +11614,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
-      "delantero": "EGIGUREN",
+      "delantero": "EGIGUREN V",
       "zaguero": "ESKUZA"
     },
     "puntos1": 20,
@@ -11633,7 +11633,7 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -11641,7 +11641,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "SALAVERRI"
+      "zaguero": "SALAVERRI II"
     },
     "puntos2": 15,
     "ganador": "equipo1"
@@ -11652,9 +11652,9 @@
     "ciudad": "",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "FEST",
+    "competicion": "Festival Parejas 2023",
     "equipo1": {
-      "delantero": "ZUBIZARRETA",
+      "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
     },
     "puntos1": 11,
