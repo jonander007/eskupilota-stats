@@ -20,11 +20,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Instalar Chrome
-        uses: browser-actions/setup-chrome@v1
-
       - name: Instalar dependencias
-        run: pip install selenium beautifulsoup4 requests
+        run: pip install requests beautifulsoup4
 
       - name: Ejecutar scraper
         run: python scraper/scraper.py
