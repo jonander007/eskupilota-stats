@@ -63,6 +63,10 @@ COMP_NORM = {
     'torneo bizkaia 4 1/2':          ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
+def clean_text(el):
+    """Obtener texto limpio sin saltos de línea extra."""
+    return ' '.join(el.get_text(separator=' ').split())
+
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
         base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
@@ -83,33 +87,46 @@ def parsear_resultados(html):
     partidos = []
     fecha_actual = fronton_actual = ciudad_actual = comp_actual = None
 
-    for el in soup.find_all(['h5', 'p', 'ul']):
+    # Buscar el contenedor principal de resultados
+    # Es el div que contiene los h5 con fechas
+    main = soup.find('main') or soup.find('div', id='primary') or soup.body
+
+    for el in main.find_all(['h5', 'p', 'ul']):
         tag  = el.name
-        text = el.get_text(separator=' ', strip=True)
+        text = clean_text(el)
         if not text: continue
 
+        # ── Fecha ─────────────────────────────────────────────────────────
         if tag == 'h5' and re.match(r'^\d{2}/\d{2}/\d{4}$', text):
-            fecha_actual = text; comp_actual = None; continue
+            fecha_actual = text
+            comp_actual  = None
+            continue
 
+        # ── Frontón: "Beotibar - Tolosa - Gipuzkoa" ───────────────────────
         if tag == 'h5' and ' - ' in text and fecha_actual:
-            partes = [x.strip() for x in text.split(' - ')]
-            fronton_actual = partes[0].upper()
-            ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
-            comp_actual = None; continue
+            # No es fecha, es frontón
+            if not re.match(r'^\d', text):
+                partes = [x.strip() for x in text.split(' - ')]
+                fronton_actual = partes[0].upper()
+                ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
+                comp_actual    = None
+                continue
 
+        # ── Competición ───────────────────────────────────────────────────
         if tag == 'p' and fecha_actual and len(text) > 5:
             if 'sustituye' in text.lower(): continue
             tl = text.lower()
-            if any(k in tl for k in ['campeonato','torneo','masters','festival','parejas','manomanista','4 1/2']):
+            if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
                 comp_actual = text
             continue
 
+        # ── Partido: ul con exactamente 2 li ─────────────────────────────
         if tag == 'ul' and fecha_actual and fronton_actual:
             items = el.find_all('li', recursive=False)
             if len(items) != 2: continue
 
             def parse_li(li):
-                raw = re.sub(r'\(\d+\)', '', li.get_text(separator=' ', strip=True)).strip()
+                raw = re.sub(r'\(\d+\)', '', clean_text(li)).strip()
                 tokens = [t for t in raw.split() if t and t != '-']
                 nombres, tantos = [], None
                 for t in tokens:
@@ -169,17 +186,18 @@ def main():
     html = get_html(URL)
     print(f"HTML recibido: {len(html)} chars")
 
-    # DEBUG
+    # DEBUG: mostrar h5 y ul de partidos
     soup = BeautifulSoup(html, 'html.parser')
-    h5s = soup.find_all('h5')
+    main_el = soup.find('main') or soup.find('div', id='primary') or soup.body
+    h5s = main_el.find_all('h5')
     print(f"Total h5: {len(h5s)}")
-    for h in h5s[:5]:
-        print(f"  h5: '{h.get_text(strip=True)}'")
-    uls = soup.find_all('ul')
-    print(f"Total ul: {len(uls)}")
-    for u in uls[:3]:
+    for h in h5s[:6]:
+        print(f"  h5: '{clean_text(h)}'")
+    uls = main_el.find_all('ul')
+    print(f"Total ul en main: {len(uls)}")
+    for u in uls[:5]:
         lis = u.find_all('li', recursive=False)
-        print(f"  ul con {len(lis)} li: '{u.get_text(separator='|', strip=True)[:100]}'")
+        print(f"  ul {len(lis)} li: '{clean_text(u)[:80]}'")
 
     nuevos = parsear_resultados(html)
     print(f"\nPartidos encontrados: {len(nuevos)}")
