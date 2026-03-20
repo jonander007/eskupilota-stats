@@ -1,16 +1,17 @@
 """
 Eskupilota Stats — Scraper de resultados
-Lee https://www.baikopilota.eus/resultados/ y añade al JSON
-los partidos nuevos que encuentre.
+Usa Selenium para cargar la página con JavaScript y extraer los partidos.
 
 Requisitos:
-    pip install requests beautifulsoup4
+    pip install selenium beautifulsoup4
 """
 
-import json, re, os
+import json, re, os, time
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "../data/partidos.json")
 URL       = "https://www.baikopilota.eus/resultados/"
@@ -76,6 +77,23 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
         return 'festival', f'Festival Parejas {anio}'
     else:
         return 'festival-mano', f'Festival Manomanista {anio}'
+
+def get_html(url):
+    opts = Options()
+    opts.add_argument('--headless')
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--disable-dev-shm-usage')
+    opts.add_argument('--disable-gpu')
+    opts.add_argument('--window-size=1920,1080')
+    opts.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+    driver = webdriver.Chrome(options=opts)
+    try:
+        driver.get(url)
+        time.sleep(5)
+        html = driver.page_source
+    finally:
+        driver.quit()
+    return html
 
 def parsear_resultados(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -147,31 +165,12 @@ def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Referer': 'https://www.baikopilota.eus/',
-        'Cache-Control': 'no-cache',
-    }
+    print("Cargando página con Selenium...")
+    html = get_html(URL)
+    print(f"HTML recibido: {len(html)} chars")
 
-    try:
-        sess = requests.Session()
-        # Primera visita a la home para obtener cookies
-        sess.get('https://www.baikopilota.eus/', headers=headers, timeout=15)
-        # Luego la página de resultados
-        resp = sess.get(URL, headers=headers, timeout=30)
-        print(f"Status: {resp.status_code}")
-        print(f"Primeros 300 chars: {resp.text[:300]}")
-        resp.raise_for_status()
-    except Exception as e:
-        print(f"ERROR: {e}")
-        return
-
-    nuevos = parsear_resultados(resp.text)
-    print(f"\nPartidos encontrados: {len(nuevos)}")
+    nuevos = parsear_resultados(html)
+    print(f"Partidos encontrados: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
