@@ -3,7 +3,7 @@ Eskupilota Stats — Scraper de resultados
 Usa Selenium para cargar la página con JavaScript y extraer los partidos.
 
 Requisitos:
-    pip install selenium beautifulsoup4
+    pip install selenium beautifulsoup4 requests
 """
 
 import json, re, os, time
@@ -78,23 +78,6 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
     else:
         return 'festival-mano', f'Festival Manomanista {anio}'
 
-def get_html(url):
-    opts = Options()
-    opts.add_argument('--headless')
-    opts.add_argument('--no-sandbox')
-    opts.add_argument('--disable-dev-shm-usage')
-    opts.add_argument('--disable-gpu')
-    opts.add_argument('--window-size=1920,1080')
-    opts.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
-    driver = webdriver.Chrome(options=opts)
-    try:
-        driver.get(url)
-        time.sleep(5)
-        html = driver.page_source
-    finally:
-        driver.quit()
-    return html
-
 def parsear_resultados(html):
     soup = BeautifulSoup(html, 'html.parser')
     partidos = []
@@ -161,6 +144,23 @@ def parsear_resultados(html):
 
     return partidos
 
+def get_html(url):
+    opts = Options()
+    opts.add_argument('--headless')
+    opts.add_argument('--no-sandbox')
+    opts.add_argument('--disable-dev-shm-usage')
+    opts.add_argument('--disable-gpu')
+    opts.add_argument('--window-size=1920,1080')
+    opts.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+    driver = webdriver.Chrome(options=opts)
+    try:
+        driver.get(url)
+        time.sleep(5)
+        html = driver.page_source
+    finally:
+        driver.quit()
+    return html
+
 def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
@@ -169,8 +169,20 @@ def main():
     html = get_html(URL)
     print(f"HTML recibido: {len(html)} chars")
 
+    # DEBUG
+    soup = BeautifulSoup(html, 'html.parser')
+    h5s = soup.find_all('h5')
+    print(f"Total h5: {len(h5s)}")
+    for h in h5s[:5]:
+        print(f"  h5: '{h.get_text(strip=True)}'")
+    uls = soup.find_all('ul')
+    print(f"Total ul: {len(uls)}")
+    for u in uls[:3]:
+        lis = u.find_all('li', recursive=False)
+        print(f"  ul con {len(lis)} li: '{u.get_text(separator='|', strip=True)[:100]}'")
+
     nuevos = parsear_resultados(html)
-    print(f"Partidos encontrados: {len(nuevos)}")
+    print(f"\nPartidos encontrados: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
