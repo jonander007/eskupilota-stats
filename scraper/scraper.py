@@ -149,17 +149,16 @@ def main():
 
     try:
         resp = requests.get(URL, timeout=30, headers={'User-Agent': 'Mozilla/5.0'})
-        resp.raise_for_status()
+        print(f"Status code: {resp.status_code}")
+        print(f"URL final: {resp.url}")
+        print(f"Primeros 500 chars:")
+        print(resp.text[:500])
     except Exception as e:
-        print(f"ERROR al descargar la página: {e}")
+        print(f"ERROR: {e}")
         return
 
-    print("=== HTML ===")
-    print(resp.text[:3000])
-    print("============")
-
     nuevos = parsear_resultados(resp.text)
-    print(f"Partidos encontrados en la web: {len(nuevos)}")
+    print(f"\nPartidos encontrados en la web: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
