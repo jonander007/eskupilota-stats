@@ -2,8 +2,8 @@ name: 🤖 Actualizar partidos
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # Todos los días a las 8:00 AM UTC
-  workflow_dispatch:        # También se puede lanzar manualmente desde GitHub
+    - cron: '0 8 * * *'
+  workflow_dispatch:
 
 jobs:
   scrape:
@@ -20,8 +20,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+
       - name: Instalar dependencias
-        run: pip install requests beautifulsoup4
+        run: pip install selenium beautifulsoup4
 
       - name: Ejecutar scraper
         run: python scraper/scraper.py
