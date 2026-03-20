@@ -24,7 +24,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Instalar dependencias
-        run: pip install selenium beautifulsoup4
+        run: pip install selenium beautifulsoup4 requests
 
       - name: Ejecutar scraper
         run: python scraper/scraper.py
