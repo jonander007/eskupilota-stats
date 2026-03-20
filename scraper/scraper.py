@@ -3,11 +3,6 @@ Eskupilota Stats — Scraper de resultados
 Lee https://www.baikopilota.eus/resultados/ y añade al JSON
 los partidos nuevos que encuentre.
 
-Sin Selenium — usa solo requests + beautifulsoup4.
-
-Uso:
-    python scraper/scraper.py
-
 Requisitos:
     pip install requests beautifulsoup4
 """
@@ -17,12 +12,8 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-# ── RUTAS ─────────────────────────────────────────────────────────────────────
-
 DATA_FILE = os.path.join(os.path.dirname(__file__), "../data/partidos.json")
 URL       = "https://www.baikopilota.eus/resultados/"
-
-# ── NORMALIZACIÓN DE PELOTARIS ────────────────────────────────────────────────
 
 PELOTARI_MAP = {
     'ALTUNA':            'ALTUNA III',
@@ -37,13 +28,11 @@ PELOTARI_MAP = {
     'P. ETXEBARRIA':     'P.ETXEBERRIA',
 }
 
-def norm_pelotari(nombre):
+def norm(nombre):
     if not nombre: return nombre
-    n = re.sub(r'\s*\d+\s*$', '', nombre.strip()).upper()
-    n = re.sub(r'\s*\(\d+\)\s*$', '', n).strip()
+    n = re.sub(r'\s*\(\d+\)\s*', '', nombre.strip()).strip()
+    n = re.sub(r'\s*\d+\s*$', '', n).strip().upper()
     return PELOTARI_MAP.get(n, n)
-
-# ── INFERIR COMPETICIÓN ───────────────────────────────────────────────────────
 
 COMP_NORM = {
     'campeonato parejas serie a':    ('campeonato-a',    'Campeonato Parejas Serie A'),
@@ -84,14 +73,10 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
         for k, (tipo, nombre) in COMP_NORM.items():
             if k in base:
                 return tipo, f"{nombre} {anio}"
-
-    # Sin competición indicada → festival
     if tiene_zaguero:
         return 'festival', f'Festival Parejas {anio}'
     else:
         return 'festival-mano', f'Festival Manomanista {anio}'
-
-# ── PARSER PRINCIPAL ──────────────────────────────────────────────────────────
 
 def parsear_resultados(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -102,23 +87,23 @@ def parsear_resultados(html):
     ciudad_actual  = ''
     comp_actual    = None
 
-    # Buscar el contenedor principal de resultados
-    main = soup.find('main') or soup.find('div', class_=lambda c: c and 'container' in c) or soup.body
+    # Recorrer todos los elementos en orden del documento
+    for el in soup.find_all(['h5', 'p', 'ul', 'li', 'small', 'div']):
 
-    for el in main.find_all(True, recursive=True):
         tag  = el.name
-        text = el.get_text(strip=True)
+        # Solo texto directo, sin hijos
+        text = el.get_text(separator=' ', strip=True)
 
         if not text:
             continue
 
-        # ── Fecha ─────────────────────────────────────────────────────────
+        # ── Fecha: <h5>19/03/2026</h5> ───────────────────────────────────
         if tag == 'h5' and re.match(r'^\d{2}/\d{2}/\d{4}$', text):
             fecha_actual = text
             comp_actual  = None
             continue
 
-        # ── Frontón ───────────────────────────────────────────────────────
+        # ── Frontón: <h5>Beotibar - Tolosa - Gipuzkoa</h5> ───────────────
         if tag == 'h5' and ' - ' in text and fecha_actual:
             partes         = [x.strip() for x in text.split(' - ')]
             fronton_actual = partes[0].upper()
@@ -126,42 +111,42 @@ def parsear_resultados(html):
             comp_actual    = None
             continue
 
-        # ── Competición indicada ──────────────────────────────────────────
-        if tag in ('p', 'span', 'small') and fecha_actual and len(text) > 5:
-            if 'sustituye' in text.lower() or text.startswith('('):
-                continue
-            # Comprobar que parece nombre de competición
+        # ── Competición: <p>Campeonato Parejas Serie A - Liga...</p> ──────
+        if tag == 'p' and fecha_actual and len(text) > 5:
+            if 'sustituye' in text.lower(): continue
             tl = text.lower()
             if any(k in tl for k in ['campeonato','torneo','masters','festival','parejas','manomanista','4 1/2']):
                 comp_actual = text
             continue
 
-        # ── Partido: tabla / div con dos filas de equipos ─────────────────
+        # ── Partido: <ul> con exactamente 2 <li> directos ─────────────────
         if tag == 'ul' and fecha_actual and fronton_actual:
             items = el.find_all('li', recursive=False)
-            if len(items) < 2:
+            if len(items) != 2:
                 continue
 
             def parse_li(li):
-                raw = li.get_text(' ', strip=True)
+                # Obtener todos los textos de texto directo del li
+                raw = li.get_text(separator=' ', strip=True)
+                # Eliminar anotaciones como (1)
                 raw = re.sub(r'\(\d+\)', '', raw).strip()
-                tokens = raw.split()
-                nombres, tantos = [], None
+                tokens = [t for t in raw.split() if t and t != '-']
+                nombres = []
+                tantos  = None
                 for t in tokens:
-                    if t == '-': continue
-                    digits = re.sub(r'\D', '', t)
-                    if digits and t == digits and int(digits) <= 30:
-                        tantos = int(digits)
-                    elif t.strip():
+                    # Es número de tantos si es solo dígitos y <= 30
+                    if re.match(r'^\d+$', t) and int(t) <= 30:
+                        tantos = int(t)
+                    else:
                         nombres.append(t)
-                d = norm_pelotari(nombres[0]) if nombres else None
-                z = norm_pelotari(' '.join(nombres[1:])) if len(nombres) > 1 else None
-                return d, z, tantos
+                delantero = norm(' '.join(nombres[:1])) if nombres else None
+                zaguero   = norm(' '.join(nombres[1:])) if len(nombres) > 1 else None
+                return delantero, zaguero, tantos
 
             try:
                 d1, z1, t1 = parse_li(items[0])
                 d2, z2, t2 = parse_li(items[1])
-            except Exception:
+            except Exception as e:
                 continue
 
             if not d1 or not d2 or t1 is None or t2 is None:
@@ -190,8 +175,6 @@ def parsear_resultados(html):
 
     return partidos
 
-# ── MAIN ──────────────────────────────────────────────────────────────────────
-
 def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
@@ -205,6 +188,8 @@ def main():
 
     nuevos = parsear_resultados(resp.text)
     print(f"Partidos encontrados en la web: {len(nuevos)}")
+    for p in nuevos:
+        print(f"  {p['fecha']} | {p['equipo1']['delantero']} {p['puntos1']}-{p['puntos2']} {p['equipo2']['delantero']} | {p['competicion']}")
 
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
@@ -213,26 +198,15 @@ def main():
         existentes = []
 
     def clave(p):
-        return (f"{p['fecha']}_{p['fronton']}_"
-                f"{p['equipo1']['delantero']}_{p['equipo2']['delantero']}")
+        return f"{p['fecha']}_{p['fronton']}_{p['equipo1']['delantero']}_{p['equipo2']['delantero']}"
 
     claves_ex = {clave(p) for p in existentes}
     sin_dup   = [p for p in nuevos if clave(p) not in claves_ex]
-
-    print(f"Partidos nuevos: {len(sin_dup)}")
+    print(f"\nPartidos nuevos: {len(sin_dup)}")
 
     if not sin_dup:
         print("No hay partidos nuevos. JSON sin cambios.")
         return
-
-    for p in sin_dup:
-        d1  = p['equipo1']['delantero']
-        z1  = p['equipo1'].get('zaguero') or ''
-        d2  = p['equipo2']['delantero']
-        z2  = p['equipo2'].get('zaguero') or ''
-        eq1 = f"{d1}-{z1}" if z1 else d1
-        eq2 = f"{d2}-{z2}" if z2 else d2
-        print(f"  + {p['fecha']} | {p['fronton']} | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
     todos = existentes + sin_dup
     todos.sort(key=lambda p: datetime.strptime(p['fecha'], '%d/%m/%Y'), reverse=True)
@@ -240,7 +214,7 @@ def main():
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(todos, f, ensure_ascii=False, indent=2)
 
-    print(f"\nJSON actualizado: {len(todos)} partidos totales")
+    print(f"JSON actualizado: {len(todos)} partidos totales")
 
 if __name__ == '__main__':
     main()
