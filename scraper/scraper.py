@@ -64,7 +64,6 @@ COMP_NORM = {
 
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
-        # Quitar la fase: "Liga de semifinales", "Octavos", etc.
         base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
                         texto_comp.lower())[0].strip()
         if base in COMP_NORM:
@@ -81,37 +80,22 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
 def parsear_resultados(html):
     soup = BeautifulSoup(html, 'html.parser')
     partidos = []
+    fecha_actual = fronton_actual = ciudad_actual = comp_actual = None
 
-    fecha_actual   = None
-    fronton_actual = ''
-    ciudad_actual  = ''
-    comp_actual    = None
-
-    # Recorrer todos los elementos en orden del documento
-    for el in soup.find_all(['h5', 'p', 'ul', 'li', 'small', 'div']):
-
+    for el in soup.find_all(['h5', 'p', 'ul']):
         tag  = el.name
-        # Solo texto directo, sin hijos
         text = el.get_text(separator=' ', strip=True)
+        if not text: continue
 
-        if not text:
-            continue
-
-        # ── Fecha: <h5>19/03/2026</h5> ───────────────────────────────────
         if tag == 'h5' and re.match(r'^\d{2}/\d{2}/\d{4}$', text):
-            fecha_actual = text
-            comp_actual  = None
-            continue
+            fecha_actual = text; comp_actual = None; continue
 
-        # ── Frontón: <h5>Beotibar - Tolosa - Gipuzkoa</h5> ───────────────
         if tag == 'h5' and ' - ' in text and fecha_actual:
-            partes         = [x.strip() for x in text.split(' - ')]
+            partes = [x.strip() for x in text.split(' - ')]
             fronton_actual = partes[0].upper()
             ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
-            comp_actual    = None
-            continue
+            comp_actual = None; continue
 
-        # ── Competición: <p>Campeonato Parejas Serie A - Liga...</p> ──────
         if tag == 'p' and fecha_actual and len(text) > 5:
             if 'sustituye' in text.lower(): continue
             tl = text.lower()
@@ -119,58 +103,42 @@ def parsear_resultados(html):
                 comp_actual = text
             continue
 
-        # ── Partido: <ul> con exactamente 2 <li> directos ─────────────────
         if tag == 'ul' and fecha_actual and fronton_actual:
             items = el.find_all('li', recursive=False)
-            if len(items) != 2:
-                continue
+            if len(items) != 2: continue
 
             def parse_li(li):
-                # Obtener todos los textos de texto directo del li
-                raw = li.get_text(separator=' ', strip=True)
-                # Eliminar anotaciones como (1)
-                raw = re.sub(r'\(\d+\)', '', raw).strip()
+                raw = re.sub(r'\(\d+\)', '', li.get_text(separator=' ', strip=True)).strip()
                 tokens = [t for t in raw.split() if t and t != '-']
-                nombres = []
-                tantos  = None
+                nombres, tantos = [], None
                 for t in tokens:
-                    # Es número de tantos si es solo dígitos y <= 30
                     if re.match(r'^\d+$', t) and int(t) <= 30:
                         tantos = int(t)
                     else:
                         nombres.append(t)
-                delantero = norm(' '.join(nombres[:1])) if nombres else None
-                zaguero   = norm(' '.join(nombres[1:])) if len(nombres) > 1 else None
-                return delantero, zaguero, tantos
+                d = norm(' '.join(nombres[:1])) if nombres else None
+                z = norm(' '.join(nombres[1:])) if len(nombres) > 1 else None
+                return d, z, tantos
 
             try:
                 d1, z1, t1 = parse_li(items[0])
                 d2, z2, t2 = parse_li(items[1])
-            except Exception as e:
-                continue
+            except: continue
 
-            if not d1 or not d2 or t1 is None or t2 is None:
-                continue
-            if t1 == 0 and t2 == 0:
-                continue
+            if not d1 or not d2 or t1 is None or t2 is None: continue
+            if t1 == 0 and t2 == 0: continue
 
-            anio          = fecha_actual[-4:]
+            anio = fecha_actual[-4:]
             tiene_zaguero = bool(z1 or z2)
             tipo, comp_nombre = inferir_comp(comp_actual, tiene_zaguero, anio)
             ganador = 'equipo1' if t1 > t2 else ('equipo2' if t2 > t1 else None)
 
             partidos.append({
-                'fecha':       fecha_actual,
-                'fronton':     fronton_actual,
-                'ciudad':      ciudad_actual,
-                'provincia':   '',
-                'tipo':        tipo,
-                'competicion': comp_nombre,
-                'equipo1':     {'delantero': d1, 'zaguero': z1},
-                'puntos1':     t1,
-                'equipo2':     {'delantero': d2, 'zaguero': z2},
-                'puntos2':     t2,
-                'ganador':     ganador,
+                'fecha': fecha_actual, 'fronton': fronton_actual, 'ciudad': ciudad_actual,
+                'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
+                'equipo1': {'delantero': d1, 'zaguero': z1}, 'puntos1': t1,
+                'equipo2': {'delantero': d2, 'zaguero': z2}, 'puntos2': t2,
+                'ganador': ganador,
             })
 
     return partidos
@@ -189,7 +157,9 @@ def main():
     nuevos = parsear_resultados(resp.text)
     print(f"Partidos encontrados en la web: {len(nuevos)}")
     for p in nuevos:
-        print(f"  {p['fecha']} | {p['equipo1']['delantero']} {p['puntos1']}-{p['puntos2']} {p['equipo2']['delantero']} | {p['competicion']}")
+        eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
+        eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
+        print(f"  {p['fecha']} | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
