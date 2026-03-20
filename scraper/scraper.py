@@ -35,6 +35,9 @@ def norm(nombre):
     n = re.sub(r'\s*\d+\s*$', '', n).strip().upper()
     return PELOTARI_MAP.get(n, n)
 
+def clean_text(el):
+    return ' '.join(el.get_text(separator=' ').split())
+
 COMP_NORM = {
     'campeonato parejas serie a':    ('campeonato-a',    'Campeonato Parejas Serie A'),
     'campeonato parejas serie b':    ('campeonato-b',    'Campeonato Parejas Serie B'),
@@ -63,10 +66,6 @@ COMP_NORM = {
     'torneo bizkaia 4 1/2':          ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
-def clean_text(el):
-    """Obtener texto limpio sin saltos de línea extra."""
-    return ' '.join(el.get_text(separator=' ').split())
-
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
         base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
@@ -82,82 +81,107 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
     else:
         return 'festival-mano', f'Festival Manomanista {anio}'
 
+def parse_ul_equipo(ul):
+    """
+    Extrae (delantero, zaguero, tantos) de un <ul> de equipo.
+    Estructura: <li>NOMBRE</li><li>-</li><li>ZAGUERO</li> y tantos aparte
+    o: <li>NOMBRE</li><li>-</li><li>NOMBRE</li><li>tantos</li>
+    """
+    items = ul.find_all('li', recursive=False)
+    nombres = []
+    tantos  = None
+    for li in items:
+        t = re.sub(r'\(\d+\)', '', clean_text(li)).strip()
+        if t == '-' or not t:
+            continue
+        if re.match(r'^\d+$', t) and int(t) <= 30:
+            tantos = int(t)
+        else:
+            nombres.append(t)
+    delantero = norm(nombres[0]) if nombres else None
+    zaguero   = norm(nombres[1]) if len(nombres) > 1 else None
+    return delantero, zaguero, tantos
+
 def parsear_resultados(html):
     soup = BeautifulSoup(html, 'html.parser')
     partidos = []
     fecha_actual = fronton_actual = ciudad_actual = comp_actual = None
 
-    # Buscar el contenedor principal de resultados
-    # Es el div que contiene los h5 con fechas
-    main = soup.find('main') or soup.find('div', id='primary') or soup.body
+    main_el = soup.find('main') or soup.find('div', id='primary') or soup.body
 
-    for el in main.find_all(['h5', 'p', 'ul']):
+    # Recorrer todos los elementos en orden
+    elementos = main_el.find_all(['h5', 'p', 'ul', 'div'])
+
+    i = 0
+    while i < len(elementos):
+        el   = elementos[i]
         tag  = el.name
         text = clean_text(el)
-        if not text: continue
 
-        # ── Fecha ─────────────────────────────────────────────────────────
+        # ── Fecha ──────────────────────────────────────────────────────
         if tag == 'h5' and re.match(r'^\d{2}/\d{2}/\d{4}$', text):
             fecha_actual = text
             comp_actual  = None
-            continue
+            i += 1; continue
 
-        # ── Frontón: "Beotibar - Tolosa - Gipuzkoa" ───────────────────────
-        if tag == 'h5' and ' - ' in text and fecha_actual:
-            # No es fecha, es frontón
-            if not re.match(r'^\d', text):
-                partes = [x.strip() for x in text.split(' - ')]
-                fronton_actual = partes[0].upper()
-                ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
-                comp_actual    = None
-                continue
+        # ── Frontón ────────────────────────────────────────────────────
+        if tag == 'h5' and ' - ' in text and fecha_actual and not re.match(r'^\d', text):
+            partes         = [x.strip() for x in text.split(' - ')]
+            fronton_actual = partes[0].upper()
+            ciudad_actual  = partes[1].upper() if len(partes) > 1 else ''
+            comp_actual    = None
+            i += 1; continue
 
-        # ── Competición ───────────────────────────────────────────────────
+        # ── Competición ────────────────────────────────────────────────
         if tag == 'p' and fecha_actual and len(text) > 5:
-            if 'sustituye' in text.lower(): continue
-            tl = text.lower()
-            if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
-                comp_actual = text
-            continue
+            if 'sustituye' not in text.lower():
+                tl = text.lower()
+                if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
+                    comp_actual = text
+            i += 1; continue
 
-        # ── Partido: ul con exactamente 2 li ─────────────────────────────
+        # ── Par de ul consecutivos = un partido ────────────────────────
+        # Equipo 1 (ul rojo) seguido de equipo 2 (ul azul)
         if tag == 'ul' and fecha_actual and fronton_actual:
-            items = el.find_all('li', recursive=False)
-            if len(items) != 2: continue
+            # Buscar el siguiente ul
+            j = i + 1
+            while j < len(elementos) and elementos[j].name != 'ul':
+                # Si hay un p de competición entre los dos ul, capturarlo
+                if elementos[j].name == 'p':
+                    t2 = clean_text(elementos[j])
+                    if 'sustituye' not in t2.lower():
+                        tl = t2.lower()
+                        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
+                            comp_actual = t2
+                j += 1
 
-            def parse_li(li):
-                raw = re.sub(r'\(\d+\)', '', clean_text(li)).strip()
-                tokens = [t for t in raw.split() if t and t != '-']
-                nombres, tantos = [], None
-                for t in tokens:
-                    if re.match(r'^\d+$', t) and int(t) <= 30:
-                        tantos = int(t)
-                    else:
-                        nombres.append(t)
-                d = norm(' '.join(nombres[:1])) if nombres else None
-                z = norm(' '.join(nombres[1:])) if len(nombres) > 1 else None
-                return d, z, tantos
+            if j < len(elementos) and elementos[j].name == 'ul':
+                ul1 = el
+                ul2 = elementos[j]
+                try:
+                    d1, z1, t1 = parse_ul_equipo(ul1)
+                    d2, z2, t2 = parse_ul_equipo(ul2)
 
-            try:
-                d1, z1, t1 = parse_li(items[0])
-                d2, z2, t2 = parse_li(items[1])
-            except: continue
+                    if d1 and d2 and t1 is not None and t2 is not None:
+                        if not (t1 == 0 and t2 == 0):
+                            anio          = fecha_actual[-4:]
+                            tiene_zaguero = bool(z1 or z2)
+                            tipo, comp_nombre = inferir_comp(comp_actual, tiene_zaguero, anio)
+                            ganador = 'equipo1' if t1 > t2 else ('equipo2' if t2 > t1 else None)
 
-            if not d1 or not d2 or t1 is None or t2 is None: continue
-            if t1 == 0 and t2 == 0: continue
+                            partidos.append({
+                                'fecha': fecha_actual, 'fronton': fronton_actual, 'ciudad': ciudad_actual,
+                                'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
+                                'equipo1': {'delantero': d1, 'zaguero': z1}, 'puntos1': t1,
+                                'equipo2': {'delantero': d2, 'zaguero': z2}, 'puntos2': t2,
+                                'ganador': ganador,
+                            })
+                            i = j + 1
+                            continue
+                except:
+                    pass
 
-            anio = fecha_actual[-4:]
-            tiene_zaguero = bool(z1 or z2)
-            tipo, comp_nombre = inferir_comp(comp_actual, tiene_zaguero, anio)
-            ganador = 'equipo1' if t1 > t2 else ('equipo2' if t2 > t1 else None)
-
-            partidos.append({
-                'fecha': fecha_actual, 'fronton': fronton_actual, 'ciudad': ciudad_actual,
-                'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
-                'equipo1': {'delantero': d1, 'zaguero': z1}, 'puntos1': t1,
-                'equipo2': {'delantero': d2, 'zaguero': z2}, 'puntos2': t2,
-                'ganador': ganador,
-            })
+        i += 1
 
     return partidos
 
@@ -186,21 +210,8 @@ def main():
     html = get_html(URL)
     print(f"HTML recibido: {len(html)} chars")
 
-    # DEBUG: mostrar h5 y ul de partidos
-    soup = BeautifulSoup(html, 'html.parser')
-    main_el = soup.find('main') or soup.find('div', id='primary') or soup.body
-    h5s = main_el.find_all('h5')
-    print(f"Total h5: {len(h5s)}")
-    for h in h5s[:6]:
-        print(f"  h5: '{clean_text(h)}'")
-    uls = main_el.find_all('ul')
-    print(f"Total ul en main: {len(uls)}")
-    for u in uls[:5]:
-        lis = u.find_all('li', recursive=False)
-        print(f"  ul {len(lis)} li: '{clean_text(u)[:80]}'")
-
     nuevos = parsear_resultados(html)
-    print(f"\nPartidos encontrados: {len(nuevos)}")
+    print(f"Partidos encontrados: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
