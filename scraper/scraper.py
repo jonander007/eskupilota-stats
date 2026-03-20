@@ -147,18 +147,31 @@ def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
 
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Referer': 'https://www.baikopilota.eus/',
+        'Cache-Control': 'no-cache',
+    }
+
     try:
-        resp = requests.get(URL, timeout=30, headers={'User-Agent': 'Mozilla/5.0'})
-        print(f"Status code: {resp.status_code}")
-        print(f"URL final: {resp.url}")
-        print(f"Primeros 500 chars:")
-        print(resp.text[:500])
+        sess = requests.Session()
+        # Primera visita a la home para obtener cookies
+        sess.get('https://www.baikopilota.eus/', headers=headers, timeout=15)
+        # Luego la página de resultados
+        resp = sess.get(URL, headers=headers, timeout=30)
+        print(f"Status: {resp.status_code}")
+        print(f"Primeros 300 chars: {resp.text[:300]}")
+        resp.raise_for_status()
     except Exception as e:
         print(f"ERROR: {e}")
         return
 
     nuevos = parsear_resultados(resp.text)
-    print(f"\nPartidos encontrados en la web: {len(nuevos)}")
+    print(f"\nPartidos encontrados: {len(nuevos)}")
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
