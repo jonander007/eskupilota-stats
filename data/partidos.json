@@ -1,5 +1,43 @@
 [
   {
+    "fecha": "21/03/2026",
+    "fronton": "BERGARA",
+    "ciudad": "BERGARA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/03/2026",
+    "fronton": "BERGARA",
+    "ciudad": "BERGARA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "19/03/2026",
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
