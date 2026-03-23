@@ -209,6 +209,25 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "14/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas Serie A 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "13/03/2026",
     "fronton": "LOIU",
     "ciudad": "LOIU",
