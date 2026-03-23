@@ -1,5 +1,138 @@
 [
   {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2026",
+    "equipo1": {
+      "delantero": "REKALDE",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": null
+    },
+    "puntos2": 5,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "manomanista-a",
+    "competicion": "Campeonato Manomanista Serie A 2026",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/03/2026",
+    "fronton": "BERGARA",
+    "ciudad": "BERGARA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/03/2026",
+    "fronton": "BERGARA",
+    "ciudad": "BERGARA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": "MORGAETXEBERRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "15/03/2026",
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
@@ -19,6 +152,44 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "15/03/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "15/03/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "REKALDE",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "14/03/2026",
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
@@ -32,6 +203,63 @@
     "puntos1": 7,
     "equipo2": {
       "delantero": "ALTUNA III",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/03/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas Serie A 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "DARÍO",
       "zaguero": "EZKURDIA"
     },
     "puntos2": 22,
@@ -95,6 +323,44 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "08/03/2026",
+    "fronton": "OGUETA",
+    "ciudad": "VITORIA-GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/03/2026",
+    "fronton": "OGUETA",
+    "ciudad": "VITORIA-GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBERRIA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "REKALDE",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "07/03/2026",
     "fronton": "ATANO III",
     "ciudad": "DONOSTIA",
@@ -133,6 +399,63 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "07/03/2026",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/03/2026",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "REKALDE",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/03/2026",
+    "fronton": "ARNEDO",
+    "ciudad": "ARNEDO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "06/03/2026",
     "fronton": "FERNANDO GARAITA",
     "ciudad": "LEGUTIO",
@@ -147,6 +470,25 @@
     "equipo2": {
       "delantero": "SALABERRIA",
       "zaguero": "GASKUE"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/03/2026",
+    "fronton": "FERNANDO GARAITA",
+    "ciudad": "LEGUTIO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 14,
     "ganador": "equipo1"
