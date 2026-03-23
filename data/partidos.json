@@ -19,6 +19,44 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2026",
+    "equipo1": {
+      "delantero": "REKALDE",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": null
+    },
+    "puntos2": 5,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "manomanista-a",
+    "competicion": "Campeonato Manomanista Serie A 2026",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "21/03/2026",
     "fronton": "BERGARA",
     "ciudad": "BERGARA",
