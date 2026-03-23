@@ -1,5 +1,24 @@
 [
   {
+    "fecha": "22/03/2026",
+    "fronton": "BELOKI",
+    "ciudad": "ZUMARRAGA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "21/03/2026",
     "fronton": "BERGARA",
     "ciudad": "BERGARA",
