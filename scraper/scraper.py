@@ -24,7 +24,15 @@ USER_AGENT = (
 
 DATE_RE  = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 SCORE_RE = re.compile(r"^\d{1,2}$")
-NOTE_RE  = re.compile(r"^\(\d+\)$")
+
+COMP_KEYWORDS = (
+    "manomanista", "parejas", "campeonato", "final", "semifinal",
+    "eliminatoria", "cuartos", "masters", "torneo", "serie a", "serie b",
+    "4 1/2", "festival",
+)
+
+END_MARKERS = {"Frontón", "LA REVISTA DE LA PELOTA",
+               "NOTICIAS, ENTREVISTAS….. TODA LA INFORMACIÓN DE LA PELOTA"}
 
 PELOTARI_MAP = {
     'ALTUNA':            'ALTUNA III',
@@ -44,10 +52,10 @@ COMP_NORM = {
     'campeonato parejas serie b':        ('campeonato-b',    'Campeonato Parejas Serie B'),
     'campeonato manomanista serie a':    ('manomanista-a',   'Campeonato Manomanista Serie A'),
     'campeonato manomanista serie b':    ('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'serie a manomanista':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'serie b manomanista':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
     'serie a eliminatoria manomanista':  ('manomanista-a',   'Campeonato Manomanista Serie A'),
     'serie b eliminatoria manomanista':  ('manomanista-b',   'Campeonato Manomanista Serie B'),
+    'serie a manomanista':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
+    'serie b manomanista':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
     'manomanista serie a':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
     'manomanista serie b':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
     'campeonato 4 1/2 serie a':          ('cuatro-medio-a',  'Campeonato 4 1/2 Serie A'),
@@ -73,42 +81,81 @@ COMP_NORM = {
     'torneo bizkaia 4 1/2':              ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
+def clean_text(s):
+    return " ".join(s.replace("\xa0", " ").split())
+
+def clean_player(s):
+    s = clean_text(s)
+    s = re.sub(r"\s*\(\d+\)\s*$", "", s)
+    return s
+
 def norm(nombre):
     if not nombre: return nombre
-    n = re.sub(r'\s*\(\d+\)\s*', '', nombre.strip()).strip()
-    n = re.sub(r'\s*\d+\s*$', '', n).strip().upper()
+    n = re.sub(r'\s*\d+\s*$', '', nombre.strip()).upper()
     return PELOTARI_MAP.get(n, n)
 
-def normalize_text(text):
-    return " ".join(text.replace("\xa0", " ").split())
+def is_comp_line(s):
+    t = s.strip().lstrip('- ').strip().lower()
+    return any(k in t for k in COMP_KEYWORDS)
+
+def is_note_line(s):
+    t = s.strip()
+    if is_comp_line(t): return False
+    return t.startswith('-') or t.startswith('^{') or 'sustituye' in t.lower()
+
+def is_location_line(s):
+    t = s.strip()
+    if DATE_RE.match(t): return False
+    if is_comp_line(t) or is_note_line(t): return False
+    if SCORE_RE.match(t): return False
+    return ' - ' in t
+
+def looks_like_player(tok):
+    tok = clean_text(tok)
+    if not tok or tok == '-': return False
+    if SCORE_RE.match(tok) or DATE_RE.match(tok): return False
+    if is_location_line(tok) or is_comp_line(tok) or is_note_line(tok): return False
+    return True
+
+def read_side(tokens, i):
+    """Lee jugadores hasta encontrar un score. Devuelve (jugadores, score, nuevo_i)."""
+    players = []
+    while i < len(tokens):
+        tok = clean_text(tokens[i])
+        if tok == '-':
+            i += 1
+            continue
+        if SCORE_RE.match(tok):
+            if not players:
+                raise ValueError(f"Score sin jugadores en pos {i}")
+            return players, int(tok), i + 1
+        if DATE_RE.match(tok) or is_location_line(tok) or is_comp_line(tok) or is_note_line(tok):
+            raise ValueError(f"Token de control inesperado: {tok!r}")
+        players.append(clean_player(tok))
+        i += 1
+    raise ValueError("No se encontró score")
 
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
-        # Quitar prefijos como "- " que añade la web
-        base = texto_comp.lstrip('- ').strip()
-        # Quitar la fase: "Liga de semifinales", "Octavos", etc.
-        base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
-                        base.lower())[0].strip()
-        # Quitar "eliminatoria" si está al final
-        base = re.sub(r'\s+eliminatoria$', '', base).strip()
+        base = texto_comp.lstrip('- ').strip().lower()
+        # Quitar fase
+        base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final)', base)[0].strip()
         if base in COMP_NORM:
             tipo, nombre = COMP_NORM[base]
             return tipo, f"{nombre} {anio}"
         for k, (tipo, nombre) in COMP_NORM.items():
             if k in base:
                 return tipo, f"{nombre} {anio}"
-        # Detectar manomanista por palabras clave
+        # Fallback por palabras clave
         if 'manomanista' in base:
             if 'serie a' in base or ' a ' in base:
                 return 'manomanista-a', f'Campeonato Manomanista Serie A {anio}'
             if 'serie b' in base or ' b ' in base:
                 return 'manomanista-b', f'Campeonato Manomanista Serie B {anio}'
             return 'festival-mano', f'Festival Manomanista {anio}'
-        if '4 1/2' in base or '4½' in base:
-            if 'serie a' in base:
-                return 'cuatro-medio-a', f'Campeonato 4 1/2 Serie A {anio}'
-            if 'serie b' in base:
-                return 'cuatro-medio-b', f'Campeonato 4 1/2 Serie B {anio}'
+        if '4 1/2' in base:
+            if 'serie a' in base: return 'cuatro-medio-a', f'Campeonato 4 1/2 Serie A {anio}'
+            if 'serie b' in base: return 'cuatro-medio-b', f'Campeonato 4 1/2 Serie B {anio}'
             return 'festival-cuatro', f'Festival 4 y Medio {anio}'
 
     if tiene_zaguero:
@@ -118,113 +165,100 @@ def inferir_comp(texto_comp, tiene_zaguero, anio):
 
 def extract_tokens(html):
     soup = BeautifulSoup(html, "html.parser")
-    raw = [normalize_text(t) for t in soup.stripped_strings]
-    raw = [t for t in raw if t]
+    scope = soup.select_one("main") or soup.body or soup
+    tokens = [clean_text(s) for s in scope.stripped_strings]
+    tokens = [t for t in tokens if t]
 
-    try:
-        start = raw.index("DE LOS PARTIDOS DE PELOTA A MANO") + 1
-    except ValueError:
-        raise RuntimeError("No se encontró el bloque de resultados en la página.")
-
-    end_markers = {"Frontón", "LA REVISTA DE LA PELOTA",
-                   "NOTICIAS, ENTREVISTAS….. TODA LA INFORMACIÓN DE LA PELOTA"}
-    end = len(raw)
-    for pos in range(start, len(raw)):
-        if raw[pos] in end_markers:
-            end = pos
+    # Recortar a zona útil
+    for marker in ["DE LOS PARTIDOS DE PELOTA A MANO", "Resultados"]:
+        if marker in tokens:
+            tokens = tokens[tokens.index(marker) + 1:]
             break
 
-    tokens = raw[start:end]
-    # Eliminar tokens de notas tipo (1), (2)...
-    tokens = [t for t in tokens if not NOTE_RE.fullmatch(t)]
+    for marker in END_MARKERS:
+        if marker in tokens:
+            tokens = tokens[:tokens.index(marker)]
+            break
+
     return tokens
 
 def parse_tokens(tokens):
     partidos = []
-    fecha    = fronton = ciudad = comp = None
+    fecha = fronton = ciudad = comp = None
     expect_venue = False
 
     i = 0
     while i < len(tokens):
-        t = tokens[i]
+        tok = clean_text(tokens[i])
 
-        # Fecha
-        if DATE_RE.fullmatch(t):
-            fecha = t
+        if not tok or tok in {"Resultados", "DE LOS PARTIDOS DE PELOTA A MANO"}:
+            i += 1
+            continue
+
+        if DATE_RE.match(tok):
+            fecha = tok
             fronton = ciudad = comp = None
             expect_venue = True
             i += 1
             continue
 
-        # Frontón
-        if expect_venue and ' - ' in t:
-            partes  = [x.strip() for x in t.split(' - ')]
+        if is_location_line(tok):
+            partes = [x.strip() for x in tok.split(' - ')]
             fronton = partes[0].upper()
             ciudad  = partes[1].upper() if len(partes) > 1 else ''
             expect_venue = False
             i += 1
             continue
 
-        # Notas / sustituciones — ignorar
-        if t.startswith('^{') or 'sustituye' in t.lower():
+        if is_comp_line(tok):
+            comp = tok
             i += 1
             continue
 
-        # Competición indicada (empieza con "- " o contiene palabras clave)
-        tl = t.lower().lstrip('- ')
-        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2','serie a','serie b']):
-            comp = t
+        if is_note_line(tok):
             i += 1
             continue
 
-        # ── Partido PAREJAS: d1 - z1 p1 d2 - z2 p2 (8 tokens) ─────────────
-        if i + 7 < len(tokens):
-            t0,t1,t2,t3,t4,t5,t6,t7 = tokens[i:i+8]
-            if t1 == '-' and SCORE_RE.fullmatch(t3) and t5 == '-' and SCORE_RE.fullmatch(t7):
-                d1, z1 = norm(t0), norm(t2)
-                d2, z2 = norm(t4), norm(t6)
-                p1, p2 = int(t3), int(t7)
-                if not (p1 == 0 and p2 == 0):
-                    anio = fecha[-4:] if fecha else ''
-                    tipo, comp_nombre = inferir_comp(comp, True, anio)
-                    ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
-                    partidos.append({
-                        'fecha': fecha, 'fronton': fronton or '', 'ciudad': ciudad or '',
-                        'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
-                        'equipo1': {'delantero': d1, 'zaguero': z1 if z1 else None},
-                        'puntos1': p1,
-                        'equipo2': {'delantero': d2, 'zaguero': z2 if z2 else None},
-                        'puntos2': p2,
-                        'ganador': ganador,
-                    })
-                    comp = None
-                    i += 8
-                    continue
+        # Intentar leer partido
+        if looks_like_player(tok) and fecha:
+            try:
+                side1, score1, i = read_side(tokens, i)
+                side2, score2, i = read_side(tokens, i)
+            except ValueError:
+                i += 1
+                continue
 
-        # ── Partido INDIVIDUAL (mano/4½): d1 p1 d2 p2 (4 tokens, con '-' entre) ──
-        # Patrón: nombre - score nombre - score  →  d1 '-' p1 d2 '-' p2
-        if i + 5 < len(tokens):
-            t0,t1,t2,t3,t4,t5 = tokens[i:i+6]
-            if t1 == '-' and SCORE_RE.fullmatch(t2) and t4 == '-' and SCORE_RE.fullmatch(t5):
-                d1 = norm(t0)
-                d2 = norm(t3)
-                p1, p2 = int(t2), int(t5)
-                if not (p1 == 0 and p2 == 0):
-                    anio = fecha[-4:] if fecha else ''
-                    tipo, comp_nombre = inferir_comp(comp, False, anio)
-                    ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
-                    partidos.append({
-                        'fecha': fecha, 'fronton': fronton or '', 'ciudad': ciudad or '',
-                        'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
-                        'equipo1': {'delantero': d1, 'zaguero': None},
-                        'puntos1': p1,
-                        'equipo2': {'delantero': d2, 'zaguero': None},
-                        'puntos2': p2,
-                        'ganador': ganador,
-                    })
-                    comp = None
-                    i += 6
-                    continue
+            if score1 == 0 and score2 == 0:
+                continue
+
+            d1 = norm(side1[0]) if side1 else None
+            z1 = norm(side1[1]) if len(side1) > 1 else None
+            d2 = norm(side2[0]) if side2 else None
+            z2 = norm(side2[1]) if len(side2) > 1 else None
+
+            if not d1 or not d2:
+                continue
+
+            tiene_zaguero = bool(z1 or z2)
+            anio = fecha[-4:]
+            tipo, comp_nombre = inferir_comp(comp, tiene_zaguero, anio)
+            ganador = 'equipo1' if score1 > score2 else ('equipo2' if score2 > score1 else None)
+
+            partidos.append({
+                'fecha':       fecha,
+                'fronton':     fronton or '',
+                'ciudad':      ciudad or '',
+                'provincia':   '',
+                'tipo':        tipo,
+                'competicion': comp_nombre,
+                'equipo1':     {'delantero': d1, 'zaguero': z1},
+                'puntos1':     score1,
+                'equipo2':     {'delantero': d2, 'zaguero': z2},
+                'puntos2':     score2,
+                'ganador':     ganador,
+            })
+            comp = None
+            continue
 
         i += 1
 
