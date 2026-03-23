@@ -24,6 +24,7 @@ USER_AGENT = (
 
 DATE_RE  = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 SCORE_RE = re.compile(r"^\d{1,2}$")
+NOTE_RE  = re.compile(r"^\(\d+\)$")
 
 PELOTARI_MAP = {
     'ALTUNA':            'ALTUNA III',
@@ -39,31 +40,37 @@ PELOTARI_MAP = {
 }
 
 COMP_NORM = {
-    'campeonato parejas serie a':    ('campeonato-a',    'Campeonato Parejas Serie A'),
-    'campeonato parejas serie b':    ('campeonato-b',    'Campeonato Parejas Serie B'),
-    'campeonato manomanista serie a':('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'campeonato manomanista serie b':('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'campeonato 4 1/2 serie a':      ('cuatro-medio-a',  'Campeonato 4 1/2 Serie A'),
-    'campeonato 4 1/2 serie b':      ('cuatro-medio-b',  'Campeonato 4 1/2 Serie B'),
-    'torneo san fermin serie a':     ('festival',        'Torneo San Fermín Serie A'),
-    'torneo san fermín serie a':     ('festival',        'Torneo San Fermín Serie A'),
-    'torneo san fermin serie b':     ('festival',        'Torneo San Fermín Serie B'),
-    'torneo san fermín serie b':     ('festival',        'Torneo San Fermín Serie B'),
-    'masters caixabank serie a':     ('festival',        'Masters CaixaBank Serie A'),
-    'masters caixabank serie b':     ('festival',        'Masters CaixaBank Serie B'),
-    'torneo la blanca serie a':      ('festival',        'Torneo La Blanca Serie A'),
-    'torneo la blanca serie b':      ('festival',        'Torneo La Blanca Serie B'),
-    'torneo aste nagusia serie a':   ('festival',        'Torneo Aste Nagusia Serie A'),
-    'torneo aste nagusia serie b':   ('festival',        'Torneo Aste Nagusia Serie B'),
-    'torneo donostia hiria serie a': ('festival',        'Torneo Donostia Hiria Serie A'),
-    'torneo donostia hiria serie b': ('festival',        'Torneo Donostia Hiria Serie B'),
-    'torneo san mateo serie a':      ('festival',        'Torneo San Mateo Serie A'),
-    'torneo san mateo serie b':      ('festival',        'Torneo San Mateo Serie B'),
-    'torneo bizkaia parejas':        ('festival',        'Torneo Bizkaia Parejas'),
-    'torneo san fermin 4 1/2':       ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
-    'torneo san fermín 4 1/2':       ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
-    'torneo bizkaia manomanista':    ('festival-mano',   'Torneo Bizkaia Manomanista'),
-    'torneo bizkaia 4 1/2':          ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
+    'campeonato parejas serie a':        ('campeonato-a',    'Campeonato Parejas Serie A'),
+    'campeonato parejas serie b':        ('campeonato-b',    'Campeonato Parejas Serie B'),
+    'campeonato manomanista serie a':    ('manomanista-a',   'Campeonato Manomanista Serie A'),
+    'campeonato manomanista serie b':    ('manomanista-b',   'Campeonato Manomanista Serie B'),
+    'serie a manomanista':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
+    'serie b manomanista':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
+    'serie a eliminatoria manomanista':  ('manomanista-a',   'Campeonato Manomanista Serie A'),
+    'serie b eliminatoria manomanista':  ('manomanista-b',   'Campeonato Manomanista Serie B'),
+    'manomanista serie a':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
+    'manomanista serie b':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
+    'campeonato 4 1/2 serie a':          ('cuatro-medio-a',  'Campeonato 4 1/2 Serie A'),
+    'campeonato 4 1/2 serie b':          ('cuatro-medio-b',  'Campeonato 4 1/2 Serie B'),
+    'torneo san fermin serie a':         ('festival',        'Torneo San Fermín Serie A'),
+    'torneo san fermín serie a':         ('festival',        'Torneo San Fermín Serie A'),
+    'torneo san fermin serie b':         ('festival',        'Torneo San Fermín Serie B'),
+    'torneo san fermín serie b':         ('festival',        'Torneo San Fermín Serie B'),
+    'masters caixabank serie a':         ('festival',        'Masters CaixaBank Serie A'),
+    'masters caixabank serie b':         ('festival',        'Masters CaixaBank Serie B'),
+    'torneo la blanca serie a':          ('festival',        'Torneo La Blanca Serie A'),
+    'torneo la blanca serie b':          ('festival',        'Torneo La Blanca Serie B'),
+    'torneo aste nagusia serie a':       ('festival',        'Torneo Aste Nagusia Serie A'),
+    'torneo aste nagusia serie b':       ('festival',        'Torneo Aste Nagusia Serie B'),
+    'torneo donostia hiria serie a':     ('festival',        'Torneo Donostia Hiria Serie A'),
+    'torneo donostia hiria serie b':     ('festival',        'Torneo Donostia Hiria Serie B'),
+    'torneo san mateo serie a':          ('festival',        'Torneo San Mateo Serie A'),
+    'torneo san mateo serie b':          ('festival',        'Torneo San Mateo Serie B'),
+    'torneo bizkaia parejas':            ('festival',        'Torneo Bizkaia Parejas'),
+    'torneo san fermin 4 1/2':           ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
+    'torneo san fermín 4 1/2':           ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
+    'torneo bizkaia manomanista':        ('festival-mano',   'Torneo Bizkaia Manomanista'),
+    'torneo bizkaia 4 1/2':              ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
 def norm(nombre):
@@ -77,14 +84,33 @@ def normalize_text(text):
 
 def inferir_comp(texto_comp, tiene_zaguero, anio):
     if texto_comp:
+        # Quitar prefijos como "- " que añade la web
+        base = texto_comp.lstrip('- ').strip()
+        # Quitar la fase: "Liga de semifinales", "Octavos", etc.
         base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final|eliminatoria)',
-                        texto_comp.lower())[0].strip()
+                        base.lower())[0].strip()
+        # Quitar "eliminatoria" si está al final
+        base = re.sub(r'\s+eliminatoria$', '', base).strip()
         if base in COMP_NORM:
             tipo, nombre = COMP_NORM[base]
             return tipo, f"{nombre} {anio}"
         for k, (tipo, nombre) in COMP_NORM.items():
             if k in base:
                 return tipo, f"{nombre} {anio}"
+        # Detectar manomanista por palabras clave
+        if 'manomanista' in base:
+            if 'serie a' in base or ' a ' in base:
+                return 'manomanista-a', f'Campeonato Manomanista Serie A {anio}'
+            if 'serie b' in base or ' b ' in base:
+                return 'manomanista-b', f'Campeonato Manomanista Serie B {anio}'
+            return 'festival-mano', f'Festival Manomanista {anio}'
+        if '4 1/2' in base or '4½' in base:
+            if 'serie a' in base:
+                return 'cuatro-medio-a', f'Campeonato 4 1/2 Serie A {anio}'
+            if 'serie b' in base:
+                return 'cuatro-medio-b', f'Campeonato 4 1/2 Serie B {anio}'
+            return 'festival-cuatro', f'Festival 4 y Medio {anio}'
+
     if tiene_zaguero:
         return 'festival', f'Festival Parejas {anio}'
     else:
@@ -108,7 +134,10 @@ def extract_tokens(html):
             end = pos
             break
 
-    return raw[start:end]
+    tokens = raw[start:end]
+    # Eliminar tokens de notas tipo (1), (2)...
+    tokens = [t for t in tokens if not NOTE_RE.fullmatch(t)]
+    return tokens
 
 def parse_tokens(tokens):
     partidos = []
@@ -137,47 +166,65 @@ def parse_tokens(tokens):
             continue
 
         # Notas / sustituciones — ignorar
-        if t.startswith('- ') or t.startswith('^{') or 'sustituye' in t.lower():
+        if t.startswith('^{') or 'sustituye' in t.lower():
             i += 1
             continue
 
-        # Competición indicada (antes del partido)
-        tl = t.lower()
-        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2']):
+        # Competición indicada (empieza con "- " o contiene palabras clave)
+        tl = t.lower().lstrip('- ')
+        if any(k in tl for k in ['campeonato','torneo','masters','parejas','manomanista','4 1/2','serie a','serie b']):
             comp = t
             i += 1
             continue
 
-        # Intento de partido: token, '-', token, score, token, '-', token, score
+        # ── Partido PAREJAS: d1 - z1 p1 d2 - z2 p2 (8 tokens) ─────────────
         if i + 7 < len(tokens):
             t0,t1,t2,t3,t4,t5,t6,t7 = tokens[i:i+8]
             if t1 == '-' and SCORE_RE.fullmatch(t3) and t5 == '-' and SCORE_RE.fullmatch(t7):
                 d1, z1 = norm(t0), norm(t2)
                 d2, z2 = norm(t4), norm(t6)
                 p1, p2 = int(t3), int(t7)
-                if p1 == 0 and p2 == 0:
+                if not (p1 == 0 and p2 == 0):
+                    anio = fecha[-4:] if fecha else ''
+                    tipo, comp_nombre = inferir_comp(comp, True, anio)
+                    ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
+                    partidos.append({
+                        'fecha': fecha, 'fronton': fronton or '', 'ciudad': ciudad or '',
+                        'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
+                        'equipo1': {'delantero': d1, 'zaguero': z1 if z1 else None},
+                        'puntos1': p1,
+                        'equipo2': {'delantero': d2, 'zaguero': z2 if z2 else None},
+                        'puntos2': p2,
+                        'ganador': ganador,
+                    })
+                    comp = None
                     i += 8
                     continue
-                anio = fecha[-4:] if fecha else ''
-                tiene_zaguero = bool(z1 or z2)
-                tipo, comp_nombre = inferir_comp(comp, tiene_zaguero, anio)
-                ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
-                partidos.append({
-                    'fecha':    fecha,
-                    'fronton':  fronton or '',
-                    'ciudad':   ciudad or '',
-                    'provincia':'',
-                    'tipo':     tipo,
-                    'competicion': comp_nombre,
-                    'equipo1':  {'delantero': d1, 'zaguero': z1 if z1 else None},
-                    'puntos1':  p1,
-                    'equipo2':  {'delantero': d2, 'zaguero': z2 if z2 else None},
-                    'puntos2':  p2,
-                    'ganador':  ganador,
-                })
-                comp = None  # reset competición tras cada partido
-                i += 8
-                continue
+
+        # ── Partido INDIVIDUAL (mano/4½): d1 p1 d2 p2 (4 tokens, con '-' entre) ──
+        # Patrón: nombre - score nombre - score  →  d1 '-' p1 d2 '-' p2
+        if i + 5 < len(tokens):
+            t0,t1,t2,t3,t4,t5 = tokens[i:i+6]
+            if t1 == '-' and SCORE_RE.fullmatch(t2) and t4 == '-' and SCORE_RE.fullmatch(t5):
+                d1 = norm(t0)
+                d2 = norm(t3)
+                p1, p2 = int(t2), int(t5)
+                if not (p1 == 0 and p2 == 0):
+                    anio = fecha[-4:] if fecha else ''
+                    tipo, comp_nombre = inferir_comp(comp, False, anio)
+                    ganador = 'equipo1' if p1 > p2 else ('equipo2' if p2 > p1 else None)
+                    partidos.append({
+                        'fecha': fecha, 'fronton': fronton or '', 'ciudad': ciudad or '',
+                        'provincia': '', 'tipo': tipo, 'competicion': comp_nombre,
+                        'equipo1': {'delantero': d1, 'zaguero': None},
+                        'puntos1': p1,
+                        'equipo2': {'delantero': d2, 'zaguero': None},
+                        'puntos2': p2,
+                        'ganador': ganador,
+                    })
+                    comp = None
+                    i += 6
+                    continue
 
         i += 1
 
