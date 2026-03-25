@@ -1065,7 +1065,7 @@ function renderFrontones(){
   });
 
   const lista=Object.entries(stats)
-    .filter(([f])=>!q||f.toLowerCase().includes(q))
+    .filter(([f,s])=>!q||f.toLowerCase().includes(q)||s.ciudad.toLowerCase().includes(q))
     .sort((a,b)=>b[1].partidos-a[1].partidos);
 
   document.getElementById('frontonesCount').textContent=lista.length;
