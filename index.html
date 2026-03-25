@@ -24,7 +24,6 @@ nav{display:flex;gap:.2rem;flex-wrap:wrap;}
 nav button{background:none;border:1px solid transparent;color:var(--muted);font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.4rem .85rem;cursor:pointer;transition:all .2s;border-radius:2px;}
 nav button:hover{color:var(--text);border-color:var(--border);}
 nav button.active{color:var(--green);border-color:var(--green);background:rgba(0,122,61,.07);}
-.last-update{font-family:var(--mono);font-size:.6rem;color:var(--muted);white-space:nowrap;}
 
 /* ── LAYOUT ── */
 main{padding:2rem 2.5rem;max-width:1400px;margin:0 auto;}
@@ -217,7 +216,7 @@ tr:hover td{background:var(--surface2);}
     <button onclick="showSec('comparador',this)">Comparador</button>
     <button onclick="showSec('frontones',this)">Frontones</button>
   </nav>
-  <div class="last-update" id="lastUpdate">—</div>
+
 </header>
 
 <main>
@@ -514,7 +513,7 @@ function init(){
   populateC4Sels();
   renderFrontones();
   buildRanking();
-  document.getElementById('lastUpdate').textContent='Actualizado: '+(PARTIDOS[0]?.fecha||'—');
+
 }
 
 function showSec(id,btn){
@@ -877,12 +876,13 @@ function renderH2H(){
     return;
   }
 
-  let w1=0,w2=0,pf1=0,pf2=0;
+  let w1=0,w2=0,pf1=0,pf2=0,over365=0;
   enfs.forEach(p=>{
     const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
     const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
     pf1+=a;pf2+=b;
     if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
+    if((p.puntos1+p.puntos2)>36.5)over365++;
   });
 
   const esMano=h2hMod==='manomanista';
@@ -893,6 +893,8 @@ function renderH2H(){
     const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
     const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
     const ti=TTAG[p.tipo]||{cls:'',lbl:p.tipo};
+    const total=p.puntos1+p.puntos2;
+    const isOver=total>36.5;
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
@@ -902,6 +904,7 @@ function renderH2H(){
       <td style="color:var(--muted);text-align:center">—</td>
       <td style="color:${!gP1?'var(--red)':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
+      <td style="font-family:var(--mono);font-size:.68rem;text-align:center;color:${isOver?'var(--green)':'var(--muted)'};font-weight:${isOver?600:400}" title="${isOver?'Más de 36,5':'Menos de 36,5'}">${total}</td>
     </tr>`;
   }).join('');
 
@@ -909,7 +912,20 @@ function renderH2H(){
     <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
     <div class="comp-bar">
       <div><div class="comp-nm">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div></div>
-      <div><div class="comp-pj">${enfs.length} PJ</div></div>
+      <div>
+        <div class="comp-pj">${enfs.length} PJ</div>
+        <div style="margin-top:.9rem;padding:.55rem .9rem;background:var(--surface);border:1px solid var(--border);border-radius:2px;text-align:center;">
+          <div style="font-family:var(--display);font-size:1.6rem;color:${over365/enfs.length>=0.5?'var(--green)':'var(--muted)'}">
+            ${Math.round(over365/enfs.length*100)}%
+          </div>
+          <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-top:.15rem;white-space:nowrap">
+            Más de 36,5 tantos
+          </div>
+          <div style="font-family:var(--mono);font-size:.5rem;color:var(--muted);margin-top:.1rem">
+            ${over365} de ${enfs.length}
+          </div>
+        </div>
+      </div>
       <div><div class="comp-nm">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
@@ -917,6 +933,7 @@ function renderH2H(){
       ${esMano?'':`<th>Comp. ${p1}</th>`}
       <th>${p1}</th><th></th><th>${p2}</th>
       ${esMano?'':`<th>Comp. ${p2}</th>`}
+      <th title="Total tantos">Total</th>
     </tr></thead><tbody>${filas}</tbody></table></div>`;
 }
 
