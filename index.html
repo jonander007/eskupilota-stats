@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskupilota Stats — Pelota Vasca</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -587,10 +588,13 @@ function buildYearPills(){
 }
 
 function setYear(pillsId,varName,year){
-  window[varName]=year;
+  if(varName==='activeYearPel') activeYearPel=year;
+  else if(varName==='activeYearRk') activeYearRk=year;
+  else if(varName==='activeYearH2H') activeYearH2H=year;
+  else if(varName==='activeYearC4') activeYearC4=year;
+  else if(varName==='activeYearFron') activeYearFron=year;
   document.querySelectorAll(`#${pillsId} .ypill`).forEach(b=>b.classList.remove('on'));
   document.querySelector(`#${pillsId} .ypill[data-year="${year}"]`)?.classList.add('on');
-  // Llamar al render correspondiente
   if(varName==='activeYearPel') renderPCards();
   else if(varName==='activeYearRk') buildRanking();
   else if(varName==='activeYearH2H') renderH2H();
