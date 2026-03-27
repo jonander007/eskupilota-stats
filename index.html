@@ -103,8 +103,8 @@ tr:hover td{background:var(--surface2);}
 /* ── PELOTARIS GROUP HEADERS ── */
 .pel-group-header{font-family:var(--display);font-size:1.1rem;letter-spacing:.06em;padding:.5rem 0 .4rem;border-bottom:2px solid var(--border);margin-bottom:.8rem;margin-top:1.4rem;display:flex;align-items:center;gap:.6rem;}
 .pel-group-header:first-child{margin-top:0;}
-.pel-group-header.del{border-color:var(--red);color:var(--red);}
-.pel-group-header.zag{border-color:#2471a3;color:#2471a3;}
+.pel-group-header.del{border-color:var(--text);color:var(--text);}
+.pel-group-header.zag{border-color:var(--text);color:var(--text);}
 .pel-group-header.otro{border-color:var(--muted);color:var(--muted);}
 .pel-group-count{font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:400;}
 /* ── PELOTARI CARDS ── */
@@ -140,6 +140,17 @@ tr:hover td{background:var(--surface2);}
 .ypill:hover{border-color:var(--green);color:var(--green);}
 .ypill.on{background:var(--green);border-color:var(--green);color:#fff;}
 
+
+/* ── RANKING TABS ── */
+.rk-tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:1.2rem;border-bottom:2px solid var(--border);padding-bottom:.6rem;}
+.rk-tab{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;padding:.4rem .9rem;border:1px solid var(--border);background:none;cursor:pointer;border-radius:2px;color:var(--muted);transition:all .15s;}
+.rk-tab:hover{border-color:var(--green);color:var(--green);}
+.rk-tab.on{background:var(--green);border-color:var(--green);color:#fff;font-weight:600;}
+.rk-panel{display:none;}.rk-panel.active{display:block;}
+.rk-min-label{font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-bottom:.8rem;}
+.rk-card{background:var(--surface);border:1px solid var(--border);padding:1.3rem;border-top:3px solid var(--green);}
+.rk-card.azul{border-top-color:#2471a3;}
+.rk-card h3{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
 /* ── RANKING ── */
 .rk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
 .rk-card{background:var(--surface);border:1px solid var(--border);padding:1.3rem;border-top:3px solid var(--green);}
@@ -379,7 +390,16 @@ tr:hover td{background:var(--surface2);}
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsRk"></div></div>
     </div>
   </div>
-  <div class="rk-grid" id="rkGrid"></div>
+  <!-- Tabs -->
+  <div class="rk-tabs" id="rkTabs">
+    <button class="rk-tab on" onclick="setRkTab('victorias',this)">Victorias</button>
+    <button class="rk-tab" onclick="setRkTab('pct',this)">% Victorias</button>
+    <button class="rk-tab" onclick="setRkTab('roles',this)">Del vs Zag</button>
+    <button class="rk-tab" onclick="setRkTab('parejas',this)">Parejas</button>
+    <button class="rk-tab" onclick="setRkTab('over365',this)">+36.5 tantos</button>
+    <button class="rk-tab" onclick="setRkTab('racha',this)">Racha</button>
+  </div>
+  <div id="rkContent"></div>
 </div>
 
 <!-- ══ COMPARADOR ══════════════════════════════════════════════════════════ -->
@@ -531,7 +551,7 @@ const DELANTEROS = new Set([
   'JAKA','PEÑA II','LARRAZABAL','P.ETXEBERRIA','ELORDI','SENAR','ALTUNA III','AGIRRE',
   'ARTOLA','ZUBIZARRETA III','DARÍO','LASO','BAKAIKOA','URRUTIKOETXEA','ALBERDI II',
   'EGIGUREN V','MURUA','SALABERRIA','EXPOSITO','DE LA FUENTE','MATA','AMIANO','ALBERDI',
-  'REKALDE','ZUBIZARRETA IV','ELEZKANO II','ALTUNA II','APEZETXEA II','EZKURDIA','ZABALA'
+  'REKALDE','ZUBIZARRETA IV','ELEZKANO II','APEZETXEA II','EZKURDIA','ZABALA'
 ]);
 const ZAGUEROS = new Set([
   'ALBISU','REZUSTA','IMAZ','MARIEZKURRENA II','UGARTEMENDIA','MARTIJA','IZTUETA',
@@ -1304,30 +1324,179 @@ function goToPel(n){goToNav('pelotaris');setTimeout(()=>openPerfil(n),80);}
 // ════════════════════════════════════════════════════════════
 // RANKING
 // ════════════════════════════════════════════════════════════
-function buildRanking(){
-  const parts=filtByTipoYear(activeTipo,activeYearRk);
-  const st=calcStats(parts);
-  const sorted=Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc));
-  const mx=sorted[0]?.[1].pg||1;
+let activeRkTab = 'victorias';
 
-  const mkCard=(titulo,lista)=>`
-    <div class="rk-card"><h3>${titulo}</h3>
-    ${lista.map(([n,s],i)=>`
-      <div class="rk-row">
+function setRkTab(tab, btn){
+  activeRkTab = tab;
+  document.querySelectorAll('.rk-tab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  buildRanking();
+}
+
+function buildRanking(){
+  const parts = filtByTipoYear(activeTipo, activeYearRk);
+  const el = document.getElementById('rkContent');
+
+  // Helper: render a single ranking card
+  function mkRkCard(titulo, lista, statFn, extraCols, cls=''){
+    const mx = lista[0] ? statFn(lista[0][1]).val : 1;
+    return `<div class="rk-card ${cls}"><h3>${titulo}</h3>
+    ${lista.map(([n,s],i)=>{
+      const main = statFn(s);
+      return `<div class="rk-row">
         <div class="rk-pos ${i===0?'p1':i===1?'p2':i===2?'p3':''}">${i+1}</div>
         <div class="rk-name clk" onclick="goToPel('${esc(n)}')">${n}</div>
-        <div class="rk-stat pg">${s.pg}V</div>
-        <div class="rk-stat" style="color:var(--red)">${s.pp}D</div>
-        <div class="rk-stat">${s.pj}PJ</div>
-        <div class="rk-stat" style="color:${s.pf-s.pc>=0?'var(--green)':'var(--red)'}">${s.pf-s.pc>0?'+':''}${s.pf-s.pc}</div>
+        ${extraCols(s)}
+        <div class="rk-stat pg" style="color:var(--green);font-weight:700">${main.lbl}</div>
       </div>
-      <div class="wbar-bg"><div class="wbar-fill" style="width:${(s.pg/mx)*100}%"></div></div>
-    `).join('')}
+      <div class="wbar-bg"><div class="wbar-fill" style="width:${mx>0?(main.val/mx)*100:0}%"></div></div>`;
+    }).join('')}
     </div>`;
+  }
 
-  const top=sorted.slice(0,20);
-  const h=Math.ceil(top.length/2);
-  document.getElementById('rkGrid').innerHTML=mkCard(`1º — ${h}º`,top.slice(0,h))+mkCard(`${h+1}º — ${top.length}º`,top.slice(h));
+  function mkGrid(cards){
+    return `<div class="rk-grid">${cards.join('')}</div>`;
+  }
+
+  // ── TAB: Victorias ──
+  if(activeRkTab === 'victorias'){
+    const st = calcStats(parts);
+    const sorted = Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc));
+    const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
+    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div>`;
+    el.innerHTML = mkGrid([
+      mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
+      mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
+    ]);
+  }
+
+  // ── TAB: % Victorias ──
+  else if(activeRkTab === 'pct'){
+    const MIN_PJ = 10;
+    const st = calcStats(parts);
+    const sorted = Object.entries(st)
+      .filter(([,s])=>s.pj>=MIN_PJ)
+      .sort((a,b)=>(b[1].pg/b[1].pj)-(a[1].pg/a[1].pj));
+    const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
+    const sf = s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'});
+    const ec = s=>`<div class="rk-stat">${s.pg}V</div><div class="rk-stat">${s.pj}PJ</div>`;
+    el.innerHTML = `<div class="rk-min-label">Mínimo ${MIN_PJ} partidos</div>` + mkGrid([
+      mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
+      mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
+    ]);
+  }
+
+  // ── TAB: Delanteros vs Zagueros ──
+  else if(activeRkTab === 'roles'){
+    const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
+    const st = calcStats(parsParejas);
+    const dels = Object.entries(st).filter(([n])=>DELANTEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg).slice(0,15);
+    const zags = Object.entries(st).filter(([n])=>ZAGUEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg).slice(0,15);
+    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
+    el.innerHTML = mkGrid([
+      mkRkCard('Delanteros', dels, sf, ec),
+      mkRkCard('Zagueros', zags, sf, ec, 'azul')
+    ]);
+  }
+
+  // ── TAB: Parejas ──
+  else if(activeRkTab === 'parejas'){
+    const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
+    const pStats = {};
+    parsParejas.forEach(p=>{
+      [p.equipo1, p.equipo2].forEach((eq,idx)=>{
+        const d=eq.delantero, z=eq.zaguero;
+        if(!d||!z) return;
+        const key = [d,z].sort().join(' / ');
+        if(!pStats[key]) pStats[key]={pj:0,pg:0,pp:0,pf:0,pc:0,d,z};
+        pStats[key].pj++;
+        const ganaron = (idx===0&&p.ganador==='equipo1')||(idx===1&&p.ganador==='equipo2');
+        if(ganaron) pStats[key].pg++; else pStats[key].pp++;
+        pStats[key].pf += idx===0?p.puntos1:p.puntos2;
+        pStats[key].pc += idx===0?p.puntos2:p.puntos1;
+      });
+    });
+    const sorted = Object.entries(pStats).filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg).slice(0,20);
+    const h = Math.ceil(sorted.length/2);
+    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
+    el.innerHTML = sorted.length ? mkGrid([
+      mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
+      mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
+    ]) : '<div class="nodata"><div class="ic">📭</div>Sin datos suficientes</div>';
+  }
+
+  // ── TAB: +36.5 tantos ──
+  else if(activeRkTab === 'over365'){
+    const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
+    const over = {};
+    parsParejas.forEach(p=>{
+      const total = p.puntos1 + p.puntos2;
+      [p.equipo1, p.equipo2].forEach(eq=>{
+        [eq.delantero, eq.zaguero].filter(Boolean).forEach(n=>{
+          if(!over[n]) over[n]={pj:0,over:0};
+          over[n].pj++;
+          if(total>36.5) over[n].over++;
+        });
+      });
+    });
+    const MIN_PJ = 10;
+    const sorted = Object.entries(over)
+      .filter(([,s])=>s.pj>=MIN_PJ)
+      .sort((a,b)=>(b[1].over/b[1].pj)-(a[1].over/a[1].pj))
+      .slice(0,20);
+    const h = Math.ceil(sorted.length/2);
+    const sf = s=>({val:s.over/s.pj*100, lbl:Math.round(s.over/s.pj*100)+'%'});
+    const ec = s=>`<div class="rk-stat">${s.over} partidos</div><div class="rk-stat">${s.pj}PJ</div>`;
+    el.innerHTML = `<div class="rk-min-label">Mínimo ${MIN_PJ} partidos · solo parejas</div>` + mkGrid([
+      mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
+      mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
+    ]);
+  }
+
+  // ── TAB: Racha ──
+  else if(activeRkTab === 'racha'){
+    // Sort all parts by date ascending
+    function parseFecha(f){ try{const[d,m,y]=f.split('/');return new Date(+y,+m-1,+d);}catch{return new Date(0);} }
+    const allParts = [...PARTIDOS].sort((a,b)=>parseFecha(a.fecha)-parseFecha(b.fecha));
+    const rachas = {};
+    allParts.forEach(p=>{
+      const e1=pels(p.equipo1), e2=pels(p.equipo2);
+      [...e1,...e2].forEach(n=>{
+        if(!rachas[n]) rachas[n]={actual:0,max:0};
+        const gano=(e1.includes(n)&&p.ganador==='equipo1')||(e2.includes(n)&&p.ganador==='equipo2');
+        if(gano){ rachas[n].actual++; rachas[n].max=Math.max(rachas[n].max,rachas[n].actual); }
+        else rachas[n].actual=0;
+      });
+    });
+    // Filter by current year if selected
+    if(activeYearRk!=='todos'){
+      Object.keys(rachas).forEach(n=>{ rachas[n]={actual:0,max:0}; });
+      const filtered = allParts.filter(p=>getYear(p)===activeYearRk);
+      filtered.forEach(p=>{
+        const e1=pels(p.equipo1), e2=pels(p.equipo2);
+        [...e1,...e2].forEach(n=>{
+          if(!rachas[n]) rachas[n]={actual:0,max:0};
+          const gano=(e1.includes(n)&&p.ganador==='equipo1')||(e2.includes(n)&&p.ganador==='equipo2');
+          if(gano){ rachas[n].actual++; rachas[n].max=Math.max(rachas[n].max,rachas[n].actual); }
+          else rachas[n].actual=0;
+        });
+      });
+    }
+    const byMax = Object.entries(rachas).filter(([,s])=>s.max>=3).sort((a,b)=>b[1].max-a[1].max).slice(0,20);
+    const byActual = Object.entries(rachas).filter(([,s])=>s.actual>=2).sort((a,b)=>b[1].actual-a[1].actual).slice(0,10);
+    const sfMax = s=>({val:s.max, lbl:s.max+' seg.'});
+    const sfAct = s=>({val:s.actual, lbl:s.actual+' seg.'});
+    const ecMax = s=>`<div class="rk-stat">Actual: ${s.actual}</div>`;
+    const ecAct = s=>`<div class="rk-stat">Mejor: ${s.max}</div>`;
+    const h = Math.ceil(byMax.length/2);
+    el.innerHTML = mkGrid([
+      mkRkCard('Mejor racha histórica', byMax.slice(0,h), sfMax, ecMax),
+      byActual.length ? mkRkCard('Racha activa ahora', byActual, sfAct, ecAct, 'azul') : ''
+    ].filter(Boolean));
+  }
 }
 
 // ════════════════════════════════════════════════════════════
