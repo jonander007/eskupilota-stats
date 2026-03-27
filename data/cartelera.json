@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/03/2026 15:56",
+  "actualizado": "27/03/2026 16:21",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -62,7 +62,7 @@
             "IMAZ"
           ],
           "raw": "JAKA – LANDA // ZUBIZARRETA IV – IMAZ",
-          "tipo": "manomanista-a",
+          "tipo": "campeonato-a",
           "serie": "a"
         },
         {
@@ -147,7 +147,7 @@
             "REKALDE"
           ],
           "raw": "XXXX // REKALDE (Serie B)",
-          "tipo": "manomanista-a",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -169,7 +169,7 @@
             "ESKUZA"
           ],
           "raw": "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
-          "tipo": "manomanista-a",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -199,7 +199,7 @@
           ],
           "eq2": [],
           "raw": "SALABERRIA // XXXX (Serie B)",
-          "tipo": "manomanista-a",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -221,7 +221,7 @@
             "ARANGUREN"
           ],
           "raw": "EGIGUREN V – LOZA // SENAR – ARANGUREN",
-          "tipo": "manomanista-a",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -251,7 +251,7 @@
             "ZUBIZARRETA IV"
           ],
           "raw": "XXXX // ZUBIZARRETA IV (Serie B)",
-          "tipo": "manomanista-a",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -264,7 +264,7 @@
             "IMAZ"
           ],
           "raw": "ARTOLA – LANDA // LARRAZABAL – IMAZ",
-          "tipo": "manomanista-a",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -294,7 +294,7 @@
           ],
           "eq2": [],
           "raw": "AMIANO // XXXX (Serie B)",
-          "tipo": "manomanista-a",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -523,7 +523,7 @@
             "LANDA"
           ],
           "raw": "XXXX – ALBISU // XXXX – LANDA",
-          "tipo": "manomanista-b",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
