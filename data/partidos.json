@@ -102,13 +102,13 @@
     "tipo": "festival",
     "competicion": "Festival Parejas 2026",
     "equipo1": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "UGARTEMENDIA"
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "BIKUÑA"
     },
-    "puntos1": 21,
+    "puntos1": 11,
     "equipo2": {
-      "delantero": "AMIANO",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "APEZETXEA II",
+      "zaguero": "REZUSTA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -118,16 +118,16 @@
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2026",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
-      "delantero": "P.ETXEBERRIA",
-      "zaguero": "BIKUÑA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "UGARTEMENDIA"
     },
-    "puntos1": 11,
+    "puntos1": 21,
     "equipo2": {
-      "delantero": "APEZETXEA II",
-      "zaguero": "REZUSTA"
+      "delantero": "AMIANO",
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -185,25 +185,6 @@
     "equipo2": {
       "delantero": "REKALDE",
       "zaguero": "ALDABE"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "14/03/2026",
-    "fronton": "BEOTIBAR",
-    "ciudad": "TOLOSA",
-    "provincia": "",
-    "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
-    "equipo1": {
-      "delantero": "JAKA",
-      "zaguero": "IZTUETA"
-    },
-    "puntos1": 7,
-    "equipo2": {
-      "delantero": "ALTUNA III",
-      "zaguero": "EZKURDIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -344,13 +325,13 @@
   {
     "fecha": "08/03/2026",
     "fronton": "OGUETA",
-    "ciudad": "VITORIA-GASTEIZ",
+    "ciudad": "GASTEIZ",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2026",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
       "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 15,
     "equipo2": {
@@ -477,10 +458,10 @@
   {
     "fecha": "06/03/2026",
     "fronton": "FERNANDO GARAITA",
-    "ciudad": "LEGUTIO",
+    "ciudad": "VITORIA",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2026",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": "ESKUZA"
@@ -488,10 +469,48 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 14,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/03/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Navarra Arena",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/03/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Navarra Arena",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "LANDA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "01/03/2026",
@@ -508,6 +527,63 @@
     "equipo2": {
       "delantero": "LASO",
       "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/02/2026",
+    "fronton": "BAÑOS DE RIO TOBIA",
+    "ciudad": "BAÑOS DE RÍO TOBÍA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Baños de Río Tobía",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/02/2026",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "AMIANO",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "REKALDE",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "28/02/2026",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IMAZ"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -571,6 +647,25 @@
   },
   {
     "fecha": "22/02/2026",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Arrasate",
+    "equipo1": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "LANDA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/02/2026",
     "fronton": "UARKAPE",
     "ciudad": "ARRASATE",
     "provincia": "",
@@ -586,6 +681,25 @@
       "zaguero": "MARTIJA"
     },
     "puntos2": 10,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/02/2026",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZKOITIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Azkoitia",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 19,
     "ganador": "equipo1"
   },
   {
@@ -609,11 +723,11 @@
   },
   {
     "fecha": "20/02/2026",
-    "fronton": "AMOREBIETA IV",
+    "fronton": "AMOREBIETA",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "JAKA",
       "zaguero": "IZTUETA"
@@ -621,9 +735,28 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MARIEZKURRENA II"
+      "zaguero": "LANDA"
     },
     "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/02/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 12,
     "ganador": "equipo1"
   },
   {
@@ -644,6 +777,25 @@
     },
     "puntos2": 12,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "17/02/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "17/02/2026",
@@ -688,6 +840,25 @@
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "16/02/2026",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2026",
     "equipo1": {
@@ -700,6 +871,25 @@
       "zaguero": "REZUSTA"
     },
     "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "15/02/2026",
+    "fronton": "ALSASUA",
+    "ciudad": "ALSASUA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Alsasua",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 14,
     "ganador": "equipo1"
   },
   {
@@ -727,7 +917,7 @@
     "ciudad": "DONOSTIA",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "ALTUNA III",
       "zaguero": "EZKURDIA"
@@ -735,7 +925,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MARIEZKURRENA II"
+      "zaguero": "ESKIROZ"
     },
     "puntos2": 15,
     "ganador": "equipo1"
@@ -748,7 +938,7 @@
     "tipo": "campeonato-b",
     "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
-      "delantero": "PEÑA II",
+      "delantero": "AGIRRE",
       "zaguero": "SALAVERRI II"
     },
     "puntos1": 16,
@@ -761,13 +951,13 @@
   },
   {
     "fecha": "13/02/2026",
-    "fronton": "BARATZE",
+    "fronton": "SEGURA",
     "ciudad": "SEGURA",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
-      "delantero": "ARTOLA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos1": 20,
@@ -781,7 +971,26 @@
   {
     "fecha": "13/02/2026",
     "fronton": "NAJERA",
-    "ciudad": "NAJERA",
+    "ciudad": "NÁJERA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "LOZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/02/2026",
+    "fronton": "NAJERA",
+    "ciudad": "NÁJERA",
     "provincia": "",
     "tipo": "campeonato-b",
     "competicion": "Campeonato Parejas Serie B 2026",
@@ -792,7 +1001,7 @@
     "puntos1": 13,
     "equipo2": {
       "delantero": "AMIANO",
-      "zaguero": "ESKIROZ"
+      "zaguero": "LANDA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -817,23 +1026,23 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "13/02/2026",
-    "fronton": "NAJERA",
-    "ciudad": "NAJERA",
+    "fecha": "08/02/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
     "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
+    "tipo": "festival",
+    "competicion": "Festival Logroño",
     "equipo1": {
-      "delantero": "DARÍO",
-      "zaguero": "LOZA"
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
     },
-    "puntos1": 22,
+    "puntos1": 6,
     "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "UGARTEMENDIA"
+      "delantero": "AMIANO",
+      "zaguero": "LANDA"
     },
-    "puntos2": 13,
-    "ganador": "equipo1"
+    "puntos2": 18,
+    "ganador": "equipo2"
   },
   {
     "fecha": "08/02/2026",
@@ -878,6 +1087,25 @@
     "fronton": "CLUB DEPORTIVO",
     "ciudad": "BILBAO",
     "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/02/2026",
+    "fronton": "CLUB DEPORTIVO",
+    "ciudad": "BILBAO",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2026",
     "equipo1": {
@@ -893,23 +1121,42 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "07/02/2026",
-    "fronton": "CLUB DEPORTIVO",
-    "ciudad": "BILBAO",
+    "fecha": "06/02/2026",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
     "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
+    "tipo": "festival",
+    "competicion": "Festival Tafalla",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "06/02/2026",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "PEÑA II",
-      "zaguero": "SALAVERRI II"
+      "zaguero": "IMAZ"
     },
-    "puntos1": 16,
+    "puntos1": 22,
     "equipo2": {
-      "delantero": "MURUA",
-      "zaguero": "GABIRONDO"
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "REZUSTA"
     },
-    "puntos2": 22,
-    "ganador": "equipo2"
+    "puntos2": 20,
+    "ganador": "equipo1"
   },
   {
     "fecha": "06/02/2026",
@@ -928,25 +1175,6 @@
       "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 18,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "06/02/2026",
-    "fronton": "ERETA",
-    "ciudad": "TAFALLA",
-    "provincia": "",
-    "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
-    "equipo1": {
-      "delantero": "ARTOLA",
-      "zaguero": "IMAZ"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "P.ETXEBERRIA",
-      "zaguero": "REZUSTA"
-    },
-    "puntos2": 20,
     "ganador": "equipo1"
   },
   {
@@ -990,17 +1218,17 @@
   {
     "fecha": "01/02/2026",
     "fronton": "OGUETA",
-    "ciudad": "VITORIA-GASTEIZ",
+    "ciudad": "GASTEIZ",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "ALTUNA III",
       "zaguero": "EZKURDIA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ARTOLA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos2": 15,
@@ -1024,6 +1252,25 @@
     },
     "puntos2": 21,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/01/2026",
+    "fronton": "IDIAZABAL",
+    "ciudad": "IDIAZABAL",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "LOZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "31/01/2026",
@@ -1062,25 +1309,6 @@
     },
     "puntos2": 12,
     "ganador": "equipo1"
-  },
-  {
-    "fecha": "31/01/2026",
-    "fronton": "IGARONDO",
-    "ciudad": "IDIAZABAL",
-    "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
-    "equipo1": {
-      "delantero": "PEÑA II",
-      "zaguero": "SALAVERRI II"
-    },
-    "puntos1": 10,
-    "equipo2": {
-      "delantero": "DARÍO",
-      "zaguero": "LOZA"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
   },
   {
     "fecha": "31/01/2026",
@@ -1161,17 +1389,17 @@
   {
     "fecha": "25/01/2026",
     "fronton": "NAVARRA ARENA",
-    "ciudad": "PAMPLONA",
+    "ciudad": "IRUÑEA",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
       "delantero": "ALTUNA III",
       "zaguero": "EZKURDIA"
     },
     "puntos1": 14,
     "equipo2": {
-      "delantero": "LASO",
+      "delantero": "PEÑA II",
       "zaguero": "ALBISU"
     },
     "puntos2": 22,
@@ -1179,19 +1407,57 @@
   },
   {
     "fecha": "25/01/2026",
+    "fronton": "OIARTZUN",
+    "ciudad": "OIARTZUN",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Oiartzun",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 4,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": "LANDA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/01/2026",
     "fronton": "NAVARRA ARENA",
-    "ciudad": "PAMPLONA",
+    "ciudad": "IRUÑEA",
     "provincia": "",
     "tipo": "campeonato-b",
     "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
-      "delantero": "PEÑA II",
-      "zaguero": "SALAVERRI II"
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 13,
     "equipo2": {
       "delantero": "SALABERRIA",
       "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/01/2026",
+    "fronton": "OIARTZUN",
+    "ciudad": "OIARTZUN",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Oiartzun",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ALDABE"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -1349,25 +1615,6 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "18/01/2026",
-    "fronton": "TROBIKA",
-    "ciudad": "MUNGIA",
-    "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
-    "equipo1": {
-      "delantero": "MURUA",
-      "zaguero": "GABIRONDO"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "REKALDE",
-      "zaguero": "BIKUÑA"
-    },
-    "puntos2": 15,
-    "ganador": "equipo1"
-  },
-  {
     "fecha": "17/01/2026",
     "fronton": "ARIZPE",
     "ciudad": "MARKINA-XEMEIN",
@@ -1423,25 +1670,6 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
-  },
-  {
-    "fecha": "17/01/2026",
-    "fronton": "MARKINA-XEMEIN",
-    "ciudad": "MARKINA-XEMEIN",
-    "provincia": "",
-    "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
-    "equipo1": {
-      "delantero": "JAKA",
-      "zaguero": "IZTUETA"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "ARTOLA",
-      "zaguero": "IMAZ"
-    },
-    "puntos2": 15,
-    "ganador": "equipo1"
   },
   {
     "fecha": "17/01/2026",
@@ -1539,23 +1767,23 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "16/01/2026",
-    "fronton": "ARROYO I",
-    "ciudad": "OYON",
+    "fecha": "11/01/2026",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
     "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
+    "tipo": "festival",
+    "competicion": "Festival Gasteiz",
     "equipo1": {
-      "delantero": "PEÑA II",
-      "zaguero": "SALAVERRI II"
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
     },
-    "puntos1": 22,
+    "puntos1": 7,
     "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "UGARTEMENDIA"
+      "delantero": "EGIGUREN V",
+      "zaguero": "ALDABE"
     },
-    "puntos2": 8,
-    "ganador": "equipo1"
+    "puntos2": 18,
+    "ganador": "equipo2"
   },
   {
     "fecha": "11/01/2026",
@@ -1597,32 +1825,13 @@
   },
   {
     "fecha": "10/01/2026",
-    "fronton": "ADARRAGA",
-    "ciudad": "LOGROÑO",
-    "provincia": "",
-    "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
-    "equipo1": {
-      "delantero": "P.ETXEBERRIA",
-      "zaguero": "REZUSTA"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "ZABALA",
-      "zaguero": "MARTIJA"
-    },
-    "puntos2": 21,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "10/01/2026",
     "fronton": "ETXEBARRI",
     "ciudad": "ETXEBARRI",
     "provincia": "",
     "tipo": "campeonato-a",
-    "competicion": "Campeonato Parejas Serie A 2026",
+    "competicion": "Campeonato Parejas 2026",
     "equipo1": {
-      "delantero": "ARTOLA",
+      "delantero": "PEÑA II",
       "zaguero": "IMAZ"
     },
     "puntos1": 14,
@@ -1641,12 +1850,12 @@
     "tipo": "campeonato-b",
     "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
-      "delantero": "PEÑA II",
+      "delantero": "AGIRRE",
       "zaguero": "SALAVERRI II"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ZUBIZARRETA III",
+      "delantero": "BAKAIKOA",
       "zaguero": "ARANGUREN"
     },
     "puntos2": 21,
@@ -1666,9 +1875,28 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "REKALDE",
-      "zaguero": "BIKUÑA"
+      "zaguero": "EROSTARBE"
     },
     "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "10/01/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas Serie A 2026",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 21,
     "ganador": "equipo1"
   },
   {
@@ -1714,6 +1942,25 @@
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/01/2026",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
     "tipo": "campeonato-b",
     "competicion": "Campeonato Parejas Serie B 2026",
     "equipo1": {
@@ -1745,25 +1992,6 @@
       "zaguero": "REZUSTA"
     },
     "puntos2": 15,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "06/01/2026",
-    "fronton": "ASTELENA",
-    "ciudad": "EIBAR",
-    "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
-    "equipo1": {
-      "delantero": "PEÑA II",
-      "zaguero": "SALAVERRI II"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "AMIANO",
-      "zaguero": "ESKIROZ"
-    },
-    "puntos2": 13,
     "ganador": "equipo1"
   },
   {
@@ -1996,6 +2224,25 @@
   },
   {
     "fecha": "30/12/2025",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZKOITIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Azkoitia",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/12/2025",
     "fronton": "GUREA",
     "ciudad": "AZKOITIA",
     "provincia": "",
@@ -2110,6 +2357,25 @@
   },
   {
     "fecha": "27/12/2025",
+    "fronton": "ASTIGARRAGA",
+    "ciudad": "ASTIGARRAGA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Despedida Exposito",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/12/2025",
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
     "provincia": "",
@@ -2189,6 +2455,25 @@
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 6,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/12/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2026",
     "equipo1": {
@@ -2221,6 +2506,25 @@
     },
     "puntos2": 20,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/12/2025",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Arrasate",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "22/12/2025",
@@ -2284,6 +2588,25 @@
     "fronton": "ATANO III",
     "ciudad": "DONOSTIA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/12/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2026",
     "equipo1": {
@@ -2319,6 +2642,25 @@
   },
   {
     "fecha": "19/12/2025",
+    "fronton": "MUNITIBAR",
+    "ciudad": "MUNITIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2026",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "LOZA"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/12/2025",
     "fronton": "MIMETIZ",
     "ciudad": "ZALLA",
     "provincia": "",
@@ -2332,25 +2674,6 @@
     "equipo2": {
       "delantero": "LARRAZABAL",
       "zaguero": "MARIEZKURRENA II"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "19/12/2025",
-    "fronton": "MUNITIBAR",
-    "ciudad": "MUNITIBAR",
-    "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2026",
-    "equipo1": {
-      "delantero": "DARÍO",
-      "zaguero": "LOZA"
-    },
-    "puntos1": 19,
-    "equipo2": {
-      "delantero": "AMIANO",
-      "zaguero": "ESKIROZ"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -2408,6 +2731,25 @@
     "equipo2": {
       "delantero": "MURUA",
       "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/12/2025",
+    "fronton": "URRETXU",
+    "ciudad": "URRETXU",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Urretxu",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ESKUZA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -2522,6 +2864,25 @@
     "equipo2": {
       "delantero": "REKALDE",
       "zaguero": "BIKUÑA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "08/12/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "EROSTARBE"
     },
     "puntos2": 16,
     "ganador": "equipo1"
@@ -3174,6 +3535,25 @@
   },
   {
     "fecha": "09/11/2025",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Arrasate",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/11/2025",
     "fronton": "UARKAPE",
     "ciudad": "ARRASATE",
     "provincia": "",
@@ -3189,6 +3569,25 @@
       "zaguero": null
     },
     "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "08/11/2025",
+    "fronton": "IRUN",
+    "ciudad": "IRUN",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Irun",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 10,
     "ganador": "equipo1"
   },
   {
@@ -3215,6 +3614,25 @@
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/11/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
     "tipo": "cuatro-medio-b",
     "competicion": "Campeonato 4 1/2 Serie B 2025",
     "equipo1": {
@@ -3227,6 +3645,44 @@
       "zaguero": null
     },
     "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/11/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/11/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 14,
     "ganador": "equipo1"
   },
   {
@@ -3247,6 +3703,44 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/11/2025",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gasteiz",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/11/2025",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gasteiz",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
   },
   {
     "fecha": "01/11/2025",
@@ -3272,6 +3766,25 @@
     "fronton": "DIMA",
     "ciudad": "DIMA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Dima",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/10/2025",
+    "fronton": "DIMA",
+    "ciudad": "DIMA",
+    "provincia": "",
     "tipo": "cuatro-medio-b",
     "competicion": "Campeonato 4 1/2 Serie B 2025",
     "equipo1": {
@@ -3284,6 +3797,25 @@
       "zaguero": null
     },
     "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/10/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bilbao",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 20,
     "ganador": "equipo1"
   },
   {
@@ -3323,6 +3855,44 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/10/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/10/2025",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tafalla",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
   },
   {
     "fecha": "25/10/2025",
@@ -3649,6 +4219,25 @@
   },
   {
     "fecha": "12/10/2025",
+    "fronton": "LEKUNBERRI",
+    "ciudad": "LEKUNBERRI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Lekunberri",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/10/2025",
     "fronton": "JAIAN JAI",
     "ciudad": "LEKUNBERRI",
     "provincia": "",
@@ -3690,6 +4279,44 @@
     "fronton": "BIZKAIA FRONTOIA",
     "ciudad": "BILBAO",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bilbao",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "11/10/2025",
+    "fronton": "AZKOITIA",
+    "ciudad": "AZKOITIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Azkoitia",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/10/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
     "tipo": "cuatro-medio-a",
     "competicion": "Campeonato 4 1/2 Serie A 2025",
     "equipo1": {
@@ -3719,6 +4346,25 @@
     "equipo2": {
       "delantero": "REKALDE",
       "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "10/10/2025",
+    "fronton": "VILLAVA",
+    "ciudad": "VILLAVA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Villava",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -3804,6 +4450,25 @@
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "05/10/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
     "tipo": "cuatro-medio-a",
     "competicion": "Campeonato 4 1/2 Serie A 2025",
     "equipo1": {
@@ -3836,6 +4501,44 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/10/2025",
+    "fronton": "SORIA",
+    "ciudad": "SORIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Soria",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/10/2025",
+    "fronton": "ZALLA",
+    "ciudad": "ZALLA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Zalla",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
   },
   {
     "fecha": "04/10/2025",
@@ -3950,6 +4653,158 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Mateo Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Torneo San Mateo Serie B 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "manomanista-a",
+    "competicion": "Desafio Urzante San Mateo",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "27/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Desafio Urzante San Mateo",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Desafio Urzante San Mateo",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Mateo Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 8,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Torneo San Mateo Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/09/2025",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Mateo Serie A 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 8,
+    "ganador": "equipo1"
   },
   {
     "fecha": "25/09/2025",
@@ -4216,6 +5071,576 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "16/09/2025",
+    "fronton": "BERMEO",
+    "ciudad": "BERMEO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bermeo Hiria Inpesca",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "16/09/2025",
+    "fronton": "BERMEO",
+    "ciudad": "BERMEO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bermeo Hiria Inpesca",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/09/2025",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Navarra Arena",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "SANTA MARIA DE LAS HOYAS",
+    "ciudad": "SANTA MARIA DE LAS HOYAS",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Santa Maria de las Hoyas",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "VIANA",
+    "ciudad": "VIANA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Viana",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "ALSASUA",
+    "ciudad": "ALSASUA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "ELBURGO",
+    "ciudad": "ELBURGO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Elburgo",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "VIANA",
+    "ciudad": "VIANA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Viana",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/09/2025",
+    "fronton": "ALSASUA",
+    "ciudad": "ALSASUA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Alsasua",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/09/2025",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/09/2025",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/09/2025",
+    "fronton": "HONDARRIBIA",
+    "ciudad": "HONDARRIBIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Hondarribia",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/09/2025",
+    "fronton": "HONDARRIBIA",
+    "ciudad": "HONDARRIBIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Hondarribia",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "10/09/2025",
+    "fronton": "ORDIZIA",
+    "ciudad": "ORDIZIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Ordizia",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 10,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "10/09/2025",
+    "fronton": "ORDIZIA",
+    "ciudad": "ORDIZIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Ordizia",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/09/2025",
+    "fronton": "BELORADO",
+    "ciudad": "BELORADO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Belorado",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/09/2025",
+    "fronton": "LEGUTIO",
+    "ciudad": "LEGUTIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/09/2025",
+    "fronton": "BELORADO",
+    "ciudad": "BELORADO",
+    "provincia": "",
+    "tipo": "festival-cuatro",
+    "competicion": "Festival Belorado",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": null
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/09/2025",
+    "fronton": "LEGUTIO",
+    "ciudad": "LEGUTIO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/09/2025",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/09/2025",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "05/09/2025",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "05/09/2025",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Lekeitio",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "31/08/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 10,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/08/2025",
+    "fronton": "IRURZUN",
+    "ciudad": "IRURZUN",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/08/2025",
+    "fronton": "IRURZUN",
+    "ciudad": "IRURZUN",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/08/2025",
+    "fronton": "BERRIOZAR",
+    "ciudad": "BERRIOZAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Berriozar",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/08/2025",
+    "fronton": "LUMBIER",
+    "ciudad": "LUMBIER",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/08/2025",
+    "fronton": "LUMBIER",
+    "ciudad": "LUMBIER",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "29/08/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo Donostia Hiria Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 6,
+    "ganador": "equipo1"
   },
   {
     "fecha": "29/08/2025",
@@ -4788,6 +6213,25 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "12/08/2025",
+    "fronton": "AMURRIO",
+    "ciudad": "AMURRIO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Amurrio",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "11/08/2025",
     "fronton": "COVALEDA",
     "ciudad": "COVALEDA",
@@ -5071,6 +6515,690 @@
     },
     "puntos2": 16,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/08/2025",
+    "fronton": "BERA",
+    "ciudad": "BERA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "03/08/2025",
+    "fronton": "LABASTIDA",
+    "ciudad": "LABASTIDA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "03/08/2025",
+    "fronton": "LABASTIDA",
+    "ciudad": "LABASTIDA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/08/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "02/08/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/08/2025",
+    "fronton": "ALSASUA",
+    "ciudad": "ALSASUA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "TOLOSA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/07/2025",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZPEITIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Azpeitia",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/07/2025",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZPEITIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Azpeitia",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/07/2025",
+    "fronton": "ARITZBATALDE",
+    "ciudad": "ZARAUTZ",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "31/07/2025",
+    "fronton": "ARITZBATALDE",
+    "ciudad": "ZARAUTZ",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "27/07/2025",
+    "fronton": "HUERCANOS",
+    "ciudad": "HUÉRCANOS",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Huércanos",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/07/2025",
+    "fronton": "ELIZONDO",
+    "ciudad": "ELIZONDO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 4,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/07/2025",
+    "fronton": "HUERCANOS",
+    "ciudad": "HUÉRCANOS",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Huércanos",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/07/2025",
+    "fronton": "ELIZONDO",
+    "ciudad": "ELIZONDO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/07/2025",
+    "fronton": "ETXEBARRIA",
+    "ciudad": "ETXEBARRIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Etxebarria",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/07/2025",
+    "fronton": "ERMUA",
+    "ciudad": "ERMUA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/07/2025",
+    "fronton": "ERMUA",
+    "ciudad": "ERMUA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "20/07/2025",
+    "fronton": "LLODIO",
+    "ciudad": "LLODIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/07/2025",
+    "fronton": "LLODIO",
+    "ciudad": "LLODIO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/07/2025",
+    "fronton": "OTXANDIO",
+    "ciudad": "OTXANDIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/07/2025",
+    "fronton": "BERMEO",
+    "ciudad": "BERMEO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bermeo Hiria Inpesca",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/07/2025",
+    "fronton": "BERMEO",
+    "ciudad": "BERMEO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bermeo Hiria Inpesca",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/07/2025",
+    "fronton": "OTXANDIO",
+    "ciudad": "OTXANDIO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "18/07/2025",
+    "fronton": "BARAKALDO",
+    "ciudad": "BARAKALDO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank Serie A 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "18/07/2025",
+    "fronton": "BARAKALDO",
+    "ciudad": "BARAKALDO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Masters CaixaBank Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "TOLOSA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "16/07/2025",
+    "fronton": "AMOREBIETA",
+    "ciudad": "AMOREBIETA-ETXANO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Amorebieta-Etxano",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "16/07/2025",
+    "fronton": "AMOREBIETA",
+    "ciudad": "AMOREBIETA-ETXANO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Amorebieta-Etxano",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Fermin Serie A 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Torneo San Fermin Serie B 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "manomanista-a",
+    "competicion": "Desafio Urzante",
+    "equipo1": {
+      "delantero": "ALDABE",
+      "zaguero": null
+    },
+    "puntos1": 4,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Desafio Urzante",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Desafio Urzante",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": null
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Fermin Serie A 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Torneo San Fermin Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/07/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "TOLOSA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
   },
   {
     "fecha": "12/07/2025",
@@ -5517,6 +7645,25 @@
     "tipo": "cuatro-medio-a",
     "competicion": "Torneo 4½ San Fermin 2025",
     "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/07/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2025",
+    "equipo1": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": null
     },
@@ -5527,6 +7674,253 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/06/2025",
+    "fronton": "MUNGIA",
+    "ciudad": "MUNGIA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": null
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/06/2025",
+    "fronton": "ARAIA",
+    "ciudad": "ARAIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Araia",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/06/2025",
+    "fronton": "MUNGIA",
+    "ciudad": "MUNGIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Mungia",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/06/2025",
+    "fronton": "ARAIA",
+    "ciudad": "ARAIA",
+    "provincia": "",
+    "tipo": "festival-cuatro",
+    "competicion": "Festival Araia",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": null
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "29/06/2025",
+    "fronton": "SOPELA",
+    "ciudad": "SOPELA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": null
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/06/2025",
+    "fronton": "SOPELA",
+    "ciudad": "SOPELA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Sopela",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "TOLOSA"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/06/2025",
+    "fronton": "IBARRANGELU",
+    "ciudad": "IBARRANGELU",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Ibarrangelu",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/06/2025",
+    "fronton": "GERNIKA",
+    "ciudad": "GERNIKA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/06/2025",
+    "fronton": "GERNIKA",
+    "ciudad": "GERNIKA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gernika",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/06/2025",
+    "fronton": "HERNANI",
+    "ciudad": "HERNANI",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/06/2025",
+    "fronton": "HERNANI",
+    "ciudad": "HERNANI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Hernani",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/06/2025",
+    "fronton": "SEGURA",
+    "ciudad": "SEGURA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Segura",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "24/06/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
   },
   {
     "fecha": "24/06/2025",
@@ -5776,6 +8170,44 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "15/06/2025",
+    "fronton": "ERRIGOITI",
+    "ciudad": "ERRIGOITI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Errigoiti",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/06/2025",
+    "fronton": "GALLARTA",
+    "ciudad": "GALLARTA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gallarta",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "01/06/2025",
     "fronton": "BIZKAIA FRONTOIA",
     "ciudad": "BILBAO",
@@ -5841,25 +8273,6 @@
     "competicion": "Campeonato Manomanista 2025",
     "equipo1": {
       "delantero": "P.ETXEBERRIA",
-      "zaguero": null
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "LARRAZABAL",
-      "zaguero": null
-    },
-    "puntos2": 8,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "25/05/2025",
-    "fronton": "ATANO III",
-    "ciudad": "DONOSTIA",
-    "provincia": "",
-    "tipo": "manomanista-a",
-    "competicion": "Campeonato Manomanista Serie A 2025",
-    "equipo1": {
-      "delantero": "LASO",
       "zaguero": null
     },
     "puntos1": 22,
@@ -6122,6 +8535,25 @@
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/05/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
     "tipo": "manomanista-a",
     "competicion": "Campeonato Manomanista Serie A 2025",
     "equipo1": {
@@ -6158,6 +8590,25 @@
   {
     "fecha": "10/05/2025",
     "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "10/05/2025",
+    "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
     "tipo": "manomanista-b",
@@ -6173,6 +8624,25 @@
     },
     "puntos2": 11,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/05/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bilbao",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "04/05/2025",
@@ -6195,6 +8665,63 @@
   },
   {
     "fecha": "03/05/2025",
+    "fronton": "LEGAZPI",
+    "ciudad": "LEGAZPI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Legazpi",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "03/05/2025",
+    "fronton": "LEGAZPI",
+    "ciudad": "LEGAZPI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Legazpi",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/05/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "03/05/2025",
     "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
@@ -6210,6 +8737,25 @@
       "zaguero": null
     },
     "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/05/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 14,
     "ganador": "equipo1"
   },
   {
@@ -6252,6 +8798,25 @@
   },
   {
     "fecha": "27/04/2025",
+    "fronton": "ZUMAIA",
+    "ciudad": "ZUMAIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Zumaia",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "27/04/2025",
     "fronton": "AITZURI",
     "ciudad": "ZUMAIA",
     "provincia": "",
@@ -6265,6 +8830,25 @@
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/04/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "IZTUETA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -6350,6 +8934,25 @@
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/04/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
     "tipo": "manomanista-b",
     "competicion": "Campeonato Manomanista Serie B 2025",
     "equipo1": {
@@ -6369,6 +8972,25 @@
     "fronton": "ATANO III",
     "ciudad": "DONOSTIA",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/04/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
     "tipo": "manomanista-a",
     "competicion": "Campeonato Manomanista Serie A 2025",
     "equipo1": {
@@ -6381,6 +9003,25 @@
       "zaguero": null
     },
     "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/04/2025",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Lekeitio",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 4,
     "ganador": "equipo1"
   },
   {
@@ -6935,6 +9576,177 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "23/03/2025",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Arrasate",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "23/03/2025",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2025",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": null
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/03/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/03/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "16/03/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "16/03/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "15/03/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 10,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "15/03/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/03/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "08/03/2025",
     "fronton": "LABRIT",
     "ciudad": "IRUÑEA",
@@ -7296,6 +10108,82 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "16/02/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "16/02/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 4,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "16/02/2025",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "15/02/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "15/02/2025",
     "fronton": "LABRIT",
     "ciudad": "IRUÑEA",
@@ -7467,6 +10355,1887 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "07/02/2025",
+    "fronton": "AMOREBIETA",
+    "ciudad": "AMOREBIETA-ETXANO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/02/2025",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/02/2025",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/02/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/02/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/02/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/02/2025",
+    "fronton": "IDIAZABAL",
+    "ciudad": "IDIAZABAL",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/02/2025",
+    "fronton": "IDIAZABAL",
+    "ciudad": "IDIAZABAL",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/02/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "31/01/2025",
+    "fronton": "OÑATI",
+    "ciudad": "OÑATI",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/01/2025",
+    "fronton": "GAUTEGIZ-ARTEAGA",
+    "ciudad": "GAUTEGIZ-ARTEAGA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gautegiz-Arteaga",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/01/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/01/2025",
+    "fronton": "ARIZPE",
+    "ciudad": "MARKINA-XEMEIN",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/01/2025",
+    "fronton": "ARIZPE",
+    "ciudad": "MARKINA-XEMEIN",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/01/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/01/2025",
+    "fronton": "HERRI PILOTA",
+    "ciudad": "HENDAIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/01/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/01/2025",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "18/01/2025",
+    "fronton": "BEKOERROTABERRI",
+    "ciudad": "MUNGIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "18/01/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "18/01/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "18/01/2025",
+    "fronton": "BEKOERROTABERRI",
+    "ciudad": "MUNGIA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "17/01/2025",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZPEITIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/01/2025",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gasteiz",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/01/2025",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/01/2025",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/01/2025",
+    "fronton": "ETXEBARRI",
+    "ciudad": "ETXEBARRI",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/01/2025",
+    "fronton": "ETXEBARRI",
+    "ciudad": "ETXEBARRI",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/01/2025",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "10/01/2025",
+    "fronton": "JAI ALAI",
+    "ciudad": "GETARIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "06/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "05/01/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "05/01/2025",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/01/2025",
+    "fronton": "CLUB DEPORTIVO",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/01/2025",
+    "fronton": "CLUB DEPORTIVO",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/01/2025",
+    "fronton": "AMOREBIETA",
+    "ciudad": "AMOREBIETA-ETXANO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/01/2025",
+    "fronton": "AIZPURUTXO",
+    "ciudad": "AZKOITIA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "MATA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/01/2025",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/12/2024",
+    "fronton": "ZALLA",
+    "ciudad": "ZALLA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/12/2024",
+    "fronton": "ZALLA",
+    "ciudad": "ZALLA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/12/2024",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Gasteiz",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": null
+    },
+    "puntos2": 1,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "29/12/2024",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/12/2024",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "28/12/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "28/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/12/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "27/12/2024",
+    "fronton": "LODOSA",
+    "ciudad": "LODOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/12/2024",
+    "fronton": "BARAÑAIN",
+    "ciudad": "BARAÑAIN",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/12/2024",
+    "fronton": "BARAÑAIN",
+    "ciudad": "BARAÑAIN",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/12/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": null
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "MATA",
+      "zaguero": null
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/12/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "25/12/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "23/12/2024",
+    "fronton": "KURUTZIAGA",
+    "ciudad": "DURANGO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "23/12/2024",
+    "fronton": "KURUTZIAGA",
+    "ciudad": "DURANGO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/12/2024",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Arrasate",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/12/2024",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/12/2024",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/12/2024",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/12/2024",
+    "fronton": "LEKEITIO",
+    "ciudad": "LEKEITIO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "20/12/2024",
+    "fronton": "OIARTZUN",
+    "ciudad": "OIARTZUN",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "15/12/2024",
+    "fronton": "FRONTION CATALUNYA",
+    "ciudad": "BARCELONA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "15/12/2024",
+    "fronton": "FRONTION CATALUNYA",
+    "ciudad": "BARCELONA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/12/2024",
+    "fronton": "MUNITIBAR",
+    "ciudad": "MUNITIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/12/2024",
+    "fronton": "URRETXU",
+    "ciudad": "URRETXU",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/12/2024",
+    "fronton": "URRETXU",
+    "ciudad": "URRETXU",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Urretxu",
+    "equipo1": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 21,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/12/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Tolosa",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/12/2024",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Donostia",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/12/2024",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 3,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/12/2024",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/12/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "07/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/12/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "07/12/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/12/2024",
+    "fronton": "BASAURI",
+    "ciudad": "BASAURI",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/12/2024",
+    "fronton": "BASAURI",
+    "ciudad": "BASAURI",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/11/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "30/11/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/11/2024",
+    "fronton": "LIZARRA",
+    "ciudad": "ESTELLA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/11/2024",
+    "fronton": "LIZARRA",
+    "ciudad": "ESTELLA",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "30/11/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "campeonato-b",
+    "competicion": "Campeonato Parejas Serie B 2025",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "29/11/2024",
+    "fronton": "BEASAIN",
+    "ciudad": "BEASAIN",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas 2025",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELORDI",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "24/11/2024",
     "fronton": "BIZKAIA FRONTOIA",
     "ciudad": "BILBAO",
@@ -7634,8 +12403,27 @@
       "delantero": "DE LA FUENTE",
       "zaguero": "ALDABE"
     },
-    "puntos2": 118,
+    "puntos2": 18,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "15/11/2024",
+    "fronton": "LANCIEGO",
+    "ciudad": "LANCIEGO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Lanciego",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
   },
   {
     "fecha": "15/11/2024",
@@ -7696,25 +12484,6 @@
   },
   {
     "fecha": "15/11/2024",
-    "fronton": "LANCIEGO",
-    "ciudad": "LANCIEGO",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "PEÑA II",
-      "zaguero": "LIZEAGA"
-    },
-    "puntos2": 19,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "15/11/2024",
     "fronton": "AUZOETA",
     "ciudad": "ATAUN",
     "provincia": "",
@@ -7757,6 +12526,44 @@
     "ciudad": "EIBAR",
     "provincia": "",
     "tipo": "festival",
+    "competicion": "Festival Eibar",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "10/11/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": null
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "10/11/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EZKURDIA",
@@ -7766,6 +12573,44 @@
     "equipo2": {
       "delantero": "ZABALA",
       "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/11/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "09/11/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 6,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": null
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -7807,6 +12652,44 @@
     },
     "puntos2": 18,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/11/2024",
+    "fronton": "LEGUTIO",
+    "ciudad": "LEGUTIO",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "08/11/2024",
+    "fronton": "LEGUTIO",
+    "ciudad": "LEGUTIO",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
   },
   {
     "fecha": "08/11/2024",
@@ -7908,6 +12791,44 @@
     "fronton": "ATANO III",
     "ciudad": "DONOSTIA",
     "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/11/2024",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/11/2024",
+    "fronton": "ATANO III",
+    "ciudad": "DONOSTIA",
+    "provincia": "",
     "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
@@ -7921,6 +12842,25 @@
     },
     "puntos2": 7,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "02/11/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": null
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "02/11/2024",
@@ -8019,6 +12959,44 @@
   },
   {
     "fecha": "01/11/2024",
+    "fronton": "BERRIZ",
+    "ciudad": "BERRIZ",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ESKIROZ",
+      "zaguero": null
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/11/2024",
+    "fronton": "BERRIZ",
+    "ciudad": "BERRIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Berriz",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "01/11/2024",
     "fronton": "UARKAPE",
     "ciudad": "ARRASATE",
     "provincia": "",
@@ -8113,22 +13091,22 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "01/11/2024",
-    "fronton": "BERRIZ",
-    "ciudad": "BERRIZ",
+    "fecha": "27/10/2024",
+    "fronton": "OGUETA",
+    "ciudad": "GASTEIZ",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
     "equipo1": {
-      "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ALTUNA III",
+      "zaguero": null
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "ARANGUREN"
+      "delantero": "JAKA",
+      "zaguero": null
     },
-    "puntos2": 12,
+    "puntos2": 9,
     "ganador": "equipo1"
   },
   {
@@ -8168,6 +13146,120 @@
     },
     "puntos2": 18,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bilbao",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ESKIROZ",
+      "zaguero": null
+    },
+    "puntos1": 6,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/10/2024",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
   },
   {
     "fecha": "26/10/2024",
@@ -8227,20 +13319,20 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "26/10/2024",
-    "fronton": "BIZKAIA FRONTOIA",
-    "ciudad": "BILBAO",
+    "fecha": "25/10/2024",
+    "fronton": "TAFALLA",
+    "ciudad": "TAFALLA",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
     "equipo1": {
-      "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ARTOLA",
+      "zaguero": null
     },
-    "puntos1": 15,
+    "puntos1": 18,
     "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "IZTUETA"
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8342,6 +13434,101 @@
   },
   {
     "fecha": "20/10/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/10/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/10/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/10/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ESKIROZ",
+      "zaguero": null
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/10/2024",
+    "fronton": "ASTELENA",
+    "ciudad": "EIBAR",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos2": 5,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "20/10/2024",
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
@@ -8376,6 +13563,63 @@
       "zaguero": "SALAVERRI II"
     },
     "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/10/2024",
+    "fronton": "SORIA",
+    "ciudad": "SORIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Soria",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/10/2024",
+    "fronton": "SORIA",
+    "ciudad": "SORIA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/10/2024",
+    "fronton": "SORIA",
+    "ciudad": "SORIA",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": null
+    },
+    "puntos2": 8,
     "ganador": "equipo1"
   },
   {
@@ -8478,6 +13722,44 @@
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
     "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALDABE",
+      "zaguero": null
+    },
+    "puntos2": 9,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/10/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/10/2024",
+    "fronton": "BEOTIBAR",
+    "ciudad": "TOLOSA",
+    "provincia": "",
     "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
@@ -8491,6 +13773,25 @@
     },
     "puntos2": 14,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/10/2024",
+    "fronton": "LEKUNBERRI",
+    "ciudad": "LEKUNBERRI",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": null
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
   },
   {
     "fecha": "13/10/2024",
@@ -8517,7 +13818,7 @@
     "ciudad": "BILBAO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Bilbao",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "UGARTEMENDIA"
@@ -8525,7 +13826,83 @@
     "puntos1": 13,
     "equipo2": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/10/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": null
+    },
+    "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/10/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "ESKIROZ",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": null
+    },
+    "puntos2": 4,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "11/10/2024",
+    "fronton": "AOIZ",
+    "ciudad": "AOIZ",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": null
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/10/2024",
+    "fronton": "AOIZ",
+    "ciudad": "AOIZ",
+    "provincia": "",
+    "tipo": "cuatro-medio-b",
+    "competicion": "Campeonato 4½ Serie B Eusko Label 2024",
+    "equipo1": {
+      "delantero": "MATA",
+      "zaguero": null
+    },
+    "puntos1": 4,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8602,6 +13979,25 @@
     "equipo2": {
       "delantero": "PEÑA II",
       "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "05/10/2024",
+    "fronton": "EZCARAY",
+    "ciudad": "EZCARAY",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Campeonato 4½ Eusko Label 2024",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": null
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": null
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -8745,6 +14141,25 @@
     "ciudad": "LOGROÑO",
     "provincia": "",
     "tipo": "festival",
+    "competicion": "Festival Logroño",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
@@ -8778,22 +14193,60 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "29/09/2024",
+    "fecha": "28/09/2024",
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "tipo": "manomanista-a",
+    "competicion": "Desafio Urzante San Mateo 2024",
     "equipo1": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "MURUA",
+      "zaguero": null
     },
-    "puntos1": 10,
+    "puntos1": 12,
     "equipo2": {
-      "delantero": "EXPOSITO",
-      "zaguero": "GASKUE"
+      "delantero": "BAKAIKOA",
+      "zaguero": null
     },
     "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Desafio Urzante San Mateo 2024",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": null
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos2": 5,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "28/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Mateo Serie A 2024",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 0,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
     "ganador": "equipo2"
   },
   {
@@ -8897,6 +14350,25 @@
     "ciudad": "LOGROÑO",
     "provincia": "",
     "tipo": "festival",
+    "competicion": "Festival Logroño",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "EXPOSITO",
@@ -8953,6 +14425,25 @@
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Logroño",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
@@ -8987,20 +14478,20 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "24/09/2024",
+    "fecha": "23/09/2024",
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Logroño",
     "equipo1": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
     },
-    "puntos1": 9,
+    "puntos1": 17,
     "equipo2": {
-      "delantero": "MURUA",
-      "zaguero": "EROSTARBE"
+      "delantero": "DE LA FUENTE",
+      "zaguero": "ESKUZA"
     },
     "puntos2": 18,
     "ganador": "equipo2"
@@ -9124,6 +14615,25 @@
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
     "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Logroño",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/09/2024",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
@@ -9196,25 +14706,6 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "21/09/2024",
-    "fronton": "ADARRAGA",
-    "ciudad": "LOGROÑO",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "EXPOSITO",
-      "zaguero": "GASKUE"
-    },
-    "puntos1": 12,
-    "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos2": 18,
-    "ganador": "equipo2"
-  },
-  {
     "fecha": "20/09/2024",
     "fronton": "ADARRAGA",
     "ciudad": "LOGROÑO",
@@ -9239,10 +14730,10 @@
     "ciudad": "BERMEO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Bermeo",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -9292,6 +14783,25 @@
   },
   {
     "fecha": "15/09/2024",
+    "fronton": "ALSASUA",
+    "ciudad": "ALSASUA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank 2024",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ZABALETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "15/09/2024",
     "fronton": "BURUNDA",
     "ciudad": "ALTSASU/ALSASUA",
     "provincia": "",
@@ -9334,7 +14844,7 @@
     "ciudad": "VIANA",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Viana",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "SALAVERRI II"
@@ -9342,10 +14852,67 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 17,
     "ganador": "equipo1"
+  },
+  {
+    "fecha": "14/09/2024",
+    "fronton": "ORDIZIA",
+    "ciudad": "ORDIZIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Ordizia",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/09/2024",
+    "fronton": "GALDAKAO",
+    "ciudad": "GALDAKAO",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank 2024",
+    "equipo1": {
+      "delantero": "LASO",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "14/09/2024",
+    "fronton": "SANTA MARIA DE LAS HOYAS",
+    "ciudad": "SANTA MARIA DE LAS HOYAS",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Santa Maria de las Hoyas",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 24,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 25,
+    "ganador": "equipo2"
   },
   {
     "fecha": "14/09/2024",
@@ -9391,7 +14958,7 @@
     "ciudad": "GALDAKAO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Galdakao",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ESKIROZ"
@@ -9399,7 +14966,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 19,
     "ganador": "equipo1"
@@ -9501,14 +15068,14 @@
   },
   {
     "fecha": "07/09/2024",
-    "fronton": "SANTI BROUARD",
+    "fronton": "LEKEITIO",
     "ciudad": "LEKEITIO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Lekeitio",
     "equipo1": {
-      "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ALBERDI II",
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 18,
     "equipo2": {
@@ -9596,14 +15163,14 @@
   },
   {
     "fecha": "05/09/2024",
-    "fronton": "SANTI BROUARD",
+    "fronton": "LEKEITIO",
     "ciudad": "LEKEITIO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Lekeitio",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 13,
     "equipo2": {
@@ -9638,10 +15205,10 @@
     "ciudad": "ORDUÑA",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Orduña",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 21,
     "equipo2": {
@@ -9672,11 +15239,11 @@
   },
   {
     "fecha": "02/09/2024",
-    "fronton": "ARTEAGA",
-    "ciudad": "ARTEAGA",
+    "fronton": "GAUTEGIZ-ARTEAGA",
+    "ciudad": "GAUTEGIZ-ARTEAGA",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Gautegiz-Arteaga",
     "equipo1": {
       "delantero": "ZUBIZARRETA III",
       "zaguero": "UGARTEMENDIA"
@@ -9684,21 +15251,21 @@
     "puntos1": 17,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
   },
   {
     "fecha": "01/09/2024",
-    "fronton": "CIZUR",
-    "ciudad": "CIZUR MAYOR",
+    "fronton": "CIZUR MENOR",
+    "ciudad": "CIZUR MENOR",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Cizur Menor",
     "equipo1": {
       "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 21,
     "equipo2": {
@@ -9707,6 +15274,25 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "01/09/2024",
+    "fronton": "ELCIEGO",
+    "ciudad": "ELCIEGO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Elciego",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
   },
   {
     "fecha": "01/09/2024",
@@ -9843,19 +15429,19 @@
   },
   {
     "fecha": "30/08/2024",
-    "fronton": "BARRUECOS",
-    "ciudad": "BARRUECOS",
+    "fronton": "PINILLA DE LOS BARRUECOS",
+    "ciudad": "PINILLA DE LOS BARRUECOS",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Pinilla de Los Barruecos",
     "equipo1": {
-      "delantero": "ALBERDI",
+      "delantero": "ALBERDI II",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 20,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -10018,6 +15604,25 @@
     "ciudad": "ELGOIBAR",
     "provincia": "",
     "tipo": "festival",
+    "competicion": "Festival Elgoibar",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ALBISU"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "26/08/2024",
+    "fronton": "ELGOIBAR",
+    "ciudad": "ELGOIBAR",
+    "provincia": "",
+    "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
       "delantero": "AGIRRE",
@@ -10132,7 +15737,7 @@
     "ciudad": "BILBAO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Bilbao",
     "equipo1": {
       "delantero": "EZKURDIA",
       "zaguero": "GABIRONDO"
@@ -10140,7 +15745,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "PEÑA II",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 9,
     "ganador": "equipo1"
@@ -10181,6 +15786,25 @@
       "zaguero": "ALDABE"
     },
     "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/08/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bilbao",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 14,
     "ganador": "equipo1"
   },
   {
@@ -10257,6 +15881,25 @@
       "zaguero": "MARTIJA"
     },
     "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "16/08/2024",
+    "fronton": "ARETXABALETA",
+    "ciudad": "ARETXABALETA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Aretxabaleta",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 19,
     "ganador": "equipo1"
   },
   {
@@ -10356,6 +15999,44 @@
   },
   {
     "fecha": "10/08/2024",
+    "fronton": "LOS ARCOS",
+    "ciudad": "LOS ARCOS",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Masters CaixaBank 2024",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EZKURDIA",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "10/08/2024",
+    "fronton": "COVALEDA",
+    "ciudad": "COVALEDA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Covaleda",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "10/08/2024",
     "fronton": "COVALEDA",
     "ciudad": "COVALEDA",
     "provincia": "",
@@ -10398,15 +16079,15 @@
     "ciudad": "LOS ARCOS",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Los Arcos",
     "equipo1": {
       "delantero": "AGIRRE",
       "zaguero": "ELIZEGI"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ALBERDI II",
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 12,
     "ganador": "equipo1"
@@ -10489,6 +16170,25 @@
   },
   {
     "fecha": "06/08/2024",
+    "fronton": "LIZARRA",
+    "ciudad": "ESTELLA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Estella",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/08/2024",
     "fronton": "OGUETA",
     "ciudad": "VITORIA-GASTEIZ",
     "provincia": "",
@@ -10505,25 +16205,6 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
-  },
-  {
-    "fecha": "06/08/2024",
-    "fronton": "REMONTIVAL",
-    "ciudad": "ESTELLA",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "UGARTEMENDIA"
-    },
-    "puntos2": 17,
-    "ganador": "equipo1"
   },
   {
     "fecha": "06/08/2024",
@@ -10873,15 +16554,15 @@
     "ciudad": "ASTIGARRAGA",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Astigarraga",
     "equipo1": {
       "delantero": "ZUBIZARRETA III",
       "zaguero": "LIZEAGA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "ALBERDI II",
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 9,
     "ganador": "equipo1"
@@ -10907,6 +16588,44 @@
   },
   {
     "fecha": "25/07/2024",
+    "fronton": "ETXEBARRIA",
+    "ciudad": "ETXEBARRIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Etxebarria",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos1": 19,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/07/2024",
+    "fronton": "ELIZONDO",
+    "ciudad": "ELIZONDO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Elizondo",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "25/07/2024",
     "fronton": "ERMUA",
     "ciudad": "ERMUA",
     "provincia": "",
@@ -10920,25 +16639,6 @@
     "equipo2": {
       "delantero": "DE LA FUENTE",
       "zaguero": "ALDABE"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "25/07/2024",
-    "fronton": "ETXEBARRI",
-    "ciudad": "ETXEBARRI",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "BAKAIKOA",
-      "zaguero": "ELIZEGI"
-    },
-    "puntos1": 19,
-    "equipo2": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11021,6 +16721,25 @@
   },
   {
     "fecha": "21/07/2024",
+    "fronton": "OTXANDIO",
+    "ciudad": "OTXANDIO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Otxandio",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "ELIZEGI"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/07/2024",
     "fronton": "ARTUNDUAGA",
     "ciudad": "BARAKALDO",
     "provincia": "",
@@ -11034,25 +16753,6 @@
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": "MARIEZKURRENA II"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "21/07/2024",
-    "fronton": "OTXANDIO",
-    "ciudad": "OTXANDIO",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 11,
-    "equipo2": {
-      "delantero": "LARRAZABAL",
-      "zaguero": "ELIZEGI"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11120,14 +16820,14 @@
     "ciudad": "BERMEO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Bermeo",
     "equipo1": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 22,
     "equipo2": {
-      "delantero": "ALBERDI",
+      "delantero": "ALBERDI II",
       "zaguero": "ESKIROZ"
     },
     "puntos2": 17,
@@ -11211,14 +16911,14 @@
   },
   {
     "fecha": "16/07/2024",
-    "fronton": "LABRIT",
-    "ciudad": "PAMPLONA",
+    "fronton": "AMOREBIETA IV",
+    "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Amorebieta-Etxano",
     "equipo1": {
       "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 16,
     "equipo2": {
@@ -11288,6 +16988,44 @@
   {
     "fecha": "13/07/2024",
     "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "MATA",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 10,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "13/07/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Desafio Urzante San Fermin 2024",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": null
+    },
+    "puntos1": 14,
+    "equipo2": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "13/07/2024",
+    "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
     "tipo": "campeonato-a",
@@ -11309,25 +17047,6 @@
     "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "delantero": "MATA",
-      "zaguero": "GASKUE"
-    },
-    "puntos2": 10,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "13/07/2024",
-    "fronton": "LABRIT",
-    "ciudad": "PAMPLONA",
-    "provincia": "",
     "tipo": "campeonato-a",
     "competicion": "Campeonato Parejas Serie A 2024",
     "equipo1": {
@@ -11341,6 +17060,44 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/07/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "EXPOSITO",
+      "zaguero": "ALDABE"
+    },
+    "puntos2": 18,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "12/07/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "campeonato-a",
+    "competicion": "Torneo San Fermin 2024",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "ZABALA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
   },
   {
     "fecha": "12/07/2024",
@@ -11573,6 +17330,25 @@
   {
     "fecha": "08/07/2024",
     "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": "ALDABE"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "08/07/2024",
+    "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
     "tipo": "campeonato-a",
@@ -11588,25 +17364,6 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
-  },
-  {
-    "fecha": "08/07/2024",
-    "fronton": "LABRIT",
-    "ciudad": "PAMPLONA",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "EGIGUREN V",
-      "zaguero": "ALDABE"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos2": 17,
-    "ganador": "equipo1"
   },
   {
     "fecha": "08/07/2024",
@@ -11663,6 +17420,25 @@
       "zaguero": "ESKUZA"
     },
     "puntos2": 6,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "06/07/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ALBERDI II",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "DE LA FUENTE",
+      "zaguero": "EROSTARBE"
+    },
+    "puntos2": 12,
     "ganador": "equipo1"
   },
   {
@@ -11742,12 +17518,31 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "05/07/2024",
+    "fronton": "LABRIT",
+    "ciudad": "IRUÑEA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Labrit",
+    "equipo1": {
+      "delantero": "ELEZKANO II",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "01/07/2024",
-    "fronton": "URANZU",
+    "fronton": "IRUN",
     "ciudad": "IRUN",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Irun",
     "equipo1": {
       "delantero": "BAKAIKOA",
       "zaguero": "ELIZEGI"
@@ -11755,7 +17550,7 @@
     "puntos1": 12,
     "equipo2": {
       "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11777,6 +17572,25 @@
       "zaguero": "MARIEZKURRENA II"
     },
     "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "29/06/2024",
+    "fronton": "OLAZ",
+    "ciudad": "OLAZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Olaz",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 15,
     "ganador": "equipo1"
   },
   {
@@ -11841,6 +17655,25 @@
     "fronton": "SESTAO",
     "ciudad": "SESTAO",
     "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "28/06/2024",
+    "fronton": "SESTAO",
+    "ciudad": "SESTAO",
+    "provincia": "",
     "tipo": "festival",
     "competicion": "Festival Parejas 2024",
     "equipo1": {
@@ -11851,6 +17684,63 @@
     "equipo2": {
       "delantero": "LARRAZABAL",
       "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/06/2024",
+    "fronton": "BARAÑAIN",
+    "ciudad": "BARAÑAIN",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "DARÍO",
+      "zaguero": null
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "SALABERRIA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "22/06/2024",
+    "fronton": "MUSKIZ",
+    "ciudad": "MUSKIZ",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos2": 12,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "22/06/2024",
+    "fronton": "HARO",
+    "ciudad": "HARO",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": null
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -11933,6 +17823,63 @@
   },
   {
     "fecha": "21/06/2024",
+    "fronton": "URRESTILLA",
+    "ciudad": "URRESTILLA",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/06/2024",
+    "fronton": "ARRASATE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "21/06/2024",
+    "fronton": "ZALDIBAR",
+    "ciudad": "ZALDIBAR",
+    "provincia": "",
+    "tipo": "cuatro-medio-a",
+    "competicion": "Torneo 4½ San Fermin 2024",
+    "equipo1": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": null
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "21/06/2024",
     "fronton": "UARKAPE",
     "ciudad": "ARRASATE",
     "provincia": "",
@@ -11994,7 +17941,7 @@
     "ciudad": "GALLARTA",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Gallarta",
     "equipo1": {
       "delantero": "URRUTIKOETXEA",
       "zaguero": "ARANGUREN"
@@ -12002,7 +17949,7 @@
     "puntos1": 22,
     "equipo2": {
       "delantero": "JAKA",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 21,
     "ganador": "equipo1"
@@ -12013,10 +17960,10 @@
     "ciudad": "IBARRANGELU",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Ibarrangelu",
     "equipo1": {
       "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos1": 22,
     "equipo2": {
@@ -12237,6 +18184,25 @@
   },
   {
     "fecha": "18/05/2024",
+    "fronton": "AMURRIO",
+    "ciudad": "AMURRIO",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2024",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 19,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "18/05/2024",
     "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
@@ -12290,6 +18256,25 @@
       "zaguero": "GASKUE"
     },
     "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "17/05/2024",
+    "fronton": "BERMEO",
+    "ciudad": "BERMEO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Bermeo",
+    "equipo1": {
+      "delantero": "EXPOSITO",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ELEZKANO II",
+      "zaguero": "ESKUZA"
+    },
+    "puntos2": 11,
     "ganador": "equipo1"
   },
   {
@@ -12427,6 +18412,25 @@
   },
   {
     "fecha": "11/05/2024",
+    "fronton": "AMOREBIETA IV",
+    "ciudad": "AMOREBIETA-ETXANO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Amorebieta-Etxano",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "URRUTIKOETXEA",
+      "zaguero": "MORGAETXEBARRIA"
+    },
+    "puntos2": 13,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "11/05/2024",
     "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
     "provincia": "",
@@ -12502,23 +18506,23 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "10/05/2024",
-    "fronton": "AMOREBIETA IV",
-    "ciudad": "AMOREBIETA-ETXANO",
+    "fecha": "05/05/2024",
+    "fronton": "BIZKAIA FRONTOIA",
+    "ciudad": "BILBAO",
     "provincia": "",
     "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
+    "competicion": "Festival Bilbao",
     "equipo1": {
-      "delantero": "URRUTIKOETXEA",
-      "zaguero": "MORGAETXEBERRIA"
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "GABIRONDO"
     },
-    "puntos1": 13,
+    "puntos1": 22,
     "equipo2": {
-      "delantero": "ZUBIZARRETA III",
-      "zaguero": "ARANGUREN"
+      "delantero": "ELEZKANO II",
+      "zaguero": "BIKUÑA"
     },
-    "puntos2": 22,
-    "ganador": "equipo2"
+    "puntos2": 15,
+    "ganador": "equipo1"
   },
   {
     "fecha": "05/05/2024",
@@ -12633,6 +18637,44 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
+  },
+  {
+    "fecha": "03/05/2024",
+    "fronton": "LEGAZPI",
+    "ciudad": "LEGAZPI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Legazpi",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "PEÑA II",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 14,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "03/05/2024",
+    "fronton": "LEGAZPI",
+    "ciudad": "LEGAZPI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Legazpi",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "LIZEAGA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
   },
   {
     "fecha": "01/05/2024",
@@ -13053,25 +19095,6 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "12/04/2024",
-    "fronton": "OGUETA",
-    "ciudad": "VITORIA-GASTEIZ",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "AGIRRE",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 19,
-    "equipo2": {
-      "delantero": "ALBERDI",
-      "zaguero": "SALAVERRI II"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
     "fecha": "07/04/2024",
     "fronton": "BEOTIBAR",
     "ciudad": "TOLOSA",
@@ -13374,25 +19397,6 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
-  },
-  {
-    "fecha": "30/03/2024",
-    "fronton": "SANTI BROUARD",
-    "ciudad": "LEKEITIO",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "UGARTEMENDIA"
-    },
-    "puntos2": 16,
-    "ganador": "equipo1"
   },
   {
     "fecha": "29/03/2024",
@@ -14459,25 +20463,6 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "27/01/2024",
-    "fronton": "BIZKAIA FRONTOIA",
-    "ciudad": "BILBAO",
-    "provincia": "",
-    "tipo": "campeonato-b",
-    "competicion": "Campeonato Parejas Serie B 2024",
-    "equipo1": {
-      "delantero": "ALBERDI",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 16,
-    "equipo2": {
-      "delantero": "EXPOSITO",
-      "zaguero": "GASKUE"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
     "fecha": "26/01/2024",
     "fronton": "DANIEL UGARTE",
     "ciudad": "HENDAIA",
@@ -14878,25 +20863,6 @@
   },
   {
     "fecha": "06/01/2024",
-    "fronton": "AMOREBIETA IV",
-    "ciudad": "AMOREBIETA-ETXANO",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "AGIRRE",
-      "zaguero": "ELIZEGI"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "delantero": "SENAR",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos2": 11,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "06/01/2024",
     "fronton": "ASTELENA",
     "ciudad": "EIBAR",
     "provincia": "",
@@ -14967,25 +20933,6 @@
     "equipo2": {
       "delantero": "P.ETXEBERRIA",
       "zaguero": "ZABALETA"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "01/01/2024",
-    "fronton": "ASTELENA",
-    "ciudad": "EIBAR",
-    "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2024",
-    "equipo1": {
-      "delantero": "BAKAIKOA",
-      "zaguero": "MORGAETXEBERRIA"
-    },
-    "puntos1": 21,
-    "equipo2": {
-      "delantero": "EGIGUREN V",
-      "zaguero": "ALDABE"
     },
     "puntos2": 22,
     "ganador": "equipo2"
