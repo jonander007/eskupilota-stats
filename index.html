@@ -260,7 +260,7 @@ tr:hover td{background:var(--surface2);}
     <button onclick="showSec('frontones',this)">Frontones</button>
     <button onclick="showSec('ranking',this)">Ranking</button>
   </nav>
-  <div class="last-update" id="lastUpdate">—</div>
+
 </header>
 
 <main>
@@ -479,6 +479,11 @@ let h2hMod='parejas', h2hSerie='todas';
 let compType='h2h';
 let activeTipoFron='todos';
 
+
+function normalizeComp(c){
+  // Quita años (4 dígitos) del nombre de la competición para agrupar
+  return (c||'').replace(/\s*\d{4}\s*/g,' ').replace(/\s+/g,' ').trim();
+}
 const TIPOS=[
   {k:'todos',      lbl:'Todos'},
   {k:'campeonato', lbl:'Parejas'},
@@ -492,10 +497,10 @@ const TTAG={
   'manomanista':   {cls:'tM',lbl:'Manomanista'},
   'manomanista-a': {cls:'tM',lbl:'Mano A'},
   'manomanista-b': {cls:'tM',lbl:'Mano B'},
-  'festival-mano': {cls:'tM',lbl:'Fest. Mano'},
+  'festival-mano': {cls:'tM',lbl:'Festival'},
   'cuatro-medio-a':{cls:'tC',lbl:'4½ A'},
   'cuatro-medio-b':{cls:'tC',lbl:'4½ B'},
-  'festival-cuatro':{cls:'tC',lbl:'Fest. 4½'},
+  'festival-cuatro':{cls:'tC',lbl:'Festival'},
 };
 
 // ════════════════════════════════════════════════════════════
@@ -584,7 +589,7 @@ function init(){
   populateC4Sels();
   renderFrontones();
   buildRanking();
-  document.getElementById('lastUpdate').textContent='Actualizado: '+(PARTIDOS[0]?.fecha||'—');
+  
 }
 
 function showSec(id,btn){
@@ -678,8 +683,14 @@ function setYear(pillsId,varName,year){
 // ════════════════════════════════════════════════════════════
 function buildFilters(){
   const fc=document.getElementById('fComp');
-  [...new Set(PARTIDOS.map(p=>p.competicion))].sort().forEach(c=>{
-    const o=document.createElement('option');o.value=c;o.textContent=c;fc.appendChild(o);
+  // Agrupar competiciones por nombre normalizado (sin año)
+  const normMap=new Map(); // normalizado -> primer valor original representativo
+  PARTIDOS.forEach(p=>{
+    const norm=normalizeComp(p.competicion);
+    if(norm&&!normMap.has(norm)) normMap.set(norm, norm);
+  });
+  [...normMap.keys()].sort().forEach(norm=>{
+    const o=document.createElement('option');o.value=norm;o.textContent=norm;fc.appendChild(o);
   });
   const ff=document.getElementById('fFron');
   [...new Set(PARTIDOS.map(p=>p.fronton))].sort().forEach(f=>{
@@ -713,7 +724,7 @@ function renderTabla(){
 
   let data=PARTIDOS.filter(p=>{
     if(!tipoMatch(p.tipo,activeTipo)) return false;
-    if(comp&&p.competicion!==comp) return false;
+    if(comp&&normalizeComp(p.competicion)!==comp) return false;
     if(fron&&p.fronton!==fron) return false;
     if(q&&!(neq(p.equipo1)+' '+neq(p.equipo2)).toLowerCase().includes(q)) return false;
     if(desde||hasta){
