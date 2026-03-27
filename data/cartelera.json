@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/03/2026 15:49",
+  "actualizado": "27/03/2026 16:51",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -821,6 +821,54 @@
           "raw": "XXXX (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "25/04/2026",
+      "hora": "17:15",
+      "fronton": "Ezkurdi",
+      "ciudad": "Durango",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "ARTOLA // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2817770/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [],
+          "raw": "ARTOLA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
         }
       ]
     },
