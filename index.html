@@ -94,6 +94,11 @@ tr:hover td{background:var(--surface2);}
 .tM{border-color:#6a0dad;color:#6a0dad;background:rgba(106,13,173,.07);}
 .tC{border-color:#b8860b;color:#b8860b;background:rgba(184,134,11,.07);}
 
+
+/* ── ROL BADGE ── */
+.rol-badge{font-family:var(--mono);font-size:.48rem;padding:.08rem .3rem;border-radius:1px;border:1px solid;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle;margin-left:.3rem;}
+.rol-badge.del{color:var(--red);border-color:var(--red);background:rgba(200,16,46,.06);}
+.rol-badge.zag{color:#2471a3;border-color:#2471a3;background:rgba(36,113,163,.06);}
 /* ── PELOTARI CARDS ── */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
 .pcard{background:var(--surface);border:1px solid var(--border);padding:1.1rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;}
@@ -402,7 +407,7 @@ tr:hover td{background:var(--surface2);}
         <span class="c4-lbl">Delantero</span>
         <select id="c4d1" onchange="c4DelanteroChange(1)"><option value="">— Selecciona delantero —</option></select>
         <span class="c4-lbl">Zaguero</span>
-        <select id="c4z1" onchange="renderC4()" disabled><option value="">— Primero elige delantero —</option></select>
+        <select id="c4z1" onchange="renderC4()"><option value="">— Cualquier zaguero —</option></select>
       </div>
       <div class="c4-sep"><span style="font-family:var(--display);font-size:2.8rem;color:var(--muted)">VS</span></div>
       <div class="c4-eq azul">
@@ -410,7 +415,7 @@ tr:hover td{background:var(--surface2);}
         <span class="c4-lbl">Delantero</span>
         <select id="c4d2" onchange="c4DelanteroChange(2)"><option value="">— Selecciona delantero —</option></select>
         <span class="c4-lbl">Zaguero</span>
-        <select id="c4z2" onchange="renderC4()" disabled><option value="">— Primero elige delantero —</option></select>
+        <select id="c4z2" onchange="renderC4()"><option value="">— Cualquier zaguero —</option></select>
       </div>
     </div>
     <div id="c4Res"></div>
@@ -447,6 +452,27 @@ tr:hover td{background:var(--surface2);}
 // DATOS + ESTADO
 // ════════════════════════════════════════════════════════════
 let PARTIDOS=[], PELOTARIS={};
+// ════════════════════════════════════════════════════════════
+// ROLES — delanteros y zagueros (solo parejas)
+// ════════════════════════════════════════════════════════════
+const DELANTEROS = new Set([
+  'JAKA','PEÑA II','LARRAZABAL','P.ETXEBERRIA','ELORDI','SENAR','ALTUNA III','AGIRRE',
+  'ARTOLA','ZUBIZARRETA III','DARÍO','LASO','BAKAIKOA','URRUTIKOETXEA','ALBERDI II',
+  'EGIGUREN V','MURUA','SALABERRIA','EXPOSITO','DE LA FUENTE','MATA','AMIANO','ALBERDI',
+  'REKALDE','ZUBIZARRETA IV','ELEZKANO II','ALTUNA II','APEZETXEA II','EZKURDIA','ZABALA'
+]);
+const ZAGUEROS = new Set([
+  'ALBISU','REZUSTA','IMAZ','MARIEZKURRENA II','UGARTEMENDIA','MARTIJA','IZTUETA',
+  'ESKIROZ','ZABALETA','ARANGUREN','ESKUZA','MORGAETXEBARRIA','GASKUE','SALAVERRI II',
+  'GABIRONDO','BIKUÑA','EROSTARBE','ALDABE','LIZEAGA','ELIZEGI','TOLOSA','LOZA','LANDA'
+]);
+function getRol(nombre){ 
+  const n=(nombre||'').toUpperCase();
+  if(DELANTEROS.has(n)) return 'delantero';
+  if(ZAGUEROS.has(n)) return 'zaguero';
+  return 'otro';
+}
+
 let activeTipo='todos', sortFld='fecha', sortAsc=false;
 let activeYearPel='todos', activeYearRk='todos', activeYearH2H='todos', activeYearC4='todos', activeYearFron='todos';
 let h2hMod='parejas', h2hSerie='todas';
@@ -733,7 +759,7 @@ function renderPCards(){
   document.getElementById('pCards').innerHTML=ns.map(n=>{
     const s=st[n];const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
     return`<div class="pcard" onclick="openPerfil('${esc(n)}')">
-      <div class="pname">${n}</div>
+      <div class="pname">${n}${getRol(n)==="delantero"?'<span class="rol-badge del">Del</span>':getRol(n)==="zaguero"?'<span class="rol-badge zag">Zag</span>':''}</div>
       <div class="pstats">
         <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">Victorias</span></div>
         <div class="ps"><span class="val">${s.pj}</span><span class="lbl">Partidos</span></div>
@@ -969,32 +995,66 @@ function renderH2H(){
 // COMPARADOR 4
 // ════════════════════════════════════════════════════════════
 function populateC4Sels(){
-  const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))].filter(Boolean).sort();
+  // Solo delanteros conocidos que además tienen partidos en el JSON
+  const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
+    .filter(Boolean)
+    .filter(n=>DELANTEROS.has(n.toUpperCase()))
+    .sort();
   ['c4d1','c4d2'].forEach(id=>{
     const s=document.getElementById(id);
     delants.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  });
+  // Zagueros para los selects de zaguero (habilitados desde el inicio)
+  const zagueros=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
+    .filter(Boolean)
+    .filter(n=>ZAGUEROS.has(n.toUpperCase()))
+    .sort();
+  ['c4z1','c4z2'].forEach(id=>{
+    const s=document.getElementById(id);
+    s.disabled=false;
+    s.innerHTML='<option value="">— Cualquier zaguero —</option>';
+    zagueros.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
   });
 }
 
 function c4DelanteroChange(num){
   const del=document.getElementById('c4d'+num).value;
   const zagSel=document.getElementById('c4z'+num);
-  zagSel.innerHTML='';
-  if(!del){zagSel.disabled=true;zagSel.innerHTML='<option value="">— Primero elige delantero —</option>';renderC4();return;}
+  // Contar partidos jugados con este delantero para mostrar frecuencia
   const comps=new Map();
   const partsYear=activeYearC4==='todos'?PARTIDOS:PARTIDOS.filter(p=>getYear(p)===activeYearC4);
-  partsYear.forEach(p=>{
-    const e1=p.equipo1,e2=p.equipo2;
-    let z=null;
-    if(e1.delantero===del&&e1.zaguero)z=e1.zaguero;
-    else if(e2.delantero===del&&e2.zaguero)z=e2.zaguero;
-    if(z)comps.set(z,(comps.get(z)||0)+1);
-  });
+  if(del){
+    partsYear.forEach(p=>{
+      const e1=p.equipo1,e2=p.equipo2;
+      let z=null;
+      if(e1.delantero===del&&e1.zaguero)z=e1.zaguero;
+      else if(e2.delantero===del&&e2.zaguero)z=e2.zaguero;
+      if(z)comps.set(z,(comps.get(z)||0)+1);
+    });
+  }
+  // Siempre mostrar todos los zagueros conocidos, con frecuencia si aplica
   zagSel.disabled=false;
-  const opt0=document.createElement('option');opt0.value='';opt0.textContent='— Cualquier zaguero —';zagSel.appendChild(opt0);
-  [...comps.entries()].sort((a,b)=>b[1]-a[1]).forEach(([z,n])=>{
-    const o=document.createElement('option');o.value=z;o.textContent=`${z} (${n})`;zagSel.appendChild(o);
-  });
+  zagSel.innerHTML='<option value="">— Cualquier zaguero —</option>';
+  const todosZag=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
+    .filter(Boolean).filter(n=>ZAGUEROS.has(n.toUpperCase())).sort();
+  // Primero los que han jugado con este delantero (por frecuencia), luego el resto
+  const conHistorial=[...comps.entries()].sort((a,b)=>b[1]-a[1]).map(([z])=>z);
+  const sinHistorial=todosZag.filter(z=>!comps.has(z));
+  if(conHistorial.length){
+    const gr1=document.createElement('optgroup');gr1.label='Con historial juntos';
+    conHistorial.forEach(z=>{
+      const o=document.createElement('option');o.value=z;
+      o.textContent=`${z} (${comps.get(z)} partidos)`;gr1.appendChild(o);
+    });
+    zagSel.appendChild(gr1);
+  }
+  if(sinHistorial.length){
+    const gr2=document.createElement('optgroup');gr2.label='Sin historial juntos';
+    sinHistorial.forEach(z=>{
+      const o=document.createElement('option');o.value=z;o.textContent=z;gr2.appendChild(o);
+    });
+    zagSel.appendChild(gr2);
+  }
   renderC4();
 }
 
@@ -1009,36 +1069,59 @@ function c4Partidos(d1,z1,d2,z2,partsBase){
   });
 }
 
-function c4TablaPartidos(partidos,pivotCol,pivotAz,colLabel,azLabel){
-  if(!partidos.length)return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin enfrentamientos</div>`;
-  const filas=partidos.map(p=>{
-    const e1=pels(p.equipo1);
-    const colEnE1=e1.includes(pivotCol);
-    const ptCol=colEnE1?p.puntos1:p.puntos2;
-    const ptAz=colEnE1?p.puntos2:p.puntos1;
-    const compCol=(colEnE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==pivotCol).join('/')||'—';
-    const compAz=(colEnE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==pivotAz).join('/')||'—';
-    const ganCol=(colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2');
-    const ti=TTAG[p.tipo]||{cls:'',lbl:p.tipo};
-    return`<tr>
-      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
-      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
-      <td style="font-size:.74rem">${p.fronton}</td>
-      <td style="font-size:.7rem;color:#c0392b">${compCol}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'#c0392b':'var(--muted)'}">${ptCol}</td>
-      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'#2471a3':'var(--muted)'}">${ptAz}</td>
-      <td style="font-size:.7rem;color:#2471a3">${compAz}</td>
-    </tr>`;
-  }).join('');
-  return`<div class="twrap"><table>
-    <thead><tr>
-      <th>Fecha</th><th>Tipo</th><th>Frontón</th>
-      <th style="color:#c0392b">Comp. colorado</th>
-      <th style="color:#c0392b">${colLabel}</th><th></th>
-      <th style="color:#2471a3">${azLabel}</th>
-      <th style="color:#2471a3">Comp. azul</th>
-    </tr></thead><tbody>${filas}</tbody></table></div>`;
+function c4FilaPartido(p, pivotCol, pivotAz){
+  const e1=pels(p.equipo1);
+  const colEnE1=e1.includes(pivotCol);
+  const ptCol=colEnE1?p.puntos1:p.puntos2;
+  const ptAz=colEnE1?p.puntos2:p.puntos1;
+  const compCol=(colEnE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==pivotCol).join('/')||'—';
+  const compAz=(colEnE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==pivotAz).join('/')||'—';
+  const ganCol=(colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2');
+  const ti=TTAG[p.tipo]||{cls:'',lbl:p.tipo};
+  return`<tr>
+    <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
+    <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
+    <td style="font-size:.74rem">${p.fronton}</td>
+    <td style="font-size:.7rem;color:#c0392b">${compCol}</td>
+    <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'#c0392b':'var(--muted)'}">${ptCol}</td>
+    <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
+    <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'#2471a3':'var(--muted)'}">${ptAz}</td>
+    <td style="font-size:.7rem;color:#2471a3">${compAz}</td>
+  </tr>`;
+}
+
+let _c4BlockId = 0;
+function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
+  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin enfrentamientos</div>`;
+  const MAX = 3;
+  const id = 'c4b' + (++_c4BlockId);
+  const thead = `<thead><tr>
+    <th>Fecha</th><th>Tipo</th><th>Frontón</th>
+    <th style="color:#c0392b">Comp. colorado</th>
+    <th style="color:#c0392b">${colLabel}</th><th></th>
+    <th style="color:#2471a3">${azLabel}</th>
+    <th style="color:#2471a3">Comp. azul</th>
+  </tr></thead>`;
+  const filas = partidos.map(p => c4FilaPartido(p, pivotCol, pivotAz));
+  const visibles = filas.slice(0, MAX).join('');
+  const ocultos = filas.slice(MAX).join('');
+  const btnVerMas = ocultos ? `<tr id="${id}-btn"><td colspan="8" style="text-align:center;padding:.5rem">
+    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
+      Ver ${partidos.length - MAX} más ↓
+    </button></td></tr>` : '';
+  const filasOcultas = ocultos ? `<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>` : '';
+  return`<div class="twrap"><table>${thead}
+    <tbody>${visibles}</tbody>
+    ${filasOcultas}
+    <tbody>${btnVerMas}</tbody>
+  </table></div>`;
+}
+
+function c4VerMas(id){
+  const extra = document.getElementById(id+'-extra');
+  const btn = document.getElementById(id+'-btn');
+  if(extra) extra.style.display='';
+  if(btn) btn.style.display='none';
 }
 
 function c4Bar(partidos,pivot_col,pivot_az,label){
@@ -1073,22 +1156,54 @@ function renderC4(){
   const colLabel=z1?`${d1} / ${z1}`:d1;
   const azLabel=z2?`${d2} / ${z2}`:d2;
 
-  el.innerHTML=`
+  // Partidos de cada pareja por separado (todos los que incluyen esa pareja)
+  const soloCol = partsBase.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return (e1.includes(d1)&&(!z1||e1.includes(z1))) || (e2.includes(d1)&&(!z1||e2.includes(z1)));
+  });
+  const soloAz = partsBase.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return (e1.includes(d2)&&(!z2||e1.includes(z2))) || (e2.includes(d2)&&(!z2||e2.includes(z2)));
+  });
+
+  // H2H delanteros (solo delanteros, cualquier zaguero)
+  const h2hDel = partsBase.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return (e1.includes(d1)&&e2.includes(d2))||(e1.includes(d2)&&e2.includes(d1));
+  });
+  // H2H zagueros
+  const h2hZag = z1&&z2 ? partsBase.filter(p=>{
+    const e1=pels(p.equipo1),e2=pels(p.equipo2);
+    return (e1.includes(z1)&&e2.includes(z2))||(e1.includes(z2)&&e2.includes(z1));
+  }) : [];
+
+  _c4BlockId = 0; // reset IDs
+
+  const mkBloque = (emoji,titulo,n,bar,tabla) => `
     <div class="c4-bloque">
-      <div class="c4-bloque-title">⚡ Partido idéntico <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${exactos.length} partido${exactos.length!==1?'s':''}</span></div>
-      ${exactos.length?c4Bar(exactos,d1,d2,'pareja exacta'):''}
-      ${c4TablaPartidos(exactos,d1,d2,colLabel,azLabel)}
-    </div>
-    <div class="c4-bloque">
-      <div class="c4-bloque-title">🔴 Delanteros — ${d1} vs ${d2} <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${delants.length} partidos</span></div>
-      ${delants.length?c4Bar(delants,d1,d2,'cualquier zaguero'):''}
-      ${c4TablaPartidos(delants,d1,d2,d1,d2)}
-    </div>
-    <div class="c4-bloque">
-      <div class="c4-bloque-title">🔵 Zagueros — ${z1||'?'} vs ${z2||'?'} <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${zagueros.length} partidos</span></div>
-      ${z1&&z2&&zagueros.length?c4Bar(zagueros,z1,z2,'zagueros cara a cara'):''}
-      ${z1&&z2?c4TablaPartidos(zagueros,z1,z2,z1,z2):`<div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>Selecciona los zagueros para ver su H2H</div>`}
+      <div class="c4-bloque-title">${emoji} ${titulo} <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${n} partido${n!==1?'s':''}</span></div>
+      ${bar}${tabla}
     </div>`;
+
+  el.innerHTML=
+    mkBloque('⚡','Partido idéntico',exactos.length,
+      exactos.length?c4Bar(exactos,d1,d2,'pareja exacta'):'',
+      c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
+    +mkBloque('🔴',`Partidos de ${colLabel}`,soloCol.length,
+      soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada'):'',
+      c4TablaPartidos(soloCol,d1,d1,colLabel,'Rival'))
+    +mkBloque('🔵',`Partidos de ${azLabel}`,soloAz.length,
+      soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul'):'',
+      c4TablaPartidos(soloAz,d2,d2,azLabel,'Rival'))
+    +mkBloque('⚔️',`H2H Delanteros — ${d1} vs ${d2}`,h2hDel.length,
+      h2hDel.length?c4Bar(h2hDel,d1,d2,'H2H delanteros'):'',
+      c4TablaPartidos(h2hDel,d1,d2,d1,d2))
+    +(z1&&z2
+      ? mkBloque('🔄',`H2H Zagueros — ${z1} vs ${z2}`,h2hZag.length,
+          h2hZag.length?c4Bar(h2hZag,z1,z2,'H2H zagueros'):'',
+          c4TablaPartidos(h2hZag,z1,z2,z1,z2))
+      : `<div class="c4-bloque"><div class="c4-bloque-title">🔄 H2H Zagueros</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>Selecciona ambos zagueros para ver su H2H</div></div>`
+    );
 }
 
 // ════════════════════════════════════════════════════════════
