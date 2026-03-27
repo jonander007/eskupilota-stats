@@ -1,48 +1,7 @@
 {
-  "actualizado": "27/03/2026 18:50",
+  "actualizado": "27/03/2026 19:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "27/03/2026",
-      "hora": "19:00",
-      "fronton": "El Villar de Arnedo",
-      "ciudad": "El Villar de Arnedo",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ARTOLA – UGARTEMENDIA // LARRAZABAL – MORGAETXEBARRIA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/53690/session/2785370/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "UGARTEMENDIA"
-          ],
-          "raw": "ARTOLA – UGARTEMENDIA",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LARRAZABAL"
-          ],
-          "eq2": [
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "LARRAZABAL – MORGAETXEBARRIA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "28/03/2026",
       "hora": "17:00",
