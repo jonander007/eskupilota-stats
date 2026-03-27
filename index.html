@@ -17,7 +17,7 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;}
 
 /* ── HEADER ── */
-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.85rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;gap:1rem;}
+header{border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;padding:.85rem 2.5rem;}
 .logo{font-family:var(--display);font-size:1.9rem;letter-spacing:.05em;color:var(--green);white-space:nowrap;}
 .logo span{color:var(--red);}
 nav{display:flex;gap:.2rem;flex-wrap:wrap;justify-content:center;}
@@ -263,30 +263,34 @@ tr:hover td{background:var(--surface2);}
 
 @media(max-width:900px){
   header{padding:.8rem 1rem;}
+  .header-inner{gap:.5rem;}
+  nav button{font-size:.55rem;padding:.35rem .5rem;}
   main{padding:1.2rem 1rem;}
   .kpi-row{grid-template-columns:repeat(2,1fr);}
   .rk-grid,.pfwrap,.c4-grid{grid-template-columns:1fr;}
   .c4-sep{padding-top:0;}
 }
+.header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;width:100%;max-width:1400px;margin:0 auto;}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">ESKUPILOTA<span>STATS</span></div>
-  <div style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);display:flex;gap:.25rem;" id="langToggle">
-    <button class="lang-btn active" id="langEs" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" id="langEu" onclick="setLang('eu')">EU</button>
+  <div class="header-inner">
+    <div class="logo">ESKUPILOTA<span>STATS</span></div>
+    <nav>
+      <button onclick="showSec('cartelera',this)">Cartelera</button>
+      <button class="active" onclick="showSec('partidos',this)">Resultados</button>
+      <button onclick="showSec('comparador',this)">Comparador</button>
+      <button onclick="showSec('pelotaris',this)">Pelotaris</button>
+      <button onclick="showSec('frontones',this)">Frontones</button>
+      <button onclick="showSec('ranking',this)">Ranking</button>
+      <button onclick="showSec('contacto',this)">Contacto</button>
+    </nav>
+    <div id="langToggle" style="display:flex;gap:.25rem;">
+      <button class="lang-btn active" id="langEs" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="langEu" onclick="setLang('eu')">EU</button>
+    </div>
   </div>
-  <nav>
-    <button onclick="showSec('cartelera',this)">Cartelera</button>
-    <button class="active" onclick="showSec('partidos',this)">Resultados</button>
-    <button onclick="showSec('comparador',this)">Comparador</button>
-    <button onclick="showSec('pelotaris',this)">Pelotaris</button>
-    <button onclick="showSec('frontones',this)">Frontones</button>
-    <button onclick="showSec('ranking',this)">Ranking</button>
-    <button onclick="showSec('contacto',this)">Contacto</button>
-  </nav>
-
 </header>
 
 <main>
@@ -349,7 +353,7 @@ tr:hover td{background:var(--surface2);}
   <div class="cards-grid" id="pCards"></div>
   <div id="perfilSec" style="display:none;margin-top:1.5rem;">
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-      <button class="btn" onclick="closePerfil()">← Volver</button>
+      <button class="btn" onclick="closePerfil()">${t('lbl_volver')}</button>
       <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
     </div>
     <div class="pfwrap" id="pfWrap"></div>
@@ -547,6 +551,77 @@ function normalizeComp(c){
   // Quita años (4 dígitos)
   return s.replace(/\s*\d{4}\s*/g,' ').replace(/\s+/g,' ').trim();
 }
+
+// Traducción de nombres de competición
+const COMP_TRANS = {
+  es: {
+    'Campeonato Parejas':            'Campeonato Parejas',
+    'Campeonato Parejas Serie A':    'Campeonato Parejas Serie A',
+    'Campeonato Parejas Serie B':    'Campeonato Parejas Serie B',
+    'Campeonato Manomanista':        'Campeonato Manomanista',
+    'Campeonato Manomanista Serie A':'Campeonato Manomanista Serie A',
+    'Campeonato Manomanista Serie B':'Campeonato Manomanista Serie B',
+    'Campeonato 4 1/2 Serie A':      'Campeonato 4½ Serie A',
+    'Campeonato 4 1/2 Serie B':      'Campeonato 4½ Serie B',
+    'Campeonato 4½ Eusko Label':     'Campeonato 4½ Eusko Label',
+    'Campeonato 4½ Serie B Eusko Label': 'Campeonato 4½ Serie B Eusko Label',
+    'Masters CaixaBank':             'Masters CaixaBank',
+    'Masters CaixaBank Serie A':     'Masters CaixaBank Serie A',
+    'Masters CaixaBank Serie B':     'Masters CaixaBank Serie B',
+    'Torneo San Fermin':             'Torneo San Fermín',
+    'Torneo San Fermin Serie A':     'Torneo San Fermín Serie A',
+    'Torneo San Fermin Serie B':     'Torneo San Fermín Serie B',
+    'Torneo 4½ San Fermin':          'Torneo 4½ San Fermín',
+    'Torneo San Mateo Serie A':      'Torneo San Mateo Serie A',
+    'Torneo San Mateo Serie B':      'Torneo San Mateo Serie B',
+    'Torneo Aste Nagusia Serie A':   'Torneo Aste Nagusia Serie A',
+    'Torneo Aste Nagusia Serie B':   'Torneo Aste Nagusia Serie B',
+    'Torneo Donostia Hiria Serie A': 'Torneo Donostia Hiria Serie A',
+    'Torneo Donostia Hiria Serie B': 'Torneo Donostia Hiria Serie B',
+    'Torneo La Blanca Serie A':      'Torneo La Blanca Serie A',
+    'Torneo La Blanca Serie B':      'Torneo La Blanca Serie B',
+    'Desafio Urzante':               'Desafío Urzante',
+    'Desafio Urzante San Fermin':    'Desafío Urzante San Fermín',
+    'Desafio Urzante San Mateo':     'Desafío Urzante San Mateo',
+    'Festival':                      'Festival',
+  },
+  eu: {
+    'Campeonato Parejas':            'Binakako Txapelketa',
+    'Campeonato Parejas Serie A':    'Binakako Txapelketa A Seriea',
+    'Campeonato Parejas Serie B':    'Binakako Txapelketa B Seriea',
+    'Campeonato Manomanista':        'Buruz Buruko Txapelketa',
+    'Campeonato Manomanista Serie A':'Buruz Buruko Txapelketa A Seriea',
+    'Campeonato Manomanista Serie B':'Buruz Buruko Txapelketa B Seriea',
+    'Campeonato 4 1/2 Serie A':      "4 t'erdiko Txapelketa A Seriea",
+    'Campeonato 4 1/2 Serie B':      "4 t'erdiko Txapelketa B Seriea",
+    'Campeonato 4½ Eusko Label':     "4 t'erdiko Txapelketa Eusko Label",
+    'Campeonato 4½ Serie B Eusko Label': "4 t'erdiko Txapelketa B Seriea Eusko Label",
+    'Masters CaixaBank':             'Masters CaixaBank',
+    'Masters CaixaBank Serie A':     'Masters CaixaBank A Seriea',
+    'Masters CaixaBank Serie B':     'Masters CaixaBank B Seriea',
+    'Torneo San Fermin':             'San Fermin Txapelketa',
+    'Torneo San Fermin Serie A':     'San Fermin Txapelketa A Seriea',
+    'Torneo San Fermin Serie B':     'San Fermin Txapelketa B Seriea',
+    'Torneo 4½ San Fermin':          "San Fermin 4 t'erdiko Txapelketa",
+    'Torneo San Mateo Serie A':      'San Mateo Txapelketa A Seriea',
+    'Torneo San Mateo Serie B':      'San Mateo Txapelketa B Seriea',
+    'Torneo Aste Nagusia Serie A':   'Aste Nagusia Txapelketa A Seriea',
+    'Torneo Aste Nagusia Serie B':   'Aste Nagusia Txapelketa B Seriea',
+    'Torneo Donostia Hiria Serie A': 'Donostia Hiria Txapelketa A Seriea',
+    'Torneo Donostia Hiria Serie B': 'Donostia Hiria Txapelketa B Seriea',
+    'Torneo La Blanca Serie A':      'La Blanca Txapelketa A Seriea',
+    'Torneo La Blanca Serie B':      'La Blanca Txapelketa B Seriea',
+    'Desafio Urzante':               'Urzante Desafioa',
+    'Desafio Urzante San Fermin':    'San Fermin Urzante Desafioa',
+    'Desafio Urzante San Mateo':     'San Mateo Urzante Desafioa',
+    'Festival':                      'Jaialdia',
+  }
+};
+
+function tComp(nombre){
+  const norm = normalizeComp(nombre);
+  return (COMP_TRANS[LANG]||COMP_TRANS.es)[norm] || norm;
+}
 const TIPOS=[
   {k:'todos',      lbl:'Todos'},
   {k:'campeonato', lbl:'Parejas'},
@@ -554,16 +629,16 @@ const TIPOS=[
   {k:'cuatro',     lbl:'4 y Medio'},
 ];
 const TTAG={
-  'campeonato-a':  {cls:'tA',lbl:'Serie A'},
-  'campeonato-b':  {cls:'tB',lbl:'Serie B'},
-  'festival':      {cls:'tF',lbl:'Festival'},
-  'manomanista':   {cls:'tM',lbl:'Manomanista'},
-  'manomanista-a': {cls:'tM',lbl:'Mano A'},
-  'manomanista-b': {cls:'tM',lbl:'Mano B'},
-  'festival-mano': {cls:'tM',lbl:'Festival'},
-  'cuatro-medio-a':{cls:'tC',lbl:'4½ A'},
-  'cuatro-medio-b':{cls:'tC',lbl:'4½ B'},
-  'festival-cuatro':{cls:'tC',lbl:'Festival'},
+  'campeonato-a':  {cls:'tA',get lbl(){return t('tag_seriea')}},
+  'campeonato-b':  {cls:'tB',get lbl(){return t('tag_serieb')}},
+  'festival':      {cls:'tF',get lbl(){return t('tag_festival')}},
+  'manomanista':   {cls:'tM',get lbl(){return t('tag_mano')}},
+  'manomanista-a': {cls:'tM',get lbl(){return t('tag_manoa')}},
+  'manomanista-b': {cls:'tM',get lbl(){return t('tag_manob')}},
+  'festival-mano': {cls:'tM',get lbl(){return t('tag_festival')}},
+  'cuatro-medio-a':{cls:'tC',get lbl(){return t('tag_cuatroa')}},
+  'cuatro-medio-b':{cls:'tC',get lbl(){return t('tag_cuatrob')}},
+  'festival-cuatro':{cls:'tC',get lbl(){return t('tag_festival')}},
 };
 
 // ════════════════════════════════════════════════════════════
@@ -631,7 +706,7 @@ const I18N = {
     // Cartelera
     cart_ver_hist: '→ Ver historial', cart_cargando: '⟳ Cargando cartelera…',
     cart_no_partidos: 'No hay próximos partidos',
-    cart_recarga: '↻ Recargar',
+    cart_recarga: t('cart_recarga'),
     // Contacto
     cont_intro: '¿Tienes alguna sugerencia, has encontrado un error en los datos o quieres colaborar?<br>Escríbenos y te responderemos lo antes posible.',
     cont_nombre: 'Nombre', cont_email: 'Email', cont_asunto: 'Asunto', cont_mensaje: 'Mensaje',
@@ -647,7 +722,7 @@ const I18N = {
     // Tags
     tag_seriea: 'Serie A', tag_serieb: 'Serie B', tag_festival: 'Festival',
     tag_mano: 'Manomanista', tag_manoa: 'Mano A', tag_manob: 'Mano B',
-    tag_cuatroa: '4½ A', tag_cuatrob: '4½ B',
+    tag_cuatroa: "4½ A", tag_cuatrob: "4½ B",
     // Roles
     rol_del: 'Del', rol_zag: 'Zag',
   },
@@ -670,7 +745,7 @@ const I18N = {
     btn_limpiar: 'Garbitu',
     ph_buscar_pelotari: 'Bilatu pilotaria…', ph_buscar_fronton: 'Bilatu frontoia…',
     sel_todas: 'Guztiak', sel_todos: 'Guztiak',
-    tipo_todos: 'Guztiak', tipo_parejas: 'Binakakoa', tipo_mano: 'Buruz Burukoa', tipo_cuatro: '4 eta Erdikoa',
+    tipo_todos: 'Guztiak', tipo_parejas: 'Binakakoa', tipo_mano: 'Buruz Burukoa', tipo_cuatro: "4 t'erdi",
     serie_todas: 'Guztiak', serie_a: 'A Seriea', serie_b: 'B Seriea', serie_fest: 'Jaialdiak',
     th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
@@ -711,7 +786,7 @@ const I18N = {
     nodata_sin_comp: 'Bikotekiderik gabe', nodata_sin_riv: 'Aurkaririk gabe',
     tag_seriea: 'A Seriea', tag_serieb: 'B Seriea', tag_festival: 'Jaialdia',
     tag_mano: 'Buruz Burukoa', tag_manoa: 'Mano A', tag_manob: 'Mano B',
-    tag_cuatroa: '4½ A', tag_cuatrob: '4½ B',
+    tag_cuatroa: "4½ A", tag_cuatrob: "4½ B",
     rol_del: 'Aur', rol_zag: 'Atz',
   }
 };
@@ -723,6 +798,24 @@ function setLang(lang){
   document.getElementById('langEs').classList.toggle('active', lang==='es');
   document.getElementById('langEu').classList.toggle('active', lang==='eu');
   applyI18N();
+}
+
+function rebuildCompFilter(){
+  const fc = document.getElementById('fComp');
+  if(!fc) return;
+  const current = fc.value;
+  // Keep first option (Todas/Guztiak)
+  while(fc.options.length > 1) fc.remove(1);
+  fc.options[0].textContent = t('sel_todas');
+  const normMap = new Map();
+  PARTIDOS.forEach(p=>{ const n=normalizeComp(p.competicion); if(n&&!normMap.has(n)) normMap.set(n,n); });
+  [...normMap.keys()].sort().forEach(norm=>{
+    const o=document.createElement('option');
+    o.value=norm;
+    o.textContent=(COMP_TRANS[LANG]||COMP_TRANS.es)[norm]||norm;
+    fc.appendChild(o);
+  });
+  if(current) fc.value=current;
 }
 
 function applyI18N(){
@@ -810,6 +903,8 @@ function applyI18N(){
   document.querySelector('.contact-intro').innerHTML = t('cont_intro');
   document.querySelector('.contact-direct').innerHTML = t('cont_directo')+' <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>';
   document.querySelector('.btn[onclick="enviarContacto()"]').textContent = t('cont_btn');
+  // Rebuild competition filter with translated names
+  rebuildCompFilter();
   // Re-render dynamic content that uses translated strings
   renderTabla();
   renderPCards();
@@ -919,11 +1014,11 @@ function showSec(id,btn){
 // ════════════════════════════════════════════════════════════
 function buildKPIs(){
   const kpis=[
-    {l:'Partidos',  v:PARTIDOS.length,                                s:'registrados'},
-    {l:'Pelotaris', v:Object.keys(PELOTARIS).length,                  s:'distintos',  onclick:"goToNav('pelotaris')"},
-    {l:'Frontones', v:new Set(PARTIDOS.map(p=>p.fronton)).size,       s:'distintos',  onclick:"goToNav('frontones')"},
-    {l:'Oficiales', v:PARTIDOS.filter(p=>!p.tipo.includes('festival')).length, s:'campeonatos'},
-    {l:'Festivales',v:PARTIDOS.filter(p=>p.tipo.includes('festival')).length,  s:'amistosos'},
+    {l:t('kpi_partidos'),  v:PARTIDOS.length,                                s:t('kpi_registrados')},
+    {l:t('kpi_pelotaris'), v:Object.keys(PELOTARIS).length,                  s:t('kpi_distintos'),  onclick:"goToNav('pelotaris')"},
+    {l:t('kpi_frontones'), v:new Set(PARTIDOS.map(p=>p.fronton)).size,       s:t('kpi_distintos'),  onclick:"goToNav('frontones')"},
+    {l:t('kpi_oficiales'), v:PARTIDOS.filter(p=>!p.tipo.includes('festival')).length, s:t('kpi_campeonatos')},
+    {l:t('kpi_festivales'),v:PARTIDOS.filter(p=>p.tipo.includes('festival')).length,  s:t('kpi_amistosos')},
   ];
   document.getElementById('kpiRow').innerHTML=kpis.map(k=>`
     <div class="kpi ${k.onclick?'clickable':''}" ${k.onclick?`onclick="${k.onclick}"`:''}>
@@ -1004,7 +1099,7 @@ function buildFilters(){
     if(norm&&!normMap.has(norm)) normMap.set(norm, norm);
   });
   [...normMap.keys()].sort().forEach(norm=>{
-    const o=document.createElement('option');o.value=norm;o.textContent=norm;fc.appendChild(o);
+    const o=document.createElement('option');o.value=norm;o.textContent=(COMP_TRANS[LANG]||COMP_TRANS.es)[norm]||norm;fc.appendChild(o);
   });
   const ff=document.getElementById('fFron');
   [...new Set(PARTIDOS.map(p=>p.fronton))].sort().forEach(f=>{
@@ -1065,10 +1160,10 @@ function renderTabla(){
       <td style="font-weight:${w1?700:400};color:${w1?'var(--text)':'var(--muted)'}">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
       <td style="font-weight:${w2?700:400};color:${w2?'var(--text)':'var(--muted)'}">${neq(p.equipo2)}</td>
-      <td style="font-size:.7rem;color:var(--muted)">${p.competicion}</td>
+      <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}</td>
     </tr>`;
   }).join('');
-  document.getElementById('tCount').textContent=`Mostrando ${data.length} de ${PARTIDOS.length} partidos`;
+  document.getElementById('tCount').textContent=`${data.length} / ${PARTIDOS.length} ${t('kpi_partidos').toLowerCase()}`;
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1084,11 +1179,11 @@ function renderPCards(){
   document.getElementById('pCards').innerHTML=ns.map(n=>{
     const s=st[n];const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
     return`<div class="pcard" onclick="openPerfil('${esc(n)}')">
-      <div class="pname">${n}${getRol(n)==="delantero"?'<span class="rol-badge del">Del</span>':getRol(n)==="zaguero"?'<span class="rol-badge zag">Zag</span>':''}</div>
+      <div class="pname">${n}${getRol(n)==="delantero"?`<span class="rol-badge del">${t('rol_del')}</span>`:getRol(n)==="zaguero"?`<span class="rol-badge zag">${t('rol_zag')}</span>`:''}</div>
       <div class="pstats">
-        <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">Victorias</span></div>
-        <div class="ps"><span class="val">${s.pj}</span><span class="lbl">Partidos</span></div>
-        <div class="ps"><span class="val">${pct}%</span><span class="lbl">% Vic</span></div>
+        <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">${t('lbl_victorias')}</span></div>
+        <div class="ps"><span class="val">${s.pj}</span><span class="lbl">${t('lbl_partidos')}</span></div>
+        <div class="ps"><span class="val">${pct}%</span><span class="lbl">${t('lbl_pct_vic')}</span></div>
       </div>
       <div class="pbar-bg"><div class="pbar-fill" style="width:${pct}%"></div></div>
     </div>`;
@@ -1140,27 +1235,27 @@ function openPerfil(nombre){
     <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
     <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
     <td style="font-family:var(--mono);text-align:center">${s.pj}</td></tr>`
-  ).join('')||'<tr><td colspan="4" class="nodata">Sin rivales</td></tr>';
+  ).join('')||`<tr><td colspan="4" class="nodata">${t('nodata_sin_riv')}</td></tr>`;
 
   document.getElementById('pfWrap').innerHTML=`
     <div>
       <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">Pelota a Mano</div></div>
       <div class="pf-sgrid">
-        <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">Victorias</div></div>
-        <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">Derrotas</div></div>
-        <div class="pf-s"><div class="v">${s.pj}</div><div class="l">Partidos</div></div>
-        <div class="pf-s"><div class="v ${pct>=50?'g':'r'}">${pct}%</div><div class="l">% Victorias</div></div>
-        <div class="pf-s"><div class="v">${pmf}</div><div class="l">Pts/partido</div></div>
-        <div class="pf-s"><div class="v ${diff>=0?'g':'r'}">${diff>0?'+':''}${diff}</div><div class="l">Diferencia</div></div>
+        <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
+        <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">${t('lbl_derrotas')}</div></div>
+        <div class="pf-s"><div class="v">${s.pj}</div><div class="l">${t('lbl_partidos')}</div></div>
+        <div class="pf-s"><div class="v ${pct>=50?'g':'r'}">${pct}%</div><div class="l">${t('lbl_pct_vic')}</div></div>
+        <div class="pf-s"><div class="v">${pmf}</div><div class="l">${t('lbl_pts_p')}</div></div>
+        <div class="pf-s"><div class="v ${diff>=0?'g':'r'}">${diff>0?'+':''}${diff}</div><div class="l">${t('lbl_diferencia')}</div></div>
       </div>
     </div>
     <div class="pf-main">
       <div class="ch-card gr">
-        <h3>Compañeros de pareja</h3>
-        <table class="comp-table"><thead><tr><th>Compañero</th><th>V</th><th>D</th><th>PJ</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
+        <h3>${t('lbl_compañeros')}</h3>
+        <table class="comp-table"><thead><tr><th>${t('lbl_compañeros').split(' ')[0]}</th><th>V</th><th>D</th><th>PJ</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
       </div>
       <div class="ch-card">
-        <h3>Rivales más frecuentes</h3>
+        <h3>${t('lbl_rivales')}</h3>
         <table class="comp-table"><thead><tr><th>Rival</th><th>V</th><th>D</th><th>PJ</th></tr></thead><tbody>${rivRows}</tbody></table>
       </div>
     </div>`;
@@ -1253,7 +1348,7 @@ function renderH2H(){
   const p1=document.getElementById('h2hP1').value;
   const p2=document.getElementById('h2hP2').value;
   const el=document.getElementById('h2hRes');
-  if(!p1||!p2||p1===p2){el.innerHTML='<div class="nodata"><div class="ic">🏸</div>Selecciona dos pelotaris distintos</div>';return;}
+  if(!p1||!p2||p1===p2){el.innerHTML=`<div class="nodata"><div class="ic">🏸</div>${t('h2h_sin_sel')}</div>`;return;}
 
   const tipos=h2hTipos();
   const enfs=PARTIDOS.filter(p=>{
@@ -1265,11 +1360,11 @@ function renderH2H(){
     return true;
   });
 
-  const modLbl={parejas:'Parejas',manomanista:'Manomanista',cuatro:'4 y Medio'}[h2hMod];
-  const serieLbl={todas:'todas las series',a:'Serie A',b:'Serie B',festival:'Festivales'}[h2hSerie];
+  const modLbl={parejas:t('tipo_parejas'),manomanista:t('tipo_mano'),cuatro:t('tipo_cuatro')}[h2hMod];
+  const serieLbl={todas:t('serie_todas'),a:t('serie_a'),b:t('serie_b'),festival:t('serie_fest')}[h2hSerie];
 
   if(!enfs.length){
-    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>Sin enfrentamientos en <strong>${modLbl} — ${serieLbl}</strong> entre ${p1} y ${p2}</div>`;
+    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>${t('nodata_h2h')} <strong>${modLbl} — ${serieLbl}</strong></div>`;
     return;
   }
 
@@ -1309,7 +1404,7 @@ function renderH2H(){
       <div><div class="comp-nm">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
-      <th>Fecha</th><th>Tipo</th><th>Frontón</th>
+      <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
       ${esMano?'':`<th>Comp. ${p1}</th>`}
       <th>${p1}</th><th></th><th>${p2}</th>
       ${esMano?'':`<th>Comp. ${p2}</th>`}
@@ -1366,7 +1461,7 @@ function c4DelanteroChange(num){
   const conHistorial=[...comps.entries()].sort((a,b)=>b[1]-a[1]).map(([z])=>z);
   const sinHistorial=todosZag.filter(z=>!comps.has(z));
   if(conHistorial.length){
-    const gr1=document.createElement('optgroup');gr1.label='Con historial juntos';
+    const gr1=document.createElement('optgroup');gr1.label=t('c4_con_hist');
     conHistorial.forEach(z=>{
       const o=document.createElement('option');o.value=z;
       o.textContent=`${z} (${comps.get(z)} partidos)`;gr1.appendChild(o);
@@ -1374,7 +1469,7 @@ function c4DelanteroChange(num){
     zagSel.appendChild(gr1);
   }
   if(sinHistorial.length){
-    const gr2=document.createElement('optgroup');gr2.label='Sin historial juntos';
+    const gr2=document.createElement('optgroup');gr2.label=t('c4_sin_hist');
     sinHistorial.forEach(z=>{
       const o=document.createElement('option');o.value=z;o.textContent=z;gr2.appendChild(o);
     });
@@ -1421,18 +1516,18 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
   const MAX = 3;
   const id = 'c4b' + (++_c4BlockId);
   const thead = `<thead><tr>
-    <th>Fecha</th><th>Tipo</th><th>Frontón</th>
-    <th style="color:#c0392b">Comp. colorado</th>
+    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
+    <th style="color:#c0392b">Comp.</th>
     <th style="color:#c0392b">${colLabel}</th><th></th>
     <th style="color:#2471a3">${azLabel}</th>
-    <th style="color:#2471a3">Comp. azul</th>
+    <th style="color:#2471a3">Comp.</th>
   </tr></thead>`;
   const filas = partidos.map(p => c4FilaPartido(p, pivotCol, pivotAz));
   const visibles = filas.slice(0, MAX).join('');
   const ocultos = filas.slice(MAX).join('');
   const btnVerMas = ocultos ? `<tr id="${id}-btn"><td colspan="8" style="text-align:center;padding:.5rem">
     <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
-      Ver ${partidos.length - MAX} más ↓
+      ${t('c4_ver_mas').replace('{n}', partidos.length - MAX)}
     </button></td></tr>` : '';
   const filasOcultas = ocultos ? `<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>` : '';
   return`<div class="twrap"><table>${thead}
@@ -1473,22 +1568,22 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
     const color=isCol?'#c0392b':'#2471a3';
     return`<div class="c4-marcador" style="grid-template-columns:repeat(4,1fr)">
       <div style="text-align:center">
-        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">Partidos</div>
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_pj')}</div>
         <div style="font-family:var(--display);font-size:2rem;line-height:1;color:${color}">${n}</div>
       </div>
       <div style="text-align:center">
-        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">Ganados</div>
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_ganados')}</div>
         <div style="font-family:var(--display);font-size:2rem;line-height:1;color:var(--green)">${w}</div>
-        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">${l} perd.</div>
+        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">${l} ${t('stat_perd')}</div>
       </div>
       <div style="text-align:center">
-        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">% Victorias</div>
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_pct_vic')}</div>
         <div style="font-family:var(--display);font-size:2rem;line-height:1;color:${pct>=50?'var(--green)':'var(--red)'}">${pct}%</div>
       </div>
       <div style="text-align:center">
-        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">+36.5 tantos</div>
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_over')}</div>
         <div style="font-family:var(--display);font-size:2rem;line-height:1;color:var(--text)">${pctOver}%</div>
-        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">${over365} partidos</div>
+        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">${over365} ${t('stat_pj').toLowerCase()}</div>
       </div>
     </div>`;
   }
@@ -1503,7 +1598,7 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
     </div>
     <div style="text-align:center">
       <div style="font-family:var(--display);font-size:1.1rem;color:var(--muted)">${n} PJ</div>
-      <div style="font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-top:.3rem">+36.5: ${pctOver}%</div>
+      <div style="font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-top:.3rem">${t('stat_over')}: ${pctOver}%</div>
       <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted);margin-top:.1rem">${label}</div>
     </div>
     <div>
@@ -1560,23 +1655,23 @@ function renderC4(){
     </div>`;
 
   el.innerHTML=
-    mkBloque('⚡','Partido idéntico',exactos.length,
+    mkBloque('⚡',t('c4_identico'),exactos.length,
       exactos.length?c4Bar(exactos,d1,d2,'pareja exacta'):'',
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
-    +mkBloque('🔴',`Partidos de ${colLabel}`,soloCol.length,
+    +mkBloque('🔴',`${t('c4_partidos_col')} ${colLabel}`,soloCol.length,
       soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada','col'):'',
       c4TablaPartidos(soloCol,d1,d1,colLabel,'Rival'))
-    +mkBloque('🔵',`Partidos de ${azLabel}`,soloAz.length,
+    +mkBloque('🔵',`${t('c4_partidos_col')} ${azLabel}`,soloAz.length,
       soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul','az'):'',
       c4TablaPartidos(soloAz,d2,d2,azLabel,'Rival'))
-    +mkBloque('⚔️',`H2H Delanteros — ${d1} vs ${d2}`,h2hDel.length,
+    +mkBloque('⚔️',`${t('c4_h2h_del')} — ${d1} vs ${d2}`,h2hDel.length,
       h2hDel.length?c4Bar(h2hDel,d1,d2,'H2H delanteros'):'',
       c4TablaPartidos(h2hDel,d1,d2,d1,d2))
     +(z1&&z2
-      ? mkBloque('🔄',`H2H Zagueros — ${z1} vs ${z2}`,h2hZag.length,
+      ? mkBloque('🔄',`${t('c4_h2h_zag')} — ${z1} vs ${z2}`,h2hZag.length,
           h2hZag.length?c4Bar(h2hZag,z1,z2,'H2H zagueros'):'',
           c4TablaPartidos(h2hZag,z1,z2,z1,z2))
-      : `<div class="c4-bloque"><div class="c4-bloque-title">🔄 H2H Zagueros</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>Selecciona ambos zagueros para ver su H2H</div></div>`
+      : `<div class="c4-bloque"><div class="c4-bloque-title">🔄 ${t('c4_h2h_zag')}</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>${t('c4_sin_zag')}</div></div>`
     );
 }
 
@@ -1635,7 +1730,7 @@ let cartelaraLoaded = false;
 async function loadCartelera(){
   if(cartelaraLoaded) return;
   const el = document.getElementById('carteleraContainer');
-  el.innerHTML = '<div class="cart-loading">⟳ Cargando cartelera…</div>';
+  el.innerHTML = `<div class="cart-loading">${t('cart_cargando')}</div>`;
   try{
     const r = await fetch('data/cartelera.json?_='+Date.now());
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -1664,7 +1759,7 @@ function renderCartelera(data){
   const hint = document.getElementById('carteleraHint');
   hint.innerHTML = `Fuente: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · Actualizado: <strong>${data.actualizado||'—'}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.2rem .55rem">↻ Recargar</button>`;
   if(!eventos.length){
-    el.innerHTML='<div class="nodata"><div class="ic">📅</div>No hay próximos partidos</div>';
+    el.innerHTML=`<div class="nodata"><div class="ic">📅</div>${t('cart_no_partidos')}</div>`;
     return;
   }
   const DIAS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
@@ -1681,10 +1776,10 @@ function renderCartelera(data){
     if((t||'').includes('festival')) return 'fest';
     return 'a';
   }
-  function tipoLabel(t){
-    const m={'campeonato-a':'Parejas A','campeonato-b':'Parejas B','festival':'Festival',
-      'manomanista-a':'Mano A','manomanista-b':'Mano B','cuatro-medio-a':'4½ A','cuatro-medio-b':'4½ B'};
-    return m[t]||t||'Partido';
+  function tipoLabel(tp){
+    const m={'campeonato-a':t('tag_seriea'),'campeonato-b':t('tag_serieb'),'festival':t('tag_festival'),
+      'manomanista-a':t('tag_manoa'),'manomanista-b':t('tag_manob'),'cuatro-medio-a':t('tag_cuatroa'),'cuatro-medio-b':t('tag_cuatrob')};
+    return m[tp]||tp||'';
   }
   const byDate={};
   eventos.forEach(e=>{ if(!byDate[e.fecha])byDate[e.fecha]=[]; byDate[e.fecha].push(e); });
@@ -1701,7 +1796,7 @@ function renderCartelera(data){
         const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
         const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
         const serieBadge = p.serie && p.serie!=='a' ? `<span class="cart-partido-serie">Serie ${p.serie.toUpperCase()}</span>` : '';
-        const pTipo = tipoLabel(p.tipo||tipoEv);
+        const pTipo = tipoLabel(p.tipo||tipoEv||'');
         const tipoBadge = `<span class="cart-badge ${tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`;
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
         return `<div class="cart-partido-card" onclick="carteleraClick(this)" data-partido="${encoded}">
@@ -1713,7 +1808,7 @@ function renderCartelera(data){
               <span class="cart-partido-eq" style="color:#2471a3">${e2}</span>
             </div>
           </div>
-          <div class="cart-partido-arrow">→ Ver historial</div>
+          <div class="cart-partido-arrow">${t('cart_ver_hist')}</div>
         </div>`;
       }).join('');
       return `<div class="cart-evento">
