@@ -17,7 +17,7 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;}
 
 /* ── HEADER ── */
-header{display:flex;align-items:center;justify-content:space-between;padding:.85rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;gap:1rem;flex-wrap:wrap;}
+header{display:flex;align-items:center;justify-content:center;padding:.85rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;gap:1.5rem;flex-wrap:wrap;}
 .logo{font-family:var(--display);font-size:1.9rem;letter-spacing:.05em;color:var(--green);white-space:nowrap;}
 .logo span{color:var(--red);}
 nav{display:flex;gap:.2rem;flex-wrap:wrap;}
@@ -203,6 +203,22 @@ tr:hover td{background:var(--surface2);}
 .fronton-detail{display:none;margin-top:1.4rem;}
 .fronton-detail.active{display:block;}
 
+
+/* ── CONTACTO ── */
+.contact-wrap{max-width:560px;margin:0 auto;}
+.contact-intro{font-size:.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.6;}
+.contact-form{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);padding:2rem;}
+.contact-form .fg{margin-bottom:1.1rem;}
+.contact-form .flabel{display:block;margin-bottom:.35rem;}
+.contact-form input[type=text],
+.contact-form input[type=email],
+.contact-form textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:.75rem;padding:.55rem .8rem;outline:none;border-radius:2px;resize:vertical;}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--green);}
+.contact-form textarea{min-height:120px;}
+.contact-direct{margin-top:1.5rem;font-family:var(--mono);font-size:.65rem;color:var(--muted);text-align:center;}
+.contact-direct a{color:var(--green);text-decoration:none;}
+.contact-direct a:hover{text-decoration:underline;}
+.contact-ok{display:none;background:rgba(0,122,61,.08);border:1px solid var(--green);padding:1rem 1.2rem;font-family:var(--mono);font-size:.72rem;color:var(--green);margin-top:1rem;border-radius:2px;}
 /* ── CARTELERA ── */
 .cart-evento{background:var(--surface);border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;}
 .cart-evento-header{display:grid;grid-template-columns:56px 1fr;gap:.8rem;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
@@ -259,6 +275,7 @@ tr:hover td{background:var(--surface2);}
     <button onclick="showSec('pelotaris',this)">Pelotaris</button>
     <button onclick="showSec('frontones',this)">Frontones</button>
     <button onclick="showSec('ranking',this)">Ranking</button>
+    <button onclick="showSec('contacto',this)">Contacto</button>
   </nav>
 
 </header>
@@ -446,6 +463,40 @@ tr:hover td{background:var(--surface2);}
   <div id="carteleraContainer"><div class="cart-loading">⟳ Cargando cartelera…</div></div>
 </div>
 
+<!-- ══ CONTACTO ══════════════════════════════════════════════════════════ -->
+<div class="section" id="sec-contacto">
+  <div class="sec-title">Contacto</div>
+  <div class="contact-wrap">
+    <p class="contact-intro">
+      ¿Tienes alguna sugerencia, has encontrado un error en los datos o quieres colaborar?<br>
+      Escríbenos y te responderemos lo antes posible.
+    </p>
+    <div class="contact-form">
+      <div class="fg">
+        <span class="flabel">Nombre</span>
+        <input type="text" id="cNombre" placeholder="Tu nombre">
+      </div>
+      <div class="fg">
+        <span class="flabel">Email</span>
+        <input type="email" id="cEmail" placeholder="tu@email.com">
+      </div>
+      <div class="fg">
+        <span class="flabel">Asunto</span>
+        <input type="text" id="cAsunto" placeholder="Error en datos, sugerencia…">
+      </div>
+      <div class="fg">
+        <span class="flabel">Mensaje</span>
+        <textarea id="cMensaje" placeholder="Cuéntanos…"></textarea>
+      </div>
+      <button class="btn" onclick="enviarContacto()">Enviar mensaje</button>
+      <div class="contact-ok" id="contactOk">✓ Mensaje preparado — se abrirá tu cliente de correo.</div>
+    </div>
+    <div class="contact-direct">
+      O escríbenos directamente a <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>
+    </div>
+  </div>
+</div>
+
 </main>
 <script>
 // ════════════════════════════════════════════════════════════
@@ -481,8 +532,11 @@ let activeTipoFron='todos';
 
 
 function normalizeComp(c){
-  // Quita años (4 dígitos) del nombre de la competición para agrupar
-  return (c||'').replace(/\s*\d{4}\s*/g,' ').replace(/\s+/g,' ').trim();
+  const s=(c||'').trim();
+  // Todos los festivales bajo "Festival"
+  if(/^festival/i.test(s)) return 'Festival';
+  // Quita años (4 dígitos)
+  return s.replace(/\s*\d{4}\s*/g,' ').replace(/\s+/g,' ').trim();
 }
 const TIPOS=[
   {k:'todos',      lbl:'Todos'},
@@ -1460,6 +1514,24 @@ function goToComparadorFromPartido(p){
       setTimeout(()=>{ selOpt('c4z1',z1); selOpt('c4z2',z2); renderC4(); },250);
     },100);
   }
+}
+
+// ════════════════════════════════════════════════════════════
+// CONTACTO
+// ════════════════════════════════════════════════════════════
+function enviarContacto(){
+  const nombre  = document.getElementById('cNombre').value.trim();
+  const email   = document.getElementById('cEmail').value.trim();
+  const asunto  = document.getElementById('cAsunto').value.trim() || 'Contacto EskupilotaStats';
+  const mensaje = document.getElementById('cMensaje').value.trim();
+  if(!nombre||!email||!mensaje){
+    alert('Por favor rellena nombre, email y mensaje.');
+    return;
+  }
+  const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`);
+  const subj = encodeURIComponent(asunto);
+  window.location.href = `mailto:euskopilotastats@gmail.com?subject=${subj}&body=${body}`;
+  document.getElementById('contactOk').style.display='block';
 }
 
 loadData();
