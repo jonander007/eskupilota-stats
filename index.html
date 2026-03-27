@@ -24,6 +24,7 @@ nav{display:flex;gap:.2rem;flex-wrap:wrap;}
 nav button{background:none;border:1px solid transparent;color:var(--muted);font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.4rem .85rem;cursor:pointer;transition:all .2s;border-radius:2px;}
 nav button:hover{color:var(--text);border-color:var(--border);}
 nav button.active{color:var(--green);border-color:var(--green);background:rgba(0,122,61,.07);}
+.last-update{font-family:var(--mono);font-size:.6rem;color:var(--muted);white-space:nowrap;}
 
 /* ── LAYOUT ── */
 main{padding:2rem 2.5rem;max-width:1400px;margin:0 auto;}
@@ -197,12 +198,43 @@ tr:hover td{background:var(--surface2);}
 .fronton-detail{display:none;margin-top:1.4rem;}
 .fronton-detail.active{display:block;}
 
+/* ── CARTELERA ── */
+.cartelera-grid{display:flex;flex-direction:column;gap:.7rem;}
+.cartelera-day{margin-bottom:.4rem;}
+.cartelera-day-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:.3rem 0 .5rem;border-bottom:1px solid var(--border);margin-bottom:.5rem;}
+.cartelera-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);padding:1rem 1.2rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;cursor:pointer;transition:all .2s;}
+.cartelera-card:hover{box-shadow:0 3px 14px rgba(0,122,61,.1);border-left-color:var(--green);transform:translateX(2px);}
+.cartelera-card.festival{border-left-color:var(--muted);}
+.cartelera-card.manomanista{border-left-color:#6a0dad;}
+.cartelera-card.cuatro{border-left-color:#b8860b;}
+.cart-hora{font-family:var(--display);font-size:1.4rem;color:var(--green);min-width:52px;text-align:center;line-height:1;}
+.cart-hora small{font-family:var(--mono);font-size:.5rem;color:var(--muted);display:block;text-transform:uppercase;letter-spacing:.08em;}
+.cart-info{}
+.cart-tipo{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.25rem;}
+.cart-fronton{font-size:.75rem;color:var(--muted);font-family:var(--mono);margin-bottom:.35rem;}
+.cart-partidos{display:flex;flex-direction:column;gap:.25rem;}
+.cart-partido{display:flex;align-items:center;gap:.6rem;}
+.cart-partido-num{font-family:var(--mono);font-size:.5rem;color:var(--muted);min-width:14px;}
+.cart-pelotaris{font-size:.82rem;font-weight:500;}
+.cart-pelotaris .sep{color:var(--muted);margin:0 .3rem;font-weight:300;}
+.cart-arrow{font-size:1.1rem;color:var(--border);transition:color .2s;}
+.cartelera-card:hover .cart-arrow{color:var(--green);}
+.cart-loading{text-align:center;padding:3rem;color:var(--muted);font-family:var(--mono);font-size:.75rem;}
+.cart-loading .spin{display:inline-block;font-size:1.5rem;animation:spin 1s linear infinite;margin-bottom:.5rem;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cart-error{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);padding:1.2rem 1.4rem;font-family:var(--mono);font-size:.7rem;color:var(--muted);}
+.cart-badge{font-family:var(--mono);font-size:.5rem;padding:.1rem .35rem;border-radius:1px;margin-left:.4rem;vertical-align:middle;}
+.cart-badge.tv{background:#1a1f1a;color:#fff;}
+.cart-badge.fin{background:var(--red);color:#fff;}
+
 @media(max-width:900px){
   header{padding:.8rem 1rem;}
   main{padding:1.2rem 1rem;}
   .kpi-row{grid-template-columns:repeat(2,1fr);}
   .rk-grid,.pfwrap,.c4-grid{grid-template-columns:1fr;}
   .c4-sep{padding-top:0;}
+  .cartelera-card{grid-template-columns:auto 1fr;}
+  .cart-arrow{display:none;}
 }
 </style>
 </head>
@@ -215,8 +247,9 @@ tr:hover td{background:var(--surface2);}
     <button onclick="showSec('ranking',this)">Ranking</button>
     <button onclick="showSec('comparador',this)">Comparador</button>
     <button onclick="showSec('frontones',this)">Frontones</button>
+    <button onclick="showSec('cartelera',this)">Cartelera</button>
   </nav>
-
+  <div class="last-update" id="lastUpdate">—</div>
 </header>
 
 <main>
@@ -395,6 +428,16 @@ tr:hover td{background:var(--surface2);}
   <div class="fronton-grid" id="frontonGrid"></div>
   <div class="fronton-detail" id="frontonDetail"></div>
 </div>
+<!-- ══ CARTELERA ══════════════════════════════════════════════════════════ -->
+<div class="section" id="sec-cartelera">
+  <div class="sec-title">Cartelera <span class="badge bg" id="carteleraBadge"></span></div>
+  <div style="font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-bottom:1.2rem;">
+    Próximos partidos de Baiko Pilota · <span id="carteleraFuente">cargando…</span>
+  </div>
+  <div id="cartelaraContainer">
+    <div class="cart-loading"><div class="spin">⟳</div><br>Cargando cartelera…</div>
+  </div>
+</div>
 
 </main>
 <script>
@@ -513,7 +556,7 @@ function init(){
   populateC4Sels();
   renderFrontones();
   buildRanking();
-
+  document.getElementById('lastUpdate').textContent='Actualizado: '+(PARTIDOS[0]?.fecha||'—');
 }
 
 function showSec(id,btn){
@@ -521,6 +564,7 @@ function showSec(id,btn){
   document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
   btn.classList.add('active');
+  if(id==='cartelera') loadCartelera();
 }
 
 // ════════════════════════════════════════════════════════════
@@ -876,13 +920,12 @@ function renderH2H(){
     return;
   }
 
-  let w1=0,w2=0,pf1=0,pf2=0,over365=0;
+  let w1=0,w2=0,pf1=0,pf2=0;
   enfs.forEach(p=>{
     const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
     const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
     pf1+=a;pf2+=b;
     if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
-    if((p.puntos1+p.puntos2)>36.5)over365++;
   });
 
   const esMano=h2hMod==='manomanista';
@@ -893,8 +936,6 @@ function renderH2H(){
     const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
     const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
     const ti=TTAG[p.tipo]||{cls:'',lbl:p.tipo};
-    const total=p.puntos1+p.puntos2;
-    const isOver=total>36.5;
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
@@ -904,7 +945,6 @@ function renderH2H(){
       <td style="color:var(--muted);text-align:center">—</td>
       <td style="color:${!gP1?'var(--red)':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
-      <td style="font-family:var(--mono);font-size:.68rem;text-align:center;color:${isOver?'var(--green)':'var(--muted)'};font-weight:${isOver?600:400}" title="${isOver?'Más de 36,5':'Menos de 36,5'}">${total}</td>
     </tr>`;
   }).join('');
 
@@ -912,20 +952,7 @@ function renderH2H(){
     <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
     <div class="comp-bar">
       <div><div class="comp-nm">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div></div>
-      <div>
-        <div class="comp-pj">${enfs.length} PJ</div>
-        <div style="margin-top:.9rem;padding:.55rem .9rem;background:var(--surface);border:1px solid var(--border);border-radius:2px;text-align:center;">
-          <div style="font-family:var(--display);font-size:1.6rem;color:${over365/enfs.length>=0.5?'var(--green)':'var(--muted)'}">
-            ${Math.round(over365/enfs.length*100)}%
-          </div>
-          <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-top:.15rem;white-space:nowrap">
-            Más de 36,5 tantos
-          </div>
-          <div style="font-family:var(--mono);font-size:.5rem;color:var(--muted);margin-top:.1rem">
-            ${over365} de ${enfs.length}
-          </div>
-        </div>
-      </div>
+      <div><div class="comp-pj">${enfs.length} PJ</div></div>
       <div><div class="comp-nm">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
@@ -933,7 +960,6 @@ function renderH2H(){
       ${esMano?'':`<th>Comp. ${p1}</th>`}
       <th>${p1}</th><th></th><th>${p2}</th>
       ${esMano?'':`<th>Comp. ${p2}</th>`}
-      <th title="Total tantos">Total</th>
     </tr></thead><tbody>${filas}</tbody></table></div>`;
 }
 
@@ -1108,6 +1134,216 @@ function goToNav(secId){
   const btn=document.querySelector(`nav button[onclick*="${secId}"]`);
   if(btn)btn.click();
 }
+
+// ════════════════════════════════════════════════════════════
+// CARTELERA
+// ════════════════════════════════════════════════════════════
+let cartelaraLoaded = false;
+
+async function loadCartelera(){
+  if(cartelaraLoaded) return;
+  const container = document.getElementById('cartelaraContainer');
+  container.innerHTML = '<div class="cart-loading"><div class="spin">⟳</div><br>Cargando cartelera de Baiko…</div>';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 2000,
+        messages: [{
+          role: 'user',
+          content: `Fetch the Baiko Pilota cartelera from https://www.baikopilota.eus/entradas/ and extract all upcoming matches. Return ONLY a JSON array with no extra text, like:
+[
+  {
+    "fecha": "27/03/2026",
+    "hora": "19:00",
+    "fronton": "El Villar de Arnedo",
+    "ciudad": "El Villar de Arnedo",
+    "tipo": "festival",
+    "competicion": "Festival",
+    "partidos": [
+      {"eq1": ["ARTOLA","UGARTEMENDIA"], "eq2": ["LARRAZABAL","MORGAETXEBARRIA"]},
+      {"eq1": ["JAKA","IMAZ"], "eq2": ["ELORDI","ZABALETA"]}
+    ],
+    "tv": false,
+    "agotadas": false
+  }
+]
+tipo must be one of: "campeonato-a", "campeonato-b", "festival", "manomanista-a", "manomanista-b", "cuatro-medio-a", "cuatro-medio-b"
+For manomanista each partido has only one player per side (eq1: ["ALTUNA III"], eq2: ["LASO"]).
+Replace XXXX with empty strings. Only include real named pelotaris. Skip entries where no pelotaris are known.`
+        }],
+        tools: [{type: 'web_search_20250305', name: 'web_search'}]
+      })
+    });
+
+    const data = await res.json();
+    const text = data.content.filter(b=>b.type==='text').map(b=>b.text).join('');
+    const clean = text.replace(/```json|```/g,'').trim();
+    // Extract JSON array
+    const start = clean.indexOf('[');
+    const end = clean.lastIndexOf(']');
+    if(start === -1 || end === -1) throw new Error('No JSON array found');
+    const partidos = JSON.parse(clean.slice(start, end+1));
+
+    renderCartelera(partidos);
+    document.getElementById('carteleraFuente').textContent = 'Fuente: baikopilota.eus — actualizado ahora';
+    document.getElementById('carteleraBadge').textContent = partidos.length + ' partidos';
+    cartelaraLoaded = true;
+
+  } catch(e) {
+    container.innerHTML = `<div class="cart-error">
+      <div style="font-family:var(--display);font-size:1.1rem;margin-bottom:.5rem;color:var(--red)">Error al cargar la cartelera</div>
+      No se ha podido obtener la cartelera de Baiko Pilota. Prueba de nuevo en unos segundos.
+      <br><br><button class="btn" onclick="cartelaraLoaded=false;loadCartelera()">Reintentar</button>
+    </div>`;
+    document.getElementById('carteleraFuente').textContent = 'Error de carga';
+  }
+}
+
+function renderCartelera(partidos){
+  const container = document.getElementById('cartelaraContainer');
+  if(!partidos.length){
+    container.innerHTML = '<div class="nodata"><div class="ic">📅</div>No hay partidos próximos</div>';
+    return;
+  }
+
+  // Agrupar por fecha
+  const byDate = {};
+  partidos.forEach(p => {
+    if(!byDate[p.fecha]) byDate[p.fecha] = [];
+    byDate[p.fecha].push(p);
+  });
+
+  const DIAS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const MESES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+
+  function fmtFecha(f){
+    try {
+      const [d,m,y] = f.split('/');
+      const dt = new Date(+y,+m-1,+d);
+      return `${DIAS[dt.getDay()]} ${d} ${MESES[+m-1]}`;
+    } catch { return f; }
+  }
+
+  function tipoClass(t){
+    if(t.includes('festival')) return 'festival';
+    if(t.includes('manomanista')) return 'manomanista';
+    if(t.includes('cuatro')) return 'cuatro';
+    return '';
+  }
+
+  function tipoLabel(t, comp){
+    if(comp) return comp;
+    const map = {
+      'campeonato-a':'Campeonato Parejas Serie A','campeonato-b':'Campeonato Parejas Serie B',
+      'festival':'Festival','manomanista-a':'Manomanista Serie A','manomanista-b':'Manomanista Serie B',
+      'cuatro-medio-a':'4½ Serie A','cuatro-medio-b':'4½ Serie B'
+    };
+    return map[t] || t;
+  }
+
+  function renderPartidoLine(p, idx){
+    const eq1 = (p.eq1||[]).filter(Boolean).join(' / ') || '—';
+    const eq2 = (p.eq2||[]).filter(Boolean).join(' / ') || '—';
+    return `<div class="cart-partido">
+      <span class="cart-partido-num">${idx+1}.</span>
+      <span class="cart-pelotaris">${eq1}<span class="sep">vs</span>${eq2}</span>
+    </div>`;
+  }
+
+  function getPlayersFromCard(card){
+    const players = [];
+    (card.partidos||[]).forEach(p => {
+      [...(p.eq1||[]), ...(p.eq2||[])].forEach(n => { if(n) players.push(n.toUpperCase()); });
+    });
+    return [...new Set(players)];
+  }
+
+  function goToComparador(card){
+    // Ir al comparador con los datos del partido
+    const partsList = card.partidos || [];
+    if(!partsList.length) return;
+
+    const isMano = card.tipo && card.tipo.includes('manomanista');
+    const isCuatro = card.tipo && card.tipo.includes('cuatro');
+
+    if(isMano){
+      // Manomanista: ir a H2H con los dos pelotaris
+      const p1 = (partsList[0].eq1||[])[0];
+      const p2 = (partsList[0].eq2||[])[0];
+      if(!p1 || !p2) { goToNav('comparador'); return; }
+      goToNav('comparador');
+      setTimeout(()=>{
+        document.querySelector('.ctype-btn[onclick*="h2h"]')?.click();
+        setH2HMod('manomanista');
+        const sel1 = document.getElementById('h2hP1');
+        const sel2 = document.getElementById('h2hP2');
+        // Find closest match
+        [...sel1.options].forEach(o=>{ if(o.text.toUpperCase()===p1.toUpperCase()) sel1.value=o.value; });
+        [...sel2.options].forEach(o=>{ if(o.text.toUpperCase()===p2.toUpperCase()) sel2.value=o.value; });
+        renderH2H();
+      },100);
+    } else if(card.tipo==='festival' || card.tipo==='campeonato-a' || card.tipo==='campeonato-b'){
+      // Parejas: ir a comparador de parejas con delantero/zaguero
+      const p = partsList[0];
+      const d1 = (p.eq1||[])[0];
+      const z1 = (p.eq1||[])[1]||null;
+      const d2 = (p.eq2||[])[0];
+      const z2 = (p.eq2||[])[1]||null;
+      if(!d1||!d2){ goToNav('comparador'); return; }
+      goToNav('comparador');
+      setTimeout(()=>{
+        document.querySelector('.ctype-btn[onclick*="parejas"]')?.click();
+        const c4d1 = document.getElementById('c4d1');
+        const c4d2 = document.getElementById('c4d2');
+        [...c4d1.options].forEach(o=>{ if(o.value.toUpperCase()===d1.toUpperCase()) c4d1.value=o.value; });
+        [...c4d2.options].forEach(o=>{ if(o.value.toUpperCase()===d2.toUpperCase()) c4d2.value=o.value; });
+        c4DelanteroChange(1);
+        c4DelanteroChange(2);
+        setTimeout(()=>{
+          if(z1){
+            const c4z1 = document.getElementById('c4z1');
+            [...c4z1.options].forEach(o=>{ if(o.value.toUpperCase()===z1.toUpperCase()) c4z1.value=o.value; });
+          }
+          if(z2){
+            const c4z2 = document.getElementById('c4z2');
+            [...c4z2.options].forEach(o=>{ if(o.value.toUpperCase()===z2.toUpperCase()) c4z2.value=o.value; });
+          }
+          renderC4();
+        },200);
+      },100);
+    } else {
+      goToNav('comparador');
+    }
+  }
+
+  const html = Object.entries(byDate).map(([fecha, cards])=>`
+    <div class="cartelera-day">
+      <div class="cartelera-day-label">${fmtFecha(fecha)}</div>
+      ${cards.map(card=>`
+        <div class="cartelera-card ${tipoClass(card.tipo||'')}" onclick="carteleraGoComparador(${JSON.stringify(card).replace(/"/g,'&quot;')})">
+          <div class="cart-hora">${(card.hora||'--').replace(':','<br><small>')+((card.hora||'').includes(':') ? 'h</small>' : '')}</div>
+          <div class="cart-info">
+            <div class="cart-tipo">${tipoLabel(card.tipo||'',card.competicion||'')}${card.tv?'<span class="cart-badge tv">TV</span>':''}</div>
+            <div class="cart-fronton">📍 ${card.fronton||''}${card.ciudad&&card.ciudad!==card.fronton?' · '+card.ciudad:''}</div>
+            <div class="cart-partidos">${(card.partidos||[]).map((p,i)=>renderPartidoLine(p,i)).join('')}</div>
+          </div>
+          <div class="cart-arrow">→</div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  container.innerHTML = `<div class="cartelera-grid">${html}</div>`;
+}
+
+function carteleraGoComparador(card){
+  goToComparador(card);
+}
+
+// Monkey-patch showSec to load cartelera on first visit
+const _origShowSec = showSec;
 
 loadData();
 </script>
