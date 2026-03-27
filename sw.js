@@ -1,14 +1,13 @@
 const CACHE = 'eskupilota-v1';
 const PRECACHE = [
-  '/',
-  '/index.html',
-  '/data/partidos.json',
-  '/favicon.ico',
-  '/icon-192.png',
-  '/icon-512.png',
+  './',
+  './index.html',
+  './data/partidos.json',
+  './favicon.ico',
+  './icon-192.png',
+  './icon-512.png',
 ];
 
-// Instalar y cachear recursos estáticos
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE).then(c => c.addAll(PRECACHE))
@@ -16,7 +15,6 @@ self.addEventListener('install', e => {
   self.skipWaiting();
 });
 
-// Activar y limpiar caches antiguas
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
@@ -26,12 +24,10 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
-// Estrategia: Network first, cache fallback
-// Para partidos.json y cartelera.json siempre intenta red primero
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
-  // Datos JSON: network first (siempre intentar actualizar)
+  // Datos JSON: network first
   if (url.pathname.includes('/data/')) {
     e.respondWith(
       fetch(e.request)
@@ -45,7 +41,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Resto: cache first, network fallback
+  // Resto: cache first
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
