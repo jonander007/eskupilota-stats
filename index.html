@@ -1124,21 +1124,70 @@ function c4VerMas(id){
   if(btn) btn.style.display='none';
 }
 
-function c4Bar(partidos,pivot_col,pivot_az,label){
-  let wCol=0,wAz=0,pfCol=0,pfAz=0;
+function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
+  // soloColor: 'col' | 'az' | undefined (enfrentamiento entre los dos)
+  let wCol=0,wAz=0,pfCol=0,pfAz=0,over365=0;
   partidos.forEach(p=>{
     const colEnE1=pels(p.equipo1).includes(pivot_col);
     const ptC=colEnE1?p.puntos1:p.puntos2;
     const ptA=colEnE1?p.puntos2:p.puntos1;
-    pfCol+=ptC;pfAz+=ptA;
+    pfCol+=ptC; pfAz+=ptA;
+    if(ptC+ptA>36.5) over365++;
     if((colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2'))wCol++;else wAz++;
   });
-  const n=partidos.length;
-  return`<div class="c4-marcador">
-    <div><div class="c4-mnombre" style="color:#c0392b">${pivot_col}</div><div class="c4-mwins col">${wCol}</div><div class="c4-mpj">${n>0?(pfCol/n).toFixed(1):0} pts/p</div></div>
-    <div style="text-align:center"><div style="font-family:var(--display);font-size:1.1rem;color:var(--muted)">${n} PJ</div><div style="font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-top:.2rem">${label}</div></div>
-    <div><div class="c4-mnombre" style="color:#2471a3">${pivot_az}</div><div class="c4-mwins az">${wAz}</div><div class="c4-mpj">${n>0?(pfAz/n).toFixed(1):0} pts/p</div></div>
-  </div>`;
+  const n=partidos.length; if(!n) return'';
+  const pctCol=Math.round(wCol/n*100);
+  const pctOver=Math.round(over365/n*100);
+
+  if(soloColor){
+    // Panel de una sola pareja
+    const isCol=soloColor==='col';
+    const w=isCol?wCol:wAz;
+    const l=n-w;
+    const pct=Math.round(w/n*100);
+    const color=isCol?'#c0392b':'#2471a3';
+    return\`<div class="c4-marcador" style="grid-template-columns:repeat(4,1fr)">
+      <div style="text-align:center">
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">Partidos</div>
+        <div style="font-family:var(--display);font-size:2rem;line-height:1;color:\${color}">\${n}</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">Ganados</div>
+        <div style="font-family:var(--display);font-size:2rem;line-height:1;color:var(--green)">\${w}</div>
+        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">\${l} perd.</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">% Victorias</div>
+        <div style="font-family:var(--display);font-size:2rem;line-height:1;color:\${pct>=50?'var(--green)':'var(--red)'}">\${pct}%</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">+36.5 tantos</div>
+        <div style="font-family:var(--display);font-size:2rem;line-height:1;color:var(--text)">\${pctOver}%</div>
+        <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted)">\${over365} partidos</div>
+      </div>
+    </div>\`;
+  }
+
+  // Panel de enfrentamiento (dos parejas)
+  return\`<div class="c4-marcador">
+    <div>
+      <div class="c4-mnombre" style="color:#c0392b">\${pivot_col}</div>
+      <div class="c4-mwins col">\${wCol}</div>
+      <div class="c4-mpj">\${pctCol}% victorias</div>
+      <div class="c4-mpj">\${(pfCol/n).toFixed(1)} pts/p</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-family:var(--display);font-size:1.1rem;color:var(--muted)">\${n} PJ</div>
+      <div style="font-family:var(--mono);font-size:.55rem;color:var(--muted);margin-top:.3rem">+36.5: \${pctOver}%</div>
+      <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted);margin-top:.1rem">\${label}</div>
+    </div>
+    <div>
+      <div class="c4-mnombre" style="color:#2471a3">\${pivot_az}</div>
+      <div class="c4-mwins az">\${wAz}</div>
+      <div class="c4-mpj">\${100-pctCol}% victorias</div>
+      <div class="c4-mpj">\${(pfAz/n).toFixed(1)} pts/p</div>
+    </div>
+  </div>\`;
 }
 
 function renderC4(){
@@ -1190,10 +1239,10 @@ function renderC4(){
       exactos.length?c4Bar(exactos,d1,d2,'pareja exacta'):'',
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
     +mkBloque('🔴',`Partidos de ${colLabel}`,soloCol.length,
-      soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada'):'',
+      soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada','col'):'',
       c4TablaPartidos(soloCol,d1,d1,colLabel,'Rival'))
     +mkBloque('🔵',`Partidos de ${azLabel}`,soloAz.length,
-      soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul'):'',
+      soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul','az'):'',
       c4TablaPartidos(soloAz,d2,d2,azLabel,'Rival'))
     +mkBloque('⚔️',`H2H Delanteros — ${d1} vs ${d2}`,h2hDel.length,
       h2hDel.length?c4Bar(h2hDel,d1,d2,'H2H delanteros'):'',
