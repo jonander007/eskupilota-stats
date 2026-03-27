@@ -204,6 +204,11 @@ tr:hover td{background:var(--surface2);}
 .fronton-detail.active{display:block;}
 
 
+
+/* ── IDIOMA ── */
+.lang-btn{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;padding:.25rem .55rem;border:1px solid var(--border);background:none;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .15s;}
+.lang-btn:hover{border-color:var(--green);color:var(--green);}
+.lang-btn.active{background:var(--green);border-color:var(--green);color:#fff;}
 /* ── CONTACTO ── */
 .contact-wrap{max-width:560px;margin:0 auto;}
 .contact-intro{font-size:.9rem;color:var(--muted);margin-bottom:2rem;line-height:1.6;}
@@ -268,6 +273,10 @@ tr:hover td{background:var(--surface2);}
 <body>
 <header>
   <div class="logo">ESKUPILOTA<span>STATS</span></div>
+  <div style="position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);display:flex;gap:.25rem;" id="langToggle">
+    <button class="lang-btn active" id="langEs" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="langEu" onclick="setLang('eu')">EU</button>
+  </div>
   <nav>
     <button onclick="showSec('cartelera',this)">Cartelera</button>
     <button class="active" onclick="showSec('partidos',this)">Resultados</button>
@@ -558,6 +567,256 @@ const TTAG={
 };
 
 // ════════════════════════════════════════════════════════════
+// I18N — Traducciones ES / EU
+// ════════════════════════════════════════════════════════════
+let LANG = 'es';
+
+const I18N = {
+  es: {
+    // Nav
+    nav_cartelera: 'Cartelera',
+    nav_resultados: 'Resultados',
+    nav_comparador: 'Comparador',
+    nav_pelotaris: 'Pelotaris',
+    nav_frontones: 'Frontones',
+    nav_ranking: 'Ranking',
+    nav_contacto: 'Contacto',
+    // KPIs
+    kpi_partidos: 'Partidos', kpi_registrados: 'registrados',
+    kpi_pelotaris: 'Pelotaris', kpi_distintos: 'distintos',
+    kpi_frontones: 'Frontones',
+    kpi_oficiales: 'Oficiales', kpi_campeonatos: 'campeonatos',
+    kpi_festivales: 'Festivales', kpi_amistosos: 'amistosos',
+    // Filtros
+    flabel_modalidad: 'Modalidad', flabel_desde: 'Desde', flabel_hasta: 'Hasta',
+    flabel_pelotari: 'Pelotari', flabel_competicion: 'Competición', flabel_fronton: 'Frontón',
+    flabel_año: 'Año', flabel_serie: 'Serie',
+    btn_limpiar: 'Limpiar',
+    ph_buscar_pelotari: 'Buscar pelotari…', ph_buscar_fronton: 'Buscar frontón…',
+    sel_todas: 'Todas', sel_todos: 'Todos',
+    // Tipos
+    tipo_todos: 'Todos', tipo_parejas: 'Parejas', tipo_mano: 'Manomanista', tipo_cuatro: '4 y Medio',
+    serie_todas: 'Todas', serie_a: 'Serie A', serie_b: 'Serie B', serie_fest: 'Festivales',
+    // Tabla
+    th_fecha: 'Fecha', th_tipo: 'Tipo', th_fronton: 'Frontón',
+    th_equipo1: 'Equipo 1', th_marcador: 'Marcador', th_equipo2: 'Equipo 2', th_comp: 'Competición',
+    // Secciones
+    sec_partidos: 'Partidos', sec_pelotaris: 'Pelotaris', sec_ranking: 'Ranking',
+    sec_comparador: 'Comparador', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
+    sec_contacto: 'Contacto',
+    // Pelotaris
+    lbl_victorias: 'Victorias', lbl_partidos: 'Partidos', lbl_pct_vic: '% Vic',
+    lbl_derrotas: 'Derrotas', lbl_pts_p: 'Pts/partido', lbl_diferencia: 'Diferencia',
+    lbl_compañeros: 'Compañeros de pareja', lbl_rivales: 'Rivales más frecuentes',
+    lbl_volver: '← Volver',
+    // Comparador H2H
+    comp_h2h: 'Head to Head', comp_parejas: 'Comparador Parejas',
+    sel_pelotari1: '— Selecciona —', sel_pelotari2: '— Selecciona —',
+    lbl_modalidad: 'Modalidad', lbl_serie_h2h: 'Serie', lbl_año_h2h: 'Año',
+    h2h_sin_sel: 'Selecciona dos pelotaris distintos',
+    // Comparador C4
+    sel_delantero: '— Selecciona delantero —',
+    sel_zaguero_any: '— Cualquier zaguero —',
+    eq_colorada: 'PAREJA COLORADA', eq_azul: 'PAREJA AZUL',
+    lbl_delantero: 'Delantero', lbl_zaguero: 'Zaguero',
+    c4_identico: 'Partido idéntico', c4_partidos_col: 'Partidos de',
+    c4_h2h_del: 'H2H Delanteros', c4_h2h_zag: 'H2H Zagueros',
+    c4_sin_zag: 'Selecciona ambos zagueros para ver su H2H',
+    c4_con_hist: 'Con historial juntos', c4_sin_hist: 'Sin historial juntos',
+    c4_partidos_label: 'partidos',
+    c4_ver_mas: 'Ver {n} más ↓',
+    // Stats
+    stat_pj: 'Partidos', stat_ganados: 'Ganados', stat_pct_vic: '% Victorias', stat_over: '+36.5 tantos',
+    stat_perd: 'perd.',
+    // Cartelera
+    cart_ver_hist: '→ Ver historial', cart_cargando: '⟳ Cargando cartelera…',
+    cart_no_partidos: 'No hay próximos partidos',
+    cart_recarga: '↻ Recargar',
+    // Contacto
+    cont_intro: '¿Tienes alguna sugerencia, has encontrado un error en los datos o quieres colaborar?<br>Escríbenos y te responderemos lo antes posible.',
+    cont_nombre: 'Nombre', cont_email: 'Email', cont_asunto: 'Asunto', cont_mensaje: 'Mensaje',
+    cont_ph_nombre: 'Tu nombre', cont_ph_asunto: 'Error en datos, sugerencia…', cont_ph_mensaje: 'Cuéntanos…',
+    cont_btn: 'Enviar mensaje',
+    cont_ok: '✓ Mensaje preparado — se abrirá tu cliente de correo.',
+    cont_directo: 'O escríbenos directamente a',
+    // Ranking
+    rk_title: 'Ranking',
+    // Nodata
+    nodata_h2h: 'Sin enfrentamientos en',
+    nodata_sin_comp: 'Sin compañeros', nodata_sin_riv: 'Sin rivales',
+    // Tags
+    tag_seriea: 'Serie A', tag_serieb: 'Serie B', tag_festival: 'Festival',
+    tag_mano: 'Manomanista', tag_manoa: 'Mano A', tag_manob: 'Mano B',
+    tag_cuatroa: '4½ A', tag_cuatrob: '4½ B',
+    // Roles
+    rol_del: 'Del', rol_zag: 'Zag',
+  },
+  eu: {
+    nav_cartelera: 'Kartelera',
+    nav_resultados: 'Emaitzak',
+    nav_comparador: 'Konparatzailea',
+    nav_pelotaris: 'Pilotariak',
+    nav_frontones: 'Frontoiak',
+    nav_ranking: 'Sailkapena',
+    nav_contacto: 'Kontaktua',
+    kpi_partidos: 'Partidak', kpi_registrados: 'erregistratuta',
+    kpi_pelotaris: 'Pilotariak', kpi_distintos: 'desberdinak',
+    kpi_frontones: 'Frontoiak',
+    kpi_oficiales: 'Ofizialak', kpi_campeonatos: 'txapelketak',
+    kpi_festivales: 'Jaialdiak', kpi_amistosos: 'lagunartekoak',
+    flabel_modalidad: 'Modalitatea', flabel_desde: 'Nondik', flabel_hasta: 'Nora',
+    flabel_pelotari: 'Pilotaria', flabel_competicion: 'Lehiaketa', flabel_fronton: 'Frontoia',
+    flabel_año: 'Urtea', flabel_serie: 'Seriea',
+    btn_limpiar: 'Garbitu',
+    ph_buscar_pelotari: 'Bilatu pilotaria…', ph_buscar_fronton: 'Bilatu frontoia…',
+    sel_todas: 'Guztiak', sel_todos: 'Guztiak',
+    tipo_todos: 'Guztiak', tipo_parejas: 'Binakakoa', tipo_mano: 'Buruz Burukoa', tipo_cuatro: '4 eta Erdikoa',
+    serie_todas: 'Guztiak', serie_a: 'A Seriea', serie_b: 'B Seriea', serie_fest: 'Jaialdiak',
+    th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
+    th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
+    sec_partidos: 'Partidak', sec_pelotaris: 'Pilotariak', sec_ranking: 'Sailkapena',
+    sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
+    sec_contacto: 'Kontaktua',
+    lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
+    lbl_derrotas: 'Porroak', lbl_pts_p: 'Puntu/partida', lbl_diferencia: 'Aldea',
+    lbl_compañeros: 'Bikotekideak', lbl_rivales: 'Aurkari ohikoenak',
+    lbl_volver: '← Itzuli',
+    comp_h2h: 'Aurrez Aurre', comp_parejas: 'Binakako Konparatzailea',
+    sel_pelotari1: '— Hautatu —', sel_pelotari2: '— Hautatu —',
+    lbl_modalidad: 'Modalitatea', lbl_serie_h2h: 'Seriea', lbl_año_h2h: 'Urtea',
+    h2h_sin_sel: 'Hautatu bi pilotari desberdin',
+    sel_delantero: '— Hautatu aurrelaria —',
+    sel_zaguero_any: '— Edozein atzelari —',
+    eq_colorada: 'BIKOTE GORRIA', eq_azul: 'BIKOTE URDINA',
+    lbl_delantero: 'Aurrelaria', lbl_zaguero: 'Atzelaria',
+    c4_identico: 'Partida berdina', c4_partidos_col: 'Partidak',
+    c4_h2h_del: 'Aurrelarien arteko H2H', c4_h2h_zag: 'Atzelarien arteko H2H',
+    c4_sin_zag: 'Hautatu bi atzelariak haien H2H ikusteko',
+    c4_con_hist: 'Elkarrekin jokatutakoak', c4_sin_hist: 'Historia gabe',
+    c4_partidos_label: 'partida',
+    c4_ver_mas: '{n} gehiago ikusi ↓',
+    stat_pj: 'Partidak', stat_ganados: 'Irabaziak', stat_pct_vic: '% Garaipenak', stat_over: '+36.5 tanto',
+    stat_perd: 'galdu.',
+    cart_ver_hist: '→ Historia ikusi', cart_cargando: '⟳ Kartelera kargatzen…',
+    cart_no_partidos: 'Ez dago hurrengo partidarik',
+    cart_recarga: '↻ Berritu',
+    cont_intro: 'Iradokizunen bat duzu, daturen bat gaizki dagoela ikusi duzu edo lagundu nahi duzu?<br>Idatzi eta ahal bezain laster erantzungo dizugu.',
+    cont_nombre: 'Izena', cont_email: 'Email', cont_asunto: 'Gaia', cont_mensaje: 'Mezua',
+    cont_ph_nombre: 'Zure izena', cont_ph_asunto: 'Datuen errorea, iradokizuna…', cont_ph_mensaje: 'Kontaiguzu…',
+    cont_btn: 'Mezua bidali',
+    cont_ok: '✓ Mezua prest — posta elektronikoa irekiko da.',
+    cont_directo: 'Edo idatzi zuzenean helbide honetara',
+    rk_title: 'Sailkapena',
+    nodata_h2h: 'Ez dago enfrentamendurik',
+    nodata_sin_comp: 'Bikotekiderik gabe', nodata_sin_riv: 'Aurkaririk gabe',
+    tag_seriea: 'A Seriea', tag_serieb: 'B Seriea', tag_festival: 'Jaialdia',
+    tag_mano: 'Buruz Burukoa', tag_manoa: 'Mano A', tag_manob: 'Mano B',
+    tag_cuatroa: '4½ A', tag_cuatrob: '4½ B',
+    rol_del: 'Aur', rol_zag: 'Atz',
+  }
+};
+
+function t(key){ return (I18N[LANG]||I18N.es)[key] || I18N.es[key] || key; }
+
+function setLang(lang){
+  LANG = lang;
+  document.getElementById('langEs').classList.toggle('active', lang==='es');
+  document.getElementById('langEu').classList.toggle('active', lang==='eu');
+  applyI18N();
+}
+
+function applyI18N(){
+  // Nav buttons
+  const navMap = {
+    'cartelera':'nav_cartelera','partidos':'nav_resultados','comparador':'nav_comparador',
+    'pelotaris':'nav_pelotaris','frontones':'nav_frontones','ranking':'nav_ranking','contacto':'nav_contacto'
+  };
+  document.querySelectorAll('nav button').forEach(btn=>{
+    const m = btn.getAttribute('onclick').match(/showSec\('(\w+)'/);
+    if(m && navMap[m[1]]) btn.textContent = t(navMap[m[1]]);
+  });
+  // Filter labels
+  const labelMap = {
+    'pillsPartidos':'flabel_modalidad','pillsPel':'flabel_modalidad','pillsRk':'flabel_modalidad','pillsFron':'flabel_modalidad',
+    'fDesde':'flabel_desde','fHasta':'flabel_hasta','sInput':'flabel_pelotari',
+    'fComp':'flabel_competicion','fFron':'flabel_fronton',
+    'frontonSearch':'flabel_fronton','pSearch':'flabel_pelotari',
+  };
+  document.querySelectorAll('.flabel').forEach(el=>{
+    const inp = el.parentElement.querySelector('input,select,.tipo-pills,.year-pills');
+    if(inp){
+      const id = inp.id;
+      if(id==='fDesde') el.textContent=t('flabel_desde');
+      else if(id==='fHasta') el.textContent=t('flabel_hasta');
+      else if(id==='sInput'||id==='pSearch') el.textContent=t('flabel_pelotari');
+      else if(id==='fComp') el.textContent=t('flabel_competicion');
+      else if(id==='fFron'||id==='frontonSearch') el.textContent=t('flabel_fronton');
+      else if(id&&id.startsWith('pills')) el.textContent=t('flabel_modalidad');
+      else if(id&&id.startsWith('year')) el.textContent=t('flabel_año');
+    }
+  });
+  // Tipo pills labels
+  document.querySelectorAll('.tipo-pills .pill').forEach(btn=>{
+    const k = btn.dataset.tipo;
+    const map = {todos:'tipo_todos',campeonato:'tipo_parejas',manomanista:'tipo_mano',cuatro:'tipo_cuatro'};
+    if(map[k]) btn.textContent = t(map[k]);
+  });
+  // Year pills "Todos"
+  document.querySelectorAll('.ypill[data-year="todos"]').forEach(b=>b.textContent=t('sel_todos'));
+  // Selects first option
+  const fComp = document.getElementById('fComp');
+  if(fComp && fComp.options[0]) fComp.options[0].textContent = t('sel_todas');
+  const fFron = document.getElementById('fFron');
+  if(fFron && fFron.options[0]) fFron.options[0].textContent = t('sel_todos');
+  // Table headers
+  const thMap = ['th_fecha','th_tipo','th_fronton','th_equipo1','th_marcador','th_equipo2','th_comp'];
+  document.querySelectorAll('#sec-partidos thead th').forEach((th,i)=>{ if(thMap[i]) th.childNodes[0].textContent=t(thMap[i])+' '; });
+  // Placeholders
+  const pBusPel = document.getElementById('sInput'); if(pBusPel) pBusPel.placeholder=t('ph_buscar_pelotari');
+  const pBusPel2 = document.getElementById('pSearch'); if(pBusPel2) pBusPel2.placeholder=t('ph_buscar_pelotari');
+  const pBusFr = document.getElementById('frontonSearch'); if(pBusFr) pBusFr.placeholder=t('ph_buscar_fronton');
+  // Comparador buttons
+  document.querySelector('.ctype-btn[onclick*="h2h"]').textContent = t('comp_h2h');
+  document.querySelector('.ctype-btn[onclick*="parejas"]').textContent = t('comp_parejas');
+  // H2H Serie pills
+  const serieMap = {todas:'serie_todas',a:'serie_a',b:'serie_b',festival:'serie_fest'};
+  document.querySelectorAll('.comp-sub-pill').forEach(b=>{ if(serieMap[b.dataset.serie]) b.textContent=t(serieMap[b.dataset.serie]); });
+  // H2H nodata
+  document.querySelector('#h2hRes .nodata')?.querySelector('*:last-child')?.replaceChildren(document.createTextNode(t('h2h_sin_sel')));
+  // Comparador C4 selects
+  ['c4d1','c4d2'].forEach(id=>{
+    const s=document.getElementById(id);
+    if(s&&s.options[0]) s.options[0].textContent=t('sel_delantero');
+  });
+  ['c4z1','c4z2'].forEach(id=>{
+    const s=document.getElementById(id);
+    if(s&&s.options[0]) s.options[0].textContent=t('sel_zaguero_any');
+  });
+  // Equipo titles
+  document.querySelectorAll('.eq-title').forEach((el,i)=>el.textContent=i===0?t('eq_colorada'):t('eq_azul'));
+  // C4 labels
+  document.querySelectorAll('.c4-lbl').forEach(el=>{
+    if(el.textContent.trim()==='Delantero'||el.textContent.trim()==='Aurrelaria') el.textContent=t('lbl_delantero');
+    if(el.textContent.trim()==='Zaguero'||el.textContent.trim()==='Atzelaria') el.textContent=t('lbl_zaguero');
+  });
+  // Limpiar button
+  document.querySelectorAll('.btn-ghost[onclick="resetFiltros()"]').forEach(b=>b.textContent=t('btn_limpiar'));
+  // Section titles (static ones)
+  document.querySelector('#sec-pelotaris .sec-title')?.childNodes[0]?.replaceWith?.(document.createTextNode(t('sec_pelotaris')+' '));
+  // Contacto
+  document.querySelector('#cNombre')?.setAttribute('placeholder', t('cont_ph_nombre'));
+  document.querySelector('#cAsunto')?.setAttribute('placeholder', t('cont_ph_asunto'));
+  document.querySelector('#cMensaje')?.setAttribute('placeholder', t('cont_ph_mensaje'));
+  document.querySelector('.contact-intro').innerHTML = t('cont_intro');
+  document.querySelector('.contact-direct').innerHTML = t('cont_directo')+' <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>';
+  document.querySelector('.btn[onclick="enviarContacto()"]').textContent = t('cont_btn');
+  // Re-render dynamic content that uses translated strings
+  renderTabla();
+  renderPCards();
+  buildRanking();
+}
+
+// ════════════════════════════════════════════════════════════
 // CARGA
 // ════════════════════════════════════════════════════════════
 async function loadData(){
@@ -643,6 +902,7 @@ function init(){
   populateC4Sels();
   renderFrontones();
   buildRanking();
+  applyI18N();
   
 }
 
