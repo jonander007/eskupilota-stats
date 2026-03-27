@@ -281,13 +281,82 @@ tr:hover td{background:var(--surface2);}
 .cart-day-label:first-child{margin-top:0;}
 
 @media(max-width:900px){
-  .header-inner{padding:.8rem 1rem;}
-  .header-inner{gap:.5rem;}
-  nav button{font-size:.55rem;padding:.35rem .5rem;}
-  main{padding:1.2rem 1rem;}
-  .kpi-row{grid-template-columns:repeat(2,1fr);}
-  .rk-grid,.pfwrap,.c4-grid{grid-template-columns:1fr;}
-  .c4-sep{padding-top:0;}
+  /* HEADER */
+  .header-inner{
+    display:flex!important;flex-direction:column;align-items:center;
+    gap:.4rem;padding:.7rem 1rem;
+  }
+  .logo{font-size:1.5rem;}
+  nav{justify-content:center;gap:.2rem;flex-wrap:wrap;}
+  nav button{font-size:.58rem;padding:.32rem .6rem;}
+  #langToggle{position:absolute;top:.7rem;right:1rem;}
+
+  /* MAIN */
+  main{padding:1rem .8rem;}
+
+  /* KPIs */
+  .kpi-row{grid-template-columns:repeat(2,1fr);gap:.6rem;margin-bottom:1.2rem;}
+  .kpi{padding:.85rem .9rem;}
+  .kpi-label{font-size:.58rem;}
+  .kpi-value{font-size:2rem;}
+  .kpi-sub{font-size:.6rem;}
+
+  /* TABLA */
+  .twrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table{font-size:.7rem;min-width:500px;}
+  th{font-size:.5rem;padding:.45rem .4rem;}
+  td{padding:.45rem .4rem;}
+  .sc{font-size:1rem;}
+
+  /* FILTROS */
+  .filter-panel .filter-row{flex-direction:column;gap:.5rem;}
+  .filter-panel .filter-row>.fg{width:100%;}
+  select,input[type=text],input[type=date]{width:100%;}
+  .tipo-pills{gap:.25rem;flex-wrap:wrap;}
+  .pill{font-size:.56rem;padding:.25rem .55rem;}
+  .year-pills{flex-wrap:wrap;gap:.25rem;}
+  .ypill{font-size:.56rem;padding:.22rem .55rem;}
+
+  /* PELOTARIS */
+  .cards-grid{grid-template-columns:repeat(2,1fr);gap:.6rem;}
+  .pcard{padding:.75rem;}
+  .pcard .pname{font-size:.95rem;}
+  .pel-group-header{font-size:.95rem;}
+
+  /* PERFIL */
+  .pfwrap{grid-template-columns:1fr;}
+  .pf-sgrid{grid-template-columns:repeat(3,1fr);}
+  .pf-header{padding:1rem;}
+  .pf-nombre{font-size:1.5rem;}
+
+  /* RANKING */
+  .rk-grid{grid-template-columns:1fr;}
+  .rk-tabs{gap:.2rem;}
+  .rk-tab{font-size:.52rem;padding:.28rem .55rem;}
+
+  /* COMPARADOR */
+  .c4-grid{grid-template-columns:1fr;}
+  .c4-sep{display:none;}
+  .comp-inputs{grid-template-columns:1fr;}
+  .comp-vs{display:none;}
+  .comp-type-selector{flex-wrap:wrap;gap:.4rem;}
+  .ctype-btn{font-size:1rem;padding:.5rem .9rem;}
+  .comp-bar{padding:.8rem;}
+  .comp-wins{font-size:2.8rem;}
+
+  /* CARTELERA */
+  .cart-partido-arrow{display:none;}
+
+  /* FRONTONES */
+  .fronton-grid{grid-template-columns:repeat(2,1fr);}
+  .rk-grid,.pfwrap{grid-template-columns:1fr;}
+}
+
+@media(max-width:420px){
+  .kpi-value{font-size:1.7rem;}
+  nav button{font-size:.52rem;padding:.28rem .45rem;}
+  .cards-grid{grid-template-columns:1fr 1fr;}
+  .rk-tab{font-size:.48rem;padding:.25rem .45rem;}
 }
 .header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;width:100%;max-width:1400px;margin:0 auto;padding:.85rem 2.5rem;}
 </style>
