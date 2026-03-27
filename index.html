@@ -199,42 +199,41 @@ tr:hover td{background:var(--surface2);}
 .fronton-detail.active{display:block;}
 
 /* ── CARTELERA ── */
-.cartelera-grid{display:flex;flex-direction:column;gap:.5rem;}
-.cartelera-day-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:.6rem 0 .4rem;border-bottom:1px solid var(--border);margin-bottom:.5rem;margin-top:1rem;}
-.cartelera-day-label:first-child{margin-top:0;}
-.cartelera-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);padding:.9rem 1.1rem;display:grid;grid-template-columns:60px 1fr auto;gap:.9rem;align-items:center;cursor:pointer;transition:all .18s;}
-.cartelera-card:hover{box-shadow:0 3px 14px rgba(0,122,61,.1);transform:translateX(2px);}
-.cartelera-card.tipo-festival{border-left-color:var(--muted);}
-.cartelera-card.tipo-mano{border-left-color:#6a0dad;}
-.cartelera-card.tipo-cuatro{border-left-color:#b8860b;}
-.cart-hora{text-align:center;}
-.cart-hora .h{font-family:var(--display);font-size:1.35rem;line-height:1;color:var(--green);}
-.cart-hora .hm{font-family:var(--mono);font-size:.5rem;color:var(--muted);text-transform:uppercase;}
-.cartelera-card.tipo-mano .cart-hora .h{color:#6a0dad;}
-.cartelera-card.tipo-cuatro .cart-hora .h{color:#b8860b;}
-.cartelera-card.tipo-festival .cart-hora .h{color:var(--muted);}
-.cart-body{}
-.cart-meta{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-bottom:.3rem;}
-.cart-tipo-badge{font-family:var(--mono);font-size:.5rem;text-transform:uppercase;letter-spacing:.08em;padding:.1rem .35rem;border-radius:1px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);}
-.cart-tipo-badge.a{background:rgba(0,122,61,.08);color:var(--green);border-color:var(--green);}
-.cart-tipo-badge.b{background:rgba(0,122,61,.04);color:var(--green);border-color:#007A3D88;}
-.cart-tipo-badge.mano{background:rgba(106,13,173,.08);color:#6a0dad;border-color:#6a0dad;}
-.cart-tipo-badge.cuatro{background:rgba(184,134,11,.08);color:#b8860b;border-color:#b8860b;}
-.cart-tipo-badge.tv{background:#1a1f1a;color:#fff;border-color:#1a1f1a;}
-.cart-fronton{font-family:var(--mono);font-size:.58rem;color:var(--muted);}
-.cart-partidos{margin-top:.3rem;display:flex;flex-direction:column;gap:.2rem;}
-.cart-linea{font-size:.8rem;font-weight:500;}
-.cart-linea .vs{color:var(--muted);font-weight:300;margin:0 .35rem;font-size:.75rem;}
-.cart-linea .serie-tag{font-family:var(--mono);font-size:.48rem;color:var(--muted);border:1px solid var(--border);padding:.05rem .25rem;border-radius:1px;margin-left:.3rem;vertical-align:middle;}
-.cart-arrow{color:var(--border);font-size:1rem;transition:color .18s;}
-.cartelera-card:hover .cart-arrow{color:var(--green);}
-.cart-agotado{font-family:var(--mono);font-size:.5rem;color:var(--red);text-transform:uppercase;letter-spacing:.08em;}
-.cart-loading{text-align:center;padding:3rem 1rem;color:var(--muted);font-family:var(--mono);font-size:.7rem;}
+.cart-evento{background:var(--surface);border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;}
+.cart-evento-header{display:grid;grid-template-columns:56px 1fr;gap:.8rem;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
+.cart-hora-wrap{text-align:center;}
+.cart-hora-h{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--green);}
+.cart-hora-m{font-family:var(--mono);font-size:.48rem;color:var(--muted);text-transform:uppercase;}
+.cart-evento-meta{}
+.cart-evento-comp{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.15rem;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;}
+.cart-evento-lugar{font-size:.8rem;font-weight:600;}
+.cart-evento-ciudad{font-family:var(--mono);font-size:.58rem;color:var(--muted);}
+.cart-badge{font-family:var(--mono);font-size:.48rem;padding:.1rem .3rem;border-radius:1px;border:1px solid;text-transform:uppercase;letter-spacing:.06em;}
+.cart-badge.a{color:var(--green);border-color:var(--green);background:rgba(0,122,61,.07);}
+.cart-badge.b{color:var(--green);border-color:#007A3D66;background:rgba(0,122,61,.04);}
+.cart-badge.mano{color:#6a0dad;border-color:#6a0dad;background:rgba(106,13,173,.07);}
+.cart-badge.cuatro{color:#b8860b;border-color:#b8860b;background:rgba(184,134,11,.07);}
+.cart-badge.fest{color:var(--muted);border-color:var(--border);background:var(--surface2);}
+
+.cart-badge.fase{color:var(--muted);border-color:var(--border);background:transparent;}
+.cart-partidos-list{padding:.5rem .8rem .8rem;}
+.cart-partido-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.8rem;padding:.65rem .8rem;border:1px solid var(--border);border-radius:2px;cursor:pointer;transition:all .18s;margin-bottom:.4rem;background:var(--surface);}
+.cart-partido-card:last-child{margin-bottom:0;}
+.cart-partido-card:hover{border-color:var(--green);box-shadow:0 2px 8px rgba(0,122,61,.1);transform:translateX(2px);}
+.cart-partido-equipos{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.cart-partido-eq{font-size:.82rem;font-weight:600;}
+.cart-partido-vs{font-family:var(--mono);font-size:.58rem;color:var(--muted);font-weight:300;}
+.cart-partido-serie{font-family:var(--mono);font-size:.48rem;color:var(--muted);border:1px solid var(--border);padding:.05rem .25rem;border-radius:1px;white-space:nowrap;}
+.cart-partido-arrow{color:var(--border);font-size:.9rem;transition:color .18s;white-space:nowrap;}
+.cart-partido-card:hover .cart-partido-arrow{color:var(--green);}
+
+.cart-loading{text-align:center;padding:3rem;color:var(--muted);font-family:var(--mono);font-size:.7rem;}
 .cart-error{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);padding:1.2rem 1.4rem;}
-.cart-error-title{font-family:var(--display);font-size:1.1rem;color:var(--red);margin-bottom:.4rem;}
-.cart-error-body{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:1.5;}
-.cart-hint{background:var(--surface2);border:1px solid var(--border);padding:.9rem 1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.6;}
-.cart-hint code{background:var(--surface);border:1px solid var(--border);padding:.1rem .3rem;border-radius:2px;font-size:.58rem;}
+.cart-error-title{font-family:var(--display);font-size:1.1rem;color:var(--red);margin-bottom:.5rem;}
+.cart-error-body{font-family:var(--mono);font-size:.63rem;color:var(--muted);line-height:1.7;}
+.cart-hint{background:var(--surface2);border:1px solid var(--border);padding:.8rem 1rem;font-family:var(--mono);font-size:.58rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.6;}
+.cart-day-label{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:.5rem 0 .4rem;border-bottom:1px solid var(--border);margin-bottom:.7rem;margin-top:1.2rem;}
+.cart-day-label:first-child{margin-top:0;}
 
 @media(max-width:900px){
   header{padding:.8rem 1rem;}
@@ -242,8 +241,6 @@ tr:hover td{background:var(--surface2);}
   .kpi-row{grid-template-columns:repeat(2,1fr);}
   .rk-grid,.pfwrap,.c4-grid{grid-template-columns:1fr;}
   .c4-sep{padding-top:0;}
-  .cartelera-card{grid-template-columns:50px 1fr;}
-  .cart-arrow{display:none;}
 }
 </style>
 </head>
@@ -440,13 +437,8 @@ tr:hover td{background:var(--surface2);}
 <!-- ══ CARTELERA ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-cartelera">
   <div class="sec-title">Cartelera <span class="badge bg" id="carteleraBadge"></span></div>
-  <div class="cart-hint">
-    Esta sección lee <code>data/cartelera.json</code> generado por el scraper.<br>
-    Para actualizar: <code>python3 scraper_cartelera.py</code> · Puedes programarlo con cron cada hora.
-  </div>
-  <div id="carteleraContainer">
-    <div class="cart-loading">⟳ Cargando cartelera…</div>
-  </div>
+  <div class="cart-hint" id="carteleraHint">Cargando…</div>
+  <div id="carteleraContainer"><div class="cart-loading">⟳ Cargando cartelera…</div></div>
 </div>
 
 </main>
@@ -1145,6 +1137,7 @@ function goToNav(secId){
   if(btn)btn.click();
 }
 
+
 // ════════════════════════════════════════════════════════════
 // CARTELERA
 // ════════════════════════════════════════════════════════════
@@ -1161,6 +1154,7 @@ async function loadCartelera(){
     renderCartelera(data);
     cartelaraLoaded = true;
   } catch(e){
+    document.getElementById('carteleraHint').style.display='none';
     el.innerHTML = `<div class="cart-error">
       <div class="cart-error-title">No se encontró data/cartelera.json</div>
       <div class="cart-error-body">
@@ -1169,102 +1163,104 @@ async function loadCartelera(){
         <code>python3 scraper_cartelera.py</code><br><br>
         Esto genera <code>data/cartelera.json</code> que el frontend lee directamente.
       </div>
-      <br><button class="btn" onclick="cartelaraLoaded=false;loadCartelera()">Reintentar</button>
+      <br><button class="btn" onclick="cartelaraLoaded=false;loadCartelera()">↻ Reintentar</button>
     </div>`;
   }
 }
 
 function renderCartelera(data){
   const el = document.getElementById('carteleraContainer');
-  const partidos = data.partidos || [];
-  document.getElementById('carteleraBadge').textContent = partidos.length;
-  if(data.actualizado){
-    document.querySelector('#sec-cartelera .cart-hint').innerHTML =
-      `Fuente: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · Actualizado: <strong>${data.actualizado}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.25rem .6rem">↻ Recargar</button>`;
-  }
-  if(!partidos.length){
-    el.innerHTML = '<div class="nodata"><div class="ic">📅</div>No hay próximos partidos</div>';
+  const eventos = data.partidos || [];
+  document.getElementById('carteleraBadge').textContent = eventos.length + ' eventos';
+  const hint = document.getElementById('carteleraHint');
+  hint.innerHTML = `Fuente: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · Actualizado: <strong>${data.actualizado||'—'}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.2rem .55rem">↻ Recargar</button>`;
+  if(!eventos.length){
+    el.innerHTML='<div class="nodata"><div class="ic">📅</div>No hay próximos partidos</div>';
     return;
   }
   const DIAS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
   const MESES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   function fmtFecha(f){
     try{ const[d,m,y]=f.split('/'); const dt=new Date(+y,+m-1,+d);
-      return `${DIAS[dt.getDay()]} ${d} ${MESES[+m-1]} ${y}`; }
+      return `${DIAS[dt.getDay()]} ${+d} ${MESES[+m-1]} ${y}`; }
     catch{ return f; }
   }
-  function tipoClass(t){
-    if((t||'').includes('manomanista')) return 'tipo-mano';
-    if((t||'').includes('cuatro')) return 'tipo-cuatro';
-    if(t==='festival') return 'tipo-festival';
-    return '';
+  function tipoBadgeClass(t){
+    if((t||'').includes('manomanista')) return 'mano';
+    if((t||'').includes('cuatro')) return 'cuatro';
+    if((t||'').includes('-b')) return 'b';
+    if((t||'').includes('festival')) return 'fest';
+    return 'a';
   }
-  function tipoBadges(card){
-    const t=card.tipo||'';
-    let cls='',lbl='';
-    if(t.includes('manomanista')){cls='mano';lbl='Manomanista';}
-    else if(t.includes('cuatro')){cls='cuatro';lbl='4½';}
-    else if(t==='festival'){cls='';lbl='Festival';}
-    else if(t.includes('-b')){cls='b';lbl='Serie B';}
-    else{cls='a';lbl='Serie A';}
-    const fase=card.fase?`<span class="cart-tipo-badge" style="opacity:.65">${card.fase}</span>`:'';
-    const comp=card.competicion?`<span class="cart-tipo-badge" style="opacity:.65;max-width:180px;overflow:hidden;text-overflow:ellipsis">${card.competicion}</span>`:'';
-    return `<span class="cart-tipo-badge ${cls}">${lbl}</span>${fase||comp}${card.tv?'<span class="cart-tipo-badge tv">TV</span>':''}`;
+  function tipoLabel(t){
+    const m={'campeonato-a':'Parejas A','campeonato-b':'Parejas B','festival':'Festival',
+      'manomanista-a':'Mano A','manomanista-b':'Mano B','cuatro-medio-a':'4½ A','cuatro-medio-b':'4½ B'};
+    return m[t]||t||'Partido';
   }
-  function renderLineas(card){
-    const parts=card.partidos||[];
-    if(!parts.length) return (card.cartel||[]).map(l=>`<div class="cart-linea">${l}</div>`).join('');
-    return parts.map(pt=>{
-      const e1=(pt.eq1||[]).filter(Boolean).join(' / ')||'—';
-      const e2=(pt.eq2||[]).filter(Boolean).join(' / ')||'—';
-      const stag=pt.serie&&pt.serie!=='a'?`<span class="serie-tag">Serie ${pt.serie.toUpperCase()}</span>`:'';
-      return `<div class="cart-linea">${e1}<span class="vs">vs</span>${e2}${stag}</div>`;
-    }).join('');
-  }
-  // Agrupar por fecha
   const byDate={};
-  partidos.forEach(p=>{ if(!byDate[p.fecha])byDate[p.fecha]=[]; byDate[p.fecha].push(p); });
-
-  const html=Object.entries(byDate).map(([fecha,cards])=>`
-    <div class="cartelera-day-label">${fmtFecha(fecha)}</div>
-    ${cards.map(card=>{
-      const tclass=tipoClass(card.tipo||((card.partidos||[])[0]||{}).tipo||'');
-      const dataCard=encodeURIComponent(JSON.stringify(card));
-      return `<div class="cartelera-card ${tclass}" onclick="carteleraClick(this)" data-card="${dataCard}">
-        <div class="cart-hora">
-          <div class="h">${(card.hora||'--').split(':')[0]}</div>
-          <div class="hm">${card.hora?(card.hora.split(':')[1]||'00')+'h':'—'}</div>
+  eventos.forEach(e=>{ if(!byDate[e.fecha])byDate[e.fecha]=[]; byDate[e.fecha].push(e); });
+  const html = Object.entries(byDate).map(([fecha,evs])=>`
+    <div class="cart-day-label">${fmtFecha(fecha)}</div>
+    ${evs.map(ev=>{
+      const parts = ev.partidos||[];
+      const partList = parts.length ? parts : [{eq1:[],eq2:[],tipo:ev.tipo||'campeonato-a',serie:'a',raw:(ev.cartel||[]).join(' ')}];
+      const tipoEv = ev.tipo || (partList[0]?.tipo||'campeonato-a');
+      const faseBadge = ev.fase ? `<span class="cart-badge fase">${ev.fase}</span>` : '';
+      const compBadge = ev.competicion ? `<span class="cart-badge fase">${ev.competicion}</span>` : '';
+      const tvBadge = '';
+      const partidosHtml = partList.map((p,idx)=>{
+        const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
+        const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
+        const serieBadge = p.serie && p.serie!=='a' ? `<span class="cart-partido-serie">Serie ${p.serie.toUpperCase()}</span>` : '';
+        const pTipo = tipoLabel(p.tipo||tipoEv);
+        const tipoBadge = `<span class="cart-badge ${tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`;
+        const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
+        return `<div class="cart-partido-card" onclick="carteleraClick(this)" data-partido="${encoded}">
+          <div>
+            <div style="display:flex;gap:.35rem;margin-bottom:.3rem;">${tipoBadge}${serieBadge}</div>
+            <div class="cart-partido-equipos">
+              <span class="cart-partido-eq">${e1}</span>
+              <span class="cart-partido-vs">vs</span>
+              <span class="cart-partido-eq">${e2}</span>
+            </div>
+          </div>
+          <div class="cart-partido-arrow">→ Ver historial</div>
+        </div>`;
+      }).join('');
+      return `<div class="cart-evento">
+        <div class="cart-evento-header">
+          <div class="cart-hora-wrap">
+            <div class="cart-hora-h">${(ev.hora||'--').split(':')[0]}</div>
+            <div class="cart-hora-m">${ev.hora?(ev.hora.split(':')[1]||'00')+'h':'—'}</div>
+          </div>
+          <div class="cart-evento-meta">
+            <div class="cart-evento-comp">${faseBadge||compBadge}</div>
+            <div class="cart-evento-lugar">${ev.fronton||'—'}</div>
+            <div class="cart-evento-ciudad">${ev.ciudad&&ev.ciudad!==ev.fronton?ev.ciudad:''}</div>
+          </div>
         </div>
-        <div class="cart-body">
-          <div class="cart-meta">${tipoBadges(card)}</div>
-          <div class="cart-fronton">📍 ${card.fronton||''}${card.ciudad&&card.ciudad!==card.fronton?' · '+card.ciudad:''}</div>
-          <div class="cart-partidos">${renderLineas(card)}</div>
-          ${card.agotado?'<div class="cart-agotado">Agotadas</div>':''}
-        </div>
-        <div class="cart-arrow">→</div>
+        <div class="cart-partidos-list">${partidosHtml}</div>
+        
       </div>`;
     }).join('')}`
   ).join('');
-  el.innerHTML=`<div class="cartelera-grid">${html}</div>`;
+  el.innerHTML = html;
 }
 
 function carteleraClick(el){
-  try{ goToComparadorFromCard(JSON.parse(decodeURIComponent(el.dataset.card))); }
+  try{ goToComparadorFromPartido(JSON.parse(decodeURIComponent(el.dataset.partido))); }
   catch(e){ console.error(e); }
 }
 
-function goToComparadorFromCard(card){
-  const parts=card.partidos||[];
-  if(!parts.length){ goToNav('comparador'); return; }
-  const p=parts[0];
-  const tipo=card.tipo||(p.tipo||'');
-  const isMano=tipo.includes('manomanista');
-  function selOpt(selId,nombre){
+function goToComparadorFromPartido(p){
+  const tipo = p.tipo||'campeonato-a';
+  const isMano = tipo.includes('manomanista');
+  function selOpt(selId, nombre){
     if(!nombre) return;
     const sel=document.getElementById(selId); if(!sel) return;
-    const norm=nombre.toUpperCase();
+    const norm=nombre.toUpperCase().trim();
     let found=[...sel.options].find(o=>o.value.toUpperCase()===norm);
-    if(!found) found=[...sel.options].find(o=>o.value.toUpperCase().includes(norm.split(' ')[0]));
+    if(!found) found=[...sel.options].find(o=>o.value.toUpperCase().startsWith(norm.split(' ')[0]));
     if(found) sel.value=found.value;
   }
   if(isMano){
