@@ -1,0 +1,876 @@
+{
+  "actualizado": "27/03/2026 15:44",
+  "fuente": "https://www.baikopilota.eus/entradas/",
+  "partidos": [
+    {
+      "fecha": "27/03/2026",
+      "hora": "19:00",
+      "fronton": "El Villar de Arnedo",
+      "ciudad": "El Villar de Arnedo",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ARTOLA – UGARTEMENDIA // LARRAZABAL – MORGAETXEBARRIA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/53690/session/2785370/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [
+            "UGARTEMENDIA"
+          ],
+          "raw": "ARTOLA – UGARTEMENDIA",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LARRAZABAL"
+          ],
+          "eq2": [
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "LARRAZABAL – MORGAETXEBARRIA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "28/03/2026",
+      "hora": "17:00",
+      "fronton": "Madalensoro",
+      "ciudad": "Oiartzun",
+      "fase": "Eliminatoria",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "JAKA – LANDA // ZUBIZARRETA IV – IMAZ",
+        "PEÑA II // MARIEZKURRENA II (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2789687/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA"
+          ],
+          "eq2": [
+            "LANDA"
+          ],
+          "raw": "JAKA – LANDA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV"
+          ],
+          "eq2": [
+            "IMAZ"
+          ],
+          "raw": "ZUBIZARRETA IV – IMAZ",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "PEÑA II"
+          ],
+          "eq2": [],
+          "raw": "PEÑA II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "MARIEZKURRENA II (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "MARIEZKURRENA II (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "29/03/2026",
+      "hora": "17:00",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Final",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "ARTOLA – IMAZ // P. ETXEBERRIA – REZUSTA",
+        "ALTUNA III – EZKURDIA // LASO – ALBISU"
+      ],
+      "precio": null,
+      "agotado": true,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [
+            "IMAZ"
+          ],
+          "raw": "ARTOLA – IMAZ",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "REZUSTA"
+          ],
+          "raw": "P. ETXEBERRIA – REZUSTA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "EZKURDIA"
+          ],
+          "raw": "ALTUNA III – EZKURDIA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [
+            "ALBISU"
+          ],
+          "raw": "LASO – ALBISU",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "03/04/2026",
+      "hora": "17:15",
+      "fronton": "Bastida/Labastida",
+      "ciudad": "Bastida/Labastida",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // REKALDE (Serie B)",
+        "DARÍO // XXXX (Serie A)",
+        "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797466/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "REKALDE (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "REKALDE (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "DARÍO"
+          ],
+          "eq2": [],
+          "raw": "DARÍO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AGIRRE"
+          ],
+          "eq2": [
+            "SALAVERRI II"
+          ],
+          "raw": "AGIRRE – SALAVERRI II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "MURUA"
+          ],
+          "eq2": [
+            "ESKUZA"
+          ],
+          "raw": "MURUA – ESKUZA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "04/04/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "SALABERRIA // XXXX (Serie B)",
+        "ZABALA // XXXX (Serie A)",
+        "EGIGUREN V – LOZA // SENAR – ARANGUREN",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797470/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA"
+          ],
+          "eq2": [],
+          "raw": "SALABERRIA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ZABALA"
+          ],
+          "eq2": [],
+          "raw": "ZABALA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EGIGUREN V"
+          ],
+          "eq2": [
+            "LOZA"
+          ],
+          "raw": "EGIGUREN V – LOZA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [
+            "ARANGUREN"
+          ],
+          "raw": "SENAR – ARANGUREN",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "04/04/2026",
+      "hora": "18:00",
+      "fronton": "Aritzbatalde",
+      "ciudad": "Zarautz",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // ZUBIZARRETA IV (Serie B)",
+        "XXXX // XXXX (Serie A)",
+        "ARTOLA – LANDA // LARRAZABAL – IMAZ",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797468/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA IV (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "ZUBIZARRETA IV (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [
+            "LANDA"
+          ],
+          "raw": "ARTOLA – LANDA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LARRAZABAL"
+          ],
+          "eq2": [
+            "IMAZ"
+          ],
+          "raw": "LARRAZABAL – IMAZ",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "05/04/2026",
+      "hora": "17:15",
+      "fronton": "Remontival",
+      "ciudad": "Estella/Lizarra",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "AMIANO // XXXX (Serie B)",
+        "JAKA // XXXX (Serie A)",
+        "XXXX – ZABALETA // XXXX – MARTIJA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797485/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO"
+          ],
+          "eq2": [],
+          "raw": "AMIANO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "JAKA"
+          ],
+          "eq2": [],
+          "raw": "JAKA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZABALETA"
+          ],
+          "eq2": [],
+          "raw": "XXXX – ZABALETA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "MARTIJA"
+          ],
+          "eq2": [],
+          "raw": "XXXX – MARTIJA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "10/04/2026",
+      "hora": "20:45",
+      "fronton": "Gurea",
+      "ciudad": "Azkoitia",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "ARTOLA // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811013/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [],
+          "raw": "ARTOLA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "11/04/2026",
+      "hora": "17:15",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "LASO // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811221/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [],
+          "raw": "LASO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "11/04/2026",
+      "hora": "18:00",
+      "fronton": "Zubikoa",
+      "ciudad": "Oñati",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "PAREJAS",
+        "XXXX // XXXX (Serie B)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813415/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "12/04/2026",
+      "hora": "17:15",
+      "fronton": "Aitzuri",
+      "ciudad": "Zumaia",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "PAREJAS",
+        "XXXX // XXXX (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811101/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "17/04/2026",
+      "hora": "20:45",
+      "fronton": "Santanape",
+      "ciudad": "Gernika",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "ALTUNA III // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811427/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [],
+          "raw": "ALTUNA III",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "18/04/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie A)",
+        "BINAKA",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811442/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/04/2026",
+      "hora": "17:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "LASO // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811102/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [],
+          "raw": "LASO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "24/04/2026",
+      "hora": "18:30",
+      "fronton": "Auzoeta",
+      "ciudad": "Ataun",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "XXXX – ALBISU // XXXX – LANDA",
+        "SENAR // XXXX (Serie B)",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2816737/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALBISU"
+          ],
+          "eq2": [],
+          "raw": "XXXX – ALBISU",
+          "tipo": "manomanista-b",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LANDA"
+          ],
+          "eq2": [],
+          "raw": "XXXX – LANDA",
+          "tipo": "manomanista-b",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [],
+          "raw": "SENAR",
+          "tipo": "manomanista-b",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "24/04/2026",
+      "hora": "20:45",
+      "fronton": "Uarkape",
+      "ciudad": "Arrasate/Mondragón",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "PAREJAS",
+        "XXXX // XXXX (Serie B)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "26/04/2026",
+      "hora": "17:15",
+      "fronton": "Club Deportivo",
+      "ciudad": "Bilbao",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "LARRAZABAL // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811111/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XXXX (Serie B)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie B)",
+          "tipo": "manomanista-a",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LARRAZABAL"
+          ],
+          "eq2": [],
+          "raw": "LARRAZABAL",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XXXX (Serie A)"
+          ],
+          "eq2": [],
+          "raw": "XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    }
+  ]
+}
