@@ -245,7 +245,7 @@ tr:hover td{background:var(--surface2);}
 .contact-ok{display:none;background:rgba(0,122,61,.08);border:1px solid var(--green);padding:1rem 1.2rem;font-family:var(--mono);font-size:.72rem;color:var(--green);margin-top:1rem;border-radius:2px;}
 /* ── CARTELERA ── */
 .cart-evento{background:var(--surface);border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;}
-.cart-evento-header{display:grid;grid-template-columns:56px 1fr;gap:.8rem;align-items:center;padding:.8rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
+.cart-evento-header{padding:.8rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
 .cart-hora-wrap{text-align:center;}
 .cart-hora-h{font-family:var(--display);font-size:1.5rem;line-height:1;color:var(--green);}
 .cart-hora-m{font-family:var(--mono);font-size:.48rem;color:var(--muted);text-transform:uppercase;}
@@ -2014,13 +2014,9 @@ function renderCartelera(data){
       }).join('');
       return `<div class="cart-evento">
         <div class="cart-evento-header">
-          <div class="cart-hora-wrap">
-            <div class="cart-hora-h">${(ev.hora||'--').split(':')[0]}</div>
-            <div class="cart-hora-m">${ev.hora?(ev.hora.split(':')[1]||'00')+'h':'—'}</div>
-          </div>
           <div class="cart-evento-meta">
             <div class="cart-evento-comp">${faseBadge||compBadge}</div>
-            <div class="cart-evento-lugar">${ev.fronton||'—'}</div>
+            <div class="cart-evento-lugar"><strong>${ev.hora||'—'}h</strong> · ${ev.fronton||'—'}</div>
             <div class="cart-evento-ciudad">${ev.ciudad&&ev.ciudad!==ev.fronton?ev.ciudad:''}</div>
           </div>
         </div>
