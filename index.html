@@ -17,7 +17,7 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;}
 
 /* ── HEADER ── */
-header{border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;padding:.85rem 2.5rem;}
+header{border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;}
 .logo{font-family:var(--display);font-size:1.9rem;letter-spacing:.05em;color:var(--green);white-space:nowrap;}
 .logo span{color:var(--red);}
 nav{display:flex;gap:.2rem;flex-wrap:wrap;justify-content:center;}
@@ -262,7 +262,7 @@ tr:hover td{background:var(--surface2);}
 .cart-day-label:first-child{margin-top:0;}
 
 @media(max-width:900px){
-  header{padding:.8rem 1rem;}
+  .header-inner{padding:.8rem 1rem;}
   .header-inner{gap:.5rem;}
   nav button{font-size:.55rem;padding:.35rem .5rem;}
   main{padding:1.2rem 1rem;}
@@ -270,7 +270,7 @@ tr:hover td{background:var(--surface2);}
   .rk-grid,.pfwrap,.c4-grid{grid-template-columns:1fr;}
   .c4-sep{padding-top:0;}
 }
-.header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;width:100%;max-width:1400px;margin:0 auto;}
+.header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;width:100%;max-width:1400px;margin:0 auto;padding:.85rem 2.5rem;}
 </style>
 </head>
 <body>
@@ -353,7 +353,7 @@ tr:hover td{background:var(--surface2);}
   <div class="cards-grid" id="pCards"></div>
   <div id="perfilSec" style="display:none;margin-top:1.5rem;">
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-      <button class="btn" onclick="closePerfil()">${t('lbl_volver')}</button>
+      <button class="btn" id="btnVolver" onclick="closePerfil()">← Volver</button>
       <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
     </div>
     <div class="pfwrap" id="pfWrap"></div>
@@ -903,6 +903,7 @@ function applyI18N(){
   document.querySelector('.contact-intro').innerHTML = t('cont_intro');
   document.querySelector('.contact-direct').innerHTML = t('cont_directo')+' <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>';
   document.querySelector('.btn[onclick="enviarContacto()"]').textContent = t('cont_btn');
+  const btnVolver=document.getElementById('btnVolver'); if(btnVolver) btnVolver.textContent=t('lbl_volver');
   // Rebuild competition filter with translated names
   rebuildCompFilter();
   // Re-render dynamic content that uses translated strings
