@@ -1,11 +1,12 @@
-const CACHE = 'eskupilota-v1';
+const CACHE = 'eskupilota-v2';
+const BASE = '/eskupilota-stats/';
 const PRECACHE = [
-  './',
-  './index.html',
-  './data/partidos.json',
-  './favicon.ico',
-  './icon-192.png',
-  './icon-512.png',
+  BASE,
+  BASE + 'index.html',
+  BASE + 'data/partidos.json',
+  BASE + 'favicon.ico',
+  BASE + 'icon-192.png',
+  BASE + 'icon-512.png',
 ];
 
 self.addEventListener('install', e => {
@@ -46,8 +47,10 @@ self.addEventListener('fetch', e => {
     caches.match(e.request).then(cached => {
       if (cached) return cached;
       return fetch(e.request).then(res => {
-        const clone = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
+        if(res && res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+        }
         return res;
       });
     })
