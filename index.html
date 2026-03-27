@@ -17,10 +17,10 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;}
 
 /* ── HEADER ── */
-header{display:flex;align-items:center;justify-content:center;padding:.85rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;gap:1.5rem;flex-wrap:wrap;}
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:.85rem 2.5rem;border-bottom:3px solid var(--green);position:sticky;top:0;background:rgba(245,245,240,.97);backdrop-filter:blur(12px);z-index:100;gap:1rem;}
 .logo{font-family:var(--display);font-size:1.9rem;letter-spacing:.05em;color:var(--green);white-space:nowrap;}
 .logo span{color:var(--red);}
-nav{display:flex;gap:.2rem;flex-wrap:wrap;}
+nav{display:flex;gap:.2rem;flex-wrap:wrap;justify-content:center;}
 nav button{background:none;border:1px solid transparent;color:var(--muted);font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;padding:.4rem .85rem;cursor:pointer;transition:all .2s;border-radius:2px;}
 nav button:hover{color:var(--text);border-color:var(--border);}
 nav button.active{color:var(--green);border-color:var(--green);background:rgba(0,122,61,.07);}
