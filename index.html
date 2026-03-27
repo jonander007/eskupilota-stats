@@ -248,12 +248,12 @@ tr:hover td{background:var(--surface2);}
 <header>
   <div class="logo">ESKUPILOTA<span>STATS</span></div>
   <nav>
-    <button class="active" onclick="showSec('partidos',this)">Partidos</button>
-    <button onclick="showSec('pelotaris',this)">Pelotaris</button>
-    <button onclick="showSec('ranking',this)">Ranking</button>
-    <button onclick="showSec('comparador',this)">Comparador</button>
-    <button onclick="showSec('frontones',this)">Frontones</button>
     <button onclick="showSec('cartelera',this)">Cartelera</button>
+    <button class="active" onclick="showSec('partidos',this)">Resultados</button>
+    <button onclick="showSec('comparador',this)">Comparador</button>
+    <button onclick="showSec('pelotaris',this)">Pelotaris</button>
+    <button onclick="showSec('frontones',this)">Frontones</button>
+    <button onclick="showSec('ranking',this)">Ranking</button>
   </nav>
   <div class="last-update" id="lastUpdate">—</div>
 </header>
@@ -1219,9 +1219,9 @@ function renderCartelera(data){
           <div>
             <div style="display:flex;gap:.35rem;margin-bottom:.3rem;">${tipoBadge}${serieBadge}</div>
             <div class="cart-partido-equipos">
-              <span class="cart-partido-eq">${e1}</span>
+              <span class="cart-partido-eq" style="color:var(--red)">${e1}</span>
               <span class="cart-partido-vs">vs</span>
-              <span class="cart-partido-eq">${e2}</span>
+              <span class="cart-partido-eq" style="color:#2471a3">${e2}</span>
             </div>
           </div>
           <div class="cart-partido-arrow">→ Ver historial</div>
