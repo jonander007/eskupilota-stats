@@ -110,11 +110,6 @@ def parse_cartelera(soup):
     return festivals
 
 
-def parse_players(raw):
-    """Convierte 'ALTUNA III – EZKURDIA' en ['ALTUNA III', 'EZKURDIA']"""
-    return [p.strip() for p in re.split(r"\s*[–-]\s*", raw) if p.strip() and p.strip().upper() != "XXXX"]
-
-
 def guess_tipo(fase, competicion, linea):
     comp = (competicion or "").lower()
     fase_l = (fase or "").lower()
@@ -129,38 +124,76 @@ def guess_tipo(fase, competicion, linea):
     return "campeonato-a"
 
 
+def parse_equipo(raw):
+    """
+    Convierte 'ALTUNA III – EZKURDIA' en ['ALTUNA III', 'EZKURDIA'] (pareja)
+    o 'ALTUNA III' en ['ALTUNA III'] (manomanista).
+    """
+    jugadores = [p.strip() for p in re.split(r"\s*[–-]\s*", raw)
+                 if p.strip() and p.strip().upper() != "XXXX"]
+    return jugadores
+
+
+def guess_tipo_from_line(eq1, eq2, fase, competicion, serie):
+    """
+    Determina el tipo real del partido mirando cuántos jugadores tiene cada equipo:
+    - 1 jugador por lado → manomanista o cuatro medio
+    - 2 jugadores por lado → parejas
+    Si el evento es manomanista pero la línea tiene 2 jugadores por lado,
+    es un partido de parejas que acompaña al evento.
+    """
+    comp = (competicion or "").lower()
+    fase_l = (fase or "").lower()
+    es_pareja = len(eq1) >= 2 or len(eq2) >= 2
+
+    if es_pareja:
+        return "campeonato-b" if serie == "b" else "festival" if "festival" in fase_l else "campeonato-a"
+
+    # Un jugador por lado
+    if "cuatro" in comp or "4½" in comp or "4 1/2" in comp:
+        return "cuatro-medio-b" if serie == "b" else "cuatro-medio-a"
+    if "manomanista" in comp or "manomanista" in fase_l:
+        return "manomanista-b" if serie == "b" else "manomanista-a"
+    # Si no hay info de competición, asumir manomanista cuando es 1v1
+    return "manomanista-b" if serie == "b" else "manomanista-a"
+
+
 def parse_partidos(cartel_lines, fase, competicion):
+    """
+    Cada línea de cartel es UN partido:
+      "EQ1 // EQ2"  →  equipo1 vs equipo2  (// separa los dos lados)
+      "A – B"       →  mano a mano
+
+    El tipo se determina mirando cuántos jugadores tiene cada equipo,
+    no heredando ciegamente el tipo del evento padre.
+    """
     partidos = []
+
     for linea in cartel_lines:
-        # Formato: "EQ1 // EQ2" (dos partidos en una línea) o "EQ1" (solo un equipo/mano)
-        if " // " in linea:
-            partes = [p.strip() for p in linea.split(" // ")]
-            for parte in partes:
-                # Cada parte puede ser "A – B" (pareja) o "A" (mano)
-                jugadores = parse_players(parte)
-                if jugadores:
-                    partidos.append({
-                        "eq1": [jugadores[0]] if jugadores else [],
-                        "eq2": [jugadores[1]] if len(jugadores) > 1 else [],
-                        "raw": parte,
-                        "tipo": guess_tipo(fase, competicion, parte),
-                        "serie": "b" if re.search(r"\(serie b\)", parte, re.IGNORECASE) else "a",
-                    })
-        elif " – " in linea or " - " in linea:
-            jugadores = parse_players(linea)
-            # Una pareja: si tiene 4 jugadores es "D1/Z1 vs D2/Z2"
-            # Si tiene 2 jugadores puede ser mano o pareja sin zaguero
-            if len(jugadores) >= 4:
+        serie = "b" if re.search(r"\(serie b\)", linea, re.IGNORECASE) else "a"
+        linea_limpia = re.sub(r"\s*\(serie [ab]\)", "", linea, flags=re.IGNORECASE).strip()
+
+        if " // " in linea_limpia:
+            partes = [p.strip() for p in linea_limpia.split(" // ", 1)]
+            eq1 = parse_equipo(partes[0])
+            eq2 = parse_equipo(partes[1]) if len(partes) > 1 else []
+            if eq1 or eq2:
+                tipo = guess_tipo_from_line(eq1, eq2, fase, competicion, serie)
                 partidos.append({
-                    "eq1": jugadores[:2], "eq2": jugadores[2:4],
-                    "raw": linea, "tipo": guess_tipo(fase, competicion, linea), "serie": "a",
+                    "eq1": eq1, "eq2": eq2,
+                    "raw": linea, "tipo": tipo, "serie": serie,
                 })
-            elif len(jugadores) == 2:
-                # Mano a mano o pareja sin zaguero
+        elif " – " in linea_limpia or re.search(r"\s-\s", linea_limpia):
+            jugadores = parse_equipo(linea_limpia)
+            if len(jugadores) >= 2:
+                eq1 = [jugadores[0]]
+                eq2 = [jugadores[1]]
+                tipo = guess_tipo_from_line(eq1, eq2, fase, competicion, serie)
                 partidos.append({
-                    "eq1": [jugadores[0]], "eq2": [jugadores[1]],
-                    "raw": linea, "tipo": guess_tipo(fase, competicion, linea), "serie": "a",
+                    "eq1": eq1, "eq2": eq2,
+                    "raw": linea, "tipo": tipo, "serie": serie,
                 })
+
     return partidos
 
 
