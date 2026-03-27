@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/03/2026 20:34",
+  "actualizado": "27/03/2026 21:49",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -22,41 +22,25 @@
       "partidos": [
         {
           "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
+            "JAKA",
             "LANDA"
           ],
-          "raw": "JAKA – LANDA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA IV"
-          ],
           "eq2": [
+            "ZUBIZARRETA IV",
             "IMAZ"
           ],
-          "raw": "ZUBIZARRETA IV – IMAZ",
-          "tipo": "manomanista-a",
+          "raw": "JAKA – LANDA // ZUBIZARRETA IV – IMAZ",
+          "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
             "PEÑA II"
           ],
-          "eq2": [],
-          "raw": "PEÑA II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "MARIEZKURRENA II (Serie A)"
+          "eq2": [
+            "MARIEZKURRENA II"
           ],
-          "eq2": [],
-          "raw": "MARIEZKURRENA II (Serie A)",
+          "raw": "PEÑA II // MARIEZKURRENA II (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -80,45 +64,27 @@
       "partidos": [
         {
           "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
+            "ARTOLA",
             "IMAZ"
           ],
-          "raw": "ARTOLA – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "P. ETXEBERRIA"
-          ],
           "eq2": [
+            "P. ETXEBERRIA",
             "REZUSTA"
           ],
-          "raw": "P. ETXEBERRIA – REZUSTA",
+          "raw": "ARTOLA – IMAZ // P. ETXEBERRIA – REZUSTA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
+            "ALTUNA III",
             "EZKURDIA"
           ],
-          "raw": "ALTUNA III – EZKURDIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO"
-          ],
           "eq2": [
+            "LASO",
             "ALBISU"
           ],
-          "raw": "LASO – ALBISU",
+          "raw": "ALTUNA III – EZKURDIA // LASO – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -144,12 +110,12 @@
       "tv": false,
       "partidos": [
         {
-          "eq1": [
-            "REKALDE (Serie B)"
+          "eq1": [],
+          "eq2": [
+            "REKALDE"
           ],
-          "eq2": [],
-          "raw": "REKALDE (Serie B)",
-          "tipo": "manomanista-a",
+          "raw": "XXXX // REKALDE (Serie B)",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -157,39 +123,21 @@
             "DARÍO"
           ],
           "eq2": [],
-          "raw": "DARÍO",
+          "raw": "DARÍO // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AGIRRE"
-          ],
-          "eq2": [
+            "AGIRRE",
             "SALAVERRI II"
           ],
-          "raw": "AGIRRE – SALAVERRI II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "MURUA"
-          ],
           "eq2": [
+            "MURUA",
             "ESKUZA"
           ],
-          "raw": "MURUA – ESKUZA",
-          "tipo": "manomanista-a",
+          "raw": "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -218,17 +166,8 @@
             "SALABERRIA"
           ],
           "eq2": [],
-          "raw": "SALABERRIA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
+          "raw": "SALABERRIA // XXXX (Serie B)",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -236,39 +175,21 @@
             "ZABALA"
           ],
           "eq2": [],
-          "raw": "ZABALA",
+          "raw": "ZABALA // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EGIGUREN V"
-          ],
-          "eq2": [
+            "EGIGUREN V",
             "LOZA"
           ],
-          "raw": "EGIGUREN V – LOZA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
           "eq2": [
+            "SENAR",
             "ARANGUREN"
           ],
-          "raw": "SENAR – ARANGUREN",
-          "tipo": "manomanista-a",
+          "raw": "EGIGUREN V – LOZA // SENAR – ARANGUREN",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -293,43 +214,25 @@
       "tv": false,
       "partidos": [
         {
-          "eq1": [
-            "ZUBIZARRETA IV (Serie B)"
+          "eq1": [],
+          "eq2": [
+            "ZUBIZARRETA IV"
           ],
-          "eq2": [],
-          "raw": "ZUBIZARRETA IV (Serie B)",
-          "tipo": "manomanista-a",
+          "raw": "XXXX // ZUBIZARRETA IV (Serie B)",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
           "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
+            "ARTOLA",
             "LANDA"
           ],
-          "raw": "ARTOLA – LANDA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LARRAZABAL"
-          ],
           "eq2": [
+            "LARRAZABAL",
             "IMAZ"
           ],
-          "raw": "LARRAZABAL – IMAZ",
-          "tipo": "manomanista-a",
+          "raw": "ARTOLA – LANDA // LARRAZABAL – IMAZ",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -358,17 +261,8 @@
             "AMIANO"
           ],
           "eq2": [],
-          "raw": "AMIANO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
+          "raw": "AMIANO // XXXX (Serie B)",
+          "tipo": "manomanista-b",
           "serie": "b"
         },
         {
@@ -376,16 +270,7 @@
             "JAKA"
           ],
           "eq2": [],
-          "raw": "JAKA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "JAKA // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -393,17 +278,10 @@
           "eq1": [
             "ZABALETA"
           ],
-          "eq2": [],
-          "raw": "XXXX – ZABALETA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
+          "eq2": [
             "MARTIJA"
           ],
-          "eq2": [],
-          "raw": "XXXX – MARTIJA",
+          "raw": "XXXX – ZABALETA // XXXX – MARTIJA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -430,28 +308,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "ARTOLA"
           ],
           "eq2": [],
-          "raw": "ARTOLA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "ARTOLA // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -478,28 +338,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "LASO"
           ],
           "eq2": [],
-          "raw": "LASO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "LASO // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -522,17 +364,7 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813415/select?viewCode=",
       "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
+      "partidos": []
     },
     {
       "fecha": "12/04/2026",
@@ -551,17 +383,7 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811101/select?viewCode=",
       "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
+      "partidos": []
     },
     {
       "fecha": "17/04/2026",
@@ -584,28 +406,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "ALTUNA III"
           ],
           "eq2": [],
-          "raw": "ALTUNA III",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "ALTUNA III // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -629,26 +433,7 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811442/select?viewCode=",
       "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
+      "partidos": []
     },
     {
       "fecha": "19/04/2026",
@@ -671,28 +456,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "LASO"
           ],
           "eq2": [],
-          "raw": "LASO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "LASO // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -720,18 +487,11 @@
           "eq1": [
             "ALBISU"
           ],
-          "eq2": [],
-          "raw": "XXXX – ALBISU",
-          "tipo": "manomanista-b",
-          "serie": "a"
-        },
-        {
-          "eq1": [
+          "eq2": [
             "LANDA"
           ],
-          "eq2": [],
-          "raw": "XXXX – LANDA",
-          "tipo": "manomanista-b",
+          "raw": "XXXX – ALBISU // XXXX – LANDA",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
@@ -739,16 +499,7 @@
             "SENAR"
           ],
           "eq2": [],
-          "raw": "SENAR",
-          "tipo": "manomanista-b",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
+          "raw": "SENAR // XXXX (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         }
@@ -771,17 +522,7 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
       "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
+      "partidos": []
     },
     {
       "fecha": "25/04/2026",
@@ -804,28 +545,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "ARTOLA"
           ],
           "eq2": [],
-          "raw": "ARTOLA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "ARTOLA // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -852,28 +575,10 @@
       "partidos": [
         {
           "eq1": [
-            "XXXX (Serie B)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie B)",
-          "tipo": "manomanista-a",
-          "serie": "b"
-        },
-        {
-          "eq1": [
             "LARRAZABAL"
           ],
           "eq2": [],
-          "raw": "LARRAZABAL",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XXXX (Serie A)"
-          ],
-          "eq2": [],
-          "raw": "XXXX (Serie A)",
+          "raw": "LARRAZABAL // XXXX (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
