@@ -99,6 +99,14 @@ tr:hover td{background:var(--surface2);}
 .rol-badge{font-family:var(--mono);font-size:.48rem;padding:.08rem .3rem;border-radius:1px;border:1px solid;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle;margin-left:.3rem;}
 .rol-badge.del{color:var(--red);border-color:var(--red);background:rgba(200,16,46,.06);}
 .rol-badge.zag{color:#2471a3;border-color:#2471a3;background:rgba(36,113,163,.06);}
+
+/* ── PELOTARIS GROUP HEADERS ── */
+.pel-group-header{font-family:var(--display);font-size:1.1rem;letter-spacing:.06em;padding:.5rem 0 .4rem;border-bottom:2px solid var(--border);margin-bottom:.8rem;margin-top:1.4rem;display:flex;align-items:center;gap:.6rem;}
+.pel-group-header:first-child{margin-top:0;}
+.pel-group-header.del{border-color:var(--red);color:var(--red);}
+.pel-group-header.zag{border-color:#2471a3;color:#2471a3;}
+.pel-group-header.otro{border-color:var(--muted);color:var(--muted);}
+.pel-group-count{font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:400;}
 /* ── PELOTARI CARDS ── */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;}
 .pcard{background:var(--surface);border:1px solid var(--border);padding:1.1rem;cursor:pointer;transition:all .2s;border-left:3px solid transparent;}
@@ -350,7 +358,7 @@ tr:hover td{background:var(--surface2);}
     </div>
   </div>
 
-  <div class="cards-grid" id="pCards"></div>
+  <div id="pCards"></div>
   <div id="perfilSec" style="display:none;margin-top:1.5rem;">
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
       <button class="btn" id="btnVolver" onclick="closePerfil()">← Volver</button>
@@ -1180,10 +1188,11 @@ function renderPCards(){
   const st=calcStats(parts);
   let ns=Object.keys(st).filter(n=>!q||n.toLowerCase().includes(q));
   ns.sort((a,b)=>st[b].pg-st[a].pg);
-  document.getElementById('pCards').innerHTML=ns.map(n=>{
+
+  function mkCard(n){
     const s=st[n];const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
     return`<div class="pcard" onclick="openPerfil('${esc(n)}')">
-      <div class="pname">${n}${getRol(n)==="delantero"?`<span class="rol-badge del">${t('rol_del')}</span>`:getRol(n)==="zaguero"?`<span class="rol-badge zag">${t('rol_zag')}</span>`:''}</div>
+      <div class="pname">${n}</div>
       <div class="pstats">
         <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">${t('lbl_victorias')}</span></div>
         <div class="ps"><span class="val">${s.pj}</span><span class="lbl">${t('lbl_partidos')}</span></div>
@@ -1191,7 +1200,26 @@ function renderPCards(){
       </div>
       <div class="pbar-bg"><div class="pbar-fill" style="width:${pct}%"></div></div>
     </div>`;
-  }).join('');
+  }
+
+  const dels  = ns.filter(n=>getRol(n)==='delantero');
+  const zags  = ns.filter(n=>getRol(n)==='zaguero');
+  const otros = ns.filter(n=>getRol(n)==='otro');
+
+  let html = '';
+  if(dels.length){
+    html += `<div class="pel-group-header del">${t('lbl_delantero')}s <span class="pel-group-count">${dels.length}</span></div>`;
+    html += `<div class="cards-grid">${dels.map(mkCard).join('')}</div>`;
+  }
+  if(zags.length){
+    html += `<div class="pel-group-header zag">${t('lbl_zaguero')}s <span class="pel-group-count">${zags.length}</span></div>`;
+    html += `<div class="cards-grid">${zags.map(mkCard).join('')}</div>`;
+  }
+  if(otros.length){
+    html += `<div class="pel-group-header otro">Otros <span class="pel-group-count">${otros.length}</span></div>`;
+    html += `<div class="cards-grid">${otros.map(mkCard).join('')}</div>`;
+  }
+  document.getElementById('pCards').innerHTML = html;
 }
 
 function openPerfil(nombre){
