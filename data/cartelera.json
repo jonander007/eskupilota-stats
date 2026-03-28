@@ -1,51 +1,7 @@
 {
-  "actualizado": "28/03/2026 16:28",
+  "actualizado": "28/03/2026 17:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "28/03/2026",
-      "hora": "17:00",
-      "fronton": "Madalensoro",
-      "ciudad": "Oiartzun",
-      "fase": "Eliminatoria",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "JAKA – LANDA // ZUBIZARRETA IV – IMAZ",
-        "PEÑA II // MARIEZKURRENA II (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2789687/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "IMAZ"
-          ],
-          "raw": "JAKA – LANDA // ZUBIZARRETA IV – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "PEÑA II"
-          ],
-          "eq2": [
-            "MARIEZKURRENA II"
-          ],
-          "raw": "PEÑA II // MARIEZKURRENA II (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "29/03/2026",
       "hora": "17:00",
