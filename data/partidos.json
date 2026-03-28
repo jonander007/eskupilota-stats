@@ -1,5 +1,24 @@
 [
   {
+    "fecha": "27/03/2026",
+    "fronton": "EL VILLAR DE ARNEDO",
+    "ciudad": "EL VILLAR DE ARNEDO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "UGARTEMENDIA"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "MORGAETXEBERRIA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "22/03/2026",
     "fronton": "BELOKI",
     "ciudad": "ZUMARRAGA",
