@@ -1,5 +1,5 @@
 {
-  "actualizado": "28/03/2026 21:26",
+  "actualizado": "28/03/2026 22:24",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -159,7 +159,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "XXXX // ZUBIZARRETA IV (Serie B)",
-        "XXXX // XXXX (Serie A)",
+        "PEÑA II // XXXX (Serie A)",
         "ARTOLA – LANDA // LARRAZABAL – IMAZ",
         "DESDE",
         "25.00€"
@@ -177,6 +177,15 @@
           "raw": "XXXX // ZUBIZARRETA IV (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
+        },
+        {
+          "eq1": [
+            "PEÑA II"
+          ],
+          "eq2": [],
+          "raw": "PEÑA II // XXXX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
         },
         {
           "eq1": [
