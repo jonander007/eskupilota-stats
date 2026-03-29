@@ -1,51 +1,7 @@
 {
-  "actualizado": "29/03/2026 16:31",
+  "actualizado": "29/03/2026 17:26",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "29/03/2026",
-      "hora": "17:00",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": "Campeonato Parejas",
-      "cartel": [
-        "ARTOLA – IMAZ // P. ETXEBERRIA – REZUSTA",
-        "ALTUNA III – EZKURDIA // LASO – ALBISU"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "IMAZ"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "REZUSTA"
-          ],
-          "raw": "ARTOLA – IMAZ // P. ETXEBERRIA – REZUSTA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "LASO",
-            "ALBISU"
-          ],
-          "raw": "ALTUNA III – EZKURDIA // LASO – ALBISU",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "03/04/2026",
       "hora": "17:15",
@@ -392,7 +348,7 @@
         "XXXX // XXXX (Serie A)",
         "BINAKA",
         "DESDE",
-        "27.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
