@@ -2,7 +2,7 @@ name: 🤖 Actualizar partidos
 
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '1 0 * * *'   # cada día a las 00:01 UTC
   workflow_dispatch:
 
 jobs:
