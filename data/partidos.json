@@ -1,5 +1,43 @@
 [
   {
+    "fecha": "29/03/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "IMAZ"
+    },
+    "puntos1": 11,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "29/03/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": "EZKURDIA"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "28/03/2026",
     "fronton": "OIARTZUN",
     "ciudad": "OIARTZUN -",
