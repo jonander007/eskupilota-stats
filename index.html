@@ -1291,9 +1291,9 @@ function renderTabla(){
       <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td style="font-size:.74rem">${p.fronton}<br><span style="font-size:.6rem;color:var(--muted)">${p.ciudad||''}</span></td>
-      <td style="font-weight:${w1?700:400};color:${w1?'var(--red)':'var(--muted)'}">${neq(p.equipo1)}</td>
+      <td style="font-weight:${w1?700:400};color:var(--red)">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
-      <td style="font-weight:${w2?700:400};color:${w2?'#2471a3':'var(--muted)'}">${neq(p.equipo2)}</td>
+      <td style="font-weight:${w2?700:400};color:#2471a3">${neq(p.equipo2)}</td>
       <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}</td>
     </tr>`;
   }).join('');
@@ -1315,9 +1315,9 @@ function renderMobileCards(data){
         <div>
           <div class="m-card-fecha">${p.fecha} · ${p.fronton}</div>
           <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
-            <span style="font-size:.78rem;font-weight:${w1?700:500};color:${w1?'var(--red)':'#c0392b99'}">${n1}</span>
+            <span style="font-size:.78rem;font-weight:${w1?700:500};color:var(--red)">${n1}</span>
             <span style="color:var(--muted);font-size:.65rem">vs</span>
-            <span style="font-size:.78rem;font-weight:${w2?700:500};color:${w2?'#2471a3':'#2471a399'}">${n2}</span>
+            <span style="font-size:.78rem;font-weight:${w2?700:500};color:#2471a3">${n2}</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
@@ -1331,8 +1331,8 @@ function renderMobileCards(data){
       </div>
       <div class="m-card-body">
         <div class="m-card-teams">
-          <div class="m-card-team"><span style="font-weight:600;color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w1?'var(--red)':'var(--muted)'}">${p.puntos1}</span></div>
-          <div class="m-card-team"><span style="font-weight:600;color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w2?'#2471a3':'var(--muted)'}">${p.puntos2}</span></div>
+          <div class="m-card-team"><span style="font-weight:600;color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);opacity:${w1?1:.45}">${p.puntos1}</span></div>
+          <div class="m-card-team"><span style="font-weight:600;color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;opacity:${w2?1:.45}">${p.puntos2}</span></div>
         </div>
         <div class="m-card-meta">
           ${ti?`<span class="tag ${tiCls}">${t(ti.lbl)}</span>`:''}
@@ -1743,9 +1743,9 @@ function renderH2H(){
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td>${p.fronton}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
-      <td style="color:${gP1?'var(--red)':'var(--muted)'};font-weight:${gP1?700:400};font-family:var(--mono)">${a}</td>
+      <td style="color:var(--red);font-weight:${gP1?700:400};font-family:var(--mono);opacity:${gP1?1:.5}">${a}</td>
       <td style="color:var(--muted);text-align:center">—</td>
-      <td style="color:${!gP1?'#2471a3':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
+      <td style="color:#2471a3;font-weight:${!gP1?700:400};font-family:var(--mono);opacity:${!gP1?1:.5}">${b}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
     </tr>`;
   }).join('');
@@ -1919,10 +1919,10 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
       <td>${tiTag}</td>
       <td style="font-size:.74rem">${p.fronton}</td>
       <td style="font-size:.7rem;color:${colorMain}">${compP}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${gano?colorMain:'var(--muted)'}">${ptP}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${colorMain};opacity:${gano?1:.45}">${ptP}</td>
       <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
       <td style="font-size:.7rem;color:var(--muted)">${compR}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${!gano?'var(--text)':'var(--muted)'}">${ptR}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:var(--muted)">${ptR}</td>
     </tr>`;
   });
   const visibles=filas.slice(0,MAX).join('');
