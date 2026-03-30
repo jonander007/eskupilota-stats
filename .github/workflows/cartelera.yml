@@ -1,15 +1,15 @@
-name: Actualizar Cartelera
+name: Actualizar datos diarios
 
 on:
   schedule:
-    - cron: '0 * * * *'   # cada hora
+    - cron: '1 0 * * *'   # cada día a las 00:01 UTC
   workflow_dispatch:        # también se puede lanzar manualmente desde GitHub
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write       # necesario para hacer commit
+      contents: write
 
     steps:
       - name: Checkout
@@ -21,15 +21,19 @@ jobs:
           python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4 pandas
 
-      - name: Ejecutar scraper
+      - name: Ejecutar scraper cartelera
         run: python3 scraper_cartelera.py
+
+      - name: Ejecutar scraper resultados
+        run: python3 scraper_resultados.py
+        continue-on-error: true
 
       - name: Commit y push si hay cambios
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/cartelera.json
-          git diff --cached --quiet || git commit -m "chore: actualizar cartelera [skip ci]"
+          git add data/cartelera.json data/partidos.json || true
+          git diff --cached --quiet || git commit -m "chore: actualizar datos diarios [skip ci]"
           git push
