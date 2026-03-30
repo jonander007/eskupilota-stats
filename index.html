@@ -339,6 +339,9 @@ tr:hover td{background:var(--surface2);}
   #sec-partidos .twrap{display:none;}
   #tCount{display:none;}
   .m-card{display:block;}
+  /* Comparador: ocultar tablas, mostrar cards */
+  #sec-comparador .twrap{display:none;}
+  #sec-comparador .m-card{display:block;}
 
   /* FILTROS */
   .filter-panel .filter-row{flex-direction:column;gap:.5rem;}
@@ -1291,9 +1294,9 @@ function renderTabla(){
       <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td style="font-size:.74rem">${p.fronton}<br><span style="font-size:.6rem;color:var(--muted)">${p.ciudad||''}</span></td>
-      <td style="font-weight:${w1?700:400};color:var(--red)">${neq(p.equipo1)}</td>
+      <td style="font-weight:${w1?800:400};color:var(--red)">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
-      <td style="font-weight:${w2?700:400};color:#2471a3">${neq(p.equipo2)}</td>
+      <td style="font-weight:${w2?800:400};color:#2471a3">${neq(p.equipo2)}</td>
       <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}</td>
     </tr>`;
   }).join('');
@@ -1301,10 +1304,8 @@ function renderTabla(){
   renderMobileCards(data);
 }
 
-function renderMobileCards(data){
-  const el = document.getElementById('mCards');
-  if(!el) return;
-  el.innerHTML = data.map((p,idx)=>{
+function renderMobileCardsHTML(data){
+  return data.map((p,idx)=>{
     const w1=p.ganador==='equipo1', w2=p.ganador==='equipo2';
     const ti=TTAG[p.tipo];
     const tiCls=ti?ti.cls:'';
@@ -1315,9 +1316,9 @@ function renderMobileCards(data){
         <div>
           <div class="m-card-fecha">${p.fecha} · ${p.fronton}</div>
           <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
-            <span style="font-size:.78rem;font-weight:${w1?700:500};color:var(--red)">${n1}</span>
+            <span style="font-size:.78rem;font-weight:${w1?800:400};color:var(--red)">${n1}</span>
             <span style="color:var(--muted);font-size:.65rem">vs</span>
-            <span style="font-size:.78rem;font-weight:${w2?700:500};color:#2471a3">${n2}</span>
+            <span style="font-size:.78rem;font-weight:${w2?800:400};color:#2471a3">${n2}</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
@@ -1331,8 +1332,8 @@ function renderMobileCards(data){
       </div>
       <div class="m-card-body">
         <div class="m-card-teams">
-          <div class="m-card-team"><span style="font-weight:600;color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);opacity:${w1?1:.45}">${p.puntos1}</span></div>
-          <div class="m-card-team"><span style="font-weight:600;color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;opacity:${w2?1:.45}">${p.puntos2}</span></div>
+          <div class="m-card-team"><span style="font-weight:${w1?800:400};color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);font-weight:${w1?800:400}">${p.puntos1}</span></div>
+          <div class="m-card-team"><span style="font-weight:${w2?800:400};color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;font-weight:${w2?800:400}">${p.puntos2}</span></div>
         </div>
         <div class="m-card-meta">
           ${ti?`<span class="tag ${tiCls}">${t(ti.lbl)}</span>`:''}
@@ -1342,6 +1343,12 @@ function renderMobileCards(data){
       </div>
     </div>`;
   }).join('');
+}
+
+function renderMobileCards(data){
+  const el = document.getElementById('mCards');
+  if(!el) return;
+  el.innerHTML = renderMobileCardsHTML(data);
 }
 
 function toggleMCard(header){
@@ -1743,9 +1750,9 @@ function renderH2H(){
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td>${p.fronton}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
-      <td style="color:var(--red);font-weight:${gP1?700:400};font-family:var(--mono);opacity:${gP1?1:.5}">${a}</td>
+      <td style="color:var(--red);font-weight:${gP1?800:400};font-family:var(--mono)">${a}</td>
       <td style="color:var(--muted);text-align:center">—</td>
-      <td style="color:#2471a3;font-weight:${!gP1?700:400};font-family:var(--mono);opacity:${!gP1?1:.5}">${b}</td>
+      <td style="color:#2471a3;font-weight:${!gP1?800:400};font-family:var(--mono)">${b}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
     </tr>`;
   }).join('');
@@ -1762,7 +1769,8 @@ function renderH2H(){
       ${esMano?'':`<th>Comp. ${p1}</th>`}
       <th>${p1}</th><th></th><th>${p2}</th>
       ${esMano?'':`<th>Comp. ${p2}</th>`}
-    </tr></thead><tbody>${filas}</tbody></table></div>`;
+    </tr></thead><tbody>${filas}</tbody></table></div>
+    <div class="m-card">${renderMobileCardsHTML(enfs)}</div>`;
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1884,11 +1892,13 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
       ${t('c4_ver_mas').replace('{n}', partidos.length - MAX)}
     </button></td></tr>` : '';
   const filasOcultas = ocultos ? `<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>` : '';
+  // Mobile cards
+  const mCards = renderMobileCardsHTML(partidos);
   return`<div class="twrap"><table>${thead}
     <tbody>${visibles}</tbody>
     ${filasOcultas}
     <tbody>${btnVerMas}</tbody>
-  </table></div>`;
+  </table></div><div class="m-card">${mCards}</div>`;
 }
 
 
@@ -1919,10 +1929,10 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
       <td>${tiTag}</td>
       <td style="font-size:.74rem">${p.fronton}</td>
       <td style="font-size:.7rem;color:${colorMain}">${compP}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${colorMain};opacity:${gano?1:.45}">${ptP}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${colorMain};font-weight:${gano?800:400}">${ptP}</td>
       <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-      <td style="font-size:.7rem;color:var(--muted)">${compR}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:var(--muted)">${ptR}</td>
+      <td style="font-size:.7rem;color:var(--muted);font-weight:${!gano?700:400}">${compR}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:var(--muted);font-weight:${!gano?800:400}">${ptR}</td>
     </tr>`;
   });
   const visibles=filas.slice(0,MAX).join('');
@@ -1932,7 +1942,8 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
       ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
     </button></td></tr>`:'';
   const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
-  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div>`;
+  const mCards = renderMobileCardsHTML(partidos);
+  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${mCards}</div>`;
 }
 
 function c4VerMas(id){
