@@ -1291,9 +1291,9 @@ function renderTabla(){
       <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td style="font-size:.74rem">${p.fronton}<br><span style="font-size:.6rem;color:var(--muted)">${p.ciudad||''}</span></td>
-      <td style="font-weight:${w1?700:400};color:${w1?'var(--text)':'var(--muted)'}">${neq(p.equipo1)}</td>
+      <td style="font-weight:${w1?700:400};color:${w1?'var(--red)':'var(--muted)'}">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
-      <td style="font-weight:${w2?700:400};color:${w2?'var(--text)':'var(--muted)'}">${neq(p.equipo2)}</td>
+      <td style="font-weight:${w2?700:400};color:${w2?'#2471a3':'var(--muted)'}">${neq(p.equipo2)}</td>
       <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}</td>
     </tr>`;
   }).join('');
@@ -1315,9 +1315,9 @@ function renderMobileCards(data){
         <div>
           <div class="m-card-fecha">${p.fecha} · ${p.fronton}</div>
           <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
-            <span class="m-card-team-name ${w1?'winner':'loser'}" style="font-size:.78rem">${n1}</span>
+            <span style="font-size:.78rem;font-weight:${w1?700:500};color:${w1?'var(--red)':'#c0392b99'}">${n1}</span>
             <span style="color:var(--muted);font-size:.65rem">vs</span>
-            <span class="m-card-team-name ${w2?'winner':'loser'}" style="font-size:.78rem">${n2}</span>
+            <span style="font-size:.78rem;font-weight:${w2?700:500};color:${w2?'#2471a3':'#2471a399'}">${n2}</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
@@ -1331,8 +1331,8 @@ function renderMobileCards(data){
       </div>
       <div class="m-card-body">
         <div class="m-card-teams">
-          <div class="m-card-team"><span class="m-card-team-name ${w1?'winner':'loser'}">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w1?'var(--green)':'var(--muted)'}">${p.puntos1}</span></div>
-          <div class="m-card-team"><span class="m-card-team-name ${w2?'winner':'loser'}">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w2?'var(--green)':'var(--muted)'}">${p.puntos2}</span></div>
+          <div class="m-card-team"><span style="font-weight:600;color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w1?'var(--red)':'var(--muted)'}">${p.puntos1}</span></div>
+          <div class="m-card-team"><span style="font-weight:600;color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:${w2?'#2471a3':'var(--muted)'}">${p.puntos2}</span></div>
         </div>
         <div class="m-card-meta">
           ${ti?`<span class="tag ${tiCls}">${t(ti.lbl)}</span>`:''}
@@ -1743,9 +1743,9 @@ function renderH2H(){
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td>${p.fronton}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
-      <td style="color:${gP1?'var(--green)':'var(--muted)'};font-weight:${gP1?700:400};font-family:var(--mono)">${a}</td>
+      <td style="color:${gP1?'var(--red)':'var(--muted)'};font-weight:${gP1?700:400};font-family:var(--mono)">${a}</td>
       <td style="color:var(--muted);text-align:center">—</td>
-      <td style="color:${!gP1?'var(--red)':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
+      <td style="color:${!gP1?'#2471a3':'var(--muted)'};font-weight:${!gP1?700:400};font-family:var(--mono)">${b}</td>
       ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
     </tr>`;
   }).join('');
@@ -1753,9 +1753,9 @@ function renderH2H(){
   el.innerHTML=`
     <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
     <div class="comp-bar">
-      <div><div class="comp-nm">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div></div>
+      <div><div class="comp-nm" style="color:var(--red)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div></div>
       <div><div class="comp-pj">${enfs.length} PJ</div></div>
-      <div><div class="comp-nm">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
+      <div><div class="comp-nm" style="color:#2471a3">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
       <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
@@ -1871,8 +1871,8 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
   const id = 'c4b' + (++_c4BlockId);
   const thead = `<thead><tr>
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-    <th style="color:#c0392b">Comp.</th>
-    <th style="color:#c0392b">${colLabel}</th><th></th>
+    <th style="color:var(--red)">Comp.</th>
+    <th style="color:var(--red)">${colLabel}</th><th></th>
     <th style="color:#2471a3">${azLabel}</th>
     <th style="color:#2471a3">Comp.</th>
   </tr></thead>`;
@@ -1889,6 +1889,50 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
     ${filasOcultas}
     <tbody>${btnVerMas}</tbody>
   </table></div>`;
+}
+
+
+function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
+  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin partidos</div>`;
+  const MAX=3; const id='c4b'+(++_c4BlockId);
+  const colorMain = color==='col'?'var(--red)':'#2471a3';
+  const thead=`<thead><tr>
+    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
+    <th style="color:${colorMain}">${parejaLabel}</th>
+    <th style="color:${colorMain}">Pts</th><th></th>
+    <th style="color:var(--muted)">Rival</th>
+    <th style="color:var(--muted)">Pts</th>
+  </tr></thead>`;
+  const filas = partidos.map(p=>{
+    const e1=pels(p.equipo1), e2=pels(p.equipo2);
+    const pInE1 = e1.includes(pivotD)&&(!pivotZ||e1.includes(pivotZ));
+    const pSide = pInE1?e1:e2;
+    const rSide = pInE1?e2:e1;
+    const ptP = pInE1?p.puntos1:p.puntos2;
+    const ptR = pInE1?p.puntos2:p.puntos1;
+    const gano = (pInE1&&p.ganador==='equipo1')||(!pInE1&&p.ganador==='equipo2');
+    const compP = pSide.filter(n=>n!==pivotD).join('/')||'—';
+    const compR = rSide.join('/')||'—';
+    const ti=TTAG[p.tipo];const tiTag=ti?`<span class="tag ${ti.cls}">${t(ti.lbl)}</span>`:'';
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
+      <td>${tiTag}</td>
+      <td style="font-size:.74rem">${p.fronton}</td>
+      <td style="font-size:.7rem;color:${colorMain}">${compP}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${gano?colorMain:'var(--muted)'}">${ptP}</td>
+      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
+      <td style="font-size:.7rem;color:var(--muted)">${compR}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${!gano?'var(--text)':'var(--muted)'}">${ptR}</td>
+    </tr>`;
+  });
+  const visibles=filas.slice(0,MAX).join('');
+  const ocultos=filas.slice(MAX).join('');
+  const btnVerMas=ocultos?`<tr id="${id}-btn"><td colspan="8" style="text-align:center;padding:.5rem">
+    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
+      ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
+    </button></td></tr>`:'';
+  const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
+  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div>`;
 }
 
 function c4VerMas(id){
@@ -1914,12 +1958,11 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
   const pctOver=Math.round(over365/n*100);
 
   if(soloColor){
-    // Panel de una sola pareja
-    const isCol=soloColor==='col';
-    const w=isCol?wCol:wAz;
+    // Panel de una sola pareja - siempre usar wCol (pivot_col gana)
+    const w=wCol;
     const l=n-w;
     const pct=Math.round(w/n*100);
-    const color=isCol?'#c0392b':'#2471a3';
+    const color=soloColor==='col'?'var(--red)':'#2471a3';
     return`<div class="c4-marcador" style="grid-template-columns:repeat(4,1fr)">
       <div style="text-align:center">
         <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_pj')}</div>
@@ -1945,7 +1988,7 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
   // Panel de enfrentamiento (dos parejas)
   return`<div class="c4-marcador">
     <div>
-      <div class="c4-mnombre" style="color:#c0392b">${pivot_col}</div>
+      <div class="c4-mnombre" style="color:var(--red)">${pivot_col}</div>
       <div class="c4-mwins col">${wCol}</div>
       <div class="c4-mpj">${pctCol}% victorias</div>
       <div class="c4-mpj">${(pfCol/n).toFixed(1)} pts/p</div>
@@ -2014,10 +2057,10 @@ function renderC4(){
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
     +mkBloque('🔴',`${t('c4_partidos_col')} ${colLabel}`,soloCol.length,
       soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada','col'):'',
-      c4TablaPartidos(soloCol,d1,d1,colLabel,'Rival'))
+      c4TablaSoloPareja(soloCol,d1,z1,colLabel,'col'))
     +mkBloque('🔵',`${t('c4_partidos_col')} ${azLabel}`,soloAz.length,
       soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul','az'):'',
-      c4TablaPartidos(soloAz,d2,d2,azLabel,'Rival'))
+      c4TablaSoloPareja(soloAz,d2,z2,azLabel,'az'))
     +mkBloque('⚔️',`${t('c4_h2h_del')} — ${d1} vs ${d2}`,h2hDel.length,
       h2hDel.length?c4Bar(h2hDel,d1,d2,'H2H delanteros'):'',
       c4TablaPartidos(h2hDel,d1,d2,d1,d2))
