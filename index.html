@@ -341,7 +341,7 @@ tr:hover td{background:var(--surface2);}
   .m-card{display:block;}
   /* Comparador: ocultar tablas, mostrar cards */
   #sec-comparador .twrap{display:none;}
-  #sec-comparador .m-card{display:block;}
+  #sec-comparador .m-card{display:block!important;}
 
   /* FILTROS */
   .filter-panel .filter-row{flex-direction:column;gap:.5rem;}
@@ -1892,13 +1892,11 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
       ${t('c4_ver_mas').replace('{n}', partidos.length - MAX)}
     </button></td></tr>` : '';
   const filasOcultas = ocultos ? `<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>` : '';
-  // Mobile cards
-  const mCards = renderMobileCardsHTML(partidos);
   return`<div class="twrap"><table>${thead}
     <tbody>${visibles}</tbody>
     ${filasOcultas}
     <tbody>${btnVerMas}</tbody>
-  </table></div><div class="m-card">${mCards}</div>`;
+  </table></div><div class="m-card">${renderMobileCardsHTML(partidos)}</div>`;
 }
 
 
@@ -1942,8 +1940,7 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
       ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
     </button></td></tr>`:'';
   const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
-  const mCards = renderMobileCardsHTML(partidos);
-  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${mCards}</div>`;
+  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${renderMobileCardsHTML(partidos)}</div>`;
 }
 
 function c4VerMas(id){
