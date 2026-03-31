@@ -23,8 +23,8 @@
     "fronton": "NAVARRA ARENA",
     "ciudad": "PAMPLONA",
     "provincia": "",
-    "tipo": "festival",
-    "competicion": "Festival Parejas 2026",
+    "tipo": "campeonato-a",
+    "competicion": "Campeonato Parejas Serie A 2026",
     "equipo1": {
       "delantero": "ALTUNA III",
       "zaguero": "EZKURDIA"
@@ -76,6 +76,25 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "28/03/2026",
+    "fronton": "ZUGARRAMURDI",
+    "ciudad": "ZUGARRAMURDI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Zugarramurdi",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "GASKUE"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "27/03/2026",
     "fronton": "EL VILLAR DE ARNEDO",
     "ciudad": "EL VILLAR DE ARNEDO",
@@ -89,7 +108,7 @@
     "puntos1": 18,
     "equipo2": {
       "delantero": "LARRAZABAL",
-      "zaguero": "MORGAETXEBERRIA"
+      "zaguero": "MORGAETXEBARRIA"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -818,7 +837,7 @@
   },
   {
     "fecha": "20/02/2026",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "campeonato-a",
@@ -4162,7 +4181,7 @@
   },
   {
     "fecha": "18/10/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "festival",
@@ -7088,7 +7107,7 @@
   },
   {
     "fecha": "16/07/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "festival",
@@ -7107,7 +7126,7 @@
   },
   {
     "fecha": "16/07/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "festival",
@@ -10147,7 +10166,7 @@
   },
   {
     "fecha": "21/02/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "campeonato-a",
@@ -10451,7 +10470,7 @@
   },
   {
     "fecha": "07/02/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "campeonato-a",
@@ -11211,7 +11230,7 @@
   },
   {
     "fecha": "03/01/2025",
-    "fronton": "AMOREBIETA",
+    "fronton": "AMOREBIETA IV",
     "ciudad": "AMOREBIETA-ETXANO",
     "provincia": "",
     "tipo": "campeonato-a",

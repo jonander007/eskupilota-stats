@@ -106,6 +106,12 @@ tr:hover td{background:var(--surface2);}
 .rol-badge.del{color:var(--red);border-color:var(--red);background:rgba(200,16,46,.06);}
 .rol-badge.zag{color:#2471a3;border-color:#2471a3;background:rgba(36,113,163,.06);}
 
+
+/* ── ACTIVOS TOGGLE ── */
+.activos-toggle{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.6rem;color:var(--muted);cursor:pointer;user-select:none;}
+.activos-toggle input{accent-color:var(--green);width:14px;height:14px;cursor:pointer;}
+.activos-toggle span{transition:color .15s;}
+.activos-toggle:hover span{color:var(--green);}
 /* ── PELOTARIS GROUP HEADERS ── */
 .pel-group-header{font-family:var(--display);font-size:1.1rem;letter-spacing:.06em;padding:.5rem 0 .4rem;border-bottom:2px solid var(--border);margin-bottom:.8rem;margin-top:1.4rem;display:flex;align-items:center;gap:.6rem;}
 .pel-group-header:first-child{margin-top:0;}
@@ -124,6 +130,12 @@ tr:hover td{background:var(--surface2);}
 .pbar-bg{height:4px;background:var(--border);border-radius:2px;margin-top:.5rem;}
 .pbar-fill{height:100%;border-radius:2px;background:var(--green);}
 
+
+/* ── PERFIL ÚLTIMOS PARTIDOS ── */
+.pf-ultimos{margin-top:1rem;}
+.pf-ultimos-filters{display:flex;gap:.6rem;flex-wrap:wrap;align-items:flex-end;margin-bottom:.8rem;padding:.8rem;background:var(--surface2);border:1px solid var(--border);}
+.pf-ultimos-filters .fg{min-width:120px;}
+.pf-load-more{text-align:center;padding:.6rem;}
 /* ── PERFIL ── */
 .pfwrap{display:grid;grid-template-columns:280px 1fr;gap:1.4rem;}
 .pf-header{background:var(--green);color:#fff;padding:1.4rem;margin-bottom:1rem;}
@@ -468,7 +480,11 @@ tr:hover td{background:var(--surface2);}
     </div>
     <div class="filter-row">
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsPel"></div></div>
-      <div class="fg" style="margin-left:auto;justify-content:flex-end">
+      <div class="fg" style="margin-left:auto;justify-content:flex-end;gap:.8rem;flex-direction:row;align-items:center;">
+        <label class="activos-toggle">
+          <input type="checkbox" id="pActivosCheck" onchange="filterActivos=this.checked;renderPCards()">
+          <span>Solo activos</span>
+        </label>
         <input type="text" id="pSearch" class="wide" placeholder="Buscar pelotari…" oninput="renderPCards()">
       </div>
     </div>
@@ -493,6 +509,12 @@ tr:hover td{background:var(--surface2);}
     </div>
     <div class="filter-row">
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsRk"></div></div>
+      <div class="fg" style="justify-content:flex-end;align-self:flex-end;">
+        <label class="activos-toggle">
+          <input type="checkbox" id="rkActivosCheck" onchange="filterActivos=this.checked;buildRanking()">
+          <span>Solo activos</span>
+        </label>
+      </div>
     </div>
   </div>
   <!-- Tabs -->
@@ -663,6 +685,24 @@ const ZAGUEROS = new Set([
   'ESKIROZ','ZABALETA','ARANGUREN','ESKUZA','MORGAETXEBARRIA','GASKUE','SALAVERRI II',
   'GABIRONDO','BIKUÑA','EROSTARBE','ALDABE','LIZEAGA','ELIZEGI','TOLOSA','LOZA','LANDA'
 ]);
+
+function getActivePlayers(){
+  // Activo = al menos un partido en los últimos 3 meses desde el partido más reciente
+  if(!PARTIDOS.length) return new Set();
+  function parseFecha(f){ try{const[d,m,y]=f.split('/');return new Date(+y,+m-1,+d);}catch{return new Date(0);} }
+  const latest = PARTIDOS.reduce((mx,p)=>{ const dt=parseFecha(p.fecha); return dt>mx?dt:mx; }, new Date(0));
+  const cutoff = new Date(latest); cutoff.setMonth(cutoff.getMonth()-3);
+  const active = new Set();
+  PARTIDOS.forEach(p=>{
+    if(parseFecha(p.fecha) < cutoff) return;
+    ['equipo1','equipo2'].forEach(eq=>{
+      const e=p[eq]||{};
+      if(e.delantero) active.add(e.delantero.toUpperCase());
+      if(e.zaguero) active.add(e.zaguero.toUpperCase());
+    });
+  });
+  return active;
+}
 function getRol(nombre){ 
   const n=(nombre||'').toUpperCase();
   if(DELANTEROS.has(n)) return 'delantero';
@@ -1366,7 +1406,12 @@ function renderPCards(){
   closePerfil();
   const parts=filtByTipoYear(activeTipo,activeYearPel);
   const st=calcStats(parts);
-  let ns=Object.keys(st).filter(n=>!q||n.toLowerCase().includes(q));
+  const activePlayers = filterActivos ? getActivePlayers() : null;
+  let ns=Object.keys(st).filter(n=>{
+    if(q&&!n.toLowerCase().includes(q)) return false;
+    if(activePlayers&&!activePlayers.has(n.toUpperCase())) return false;
+    return true;
+  });
   ns.sort((a,b)=>st[b].pg-st[a].pg);
 
   function mkCard(n){
@@ -1470,9 +1515,142 @@ function openPerfil(nombre){
         <h3>${t('lbl_rivales')}</h3>
         <table class="comp-table"><thead><tr><th>Rival</th><th>V</th><th>D</th><th>PJ</th></tr></thead><tbody>${rivRows}</tbody></table>
       </div>
+      <div class="ch-card pf-ultimos" id="pfUltimos">
+        <h3>Últimos partidos</h3>
+        <div class="pf-ultimos-filters">
+          <div class="fg">
+            <span class="flabel">Frontón</span>
+            <select id="pfFronFilter" onchange="renderPerfilPartidos()" style="width:100%">
+              <option value="">Todos</option>
+            </select>
+          </div>
+          <div class="fg">
+            <span class="flabel">Desde</span>
+            <input type="date" id="pfDesdeFilter" onchange="renderPerfilPartidos()">
+          </div>
+          <div class="fg">
+            <span class="flabel">Hasta</span>
+            <input type="date" id="pfHastaFilter" onchange="renderPerfilPartidos()">
+          </div>
+          <div class="fg" style="justify-content:flex-end">
+            <button class="btn-ghost" onclick="resetPerfilFiltros()">Limpiar</button>
+          </div>
+        </div>
+        <div id="pfPartidosList"></div>
+        <div class="pf-load-more" id="pfLoadMore" style="display:none">
+          <button class="btn-ghost" onclick="loadMorePerfilPartidos()">Ver 10 más ↓</button>
+        </div>
+      </div>
     </div>`;
+
+  // Init recent matches
+  _perfilNombre = nombre;
+  _perfilPage = 1;
+  populatePerfilFrontons(nombre, parts);
+  renderPerfilPartidos();
 }
 
+
+function populatePerfilFrontons(nombre, parts){
+  const frontons = [...new Set(
+    parts.filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre))
+         .map(p=>p.fronton)
+  )].sort();
+  const sel = document.getElementById('pfFronFilter');
+  if(!sel) return;
+  sel.innerHTML = '<option value="">Todos</option>';
+  frontons.forEach(f=>{ const o=document.createElement('option');o.value=f;o.textContent=f;sel.appendChild(o); });
+}
+
+function getPerfilPartidos(){
+  const nombre = _perfilNombre;
+  const parts = filtByTipoYear(activeTipo, activeYearPel);
+  const fron = (document.getElementById('pfFronFilter')?.value)||'';
+  const desde = document.getElementById('pfDesdeFilter')?.value||'';
+  const hasta = document.getElementById('pfHastaFilter')?.value||'';
+  return parts.filter(p=>{
+    if(!pels(p.equipo1).includes(nombre)&&!pels(p.equipo2).includes(nombre)) return false;
+    if(fron&&p.fronton!==fron) return false;
+    if(desde||hasta){
+      const d=parseDate(p.fecha);
+      if(desde&&d<new Date(desde)) return false;
+      if(hasta&&d>new Date(hasta)) return false;
+    }
+    return true;
+  }); // already sorted desc by fecha from partidos array
+}
+
+function renderPerfilPartidos(){
+  _perfilPage = 1;
+  const all = getPerfilPartidos();
+  const nombre = _perfilNombre;
+  const show = all.slice(0, 5); // first 5
+  const list = document.getElementById('pfPartidosList');
+  const more = document.getElementById('pfLoadMore');
+  if(!list) return;
+  list.innerHTML = show.map(p=>renderPerfilPartidoRow(p, nombre)).join('');
+  if(more) more.style.display = all.length > 5 ? 'block' : 'none';
+}
+
+function loadMorePerfilPartidos(){
+  _perfilPage++;
+  const all = getPerfilPartidos();
+  const nombre = _perfilNombre;
+  const start = 5 + (_perfilPage-2)*PERFIL_PAGE_SIZE;
+  const end = start + PERFIL_PAGE_SIZE;
+  const list = document.getElementById('pfPartidosList');
+  const more = document.getElementById('pfLoadMore');
+  if(!list) return;
+  list.innerHTML += all.slice(start, end).map(p=>renderPerfilPartidoRow(p, nombre)).join('');
+  if(more) more.style.display = end >= all.length ? 'none' : 'block';
+}
+
+function renderPerfilPartidoRow(p, nombre){
+  const e1=pels(p.equipo1), e2=pels(p.equipo2);
+  const enE1 = e1.includes(nombre);
+  const gano = (enE1&&p.ganador==='equipo1')||(!enE1&&p.ganador==='equipo2');
+  const n1 = neq(p.equipo1), n2 = neq(p.equipo2);
+  const w1 = p.ganador==='equipo1', w2 = p.ganador==='equipo2';
+  const ti = TTAG[p.tipo]; const tiTag = ti?`<span class="tag ${ti.cls}">${t(ti.lbl)}</span>`:'';
+  return `<div class="m-card-row ${p.tipo?.includes('festival')?'festival-row':p.tipo?.includes('manomanista')?'mano-row':p.tipo?.includes('cuatro')?'cuatro-row':''}">
+    <div class="m-card-header" onclick="toggleMCard(this)">
+      <div>
+        <div class="m-card-fecha">${p.fecha} · ${p.fronton}</div>
+        <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
+          <span style="font-size:.78rem;font-weight:${w1?800:400};color:var(--red)">${n1}</span>
+          <span style="color:var(--muted);font-size:.65rem">vs</span>
+          <span style="font-size:.78rem;font-weight:${w2?800:400};color:#2471a3">${n2}</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
+        <div class="m-card-marcador">
+          <span class="m-card-score ${w1?'w':'l'}">${p.puntos1}</span>
+          <span class="m-card-sep">—</span>
+          <span class="m-card-score ${w2?'w':'l'}">${p.puntos2}</span>
+        </div>
+        <span class="m-card-arrow">›</span>
+      </div>
+    </div>
+    <div class="m-card-body">
+      <div class="m-card-teams">
+        <div class="m-card-team"><span style="font-weight:${w1?800:400};color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);font-weight:${w1?800:400}">${p.puntos1}</span></div>
+        <div class="m-card-team"><span style="font-weight:${w2?800:400};color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;font-weight:${w2?800:400}">${p.puntos2}</span></div>
+      </div>
+      <div class="m-card-meta">
+        ${tiTag}
+        <span class="m-card-fronton">📍 ${p.fronton}${p.ciudad?' · '+p.ciudad:''}</span>
+        <span class="m-card-comp">${tComp(p.competicion)}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function resetPerfilFiltros(){
+  document.getElementById('pfFronFilter').value='';
+  document.getElementById('pfDesdeFilter').value='';
+  document.getElementById('pfHastaFilter').value='';
+  renderPerfilPartidos();
+}
 function closePerfil(){
   document.getElementById('perfilSec').style.display='none';
   document.getElementById('pCards').style.display='grid';
@@ -1485,6 +1663,10 @@ function goToPel(n){goToNav('pelotaris');setTimeout(()=>openPerfil(n),80);}
 // RANKING
 // ════════════════════════════════════════════════════════════
 let activeRkTab = 'victorias';
+let _perfilNombre = '';
+let _perfilPage = 1;
+const PERFIL_PAGE_SIZE = 10;
+let filterActivos = false;
 
 function setRkTab(tab, btn){
   activeRkTab = tab;
@@ -1518,10 +1700,13 @@ function buildRanking(){
     return `<div class="rk-grid">${cards.join('')}</div>`;
   }
 
+  const _activePlayers = filterActivos ? getActivePlayers() : null;
+  function filterActive(entries){ return _activePlayers ? entries.filter(([n])=>_activePlayers.has(n.toUpperCase())) : entries; }
+
   // ── TAB: Victorias ──
   if(activeRkTab === 'victorias'){
     const st = calcStats(parts);
-    const sorted = Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc));
+    const sorted = filterActive(Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc)));
     const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
     const sf = s=>({val:s.pg, lbl:s.pg+'V'});
     const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div>`;
@@ -1535,9 +1720,9 @@ function buildRanking(){
   else if(activeRkTab === 'pct'){
     const MIN_PJ = 10;
     const st = calcStats(parts);
-    const sorted = Object.entries(st)
+    const sorted = filterActive(Object.entries(st)
       .filter(([,s])=>s.pj>=MIN_PJ)
-      .sort((a,b)=>(b[1].pg/b[1].pj)-(a[1].pg/a[1].pj));
+      .sort((a,b)=>(b[1].pg/b[1].pj)-(a[1].pg/a[1].pj)));
     const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
     const sf = s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'});
     const ec = s=>`<div class="rk-stat">${s.pg}V</div><div class="rk-stat">${s.pj}PJ</div>`;
@@ -1551,8 +1736,8 @@ function buildRanking(){
   else if(activeRkTab === 'roles'){
     const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
     const st = calcStats(parsParejas);
-    const dels = Object.entries(st).filter(([n])=>DELANTEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg).slice(0,15);
-    const zags = Object.entries(st).filter(([n])=>ZAGUEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg).slice(0,15);
+    const dels = filterActive(Object.entries(st).filter(([n])=>DELANTEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
+    const zags = filterActive(Object.entries(st).filter(([n])=>ZAGUEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
     const sf = s=>({val:s.pg, lbl:s.pg+'V'});
     const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
     el.innerHTML = mkGrid([
@@ -1603,9 +1788,9 @@ function buildRanking(){
       });
     });
     const MIN_PJ = 10;
-    const sorted = Object.entries(over)
+    const sorted = filterActive(Object.entries(over)
       .filter(([,s])=>s.pj>=MIN_PJ)
-      .sort((a,b)=>(b[1].over/b[1].pj)-(a[1].over/a[1].pj))
+      .sort((a,b)=>(b[1].over/b[1].pj)-(a[1].over/a[1].pj)))
       .slice(0,20);
     const h = Math.ceil(sorted.length/2);
     const sf = s=>({val:s.over/s.pj*100, lbl:Math.round(s.over/s.pj*100)+'%'});

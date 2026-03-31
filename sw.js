@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v2';
+const CACHE = 'eskupilota-v3';
 const BASE = '/eskupilota-stats/';
 const PRECACHE = [
   BASE,
