@@ -455,7 +455,7 @@ tr:hover td{background:var(--surface2);}
   <div class="twrap">
     <table>
       <thead><tr>
-        <th onclick="sortT('fecha')">Fecha ↕</th>
+        <th onclick="sortT('fecha')" id='th-fecha-sort'>Fecha ↕</th>
         <th>Tipo</th>
         <th>Frontón</th>
         <th>Equipo 1</th>
@@ -472,7 +472,7 @@ tr:hover td{background:var(--surface2);}
 
 <!-- ══ PELOTARIS ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-pelotaris">
-  <div class="sec-title">Pelotaris <span class="badge bg">Individual</span></div>
+  <div class="sec-title">Pelotaris <span class="badge bg" id="badgeIndividual">Individual</span></div>
 
   <div class="filter-panel">
     <div class="filter-row">
@@ -483,7 +483,7 @@ tr:hover td{background:var(--surface2);}
       <div class="fg" style="margin-left:auto;justify-content:flex-end;gap:.8rem;flex-direction:row;align-items:center;">
         <label class="activos-toggle">
           <input type="checkbox" id="pActivosCheck" onchange="filterActivos=this.checked;renderPCards()">
-          <span>Solo activos</span>
+          <span id="soloActivosLblPel">Solo activos</span>
         </label>
         <input type="text" id="pSearch" class="wide" placeholder="Buscar pelotari…" oninput="renderPCards()">
       </div>
@@ -512,19 +512,19 @@ tr:hover td{background:var(--surface2);}
       <div class="fg" style="justify-content:flex-end;align-self:flex-end;">
         <label class="activos-toggle">
           <input type="checkbox" id="rkActivosCheck" onchange="filterActivos=this.checked;buildRanking()">
-          <span>Solo activos</span>
+          <span id="soloActivosLblRk">Solo activos</span>
         </label>
       </div>
     </div>
   </div>
   <!-- Tabs -->
   <div class="rk-tabs" id="rkTabs">
-    <button class="rk-tab on" onclick="setRkTab('victorias',this)">Victorias</button>
-    <button class="rk-tab" onclick="setRkTab('pct',this)">% Victorias</button>
-    <button class="rk-tab" onclick="setRkTab('roles',this)">Del vs Zag</button>
-    <button class="rk-tab" onclick="setRkTab('parejas',this)">Parejas</button>
-    <button class="rk-tab" onclick="setRkTab('over365',this)">+36.5 tantos</button>
-    <button class="rk-tab" onclick="setRkTab('racha',this)">Racha</button>
+    <button class="rk-tab on" id="rktab-victorias" onclick="setRkTab('victorias',this)">Victorias</button>
+    <button class="rk-tab" id="rktab-pct" onclick="setRkTab('pct',this)">% Victorias</button>
+    <button class="rk-tab" id="rktab-roles" onclick="setRkTab('roles',this)">Del vs Zag</button>
+    <button class="rk-tab" id="rktab-parejas" onclick="setRkTab('parejas',this)">Parejas</button>
+    <button class="rk-tab" id="rktab-over365" onclick="setRkTab('over365',this)">+36.5 tantos</button>
+    <button class="rk-tab" id="rktab-racha" onclick="setRkTab('racha',this)">Racha</button>
   </div>
   <div id="rkContent"></div>
 </div>
@@ -898,6 +898,43 @@ const I18N = {
     tag_cuatroa: "4½ A", tag_cuatrob: "4½ B",
     // Roles
     rol_del: 'Del', rol_zag: 'Zag',
+    // Ranking tabs
+    rk_tab_victorias: 'Victorias',
+    rk_tab_pct: '% Victorias',
+    rk_tab_roles: 'Del vs Zag',
+    rk_tab_parejas: 'Parejas',
+    rk_tab_over: '+36.5 tantos',
+    rk_tab_racha: 'Racha',
+    rk_min_pj: 'Mínimo {n} partidos',
+    rk_solo_parejas: 'solo parejas',
+    rk_delanteros: 'Delanteros',
+    rk_zagueros: 'Zagueros',
+    rk_mejor_racha: 'Mejor racha histórica',
+    rk_racha_activa: 'Racha activa ahora',
+    rk_seg: 'seg.',
+    rk_actual: 'Actual',
+    rk_mejor: 'Mejor',
+    // Perfil
+    lbl_ultimos: 'Últimos partidos',
+    lbl_solo_activos: 'Solo activos',
+    lbl_individual: 'Individual',
+    // H2H
+    h2h_pts_partido: 'pts/partido',
+    // Cartelera
+    cart_eventos: 'eventos',
+    cart_fuente: 'Fuente',
+    cart_actualizado: 'Actualizado',
+    // Meses y días
+    dias: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+    meses: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+    // Contacto
+    cont_alerta: 'Por favor rellena nombre, email y mensaje.',
+    cont_asunto_def: 'Contacto EskupilotaStats',
+    // Varios
+    sin_partidos: 'Sin partidos',
+    sin_enfrentamientos: 'Sin enfrentamientos',
+    pareja_exacta: 'pareja exacta',
+    lbl_fecha_sort: 'Fecha ↕',
   },
   eu: {
     nav_cartelera: 'Kartelera',
@@ -1070,6 +1107,30 @@ function applyI18N(){
   document.querySelectorAll('.btn-ghost[onclick="resetFiltros()"]').forEach(b=>b.textContent=t('btn_limpiar'));
   // Section titles (static ones)
   document.querySelector('#sec-pelotaris .sec-title')?.childNodes[0]?.replaceWith?.(document.createTextNode(t('sec_pelotaris')+' '));
+  // Ranking tabs
+  ['victorias','pct','roles','parejas','over365','racha'].forEach(tab=>{
+    const el=document.getElementById('rktab-'+tab);
+    if(el) el.textContent=t('rk_tab_'+tab.replace('365',''));
+  });
+  // Fix over365 tab separately
+  const tabOver=document.getElementById('rktab-over365');
+  if(tabOver) tabOver.textContent=t('rk_tab_over');
+  // Solo activos
+  const lblPel=document.getElementById('soloActivosLblPel');
+  if(lblPel) lblPel.textContent=t('lbl_solo_activos');
+  const lblRk=document.getElementById('soloActivosLblRk');
+  if(lblRk) lblRk.textContent=t('lbl_solo_activos');
+  // Individual badge
+  const badgeInd=document.getElementById('badgeIndividual');
+  if(badgeInd) badgeInd.textContent=t('lbl_individual');
+  // Últimos partidos title
+  const pfUlt=document.getElementById('pfUltimosTitle');
+  if(pfUlt) pfUlt.textContent=t('lbl_ultimos');
+  // Tabla fecha header
+  const thFecha=document.getElementById('th-fecha-sort');
+  if(thFecha) thFecha.childNodes[0].textContent=t('lbl_fecha_sort')+' ';
+  // Rebuild ranking to update translated strings
+  buildRanking();
   // Contacto
   document.querySelector('#cNombre')?.setAttribute('placeholder', t('cont_ph_nombre'));
   document.querySelector('#cAsunto')?.setAttribute('placeholder', t('cont_ph_asunto'));
@@ -1516,7 +1577,7 @@ function openPerfil(nombre){
         <table class="comp-table"><thead><tr><th>Rival</th><th>V</th><th>D</th><th>PJ</th></tr></thead><tbody>${rivRows}</tbody></table>
       </div>
       <div class="ch-card pf-ultimos" id="pfUltimos">
-        <h3>Últimos partidos</h3>
+        <h3 id="pfUltimosTitle">Últimos partidos</h3>
         <div class="pf-ultimos-filters">
           <div class="fg">
             <span class="flabel">Frontón</span>
@@ -1726,7 +1787,7 @@ function buildRanking(){
     const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
     const sf = s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'});
     const ec = s=>`<div class="rk-stat">${s.pg}V</div><div class="rk-stat">${s.pj}PJ</div>`;
-    el.innerHTML = `<div class="rk-min-label">Mínimo ${MIN_PJ} partidos</div>` + mkGrid([
+    el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)}</div>` + mkGrid([
       mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
     ]);
@@ -1741,8 +1802,8 @@ function buildRanking(){
     const sf = s=>({val:s.pg, lbl:s.pg+'V'});
     const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
     el.innerHTML = mkGrid([
-      mkRkCard('Delanteros', dels, sf, ec),
-      mkRkCard('Zagueros', zags, sf, ec, 'azul')
+      mkRkCard(t('rk_delanteros'), dels, sf, ec),
+      mkRkCard(t('rk_zagueros'), zags, sf, ec, 'azul')
     ]);
   }
 
@@ -1795,7 +1856,7 @@ function buildRanking(){
     const h = Math.ceil(sorted.length/2);
     const sf = s=>({val:s.over/s.pj*100, lbl:Math.round(s.over/s.pj*100)+'%'});
     const ec = s=>`<div class="rk-stat">${s.over} partidos</div><div class="rk-stat">${s.pj}PJ</div>`;
-    el.innerHTML = `<div class="rk-min-label">Mínimo ${MIN_PJ} partidos · solo parejas</div>` + mkGrid([
+    el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)} · ${t('rk_solo_parejas')}</div>` + mkGrid([
       mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
     ]);
@@ -1832,14 +1893,14 @@ function buildRanking(){
     }
     const byMax = Object.entries(rachas).filter(([,s])=>s.max>=3).sort((a,b)=>b[1].max-a[1].max).slice(0,20);
     const byActual = Object.entries(rachas).filter(([,s])=>s.actual>=2).sort((a,b)=>b[1].actual-a[1].actual).slice(0,10);
-    const sfMax = s=>({val:s.max, lbl:s.max+' seg.'});
-    const sfAct = s=>({val:s.actual, lbl:s.actual+' seg.'});
-    const ecMax = s=>`<div class="rk-stat">Actual: ${s.actual}</div>`;
-    const ecAct = s=>`<div class="rk-stat">Mejor: ${s.max}</div>`;
+    const sfMax = s=>({val:s.max, lbl:s.max+' '+t('rk_seg')});
+    const sfAct = s=>({val:s.actual, lbl:s.actual+' '+t('rk_seg')});
+    const ecMax = s=>`<div class="rk-stat">${t('rk_actual')}: ${s.actual}</div>`;
+    const ecAct = s=>`<div class="rk-stat">${t('rk_mejor')}: ${s.max}</div>`;
     const h = Math.ceil(byMax.length/2);
     el.innerHTML = mkGrid([
-      mkRkCard('Mejor racha histórica', byMax.slice(0,h), sfMax, ecMax),
-      byActual.length ? mkRkCard('Racha activa ahora', byActual, sfAct, ecAct, 'azul') : ''
+      mkRkCard(t('rk_mejor_racha'), byMax.slice(0,h), sfMax, ecMax),
+      byActual.length ? mkRkCard(t('rk_racha_activa'), byActual, sfAct, ecAct, 'azul') : ''
     ].filter(Boolean));
   }
 }
@@ -1945,7 +2006,7 @@ function renderH2H(){
   el.innerHTML=`
     <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
     <div class="comp-bar">
-      <div><div class="comp-nm" style="color:var(--red)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} pts/partido</div></div>
+      <div><div class="comp-nm" style="color:var(--red)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
       <div><div class="comp-pj">${enfs.length} PJ</div></div>
       <div><div class="comp-nm" style="color:#2471a3">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
@@ -2059,7 +2120,7 @@ function c4FilaPartido(p, pivotCol, pivotAz){
 
 let _c4BlockId = 0;
 function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
-  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin enfrentamientos</div>`;
+  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_enfrentamientos')}</div>`;
   const MAX = 3;
   const id = 'c4b' + (++_c4BlockId);
   const thead = `<thead><tr>
@@ -2086,7 +2147,7 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
 
 
 function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
-  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>Sin partidos</div>`;
+  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_partidos')}</div>`;
   const MAX=3; const id='c4b'+(++_c4BlockId);
   const colorMain = color==='col'?'var(--red)':'#2471a3';
   const thead=`<thead><tr>
@@ -2246,7 +2307,7 @@ function renderC4(){
 
   el.innerHTML=
     mkBloque('⚡',t('c4_identico'),exactos.length,
-      exactos.length?c4Bar(exactos,d1,d2,'pareja exacta'):'',
+      exactos.length?c4Bar(exactos,d1,d2,t('pareja_exacta')):'',
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
     +mkBloque('🔴',`${t('c4_partidos_col')} ${colLabel}`,soloCol.length,
       soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada','col'):'',
@@ -2345,15 +2406,15 @@ async function loadCartelera(){
 function renderCartelera(data){
   const el = document.getElementById('carteleraContainer');
   const eventos = data.partidos || [];
-  document.getElementById('carteleraBadge').textContent = eventos.length + ' eventos';
+  document.getElementById('carteleraBadge').textContent = eventos.length + ' ' + t('cart_eventos');
   const hint = document.getElementById('carteleraHint');
-  hint.innerHTML = `Fuente: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · Actualizado: <strong>${data.actualizado||'—'}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.2rem .55rem">↻ Recargar</button>`;
+  hint.innerHTML = `${t('cart_fuente')}: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · ${t('cart_actualizado')}: <strong>${data.actualizado||'—'}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.2rem .55rem">↻ Recargar</button>`;
   if(!eventos.length){
     el.innerHTML=`<div class="nodata"><div class="ic">📅</div>${t('cart_no_partidos')}</div>`;
     return;
   }
-  const DIAS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
-  const MESES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const DIAS=t('dias');
+  const MESES=t('meses');
   function fmtFecha(f){
     try{ const[d,m,y]=f.split('/'); const dt=new Date(+y,+m-1,+d);
       return `${DIAS[dt.getDay()]} ${+d} ${MESES[+m-1]} ${y}`; }
@@ -2463,10 +2524,10 @@ function goToComparadorFromPartido(p){
 function enviarContacto(){
   const nombre  = document.getElementById('cNombre').value.trim();
   const email   = document.getElementById('cEmail').value.trim();
-  const asunto  = document.getElementById('cAsunto').value.trim() || 'Contacto EskupilotaStats';
+  const asunto  = document.getElementById('cAsunto').value.trim() || t('cont_asunto_def');
   const mensaje = document.getElementById('cMensaje').value.trim();
   if(!nombre||!email||!mensaje){
-    alert('Por favor rellena nombre, email y mensaje.');
+    alert(t('cont_alerta'));
     return;
   }
   const body = encodeURIComponent(`Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`);
