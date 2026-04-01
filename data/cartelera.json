@@ -1,5 +1,5 @@
 {
-  "actualizado": "31/03/2026 01:54",
+  "actualizado": "01/04/2026 08:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -10,8 +10,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // REKALDE (Serie B)",
-        "DARÍO // XXXX (Serie A)",
+        "ESKIROZ // REKALDE (Serie B)",
+        "DARÍO // ELORDI (Serie A)",
         "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
         "DESDE",
         "25.00€"
@@ -22,11 +22,13 @@
       "tv": false,
       "partidos": [
         {
-          "eq1": [],
+          "eq1": [
+            "ESKIROZ"
+          ],
           "eq2": [
             "REKALDE"
           ],
-          "raw": "XXXX // REKALDE (Serie B)",
+          "raw": "ESKIROZ // REKALDE (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
@@ -34,8 +36,10 @@
           "eq1": [
             "DARÍO"
           ],
-          "eq2": [],
-          "raw": "DARÍO // XXXX (Serie A)",
+          "eq2": [
+            "ELORDI"
+          ],
+          "raw": "DARÍO // ELORDI (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -62,8 +66,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "SALABERRIA // XXXX (Serie B)",
-        "ZABALA // XXXX (Serie A)",
+        "SALABERRIA // ALBERDI II (Serie B)",
+        "BAKAIKOA // ZABALA (Serie A)",
         "EGIGUREN V – LOZA // SENAR – ARANGUREN",
         "DESDE",
         "20.00€"
@@ -77,17 +81,21 @@
           "eq1": [
             "SALABERRIA"
           ],
-          "eq2": [],
-          "raw": "SALABERRIA // XXXX (Serie B)",
+          "eq2": [
+            "ALBERDI II"
+          ],
+          "raw": "SALABERRIA // ALBERDI II (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
         {
           "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
             "ZABALA"
           ],
-          "eq2": [],
-          "raw": "ZABALA // XXXX (Serie A)",
+          "raw": "BAKAIKOA // ZABALA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -114,8 +122,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // ZUBIZARRETA IV (Serie B)",
-        "PEÑA II // XXXX (Serie A)",
+        "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
+        "PEÑA II // P.ETXEBERRIA (Serie A)",
         "ARTOLA – LANDA // LARRAZABAL – IMAZ",
         "DESDE",
         "25.00€"
@@ -126,11 +134,13 @@
       "tv": false,
       "partidos": [
         {
-          "eq1": [],
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
           "eq2": [
             "ZUBIZARRETA IV"
           ],
-          "raw": "XXXX // ZUBIZARRETA IV (Serie B)",
+          "raw": "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
@@ -138,8 +148,10 @@
           "eq1": [
             "PEÑA II"
           ],
-          "eq2": [],
-          "raw": "PEÑA II // XXXX (Serie A)",
+          "eq2": [
+            "P.ETXEBERRIA"
+          ],
+          "raw": "PEÑA II // P.ETXEBERRIA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -166,9 +178,9 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "AMIANO // XXXX (Serie B)",
-        "JAKA // XXXX (Serie A)",
-        "XXXX – ZABALETA // XXXX – MARTIJA",
+        "ALDABE // AMIANO (Serie B)",
+        "EZKURDIA // JAKA (Serie A)",
+        "REKALDE – REZUSTA // APEZETXEA II – MARTIJA",
         "DESDE",
         "25.00€"
       ],
@@ -179,31 +191,37 @@
       "partidos": [
         {
           "eq1": [
+            "ALDABE"
+          ],
+          "eq2": [
             "AMIANO"
           ],
-          "eq2": [],
-          "raw": "AMIANO // XXXX (Serie B)",
+          "raw": "ALDABE // AMIANO (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
         {
           "eq1": [
+            "EZKURDIA"
+          ],
+          "eq2": [
             "JAKA"
           ],
-          "eq2": [],
-          "raw": "JAKA // XXXX (Serie A)",
+          "raw": "EZKURDIA // JAKA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "ZABALETA"
+            "REKALDE",
+            "REZUSTA"
           ],
           "eq2": [
+            "APEZETXEA II",
             "MARTIJA"
           ],
-          "raw": "XXXX – ZABALETA // XXXX – MARTIJA",
-          "tipo": "manomanista-a",
+          "raw": "REKALDE – REZUSTA // APEZETXEA II – MARTIJA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -216,8 +234,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "ARTOLA // XXXX (Serie A)",
+        "GANADORES GRUPO A (Serie B)",
+        "ARTOLA // LARRAZABAL (Serie A)",
         "PAREJAS",
         "DESDE",
         "25.00€"
@@ -231,8 +249,10 @@
           "eq1": [
             "ARTOLA"
           ],
-          "eq2": [],
-          "raw": "ARTOLA // XXXX (Serie A)",
+          "eq2": [
+            "LARRAZABAL"
+          ],
+          "raw": "ARTOLA // LARRAZABAL (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -246,8 +266,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "LASO // XXXX (Serie A)",
+        "AGIRRE // EGIGUREN V (Serie B)",
+        "ALTUNA III // LASO (Serie A)",
         "PAREJAS",
         "DESDE",
         "25.00€"
@@ -259,10 +279,23 @@
       "partidos": [
         {
           "eq1": [
+            "AGIRRE"
+          ],
+          "eq2": [
+            "EGIGUREN V"
+          ],
+          "raw": "AGIRRE // EGIGUREN V (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
             "LASO"
           ],
-          "eq2": [],
-          "raw": "LASO // XXXX (Serie A)",
+          "raw": "ALTUNA III // LASO (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -276,8 +309,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "PAREJAS",
-        "XXXX // XXXX (Serie B)",
+        "XXXX – REZUSTA // XXXX – IZTUETA",
+        "SENAR // MURUA (Serie B)",
         "DESDE",
         "25.00€"
       ],
@@ -285,7 +318,30 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813415/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "REZUSTA"
+          ],
+          "eq2": [
+            "IZTUETA"
+          ],
+          "raw": "XXXX – REZUSTA // XXXX – IZTUETA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [
+            "MURUA"
+          ],
+          "raw": "SENAR // MURUA (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "12/04/2026",
@@ -296,7 +352,8 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "PAREJAS",
-        "XXXX // XXXX (Serie A)",
+        "GANADORES GRUPO A",
+        "(Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -394,7 +451,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "XXXX – ALBISU // XXXX – LANDA",
+        "ZUBIZARRETA IV – ALBISU // ZUBIZARRETA III – LANDA",
         "SENAR // XXXX (Serie B)",
         "DESDE",
         "20.00€"
@@ -406,13 +463,15 @@
       "partidos": [
         {
           "eq1": [
+            "ZUBIZARRETA IV",
             "ALBISU"
           ],
           "eq2": [
+            "ZUBIZARRETA III",
             "LANDA"
           ],
-          "raw": "XXXX – ALBISU // XXXX – LANDA",
-          "tipo": "manomanista-a",
+          "raw": "ZUBIZARRETA IV – ALBISU // ZUBIZARRETA III – LANDA",
+          "tipo": "campeonato-a",
           "serie": "a"
         },
         {
