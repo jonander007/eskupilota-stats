@@ -1260,6 +1260,7 @@ function showSec(id,btn){
   document.getElementById('sec-'+id).classList.add('active');
   btn.classList.add('active');
   if(id==='cartelera') loadCartelera();
+  if(id==='frontones'){ renderFrontones(); setTimeout(()=>{ initFrontonMap(); renderFrontonMarkers(); },100); }
 }
 
 // ════════════════════════════════════════════════════════════
@@ -2607,8 +2608,8 @@ const FRONTON_COORDS = {
 let _frontonMap = null;
 
 function initFrontonMap(){
-  if(_frontonMap) return;
   if(!document.getElementById('frontonMap')) return;
+  if(_frontonMap){ _frontonMap.invalidateSize(); return; }
 
   _frontonMap = L.map('frontonMap').setView([43.0, -2.0], 8);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
