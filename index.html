@@ -557,7 +557,8 @@ tr:hover td{background:var(--surface2);}
       <div class="comp-filter-bar">
         <div class="comp-mod-row" style="margin-bottom:.7rem;">
           <span class="comp-mod-label">Modalidad</span>
-          <button class="comp-mod-btn on"    data-mod="parejas"     onclick="setH2HMod('parejas')">Parejas</button>
+          <button class="comp-mod-btn on"    data-mod="todas"       onclick="setH2HMod('todas')">Todas</button>
+          <button class="comp-mod-btn"       data-mod="parejas"     onclick="setH2HMod('parejas')">Parejas</button>
           <button class="comp-mod-btn"       data-mod="manomanista" onclick="setH2HMod('manomanista')">Manomanista</button>
           <button class="comp-mod-btn"       data-mod="cuatro"      onclick="setH2HMod('cuatro')">4 y Medio</button>
         </div>
@@ -712,7 +713,7 @@ function getRol(nombre){
 
 let activeTipo='todos', sortFld='fecha', sortAsc=false;
 let activeYearPel='todos', activeYearRk='todos', activeYearH2H='todos', activeYearC4='todos', activeYearFron='todos';
-let h2hMod='parejas', h2hSerie='todas';
+let h2hMod='todas', h2hSerie='todas';
 let compType='h2h';
 let activeTipoFron='todos';
 
@@ -1932,6 +1933,9 @@ function setH2HMod(mod){
   document.querySelectorAll('.comp-mod-btn').forEach(b=>b.classList.remove('on','on-mano','on-cuatro'));
   const cls=mod==='manomanista'?'on-mano':mod==='cuatro'?'on-cuatro':'on';
   document.querySelector(`.comp-mod-btn[data-mod="${mod}"]`)?.classList.add(cls);
+  // Hide serie filter when 'todas' selected
+  const serieRow = document.querySelector('.comp-mod-row:nth-child(2)');
+  if(serieRow) serieRow.style.opacity = mod==='todas'?'0.35':'1';
   renderH2H();
 }
 
@@ -1943,6 +1947,7 @@ function setH2HSerie(serie){
 }
 
 function h2hTipos(){
+  if(h2hMod==='todas') return null; // null = no filter = all types
   const MAP={
     parejas:{todas:['campeonato-a','campeonato-b','festival'],a:['campeonato-a'],b:['campeonato-b'],festival:['festival']},
     manomanista:{todas:['manomanista-a','manomanista-b','manomanista','festival-mano'],a:['manomanista-a'],b:['manomanista-b'],festival:['festival-mano','manomanista']},
@@ -1967,7 +1972,7 @@ function renderH2H(){
     return true;
   });
 
-  const modLbl={parejas:t('tipo_parejas'),manomanista:t('tipo_mano'),cuatro:t('tipo_cuatro')}[h2hMod];
+  const modLbl={todas:t('tipo_todos'),parejas:t('tipo_parejas'),manomanista:t('tipo_mano'),cuatro:t('tipo_cuatro')}[h2hMod]||t('tipo_todos');
   const serieLbl={todas:t('serie_todas'),a:t('serie_a'),b:t('serie_b'),festival:t('serie_fest')}[h2hSerie];
 
   if(!enfs.length){
@@ -1983,7 +1988,7 @@ function renderH2H(){
     if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
   });
 
-  const esMano=h2hMod==='manomanista';
+  const esMano=h2hMod==='manomanista' && h2hSerie!=='todas';
   const filas=enfs.map(p=>{
     const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
     const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
