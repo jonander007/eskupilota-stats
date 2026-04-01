@@ -1502,10 +1502,7 @@ function renderPCards(){
     html += `<div class="pel-group-header zag">${t('lbl_zaguero')}s <span class="pel-group-count">${zags.length}</span></div>`;
     html += `<div class="cards-grid">${zags.map(mkCard).join('')}</div>`;
   }
-  if(otros.length){
-    html += `<div class="pel-group-header otro">Otros <span class="pel-group-count">${otros.length}</span></div>`;
-    html += `<div class="cards-grid">${otros.map(mkCard).join('')}</div>`;
-  }
+  // no mostrar grupo 'otros'
   document.getElementById('pCards').innerHTML = html;
 }
 
