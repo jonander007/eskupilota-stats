@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskupilota Stats — Pelota Vasca</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
 <style>
@@ -299,6 +300,17 @@ tr:hover td{background:var(--surface2);}
 .cart-day-label:first-child{margin-top:0;}
 
 
+
+/* ── MAPA FRONTONES ── */
+#frontonMap{height:420px;border:1px solid var(--border);margin-bottom:1.4rem;border-radius:2px;}
+@media(max-width:900px){#frontonMap{height:280px;}}
+.leaflet-popup-content-wrapper{border-radius:2px;font-family:var(--mono);font-size:.72rem;}
+.leaflet-popup-content{margin:.6rem .8rem;}
+.fmap-name{font-family:var(--display);font-size:1.1rem;color:var(--green);letter-spacing:.03em;}
+.fmap-count{color:var(--muted);font-size:.65rem;margin:.2rem 0 .5rem;}
+.fmap-btn{background:var(--green);color:#fff;border:none;font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;padding:.3rem .7rem;cursor:pointer;border-radius:1px;width:100%;}
+.fmap-btn:hover{opacity:.85;}
+
 /* ── MOBILE PARTIDO CARD ── */
 .m-card{display:none;}
 .m-card-row{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);margin-bottom:.5rem;border-radius:2px;}
@@ -407,6 +419,7 @@ tr:hover td{background:var(--surface2);}
 }
 .header-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;width:100%;max-width:1400px;margin:0 auto;padding:.85rem 2.5rem;position:relative;}
 </style>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 <header>
@@ -622,6 +635,7 @@ tr:hover td{background:var(--surface2);}
       </div>
     </div>
   </div>
+  <div id="frontonMap"></div>
   <div class="fronton-grid" id="frontonGrid"></div>
   <div class="fronton-detail" id="frontonDetail"></div>
 </div>
@@ -2351,6 +2365,7 @@ function renderFrontones(){
     .sort((a,b)=>b[1].partidos-a[1].partidos);
 
   document.getElementById('frontonesCount').textContent=lista.length;
+  renderFrontonMarkers();
   document.getElementById('frontonGrid').innerHTML=lista.map(([f,s])=>`
     <div class="fronton-card" onclick="filtrarPorFronton('${esc(f)}')">
       <div>
@@ -2536,6 +2551,119 @@ function enviarContacto(){
   const subj = encodeURIComponent(asunto);
   window.location.href = `mailto:euskopilotastats@gmail.com?subject=${subj}&body=${body}`;
   document.getElementById('contactOk').style.display='block';
+}
+
+
+// ════════════════════════════════════════════════════════════
+// MAPA FRONTONES
+// ════════════════════════════════════════════════════════════
+const FRONTON_COORDS = {
+  'LABRIT':[42.8125,-1.6458],'NAVARRA ARENA':[42.7953,-1.6384],'BARAÑAIN':[42.8028,-1.6795],
+  'TAFALLA':[42.5284,-1.6737],'AOIZ':[42.7897,-1.3694],'ERETA':[42.5284,-1.6737],
+  'ETXARRI-ARANATZ':[42.9036,-2.0647],'BUÑUEL':[41.9781,-1.4564],'LARRAINTZAR':[42.9244,-1.7122],
+  'IRURZUN':[42.9083,-1.8267],'ELIZONDO':[43.1497,-1.5167],'BAZTAN':[43.1497,-1.5167],
+  'BERA':[43.275,-1.6856],'ERRATZU':[43.1547,-1.4367],'LEKUNBERRI':[43.0264,-1.8686],
+  'BIZKAIA FRONTOIA':[43.2569,-2.9236],'CLUB DEPORTIVO':[43.263,-2.932],'BILBAO DEPORTIVO':[43.263,-2.932],
+  'SESTAO':[43.3097,-3.0094],'ZALLA':[43.2203,-3.1422],'MIMETIZ':[43.2203,-3.142],
+  'ETXEBARRI':[43.28,-2.9003],'AMOREBIETA IV':[43.2181,-2.7303],'USANSOLO':[43.2153,-2.7561],
+  'LEMOA':[43.1706,-2.7792],'ZEANURI':[43.1039,-2.7369],'OROZKO':[43.1247,-2.8819],
+  'BERMEO':[43.4217,-2.7236],'SANTI BROUARD':[43.361,-2.501],'IBARRANGELU':[43.3986,-2.6622],
+  'MURUETA':[43.3736,-2.6722],'GAUTEGIZ-ARTEAGA':[43.3647,-2.6508],'GERNIKA':[43.3144,-2.68],
+  'SANTANAPE':[43.314,-2.681],'MUNGIA':[43.3517,-2.8453],'BEKOERROTABERRI':[43.352,-2.846],
+  'TROVIKA':[43.352,-2.846],'URDULIZ':[43.3706,-2.9206],'SOPELA':[43.3869,-2.9797],
+  'ZIERBENA':[43.36,-3.0594],'MUSKIZ':[43.3581,-3.1133],'DONIBANE':[43.358,-3.114],
+  'BARAKALDO':[43.2978,-2.9931],'ARRIGORRIAGA':[43.2008,-2.8856],
+  'LEKEITIO':[43.3606,-2.5006],'ONDARROA':[43.3197,-2.42],'ELGOIBAR':[43.2136,-2.4158],
+  'MALLABIA':[43.2044,-2.5497],'MALLABIA I':[43.2044,-2.5497],'DURANGO':[43.2197,-2.6358],
+  'EZKURDI':[43.22,-2.636],'KURUTZIAGA':[43.22,-2.636],'IURRETA':[43.2044,-2.6297],
+  'KEPA ARROITAJAUREGI':[43.2044,-2.6297],'ETXEBARRIA':[43.1778,-2.5372],
+  'ASTELENA':[43.1856,-2.4703],'ARRASATE':[43.0631,-2.4908],'UARKAPE':[43.0631,-2.491],
+  'ARETXABALETA':[43.0336,-2.5008],'ELGETA':[43.1592,-2.5153],'BERGARA':[43.1189,-2.4194],
+  'MARKINA':[43.2664,-2.4947],'AMURRIO':[42.9958,-3.0022],'LLODIO':[43.0814,-2.9786],
+  'ARETA':[43.0814,-2.979],'OTXANDIO':[43.0583,-2.6594],
+  'ATANO III':[43.3181,-1.9819],'HONDARRIBIA':[43.3636,-1.7961],'HONDARRIBI':[43.3636,-1.7961],
+  'HENDAIA':[43.3547,-1.7733],'HERRI PILOTA':[43.3547,-1.7733],'OIARTZUN':[43.2869,-1.8817],
+  'MADALENSORO':[43.2869,-1.882],'BEOTIBAR':[43.1358,-2.0789],'ORDIZIA':[43.0561,-2.1758],
+  'AMASA-VILLABONA':[43.2003,-2.0022],'AMEZKETA':[43.1142,-2.0744],
+  'ZUMARRAGA':[43.0839,-2.305],'BELOKI':[43.084,-2.306],'URRETXU':[43.0894,-2.3978],
+  'EDERRENA':[43.089,-2.398],'LEGAZPI':[43.0519,-2.3342],'IDIAZABAL':[43.0597,-2.2261],
+  'IGARONDO':[43.06,-2.226],'SEGURA':[43.0878,-2.2847],'BARATZE':[43.088,-2.285],
+  'AZKOITIA':[43.1747,-2.3122],'GUREA':[43.1747,-2.313],'AIZPURUTXO':[43.1747,-2.314],
+  'AZPEITIA':[43.1803,-2.2661],'IZARRAITZ':[43.18,-2.266],'URRESTILLA':[43.1628,-2.3778],
+  'ZALDIBAR':[43.1906,-2.5303],'OLAZAR':[43.19,-2.53],'AIZARNAZABAL':[43.2636,-2.2564],
+  'GETARIA':[43.2994,-2.2019],'SAHATSAGA':[43.299,-2.202],'JAI ALAI':[43.299,-2.202],
+  'ZUMAIA':[43.2981,-2.2536],'AITZURI':[43.298,-2.254],
+  'OGUETA':[42.8469,-2.6731],'LABASTIDA':[42.6058,-2.8019],'HARO':[42.5764,-2.8497],
+  'HUERCANOS':[42.4819,-2.7419],'BRIONES':[42.5481,-2.7789],'EZCARAY':[42.3628,-3.0119],
+  'ADARRAGA':[42.4667,-2.4494],'VIANA':[42.5172,-2.3728],'AGONCILLO':[42.4361,-2.3633],
+  'FUENMAYOR':[42.4692,-2.5644],'SANTO DOMINGO':[42.4408,-2.9539],
+  'URDUÑA':[42.9981,-3.0072],'TAFALLA':[42.5284,-1.6737],
+  'SORIA':[41.7667,-2.4833],'LA JUVENTUD':[41.7667,-2.483],'COVALEDA':[41.9144,-2.8019],
+  'ISCAR':[41.3622,-4.5453],'SARDON':[41.3083,-4.9069],'BELORADO':[42.4161,-3.1911],
+  'BARCELONA':[41.3851,2.1734],'VALL D\'HEBRON':[41.3851,2.174],'FRONTION CATALUNYA':[41.3851,2.174],
+  'MUNITIBAR':[43.2961,-2.6267],'ITZIAR':[43.25,-2.33],'RETEGI':[42.8028,-1.6795],
+};
+
+let _frontonMap = null;
+
+function initFrontonMap(){
+  if(_frontonMap) return;
+  if(!document.getElementById('frontonMap')) return;
+
+  _frontonMap = L.map('frontonMap').setView([43.0, -2.0], 8);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap',
+    maxZoom: 17
+  }).addTo(_frontonMap);
+
+  renderFrontonMarkers();
+}
+
+function renderFrontonMarkers(){
+  if(!_frontonMap) return;
+
+  // Clear existing markers
+  _frontonMap.eachLayer(layer => {
+    if(layer instanceof L.Marker) _frontonMap.removeLayer(layer);
+  });
+
+  const parts = PARTIDOS.filter(p =>
+    tipoMatch(p.tipo, activeTipoFron) &&
+    (activeYearFron==='todos' || getYear(p)===activeYearFron)
+  );
+
+  const stats = {};
+  parts.forEach(p => {
+    const f = p.fronton;
+    if(!stats[f]) stats[f] = {count:0, ciudad: p.ciudad||''};
+    stats[f].count++;
+  });
+
+  const redIcon = L.divIcon({
+    html: '<div style="width:12px;height:12px;background:var(--red);border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+    iconSize:[12,12],
+    iconAnchor:[6,6],
+    className:''
+  });
+
+  const bigIcon = L.divIcon({
+    html: '<div style="width:18px;height:18px;background:var(--red);border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
+    iconSize:[18,18],
+    iconAnchor:[9,9],
+    className:''
+  });
+
+  Object.entries(stats).forEach(([f, s]) => {
+    const coord = FRONTON_COORDS[f.toUpperCase()] || FRONTON_COORDS[f];
+    if(!coord) return;
+    const icon = s.count >= 20 ? bigIcon : redIcon;
+    const marker = L.marker(coord, {icon}).addTo(_frontonMap);
+    marker.bindPopup(`
+      <div class="fmap-name">${f}</div>
+      <div class="fmap-count">${s.ciudad} · ${s.count} partido${s.count!==1?'s':''}</div>
+      <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');document.querySelector('.leaflet-popup-close-button').click()">Ver partidos →</button>
+    `);
+  });
 }
 
 loadData();
