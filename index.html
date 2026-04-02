@@ -9,7 +9,19 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="EskupilotaStats">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Estadísticas de pelota vasca a mano profesional. Resultados, rankings, comparador H2H y cartelera de partidos de Baiko Pilota. Eskupilota stats, pilota estatistikak.">
+  <meta name="keywords" content="pelota vasca, eskupilota, estadísticas, resultados, rankings, Baiko Pilota, pilota, manomanista, parejas, 4 y medio, pilota estatistikak, euskal pilota">
+  <meta name="author" content="EskupilotaStats">
+  <meta property="og:title" content="EskupilotaStats — Pelota Vasca">
+  <meta property="og:description" content="Estadísticas de pelota vasca a mano profesional. Resultados, rankings, comparador H2H y cartelera.">
+  <meta property="og:url" content="https://www.eskupilotastats.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EskupilotaStats — Pelota Vasca">
+  <meta name="twitter:description" content="Estadísticas de pelota vasca a mano profesional.">
+  <link rel="canonical" href="https://www.eskupilotastats.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskupilota Stats — Pelota Vasca</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -495,7 +507,7 @@ tr:hover td{background:var(--surface2);}
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsPel"></div></div>
       <div class="fg" style="margin-left:auto;justify-content:flex-end;gap:.8rem;flex-direction:row;align-items:center;">
         <label class="activos-toggle">
-          <input type="checkbox" id="pActivosCheck" onchange="filterActivos=this.checked;renderPCards()">
+          <input type="checkbox" id="pActivosCheck" onchange="filterActivos=this.checked;document.getElementById('rkActivosCheck').checked=this.checked;renderPCards()">
           <span id="soloActivosLblPel">Solo activos</span>
         </label>
         <input type="text" id="pSearch" class="wide" placeholder="Buscar pelotari…" oninput="renderPCards()">
@@ -524,7 +536,7 @@ tr:hover td{background:var(--surface2);}
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsRk"></div></div>
       <div class="fg" style="justify-content:flex-end;align-self:flex-end;">
         <label class="activos-toggle">
-          <input type="checkbox" id="rkActivosCheck" onchange="filterActivos=this.checked;buildRanking()">
+          <input type="checkbox" id="rkActivosCheck" onchange="filterActivos=this.checked;document.getElementById('pActivosCheck').checked=this.checked;buildRanking()">
           <span id="soloActivosLblRk">Solo activos</span>
         </label>
       </div>
@@ -1837,7 +1849,7 @@ function buildRanking(){
         pStats[key].pc += idx===0?p.puntos2:p.puntos1;
       });
     });
-    const sorted = Object.entries(pStats).filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg).slice(0,20);
+    const sorted = Object.entries(pStats).filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg).slice(0,20); // parejas no filtra por activo individualmente
     const h = Math.ceil(sorted.length/2);
     const sf = s=>({val:s.pg, lbl:s.pg+'V'});
     const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
@@ -1904,8 +1916,8 @@ function buildRanking(){
         });
       });
     }
-    const byMax = Object.entries(rachas).filter(([,s])=>s.max>=3).sort((a,b)=>b[1].max-a[1].max).slice(0,20);
-    const byActual = Object.entries(rachas).filter(([,s])=>s.actual>=2).sort((a,b)=>b[1].actual-a[1].actual).slice(0,10);
+    const byMax = filterActive(Object.entries(rachas).filter(([,s])=>s.max>=3).sort((a,b)=>b[1].max-a[1].max)).slice(0,20);
+    const byActual = filterActive(Object.entries(rachas).filter(([,s])=>s.actual>=2).sort((a,b)=>b[1].actual-a[1].actual)).slice(0,10);
     const sfMax = s=>({val:s.max, lbl:s.max+' '+t('rk_seg')});
     const sfAct = s=>({val:s.actual, lbl:s.actual+' '+t('rk_seg')});
     const ecMax = s=>`<div class="rk-stat">${t('rk_actual')}: ${s.actual}</div>`;
