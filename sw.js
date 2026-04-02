@@ -1,17 +1,15 @@
-const CACHE = 'eskupilota-v3';
-const BASE = '/eskupilota-stats/';
-const PRECACHE = [
-  BASE,
-  BASE + 'index.html',
-  BASE + 'data/partidos.json',
-  BASE + 'favicon.ico',
-  BASE + 'icon-192.png',
-  BASE + 'icon-512.png',
-];
+const CACHE = 'eskupilota-v4';
 
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(PRECACHE))
+    caches.open(CACHE).then(c => c.addAll([
+      '/',
+      '/index.html',
+      '/data/partidos.json',
+      '/favicon.ico',
+      '/icon-192.png',
+      '/icon-512.png',
+    ]))
   );
   self.skipWaiting();
 });
@@ -28,7 +26,7 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
-  // Datos JSON: network first
+  // Datos JSON: network first (siempre intentar actualizar)
   if (url.pathname.includes('/data/')) {
     e.respondWith(
       fetch(e.request)
@@ -42,7 +40,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Resto: cache first
+  // Resto: cache first, network fallback
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
