@@ -1,5 +1,5 @@
 {
-  "actualizado": "02/04/2026 01:50",
+  "actualizado": "03/04/2026 01:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,13 +12,11 @@
       "cartel": [
         "ESKIROZ // REKALDE (Serie B)",
         "DARÍO // ELORDI (Serie A)",
-        "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
-        "DESDE",
-        "30.00€"
+        "AGIRRE – SALAVERRI II // MURUA – ESKUZA"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797466/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -494,7 +492,7 @@
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
         "PAREJAS",
-        "XXXX // XXXX (Serie B)",
+        "MURUA // XXXX (Serie B)",
         "DESDE",
         "25.00€"
       ],
@@ -502,7 +500,17 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA"
+          ],
+          "eq2": [],
+          "raw": "MURUA // XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "25/04/2026",
