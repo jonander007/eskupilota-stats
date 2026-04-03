@@ -95,6 +95,44 @@
     "ganador": "equipo1"
   },
   {
+    "fecha": "28/03/2026",
+    "fronton": "MADALENSORO",
+    "ciudad": "OIARTZUN",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "LANDA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "28/03/2026",
+    "fronton": "MADALENSORO",
+    "ciudad": "OIARTZUN",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "MARIEZKURRENA II",
+      "zaguero": null
+    },
+    "puntos2": 7,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "27/03/2026",
     "fronton": "EL VILLAR DE ARNEDO",
     "ciudad": "EL VILLAR DE ARNEDO",
