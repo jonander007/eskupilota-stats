@@ -1,61 +1,7 @@
 {
-  "actualizado": "03/04/2026 01:52",
+  "actualizado": "04/04/2026 01:45",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "03/04/2026",
-      "hora": "17:15",
-      "fronton": "Bastida/Labastida",
-      "ciudad": "Bastida/Labastida",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ESKIROZ // REKALDE (Serie B)",
-        "DARÍO // ELORDI (Serie A)",
-        "AGIRRE – SALAVERRI II // MURUA – ESKUZA"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "ESKIROZ // REKALDE (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "ELORDI"
-          ],
-          "raw": "DARÍO // ELORDI (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKUZA"
-          ],
-          "raw": "AGIRRE – SALAVERRI II // MURUA – ESKUZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "04/04/2026",
       "hora": "17:15",
@@ -66,7 +12,7 @@
       "cartel": [
         "SALABERRIA // ALBERDI II (Serie B)",
         "BAKAIKOA // ZABALA (Serie A)",
-        "EGIGUREN V – LOZA // SENAR – ARANGUREN",
+        "SENAR – ARANGUREN // APEZETXEA II – LOZA",
         "DESDE",
         "20.00€"
       ],
@@ -99,14 +45,14 @@
         },
         {
           "eq1": [
-            "EGIGUREN V",
-            "LOZA"
-          ],
-          "eq2": [
             "SENAR",
             "ARANGUREN"
           ],
-          "raw": "EGIGUREN V – LOZA // SENAR – ARANGUREN",
+          "eq2": [
+            "APEZETXEA II",
+            "LOZA"
+          ],
+          "raw": "SENAR – ARANGUREN // APEZETXEA II – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
