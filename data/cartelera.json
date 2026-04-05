@@ -1,119 +1,7 @@
 {
-  "actualizado": "04/04/2026 01:45",
+  "actualizado": "05/04/2026 01:57",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "04/04/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "SALABERRIA // ALBERDI II (Serie B)",
-        "BAKAIKOA // ZABALA (Serie A)",
-        "SENAR – ARANGUREN // APEZETXEA II – LOZA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797470/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "SALABERRIA // ALBERDI II (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "BAKAIKOA // ZABALA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "LOZA"
-          ],
-          "raw": "SENAR – ARANGUREN // APEZETXEA II – LOZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "04/04/2026",
-      "hora": "18:00",
-      "fronton": "Aritzbatalde",
-      "ciudad": "Zarautz",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
-        "PEÑA II // P.ETXEBERRIA (Serie A)",
-        "ARTOLA – LANDA // LARRAZABAL – IMAZ",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797468/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "PEÑA II"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA"
-          ],
-          "raw": "PEÑA II // P.ETXEBERRIA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "LANDA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IMAZ"
-          ],
-          "raw": "ARTOLA – LANDA // LARRAZABAL – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "05/04/2026",
       "hora": "17:15",
@@ -178,7 +66,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "GANADORES GRUPO A (Serie B)",
+        "ALBERDI II // REKALDE (Serie B)",
         "ARTOLA // LARRAZABAL (Serie A)",
         "PAREJAS",
         "DESDE",
@@ -189,6 +77,17 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811013/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "ALBERDI II"
+          ],
+          "eq2": [
+            "REKALDE"
+          ],
+          "raw": "ALBERDI II // REKALDE (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
         {
           "eq1": [
             "ARTOLA"
@@ -296,7 +195,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "PAREJAS",
-        "GANADORES GRUPO A",
+        "EZKURDIA o JAKA // DARÍO",
         "(Serie A)",
         "DESDE",
         "30.00€"
@@ -305,7 +204,19 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811101/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "EZKURDIA o JAKA"
+          ],
+          "eq2": [
+            "DARÍO"
+          ],
+          "raw": "EZKURDIA o JAKA // DARÍO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "17/04/2026",
@@ -315,7 +226,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
+        "AGIRRE // XXXX (Serie B)",
         "ALTUNA III // XXXX (Serie A)",
         "PAREJAS",
         "DESDE",
@@ -326,6 +237,15 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811427/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "AGIRRE"
+          ],
+          "eq2": [],
+          "raw": "AGIRRE // XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
         {
           "eq1": [
             "ALTUNA III"
@@ -345,8 +265,10 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "XXXX // XXXX (Serie A)",
+        "ZUBIZARRETA III // ALDABE o AMIANO (Serie B)",
+        "PEÑA II //",
+        "ZABALA",
+        "(Serie A)",
         "BINAKA",
         "DESDE",
         "40.00€"
@@ -355,7 +277,19 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811442/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
+          "eq2": [
+            "ALDABE o AMIANO"
+          ],
+          "raw": "ZUBIZARRETA III // ALDABE o AMIANO (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "19/04/2026",
@@ -365,7 +299,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
+        "EGIGUREN V // XXXX (Serie B)",
         "LASO // XXXX (Serie A)",
         "PAREJAS",
         "DESDE",
@@ -376,6 +310,15 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811102/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "EGIGUREN V"
+          ],
+          "eq2": [],
+          "raw": "EGIGUREN V // XXXX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
         {
           "eq1": [
             "LASO"
@@ -517,6 +460,46 @@
           "serie": "a"
         }
       ]
+    },
+    {
+      "fecha": "01/05/2026",
+      "hora": "17:15",
+      "fronton": "Igarondo",
+      "ciudad": "Idiazabal",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie B)",
+        "PAREJAS",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2822437/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "02/05/2026",
+      "hora": "17:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822436/select?viewCode=",
+      "tv": false,
+      "partidos": []
     }
   ]
 }
