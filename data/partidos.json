@@ -1,5 +1,119 @@
 [
   {
+    "fecha": "04/04/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2026",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": null
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "ALBERDI II",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/04/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": null
+    },
+    "puntos1": 5,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "04/04/2026",
+    "fronton": "ADARRAGA",
+    "ciudad": "LOGROÑO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": "ARANGUREN"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": "LOZA"
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/04/2026",
+    "fronton": "ARITZBATALDE",
+    "ciudad": "ZARAUTZ",
+    "provincia": "",
+    "tipo": "manomanista-b",
+    "competicion": "Campeonato Manomanista Serie B 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": null
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/04/2026",
+    "fronton": "ARITZBATALDE",
+    "ciudad": "ZARAUTZ",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": null
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "04/04/2026",
+    "fronton": "ARITZBATALDE",
+    "ciudad": "ZARAUTZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ARTOLA",
+      "zaguero": "LANDA"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "IMAZ"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "03/04/2026",
     "fronton": "LABASTIDA",
     "ciudad": "LABASTIDA",
