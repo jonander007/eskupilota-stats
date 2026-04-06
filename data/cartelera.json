@@ -1,63 +1,7 @@
 {
-  "actualizado": "05/04/2026 01:57",
+  "actualizado": "06/04/2026 01:58",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "05/04/2026",
-      "hora": "17:15",
-      "fronton": "Remontival",
-      "ciudad": "Estella/Lizarra",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ALDABE // AMIANO (Serie B)",
-        "EZKURDIA // JAKA (Serie A)",
-        "REKALDE – REZUSTA // APEZETXEA II – MARTIJA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2797485/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALDABE"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "ALDABE // AMIANO (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "JAKA"
-          ],
-          "raw": "EZKURDIA // JAKA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "REKALDE",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "MARTIJA"
-          ],
-          "raw": "REKALDE – REZUSTA // APEZETXEA II – MARTIJA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "10/04/2026",
       "hora": "20:45",
@@ -195,7 +139,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "PAREJAS",
-        "EZKURDIA o JAKA // DARÍO",
+        "JAKA // DARÍO",
         "(Serie A)",
         "DESDE",
         "30.00€"
@@ -207,12 +151,12 @@
       "partidos": [
         {
           "eq1": [
-            "EZKURDIA o JAKA"
+            "JAKA"
           ],
           "eq2": [
             "DARÍO"
           ],
-          "raw": "EZKURDIA o JAKA // DARÍO",
+          "raw": "JAKA // DARÍO",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -265,7 +209,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "ZUBIZARRETA III // ALDABE o AMIANO (Serie B)",
+        "ZUBIZARRETA III // AMIANO (Serie B)",
         "PEÑA II //",
         "ZABALA",
         "(Serie A)",
@@ -283,9 +227,9 @@
             "ZUBIZARRETA III"
           ],
           "eq2": [
-            "ALDABE o AMIANO"
+            "AMIANO"
           ],
-          "raw": "ZUBIZARRETA III // ALDABE o AMIANO (Serie B)",
+          "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         }
@@ -498,6 +442,26 @@
       "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822436/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "03/05/2026",
+      "hora": "17:15",
+      "fronton": "Urbeltz",
+      "ciudad": "Legazpi",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie A)",
+        "PAREJAS",
+        "DESDE",
+        "40.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822453/select?viewCode=",
       "tv": false,
       "partidos": []
     }
