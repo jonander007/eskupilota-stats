@@ -1,5 +1,5 @@
 {
-  "actualizado": "06/04/2026 01:58",
+  "actualizado": "07/04/2026 01:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,7 +12,7 @@
       "cartel": [
         "ALBERDI II // REKALDE (Serie B)",
         "ARTOLA // LARRAZABAL (Serie A)",
-        "PAREJAS",
+        "ZUBIZARRETA IV – UGARTEMENDIA // APEZETXEA II – EROSTARBE",
         "DESDE",
         "25.00€"
       ],
@@ -42,6 +42,19 @@
           "raw": "ARTOLA // LARRAZABAL (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA IV – UGARTEMENDIA // APEZETXEA II – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -55,7 +68,7 @@
       "cartel": [
         "AGIRRE // EGIGUREN V (Serie B)",
         "ALTUNA III // LASO (Serie A)",
-        "PAREJAS",
+        "ZUBIZARRETA IV – SALAVERRI II // APEZETXEA II – GASKUE",
         "DESDE",
         "25.00€"
       ],
@@ -85,6 +98,19 @@
           "raw": "ALTUNA III // LASO (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "GASKUE"
+          ],
+          "raw": "ZUBIZARRETA IV – SALAVERRI II // APEZETXEA II – GASKUE",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -96,7 +122,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "XXXX – REZUSTA // XXXX – IZTUETA",
+        "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
         "SENAR // MURUA (Serie B)",
         "DESDE",
         "25.00€"
@@ -108,13 +134,15 @@
       "partidos": [
         {
           "eq1": [
+            "SALABERRIA",
             "REZUSTA"
           ],
           "eq2": [
+            "AMIANO",
             "IZTUETA"
           ],
-          "raw": "XXXX – REZUSTA // XXXX – IZTUETA",
-          "tipo": "manomanista-a",
+          "raw": "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
+          "tipo": "campeonato-a",
           "serie": "a"
         },
         {
@@ -138,7 +166,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "ELORDI – GABIRONDO // SALABERRIA – ZABALETA",
         "JAKA // DARÍO",
         "(Serie A)",
         "DESDE",
@@ -149,6 +177,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811101/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "ELORDI",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "SALABERRIA",
+            "ZABALETA"
+          ],
+          "raw": "ELORDI – GABIRONDO // SALABERRIA – ZABALETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
         {
           "eq1": [
             "JAKA"
@@ -172,7 +213,7 @@
       "cartel": [
         "AGIRRE // XXXX (Serie B)",
         "ALTUNA III // XXXX (Serie A)",
-        "PAREJAS",
+        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – ESKUZA",
         "DESDE",
         "25.00€"
       ],
@@ -197,6 +238,19 @@
           "eq2": [],
           "raw": "ALTUNA III // XXXX (Serie A)",
           "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ESKUZA"
+          ],
+          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – ESKUZA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
