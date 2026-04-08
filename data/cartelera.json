@@ -1,5 +1,5 @@
 {
-  "actualizado": "07/04/2026 01:54",
+  "actualizado": "08/04/2026 01:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -69,6 +69,7 @@
         "AGIRRE // EGIGUREN V (Serie B)",
         "ALTUNA III // LASO (Serie A)",
         "ZUBIZARRETA IV – SALAVERRI II // APEZETXEA II – GASKUE",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -166,7 +167,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "ELORDI – GABIRONDO // SALABERRIA – ZABALETA",
+        "ELORDI – GABIRONDO // SALABERRIA – MARTIJA",
         "JAKA // DARÍO",
         "(Serie A)",
         "DESDE",
@@ -184,9 +185,9 @@
           ],
           "eq2": [
             "SALABERRIA",
-            "ZABALETA"
+            "MARTIJA"
           ],
-          "raw": "ELORDI – GABIRONDO // SALABERRIA – ZABALETA",
+          "raw": "ELORDI – GABIRONDO // SALABERRIA – MARTIJA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -211,9 +212,9 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "AGIRRE // XXXX (Serie B)",
-        "ALTUNA III // XXXX (Serie A)",
-        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – ESKUZA",
+        "AGIRRE // ALBERDI II o REKALDE (Serie B)",
+        "ALTUNA III // DARÍO o JAKA (Serie A)",
+        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
         "DESDE",
         "25.00€"
       ],
@@ -226,8 +227,10 @@
           "eq1": [
             "AGIRRE"
           ],
-          "eq2": [],
-          "raw": "AGIRRE // XXXX (Serie B)",
+          "eq2": [
+            "ALBERDI II o REKALDE"
+          ],
+          "raw": "AGIRRE // ALBERDI II o REKALDE (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
@@ -235,8 +238,10 @@
           "eq1": [
             "ALTUNA III"
           ],
-          "eq2": [],
-          "raw": "ALTUNA III // XXXX (Serie A)",
+          "eq2": [
+            "DARÍO o JAKA"
+          ],
+          "raw": "ALTUNA III // DARÍO o JAKA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -247,9 +252,9 @@
           ],
           "eq2": [
             "APEZETXEA II",
-            "ESKUZA"
+            "GASKUE"
           ],
-          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – ESKUZA",
+          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -297,9 +302,9 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "EGIGUREN V // XXXX (Serie B)",
-        "LASO // XXXX (Serie A)",
-        "PAREJAS",
+        "EGIGUREN V // ALBERDI II o REKALDE (Serie B)",
+        "LASO // DARÍO o JAKA (Serie A)",
+        "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
         "DESDE",
         "25.00€"
       ],
@@ -312,8 +317,10 @@
           "eq1": [
             "EGIGUREN V"
           ],
-          "eq2": [],
-          "raw": "EGIGUREN V // XXXX (Serie B)",
+          "eq2": [
+            "ALBERDI II o REKALDE"
+          ],
+          "raw": "EGIGUREN V // ALBERDI II o REKALDE (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
@@ -321,9 +328,24 @@
           "eq1": [
             "LASO"
           ],
-          "eq2": [],
-          "raw": "LASO // XXXX (Serie A)",
+          "eq2": [
+            "DARÍO o JAKA"
+          ],
+          "raw": "LASO // DARÍO o JAKA (Serie A)",
           "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ESKIROZ"
+          ],
+          "raw": "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -336,8 +358,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "ZUBIZARRETA IV – ALBISU // ZUBIZARRETA III – LANDA",
-        "SENAR // XXXX (Serie B)",
+        "XXXX – LANDA // ZUBIZARRETA IV – ALBISU",
+        "SENAR // AMIANO o ZUBIZARRETA III (Serie B)",
         "DESDE",
         "20.00€"
       ],
@@ -348,14 +370,13 @@
       "partidos": [
         {
           "eq1": [
+            "LANDA"
+          ],
+          "eq2": [
             "ZUBIZARRETA IV",
             "ALBISU"
           ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "LANDA"
-          ],
-          "raw": "ZUBIZARRETA IV – ALBISU // ZUBIZARRETA III – LANDA",
+          "raw": "XXXX – LANDA // ZUBIZARRETA IV – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -363,8 +384,10 @@
           "eq1": [
             "SENAR"
           ],
-          "eq2": [],
-          "raw": "SENAR // XXXX (Serie B)",
+          "eq2": [
+            "AMIANO o ZUBIZARRETA III"
+          ],
+          "raw": "SENAR // AMIANO o ZUBIZARRETA III (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         }
@@ -379,7 +402,8 @@
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
         "PAREJAS",
-        "MURUA // XXXX (Serie B)",
+        "MURUA //",
+        "AMIANO o ZUBIZARRETA III (Serie B)",
         "DESDE",
         "25.00€"
       ],
@@ -387,17 +411,7 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
       "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [],
-          "raw": "MURUA // XXXX (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
+      "partidos": []
     },
     {
       "fecha": "25/04/2026",
@@ -407,9 +421,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "ARTOLA // XXXX (Serie A)",
         "PAREJAS",
+        "ARTOLA // PEÑA II o ZABALA (Serie A)",
         "DESDE",
         "25.00€"
       ],
@@ -422,8 +435,10 @@
           "eq1": [
             "ARTOLA"
           ],
-          "eq2": [],
-          "raw": "ARTOLA // XXXX (Serie A)",
+          "eq2": [
+            "PEÑA II o ZABALA"
+          ],
+          "raw": "ARTOLA // PEÑA II o ZABALA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -437,9 +452,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "LARRAZABAL // XXXX (Serie A)",
         "PAREJAS",
+        "LARRAZABAL // PEÑA II o ZABALA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -452,8 +466,10 @@
           "eq1": [
             "LARRAZABAL"
           ],
-          "eq2": [],
-          "raw": "LARRAZABAL // XXXX (Serie A)",
+          "eq2": [
+            "PEÑA II o ZABALA"
+          ],
+          "raw": "LARRAZABAL // PEÑA II o ZABALA (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -487,9 +503,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "XXXX // XXXX (Serie A)",
         "PAREJAS",
+        "XXXX // XXXX (Serie A)",
         "DESDE",
         "25.00€"
       ],
@@ -507,15 +522,53 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "XXXX // XXXX (Serie A)",
         "PAREJAS",
+        "XXXX // XXXX (Serie A)",
         "DESDE",
         "40.00€"
       ],
       "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822453/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "08/05/2026",
+      "hora": "20:45",
+      "fronton": "Kepa Arroitajauregui",
+      "ciudad": "Iurreta",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie B)",
+        "PAREJAS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2822777/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "09/05/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "PAREJAS",
+        "XXXX // XXXX (Serie A)",
+        "DESDE",
+        "22.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822604/select?viewCode=",
       "tv": false,
       "partidos": []
     }
