@@ -1,63 +1,7 @@
 {
-  "actualizado": "10/04/2026 02:00",
+  "actualizado": "11/04/2026 01:49",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "10/04/2026",
-      "hora": "20:45",
-      "fronton": "Gurea",
-      "ciudad": "Azkoitia",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ALBERDI II // REKALDE (Serie B)",
-        "ARTOLA // LARRAZABAL (Serie A)",
-        "ZUBIZARRETA IV – UGARTEMENDIA // APEZETXEA II – EROSTARBE",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811013/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "ALBERDI II // REKALDE (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "LARRAZABAL"
-          ],
-          "raw": "ARTOLA // LARRAZABAL (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "ZUBIZARRETA IV – UGARTEMENDIA // APEZETXEA II – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "11/04/2026",
       "hora": "17:15",
@@ -274,7 +218,7 @@
         "(Serie A)",
         "BINAKA",
         "DESDE",
-        "22.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
