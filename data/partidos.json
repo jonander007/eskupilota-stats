@@ -1,5 +1,100 @@
 [
   {
+    "fecha": "11/04/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "AGIRRE",
+      "zaguero": null
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/04/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "ALTUNA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos2": 16,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "11/04/2026",
+    "fronton": "NAVARRA ARENA",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "SALAVERRI II"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": "GASKUE"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "11/04/2026",
+    "fronton": "ZUBIKOA",
+    "ciudad": "OÑATI",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "REZUSTA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": "IZTUETA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "11/04/2026",
+    "fronton": "ZUBIKOA",
+    "ciudad": "OÑATI",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "10/04/2026",
     "fronton": "GUREA",
     "ciudad": "AZKOITIA",
