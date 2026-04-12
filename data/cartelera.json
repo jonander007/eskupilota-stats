@@ -1,108 +1,7 @@
 {
-  "actualizado": "11/04/2026 01:49",
+  "actualizado": "12/04/2026 02:02",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "11/04/2026",
-      "hora": "17:15",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "AGIRRE // EGIGUREN V (Serie B)",
-        "ALTUNA III // LASO (Serie A)",
-        "ZUBIZARRETA IV – SALAVERRI II // APEZETXEA II – GASKUE",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811221/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE"
-          ],
-          "eq2": [
-            "EGIGUREN V"
-          ],
-          "raw": "AGIRRE // EGIGUREN V (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "ALTUNA III // LASO (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "GASKUE"
-          ],
-          "raw": "ZUBIZARRETA IV – SALAVERRI II // APEZETXEA II – GASKUE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "11/04/2026",
-      "hora": "18:00",
-      "fronton": "Zubikoa",
-      "ciudad": "Oñati",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
-        "SENAR // MURUA (Serie B)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813415/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "IZTUETA"
-          ],
-          "raw": "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "SENAR // MURUA (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "12/04/2026",
       "hora": "17:15",
@@ -111,7 +10,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "ELORDI – GABIRONDO // SALABERRIA – MARTIJA",
+        "ELORDI – GABIRONDO // P.ETXEBERRIA – MARTIJA",
         "JAKA // DARÍO",
         "(Serie A)",
         "DESDE",
@@ -128,10 +27,10 @@
             "GABIRONDO"
           ],
           "eq2": [
-            "SALABERRIA",
+            "P.ETXEBERRIA",
             "MARTIJA"
           ],
-          "raw": "ELORDI – GABIRONDO // SALABERRIA – MARTIJA",
+          "raw": "ELORDI – GABIRONDO // P.ETXEBERRIA – MARTIJA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -156,7 +55,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "AGIRRE // ALBERDI II o REKALDE (Serie B)",
+        "AGIRRE // ALBERDI II (Serie B)",
         "ALTUNA III // DARÍO o JAKA (Serie A)",
         "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
         "DESDE",
@@ -172,9 +71,9 @@
             "AGIRRE"
           ],
           "eq2": [
-            "ALBERDI II o REKALDE"
+            "ALBERDI II"
           ],
-          "raw": "AGIRRE // ALBERDI II o REKALDE (Serie B)",
+          "raw": "AGIRRE // ALBERDI II (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
@@ -246,7 +145,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "EGIGUREN V // ALBERDI II o REKALDE (Serie B)",
+        "EGIGUREN V // REKALDE (Serie B)",
         "LASO // DARÍO o JAKA (Serie A)",
         "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
         "DESDE",
@@ -262,9 +161,9 @@
             "EGIGUREN V"
           ],
           "eq2": [
-            "ALBERDI II o REKALDE"
+            "REKALDE"
           ],
-          "raw": "EGIGUREN V // ALBERDI II o REKALDE (Serie B)",
+          "raw": "EGIGUREN V // REKALDE (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
