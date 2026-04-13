@@ -1,52 +1,7 @@
 {
-  "actualizado": "12/04/2026 02:02",
+  "actualizado": "13/04/2026 02:07",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "12/04/2026",
-      "hora": "17:15",
-      "fronton": "Aitzuri",
-      "ciudad": "Zumaia",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ELORDI – GABIRONDO // P.ETXEBERRIA – MARTIJA",
-        "JAKA // DARÍO",
-        "(Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811101/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA",
-            "MARTIJA"
-          ],
-          "raw": "ELORDI – GABIRONDO // P.ETXEBERRIA – MARTIJA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "DARÍO"
-          ],
-          "raw": "JAKA // DARÍO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "17/04/2026",
       "hora": "20:45",
@@ -56,7 +11,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "AGIRRE // ALBERDI II (Serie B)",
-        "ALTUNA III // DARÍO o JAKA (Serie A)",
+        "ALTUNA III // DARÍO (Serie A)",
         "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
         "DESDE",
         "25.00€"
@@ -82,9 +37,9 @@
             "ALTUNA III"
           ],
           "eq2": [
-            "DARÍO o JAKA"
+            "DARÍO"
           ],
-          "raw": "ALTUNA III // DARÍO o JAKA (Serie A)",
+          "raw": "ALTUNA III // DARÍO (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -146,7 +101,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "EGIGUREN V // REKALDE (Serie B)",
-        "LASO // DARÍO o JAKA (Serie A)",
+        "JAKA // LASO (Serie A)",
         "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
         "DESDE",
         "25.00€"
@@ -169,12 +124,12 @@
         },
         {
           "eq1": [
-            "LASO"
+            "JAKA"
           ],
           "eq2": [
-            "DARÍO o JAKA"
+            "LASO"
           ],
-          "raw": "LASO // DARÍO o JAKA (Serie A)",
+          "raw": "JAKA // LASO (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
