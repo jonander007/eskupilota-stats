@@ -1,5 +1,43 @@
 [
   {
+    "fecha": "12/04/2026",
+    "fronton": "AITZURI",
+    "ciudad": "ZUMAIA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "ELORDI",
+      "zaguero": "GABIRONDO"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos2": 18,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "12/04/2026",
+    "fronton": "AITZURI",
+    "ciudad": "ZUMAIA",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 10,
+    "equipo2": {
+      "delantero": "DARÍO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "11/04/2026",
     "fronton": "NAVARRA ARENA",
     "ciudad": "PAMPLONA",
