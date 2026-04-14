@@ -1,5 +1,5 @@
 {
-  "actualizado": "13/04/2026 02:07",
+  "actualizado": "14/04/2026 02:01",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,7 +12,8 @@
       "cartel": [
         "AGIRRE // ALBERDI II (Serie B)",
         "ALTUNA III // DARÍO (Serie A)",
-        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
+        "BAKAIKOA – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -45,14 +46,14 @@
         },
         {
           "eq1": [
-            "ZUBIZARRETA IV",
+            "BAKAIKOA",
             "MORGAETXEBARRIA"
           ],
           "eq2": [
             "APEZETXEA II",
             "GASKUE"
           ],
-          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
+          "raw": "BAKAIKOA – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -70,9 +71,10 @@
         "PEÑA II //",
         "ZABALA",
         "(Serie A)",
-        "BINAKA",
+        "P. ETXEBERRIA – BIKUÑA // ZUBIZARRETA IV – LANDA",
+        "DIFERIDO",
         "DESDE",
-        "40.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -89,6 +91,19 @@
           "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "LANDA"
+          ],
+          "raw": "P. ETXEBERRIA – BIKUÑA // ZUBIZARRETA IV – LANDA",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -156,7 +171,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "XXXX – LANDA // ZUBIZARRETA IV – ALBISU",
+        "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
         "SENAR // AMIANO o ZUBIZARRETA III (Serie B)",
         "DESDE",
         "20.00€"
@@ -168,13 +183,14 @@
       "partidos": [
         {
           "eq1": [
+            "JAKA",
             "LANDA"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
             "ALBISU"
           ],
-          "raw": "XXXX – LANDA // ZUBIZARRETA IV – ALBISU",
+          "raw": "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -199,7 +215,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "PAREJAS",
+        "AGIRRE – IZTUETA // APEZETXEA II – REZUSTA",
         "MURUA //",
         "AMIANO o ZUBIZARRETA III (Serie B)",
         "DESDE",
@@ -209,7 +225,21 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "REZUSTA"
+          ],
+          "raw": "AGIRRE – IZTUETA // APEZETXEA II – REZUSTA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "25/04/2026",
@@ -219,7 +249,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "ELORDI – GABIRONDO // BAKAIKOA – IMAZ",
         "ARTOLA // PEÑA II o ZABALA (Serie A)",
         "DESDE",
         "25.00€"
@@ -229,6 +259,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2817770/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "ELORDI",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "BAKAIKOA",
+            "IMAZ"
+          ],
+          "raw": "ELORDI – GABIRONDO // BAKAIKOA – IMAZ",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
         {
           "eq1": [
             "ARTOLA"
@@ -250,7 +293,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
         "LARRAZABAL // PEÑA II o ZABALA (Serie A)",
         "DESDE",
         "30.00€"
@@ -260,6 +303,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811111/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
         {
           "eq1": [
             "LARRAZABAL"
@@ -362,7 +418,134 @@
         "PAREJAS",
         "XXXX // XXXX (Serie A)",
         "DESDE",
-        "27.00€"
+        "27.00€",
+        "Clasificación",
+        "Campeonato Manomanista",
+        "Campeonato Manomanista Serie B",
+        "A",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Darío",
+        "1",
+        "1",
+        "22",
+        "10",
+        "12",
+        "Altuna III",
+        "1",
+        "1",
+        "22",
+        "16",
+        "6",
+        "Laso",
+        "0",
+        "1",
+        "16",
+        "22",
+        "-6",
+        "Jaka",
+        "0",
+        "1",
+        "10",
+        "22",
+        "-12",
+        "B",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Larrazabal",
+        "1",
+        "1",
+        "22",
+        "17",
+        "5",
+        "Peña II",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Zabala",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Artola",
+        "0",
+        "1",
+        "17",
+        "22",
+        "-5",
+        "A",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Rekalde",
+        "1",
+        "1",
+        "22",
+        "15",
+        "7",
+        "Egiguren V",
+        "1",
+        "1",
+        "22",
+        "16",
+        "6",
+        "Agirre",
+        "0",
+        "1",
+        "16",
+        "22",
+        "-6",
+        "Alberdi II",
+        "0",
+        "1",
+        "15",
+        "22",
+        "-7",
+        "B",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Murua",
+        "1",
+        "1",
+        "22",
+        "9",
+        "13",
+        "Amiano",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Zubizarreta III",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Senar",
+        "0",
+        "1",
+        "9",
+        "22",
+        "-13"
       ],
       "precio": null,
       "agotado": false,
