@@ -1,5 +1,5 @@
 {
-  "actualizado": "14/04/2026 02:01",
+  "actualizado": "15/04/2026 01:58",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -117,7 +117,7 @@
       "cartel": [
         "EGIGUREN V // REKALDE (Serie B)",
         "JAKA // LASO (Serie A)",
-        "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
+        "EZKURDIA – ESKUZA // LARRAZABAL – ESKIROZ",
         "DESDE",
         "25.00€"
       ],
@@ -150,14 +150,14 @@
         },
         {
           "eq1": [
-            "P. ETXEBERRIA",
+            "EZKURDIA",
             "ESKUZA"
           ],
           "eq2": [
             "LARRAZABAL",
             "ESKIROZ"
           ],
-          "raw": "P. ETXEBERRIA – ESKUZA // LARRAZABAL – ESKIROZ",
+          "raw": "EZKURDIA – ESKUZA // LARRAZABAL – ESKIROZ",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -357,7 +357,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
         "25.00€"
@@ -376,7 +376,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
         "40.00€"
@@ -415,7 +415,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "PAREJAS",
+        "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
         "27.00€",
