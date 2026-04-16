@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/04/2026 01:58",
+  "actualizado": "16/04/2026 02:06",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -339,7 +339,7 @@
       "cartel": [
         "XXXX // XXXX (Serie B)",
         "XXXX // XXXX (Serie B)",
-        "PAREJAS",
+        "XXXX – XXXX // XXXX – XXXX",
         "DESDE",
         "30.00€"
       ],
@@ -397,7 +397,7 @@
       "cartel": [
         "XXXX // XXXX (Serie B)",
         "XXXX // XXXX (Serie B)",
-        "PAREJAS",
+        "XXXX – XXXX // XXXX – XXXX",
         "DESDE",
         "25.00€"
       ],
@@ -418,7 +418,77 @@
         "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
-        "27.00€",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822604/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "15/05/2026",
+      "hora": "20:45",
+      "fronton": "Uranzu",
+      "ciudad": "Irun",
+      "fase": "Semifinales",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "XXXX // XXXX (Serie B)",
+        "XXXX // XXXX (Serie B)",
+        "XXXX – XXXX // XXXX – XXXX",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2832757/select?viewCode=",
+      "tv": false,
+      "partidos": []
+    },
+    {
+      "fecha": "16/05/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Semifinal",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX – XXXX // XXXX – XXXX",
+        "Campeonato Manomanista – Semifinal (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2831507/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "Campeonato Manomanista"
+          ],
+          "eq2": [
+            "Semifinal"
+          ],
+          "raw": "Campeonato Manomanista – Semifinal (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "17/05/2026",
+      "hora": "17:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XXXX – XXXX // XXXX – XXXX",
+        "Campeonato Manomanista – Semifinal (Serie A)",
+        "DESDE",
+        "35.00€",
         "Clasificación",
         "Campeonato Manomanista",
         "Campeonato Manomanista Serie B",
@@ -549,9 +619,21 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822604/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2831467/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "Campeonato Manomanista"
+          ],
+          "eq2": [
+            "Semifinal"
+          ],
+          "raw": "Campeonato Manomanista – Semifinal (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     }
   ]
 }
