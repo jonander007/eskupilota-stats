@@ -1,64 +1,7 @@
 {
-  "actualizado": "17/04/2026 02:02",
+  "actualizado": "18/04/2026 01:53",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "17/04/2026",
-      "hora": "20:45",
-      "fronton": "Santanape",
-      "ciudad": "Gernika",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "AGIRRE // ALBERDI II (Serie B)",
-        "ALTUNA III // DARÍO (Serie A)",
-        "BAKAIKOA – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811427/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "AGIRRE // ALBERDI II (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "DARÍO"
-          ],
-          "raw": "ALTUNA III // DARÍO (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "GASKUE"
-          ],
-          "raw": "BAKAIKOA – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "18/04/2026",
       "hora": "17:15",
@@ -418,7 +361,7 @@
         "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
-        "27.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -500,17 +443,17 @@
         "TC",
         "CO",
         "Darío",
-        "1",
-        "1",
-        "22",
-        "10",
-        "12",
+        "2",
+        "2",
+        "44",
+        "18",
+        "26",
         "Altuna III",
         "1",
-        "1",
-        "22",
-        "16",
-        "6",
+        "2",
+        "30",
+        "38",
+        "-8",
         "Laso",
         "0",
         "1",
@@ -561,6 +504,12 @@
         "TF",
         "TC",
         "CO",
+        "Alberdi II",
+        "1",
+        "2",
+        "37",
+        "28",
+        "9",
         "Rekalde",
         "1",
         "1",
@@ -575,16 +524,10 @@
         "6",
         "Agirre",
         "0",
-        "1",
-        "16",
+        "2",
         "22",
-        "-6",
-        "Alberdi II",
-        "0",
-        "1",
-        "15",
-        "22",
-        "-7",
+        "44",
+        "-22",
         "B",
         "Pelotari/Pareja",
         "PG",
