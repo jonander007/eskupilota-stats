@@ -1,55 +1,7 @@
 {
-  "actualizado": "18/04/2026 01:53",
+  "actualizado": "19/04/2026 02:06",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "18/04/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ZUBIZARRETA III // AMIANO (Serie B)",
-        "PEÑA II //",
-        "ZABALA",
-        "(Serie A)",
-        "P. ETXEBERRIA – BIKUÑA // ZUBIZARRETA IV – LANDA",
-        "DIFERIDO",
-        "DESDE",
-        "35.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811442/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "P. ETXEBERRIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "LANDA"
-          ],
-          "raw": "P. ETXEBERRIA – BIKUÑA // ZUBIZARRETA IV – LANDA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "19/04/2026",
       "hora": "17:15",
@@ -479,19 +431,19 @@
         "22",
         "17",
         "5",
-        "Peña II",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Zabala",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "1",
+        "22",
+        "17",
+        "5",
         "Artola",
+        "0",
+        "1",
+        "17",
+        "22",
+        "-5",
+        "Peña II",
         "0",
         "1",
         "17",
@@ -535,30 +487,30 @@
         "TF",
         "TC",
         "CO",
+        "Amiano",
+        "1",
+        "1",
+        "22",
+        "8",
+        "14",
         "Murua",
         "1",
         "1",
         "22",
         "9",
         "13",
-        "Amiano",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "Zubizarreta III",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Senar",
         "0",
         "1",
         "9",
         "22",
-        "-13"
+        "-13",
+        "Zubizarreta III",
+        "0",
+        "1",
+        "8",
+        "22",
+        "-14"
       ],
       "precio": null,
       "agotado": false,
