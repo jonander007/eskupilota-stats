@@ -1,5 +1,62 @@
 [
   {
+    "fecha": "18/04/2026",
+    "fronton": "LABRIT",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "18/04/2026",
+    "fronton": "LABRIT",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "PEÑA II",
+      "zaguero": null
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "18/04/2026",
+    "fronton": "LABRIT",
+    "ciudad": "PAMPLONA",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "P.ETXEBERRIA",
+      "zaguero": "BIKUÑA"
+    },
+    "puntos1": 16,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "LANDA"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "17/04/2026",
     "fronton": "SANTANAPE",
     "ciudad": "GERNIKA",
