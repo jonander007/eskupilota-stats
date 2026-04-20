@@ -496,16 +496,89 @@ tr:hover td{background:var(--surface2);}
 .m-card-fronton{font-family:var(--mono);font-size:.58rem;font-weight:500;color:var(--muted);}
 .m-card-comp{font-family:var(--mono);font-size:.54rem;color:var(--muted);}
 
+/* ── HAMBURGER + DRAWER (móvil) ── */
+.hamburger{
+  display:none;
+  background:none;border:none;cursor:pointer;
+  width:36px;height:36px;padding:0;
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  border-radius:var(--r-sm);transition:background .15s;
+}
+.hamburger:hover{background:rgba(255,255,255,.12);}
+.hamburger span{
+  display:block;width:22px;height:2.5px;background:#fff;
+  border-radius:2px;transition:all .25s ease;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+
+.drawer-backdrop{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.4);
+  backdrop-filter:blur(3px);
+  opacity:0;visibility:hidden;
+  transition:opacity .25s, visibility .25s;
+  z-index:998;
+}
+.drawer-backdrop.open{opacity:1;visibility:visible;}
+
+.drawer{
+  position:fixed;top:0;left:0;bottom:0;
+  width:280px;max-width:80vw;
+  background:linear-gradient(180deg,var(--green) 0%,var(--green-dark) 100%);
+  transform:translateX(-100%);
+  transition:transform .28s cubic-bezier(.4,0,.2,1);
+  z-index:999;
+  display:flex;flex-direction:column;
+  box-shadow:4px 0 24px rgba(0,0,0,.18);
+}
+.drawer.open{transform:translateX(0);}
+.drawer-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 1.2rem;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+.drawer-logo{height:40px;width:auto;}
+.drawer-close{
+  background:none;border:none;color:#fff;
+  font-size:1.9rem;line-height:1;cursor:pointer;
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  border-radius:var(--r-sm);transition:background .15s;
+}
+.drawer-close:hover{background:rgba(255,255,255,.15);}
+.drawer-nav{display:flex;flex-direction:column;padding:.8rem 0;gap:.15rem;}
+.drawer-nav button{
+  background:none;border:none;
+  color:rgba(255,255,255,.88);
+  font-family:var(--sans);font-weight:600;font-size:1rem;
+  text-transform:uppercase;letter-spacing:.06em;
+  padding:.9rem 1.4rem;cursor:pointer;transition:all .15s;
+  text-align:left;border-left:3px solid transparent;
+}
+.drawer-nav button:hover{background:rgba(255,255,255,.08);color:#fff;}
+.drawer-nav button.active{
+  background:rgba(255,255,255,.12);color:#fff;
+  border-left-color:#fff;
+}
+
 @media(max-width:900px){
-  /* HEADER */
+  /* HEADER: [☰ LOGO centrado ES/EU] en una sola fila */
   .header-inner{
-    display:flex!important;flex-direction:column;align-items:center;
-    gap:.55rem;padding:.8rem 1rem;
+    display:grid!important;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:.8rem;padding:.7rem 1rem;
   }
-  .logo-img{height:44px;}
-  nav{justify-content:center;gap:.15rem;flex-wrap:wrap;}
-  nav button{font-size:.62rem;padding:.35rem .7rem;}
-  #langToggle{position:absolute;top:.7rem;right:.9rem;}
+  .hamburger{display:flex;}
+  .logo{justify-content:center;}
+  .logo-img{height:42px;}
+  nav{display:none;}
+  #langToggle{
+    position:static!important;
+    top:auto!important;right:auto!important;
+    align-self:center;
+  }
 
   /* MAIN */
   main{padding:1rem .8rem;}
@@ -583,6 +656,9 @@ tr:hover td{background:var(--surface2);}
 <body>
 <header>
   <div class="header-inner">
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
     <a href="#" class="logo" onclick="showSec('partidos',document.querySelector('nav button:nth-child(2)'));return false;">
       <img src="logo-header.png" alt="Eskupilota Stats" class="logo-img"/>
     </a>
@@ -601,6 +677,24 @@ tr:hover td{background:var(--surface2);}
     </div>
   </div>
 </header>
+
+<!-- Drawer móvil -->
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="closeDrawer()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-header">
+    <img src="logo-header.png" alt="" class="drawer-logo"/>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Cerrar">×</button>
+  </div>
+  <nav class="drawer-nav">
+    <button onclick="showSecFromDrawer('cartelera',0)">Cartelera</button>
+    <button class="active" onclick="showSecFromDrawer('partidos',1)">Resultados</button>
+    <button onclick="showSecFromDrawer('comparador',2)">Comparador</button>
+    <button onclick="showSecFromDrawer('pelotaris',3)">Pelotaris</button>
+    <button onclick="showSecFromDrawer('frontones',4)">Frontones</button>
+    <button onclick="showSecFromDrawer('ranking',5)">Ranking</button>
+    <button onclick="showSecFromDrawer('contacto',6)">Contacto</button>
+  </nav>
+</aside>
 
 <main>
 <div class="kpi-row" id="kpiRow"></div>
@@ -1417,11 +1511,41 @@ function init(){
 
 function showSec(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('header nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
   btn.classList.add('active');
   if(id==='cartelera') loadCartelera();
   if(id==='frontones'){ renderFrontones(); setTimeout(()=>{ initFrontonMap(); renderFrontonMarkers(); },100); }
+  // Sincronizar el drawer
+  syncDrawerActive(id);
+}
+
+// ════════════════════════════════════════════════════════════
+// DRAWER MÓVIL
+// ════════════════════════════════════════════════════════════
+function toggleDrawer(){
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('drawerBackdrop').classList.toggle('open');
+  document.getElementById('hamburgerBtn').classList.toggle('open');
+}
+function closeDrawer(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerBackdrop').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+}
+function showSecFromDrawer(id, idx){
+  // Activar la sección y el botón del nav principal correspondiente
+  const headerBtn = document.querySelectorAll('header nav button')[idx];
+  if (headerBtn) showSec(id, headerBtn);
+  closeDrawer();
+}
+function syncDrawerActive(id){
+  const map = {cartelera:0, partidos:1, comparador:2, pelotaris:3, frontones:4, ranking:5, contacto:6};
+  const idx = map[id];
+  if (idx === undefined) return;
+  document.querySelectorAll('.drawer-nav button').forEach((b,i) => {
+    b.classList.toggle('active', i === idx);
+  });
 }
 
 // ════════════════════════════════════════════════════════════
