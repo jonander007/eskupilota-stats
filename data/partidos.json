@@ -1,5 +1,62 @@
 [
   {
+    "fecha": "19/04/2026",
+    "fronton": "OGUETA",
+    "ciudad": "VITORIA-GASTEIZ",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "EGIGUREN V",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "REKALDE",
+      "zaguero": null
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "19/04/2026",
+    "fronton": "OGUETA",
+    "ciudad": "VITORIA-GASTEIZ",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": null
+    },
+    "puntos1": 8,
+    "equipo2": {
+      "delantero": "LASO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "19/04/2026",
+    "fronton": "OGUETA",
+    "ciudad": "VITORIA-GASTEIZ",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "EZKURDIA",
+      "zaguero": "ESKUZA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": "ESKIROZ"
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "18/04/2026",
     "fronton": "LABRIT",
     "ciudad": "PAMPLONA",
