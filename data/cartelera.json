@@ -1,63 +1,7 @@
 {
-  "actualizado": "19/04/2026 02:06",
+  "actualizado": "20/04/2026 02:07",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "19/04/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "EGIGUREN V // REKALDE (Serie B)",
-        "JAKA // LASO (Serie A)",
-        "EZKURDIA – ESKUZA // LARRAZABAL – ESKIROZ",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811102/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "EGIGUREN V // REKALDE (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "JAKA // LASO (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ESKIROZ"
-          ],
-          "raw": "EZKURDIA – ESKUZA // LARRAZABAL – ESKIROZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/04/2026",
       "hora": "18:30",
@@ -67,7 +11,9 @@
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
         "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
-        "SENAR // AMIANO o ZUBIZARRETA III (Serie B)",
+        "ZUBIZARRETA III //",
+        "SENAR",
+        "(Serie B)",
         "DESDE",
         "20.00€"
       ],
@@ -88,17 +34,6 @@
           "raw": "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
-          "eq2": [
-            "AMIANO o ZUBIZARRETA III"
-          ],
-          "raw": "SENAR // AMIANO o ZUBIZARRETA III (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
         }
       ]
     },
@@ -112,7 +47,7 @@
       "cartel": [
         "AGIRRE – IZTUETA // APEZETXEA II – REZUSTA",
         "MURUA //",
-        "AMIANO o ZUBIZARRETA III (Serie B)",
+        "AMIANO (Serie B)",
         "DESDE",
         "25.00€"
       ],
@@ -145,7 +80,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "ELORDI – GABIRONDO // BAKAIKOA – IMAZ",
-        "ARTOLA // PEÑA II o ZABALA (Serie A)",
+        "ARTOLA // PEÑA II (Serie A)",
         "DESDE",
         "25.00€"
       ],
@@ -172,9 +107,9 @@
             "ARTOLA"
           ],
           "eq2": [
-            "PEÑA II o ZABALA"
+            "PEÑA II"
           ],
-          "raw": "ARTOLA // PEÑA II o ZABALA (Serie A)",
+          "raw": "ARTOLA // PEÑA II (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -189,7 +124,8 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
-        "LARRAZABAL // PEÑA II o ZABALA (Serie A)",
+        "ZABALA //",
+        "LARRAZABAL (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -209,17 +145,6 @@
           ],
           "raw": "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
           "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LARRAZABAL"
-          ],
-          "eq2": [
-            "PEÑA II o ZABALA"
-          ],
-          "raw": "LARRAZABAL // PEÑA II o ZABALA (Serie A)",
-          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
@@ -290,8 +215,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "XXXX // XXXX (Serie B)",
+        "SENAR // AMIANO (Serie B)",
+        "ZUBIZARRETA III // MURUA (Serie B)",
         "XXXX – XXXX // XXXX – XXXX",
         "DESDE",
         "25.00€"
@@ -300,7 +225,30 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2822777/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [
+            "AMIANO"
+          ],
+          "raw": "SENAR // AMIANO (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
+          "eq2": [
+            "MURUA"
+          ],
+          "raw": "ZUBIZARRETA III // MURUA (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "09/05/2026",
@@ -400,24 +348,24 @@
         "44",
         "18",
         "26",
+        "Laso",
+        "1",
+        "2",
+        "38",
+        "30",
+        "8",
         "Altuna III",
         "1",
         "2",
         "30",
         "38",
         "-8",
-        "Laso",
-        "0",
-        "1",
-        "16",
-        "22",
-        "-6",
         "Jaka",
         "0",
-        "1",
-        "10",
-        "22",
-        "-12",
+        "2",
+        "18",
+        "44",
+        "-26",
         "B",
         "Pelotari/Pareja",
         "PG",
@@ -456,6 +404,12 @@
         "TF",
         "TC",
         "CO",
+        "Egiguren V",
+        "2",
+        "2",
+        "44",
+        "31",
+        "13",
         "Alberdi II",
         "1",
         "2",
@@ -464,16 +418,10 @@
         "9",
         "Rekalde",
         "1",
-        "1",
-        "22",
-        "15",
-        "7",
-        "Egiguren V",
-        "1",
-        "1",
-        "22",
-        "16",
-        "6",
+        "2",
+        "37",
+        "37",
+        "0",
         "Agirre",
         "0",
         "2",
