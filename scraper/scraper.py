@@ -11,7 +11,7 @@ from __future__ import annotations
 import json, re, os
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), "../data/partidos.json")
 URL       = "https://www.baikopilota.eus/resultados/"
@@ -80,6 +80,60 @@ COMP_NORM = {
     'torneo bizkaia manomanista':        ('festival-mano',   'Torneo Bizkaia Manomanista'),
     'torneo bizkaia 4 1/2':              ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
+
+# -----------------------------------------------------------------------------
+# NORMALIZACIONES DE UBICACIÓN
+# -----------------------------------------------------------------------------
+# Alias de ciudad → forma canónica
+CIUDAD_ALIAS = {
+    'IRUÑEA':              'PAMPLONA',
+    'GASTEIZ':             'VITORIA-GASTEIZ',
+    'VITORIA':             'VITORIA-GASTEIZ',
+    'AMOREBIETA':          'AMOREBIETA-ETXANO',
+    'ESTELLA':             'LIZARRA',
+    'ESTELLA-LIZARRA':     'LIZARRA',
+    'ALSASUA':             'ALTSASU',
+    'ALTSASU/ALSASUA':     'ALTSASU',
+    'HENDAYA':             'HENDAIA',
+    'BAÑOS DEL RIO TOBIA': 'BAÑOS DE RÍO TOBÍA',
+    'OIARTZUN -':          'OIARTZUN',
+}
+
+# Correcciones: si el scraper devuelve (fronton, ciudad) errónea, forzar la correcta.
+# Clave = fronton, valor = ciudad que debe tener SIEMPRE ese frontón.
+FRONTON_CIUDAD_FIJA = {
+    'AIZPURUTXO':       'AZKOITIA',
+    'ARTUNDUAGA':       'BASAURI',
+    'FERNANDO GARAITA': 'LEGUTIO',
+    'ARETA':            'LLODIO',
+}
+
+# Reasignaciones de frontón cuando viene mal etiquetado.
+# Clave = (fronton_origen, ciudad), valor = (fronton_correcto, ciudad_correcta)
+FRONTON_REASIGNAR = {
+    ('LABRIT', 'ALSASUA'): ('BURUNDA', 'ALTSASU'),
+    ('LABRIT', 'ALTSASU'): ('BURUNDA', 'ALTSASU'),
+}
+
+def normalizar_ubicacion(fronton, ciudad):
+    """Aplica todas las normalizaciones a fronton/ciudad."""
+    fronton = (fronton or '').strip().upper()
+    ciudad  = (ciudad or '').strip().upper()
+
+    # 1. Normalizar alias de ciudad
+    ciudad = CIUDAD_ALIAS.get(ciudad, ciudad)
+
+    # 2. Reasignaciones de frontón (antes del fijo por frontón)
+    if (fronton, ciudad) in FRONTON_REASIGNAR:
+        fronton, ciudad = FRONTON_REASIGNAR[(fronton, ciudad)]
+
+    # 3. Frontones con ciudad fija
+    if fronton in FRONTON_CIUDAD_FIJA:
+        ciudad = FRONTON_CIUDAD_FIJA[fronton]
+
+    return fronton, ciudad
+
+# -----------------------------------------------------------------------------
 
 def clean_text(s):
     return " ".join(s.replace("\xa0", " ").split())
@@ -204,8 +258,10 @@ def parse_tokens(tokens):
 
         if is_location_line(tok):
             partes = [x.strip() for x in tok.split(' - ')]
-            fronton = partes[0].upper()
-            ciudad  = partes[1].upper() if len(partes) > 1 else ''
+            fronton_raw = partes[0].upper()
+            ciudad_raw  = partes[1].upper() if len(partes) > 1 else ''
+            # Aplicar normalizaciones de ubicación
+            fronton, ciudad = normalizar_ubicacion(fronton_raw, ciudad_raw)
             expect_venue = False
             i += 1
             continue
@@ -264,6 +320,55 @@ def parse_tokens(tokens):
 
     return partidos
 
+# -----------------------------------------------------------------------------
+# DETECCIÓN DE DUPLICADOS
+# -----------------------------------------------------------------------------
+def _safe(v):
+    return v if v is not None else ''
+
+def firma_partido(p):
+    """
+    Firma robusta que identifica 'el mismo partido':
+    misma fecha + mismos 4 jugadores (ordenados, ignorando lado) + mismos puntos ordenados.
+    """
+    e1 = tuple(sorted([_safe(p['equipo1'].get('delantero')), _safe(p['equipo1'].get('zaguero'))]))
+    e2 = tuple(sorted([_safe(p['equipo2'].get('delantero')), _safe(p['equipo2'].get('zaguero'))]))
+    jugadores = tuple(sorted([e1, e2]))
+    puntos = tuple(sorted([p.get('puntos1', 0), p.get('puntos2', 0)]))
+    return (p['fecha'], jugadores, puntos)
+
+def firma_sin_fecha(p):
+    """Igual que firma_partido pero sin fecha (para detectar contiguos)."""
+    e1 = tuple(sorted([_safe(p['equipo1'].get('delantero')), _safe(p['equipo1'].get('zaguero'))]))
+    e2 = tuple(sorted([_safe(p['equipo2'].get('delantero')), _safe(p['equipo2'].get('zaguero'))]))
+    jugadores = tuple(sorted([e1, e2]))
+    puntos = tuple(sorted([p.get('puntos1', 0), p.get('puntos2', 0)]))
+    return (jugadores, puntos)
+
+def es_duplicado(nuevo, existentes_por_firma, existentes_por_firma_sinfecha):
+    """
+    Devuelve True si 'nuevo' es duplicado de algún partido existente:
+    - Mismo día, mismos jugadores, mismos puntos
+    - Día contiguo (±1), mismos jugadores, mismos puntos
+    """
+    # Mismo día
+    if firma_partido(nuevo) in existentes_por_firma:
+        return True
+
+    # Día contiguo ±1
+    try:
+        f = datetime.strptime(nuevo['fecha'], '%d/%m/%Y').date()
+    except Exception:
+        return False
+
+    firma_sf = firma_sin_fecha(nuevo)
+    for delta in (-1, 1):
+        f_vecina = (f + timedelta(days=delta)).strftime('%d/%m/%Y')
+        if (f_vecina, firma_sf) in existentes_por_firma_sinfecha:
+            return True
+    return False
+
+
 def main():
     print("Eskupilota Stats — Scraper de resultados")
     print(f"Fuente: {URL}\n")
@@ -280,7 +385,7 @@ def main():
     for p in nuevos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
-        print(f"  {p['fecha']} | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
+        print(f"  {p['fecha']} | {p['fronton']} ({p['ciudad']}) | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
@@ -288,12 +393,28 @@ def main():
     else:
         existentes = []
 
-    def clave(p):
-        return f"{p['fecha']}_{p['fronton']}_{p['equipo1']['delantero']}_{p['equipo2']['delantero']}"
+    # Índices para detección de duplicados
+    firmas_existentes = {firma_partido(p) for p in existentes}
+    firmas_sinfecha_existentes = {(p['fecha'], firma_sin_fecha(p)) for p in existentes}
 
-    claves_ex = {clave(p) for p in existentes}
-    sin_dup   = [p for p in nuevos if clave(p) not in claves_ex]
+    sin_dup = []
+    descartados = []
+    for p in nuevos:
+        if es_duplicado(p, firmas_existentes, firmas_sinfecha_existentes):
+            descartados.append(p)
+        else:
+            sin_dup.append(p)
+            # Añadir al set para evitar duplicar también entre los propios "nuevos"
+            firmas_existentes.add(firma_partido(p))
+            firmas_sinfecha_existentes.add((p['fecha'], firma_sin_fecha(p)))
+
     print(f"\nPartidos nuevos: {len(sin_dup)}")
+    if descartados:
+        print(f"Descartados por duplicado: {len(descartados)}")
+        for p in descartados:
+            eq1 = f"{p['equipo1']['delantero']}-{_safe(p['equipo1']['zaguero'])}"
+            eq2 = f"{p['equipo2']['delantero']}-{_safe(p['equipo2']['zaguero'])}"
+            print(f"  [DUP] {p['fecha']} | {p['fronton']} | {eq1} {p['puntos1']}-{p['puntos2']} {eq2}")
 
     if not sin_dup:
         print("No hay partidos nuevos. JSON sin cambios.")

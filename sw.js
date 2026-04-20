@@ -1,14 +1,19 @@
-const CACHE = 'eskupilota-v4';
+const CACHE = 'eskupilota-v5';
 
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE).then(c => c.addAll([
       '/',
       '/index.html',
-      '/data/partidos.json',
+      '/partidos.json',
+      '/cartelera.json',
       '/favicon.ico',
+      '/favicon-32.png',
       '/icon-192.png',
       '/icon-512.png',
+      '/apple-touch-icon.png',
+      '/logo-header.png',
+      '/manifest.json',
     ]))
   );
   self.skipWaiting();
@@ -27,7 +32,7 @@ self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
   // Datos JSON: network first (siempre intentar actualizar)
-  if (url.pathname.includes('/data/')) {
+  if (url.pathname.endsWith('partidos.json') || url.pathname.endsWith('cartelera.json')) {
     e.respondWith(
       fetch(e.request)
         .then(res => {
