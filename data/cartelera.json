@@ -1,5 +1,5 @@
 {
-  "actualizado": "21/04/2026 02:03",
+  "actualizado": "22/04/2026 02:01",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -45,7 +45,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "AGIRRE – IZTUETA // APEZETXEA II – REZUSTA",
+        "BAKAIKOA – IZTUETA // APEZETXEA II – REZUSTA",
         "MURUA //",
         "AMIANO (Serie B)",
         "DESDE",
@@ -58,14 +58,14 @@
       "partidos": [
         {
           "eq1": [
-            "AGIRRE",
+            "BAKAIKOA",
             "IZTUETA"
           ],
           "eq2": [
             "APEZETXEA II",
             "REZUSTA"
           ],
-          "raw": "AGIRRE – IZTUETA // APEZETXEA II – REZUSTA",
+          "raw": "BAKAIKOA – IZTUETA // APEZETXEA II – REZUSTA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -79,7 +79,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "ELORDI – GABIRONDO // BAKAIKOA – IMAZ",
+        "ELORDI – GABIRONDO // ZUBIZARRETA IV – IMAZ",
         "ARTOLA // PEÑA II (Serie A)",
         "ALBERDI II – LOZA // REKALDE – EROSTARBE",
         "DIFERIDO",
@@ -97,10 +97,10 @@
             "GABIRONDO"
           ],
           "eq2": [
-            "BAKAIKOA",
+            "ZUBIZARRETA IV",
             "IMAZ"
           ],
-          "raw": "ELORDI – GABIRONDO // BAKAIKOA – IMAZ",
+          "raw": "ELORDI – GABIRONDO // ZUBIZARRETA IV – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -336,7 +336,7 @@
         "XXXX – XXXX // XXXX – XXXX",
         "XXXX // XXXX (Serie A)",
         "DESDE",
-        "40.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
