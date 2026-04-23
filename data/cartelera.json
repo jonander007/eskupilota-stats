@@ -1,5 +1,5 @@
 {
-  "actualizado": "22/04/2026 02:01",
+  "actualizado": "23/04/2026 02:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -605,8 +605,6 @@
         "San Fermín",
         "Torneo San Fermín",
         "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
-        "DESDE",
-        "57.00€",
         "Clasificación",
         "Campeonato Manomanista",
         "Campeonato Manomanista Serie B",
@@ -736,8 +734,8 @@
         "-14"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833677/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": []
     }
