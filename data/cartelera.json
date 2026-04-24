@@ -1,5 +1,5 @@
 {
-  "actualizado": "23/04/2026 02:05",
+  "actualizado": "24/04/2026 02:06",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -138,7 +138,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
+        "SALABERRIA – MARTIJA // ZUBIZARRETA IV – MARIEZKURRENA II",
         "ZABALA //",
         "LARRAZABAL (Serie A)",
         "DESDE",
@@ -152,13 +152,13 @@
         {
           "eq1": [
             "SALABERRIA",
-            "ZABALETA"
+            "MARTIJA"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
             "MARIEZKURRENA II"
           ],
-          "raw": "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
+          "raw": "SALABERRIA – MARTIJA // ZUBIZARRETA IV – MARIEZKURRENA II",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -216,7 +216,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX – XX // XX – XX",
         "DARÍO // LASO (Serie A)",
         "DESDE",
         "25.00€"
@@ -226,6 +226,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822436/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
         {
           "eq1": [
             "DARÍO"
@@ -247,7 +260,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "EZKURDIA – GABIRONDO // XXXX – IMAZ",
+        "EZKURDIA – GABIRONDO // XX – IMAZ",
         "ALTUNA III // JAKA (Serie A)",
         "DESDE",
         "40.00€"
@@ -263,9 +276,10 @@
             "GABIRONDO"
           ],
           "eq2": [
+            "XX",
             "IMAZ"
           ],
-          "raw": "EZKURDIA – GABIRONDO // XXXX – IMAZ",
+          "raw": "EZKURDIA – GABIRONDO // XX – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -292,7 +306,7 @@
       "cartel": [
         "SENAR // AMIANO (Serie B)",
         "ZUBIZARRETA III // MURUA (Serie B)",
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX – XX // XX – XX",
         "DESDE",
         "25.00€"
       ],
@@ -322,6 +336,19 @@
           "raw": "ZUBIZARRETA III // MURUA (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -333,8 +360,8 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX – XXXX // XXXX – XXXX",
-        "XXXX // XXXX (Serie A)",
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)",
         "DESDE",
         "35.00€"
       ],
@@ -342,7 +369,76 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822604/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "10/05/2026",
+      "hora": "17:15",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "Cuartos de Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2849747/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "15/05/2026",
@@ -352,9 +448,9 @@
       "fase": "Semifinales",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "XXXX // XXXX (Serie B)",
-        "XXXX // XXXX (Serie B)",
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX // XX (Serie B)",
+        "XX // XX (Serie B)",
+        "XX – XX // XX – XX",
         "DESDE",
         "25.00€"
       ],
@@ -362,7 +458,43 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2832757/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "16/05/2026",
@@ -372,7 +504,7 @@
       "fase": "Semifinal",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX – XX // XX – XX",
         "Campeonato Manomanista – Semifinal (Serie A)",
         "DESDE",
         "30.00€"
@@ -382,6 +514,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2831507/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
         {
           "eq1": [
             "Campeonato Manomanista"
@@ -403,7 +548,7 @@
       "fase": "Semifinal",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX – XX // XX – XX",
         "Campeonato Manomanista – Semifinal (Serie A)",
         "DESDE",
         "35.00€"
@@ -415,12 +560,113 @@
       "partidos": [
         {
           "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
             "Campeonato Manomanista"
           ],
           "eq2": [
             "Semifinal"
           ],
           "raw": "Campeonato Manomanista – Semifinal (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "23/05/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Final",
+      "competicion": "Campeonato Manomanista Serie B",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (Serie B)",
+        "DESDE",
+        "22.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2852666/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "24/05/2026",
+      "hora": "17:15",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "3º- 4º Puesto",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (3º// 4º Puesto)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2849749/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (3º// 4º Puesto)"
+          ],
+          "raw": "XX // XX (3º// 4º Puesto)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -605,6 +851,8 @@
         "San Fermín",
         "Torneo San Fermín",
         "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
+        "DESDE",
+        "57.00€",
         "Clasificación",
         "Campeonato Manomanista",
         "Campeonato Manomanista Serie B",
@@ -734,8 +982,8 @@
         "-14"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833677/select?viewCode=",
       "tv": false,
       "partidos": []
     }
