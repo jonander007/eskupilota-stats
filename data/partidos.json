@@ -1,5 +1,81 @@
 [
   {
+    "fecha": "24/04/2026",
+    "fronton": "AUZOETA",
+    "ciudad": "ATAUN",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "JAKA",
+      "zaguero": "LANDA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA IV",
+      "zaguero": "ALBISU"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/04/2026",
+    "fronton": "AUZOETA",
+    "ciudad": "ATAUN",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "SENAR",
+      "zaguero": null
+    },
+    "puntos2": 11,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/04/2026",
+    "fronton": "UARKAPE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "BAKAIKOA",
+      "zaguero": "IZTUETA"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "APEZETXEA II",
+      "zaguero": "REZUSTA"
+    },
+    "puntos2": 20,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "24/04/2026",
+    "fronton": "UARKAPE",
+    "ciudad": "ARRASATE",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "MURUA",
+      "zaguero": null
+    },
+    "puntos1": 17,
+    "equipo2": {
+      "delantero": "AMIANO",
+      "zaguero": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "19/04/2026",
     "fronton": "OGUETA",
     "ciudad": "VITORIA-GASTEIZ",
