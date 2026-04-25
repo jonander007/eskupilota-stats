@@ -1,76 +1,7 @@
 {
-  "actualizado": "24/04/2026 02:06",
+  "actualizado": "25/04/2026 01:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/04/2026",
-      "hora": "18:30",
-      "fronton": "Auzoeta",
-      "ciudad": "Ataun",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
-        "ZUBIZARRETA III //",
-        "SENAR",
-        "(Serie B)",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2816737/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "ALBISU"
-          ],
-          "raw": "JAKA – LANDA // ZUBIZARRETA IV – ALBISU",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "24/04/2026",
-      "hora": "20:45",
-      "fronton": "Uarkape",
-      "ciudad": "Arrasate/Mondragón",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "BAKAIKOA – IZTUETA // APEZETXEA II – REZUSTA",
-        "MURUA //",
-        "AMIANO (Serie B)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2813437/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "REZUSTA"
-          ],
-          "raw": "BAKAIKOA – IZTUETA // APEZETXEA II – REZUSTA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "25/04/2026",
       "hora": "17:15",
@@ -812,13 +743,11 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
-        "DESDE",
-        "47.00€"
+        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": []
     },
@@ -851,8 +780,6 @@
         "San Fermín",
         "Torneo San Fermín",
         "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
-        "DESDE",
-        "57.00€",
         "Clasificación",
         "Campeonato Manomanista",
         "Campeonato Manomanista Serie B",
@@ -925,6 +852,12 @@
         "TF",
         "TC",
         "CO",
+        "Rekalde",
+        "2",
+        "3",
+        "59",
+        "37",
+        "22",
         "Egiguren V",
         "2",
         "2",
@@ -937,18 +870,12 @@
         "37",
         "28",
         "9",
-        "Rekalde",
-        "1",
-        "2",
-        "37",
-        "37",
-        "0",
         "Agirre",
         "0",
-        "2",
+        "3",
         "22",
-        "44",
-        "-22",
+        "66",
+        "-44",
         "GRUPO B",
         "Pelotari/Pareja",
         "PG",
@@ -957,33 +884,33 @@
         "TC",
         "CO",
         "Amiano",
-        "1",
-        "1",
-        "22",
-        "8",
-        "14",
+        "2",
+        "2",
+        "44",
+        "25",
+        "19",
         "Murua",
         "1",
+        "2",
+        "39",
+        "31",
+        "8",
+        "Zubizarreta III",
         "1",
-        "22",
-        "9",
-        "13",
+        "2",
+        "30",
+        "33",
+        "-3",
         "Senar",
         "0",
-        "1",
-        "9",
-        "22",
-        "-13",
-        "Zubizarreta III",
-        "0",
-        "1",
-        "8",
-        "22",
-        "-14"
+        "2",
+        "20",
+        "44",
+        "-24"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833677/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": []
     }
