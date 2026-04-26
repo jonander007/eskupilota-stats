@@ -1,66 +1,7 @@
 {
-  "actualizado": "25/04/2026 01:56",
+  "actualizado": "26/04/2026 02:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "25/04/2026",
-      "hora": "17:15",
-      "fronton": "Ezkurdi",
-      "ciudad": "Durango",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ELORDI – GABIRONDO // ZUBIZARRETA IV – IMAZ",
-        "ARTOLA // PEÑA II (Serie A)",
-        "ALBERDI II – LOZA // REKALDE – EROSTARBE",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2817770/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "IMAZ"
-          ],
-          "raw": "ELORDI – GABIRONDO // ZUBIZARRETA IV – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "PEÑA II"
-          ],
-          "raw": "ARTOLA // PEÑA II (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "EROSTARBE"
-          ],
-          "raw": "ALBERDI II – LOZA // REKALDE – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "26/04/2026",
       "hora": "17:15",
@@ -69,7 +10,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "SALABERRIA – MARTIJA // ZUBIZARRETA IV – MARIEZKURRENA II",
+        "SALABERRIA – MARTIJA // ZUBIZARRETA III – MARIEZKURRENA II",
         "ZABALA //",
         "LARRAZABAL (Serie A)",
         "DESDE",
@@ -86,10 +27,10 @@
             "MARTIJA"
           ],
           "eq2": [
-            "ZUBIZARRETA IV",
+            "ZUBIZARRETA III",
             "MARIEZKURRENA II"
           ],
-          "raw": "SALABERRIA – MARTIJA // ZUBIZARRETA IV – MARIEZKURRENA II",
+          "raw": "SALABERRIA – MARTIJA // ZUBIZARRETA III – MARIEZKURRENA II",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -834,17 +775,17 @@
         "17",
         "5",
         "Artola",
-        "0",
         "1",
-        "17",
-        "22",
-        "-5",
+        "2",
+        "39",
+        "41",
+        "-2",
         "Peña II",
         "0",
-        "1",
-        "17",
-        "22",
-        "-5",
+        "2",
+        "36",
+        "44",
+        "-8",
         "GRUPO A",
         "Pelotari/Pareja",
         "PG",
