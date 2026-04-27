@@ -1,41 +1,7 @@
 {
-  "actualizado": "26/04/2026 02:09",
+  "actualizado": "27/04/2026 02:11",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "26/04/2026",
-      "hora": "17:15",
-      "fronton": "Club Deportivo",
-      "ciudad": "Bilbao",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "SALABERRIA – MARTIJA // ZUBIZARRETA III – MARIEZKURRENA II",
-        "ZABALA //",
-        "LARRAZABAL (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2811111/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "SALABERRIA – MARTIJA // ZUBIZARRETA III – MARIEZKURRENA II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "01/05/2026",
       "hora": "17:15",
@@ -308,6 +274,39 @@
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "14/05/2026",
+      "hora": "17:30",
+      "fronton": "ARANABIA",
+      "ciudad": "IRURITA",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "Festival",
+        "P. ETXEBERRIA – GABIRONDO // MURUA – MARTIJA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2840108/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "P. ETXEBERRIA",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "MURUA",
+            "MARTIJA"
+          ],
+          "raw": "P. ETXEBERRIA – GABIRONDO // MURUA – MARTIJA",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
@@ -762,18 +761,18 @@
         "TF",
         "TC",
         "CO",
+        "Zabala",
+        "2",
+        "2",
+        "44",
+        "34",
+        "10",
         "Larrazabal",
         "1",
-        "1",
-        "22",
-        "17",
-        "5",
-        "Zabala",
-        "1",
-        "1",
-        "22",
-        "17",
-        "5",
+        "2",
+        "39",
+        "39",
+        "0",
         "Artola",
         "1",
         "2",
