@@ -26,8 +26,12 @@ jobs:
       - name: Ejecutar scraper
         run: python scraper/scraper.py
 
+      - name: Calcular fecha actual
+        id: fecha
+        run: echo "hoy=$(date +'%d/%m/%Y')" >> "$GITHUB_OUTPUT"
+
       - name: Guardar cambios si hay partidos nuevos
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "🤖 Actualizar partidos - $(date +'%d/%m/%Y')"
-          file_pattern: data/partidos.json
+          commit_message: "🤖 Actualizar partidos - ${{ steps.fecha.outputs.hoy }}"
+          file_pattern: data/*.json
