@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/04/2026 02:11",
+  "actualizado": "27/04/2026 08:18",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -30,8 +30,8 @@
             "ALBISU"
           ],
           "raw": "MURUA – REZUSTA // AMIANO – ALBISU",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "campeonato-b",
+          "serie": "b"
         },
         {
           "eq1": [
@@ -185,8 +185,8 @@
             "XX"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "campeonato-b",
+          "serie": "b"
         }
       ]
     },
@@ -362,8 +362,8 @@
             "XX"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "campeonato-b",
+          "serie": "b"
         }
       ]
     },
@@ -483,8 +483,8 @@
             "XX"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "campeonato-b",
+          "serie": "b"
         },
         {
           "eq1": [
@@ -561,7 +561,22 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833669/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XXXX – XXXX // XXXX – XXXX",
+          "tipo": "campeonato-a",
+          "serie": "a",
+          "pendiente": true
+        }
+      ]
     },
     {
       "fecha": "07/07/2026",
@@ -579,7 +594,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "08/07/2026",
@@ -597,7 +613,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "09/07/2026",
@@ -615,7 +632,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "10/07/2026",
@@ -633,7 +651,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "11/07/2026",
@@ -653,7 +672,8 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833961/select?viewCode=",
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "11/07/2026",
@@ -671,7 +691,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "12/07/2026",
@@ -689,7 +710,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "13/07/2026",
@@ -707,7 +729,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "14/07/2026",
@@ -852,7 +875,8 @@
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": []
+      "partidos": [],
+      "pendiente": true
     }
   ]
 }
