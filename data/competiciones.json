@@ -87,7 +87,7 @@
     "id": "COMP015",
     "nombre": "Campeonato Manomanista Serie A 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 1
+    "partidos_count": 15
   },
   {
     "id": "COMP016",
@@ -153,7 +153,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 58
+    "partidos_count": 69
   },
   {
     "id": "COMP027",

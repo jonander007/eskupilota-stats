@@ -27,7 +27,7 @@
     "id": "FRO005",
     "nombre": "AITZURI",
     "ciudad_id": "CIU147",
-    "partidos_count": 6
+    "partidos_count": 8
   },
   {
     "id": "FRO006",
@@ -177,7 +177,7 @@
     "id": "FRO030",
     "nombre": "AUZOETA",
     "ciudad_id": "CIU019",
-    "partidos_count": 4
+    "partidos_count": 6
   },
   {
     "id": "FRO031",
@@ -369,7 +369,7 @@
     "id": "FRO062",
     "nombre": "CLUB DEPORTIVO",
     "ciudad_id": "CIU036",
-    "partidos_count": 8
+    "partidos_count": 10
   },
   {
     "id": "FRO063",
@@ -531,7 +531,7 @@
     "id": "FRO089",
     "nombre": "EZKURDI",
     "ciudad_id": "CIU045",
-    "partidos_count": 4
+    "partidos_count": 7
   },
   {
     "id": "FRO090",
@@ -741,7 +741,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 225
+    "partidos_count": 228
   },
   {
     "id": "FRO125",
@@ -909,13 +909,13 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 27
+    "partidos_count": 30
   },
   {
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
-    "partidos_count": 71
+    "partidos_count": 74
   },
   {
     "id": "FRO154",
@@ -1011,7 +1011,7 @@
     "id": "FRO169",
     "nombre": "SANTANAPE",
     "ciudad_id": "CIU069",
-    "partidos_count": 4
+    "partidos_count": 7
   },
   {
     "id": "FRO170",
@@ -1083,7 +1083,7 @@
     "id": "FRO181",
     "nombre": "UARKAPE",
     "ciudad_id": "CIU015",
-    "partidos_count": 18
+    "partidos_count": 20
   },
   {
     "id": "FRO182",
@@ -1191,7 +1191,7 @@
     "id": "FRO199",
     "nombre": "ZUBIKOA",
     "ciudad_id": "CIU117",
-    "partidos_count": 2
+    "partidos_count": 4
   },
   {
     "id": "FRO200",
