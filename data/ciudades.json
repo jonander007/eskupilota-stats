@@ -1,0 +1,896 @@
+[
+  {
+    "id": "CIU001",
+    "nombre": "ABADIÑO",
+    "nombre_es": "Abadiño",
+    "nombre_eu": "Abadiño"
+  },
+  {
+    "id": "CIU002",
+    "nombre": "AGONCILLO",
+    "nombre_es": "Agoncillo",
+    "nombre_eu": "Agoncillo"
+  },
+  {
+    "id": "CIU003",
+    "nombre": "AIEGI",
+    "nombre_es": "Aiegi",
+    "nombre_eu": "Aiegi"
+  },
+  {
+    "id": "CIU004",
+    "nombre": "AIZARNAZABAL",
+    "nombre_es": "Aizarnazabal",
+    "nombre_eu": "Aizarnazabal"
+  },
+  {
+    "id": "CIU005",
+    "nombre": "ALEGIA",
+    "nombre_es": "Alegia",
+    "nombre_eu": "Alegia"
+  },
+  {
+    "id": "CIU006",
+    "nombre": "ALTSASU",
+    "nombre_es": "Alsasua",
+    "nombre_eu": "Altsasu"
+  },
+  {
+    "id": "CIU007",
+    "nombre": "AMASA-VILLABONA",
+    "nombre_es": "Amasa-Villabona",
+    "nombre_eu": "Amasa-Villabona"
+  },
+  {
+    "id": "CIU008",
+    "nombre": "AMEZKETA",
+    "nombre_es": "Amezketa",
+    "nombre_eu": "Amezketa"
+  },
+  {
+    "id": "CIU009",
+    "nombre": "AMOREBIETA-ETXANO",
+    "nombre_es": "Amorebieta",
+    "nombre_eu": "Amorebieta-Etxano"
+  },
+  {
+    "id": "CIU010",
+    "nombre": "AMURRIO",
+    "nombre_es": "Amurrio",
+    "nombre_eu": "Amurrio"
+  },
+  {
+    "id": "CIU011",
+    "nombre": "AOIZ",
+    "nombre_es": "Aoiz",
+    "nombre_eu": "Aoiz"
+  },
+  {
+    "id": "CIU012",
+    "nombre": "ARAIA",
+    "nombre_es": "Araia",
+    "nombre_eu": "Araia"
+  },
+  {
+    "id": "CIU013",
+    "nombre": "ARETXABALETA",
+    "nombre_es": "Aretxabaleta",
+    "nombre_eu": "Aretxabaleta"
+  },
+  {
+    "id": "CIU014",
+    "nombre": "ARNEDO",
+    "nombre_es": "Arnedo",
+    "nombre_eu": "Arnedo"
+  },
+  {
+    "id": "CIU015",
+    "nombre": "ARRASATE",
+    "nombre_es": "Mondragón",
+    "nombre_eu": "Arrasate"
+  },
+  {
+    "id": "CIU016",
+    "nombre": "ARRIGORRIAGA",
+    "nombre_es": "Arrigorriaga",
+    "nombre_eu": "Arrigorriaga"
+  },
+  {
+    "id": "CIU017",
+    "nombre": "ASTEASU",
+    "nombre_es": "Asteasu",
+    "nombre_eu": "Asteasu"
+  },
+  {
+    "id": "CIU018",
+    "nombre": "ASTIGARRAGA",
+    "nombre_es": "Astigarraga",
+    "nombre_eu": "Astigarraga"
+  },
+  {
+    "id": "CIU019",
+    "nombre": "ATAUN",
+    "nombre_es": "Ataun",
+    "nombre_eu": "Ataun"
+  },
+  {
+    "id": "CIU020",
+    "nombre": "AZKOITIA",
+    "nombre_es": "Azkoitia",
+    "nombre_eu": "Azkoitia"
+  },
+  {
+    "id": "CIU021",
+    "nombre": "AZPEITIA",
+    "nombre_es": "Azpeitia",
+    "nombre_eu": "Azpeitia"
+  },
+  {
+    "id": "CIU022",
+    "nombre": "BARAKALDO",
+    "nombre_es": "Barakaldo",
+    "nombre_eu": "Barakaldo"
+  },
+  {
+    "id": "CIU023",
+    "nombre": "BARAÑAIN",
+    "nombre_es": "Barañain",
+    "nombre_eu": "Barañain"
+  },
+  {
+    "id": "CIU024",
+    "nombre": "BARCELONA",
+    "nombre_es": "Barcelona",
+    "nombre_eu": "Barcelona"
+  },
+  {
+    "id": "CIU025",
+    "nombre": "BASAURI",
+    "nombre_es": "Basauri",
+    "nombre_eu": "Basauri"
+  },
+  {
+    "id": "CIU026",
+    "nombre": "BAÑOS DE RÍO TOBÍA",
+    "nombre_es": "Baños De Río Tobía",
+    "nombre_eu": "Baños De Río Tobía"
+  },
+  {
+    "id": "CIU027",
+    "nombre": "BEASAIN",
+    "nombre_es": "Beasain",
+    "nombre_eu": "Beasain"
+  },
+  {
+    "id": "CIU028",
+    "nombre": "BELORADO",
+    "nombre_es": "Belorado",
+    "nombre_eu": "Belorado"
+  },
+  {
+    "id": "CIU029",
+    "nombre": "BERA",
+    "nombre_es": "Bera",
+    "nombre_eu": "Bera"
+  },
+  {
+    "id": "CIU030",
+    "nombre": "BERGARA",
+    "nombre_es": "Vergara",
+    "nombre_eu": "Bergara"
+  },
+  {
+    "id": "CIU031",
+    "nombre": "BERMEO",
+    "nombre_es": "Bermeo",
+    "nombre_eu": "Bermeo"
+  },
+  {
+    "id": "CIU032",
+    "nombre": "BERRIOZAR",
+    "nombre_es": "Berriozar",
+    "nombre_eu": "Berriozar"
+  },
+  {
+    "id": "CIU033",
+    "nombre": "BERRIZ",
+    "nombre_es": "Berriz",
+    "nombre_eu": "Berriz"
+  },
+  {
+    "id": "CIU034",
+    "nombre": "BERUETE",
+    "nombre_es": "Beruete",
+    "nombre_eu": "Beruete"
+  },
+  {
+    "id": "CIU035",
+    "nombre": "BIARRITZ",
+    "nombre_es": "Biarritz",
+    "nombre_eu": "Biarritz"
+  },
+  {
+    "id": "CIU036",
+    "nombre": "BILBAO",
+    "nombre_es": "Bilbao",
+    "nombre_eu": "Bilbo"
+  },
+  {
+    "id": "CIU037",
+    "nombre": "BRIONES",
+    "nombre_es": "Briones",
+    "nombre_eu": "Briones"
+  },
+  {
+    "id": "CIU038",
+    "nombre": "BURLADA",
+    "nombre_es": "Burlada",
+    "nombre_eu": "Burlada"
+  },
+  {
+    "id": "CIU039",
+    "nombre": "BUÑUEL",
+    "nombre_es": "Buñuel",
+    "nombre_eu": "Buñuel"
+  },
+  {
+    "id": "CIU040",
+    "nombre": "CIZUR MAYOR",
+    "nombre_es": "Cizur Mayor",
+    "nombre_eu": "Cizur Mayor"
+  },
+  {
+    "id": "CIU041",
+    "nombre": "CIZUR MENOR",
+    "nombre_es": "Cizur Menor",
+    "nombre_eu": "Cizur Menor"
+  },
+  {
+    "id": "CIU042",
+    "nombre": "COVALEDA",
+    "nombre_es": "Covaleda",
+    "nombre_eu": "Covaleda"
+  },
+  {
+    "id": "CIU043",
+    "nombre": "DIMA",
+    "nombre_es": "Dima",
+    "nombre_eu": "Dima"
+  },
+  {
+    "id": "CIU044",
+    "nombre": "DONOSTIA",
+    "nombre_es": "San Sebastián",
+    "nombre_eu": "Donostia"
+  },
+  {
+    "id": "CIU045",
+    "nombre": "DURANGO",
+    "nombre_es": "Durango",
+    "nombre_eu": "Durango"
+  },
+  {
+    "id": "CIU046",
+    "nombre": "EIBAR",
+    "nombre_es": "Eibar",
+    "nombre_eu": "Eibar"
+  },
+  {
+    "id": "CIU047",
+    "nombre": "EL CIEGO",
+    "nombre_es": "El Ciego",
+    "nombre_eu": "El Ciego"
+  },
+  {
+    "id": "CIU048",
+    "nombre": "EL VILLAR DE ARNEDO",
+    "nombre_es": "El Villar De Arnedo",
+    "nombre_eu": "El Villar De Arnedo"
+  },
+  {
+    "id": "CIU049",
+    "nombre": "ELBURGO",
+    "nombre_es": "Elburgo",
+    "nombre_eu": "Elburgo"
+  },
+  {
+    "id": "CIU050",
+    "nombre": "ELCIEGO",
+    "nombre_es": "Elciego",
+    "nombre_eu": "Elciego"
+  },
+  {
+    "id": "CIU051",
+    "nombre": "ELGETA",
+    "nombre_es": "Elgeta",
+    "nombre_eu": "Elgeta"
+  },
+  {
+    "id": "CIU052",
+    "nombre": "ELGOIBAR",
+    "nombre_es": "Elgoibar",
+    "nombre_eu": "Elgoibar"
+  },
+  {
+    "id": "CIU053",
+    "nombre": "ELIZONDO",
+    "nombre_es": "Elizondo",
+    "nombre_eu": "Elizondo"
+  },
+  {
+    "id": "CIU054",
+    "nombre": "ERMUA",
+    "nombre_es": "Ermua",
+    "nombre_eu": "Ermua"
+  },
+  {
+    "id": "CIU055",
+    "nombre": "ERRATZU",
+    "nombre_es": "Erratzu",
+    "nombre_eu": "Erratzu"
+  },
+  {
+    "id": "CIU056",
+    "nombre": "ERRIGOITI",
+    "nombre_es": "Errigoiti",
+    "nombre_eu": "Errigoiti"
+  },
+  {
+    "id": "CIU057",
+    "nombre": "ETXARRI ARANATZ",
+    "nombre_es": "Etxarri Aranatz",
+    "nombre_eu": "Etxarri Aranatz"
+  },
+  {
+    "id": "CIU058",
+    "nombre": "ETXARRI-ARANATZ",
+    "nombre_es": "Etxarri-Aranatz",
+    "nombre_eu": "Etxarri-Aranatz"
+  },
+  {
+    "id": "CIU059",
+    "nombre": "ETXEBARRI",
+    "nombre_es": "Etxebarri",
+    "nombre_eu": "Etxebarri"
+  },
+  {
+    "id": "CIU060",
+    "nombre": "ETXEBARRIA",
+    "nombre_es": "Etxebarria",
+    "nombre_eu": "Etxebarria"
+  },
+  {
+    "id": "CIU061",
+    "nombre": "EUGI",
+    "nombre_es": "Eugi",
+    "nombre_eu": "Eugi"
+  },
+  {
+    "id": "CIU062",
+    "nombre": "EZCARAY",
+    "nombre_es": "Ezcaray",
+    "nombre_eu": "Ezcaray"
+  },
+  {
+    "id": "CIU063",
+    "nombre": "EZKABARTE",
+    "nombre_es": "Ezkabarte",
+    "nombre_eu": "Ezkabarte"
+  },
+  {
+    "id": "CIU064",
+    "nombre": "FRESNO",
+    "nombre_es": "Fresno",
+    "nombre_eu": "Fresno"
+  },
+  {
+    "id": "CIU065",
+    "nombre": "FUENMAYOR",
+    "nombre_es": "Fuenmayor",
+    "nombre_eu": "Fuenmayor"
+  },
+  {
+    "id": "CIU066",
+    "nombre": "GALDAKAO",
+    "nombre_es": "Galdakao",
+    "nombre_eu": "Galdakao"
+  },
+  {
+    "id": "CIU067",
+    "nombre": "GALLARTA",
+    "nombre_es": "Gallarta",
+    "nombre_eu": "Gallarta"
+  },
+  {
+    "id": "CIU068",
+    "nombre": "GAUTEGIZ-ARTEAGA",
+    "nombre_es": "Gautegiz-Arteaga",
+    "nombre_eu": "Gautegiz-Arteaga"
+  },
+  {
+    "id": "CIU069",
+    "nombre": "GERNIKA",
+    "nombre_es": "Gernika",
+    "nombre_eu": "Gernika"
+  },
+  {
+    "id": "CIU070",
+    "nombre": "GETARIA",
+    "nombre_es": "Getaria",
+    "nombre_eu": "Getaria"
+  },
+  {
+    "id": "CIU071",
+    "nombre": "HARO",
+    "nombre_es": "Haro",
+    "nombre_eu": "Haro"
+  },
+  {
+    "id": "CIU072",
+    "nombre": "HENDAIA",
+    "nombre_es": "Hendaya",
+    "nombre_eu": "Hendaia"
+  },
+  {
+    "id": "CIU073",
+    "nombre": "HERNANI",
+    "nombre_es": "Hernani",
+    "nombre_eu": "Hernani"
+  },
+  {
+    "id": "CIU074",
+    "nombre": "HONDARRIBIA",
+    "nombre_es": "Hondarribia",
+    "nombre_eu": "Hondarribia"
+  },
+  {
+    "id": "CIU075",
+    "nombre": "HUÉRCANOS",
+    "nombre_es": "Huércanos",
+    "nombre_eu": "Huércanos"
+  },
+  {
+    "id": "CIU076",
+    "nombre": "IBARRANGELU",
+    "nombre_es": "Ibarrangelu",
+    "nombre_eu": "Ibarrangelu"
+  },
+  {
+    "id": "CIU077",
+    "nombre": "IDIAZABAL",
+    "nombre_es": "Idiazabal",
+    "nombre_eu": "Idiazabal"
+  },
+  {
+    "id": "CIU078",
+    "nombre": "ILUNBERRI",
+    "nombre_es": "Ilunberri",
+    "nombre_eu": "Ilunberri"
+  },
+  {
+    "id": "CIU079",
+    "nombre": "IRUN",
+    "nombre_es": "Irun",
+    "nombre_eu": "Irun"
+  },
+  {
+    "id": "CIU080",
+    "nombre": "IRURZUN",
+    "nombre_es": "Irurzun",
+    "nombre_eu": "Irurzun"
+  },
+  {
+    "id": "CIU081",
+    "nombre": "ITZIAR",
+    "nombre_es": "Itziar",
+    "nombre_eu": "Itziar"
+  },
+  {
+    "id": "CIU082",
+    "nombre": "IURRETA",
+    "nombre_es": "Iurreta",
+    "nombre_eu": "Iurreta"
+  },
+  {
+    "id": "CIU083",
+    "nombre": "LABASTIDA",
+    "nombre_es": "Labastida",
+    "nombre_eu": "Labastida"
+  },
+  {
+    "id": "CIU084",
+    "nombre": "LANCIEGO",
+    "nombre_es": "Lanciego",
+    "nombre_eu": "Lanciego"
+  },
+  {
+    "id": "CIU085",
+    "nombre": "LARRAINTZAR",
+    "nombre_es": "Larraintzar",
+    "nombre_eu": "Larraintzar"
+  },
+  {
+    "id": "CIU086",
+    "nombre": "LARRAINZAR",
+    "nombre_es": "Larrainzar",
+    "nombre_eu": "Larrainzar"
+  },
+  {
+    "id": "CIU087",
+    "nombre": "LAUDIO",
+    "nombre_es": "Laudio",
+    "nombre_eu": "Laudio"
+  },
+  {
+    "id": "CIU088",
+    "nombre": "LEGAZPI",
+    "nombre_es": "Legazpi",
+    "nombre_eu": "Legazpi"
+  },
+  {
+    "id": "CIU089",
+    "nombre": "LEGUTIO",
+    "nombre_es": "Legutio",
+    "nombre_eu": "Legutio"
+  },
+  {
+    "id": "CIU090",
+    "nombre": "LEITZA",
+    "nombre_es": "Leitza",
+    "nombre_eu": "Leitza"
+  },
+  {
+    "id": "CIU091",
+    "nombre": "LEKEITIO",
+    "nombre_es": "Lekeitio",
+    "nombre_eu": "Lekeitio"
+  },
+  {
+    "id": "CIU092",
+    "nombre": "LEKUNBERRI",
+    "nombre_es": "Lekunberri",
+    "nombre_eu": "Lekunberri"
+  },
+  {
+    "id": "CIU093",
+    "nombre": "LEMOA",
+    "nombre_es": "Lemoa",
+    "nombre_eu": "Lemoa"
+  },
+  {
+    "id": "CIU094",
+    "nombre": "LIZARRA",
+    "nombre_es": "Estella",
+    "nombre_eu": "Lizarra"
+  },
+  {
+    "id": "CIU095",
+    "nombre": "LLODIO",
+    "nombre_es": "Llodio",
+    "nombre_eu": "Laudio"
+  },
+  {
+    "id": "CIU096",
+    "nombre": "LODOSA",
+    "nombre_es": "Lodosa",
+    "nombre_eu": "Lodosa"
+  },
+  {
+    "id": "CIU097",
+    "nombre": "LOGROÑO",
+    "nombre_es": "Logroño",
+    "nombre_eu": "Logroño"
+  },
+  {
+    "id": "CIU098",
+    "nombre": "LOIU",
+    "nombre_es": "Loiu",
+    "nombre_eu": "Loiu"
+  },
+  {
+    "id": "CIU099",
+    "nombre": "LOS ARCOS",
+    "nombre_es": "Los Arcos",
+    "nombre_eu": "Los Arcos"
+  },
+  {
+    "id": "CIU100",
+    "nombre": "LUMBIER",
+    "nombre_es": "Lumbier",
+    "nombre_eu": "Lumbier"
+  },
+  {
+    "id": "CIU101",
+    "nombre": "MALLABIA",
+    "nombre_es": "Mallabia",
+    "nombre_eu": "Mallabia"
+  },
+  {
+    "id": "CIU102",
+    "nombre": "MARKINA-XEMEIN",
+    "nombre_es": "Markina-Xemein",
+    "nombre_eu": "Markina-Xemein"
+  },
+  {
+    "id": "CIU103",
+    "nombre": "MENDEXA",
+    "nombre_es": "Mendexa",
+    "nombre_eu": "Mendexa"
+  },
+  {
+    "id": "CIU104",
+    "nombre": "MUNGIA",
+    "nombre_es": "Mungia",
+    "nombre_eu": "Mungia"
+  },
+  {
+    "id": "CIU105",
+    "nombre": "MUNITIBAR",
+    "nombre_es": "Munitibar",
+    "nombre_eu": "Munitibar"
+  },
+  {
+    "id": "CIU106",
+    "nombre": "MURUETA",
+    "nombre_es": "Murueta",
+    "nombre_eu": "Murueta"
+  },
+  {
+    "id": "CIU107",
+    "nombre": "MUSKIZ",
+    "nombre_es": "Muskiz",
+    "nombre_eu": "Muskiz"
+  },
+  {
+    "id": "CIU108",
+    "nombre": "NÁJERA",
+    "nombre_es": "Nájera",
+    "nombre_eu": "Nájera"
+  },
+  {
+    "id": "CIU109",
+    "nombre": "OIARTZUN",
+    "nombre_es": "Oyarzun",
+    "nombre_eu": "Oiartzun"
+  },
+  {
+    "id": "CIU110",
+    "nombre": "OION",
+    "nombre_es": "Oion",
+    "nombre_eu": "Oion"
+  },
+  {
+    "id": "CIU111",
+    "nombre": "OLAZ",
+    "nombre_es": "Olaz",
+    "nombre_eu": "Olaz"
+  },
+  {
+    "id": "CIU112",
+    "nombre": "ORDIZIA",
+    "nombre_es": "Ordizia",
+    "nombre_eu": "Ordizia"
+  },
+  {
+    "id": "CIU113",
+    "nombre": "ORDUÑA",
+    "nombre_es": "Orduña",
+    "nombre_eu": "Orduña"
+  },
+  {
+    "id": "CIU114",
+    "nombre": "OROZKO",
+    "nombre_es": "Orozko",
+    "nombre_eu": "Orozko"
+  },
+  {
+    "id": "CIU115",
+    "nombre": "OTEIZA",
+    "nombre_es": "Oteiza",
+    "nombre_eu": "Oteiza"
+  },
+  {
+    "id": "CIU116",
+    "nombre": "OTXANDIO",
+    "nombre_es": "Otxandio",
+    "nombre_eu": "Otxandio"
+  },
+  {
+    "id": "CIU117",
+    "nombre": "OÑATI",
+    "nombre_es": "Oñati",
+    "nombre_eu": "Oñati"
+  },
+  {
+    "id": "CIU118",
+    "nombre": "PAMPLONA",
+    "nombre_es": "Pamplona",
+    "nombre_eu": "Iruñea"
+  },
+  {
+    "id": "CIU119",
+    "nombre": "PINILLA DE LOS BARRUECOS",
+    "nombre_es": "Pinilla De Los Barruecos",
+    "nombre_eu": "Pinilla De Los Barruecos"
+  },
+  {
+    "id": "CIU120",
+    "nombre": "SANTA MARIA DE LAS HOYAS",
+    "nombre_es": "Santa Maria De Las Hoyas",
+    "nombre_eu": "Santa Maria De Las Hoyas"
+  },
+  {
+    "id": "CIU121",
+    "nombre": "SANTO DOMINGO DE LA CALZADA",
+    "nombre_es": "Santo Domingo De La Calzada",
+    "nombre_eu": "Santo Domingo De La Calzada"
+  },
+  {
+    "id": "CIU122",
+    "nombre": "SARDÓN DE LOS FRAILES",
+    "nombre_es": "Sardón De Los Frailes",
+    "nombre_eu": "Sardón De Los Frailes"
+  },
+  {
+    "id": "CIU123",
+    "nombre": "SEGURA",
+    "nombre_es": "Segura",
+    "nombre_eu": "Segura"
+  },
+  {
+    "id": "CIU124",
+    "nombre": "SESTAO",
+    "nombre_es": "Sestao",
+    "nombre_eu": "Sestao"
+  },
+  {
+    "id": "CIU125",
+    "nombre": "SOPELA",
+    "nombre_es": "Sopela",
+    "nombre_eu": "Sopela"
+  },
+  {
+    "id": "CIU126",
+    "nombre": "SORIA",
+    "nombre_es": "Soria",
+    "nombre_eu": "Soria"
+  },
+  {
+    "id": "CIU127",
+    "nombre": "SUNBILLA",
+    "nombre_es": "Sunbilla",
+    "nombre_eu": "Sunbilla"
+  },
+  {
+    "id": "CIU128",
+    "nombre": "TAFALLA",
+    "nombre_es": "Tafalla",
+    "nombre_eu": "Tafalla"
+  },
+  {
+    "id": "CIU129",
+    "nombre": "TOLOSA",
+    "nombre_es": "Tolosa",
+    "nombre_eu": "Tolosa"
+  },
+  {
+    "id": "CIU130",
+    "nombre": "URDULIZ",
+    "nombre_es": "Urduliz",
+    "nombre_eu": "Urduliz"
+  },
+  {
+    "id": "CIU131",
+    "nombre": "URRESTILLA",
+    "nombre_es": "Urrestilla",
+    "nombre_eu": "Urrestilla"
+  },
+  {
+    "id": "CIU132",
+    "nombre": "URRETXU",
+    "nombre_es": "Urretxu",
+    "nombre_eu": "Urretxu"
+  },
+  {
+    "id": "CIU133",
+    "nombre": "URUÑUELA",
+    "nombre_es": "Uruñuela",
+    "nombre_eu": "Uruñuela"
+  },
+  {
+    "id": "CIU134",
+    "nombre": "USANSOLO",
+    "nombre_es": "Usansolo",
+    "nombre_eu": "Usansolo"
+  },
+  {
+    "id": "CIU135",
+    "nombre": "VALCARLOS",
+    "nombre_es": "Valcarlos",
+    "nombre_eu": "Valcarlos"
+  },
+  {
+    "id": "CIU136",
+    "nombre": "VIANA",
+    "nombre_es": "Viana",
+    "nombre_eu": "Viana"
+  },
+  {
+    "id": "CIU137",
+    "nombre": "VILLABONA",
+    "nombre_es": "Villabona",
+    "nombre_eu": "Villabona"
+  },
+  {
+    "id": "CIU138",
+    "nombre": "VILLAVA",
+    "nombre_es": "Villava",
+    "nombre_eu": "Villava"
+  },
+  {
+    "id": "CIU139",
+    "nombre": "VITORIA-GASTEIZ",
+    "nombre_es": "Vitoria",
+    "nombre_eu": "Gasteiz"
+  },
+  {
+    "id": "CIU140",
+    "nombre": "ZALDIBAR",
+    "nombre_es": "Zaldibar",
+    "nombre_eu": "Zaldibar"
+  },
+  {
+    "id": "CIU141",
+    "nombre": "ZALLA",
+    "nombre_es": "Zalla",
+    "nombre_eu": "Zalla"
+  },
+  {
+    "id": "CIU142",
+    "nombre": "ZARAUTZ",
+    "nombre_es": "Zarautz",
+    "nombre_eu": "Zarautz"
+  },
+  {
+    "id": "CIU143",
+    "nombre": "ZEANURI",
+    "nombre_es": "Zeanuri",
+    "nombre_eu": "Zeanuri"
+  },
+  {
+    "id": "CIU144",
+    "nombre": "ZESTOA",
+    "nombre_es": "Zestoa",
+    "nombre_eu": "Zestoa"
+  },
+  {
+    "id": "CIU145",
+    "nombre": "ZIERBENA",
+    "nombre_es": "Zierbena",
+    "nombre_eu": "Zierbena"
+  },
+  {
+    "id": "CIU146",
+    "nombre": "ZUGARRAMURDI",
+    "nombre_es": "Zugarramurdi",
+    "nombre_eu": "Zugarramurdi"
+  },
+  {
+    "id": "CIU147",
+    "nombre": "ZUMAIA",
+    "nombre_es": "Zumaia",
+    "nombre_eu": "Zumaia"
+  },
+  {
+    "id": "CIU148",
+    "nombre": "ZUMARRAGA",
+    "nombre_es": "Zumarraga",
+    "nombre_eu": "Zumarraga"
+  },
+  {
+    "id": "CIU149",
+    "nombre": "ÍSCAR",
+    "nombre_es": "Íscar",
+    "nombre_eu": "Íscar"
+  }
+]

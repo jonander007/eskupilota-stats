@@ -1,0 +1,1214 @@
+[
+  {
+    "id": "FRO001",
+    "nombre": "ABADIÑO",
+    "ciudad_id": "CIU001",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO002",
+    "nombre": "ADARRAGA",
+    "ciudad_id": "CIU097",
+    "partidos_count": 89
+  },
+  {
+    "id": "FRO003",
+    "nombre": "AGONCILLO",
+    "ciudad_id": "CIU002",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO004",
+    "nombre": "AIEGI",
+    "ciudad_id": "CIU003",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO005",
+    "nombre": "AITZURI",
+    "ciudad_id": "CIU147",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO006",
+    "nombre": "AIZARNAZABAL",
+    "ciudad_id": "CIU004",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO007",
+    "nombre": "AIZPURUTXO",
+    "ciudad_id": "CIU020",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO008",
+    "nombre": "ALSASUA",
+    "ciudad_id": "CIU006",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO009",
+    "nombre": "AMASA-VILLABONA",
+    "ciudad_id": "CIU007",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO010",
+    "nombre": "AMEZKETA",
+    "ciudad_id": "CIU008",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO011",
+    "nombre": "AMOREBIETA IV",
+    "ciudad_id": "CIU009",
+    "partidos_count": 32
+  },
+  {
+    "id": "FRO012",
+    "nombre": "AMURRIO",
+    "ciudad_id": "CIU010",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO013",
+    "nombre": "ANTZIZAR",
+    "ciudad_id": "CIU027",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO014",
+    "nombre": "AOIZ",
+    "ciudad_id": "CIU011",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO015",
+    "nombre": "ARAIA",
+    "ciudad_id": "CIU012",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO016",
+    "nombre": "ARETA",
+    "ciudad_id": "CIU095",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO017",
+    "nombre": "ARETXABALETA",
+    "ciudad_id": "CIU013",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO018",
+    "nombre": "ARITZBATALDE",
+    "ciudad_id": "CIU142",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO019",
+    "nombre": "ARIZPE",
+    "ciudad_id": "CIU102",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO020",
+    "nombre": "ARNEDO",
+    "ciudad_id": "CIU014",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO021",
+    "nombre": "ARRASATE",
+    "ciudad_id": "CIU015",
+    "partidos_count": 10
+  },
+  {
+    "id": "FRO022",
+    "nombre": "ARRETXE",
+    "ciudad_id": "CIU135",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO023",
+    "nombre": "ARRIGORRIAGA",
+    "ciudad_id": "CIU016",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO024",
+    "nombre": "ARTUNDUAGA",
+    "ciudad_id": "CIU025",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO025",
+    "nombre": "ASTEASU",
+    "ciudad_id": "CIU017",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO026",
+    "nombre": "ASTELENA",
+    "ciudad_id": "CIU046",
+    "partidos_count": 108
+  },
+  {
+    "id": "FRO027",
+    "nombre": "ASTIGARRAGA",
+    "ciudad_id": "CIU018",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO028",
+    "nombre": "ATANO III",
+    "ciudad_id": "CIU044",
+    "partidos_count": 94
+  },
+  {
+    "id": "FRO029",
+    "nombre": "ATAUN",
+    "ciudad_id": "CIU019",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO030",
+    "nombre": "AUZOETA",
+    "ciudad_id": "CIU019",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO031",
+    "nombre": "AZKOITIA",
+    "ciudad_id": "CIU020",
+    "partidos_count": 13
+  },
+  {
+    "id": "FRO032",
+    "nombre": "AZPEITIA",
+    "ciudad_id": "CIU021",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO033",
+    "nombre": "BARAKALDO",
+    "ciudad_id": "CIU022",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO034",
+    "nombre": "BARATZE",
+    "ciudad_id": "CIU123",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO035",
+    "nombre": "BARAÑAIN",
+    "ciudad_id": "CIU023",
+    "partidos_count": 9
+  },
+  {
+    "id": "FRO036",
+    "nombre": "BARBERITO I",
+    "ciudad_id": "CIU026",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO037",
+    "nombre": "BARCELONA",
+    "ciudad_id": "CIU024",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO038",
+    "nombre": "BASAURI",
+    "ciudad_id": "CIU025",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO039",
+    "nombre": "BAZTAN",
+    "ciudad_id": "CIU053",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO040",
+    "nombre": "BAÑOS DE RIO TOBIA",
+    "ciudad_id": "CIU026",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO041",
+    "nombre": "BEAR ZANA",
+    "ciudad_id": "CIU137",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO042",
+    "nombre": "BEASAIN",
+    "ciudad_id": "CIU027",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO043",
+    "nombre": "BEKOERROTABERRI",
+    "ciudad_id": "CIU104",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO044",
+    "nombre": "BELOKI",
+    "ciudad_id": "CIU148",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO045",
+    "nombre": "BELORADO",
+    "ciudad_id": "CIU028",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO046",
+    "nombre": "BEOTIBAR",
+    "ciudad_id": "CIU129",
+    "partidos_count": 112
+  },
+  {
+    "id": "FRO047",
+    "nombre": "BERA",
+    "ciudad_id": "CIU029",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO048",
+    "nombre": "BERGARA",
+    "ciudad_id": "CIU030",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO049",
+    "nombre": "BERMEO",
+    "ciudad_id": "CIU031",
+    "partidos_count": 16
+  },
+  {
+    "id": "FRO050",
+    "nombre": "BERRIOZAR",
+    "ciudad_id": "CIU032",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO051",
+    "nombre": "BERRIZ",
+    "ciudad_id": "CIU033",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO052",
+    "nombre": "BERUETE",
+    "ciudad_id": "CIU034",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO053",
+    "nombre": "BIARRITZ",
+    "ciudad_id": "CIU035",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO054",
+    "nombre": "BILBAO",
+    "ciudad_id": "CIU036",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO055",
+    "nombre": "BIZKAIA FRONTOIA",
+    "ciudad_id": "CIU036",
+    "partidos_count": 121
+  },
+  {
+    "id": "FRO056",
+    "nombre": "BRIONES",
+    "ciudad_id": "CIU037",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO057",
+    "nombre": "BURLADA",
+    "ciudad_id": "CIU038",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO058",
+    "nombre": "BURUNDA",
+    "ciudad_id": "CIU006",
+    "partidos_count": 10
+  },
+  {
+    "id": "FRO059",
+    "nombre": "BUÑUEL",
+    "ciudad_id": "CIU039",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO060",
+    "nombre": "CIZUR",
+    "ciudad_id": "CIU040",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO061",
+    "nombre": "CIZUR MENOR",
+    "ciudad_id": "CIU041",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO062",
+    "nombre": "CLUB DEPORTIVO",
+    "ciudad_id": "CIU036",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO063",
+    "nombre": "COVALEDA",
+    "ciudad_id": "CIU042",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO064",
+    "nombre": "DANIEL UGARTE",
+    "ciudad_id": "CIU072",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO065",
+    "nombre": "DIMA",
+    "ciudad_id": "CIU043",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO066",
+    "nombre": "DONIBANE",
+    "ciudad_id": "CIU107",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO067",
+    "nombre": "DURANGO",
+    "ciudad_id": "CIU045",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO068",
+    "nombre": "EDERRENA",
+    "ciudad_id": "CIU132",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO069",
+    "nombre": "EL CIEGO",
+    "ciudad_id": "CIU047",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO070",
+    "nombre": "EL VILLAR DE ARNEDO",
+    "ciudad_id": "CIU048",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO071",
+    "nombre": "ELBURGO",
+    "ciudad_id": "CIU049",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO072",
+    "nombre": "ELCIEGO",
+    "ciudad_id": "CIU050",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO073",
+    "nombre": "ELGETA",
+    "ciudad_id": "CIU051",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO074",
+    "nombre": "ELGOIBAR",
+    "ciudad_id": "CIU052",
+    "partidos_count": 9
+  },
+  {
+    "id": "FRO075",
+    "nombre": "ELIZONDO",
+    "ciudad_id": "CIU053",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO076",
+    "nombre": "ELORRI",
+    "ciudad_id": "CIU005",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO077",
+    "nombre": "ERETA",
+    "ciudad_id": "CIU128",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO078",
+    "nombre": "ERMUA",
+    "ciudad_id": "CIU054",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO079",
+    "nombre": "ERRATZU",
+    "ciudad_id": "CIU055",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO080",
+    "nombre": "ERRIGOITI",
+    "ciudad_id": "CIU056",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO081",
+    "nombre": "ETXARRI ARANATZ",
+    "ciudad_id": "CIU057",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO082",
+    "nombre": "ETXARRI-ARANATZ",
+    "ciudad_id": "CIU058",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO083",
+    "nombre": "ETXEBARRI",
+    "ciudad_id": "CIU059",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO084",
+    "nombre": "ETXEBARRIA",
+    "ciudad_id": "CIU060",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO085",
+    "nombre": "ETXELEBERT",
+    "ciudad_id": "CIU055",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO086",
+    "nombre": "EUGI",
+    "ciudad_id": "CIU061",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO087",
+    "nombre": "EZCARAY",
+    "ciudad_id": "CIU062",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO088",
+    "nombre": "EZKABARTE",
+    "ciudad_id": "CIU063",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO089",
+    "nombre": "EZKURDI",
+    "ciudad_id": "CIU045",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO090",
+    "nombre": "FERNANDO GARAITA",
+    "ciudad_id": "CIU089",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO091",
+    "nombre": "FRESNO",
+    "ciudad_id": "CIU064",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO092",
+    "nombre": "FRONTION CATALUNYA",
+    "ciudad_id": "CIU024",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO093",
+    "nombre": "FUENMAYOR",
+    "ciudad_id": "CIU065",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO094",
+    "nombre": "GALDAKAO",
+    "ciudad_id": "CIU066",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO095",
+    "nombre": "GALLARTA",
+    "ciudad_id": "CIU067",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO096",
+    "nombre": "GAUTEGIZ-ARTEAGA",
+    "ciudad_id": "CIU068",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO097",
+    "nombre": "GERNIKA",
+    "ciudad_id": "CIU069",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO098",
+    "nombre": "GETARIA",
+    "ciudad_id": "CIU070",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO099",
+    "nombre": "GUREA",
+    "ciudad_id": "CIU020",
+    "partidos_count": 14
+  },
+  {
+    "id": "FRO100",
+    "nombre": "GURUTZEAGA",
+    "ciudad_id": "CIU144",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO101",
+    "nombre": "HARO",
+    "ciudad_id": "CIU071",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO102",
+    "nombre": "HENDAIA",
+    "ciudad_id": "CIU072",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO103",
+    "nombre": "HERNANI",
+    "ciudad_id": "CIU073",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO104",
+    "nombre": "HERRI PILOTA",
+    "ciudad_id": "CIU072",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO105",
+    "nombre": "HONDARRIBI",
+    "ciudad_id": "CIU074",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO106",
+    "nombre": "HONDARRIBIA",
+    "ciudad_id": "CIU074",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO107",
+    "nombre": "HUERCANOS",
+    "ciudad_id": "CIU075",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO108",
+    "nombre": "IBARRANGELU",
+    "ciudad_id": "CIU076",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO109",
+    "nombre": "IDIAZABAL",
+    "ciudad_id": "CIU077",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO110",
+    "nombre": "IGARONDO",
+    "ciudad_id": "CIU077",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO111",
+    "nombre": "ILUNBERRI",
+    "ciudad_id": "CIU078",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO112",
+    "nombre": "IRUN",
+    "ciudad_id": "CIU079",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO113",
+    "nombre": "IRURZUN",
+    "ciudad_id": "CIU080",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO114",
+    "nombre": "ISCAR",
+    "ciudad_id": "CIU149",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO115",
+    "nombre": "ITZIAR",
+    "ciudad_id": "CIU081",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO116",
+    "nombre": "IURRETA",
+    "ciudad_id": "CIU082",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO117",
+    "nombre": "IZARRAITZ",
+    "ciudad_id": "CIU021",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO118",
+    "nombre": "JAI ALAI",
+    "ciudad_id": "CIU070",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO119",
+    "nombre": "JAIAN JAI",
+    "ciudad_id": "CIU092",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO120",
+    "nombre": "KEPA ARROITAJAUREGI",
+    "ciudad_id": "CIU082",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO121",
+    "nombre": "KURUTZIAGA",
+    "ciudad_id": "CIU045",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO122",
+    "nombre": "LA JUVENTUD",
+    "ciudad_id": "CIU126",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO123",
+    "nombre": "LABASTIDA",
+    "ciudad_id": "CIU083",
+    "partidos_count": 16
+  },
+  {
+    "id": "FRO124",
+    "nombre": "LABRIT",
+    "ciudad_id": "CIU118",
+    "partidos_count": 225
+  },
+  {
+    "id": "FRO125",
+    "nombre": "LANCIEGO",
+    "ciudad_id": "CIU084",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO126",
+    "nombre": "LARRAINTZAR",
+    "ciudad_id": "CIU085",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO127",
+    "nombre": "LARRAINZAR",
+    "ciudad_id": "CIU086",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO128",
+    "nombre": "LAUDIO",
+    "ciudad_id": "CIU087",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO129",
+    "nombre": "LEGAZPI",
+    "ciudad_id": "CIU088",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO130",
+    "nombre": "LEGUTIO",
+    "ciudad_id": "CIU089",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO131",
+    "nombre": "LEITZA",
+    "ciudad_id": "CIU090",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO132",
+    "nombre": "LEKEITIO",
+    "ciudad_id": "CIU091",
+    "partidos_count": 10
+  },
+  {
+    "id": "FRO133",
+    "nombre": "LEKUNBERRI",
+    "ciudad_id": "CIU092",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO134",
+    "nombre": "LEMOA",
+    "ciudad_id": "CIU093",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO135",
+    "nombre": "LIZARRA",
+    "ciudad_id": "CIU094",
+    "partidos_count": 9
+  },
+  {
+    "id": "FRO136",
+    "nombre": "LLODIO",
+    "ciudad_id": "CIU095",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO137",
+    "nombre": "LODOSA",
+    "ciudad_id": "CIU096",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO138",
+    "nombre": "LOIU",
+    "ciudad_id": "CIU098",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO139",
+    "nombre": "LOS ARCOS",
+    "ciudad_id": "CIU099",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO140",
+    "nombre": "LUMBIER",
+    "ciudad_id": "CIU100",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO141",
+    "nombre": "MADALENSORO",
+    "ciudad_id": "CIU109",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO142",
+    "nombre": "MALLABIA",
+    "ciudad_id": "CIU101",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO143",
+    "nombre": "MALLABIA I",
+    "ciudad_id": "CIU101",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO144",
+    "nombre": "MARKINA-XEMEIN",
+    "ciudad_id": "CIU102",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO145",
+    "nombre": "MENDEXA",
+    "ciudad_id": "CIU103",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO146",
+    "nombre": "MIMETIZ",
+    "ciudad_id": "CIU141",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO147",
+    "nombre": "MUNGIA",
+    "ciudad_id": "CIU104",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO148",
+    "nombre": "MUNITIBAR",
+    "ciudad_id": "CIU105",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO149",
+    "nombre": "MURUETA",
+    "ciudad_id": "CIU106",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO150",
+    "nombre": "MUSKIZ",
+    "ciudad_id": "CIU107",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO151",
+    "nombre": "NAJERA",
+    "ciudad_id": "CIU108",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO152",
+    "nombre": "NAVARRA ARENA",
+    "ciudad_id": "CIU118",
+    "partidos_count": 27
+  },
+  {
+    "id": "FRO153",
+    "nombre": "OGUETA",
+    "ciudad_id": "CIU139",
+    "partidos_count": 71
+  },
+  {
+    "id": "FRO154",
+    "nombre": "OIARTZUN",
+    "ciudad_id": "CIU109",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO155",
+    "nombre": "OION",
+    "ciudad_id": "CIU110",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO156",
+    "nombre": "OLAZ",
+    "ciudad_id": "CIU111",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO157",
+    "nombre": "OLAZAR",
+    "ciudad_id": "CIU140",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO158",
+    "nombre": "ORDIZIA",
+    "ciudad_id": "CIU112",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO159",
+    "nombre": "ORDUÑA",
+    "ciudad_id": "CIU113",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO160",
+    "nombre": "OROZKO",
+    "ciudad_id": "CIU114",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO161",
+    "nombre": "OTEIZA",
+    "ciudad_id": "CIU115",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO162",
+    "nombre": "OTXANDIO",
+    "ciudad_id": "CIU116",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO163",
+    "nombre": "OÑATI",
+    "ciudad_id": "CIU117",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO164",
+    "nombre": "PINILLA DE LOS BARRUECOS",
+    "ciudad_id": "CIU119",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO165",
+    "nombre": "REMONTIVAL",
+    "ciudad_id": "CIU094",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO166",
+    "nombre": "RETEGUI",
+    "ciudad_id": "CIU023",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO167",
+    "nombre": "SAHATSAGA",
+    "ciudad_id": "CIU070",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO168",
+    "nombre": "SANTA MARIA DE LAS HOYAS",
+    "ciudad_id": "CIU120",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO169",
+    "nombre": "SANTANAPE",
+    "ciudad_id": "CIU069",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO170",
+    "nombre": "SANTI BROUARD",
+    "ciudad_id": "CIU091",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO171",
+    "nombre": "SANTO DOMINGO",
+    "ciudad_id": "CIU121",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO172",
+    "nombre": "SARDON",
+    "ciudad_id": "CIU122",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO173",
+    "nombre": "SEGURA",
+    "ciudad_id": "CIU123",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO174",
+    "nombre": "SESTAO",
+    "ciudad_id": "CIU124",
+    "partidos_count": 7
+  },
+  {
+    "id": "FRO175",
+    "nombre": "SOPELA",
+    "ciudad_id": "CIU125",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO176",
+    "nombre": "SORIA",
+    "ciudad_id": "CIU126",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO177",
+    "nombre": "SUNBILLA",
+    "ciudad_id": "CIU127",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO178",
+    "nombre": "TAFALLA",
+    "ciudad_id": "CIU128",
+    "partidos_count": 14
+  },
+  {
+    "id": "FRO179",
+    "nombre": "TOKI EDER",
+    "ciudad_id": "CIU011",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO180",
+    "nombre": "TROBIKA",
+    "ciudad_id": "CIU104",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO181",
+    "nombre": "UARKAPE",
+    "ciudad_id": "CIU015",
+    "partidos_count": 18
+  },
+  {
+    "id": "FRO182",
+    "nombre": "URANZU",
+    "ciudad_id": "CIU079",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO183",
+    "nombre": "URDULIZ",
+    "ciudad_id": "CIU130",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO184",
+    "nombre": "URDUÑA",
+    "ciudad_id": "CIU113",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO185",
+    "nombre": "URRESTILLA",
+    "ciudad_id": "CIU131",
+    "partidos_count": 6
+  },
+  {
+    "id": "FRO186",
+    "nombre": "URRETXU",
+    "ciudad_id": "CIU132",
+    "partidos_count": 8
+  },
+  {
+    "id": "FRO187",
+    "nombre": "URUÑUELA",
+    "ciudad_id": "CIU133",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO188",
+    "nombre": "USANSOLO",
+    "ciudad_id": "CIU134",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO189",
+    "nombre": "VALL D'HEBRON",
+    "ciudad_id": "CIU024",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO190",
+    "nombre": "VIANA",
+    "ciudad_id": "CIU136",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO191",
+    "nombre": "VILLABONA",
+    "ciudad_id": "CIU137",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO192",
+    "nombre": "VILLAVA",
+    "ciudad_id": "CIU138",
+    "partidos_count": 4
+  },
+  {
+    "id": "FRO193",
+    "nombre": "ZALDIBAR",
+    "ciudad_id": "CIU140",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO194",
+    "nombre": "ZALLA",
+    "ciudad_id": "CIU141",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO195",
+    "nombre": "ZARAUTZ",
+    "ciudad_id": "CIU142",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO196",
+    "nombre": "ZEANURI",
+    "ciudad_id": "CIU143",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO197",
+    "nombre": "ZESTOA",
+    "ciudad_id": "CIU144",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO198",
+    "nombre": "ZIERBENA",
+    "ciudad_id": "CIU145",
+    "partidos_count": 3
+  },
+  {
+    "id": "FRO199",
+    "nombre": "ZUBIKOA",
+    "ciudad_id": "CIU117",
+    "partidos_count": 2
+  },
+  {
+    "id": "FRO200",
+    "nombre": "ZUGARRAMURDI",
+    "ciudad_id": "CIU146",
+    "partidos_count": 1
+  },
+  {
+    "id": "FRO201",
+    "nombre": "ZUMAIA",
+    "ciudad_id": "CIU147",
+    "partidos_count": 5
+  },
+  {
+    "id": "FRO202",
+    "nombre": "ZUMARRAGA",
+    "ciudad_id": "CIU148",
+    "partidos_count": 4
+  }
+]

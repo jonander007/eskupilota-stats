@@ -222,6 +222,33 @@ tr:hover td{background:var(--surface2);}
 .activos-toggle input{accent-color:var(--green);width:14px;height:14px;cursor:pointer;}
 .activos-toggle span{transition:color .15s;}
 .activos-toggle:hover span{color:var(--green);}
+
+/* ── Pestañas Activos / Histórico ── */
+.ah-tabs{
+  display:flex;gap:.4rem;margin-bottom:1.1rem;
+  border-bottom:2px solid var(--border);padding-bottom:0;
+}
+.ah-tab{
+  background:none;border:none;
+  font-family:var(--display);font-weight:600;font-size:1rem;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--muted);
+  padding:.65rem 1.2rem;cursor:pointer;
+  border-bottom:3px solid transparent;
+  margin-bottom:-2px;transition:all .15s;
+}
+.ah-tab:hover{color:var(--text-soft);}
+.ah-tab.on{color:var(--green);border-bottom-color:var(--green);}
+
+/* ── Date inputs ── */
+.date-input{
+  font-family:var(--mono);font-size:.7rem;
+  padding:.4rem .6rem;
+  border:1px solid var(--border);border-radius:var(--r-sm);
+  background:#fff;color:var(--text);
+  cursor:pointer;
+}
+.date-input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 2px rgba(0,122,61,.12);}
 /* ── PELOTARIS GROUP HEADERS ── */
 .pel-group-header{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:.02em;padding:.5rem 0 .45rem;border-bottom:2px solid var(--border);margin-bottom:.9rem;margin-top:1.5rem;display:flex;align-items:center;gap:.6rem;text-transform:uppercase;}
 .pel-group-header:first-child{margin-top:0;}
@@ -375,6 +402,32 @@ tr:hover td{background:var(--surface2);}
 .c4-mwins.col{color:var(--red);}.c4-mwins.az{color:#2471a3;}
 .c4-mnombre{font-family:var(--display);font-weight:700;font-size:1.15rem;text-transform:uppercase;}
 .c4-mpj{font-family:var(--mono);font-size:.6rem;color:var(--muted);}
+
+/* ── COMPARADOR H2H UNIFICADO ── */
+.h2h-grid{
+  display:grid;grid-template-columns:1fr auto 1fr;
+  gap:1.2rem;align-items:stretch;
+  margin-bottom:1.4rem;
+}
+.h2h-side{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:1.1rem 1.2rem;
+  border-top:3px solid var(--green);
+}
+.h2h-side-header{display:flex;align-items:center;gap:.55rem;margin-bottom:1rem;}
+.h2h-side-dot{width:10px;height:10px;border-radius:50%;background:var(--green);}
+.h2h-side-title{
+  font-family:var(--display);font-weight:700;font-size:1.1rem;
+  letter-spacing:.02em;text-transform:uppercase;
+}
+.h2h-side select{width:100%;}
+.h2h-vs{
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:700;font-size:2.2rem;
+  color:var(--muted);padding-top:2rem;
+}
 
 /* ── FRONTONES ── */
 .fronton-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
@@ -630,6 +683,8 @@ tr:hover td{background:var(--surface2);}
   .c4-sep{display:none;}
   .comp-inputs{grid-template-columns:1fr;}
   .comp-vs{display:none;}
+  .h2h-grid{grid-template-columns:1fr;gap:.7rem;}
+  .h2h-vs{padding:.3rem 0;font-size:1.6rem;}
   .comp-type-selector{flex-wrap:wrap;gap:.4rem;}
   .ctype-btn{font-size:1rem;padding:.5rem .9rem;}
   .comp-bar{padding:.8rem;}
@@ -665,7 +720,7 @@ tr:hover td{background:var(--surface2);}
     <nav>
       <button onclick="showSec('cartelera',this)">Cartelera</button>
       <button class="active" onclick="showSec('partidos',this)">Resultados</button>
-      <button onclick="showSec('comparador',this)">Comparador</button>
+      <button onclick="showSec('comparador',this)">Comparador H2H</button>
       <button onclick="showSec('pelotaris',this)">Pelotaris</button>
       <button onclick="showSec('frontones',this)">Frontones</button>
       <button onclick="showSec('ranking',this)">Ranking</button>
@@ -688,7 +743,7 @@ tr:hover td{background:var(--surface2);}
   <nav class="drawer-nav">
     <button onclick="showSecFromDrawer('cartelera',0)">Cartelera</button>
     <button class="active" onclick="showSecFromDrawer('partidos',1)">Resultados</button>
-    <button onclick="showSecFromDrawer('comparador',2)">Comparador</button>
+    <button onclick="showSecFromDrawer('comparador',2)">Comparador H2H</button>
     <button onclick="showSecFromDrawer('pelotaris',3)">Pelotaris</button>
     <button onclick="showSecFromDrawer('frontones',4)">Frontones</button>
     <button onclick="showSecFromDrawer('ranking',5)">Ranking</button>
@@ -742,17 +797,28 @@ tr:hover td{background:var(--surface2);}
 <div class="section" id="sec-pelotaris">
   <div class="sec-title">Pelotaris <span class="badge bg" id="badgeIndividual">Individual</span></div>
 
+  <!-- Pestañas Activos / Histórico -->
+  <div class="ah-tabs">
+    <button class="ah-tab on" id="ahtab-pel-act"  onclick="setActivosTab('pel', true, this)">⚡ Activos</button>
+    <button class="ah-tab"    id="ahtab-pel-hist" onclick="setActivosTab('pel', false, this)">📜 Histórico</button>
+  </div>
+
   <div class="filter-panel">
     <div class="filter-row">
       <div class="fg"><span class="flabel">Modalidad</span><div class="tipo-pills" id="pillsPel"></div></div>
     </div>
     <div class="filter-row">
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsPel"></div></div>
-      <div class="fg" style="margin-left:auto;justify-content:flex-end;gap:.8rem;flex-direction:row;align-items:center;">
-        <label class="activos-toggle">
-          <input type="checkbox" id="pActivosCheck" onchange="filterActivos=this.checked;document.getElementById('rkActivosCheck').checked=this.checked;renderPCards()">
-          <span id="soloActivosLblPel">Solo activos</span>
-        </label>
+    </div>
+    <div class="filter-row">
+      <div class="fg" style="gap:.5rem;flex-direction:row;flex-wrap:wrap;align-items:center;">
+        <span class="flabel" style="margin-right:.4rem">Rango fechas</span>
+        <input type="date" class="date-input" id="pDateDesde" onchange="setDateRange('pel','desde',this.value)">
+        <span style="font-family:var(--mono);font-size:.62rem;color:var(--muted)">→</span>
+        <input type="date" class="date-input" id="pDateHasta" onchange="setDateRange('pel','hasta',this.value)">
+        <button class="btn-ghost" onclick="clearDateRange('pel')" id="pDateClear" style="display:none;">✕ Limpiar</button>
+      </div>
+      <div class="fg" style="margin-left:auto;justify-content:flex-end;">
         <input type="text" id="pSearch" class="wide" placeholder="Buscar pelotari…" oninput="renderPCards()">
       </div>
     </div>
@@ -771,17 +837,27 @@ tr:hover td{background:var(--surface2);}
 <!-- ══ RANKING ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-ranking">
   <div class="sec-title">Ranking <span class="badge bg">Pelotaris</span></div>
+
+  <!-- Pestañas Activos / Histórico -->
+  <div class="ah-tabs">
+    <button class="ah-tab on" id="ahtab-rk-act"  onclick="setActivosTab('rk', true, this)">⚡ Activos</button>
+    <button class="ah-tab"    id="ahtab-rk-hist" onclick="setActivosTab('rk', false, this)">📜 Histórico</button>
+  </div>
+
   <div class="filter-panel">
     <div class="filter-row">
       <div class="fg"><span class="flabel">Modalidad</span><div class="tipo-pills" id="pillsRk"></div></div>
     </div>
     <div class="filter-row">
       <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsRk"></div></div>
-      <div class="fg" style="justify-content:flex-end;align-self:flex-end;">
-        <label class="activos-toggle">
-          <input type="checkbox" id="rkActivosCheck" onchange="filterActivos=this.checked;document.getElementById('pActivosCheck').checked=this.checked;buildRanking()">
-          <span id="soloActivosLblRk">Solo activos</span>
-        </label>
+    </div>
+    <div class="filter-row">
+      <div class="fg" style="gap:.5rem;flex-direction:row;flex-wrap:wrap;align-items:center;">
+        <span class="flabel" style="margin-right:.4rem">Rango fechas</span>
+        <input type="date" class="date-input" id="rkDateDesde" onchange="setDateRange('rk','desde',this.value)">
+        <span style="font-family:var(--mono);font-size:.62rem;color:var(--muted)">→</span>
+        <input type="date" class="date-input" id="rkDateHasta" onchange="setDateRange('rk','hasta',this.value)">
+        <button class="btn-ghost" onclick="clearDateRange('rk')" id="rkDateClear" style="display:none;">✕ Limpiar</button>
       </div>
     </div>
   </div>
@@ -799,80 +875,75 @@ tr:hover td{background:var(--surface2);}
 
 <!-- ══ COMPARADOR ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-comparador">
-  <div class="sec-title">Comparador</div>
+  <div class="sec-title">Comparador H2H</div>
 
-  <!-- Selector de tipo -->
-  <div class="comp-type-selector">
-    <button class="ctype-btn on" onclick="setCompType('h2h',this)">Head to Head</button>
-    <button class="ctype-btn" onclick="setCompType('parejas',this)">Comparador Parejas</button>
-  </div>
-
-  <!-- Panel H2H -->
-  <div class="comp-panel active" id="panel-h2h">
-    <div class="comp-box">
-      <div class="comp-inputs">
-        <div>
-          <div class="flabel" style="margin-bottom:.35rem">Pelotari 1</div>
-          <select id="h2hP1" style="width:100%;" onchange="renderH2H()"><option value="">— Selecciona —</option></select>
+  <!-- Formulario unificado: cada lado tiene delantero (obligatorio) + zaguero (opcional) -->
+  <div class="comp-box">
+    <div class="h2h-grid">
+      <div class="h2h-side">
+        <div class="h2h-side-header">
+          <span class="h2h-side-dot"></span>
+          <span class="h2h-side-title" id="h2hLblA">Lado A</span>
         </div>
-        <div class="comp-vs">VS</div>
-        <div>
-          <div class="flabel" style="margin-bottom:.35rem">Pelotari 2</div>
-          <select id="h2hP2" style="width:100%;" onchange="renderH2H()"><option value="">— Selecciona —</option></select>
+        <div class="fg">
+          <span class="flabel">Delantero / Individual</span>
+          <select id="h2hDelA" onchange="renderH2HUnificado()">
+            <option value="">— Selecciona —</option>
+          </select>
+        </div>
+        <div class="fg" style="margin-top:.7rem;">
+          <span class="flabel">Zaguero (opcional)</span>
+          <select id="h2hZagA" onchange="renderH2HUnificado()">
+            <option value="">— Cualquiera —</option>
+          </select>
         </div>
       </div>
-      <!-- Filtros modalidad + serie + año -->
-      <div class="comp-filter-bar">
-        <div class="comp-mod-row" style="margin-bottom:.7rem;">
-          <span class="comp-mod-label">Modalidad</span>
-          <button class="comp-mod-btn on"    data-mod="todas"       onclick="setH2HMod('todas')">Todas</button>
-          <button class="comp-mod-btn"       data-mod="parejas"     onclick="setH2HMod('parejas')">Parejas</button>
-          <button class="comp-mod-btn"       data-mod="manomanista" onclick="setH2HMod('manomanista')">Manomanista</button>
-          <button class="comp-mod-btn"       data-mod="cuatro"      onclick="setH2HMod('cuatro')">4 y Medio</button>
+      <div class="h2h-vs"><span>VS</span></div>
+      <div class="h2h-side">
+        <div class="h2h-side-header">
+          <span class="h2h-side-dot"></span>
+          <span class="h2h-side-title" id="h2hLblB">Lado B</span>
         </div>
-        <div class="comp-mod-row" style="margin-bottom:.7rem;">
-          <span class="comp-mod-label">Serie</span>
-          <div class="comp-sub-pills">
-            <button class="comp-sub-pill on" data-serie="todas"    onclick="setH2HSerie('todas')">Todas</button>
-            <button class="comp-sub-pill"    data-serie="a"        onclick="setH2HSerie('a')">Serie A</button>
-            <button class="comp-sub-pill"    data-serie="b"        onclick="setH2HSerie('b')">Serie B</button>
-            <button class="comp-sub-pill"    data-serie="festival" onclick="setH2HSerie('festival')">Festivales</button>
-          </div>
+        <div class="fg">
+          <span class="flabel">Delantero / Individual</span>
+          <select id="h2hDelB" onchange="renderH2HUnificado()">
+            <option value="">— Selecciona —</option>
+          </select>
         </div>
-        <div class="comp-mod-row">
-          <span class="comp-mod-label">Año</span>
-          <div class="year-pills" id="yearPillsH2H"></div>
+        <div class="fg" style="margin-top:.7rem;">
+          <span class="flabel">Zaguero (opcional)</span>
+          <select id="h2hZagB" onchange="renderH2HUnificado()">
+            <option value="">— Cualquiera —</option>
+          </select>
         </div>
-      </div>
-      <div id="h2hRes"><div class="nodata"><div class="ic">🏸</div>Selecciona dos pelotaris distintos</div></div>
-    </div>
-  </div>
-
-  <!-- Panel Comparador Parejas -->
-  <div class="comp-panel" id="panel-parejas">
-    <div class="filter-panel" style="margin-bottom:1rem;">
-      <div class="filter-row">
-        <div class="fg"><span class="flabel">Año</span><div class="year-pills" id="yearPillsC4"></div></div>
       </div>
     </div>
-    <div class="c4-grid">
-      <div class="c4-eq colorado">
-        <div class="eq-header"><div class="eq-dot"></div><div class="eq-title">PAREJA COLORADA</div></div>
-        <span class="c4-lbl">Delantero</span>
-        <select id="c4d1" onchange="c4DelanteroChange(1)"><option value="">— Selecciona delantero —</option></select>
-        <span class="c4-lbl">Zaguero</span>
-        <select id="c4z1" onchange="renderC4()"><option value="">— Cualquier zaguero —</option></select>
+
+    <!-- Filtros modalidad + serie + año -->
+    <div class="comp-filter-bar">
+      <div class="comp-mod-row" style="margin-bottom:.7rem;">
+        <span class="comp-mod-label">Modalidad</span>
+        <button class="comp-mod-btn on"    data-mod="todas"       onclick="setH2HMod('todas')">Todas</button>
+        <button class="comp-mod-btn"       data-mod="parejas"     onclick="setH2HMod('parejas')">Parejas</button>
+        <button class="comp-mod-btn"       data-mod="manomanista" onclick="setH2HMod('manomanista')">Manomanista</button>
+        <button class="comp-mod-btn"       data-mod="cuatro"      onclick="setH2HMod('cuatro')">4 y Medio</button>
       </div>
-      <div class="c4-sep"><span style="font-family:var(--display);font-size:2.8rem;color:var(--muted)">VS</span></div>
-      <div class="c4-eq azul">
-        <div class="eq-header"><div class="eq-dot"></div><div class="eq-title">PAREJA AZUL</div></div>
-        <span class="c4-lbl">Delantero</span>
-        <select id="c4d2" onchange="c4DelanteroChange(2)"><option value="">— Selecciona delantero —</option></select>
-        <span class="c4-lbl">Zaguero</span>
-        <select id="c4z2" onchange="renderC4()"><option value="">— Cualquier zaguero —</option></select>
+      <div class="comp-mod-row" style="margin-bottom:.7rem;">
+        <span class="comp-mod-label">Serie</span>
+        <div class="comp-sub-pills">
+          <button class="comp-sub-pill on" data-serie="todas"    onclick="setH2HSerie('todas')">Todas</button>
+          <button class="comp-sub-pill"    data-serie="a"        onclick="setH2HSerie('a')">Serie A</button>
+          <button class="comp-sub-pill"    data-serie="b"        onclick="setH2HSerie('b')">Serie B</button>
+          <button class="comp-sub-pill"    data-serie="festival" onclick="setH2HSerie('festival')">Festivales</button>
+        </div>
+      </div>
+      <div class="comp-mod-row">
+        <span class="comp-mod-label">Año</span>
+        <div class="year-pills" id="yearPillsH2H"></div>
       </div>
     </div>
-    <div id="c4Res"></div>
+
+    <div id="h2hRes"><div class="nodata"><div class="ic">🏸</div>Selecciona un pelotari en cada lado</div></div>
   </div>
 </div>
 
@@ -897,7 +968,6 @@ tr:hover td{background:var(--surface2);}
 <!-- ══ CARTELERA ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-cartelera">
   <div class="sec-title">Cartelera <span class="badge bg" id="carteleraBadge"></span></div>
-  <div class="cart-hint" id="carteleraHint">Cargando…</div>
   <div id="carteleraContainer"><div class="cart-loading">⟳ Cargando cartelera…</div></div>
 </div>
 
@@ -956,12 +1026,44 @@ const ZAGUEROS = new Set([
   'GABIRONDO','BIKUÑA','EROSTARBE','ALDABE','LIZEAGA','ELIZEGI','TOLOSA','LOZA','LANDA'
 ]);
 
+// ════════════════════════════════════════════════════════════
+// PESTAÑAS ACTIVOS / HISTÓRICO + RANGO DE FECHAS
+// ════════════════════════════════════════════════════════════
+function setActivosTab(scope, activos, btn){
+  filterActivos = activos;
+  // Actualizar las dos pestañas (en pelotaris y en ranking) para que estén sincronizadas
+  document.querySelectorAll('.ah-tab').forEach(b=>b.classList.remove('on'));
+  document.getElementById('ahtab-pel-act').classList.toggle('on', activos);
+  document.getElementById('ahtab-pel-hist').classList.toggle('on', !activos);
+  document.getElementById('ahtab-rk-act').classList.toggle('on', activos);
+  document.getElementById('ahtab-rk-hist').classList.toggle('on', !activos);
+  renderPCards();
+  buildRanking();
+}
+
+function setDateRange(scope, key, value){
+  const range = scope==='pel' ? dateRangePel : dateRangeRk;
+  range[key] = value;
+  document.getElementById(scope+'DateClear').style.display =
+    (range.desde || range.hasta) ? 'inline-block' : 'none';
+  if(scope==='pel') renderPCards(); else buildRanking();
+}
+
+function clearDateRange(scope){
+  const range = scope==='pel' ? dateRangePel : dateRangeRk;
+  range.desde = ''; range.hasta = '';
+  document.getElementById(scope+'DateDesde').value = '';
+  document.getElementById(scope+'DateHasta').value = '';
+  document.getElementById(scope+'DateClear').style.display = 'none';
+  if(scope==='pel') renderPCards(); else buildRanking();
+}
+
 function getActivePlayers(){
-  // Activo = al menos un partido en los últimos 3 meses desde el partido más reciente
+  // Activo = al menos un partido en los últimos 6 meses desde el partido más reciente
   if(!PARTIDOS.length) return new Set();
   function parseFecha(f){ try{const[d,m,y]=f.split('/');return new Date(+y,+m-1,+d);}catch{return new Date(0);} }
   const latest = PARTIDOS.reduce((mx,p)=>{ const dt=parseFecha(p.fecha); return dt>mx?dt:mx; }, new Date(0));
-  const cutoff = new Date(latest); cutoff.setMonth(cutoff.getMonth()-3);
+  const cutoff = new Date(latest); cutoff.setMonth(cutoff.getMonth()-6);
   const active = new Set();
   PARTIDOS.forEach(p=>{
     if(parseFecha(p.fecha) < cutoff) return;
@@ -985,6 +1087,25 @@ let activeYearPel='todos', activeYearRk='todos', activeYearH2H='todos', activeYe
 let h2hMod='todas', h2hSerie='todas';
 let compType='h2h';
 let activeTipoFron='todos';
+// Filtros de fecha personalizados (formato 'YYYY-MM-DD' o '')
+let dateRangePel = {desde:'', hasta:''};
+let dateRangeRk  = {desde:'', hasta:''};
+
+function _parseFechaDDMMYYYY(f){ try{const[d,m,y]=f.split('/');return new Date(+y,+m-1,+d);}catch{return new Date(0);} }
+function _parseFechaISO(s){ if(!s) return null; const[y,m,d]=s.split('-'); return new Date(+y,+m-1,+d); }
+// Devuelve true si la fecha del partido está dentro del rango (o si no hay rango)
+function partidoEnRango(p, range){
+  if(!range || (!range.desde && !range.hasta)) return true;
+  const f = _parseFechaDDMMYYYY(p.fecha);
+  const desde = _parseFechaISO(range.desde);
+  const hasta = _parseFechaISO(range.hasta);
+  if(desde && f < desde) return false;
+  if(hasta){ // incluir el día 'hasta' completo
+    const finDia = new Date(hasta); finDia.setHours(23,59,59,999);
+    if(f > finDia) return false;
+  }
+  return true;
+}
 
 
 function normalizeComp(c){
@@ -1094,7 +1215,7 @@ const I18N = {
     // Nav
     nav_cartelera: 'Cartelera',
     nav_resultados: 'Resultados',
-    nav_comparador: 'Comparador',
+    nav_comparador: 'Comparador H2H',
     nav_pelotaris: 'Pelotaris',
     nav_frontones: 'Frontones',
     nav_ranking: 'Ranking',
@@ -1120,7 +1241,7 @@ const I18N = {
     th_equipo1: 'Equipo 1', th_marcador: 'Marcador', th_equipo2: 'Equipo 2', th_comp: 'Competición',
     // Secciones
     sec_partidos: 'Partidos', sec_pelotaris: 'Pelotaris', sec_ranking: 'Ranking',
-    sec_comparador: 'Comparador', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
+    sec_comparador: 'Comparador H2H', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
     sec_contacto: 'Contacto',
     // Pelotaris
     lbl_victorias: 'Victorias', lbl_partidos: 'Partidos', lbl_pct_vic: '% Vic',
@@ -1187,6 +1308,10 @@ const I18N = {
     // Perfil
     lbl_ultimos: 'Últimos partidos',
     lbl_solo_activos: 'Solo activos',
+    tab_activos: '⚡ Activos',
+    tab_historico: '📜 Histórico',
+    lbl_rango_fechas: 'Rango fechas',
+    lbl_limpiar: '✕ Limpiar',
     lbl_individual: 'Individual',
     // H2H
     h2h_pts_partido: 'pts/partido',
@@ -1209,7 +1334,7 @@ const I18N = {
   eu: {
     nav_cartelera: 'Kartelera',
     nav_resultados: 'Emaitzak',
-    nav_comparador: 'Konparatzailea',
+    nav_comparador: 'Konparatzailea H2H',
     nav_pelotaris: 'Pilotariak',
     nav_frontones: 'Frontoiak',
     nav_ranking: 'Sailkapena',
@@ -1230,7 +1355,7 @@ const I18N = {
     th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
     sec_partidos: 'Partidak', sec_pelotaris: 'Pilotariak', sec_ranking: 'Sailkapena',
-    sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
+    sec_comparador: 'Konparatzailea H2H', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
     sec_contacto: 'Kontaktua',
     lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
     lbl_derrotas: 'Porroak', lbl_pts_p: 'Puntu/partida', lbl_diferencia: 'Aldea',
@@ -1278,7 +1403,17 @@ function setLang(lang){
   LANG = lang;
   document.getElementById('langEs').classList.toggle('active', lang==='es');
   document.getElementById('langEu').classList.toggle('active', lang==='eu');
-  applyI18N();
+  // Si hay catálogos cargados, recargar los nombres de ciudad según idioma
+  if (Object.keys(CAT_CIUDADES).length && PARTIDOS.length) {
+    fetch('data/partidos.json').then(r=>r.json()).then(par=>{
+      if (par.length && par[0].equipo1 && 'del_id' in par[0].equipo1) {
+        PARTIDOS = par.map(partidoFromCatalogo);
+      }
+      applyI18N();
+    }).catch(()=>applyI18N());
+  } else {
+    applyI18N();
+  }
 }
 
 function rebuildCompFilter(){
@@ -1422,12 +1557,79 @@ function applyI18N(){
 // ════════════════════════════════════════════════════════════
 // CARGA
 // ════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════
+// CATÁLOGOS MAESTROS (v2 — datos normalizados con IDs)
+// ════════════════════════════════════════════════════════════
+let CAT_PELOTARIS = {}, CAT_FRONTONES = {}, CAT_CIUDADES = {}, CAT_COMPETICIONES = {};
+
 async function loadData(){
-  try{const r=await fetch('data/partidos.json');PARTIDOS=await r.json();}
-  catch{PARTIDOS=[];}
-  PARTIDOS=PARTIDOS.map(normPartido);
+  // Intentar cargar modelo nuevo (catálogos). Si falla, caer al antiguo.
+  try{
+    const [pels, ciu, fro, cmp, par] = await Promise.all([
+      fetch('data/pelotaris.json').then(r=>r.json()),
+      fetch('data/ciudades.json').then(r=>r.json()),
+      fetch('data/frontones.json').then(r=>r.json()),
+      fetch('data/competiciones.json').then(r=>r.json()),
+      fetch('data/partidos.json').then(r=>r.json()),
+    ]);
+    // Verificar que es el formato nuevo (partidos con del_id)
+    if (par.length && par[0].equipo1 && 'del_id' in par[0].equipo1) {
+      CAT_PELOTARIS     = Object.fromEntries(pels.map(o=>[o.id,o]));
+      CAT_CIUDADES      = Object.fromEntries(ciu .map(o=>[o.id,o]));
+      CAT_FRONTONES     = Object.fromEntries(fro .map(o=>[o.id,o]));
+      CAT_COMPETICIONES = Object.fromEntries(cmp .map(o=>[o.id,o]));
+      PARTIDOS = par.map(partidoFromCatalogo);
+    } else {
+      // Formato antiguo plano
+      PARTIDOS = par.map(normPartido);
+    }
+  } catch(e) {
+    console.warn('Fallback a partidos.json plano:', e);
+    try{
+      const r = await fetch('data/partidos.json');
+      PARTIDOS = (await r.json()).map(normPartido);
+    } catch { PARTIDOS = []; }
+  }
+
   buildPelotaris();
   init();
+}
+
+// Convierte un partido del nuevo modelo (con IDs) al formato plano que
+// consume todo el resto del código. Esta función es la ÚNICA capa de
+// compatibilidad: así no hay que tocar las 1.500 líneas de render.
+function partidoFromCatalogo(p){
+  const pel = id => (CAT_PELOTARIS[id]||{}).nombre || null;
+  const fro = CAT_FRONTONES[p.fronton_id] || {};
+  const ciu = CAT_CIUDADES[fro.ciudad_id] || {};
+  const cmp = CAT_COMPETICIONES[p.competicion_id] || {};
+  // fecha en ISO → dd/mm/yyyy
+  let fecha = p.fecha || '';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(fecha)) {
+    const [y,m,d] = fecha.split('-');
+    fecha = `${d}/${m}/${y}`;
+  }
+  return {
+    fecha,
+    fronton: fro.nombre || '',
+    ciudad:  nombreCiudadI18N(ciu),
+    provincia: '',
+    tipo: p.tipo || cmp.tipo || '',
+    competicion: cmp.nombre || '',
+    equipo1: {delantero: pel(p.equipo1?.del_id), zaguero: pel(p.equipo1?.zag_id)},
+    puntos1: p.puntos1,
+    equipo2: {delantero: pel(p.equipo2?.del_id), zaguero: pel(p.equipo2?.zag_id)},
+    puntos2: p.puntos2,
+    ganador: p.ganador
+  };
+}
+
+// Resuelve el nombre de ciudad según el idioma actual
+function nombreCiudadI18N(ciu){
+  if (!ciu || !ciu.nombre) return '';
+  if (LANG === 'eu' && ciu.nombre_eu) return (ciu.nombre_eu || '').toUpperCase();
+  if (LANG === 'es' && ciu.nombre_es) return (ciu.nombre_es || '').toUpperCase();
+  return ciu.nombre;
 }
 
 function normPartido(p){
@@ -1502,7 +1704,6 @@ function init(){
   renderTabla();
   buildH2HSels();
   renderPCards();
-  populateC4Sels();
   renderFrontones();
   buildRanking();
   applyI18N();
@@ -1766,7 +1967,9 @@ function toggleMCard(header){
 function renderPCards(){
   const q=(document.getElementById('pSearch').value||'').toLowerCase();
   closePerfil();
-  const parts=filtByTipoYear(activeTipo,activeYearPel);
+  let parts=filtByTipoYear(activeTipo,activeYearPel);
+  // Filtrado por rango de fechas
+  parts = parts.filter(p=>partidoEnRango(p, dateRangePel));
   const st=calcStats(parts);
   const activePlayers = filterActivos ? getActivePlayers() : null;
   let ns=Object.keys(st).filter(n=>{
@@ -2025,7 +2228,7 @@ let activeRkTab = 'victorias';
 let _perfilNombre = '';
 let _perfilPage = 1;
 const PERFIL_PAGE_SIZE = 10;
-let filterActivos = false;
+let filterActivos = true;
 
 function setRkTab(tab, btn){
   activeRkTab = tab;
@@ -2035,7 +2238,9 @@ function setRkTab(tab, btn){
 }
 
 function buildRanking(){
-  const parts = filtByTipoYear(activeTipo, activeYearRk);
+  let parts = filtByTipoYear(activeTipo, activeYearRk);
+  // Filtrado por rango de fechas
+  parts = parts.filter(p=>partidoEnRango(p, dateRangeRk));
   const el = document.getElementById('rkContent');
 
   // Helper: render a single ranking card
@@ -2215,13 +2420,28 @@ function setCompType(type,btn){
 }
 
 // ════════════════════════════════════════════════════════════
-// H2H
+// H2H UNIFICADO (individual o parejas, zaguero opcional en cada lado)
 // ════════════════════════════════════════════════════════════
 function buildH2HSels(){
-  const ns=Object.keys(PELOTARIS).sort();
-  ['h2hP1','h2hP2'].forEach(id=>{
+  // Delanteros disponibles (los que aparecen como delantero en algún partido)
+  const dels=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
+    .filter(Boolean).sort();
+  // Zagueros disponibles
+  const zags=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
+    .filter(Boolean).sort();
+
+  ['h2hDelA','h2hDelB'].forEach(id=>{
     const s=document.getElementById(id);
-    ns.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+    if(!s) return;
+    // Limpiar salvo la primera opción placeholder
+    while(s.options.length>1) s.remove(1);
+    dels.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  });
+  ['h2hZagA','h2hZagB'].forEach(id=>{
+    const s=document.getElementById(id);
+    if(!s) return;
+    while(s.options.length>1) s.remove(1);
+    zags.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
   });
 }
 
@@ -2230,21 +2450,20 @@ function setH2HMod(mod){
   document.querySelectorAll('.comp-mod-btn').forEach(b=>b.classList.remove('on','on-mano','on-cuatro'));
   const cls=mod==='manomanista'?'on-mano':mod==='cuatro'?'on-cuatro':'on';
   document.querySelector(`.comp-mod-btn[data-mod="${mod}"]`)?.classList.add(cls);
-  // Hide serie filter when 'todas' selected
-  const serieRow = document.querySelector('.comp-mod-row:nth-child(2)');
+  const serieRow = document.querySelector('#sec-comparador .comp-mod-row:nth-child(2)');
   if(serieRow) serieRow.style.opacity = mod==='todas'?'0.35':'1';
-  renderH2H();
+  renderH2HUnificado();
 }
 
 function setH2HSerie(serie){
   h2hSerie=serie;
   document.querySelectorAll('.comp-sub-pill').forEach(b=>b.classList.remove('on'));
   document.querySelector(`.comp-sub-pill[data-serie="${serie}"]`)?.classList.add('on');
-  renderH2H();
+  renderH2HUnificado();
 }
 
 function h2hTipos(){
-  if(h2hMod==='todas') return null; // null = no filter = all types
+  if(h2hMod==='todas') return null;
   const MAP={
     parejas:{todas:['campeonato-a','campeonato-b','festival'],a:['campeonato-a'],b:['campeonato-b'],festival:['festival']},
     manomanista:{todas:['manomanista-a','manomanista-b','manomanista','festival-mano'],a:['manomanista-a'],b:['manomanista-b'],festival:['festival-mano','manomanista']},
@@ -2253,17 +2472,50 @@ function h2hTipos(){
   return MAP[h2hMod]?.[h2hSerie]||null;
 }
 
-function renderH2H(){
-  const p1=document.getElementById('h2hP1').value;
-  const p2=document.getElementById('h2hP2').value;
+// Comprueba si un equipo contiene todos los pelotaris de `lado`.
+// lado = {del, zag}  (zag puede estar vacío → solo importa que el del aparezca)
+function equipoIncluye(eq, lado){
+  if(!eq||!lado.del) return false;
+  const jugs=pels(eq);
+  if(!jugs.includes(lado.del)) return false;
+  if(lado.zag && !jugs.includes(lado.zag)) return false;
+  return true;
+}
+
+// Etiqueta bonita para un lado
+function labelLado(lado){
+  if(!lado.del) return '';
+  if(lado.zag) return `${lado.del} / ${lado.zag}`;
+  return lado.del;
+}
+
+function renderH2HUnificado(){
+  const ladoA={del:document.getElementById('h2hDelA').value, zag:document.getElementById('h2hZagA').value};
+  const ladoB={del:document.getElementById('h2hDelB').value, zag:document.getElementById('h2hZagB').value};
   const el=document.getElementById('h2hRes');
-  if(!p1||!p2||p1===p2){el.innerHTML=`<div class="nodata"><div class="ic">🏸</div>${t('h2h_sin_sel')}</div>`;return;}
+
+  // Actualizar títulos de los lados
+  document.getElementById('h2hLblA').textContent = labelLado(ladoA) || 'Lado A';
+  document.getElementById('h2hLblB').textContent = labelLado(ladoB) || 'Lado B';
+
+  if(!ladoA.del||!ladoB.del){
+    el.innerHTML=`<div class="nodata"><div class="ic">🏸</div>Selecciona al menos un delantero en cada lado</div>`;
+    return;
+  }
+  // Mismo delantero en ambos lados solo tiene sentido si hay zagueros distintos
+  if(ladoA.del===ladoB.del && ladoA.zag===ladoB.zag){
+    el.innerHTML=`<div class="nodata"><div class="ic">⚠️</div>Los dos lados son idénticos</div>`;
+    return;
+  }
 
   const tipos=h2hTipos();
   const enfs=PARTIDOS.filter(p=>{
     if(activeYearH2H!=='todos'&&getYear(p)!==activeYearH2H) return false;
-    const e1=pels(p.equipo1),e2=pels(p.equipo2);
-    const enfrentan=(e1.includes(p1)&&e2.includes(p2))||(e1.includes(p2)&&e2.includes(p1));
+    const AenE1=equipoIncluye(p.equipo1,ladoA);
+    const BenE2=equipoIncluye(p.equipo2,ladoB);
+    const AenE2=equipoIncluye(p.equipo2,ladoA);
+    const BenE1=equipoIncluye(p.equipo1,ladoB);
+    const enfrentan=(AenE1&&BenE2)||(AenE2&&BenE1);
     if(!enfrentan) return false;
     if(tipos) return tipos.includes(p.tipo);
     return true;
@@ -2271,60 +2523,73 @@ function renderH2H(){
 
   const modLbl={todas:t('tipo_todos'),parejas:t('tipo_parejas'),manomanista:t('tipo_mano'),cuatro:t('tipo_cuatro')}[h2hMod]||t('tipo_todos');
   const serieLbl={todas:t('serie_todas'),a:t('serie_a'),b:t('serie_b'),festival:t('serie_fest')}[h2hSerie];
+  const nomA=labelLado(ladoA), nomB=labelLado(ladoB);
 
   if(!enfs.length){
-    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>${t('nodata_h2h')} <strong>${modLbl} — ${serieLbl}</strong></div>`;
+    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>Sin enfrentamientos entre <strong>${nomA}</strong> y <strong>${nomB}</strong> <em>(${modLbl} — ${serieLbl})</em></div>`;
     return;
   }
 
-  let w1=0,w2=0,pf1=0,pf2=0;
+  // Calcular victorias y puntos
+  let wA=0,wB=0,pfA=0,pfB=0;
   enfs.forEach(p=>{
-    const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
-    const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
-    pf1+=a;pf2+=b;
-    if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
+    const AenE1=equipoIncluye(p.equipo1,ladoA);
+    const a=AenE1?p.puntos1:p.puntos2, b=AenE1?p.puntos2:p.puntos1;
+    pfA+=a; pfB+=b;
+    if((AenE1&&p.ganador==='equipo1')||(!AenE1&&p.ganador==='equipo2')) wA++; else wB++;
   });
 
-  const esMano=h2hMod==='manomanista' && h2hSerie!=='todas';
+  // Si ambos lados son 1 solo jugador Y modo manomanista+serie fija → omitir columnas de compañeros
+  const ambosIndividuales = !ladoA.zag && !ladoB.zag;
+  const esMano = ambosIndividuales && h2hMod==='manomanista' && h2hSerie!=='todas';
+
   const filas=enfs.map(p=>{
-    const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
-    const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
-    const gP1=(p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2');
-    const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
-    const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
-    const _tag=TTAG[p.tipo];const ti=_tag?{cls:_tag.cls,lbl:t(_tag.lbl)}:{cls:'',lbl:p.tipo};
+    const AenE1=equipoIncluye(p.equipo1,ladoA);
+    const a=AenE1?p.puntos1:p.puntos2, b=AenE1?p.puntos2:p.puntos1;
+    const gA=(AenE1&&p.ganador==='equipo1')||(!AenE1&&p.ganador==='equipo2');
+    // Compañeros (los que están en el equipo del lado A/B y no son ni del ni zag seleccionados)
+    const excluir = [ladoA.del, ladoA.zag].filter(Boolean);
+    const excluirB = [ladoB.del, ladoB.zag].filter(Boolean);
+    const compA = (AenE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>!excluir.includes(n)).join('/')||'—';
+    const compB = (AenE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>!excluirB.includes(n)).join('/')||'—';
+    const _tag=TTAG[p.tipo]; const ti=_tag?{cls:_tag.cls,lbl:t(_tag.lbl)}:{cls:'',lbl:p.tipo};
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td>${p.fronton}</td>
-      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
-      <td style="color:var(--red);font-weight:${gP1?800:400};font-family:var(--mono)">${a}</td>
+      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${compA}</td>`}
+      <td style="color:var(--green);font-weight:${gA?800:400};font-family:var(--mono)">${a}</td>
       <td style="color:var(--muted);text-align:center">—</td>
-      <td style="color:#2471a3;font-weight:${!gP1?800:400};font-family:var(--mono)">${b}</td>
-      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
+      <td style="color:var(--green-dark);font-weight:${!gA?800:400};font-family:var(--mono)">${b}</td>
+      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${compB}</td>`}
     </tr>`;
   }).join('');
 
   el.innerHTML=`
     <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
     <div class="comp-bar">
-      <div><div class="comp-nm" style="color:var(--red)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
+      <div><div class="comp-nm" style="color:var(--green)">${nomA}</div><div class="comp-wins izq">${wA}</div><div class="comp-sb">${(pfA/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
       <div><div class="comp-pj">${enfs.length} PJ</div></div>
-      <div><div class="comp-nm" style="color:#2471a3">${p2}</div><div class="comp-wins der">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
+      <div><div class="comp-nm" style="color:var(--green-dark)">${nomB}</div><div class="comp-wins der" style="color:var(--green-dark)">${wB}</div><div class="comp-sb">${(pfB/enfs.length).toFixed(1)} pts/partido</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
       <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-      ${esMano?'':`<th>Comp. ${p1}</th>`}
-      <th>${p1}</th><th></th><th>${p2}</th>
-      ${esMano?'':`<th>Comp. ${p2}</th>`}
+      ${esMano?'':`<th>Comp. ${nomA}</th>`}
+      <th>${nomA}</th><th></th><th>${nomB}</th>
+      ${esMano?'':`<th>Comp. ${nomB}</th>`}
     </tr></thead><tbody>${filas}</tbody></table></div>
     <div class="m-card">${renderMobileCardsHTML(enfs)}</div>`;
 }
+
+// Mantener alias por compatibilidad con llamadas antiguas
+function renderH2H(){ renderH2HUnificado(); }
 
 // ════════════════════════════════════════════════════════════
 // COMPARADOR 4
 // ════════════════════════════════════════════════════════════
 function populateC4Sels(){
+  // Comparador obsoleto
+  if(!document.getElementById('c4d1')) return;
   // Solo delanteros conocidos que además tienen partidos en el JSON
   const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
     .filter(Boolean)
@@ -2348,6 +2613,7 @@ function populateC4Sels(){
 }
 
 function c4DelanteroChange(num){
+  if(!document.getElementById('c4d'+num)) return;
   const del=document.getElementById('c4d'+num).value;
   const zagSel=document.getElementById('c4z'+num);
   // Contar partidos jugados con este delantero para mostrar frecuencia
@@ -2564,6 +2830,8 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
 }
 
 function renderC4(){
+  // Comparador de parejas obsoleto: unificado en renderH2HUnificado()
+  if(!document.getElementById('c4d1')) return;
   const d1=document.getElementById('c4d1').value||null;
   const z1=document.getElementById('c4z1').value||null;
   const d2=document.getElementById('c4d2').value||null;
@@ -2692,7 +2960,6 @@ async function loadCartelera(){
     renderCartelera(data);
     cartelaraLoaded = true;
   } catch(e){
-    document.getElementById('carteleraHint').style.display='none';
     el.innerHTML = `<div class="cart-error">
       <div class="cart-error-title">No se encontró data/cartelera.json</div>
       <div class="cart-error-body">
@@ -2710,8 +2977,6 @@ function renderCartelera(data){
   const el = document.getElementById('carteleraContainer');
   const eventos = data.partidos || [];
   document.getElementById('carteleraBadge').textContent = eventos.length + ' ' + t('cart_eventos');
-  const hint = document.getElementById('carteleraHint');
-  hint.innerHTML = `${t('cart_fuente')}: <a href="${data.fuente||'#'}" target="_blank" style="color:var(--green)">${data.fuente||'baikopilota.eus'}</a> · ${t('cart_actualizado')}: <strong>${data.actualizado||'—'}</strong>&nbsp;&nbsp;<button class="btn-ghost" onclick="cartelaraLoaded=false;loadCartelera()" style="font-size:.55rem;padding:.2rem .55rem">↻ Recargar</button>`;
   if(!eventos.length){
     el.innerHTML=`<div class="nodata"><div class="ic">📅</div>${t('cart_no_partidos')}</div>`;
     return;

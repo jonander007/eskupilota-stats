@@ -1,0 +1,1400 @@
+[
+  {
+    "id": "COMP001",
+    "nombre": "Campeonato 4 1/2 Serie A 2024",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 20
+  },
+  {
+    "id": "COMP002",
+    "nombre": "Campeonato 4 1/2 Serie A 2025",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 19
+  },
+  {
+    "id": "COMP003",
+    "nombre": "Campeonato 4 1/2 Serie B 2024",
+    "tipo": "cuatro-medio-b",
+    "partidos_count": 15
+  },
+  {
+    "id": "COMP004",
+    "nombre": "Campeonato 4 1/2 Serie B 2025",
+    "tipo": "cuatro-medio-b",
+    "partidos_count": 19
+  },
+  {
+    "id": "COMP005",
+    "nombre": "Campeonato 4 y Medio 2022",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP006",
+    "nombre": "Campeonato 4 y Medio 2023",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 15
+  },
+  {
+    "id": "COMP007",
+    "nombre": "Campeonato 4 y Medio Promoción 2023",
+    "tipo": "cuatro-medio-b",
+    "partidos_count": 12
+  },
+  {
+    "id": "COMP008",
+    "nombre": "Campeonato 4½ Eusko Label 2024",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 16
+  },
+  {
+    "id": "COMP009",
+    "nombre": "Campeonato 4½ Serie B Eusko Label 2024",
+    "tipo": "cuatro-medio-b",
+    "partidos_count": 13
+  },
+  {
+    "id": "COMP010",
+    "nombre": "Campeonato Manomanista 2023",
+    "tipo": "manomanista-a",
+    "partidos_count": 21
+  },
+  {
+    "id": "COMP011",
+    "nombre": "Campeonato Manomanista 2025",
+    "tipo": "manomanista-a",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP012",
+    "nombre": "Campeonato Manomanista Promoción 2023",
+    "tipo": "manomanista-b",
+    "partidos_count": 15
+  },
+  {
+    "id": "COMP013",
+    "nombre": "Campeonato Manomanista Serie A 2024",
+    "tipo": "manomanista-a",
+    "partidos_count": 22
+  },
+  {
+    "id": "COMP014",
+    "nombre": "Campeonato Manomanista Serie A 2025",
+    "tipo": "manomanista-a",
+    "partidos_count": 19
+  },
+  {
+    "id": "COMP015",
+    "nombre": "Campeonato Manomanista Serie A 2026",
+    "tipo": "manomanista-a",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP016",
+    "nombre": "Campeonato Manomanista Serie B 2024",
+    "tipo": "manomanista-b",
+    "partidos_count": 19
+  },
+  {
+    "id": "COMP017",
+    "nombre": "Campeonato Manomanista Serie B 2025",
+    "tipo": "manomanista-b",
+    "partidos_count": 21
+  },
+  {
+    "id": "COMP018",
+    "nombre": "Campeonato Manomanista Serie B 2026",
+    "tipo": "manomanista-b",
+    "partidos_count": 5
+  },
+  {
+    "id": "COMP019",
+    "nombre": "Campeonato Parejas 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 62
+  },
+  {
+    "id": "COMP020",
+    "nombre": "Campeonato Parejas 2026",
+    "tipo": "campeonato-a",
+    "partidos_count": 9
+  },
+  {
+    "id": "COMP021",
+    "nombre": "Campeonato Parejas Promoción 2023",
+    "tipo": "campeonato-b",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP022",
+    "nombre": "Campeonato Parejas Serie A 2022",
+    "tipo": "campeonato-a",
+    "partidos_count": 21
+  },
+  {
+    "id": "COMP023",
+    "nombre": "Campeonato Parejas Serie A 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 52
+  },
+  {
+    "id": "COMP024",
+    "nombre": "Campeonato Parejas Serie A 2024",
+    "tipo": "campeonato-a",
+    "partidos_count": 85
+  },
+  {
+    "id": "COMP025",
+    "nombre": "Campeonato Parejas Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP026",
+    "nombre": "Campeonato Parejas Serie A 2026",
+    "tipo": "campeonato-a",
+    "partidos_count": 58
+  },
+  {
+    "id": "COMP027",
+    "nombre": "Campeonato Parejas Serie B 2022",
+    "tipo": "campeonato-b",
+    "partidos_count": 20
+  },
+  {
+    "id": "COMP028",
+    "nombre": "Campeonato Parejas Serie B 2023",
+    "tipo": "campeonato-b",
+    "partidos_count": 48
+  },
+  {
+    "id": "COMP029",
+    "nombre": "Campeonato Parejas Serie B 2024",
+    "tipo": "campeonato-b",
+    "partidos_count": 24
+  },
+  {
+    "id": "COMP030",
+    "nombre": "Campeonato Parejas Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 48
+  },
+  {
+    "id": "COMP031",
+    "nombre": "Campeonato Parejas Serie B 2026",
+    "tipo": "campeonato-b",
+    "partidos_count": 68
+  },
+  {
+    "id": "COMP032",
+    "nombre": "Desafio Urzante",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP033",
+    "nombre": "Desafio Urzante San Fermin 2024",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP034",
+    "nombre": "Desafio Urzante San Mateo",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP035",
+    "nombre": "Desafio Urzante San Mateo 2024",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP036",
+    "nombre": "Festival Alsasua",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP037",
+    "nombre": "Festival Alsasua 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP038",
+    "nombre": "Festival Amasa-Villabona 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP039",
+    "nombre": "Festival Amorebieta 2023",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP040",
+    "nombre": "Festival Amorebieta-Etxano",
+    "tipo": "festival",
+    "partidos_count": 5
+  },
+  {
+    "id": "COMP041",
+    "nombre": "Festival Amurrio",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP042",
+    "nombre": "Festival Amurrio 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP043",
+    "nombre": "Festival Aoiz 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP044",
+    "nombre": "Festival Araia",
+    "tipo": "festival-cuatro",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP045",
+    "nombre": "Festival Aretxabaleta",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP046",
+    "nombre": "Festival Aretxabaleta 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP047",
+    "nombre": "Festival Arrasate",
+    "tipo": "festival",
+    "partidos_count": 6
+  },
+  {
+    "id": "COMP048",
+    "nombre": "Festival Arrasate 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP049",
+    "nombre": "Festival Arrasate 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP050",
+    "nombre": "Festival Arrigorriaga",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP051",
+    "nombre": "Festival Aste Nagusia",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP052",
+    "nombre": "Festival Astigarraga",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP053",
+    "nombre": "Festival Ataun",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP054",
+    "nombre": "Festival Azkoitia",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP055",
+    "nombre": "Festival Azkoitia 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP056",
+    "nombre": "Festival Azpeitia",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP057",
+    "nombre": "Festival Azpeitia 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP058",
+    "nombre": "Festival Barakaldo 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP059",
+    "nombre": "Festival Barañain",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP060",
+    "nombre": "Festival Barañain 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP061",
+    "nombre": "Festival Barcelona 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP062",
+    "nombre": "Festival Baños de Río Tobía",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP063",
+    "nombre": "Festival Baños de Río Tobía 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP064",
+    "nombre": "Festival Belorado",
+    "tipo": "festival-cuatro",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP065",
+    "nombre": "Festival Bergara 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP066",
+    "nombre": "Festival Bergara 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP067",
+    "nombre": "Festival Bermeo",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP068",
+    "nombre": "Festival Bermeo 2023",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP069",
+    "nombre": "Festival Bermeo Hiria Inpesca",
+    "tipo": "festival",
+    "partidos_count": 6
+  },
+  {
+    "id": "COMP070",
+    "nombre": "Festival Berriozar",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP071",
+    "nombre": "Festival Berriz",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP072",
+    "nombre": "Festival Berriz 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP073",
+    "nombre": "Festival Beruete",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP074",
+    "nombre": "Festival Bilbao",
+    "tipo": "festival",
+    "partidos_count": 10
+  },
+  {
+    "id": "COMP075",
+    "nombre": "Festival Bilbao 2022",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP076",
+    "nombre": "Festival Bilbao 2023",
+    "tipo": "festival",
+    "partidos_count": 16
+  },
+  {
+    "id": "COMP077",
+    "nombre": "Festival Bilbao 2024",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP078",
+    "nombre": "Festival Bizkaia Frontoia",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP079",
+    "nombre": "Festival Briones",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP080",
+    "nombre": "Festival Briones 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP081",
+    "nombre": "Festival Burlada",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP082",
+    "nombre": "Festival Buñuel",
+    "tipo": "festival-cuatro",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP083",
+    "nombre": "Festival Cizur Menor",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP084",
+    "nombre": "Festival Covaleda",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP085",
+    "nombre": "Festival Covaleda 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP086",
+    "nombre": "Festival Despedida Elizegi",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP087",
+    "nombre": "Festival Despedida Exposito",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP088",
+    "nombre": "Festival Dima",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP089",
+    "nombre": "Festival Donostia",
+    "tipo": "festival",
+    "partidos_count": 15
+  },
+  {
+    "id": "COMP090",
+    "nombre": "Festival Donostia 2023",
+    "tipo": "festival",
+    "partidos_count": 5
+  },
+  {
+    "id": "COMP091",
+    "nombre": "Festival Durango 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP092",
+    "nombre": "Festival Eibar",
+    "tipo": "festival",
+    "partidos_count": 20
+  },
+  {
+    "id": "COMP093",
+    "nombre": "Festival Eibar 2023",
+    "tipo": "festival",
+    "partidos_count": 15
+  },
+  {
+    "id": "COMP094",
+    "nombre": "Festival El Villar de Arnedo 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP095",
+    "nombre": "Festival Elburgo",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP096",
+    "nombre": "Festival Elciego",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP097",
+    "nombre": "Festival Elgeta",
+    "tipo": "festival-cuatro",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP098",
+    "nombre": "Festival Elgeta 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP099",
+    "nombre": "Festival Elgoibar",
+    "tipo": "festival",
+    "partidos_count": 5
+  },
+  {
+    "id": "COMP100",
+    "nombre": "Festival Elgoibar 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP101",
+    "nombre": "Festival Elizondo",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP102",
+    "nombre": "Festival Elizondo 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP103",
+    "nombre": "Festival Erratzu 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP104",
+    "nombre": "Festival Errigoiti",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP105",
+    "nombre": "Festival Estella",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP106",
+    "nombre": "Festival Estella-Lizarra 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP107",
+    "nombre": "Festival Etxarri-Aranatz 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP108",
+    "nombre": "Festival Etxebarria",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP109",
+    "nombre": "Festival Etxebarria 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP110",
+    "nombre": "Festival Eugi",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP111",
+    "nombre": "Festival Ezcaray 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP112",
+    "nombre": "Festival Fuenmayor 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP113",
+    "nombre": "Festival Galdakao",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP114",
+    "nombre": "Festival Galdakao 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP115",
+    "nombre": "Festival Gallarta",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP116",
+    "nombre": "Festival Gallarta 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP117",
+    "nombre": "Festival Gasteiz",
+    "tipo": "festival",
+    "partidos_count": 11
+  },
+  {
+    "id": "COMP118",
+    "nombre": "Festival Gautegiz-Arteaga",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP119",
+    "nombre": "Festival Gautegiz-Arteaga 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP120",
+    "nombre": "Festival Gernika",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP121",
+    "nombre": "Festival Getaria",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP122",
+    "nombre": "Festival Hernani",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP123",
+    "nombre": "Festival Hondarribia",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP124",
+    "nombre": "Festival Huércanos",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP125",
+    "nombre": "Festival Huércanos 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP126",
+    "nombre": "Festival Ibarrangelu",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP127",
+    "nombre": "Festival Ibarrangelu 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP128",
+    "nombre": "Festival Irun",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP129",
+    "nombre": "Festival Itziar 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP130",
+    "nombre": "Festival Iurreta 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP131",
+    "nombre": "Festival Labastida",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP132",
+    "nombre": "Festival Labastida 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP133",
+    "nombre": "Festival Labastida 2024",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP134",
+    "nombre": "Festival Labrit",
+    "tipo": "festival",
+    "partidos_count": 24
+  },
+  {
+    "id": "COMP135",
+    "nombre": "Festival Lanciego",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP136",
+    "nombre": "Festival Lanciego 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP137",
+    "nombre": "Festival Lanciego 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP138",
+    "nombre": "Festival Legazpi",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP139",
+    "nombre": "Festival Legazpi 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP140",
+    "nombre": "Festival Lekeitio",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP141",
+    "nombre": "Festival Lekeitio 2024",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP142",
+    "nombre": "Festival Lekunberri",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP143",
+    "nombre": "Festival Lekunberri 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP144",
+    "nombre": "Festival Logroño",
+    "tipo": "festival",
+    "partidos_count": 6
+  },
+  {
+    "id": "COMP145",
+    "nombre": "Festival Logroño 2023",
+    "tipo": "festival",
+    "partidos_count": 12
+  },
+  {
+    "id": "COMP146",
+    "nombre": "Festival Los Arcos",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP147",
+    "nombre": "Festival Los Arcos 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP148",
+    "nombre": "Festival Mallabia",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP149",
+    "nombre": "Festival Mallabia 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP150",
+    "nombre": "Festival Mano 2024",
+    "tipo": "festival-mano",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP151",
+    "nombre": "Festival Manomanista 2026",
+    "tipo": "festival-mano",
+    "partidos_count": 11
+  },
+  {
+    "id": "COMP152",
+    "nombre": "Festival Markina-Xemein",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP153",
+    "nombre": "Festival Mendexa 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP154",
+    "nombre": "Festival Mungia",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP155",
+    "nombre": "Festival Mungia 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP156",
+    "nombre": "Festival Munitibar 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP157",
+    "nombre": "Festival Munitibar 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP158",
+    "nombre": "Festival Murueta 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP159",
+    "nombre": "Festival Muskiz",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP160",
+    "nombre": "Festival Muskiz 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP161",
+    "nombre": "Festival Navarra Arena",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP162",
+    "nombre": "Festival Oiartzun",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP163",
+    "nombre": "Festival Oiartzun 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP164",
+    "nombre": "Festival Olaz",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP165",
+    "nombre": "Festival Ordizia",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP166",
+    "nombre": "Festival Orduña",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP167",
+    "nombre": "Festival Orduña 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP168",
+    "nombre": "Festival Otxandio",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP169",
+    "nombre": "Festival Pamplona 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP170",
+    "nombre": "Festival Pamplona 2023",
+    "tipo": "festival",
+    "partidos_count": 22
+  },
+  {
+    "id": "COMP171",
+    "nombre": "Festival Pamplona 2024",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP172",
+    "nombre": "Festival Parejas 2023",
+    "tipo": "festival",
+    "partidos_count": 8
+  },
+  {
+    "id": "COMP173",
+    "nombre": "Festival Parejas 2024",
+    "tipo": "festival",
+    "partidos_count": 178
+  },
+  {
+    "id": "COMP174",
+    "nombre": "Festival Parejas 2026",
+    "tipo": "festival",
+    "partidos_count": 22
+  },
+  {
+    "id": "COMP175",
+    "nombre": "Festival Pinilla de Los Barruecos",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP176",
+    "nombre": "Festival Santa Maria de las Hoyas",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP177",
+    "nombre": "Festival Santo Domingo de la Calzada 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP178",
+    "nombre": "Festival Sardón de los Frailes 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP179",
+    "nombre": "Festival Segura",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP180",
+    "nombre": "Festival Segura 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP181",
+    "nombre": "Festival Sopela",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP182",
+    "nombre": "Festival Sopela 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP183",
+    "nombre": "Festival Soria",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP184",
+    "nombre": "Festival Soria 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP185",
+    "nombre": "Festival Tafalla",
+    "tipo": "festival",
+    "partidos_count": 4
+  },
+  {
+    "id": "COMP186",
+    "nombre": "Festival Tafalla 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP187",
+    "nombre": "Festival Tolosa",
+    "tipo": "festival",
+    "partidos_count": 18
+  },
+  {
+    "id": "COMP188",
+    "nombre": "Festival Tolosa 2022",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP189",
+    "nombre": "Festival Tolosa 2023",
+    "tipo": "festival",
+    "partidos_count": 7
+  },
+  {
+    "id": "COMP190",
+    "nombre": "Festival Urrestilla",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP191",
+    "nombre": "Festival Urrestilla 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP192",
+    "nombre": "Festival Urretxu",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP193",
+    "nombre": "Festival Urretxu 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP194",
+    "nombre": "Festival Uruñuela 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP195",
+    "nombre": "Festival Viana",
+    "tipo": "festival",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP196",
+    "nombre": "Festival Villabona",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP197",
+    "nombre": "Festival Villava",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP198",
+    "nombre": "Festival Villava 2022",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP199",
+    "nombre": "Festival Vitoria-Gasteiz 2023",
+    "tipo": "festival",
+    "partidos_count": 11
+  },
+  {
+    "id": "COMP200",
+    "nombre": "Festival Vitoria-Gasteiz 2024",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP201",
+    "nombre": "Festival Zaldibar",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP202",
+    "nombre": "Festival Zaldibar 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP203",
+    "nombre": "Festival Zalla",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP204",
+    "nombre": "Festival Zarautz 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP205",
+    "nombre": "Festival Zugarramurdi",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP206",
+    "nombre": "Festival Zumaia",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP207",
+    "nombre": "Festival Zumaia 2023",
+    "tipo": "festival",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP208",
+    "nombre": "Festival Zumarraga 2023",
+    "tipo": "festival",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP209",
+    "nombre": "Masters CaixaBank 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 12
+  },
+  {
+    "id": "COMP210",
+    "nombre": "Masters CaixaBank 2024",
+    "tipo": "campeonato-a",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP211",
+    "nombre": "Masters CaixaBank Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 21
+  },
+  {
+    "id": "COMP212",
+    "nombre": "Masters CaixaBank Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 18
+  },
+  {
+    "id": "COMP213",
+    "nombre": "Torneo 4½ San Fermin 2024",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 7
+  },
+  {
+    "id": "COMP214",
+    "nombre": "Torneo 4½ San Fermin 2025",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 14
+  },
+  {
+    "id": "COMP215",
+    "nombre": "Torneo Aste Nagusia 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP216",
+    "nombre": "Torneo Aste Nagusia Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP217",
+    "nombre": "Torneo Aste Nagusia Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP218",
+    "nombre": "Torneo Bizkaia 2023",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 12
+  },
+  {
+    "id": "COMP219",
+    "nombre": "Torneo Donostia Hiria 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 2
+  },
+  {
+    "id": "COMP220",
+    "nombre": "Torneo Donostia Hiria Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP221",
+    "nombre": "Torneo Donostia Hiria Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP222",
+    "nombre": "Torneo La Blanca 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP223",
+    "nombre": "Torneo La Blanca Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP224",
+    "nombre": "Torneo La Blanca Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 3
+  },
+  {
+    "id": "COMP225",
+    "nombre": "Torneo San Fermin 2024",
+    "tipo": "campeonato-a",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP226",
+    "nombre": "Torneo San Fermin Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 9
+  },
+  {
+    "id": "COMP227",
+    "nombre": "Torneo San Fermin Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 9
+  },
+  {
+    "id": "COMP228",
+    "nombre": "Torneo San Fermín 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 9
+  },
+  {
+    "id": "COMP229",
+    "nombre": "Torneo San Fermín 4½ 2023",
+    "tipo": "cuatro-medio-a",
+    "partidos_count": 12
+  },
+  {
+    "id": "COMP230",
+    "nombre": "Torneo San Mateo 2023",
+    "tipo": "campeonato-a",
+    "partidos_count": 8
+  },
+  {
+    "id": "COMP231",
+    "nombre": "Torneo San Mateo Serie A 2024",
+    "tipo": "campeonato-a",
+    "partidos_count": 1
+  },
+  {
+    "id": "COMP232",
+    "nombre": "Torneo San Mateo Serie A 2025",
+    "tipo": "campeonato-a",
+    "partidos_count": 8
+  },
+  {
+    "id": "COMP233",
+    "nombre": "Torneo San Mateo Serie B 2025",
+    "tipo": "campeonato-b",
+    "partidos_count": 8
+  }
+]

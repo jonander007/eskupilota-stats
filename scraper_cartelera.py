@@ -6,6 +6,14 @@ Genera: data/cartelera.json
 
 Programar con cron cada hora:
   0 * * * * cd /ruta/proyecto && python3 scraper_cartelera.py
+
+v2 — robustez mejorada:
+  - Partidos con 'XXXX': se guardan con pendiente:true y lado desconocido = ['?']
+  - Líneas sueltas 'PAREJAS'/'BINAKA': partido pendiente con eq=['?','?']
+  - Líneas 'GANADORES GRUPO X': partido pendiente con etiqueta
+  - Fragmentos '(Serie X)' se fusionan con la línea anterior
+  - Parejas sin sufijo de serie heredan serie del resto si es homogénea
+  - Eventos sin ningún partido válido se marcan pendiente:true
 """
 import re, json, os
 from urllib.parse import urljoin
@@ -13,9 +21,20 @@ import requests
 from bs4 import BeautifulSoup
 
 URL = "https://www.baikopilota.eus/entradas/"
-HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; EskupilotaStats/1.0)"}
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "es-ES,es;q=0.9,eu;q=0.8,en;q=0.7",
+}
 DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}\s*-\s*\d{2}:\d{2}h$")
 PRICE_RE = re.compile(r"^DESDE\s+([\d.,]+)\s*€$", re.IGNORECASE)
+SERIE_FRAGMENT_RE = re.compile(r"^\(Serie\s+[AB]\)$", re.IGNORECASE)
+PAREJAS_LABELS = {"PAREJAS", "BINAKA", "BIKOTEKA"}
+GANADORES_RE = re.compile(r"^GANADORES?\s+GRUPO\s+[A-Z0-9]+", re.IGNORECASE)
+XXXX_TOKENS = {"XXXX", "XXX", "X X X X"}
 
 
 def get_soup(url):
@@ -26,6 +45,20 @@ def get_soup(url):
 
 def clean(t):
     return re.sub(r"\s+", " ", t).strip()
+
+
+def merge_serie_fragments(lines):
+    """
+    Fusiona líneas que son solo '(Serie A)' o '(Serie B)' con la línea anterior.
+    El HTML de Baiko a veces parte el texto en fragmentos.
+    """
+    merged = []
+    for line in lines:
+        if SERIE_FRAGMENT_RE.match(line) and merged:
+            merged[-1] = merged[-1].rstrip() + " " + line
+        else:
+            merged.append(line)
+    return merged
 
 
 def parse_cartelera(soup):
@@ -52,7 +85,7 @@ def parse_cartelera(soup):
             i += 1
             continue
 
-        raw_fecha = tokens[i]  # "27/03/2026 - 19:00h"
+        raw_fecha = tokens[i]
         parts_dt = raw_fecha.split(" - ")
         fecha = parts_dt[0].strip()
         hora = parts_dt[1].replace("h", "").strip() if len(parts_dt) > 1 else ""
@@ -84,7 +117,7 @@ def parse_cartelera(soup):
         if i < len(tokens) and tokens[i].startswith("Campeonato"):
             f["competicion"] = tokens[i]; i += 1
 
-        # Cartel
+        # Cartel (recolección bruta)
         while i < len(tokens):
             t = tokens[i]
             if DATE_RE.match(t):
@@ -103,96 +136,191 @@ def parse_cartelera(soup):
             f["cartel"].append(t)
             i += 1
 
-        # Parsear líneas de cartel en partidos estructurados
+        # Fusionar fragmentos "(Serie X)" con la línea anterior (arreglo 4)
+        f["cartel"] = merge_serie_fragments(f["cartel"])
+
+        # Parsear líneas en partidos estructurados
         f["partidos"] = parse_partidos(f["cartel"], f["fase"], f["competicion"])
+
+        # Si ningún partido parseado → evento pendiente (bonus)
+        if not f["partidos"]:
+            f["pendiente"] = True
+
         festivals.append(f)
 
     return festivals
 
 
-def guess_tipo(fase, competicion, linea):
-    comp = (competicion or "").lower()
-    fase_l = (fase or "").lower()
-    if "manomanista" in comp or "manomanista" in fase_l:
-        return "manomanista-a" if "serie b" not in comp else "manomanista-b"
-    if "cuatro" in comp or "4½" in comp or "4 1/2" in comp:
-        return "cuatro-medio-a" if "serie b" not in comp else "cuatro-medio-b"
-    if "serie b" in comp:
-        return "campeonato-b"
-    if "festival" in fase_l:
-        return "festival"
-    return "campeonato-a"
-
-
 def parse_equipo(raw):
     """
-    Convierte 'ALTUNA III – EZKURDIA' en ['ALTUNA III', 'EZKURDIA'] (pareja)
-    o 'ALTUNA III' en ['ALTUNA III'] (manomanista).
+    Separa una cadena 'A – B' en ['A', 'B']. Filtra XXXX y devuelve lista limpia
+    junto con un flag indicando si faltaba alguna pieza.
+    Devuelve (jugadores, tenia_xxxx).
     """
-    jugadores = [p.strip() for p in re.split(r"\s*[–-]\s*", raw)
-                 if p.strip() and p.strip().upper() != "XXXX"]
-    return jugadores
+    tiene_xxxx = False
+    resultado = []
+    for p in re.split(r"\s*[–-]\s*", raw):
+        p = p.strip()
+        if not p:
+            continue
+        if p.upper() in XXXX_TOKENS:
+            tiene_xxxx = True
+            continue
+        resultado.append(p)
+    return resultado, tiene_xxxx
 
 
-def guess_tipo_from_line(eq1, eq2, fase, competicion, serie):
-    """
-    Determina el tipo real del partido mirando cuántos jugadores tiene cada equipo:
-    - 1 jugador por lado → manomanista o cuatro medio
-    - 2 jugadores por lado → parejas
-    Si el evento es manomanista pero la línea tiene 2 jugadores por lado,
-    es un partido de parejas que acompaña al evento.
-    """
+def serie_del_padre(fase, competicion, serie_explicita):
+    """Decide si un partido es serie a o b."""
+    if serie_explicita in ("a", "b"):
+        return serie_explicita
+    comp = (competicion or "").lower()
+    if "serie b" in comp:
+        return "b"
+    return "a"
+
+
+def guess_tipo(es_pareja, fase, competicion, serie):
     comp = (competicion or "").lower()
     fase_l = (fase or "").lower()
-    es_pareja = len(eq1) >= 2 or len(eq2) >= 2
 
     if es_pareja:
-        return "campeonato-b" if serie == "b" else "festival" if "festival" in fase_l else "campeonato-a"
+        return "campeonato-b" if serie == "b" else (
+            "festival" if "festival" in fase_l else "campeonato-a"
+        )
 
-    # Un jugador por lado
+    # 1 jugador por lado
     if "cuatro" in comp or "4½" in comp or "4 1/2" in comp:
         return "cuatro-medio-b" if serie == "b" else "cuatro-medio-a"
     if "manomanista" in comp or "manomanista" in fase_l:
         return "manomanista-b" if serie == "b" else "manomanista-a"
-    # Si no hay info de competición, asumir manomanista cuando es 1v1
     return "manomanista-b" if serie == "b" else "manomanista-a"
 
 
 def parse_partidos(cartel_lines, fase, competicion):
     """
-    Cada línea de cartel es UN partido:
-      "EQ1 // EQ2"  →  equipo1 vs equipo2  (// separa los dos lados)
-      "A – B"       →  mano a mano
-
-    El tipo se determina mirando cuántos jugadores tiene cada equipo,
-    no heredando ciegamente el tipo del evento padre.
+    Cada línea se intenta interpretar como partido. Maneja:
+      - 'A // B' → partido directo (mano o parejas según separadores internos)
+      - 'A – B'  → mano a mano
+      - 'XXXX'   → lado desconocido → pendiente:true, ['?'] (arreglo 1)
+      - 'PAREJAS' / 'BINAKA' → partido pendiente parejas (arreglo 2)
+      - 'GANADORES GRUPO X' → partido pendiente con etiqueta (arreglo 3)
+    La serie puede venir en el sufijo '(Serie A|B)' o heredarse (arreglo 5).
     """
+    # Primera pasada: clasificar líneas y capturar series explícitas
+    entradas = []
+    for linea in cartel_lines:
+        serie_match = re.search(r"\(serie ([ab])\)", linea, re.IGNORECASE)
+        serie_explicita = serie_match.group(1).lower() if serie_match else None
+        linea_limpia = re.sub(r"\s*\(serie [ab]\)", "", linea, flags=re.IGNORECASE).strip()
+        entradas.append({
+            "raw": linea,
+            "limpia": linea_limpia,
+            "serie": serie_explicita,
+        })
+
+    # Determinar serie mayoritaria explícita (arreglo 5)
+    series_explicitas = [e["serie"] for e in entradas if e["serie"]]
+    serie_mayoritaria = None
+    if series_explicitas and len(set(series_explicitas)) == 1:
+        serie_mayoritaria = series_explicitas[0]
+
     partidos = []
 
-    for linea in cartel_lines:
-        serie = "b" if re.search(r"\(serie b\)", linea, re.IGNORECASE) else "a"
-        linea_limpia = re.sub(r"\s*\(serie [ab]\)", "", linea, flags=re.IGNORECASE).strip()
+    for e in entradas:
+        linea = e["raw"]
+        lc = e["limpia"]
+        serie_expl = e["serie"]
 
-        if " // " in linea_limpia:
-            partes = [p.strip() for p in linea_limpia.split(" // ", 1)]
-            eq1 = parse_equipo(partes[0])
-            eq2 = parse_equipo(partes[1]) if len(partes) > 1 else []
-            if eq1 or eq2:
-                tipo = guess_tipo_from_line(eq1, eq2, fase, competicion, serie)
-                partidos.append({
-                    "eq1": eq1, "eq2": eq2,
-                    "raw": linea, "tipo": tipo, "serie": serie,
-                })
-        elif " – " in linea_limpia or re.search(r"\s-\s", linea_limpia):
-            jugadores = parse_equipo(linea_limpia)
+        up = lc.upper().strip()
+
+        # Arreglo 2: PAREJAS / BINAKA sueltos
+        if up in PAREJAS_LABELS:
+            serie = serie_expl or serie_del_padre(fase, competicion, serie_mayoritaria)
+            partidos.append({
+                "eq1": ["?", "?"], "eq2": ["?", "?"],
+                "raw": linea, "tipo": guess_tipo(True, fase, competicion, serie),
+                "serie": serie, "pendiente": True, "etiqueta": up,
+            })
+            continue
+
+        # Arreglo 3: GANADORES GRUPO X
+        if GANADORES_RE.match(up):
+            serie = serie_expl or serie_del_padre(fase, competicion, serie_mayoritaria)
+            # Puede venir con '//': 'GANADORES GRUPO A // GANADORES GRUPO B'
+            if " // " in lc:
+                partes = [p.strip() for p in lc.split(" // ", 1)]
+                eq1 = [partes[0]]
+                eq2 = [partes[1]] if len(partes) > 1 else ["?"]
+            else:
+                eq1 = ["?"]
+                eq2 = ["?"]
+            partidos.append({
+                "eq1": eq1, "eq2": eq2,
+                "raw": linea, "tipo": guess_tipo(False, fase, competicion, serie),
+                "serie": serie, "pendiente": True, "etiqueta": lc,
+            })
+            continue
+
+        # Partido con '//': puede ser mano a mano (1 vs 1) o parejas (2 vs 2)
+        if " // " in lc:
+            partes = [p.strip() for p in lc.split(" // ", 1)]
+            eq1, xx1 = parse_equipo(partes[0])
+            eq2, xx2 = parse_equipo(partes[1]) if len(partes) > 1 else ([], True)
+
+            pendiente = xx1 or xx2 or (not eq1) or (not eq2)
+            if not eq1:
+                eq1 = ["?"]
+            if not eq2:
+                eq2 = ["?"]
+            # Si la línea original tenía XXXX, marcar el lado con '?'
+            if xx1 and len(eq1) < 2 and ("–" in partes[0] or "-" in partes[0]):
+                eq1.append("?")
+            if xx2 and len(partes) > 1 and len(eq2) < 2 and ("–" in partes[1] or "-" in partes[1]):
+                eq2.append("?")
+
+            es_pareja = len(eq1) >= 2 or len(eq2) >= 2
+            serie = serie_expl or (
+                serie_mayoritaria if (es_pareja and not serie_expl) else None
+            ) or serie_del_padre(fase, competicion, None)
+
+            partido = {
+                "eq1": eq1, "eq2": eq2,
+                "raw": linea,
+                "tipo": guess_tipo(es_pareja, fase, competicion, serie),
+                "serie": serie,
+            }
+            if pendiente:
+                partido["pendiente"] = True
+            partidos.append(partido)
+            continue
+
+        # Mano a mano sin '//' ('A – B')
+        if " – " in lc or re.search(r"\s-\s", lc):
+            jugadores, tenia_xxxx = parse_equipo(lc)
             if len(jugadores) >= 2:
                 eq1 = [jugadores[0]]
                 eq2 = [jugadores[1]]
-                tipo = guess_tipo_from_line(eq1, eq2, fase, competicion, serie)
-                partidos.append({
-                    "eq1": eq1, "eq2": eq2,
-                    "raw": linea, "tipo": tipo, "serie": serie,
-                })
+            elif len(jugadores) == 1:
+                eq1 = [jugadores[0]]
+                eq2 = ["?"]
+                tenia_xxxx = True
+            else:
+                eq1 = ["?"]; eq2 = ["?"]; tenia_xxxx = True
+
+            serie = serie_expl or serie_del_padre(fase, competicion, serie_mayoritaria)
+            partido = {
+                "eq1": eq1, "eq2": eq2,
+                "raw": linea,
+                "tipo": guess_tipo(False, fase, competicion, serie),
+                "serie": serie,
+            }
+            if tenia_xxxx:
+                partido["pendiente"] = True
+            partidos.append(partido)
+            continue
+
+        # Línea no reconocida: la dejamos fuera (no generamos partido)
 
     return partidos
 
@@ -213,9 +341,16 @@ def main():
     with open("data/cartelera.json", "w", encoding="utf-8") as fh:
         json.dump(output, fh, ensure_ascii=False, indent=2)
 
-    print(f"✓ {len(festivals)} partidos guardados en data/cartelera.json")
+    total_partidos = sum(len(f["partidos"]) for f in festivals)
+    pendientes = sum(1 for f in festivals for p in f["partidos"] if p.get("pendiente"))
+    eventos_pendientes = sum(1 for f in festivals if f.get("pendiente"))
+
+    print(f"✓ {len(festivals)} eventos, {total_partidos} partidos totales")
+    print(f"  {pendientes} partidos marcados pendiente")
+    print(f"  {eventos_pendientes} eventos sin ningún partido válido")
     for f in festivals:
-        print(f"  {f['fecha']} {f['hora']} | {f['fronton']} | {f['fase']} | {len(f['partidos'])} partidos")
+        tag = " [PENDIENTE]" if f.get("pendiente") else ""
+        print(f"  {f['fecha']} {f['hora']} | {f['fronton']} | {len(f['partidos'])} partidos{tag}")
 
 
 if __name__ == "__main__":
