@@ -3054,36 +3054,56 @@ function carteleraClick(el){
 function goToComparadorFromPartido(p){
   const tipo = p.tipo||'campeonato-a';
   const isMano = tipo.includes('manomanista');
+  // Si el partido es 4½ → tipo 'cuatro' (1 vs 1, sin zaguero)
+  const isCuatro = tipo.includes('cuatro') || tipo.includes('cuatro-medio');
+  // Pendiente o sin datos suficientes → solo abrir el comparador vacío
+  if(p.pendiente){ goToNav('comparador'); return; }
+
   function selOpt(selId, nombre){
-    if(!nombre) return;
+    if(!nombre || nombre==='?') return;
     const sel=document.getElementById(selId); if(!sel) return;
     const norm=nombre.toUpperCase().trim();
     let found=[...sel.options].find(o=>o.value.toUpperCase()===norm);
     if(!found) found=[...sel.options].find(o=>o.value.toUpperCase().startsWith(norm.split(' ')[0]));
-    if(found) sel.value=found.value;
+    if(found){ sel.value=found.value; sel.dispatchEvent(new Event('change')); }
   }
-  if(isMano){
-    const p1=(p.eq1||[])[0], p2=(p.eq2||[])[0];
-    if(!p1||!p2){ goToNav('comparador'); return; }
+
+  // Determinar modalidad para los filtros del comparador
+  let mod = 'todas';
+  if(isMano) mod = 'manomanista';
+  else if(isCuatro) mod = 'cuatro';
+  else if(tipo.includes('campeonato') || tipo.includes('festival')) mod = 'parejas';
+
+  // Determinar serie según el tipo
+  let serie = 'todas';
+  if(tipo.endsWith('-a')) serie = 'a';
+  else if(tipo.endsWith('-b')) serie = 'b';
+  else if(tipo.startsWith('festival')) serie = 'festival';
+
+  // En manomanista y 4½ NO se rellena zaguero (no tiene sentido)
+  const usarZag = !isMano && !isCuatro;
+
+  // Sacar pelotaris de los lados (eq1 y eq2 son arrays)
+  const eq1 = p.eq1 || [];
+  const eq2 = p.eq2 || [];
+  const delA = eq1[0]; const zagA = usarZag ? (eq1[1] || null) : null;
+  const delB = eq2[0]; const zagB = usarZag ? (eq2[1] || null) : null;
+
+  if(!delA || !delB || delA==='?' || delB==='?'){
     goToNav('comparador');
-    setTimeout(()=>{
-      document.querySelector('.ctype-btn[onclick*="h2h"]')?.click();
-      setH2HMod('manomanista');
-      selOpt('h2hP1',p1); selOpt('h2hP2',p2);
-      renderH2H();
-    },100);
-  } else {
-    const d1=(p.eq1||[])[0], z1=(p.eq1||[])[1]||null;
-    const d2=(p.eq2||[])[0], z2=(p.eq2||[])[1]||null;
-    if(!d1||!d2){ goToNav('comparador'); return; }
-    goToNav('comparador');
-    setTimeout(()=>{
-      document.querySelector('.ctype-btn[onclick*="parejas"]')?.click();
-      selOpt('c4d1',d1); c4DelanteroChange(1);
-      selOpt('c4d2',d2); c4DelanteroChange(2);
-      setTimeout(()=>{ selOpt('c4z1',z1); selOpt('c4z2',z2); renderC4(); },250);
-    },100);
+    return;
   }
+
+  goToNav('comparador');
+  setTimeout(()=>{
+    setH2HMod(mod);
+    setH2HSerie(serie);
+    selOpt('h2hDelA', delA);
+    if(zagA) selOpt('h2hZagA', zagA);
+    selOpt('h2hDelB', delB);
+    if(zagB) selOpt('h2hZagB', zagB);
+    renderH2HUnificado();
+  }, 100);
 }
 
 // ════════════════════════════════════════════════════════════
