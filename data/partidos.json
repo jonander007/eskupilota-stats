@@ -1,5 +1,43 @@
 [
   {
+    "fecha": "26/04/2026",
+    "fronton": "CLUB DEPORTIVO",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival",
+    "competicion": "Festival Parejas 2026",
+    "equipo1": {
+      "delantero": "SALABERRIA",
+      "zaguero": "MARTIJA"
+    },
+    "puntos1": 13,
+    "equipo2": {
+      "delantero": "ZUBIZARRETA III",
+      "zaguero": "MARIEZKURRENA II"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "26/04/2026",
+    "fronton": "CLUB DEPORTIVO",
+    "ciudad": "BILBAO",
+    "provincia": "",
+    "tipo": "festival-mano",
+    "competicion": "Festival Manomanista 2026",
+    "equipo1": {
+      "delantero": "ZABALA",
+      "zaguero": null
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "delantero": "LARRAZABAL",
+      "zaguero": null
+    },
+    "puntos2": 17,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "25/04/2026",
     "fronton": "EZKURDI",
     "ciudad": "DURANGO",
