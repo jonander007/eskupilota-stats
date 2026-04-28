@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/04/2026 08:18",
+  "actualizado": "28/04/2026 02:27",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -54,8 +54,10 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XX – XX // XX – XX",
+        "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
         "DARÍO // LASO (Serie A)",
+        "BAKAIKOA – SALAVERRI II // ZUBIZARRETA III – MORGAETXEBARRIA",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -66,14 +68,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "SALABERRIA",
+            "ZABALETA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ZUBIZARRETA IV",
+            "MARIEZKURRENA II"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -87,6 +89,19 @@
           "raw": "DARÍO // LASO (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
+        },
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "BAKAIKOA – SALAVERRI II // ZUBIZARRETA III – MORGAETXEBARRIA",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -98,7 +113,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "EZKURDIA – GABIRONDO // XX – IMAZ",
+        "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
         "ALTUNA III // JAKA (Serie A)",
         "DESDE",
         "40.00€"
@@ -114,10 +129,10 @@
             "GABIRONDO"
           ],
           "eq2": [
-            "XX",
+            "PEÑA II",
             "IMAZ"
           ],
-          "raw": "EZKURDIA – GABIRONDO // XX – IMAZ",
+          "raw": "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -144,7 +159,7 @@
       "cartel": [
         "SENAR // AMIANO (Serie B)",
         "ZUBIZARRETA III // MURUA (Serie B)",
-        "XX – XX // XX – XX",
+        "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
         "DESDE",
         "25.00€"
       ],
@@ -177,14 +192,14 @@
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "REKALDE",
+            "ESKUZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ZUBIZARRETA IV",
+            "MORGAETXEBARRIA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -320,7 +335,7 @@
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
         "XX // XX (Serie B)",
-        "XX // XX (Serie B)",
+        "AMIANO // XX (Serie B)",
         "XX – XX // XX – XX",
         "DESDE",
         "25.00€"
@@ -343,12 +358,12 @@
         },
         {
           "eq1": [
-            "XX"
+            "AMIANO"
           ],
           "eq2": [
             "XX"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "AMIANO // XX (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         },
