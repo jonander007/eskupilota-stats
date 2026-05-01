@@ -1,5 +1,5 @@
 {
-  "actualizado": "30/04/2026 02:28",
+  "actualizado": "01/05/2026 02:33",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -10,7 +10,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "MURUA – REZUSTA // ZUBIZARRETA IV – ALBISU",
+        "ZUBIZARRETA IV – ALBISU // APEZETXEA II- REZUSTA",
         "EGIGUREN V // ALBERDI II (Serie B)",
         "DESDE",
         "30.00€"
@@ -22,14 +22,14 @@
       "partidos": [
         {
           "eq1": [
-            "MURUA",
-            "REZUSTA"
-          ],
-          "eq2": [
             "ZUBIZARRETA IV",
             "ALBISU"
           ],
-          "raw": "MURUA – REZUSTA // ZUBIZARRETA IV – ALBISU",
+          "eq2": [
+            "APEZETXEA II",
+            "REZUSTA"
+          ],
+          "raw": "ZUBIZARRETA IV – ALBISU // APEZETXEA II- REZUSTA",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -553,6 +553,50 @@
             "XX (3º// 4º Puesto)"
           ],
           "raw": "XX // XX (3º// 4º Puesto)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "31/05/2026",
+      "hora": "17:00",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Final",
+      "competicion": "Campeonato Manomanista",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "Campeonato Manomanista – Final (Serie A)",
+        "DESDE",
+        "62.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2863503/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "Campeonato Manomanista"
+          ],
+          "eq2": [
+            "Final"
+          ],
+          "raw": "Campeonato Manomanista – Final (Serie A)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
