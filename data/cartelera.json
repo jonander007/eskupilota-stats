@@ -1,51 +1,7 @@
 {
-  "actualizado": "01/05/2026 02:33",
+  "actualizado": "02/05/2026 02:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "01/05/2026",
-      "hora": "17:15",
-      "fronton": "Igarondo",
-      "ciudad": "Idiazabal",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "ZUBIZARRETA IV – ALBISU // APEZETXEA II- REZUSTA",
-        "EGIGUREN V // ALBERDI II (Serie B)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2822437/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "ALBISU"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "REZUSTA"
-          ],
-          "raw": "ZUBIZARRETA IV – ALBISU // APEZETXEA II- REZUSTA",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EGIGUREN V"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "EGIGUREN V // ALBERDI II (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "02/05/2026",
       "hora": "17:15",
@@ -874,6 +830,12 @@
         "TF",
         "TC",
         "CO",
+        "Alberdi II",
+        "2",
+        "3",
+        "59",
+        "38",
+        "21",
         "Rekalde",
         "2",
         "3",
@@ -882,16 +844,10 @@
         "22",
         "Egiguren V",
         "2",
-        "2",
-        "44",
-        "31",
-        "13",
-        "Alberdi II",
+        "3",
+        "54",
+        "53",
         "1",
-        "2",
-        "37",
-        "28",
-        "9",
         "Agirre",
         "0",
         "3",
