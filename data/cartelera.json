@@ -1,66 +1,7 @@
 {
-  "actualizado": "02/05/2026 02:09",
+  "actualizado": "03/05/2026 02:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "02/05/2026",
-      "hora": "17:15",
-      "fronton": "Atano III",
-      "ciudad": "Donostia/San Sebastián",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
-        "DARÍO // LASO (Serie A)",
-        "BAKAIKOA – SALAVERRI II // ZUBIZARRETA III – MORGAETXEBARRIA",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822436/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "SALABERRIA – ZABALETA // ZUBIZARRETA IV – MARIEZKURRENA II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "DARÍO // LASO (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "BAKAIKOA – SALAVERRI II // ZUBIZARRETA III – MORGAETXEBARRIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "03/05/2026",
       "hora": "17:15",
@@ -681,7 +622,7 @@
         "Torneo San Fermín",
         "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
         "DESDE",
-        "25.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -770,16 +711,16 @@
         "CO",
         "Darío",
         "2",
-        "2",
-        "44",
+        "3",
+        "58",
+        "40",
         "18",
-        "26",
         "Laso",
-        "1",
         "2",
-        "38",
-        "30",
-        "8",
+        "3",
+        "60",
+        "44",
+        "16",
         "Altuna III",
         "1",
         "2",
