@@ -1,51 +1,7 @@
 {
-  "actualizado": "03/05/2026 02:25",
+  "actualizado": "04/05/2026 02:24",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "03/05/2026",
-      "hora": "17:15",
-      "fronton": "Urbeltz",
-      "ciudad": "Legazpi",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
-        "ALTUNA III // JAKA (Serie A)",
-        "DESDE",
-        "40.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2822453/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "IMAZ"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "JAKA"
-          ],
-          "raw": "ALTUNA III // JAKA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "08/05/2026",
       "hora": "20:45",
@@ -722,17 +678,17 @@
         "44",
         "16",
         "Altuna III",
-        "1",
         "2",
-        "30",
-        "38",
-        "-8",
+        "3",
+        "52",
+        "54",
+        "-6",
         "Jaka",
         "0",
-        "2",
-        "18",
-        "44",
-        "-26",
+        "3",
+        "24",
+        "66",
+        "-42",
         "GRUPO B TALDEA",
         "Pelotari/Pareja",
         "PG",
