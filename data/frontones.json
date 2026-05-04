@@ -165,7 +165,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 97
+    "partidos_count": 100
   },
   {
     "id": "FRO029",
@@ -177,7 +177,7 @@
     "id": "FRO030",
     "nombre": "AUZOETA",
     "ciudad_id": "CIU019",
-    "partidos_count": 18
+    "partidos_count": 20
   },
   {
     "id": "FRO031",
@@ -369,7 +369,7 @@
     "id": "FRO062",
     "nombre": "CLUB DEPORTIVO",
     "ciudad_id": "CIU036",
-    "partidos_count": 22
+    "partidos_count": 24
   },
   {
     "id": "FRO063",
@@ -531,7 +531,7 @@
     "id": "FRO089",
     "nombre": "EZKURDI",
     "ciudad_id": "CIU045",
-    "partidos_count": 25
+    "partidos_count": 28
   },
   {
     "id": "FRO090",
@@ -657,7 +657,7 @@
     "id": "FRO110",
     "nombre": "IGARONDO",
     "ciudad_id": "CIU077",
-    "partidos_count": 6
+    "partidos_count": 8
   },
   {
     "id": "FRO111",
@@ -741,7 +741,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 246
+    "partidos_count": 249
   },
   {
     "id": "FRO125",
@@ -915,7 +915,7 @@
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
-    "partidos_count": 92
+    "partidos_count": 95
   },
   {
     "id": "FRO154",
@@ -1083,13 +1083,19 @@
     "id": "FRO181",
     "nombre": "UARKAPE",
     "ciudad_id": "CIU015",
-    "partidos_count": 32
+    "partidos_count": 34
   },
   {
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
     "partidos_count": 4
+  },
+  {
+    "id": "FRO203",
+    "nombre": "URBELTZ",
+    "ciudad_id": "CIU088",
+    "partidos_count": 2
   },
   {
     "id": "FRO183",
