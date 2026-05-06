@@ -537,6 +537,11 @@ tr:hover td{background:var(--surface2);}
 .fmap-count{color:var(--muted);font-family:var(--mono);font-size:.65rem;margin:.25rem 0 .55rem;}
 .fmap-btn{background:var(--green);color:#fff;border:none;font-family:var(--sans);font-weight:600;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;padding:.4rem .85rem;cursor:pointer;border-radius:999px;width:100%;transition:background .15s;}
 .fmap-btn:hover{background:var(--green-dark);}
+.fmap-actions{display:flex;gap:.4rem;margin-top:.5rem;}
+.fmap-actions .fmap-btn{flex:1;}
+.fmap-btn-ghost{background:transparent;color:var(--green);border:1.5px solid var(--green);font-family:var(--sans);font-weight:600;font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;padding:.35rem .5rem;cursor:pointer;border-radius:999px;flex:1;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.3rem;}
+.fmap-btn-ghost:hover{background:var(--green);color:#fff;}
+.fmap-btn-ghost svg{width:11px;height:11px;flex-shrink:0;}
 
 /* ── MOBILE PARTIDO CARD ── */
 .m-card{display:none;}
@@ -1296,6 +1301,7 @@ const I18N = {
     cart_como_llegar: 'Cómo llegar',
     cart_estadisticas: 'Estadísticas',
     fronton_como_llegar: 'Cómo llegar',
+    fmap_ver_partidos: 'Ver partidos →',
     cart_no_partidos: 'No hay próximos partidos',
     cart_recarga: '↻ Recargar',
     // Contacto
@@ -1409,6 +1415,7 @@ const I18N = {
     cart_como_llegar: 'Nola heldu',
     cart_estadisticas: 'Estatistikak',
     fronton_como_llegar: 'Nola heldu',
+    fmap_ver_partidos: 'Partidak ikusi →',
     cart_no_partidos: 'Ez dago hurrengo partidarik',
     cart_recarga: '↻ Berritu',
     cart_recarga: '↻ Berritu',
@@ -3335,15 +3342,30 @@ function renderFrontonMarkers(){
     className:''
   });
 
+  // Construir índice del catálogo de frontones por nombre (para enlaces de Google Maps)
+  const FRO_BY_NAME = {};
+  Object.values(CAT_FRONTONES).forEach(fr=>{
+    if(fr && fr.nombre) FRO_BY_NAME[fr.nombre.toUpperCase().trim()] = fr;
+  });
+
   Object.entries(stats).forEach(([f, s]) => {
     const coord = FRONTON_COORDS[f.toUpperCase()] || FRONTON_COORDS[f];
     if(!coord) return;
     const icon = s.count >= 20 ? bigIcon : redIcon;
     const marker = L.marker(coord, {icon}).addTo(_frontonMap);
+    const info = FRO_BY_NAME[f.toUpperCase().trim()];
+    const mapsUrl = info?.google_maps_link
+      || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+f)}`;
     marker.bindPopup(`
       <div class="fmap-name">${f}</div>
       <div class="fmap-count">${s.ciudad} · ${s.count} partido${s.count!==1?'s':''}</div>
-      <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');document.querySelector('.leaflet-popup-close-button').click()">Ver partidos →</button>
+      <div class="fmap-actions">
+        <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');document.querySelector('.leaflet-popup-close-button').click()">${t('fmap_ver_partidos')}</button>
+        <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="fmap-btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>${t('fronton_como_llegar')}</span>
+        </a>
+      </div>
     `);
   });
 }
