@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v6';
+const CACHE = 'eskupilota-v5';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -6,18 +6,9 @@ self.addEventListener('install', e => {
       '/',
       '/index.html',
       '/data/partidos.json',
-      '/data/pelotaris.json',
-      '/data/frontones.json',
-      '/data/ciudades.json',
-      '/data/competiciones.json',
-      '/data/cartelera.json',
       '/favicon.ico',
-      '/favicon-32.png',
       '/icon-192.png',
       '/icon-512.png',
-      '/apple-touch-icon.png',
-      '/logo-header.png',
-      '/manifest.json',
     ]))
   );
   self.skipWaiting();
@@ -35,8 +26,8 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
-  // Datos JSON (catálogos y partidos): network first (intentar actualizar siempre)
-  if (url.pathname.startsWith('/data/') && url.pathname.endsWith('.json')) {
+  // Datos JSON: network first (siempre intentar actualizar)
+  if (url.pathname.includes('/data/')) {
     e.respondWith(
       fetch(e.request)
         .then(res => {
@@ -49,7 +40,22 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Resto: cache first, network fallback
+  // HTML (index.html y navegación raíz): network first
+  // Esto asegura que las actualizaciones del index llegan rápido.
+  if (e.request.mode === 'navigate' || url.pathname === '/' || url.pathname.endsWith('.html')) {
+    e.respondWith(
+      fetch(e.request)
+        .then(res => {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(e.request).then(cached => cached || caches.match('/index.html')))
+    );
+    return;
+  }
+
+  // Resto (iconos, fuentes, etc.): cache first, network fallback
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;
