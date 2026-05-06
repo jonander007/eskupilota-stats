@@ -1,5 +1,5 @@
 {
-  "actualizado": "05/05/2026 02:12",
+  "actualizado": "06/05/2026 02:14",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -229,7 +229,7 @@
       "cartel": [
         "XX – XX // XX – XX",
         "LASO // XX – Semifinal (Serie A)",
-        "SALABERRIA – GASKUE // SENAR – UGARTEMENDIA",
+        "SALABERRIA – BIKUÑA // SENAR – UGARTEMENDIA",
         "DESDE",
         "35.00€"
       ],
@@ -266,17 +266,37 @@
         {
           "eq1": [
             "SALABERRIA",
-            "GASKUE"
+            "BIKUÑA"
           ],
           "eq2": [
             "SENAR",
             "UGARTEMENDIA"
           ],
-          "raw": "SALABERRIA – GASKUE // SENAR – UGARTEMENDIA",
+          "raw": "SALABERRIA – BIKUÑA // SENAR – UGARTEMENDIA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
+    },
+    {
+      "fecha": "16/05/2026",
+      "hora": "18:00",
+      "fronton": "Fronton Pili",
+      "ciudad": "Fronton Pili",
+      "fase": "Cuartos de final",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "Cuartos de final",
+        "DESDE",
+        "10.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864739/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "17/05/2026",
@@ -336,6 +356,73 @@
           "serie": "a"
         }
       ]
+    },
+    {
+      "fecha": "22/05/2026",
+      "hora": "19:00",
+      "fronton": "Artza",
+      "ciudad": "Bermeo",
+      "fase": "Semifinales",
+      "competicion": null,
+      "cartel": [
+        "V. Bermeo Hiria Inpesca Pilota Festibala",
+        "MURUA – ESKUZA // REKALDE – BIKUÑA",
+        "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2866953/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "BIKUÑA"
+          ],
+          "raw": "MURUA – ESKUZA // REKALDE – BIKUÑA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "22/05/2026",
+      "hora": "19:30",
+      "fronton": "Nájera",
+      "ciudad": "Nájera",
+      "fase": "Cuartos de final",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "Cuartos de final",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864740/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "23/05/2026",
