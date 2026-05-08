@@ -219,7 +219,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 109,
+    "partidos_count": 112,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -235,7 +235,7 @@
     "id": "FRO030",
     "nombre": "AUZOETA",
     "ciudad_id": "CIU019",
-    "partidos_count": 26,
+    "partidos_count": 28,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AUZOETA"
   },
@@ -491,7 +491,7 @@
     "id": "FRO062",
     "nombre": "CLUB DEPORTIVO",
     "ciudad_id": "CIU036",
-    "partidos_count": 30,
+    "partidos_count": 32,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20CLUB%20DEPORTIVO"
   },
@@ -707,7 +707,7 @@
     "id": "FRO089",
     "nombre": "EZKURDI",
     "ciudad_id": "CIU045",
-    "partidos_count": 37,
+    "partidos_count": 40,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20EZKURDI"
   },
@@ -875,7 +875,7 @@
     "id": "FRO110",
     "nombre": "IGARONDO",
     "ciudad_id": "CIU077",
-    "partidos_count": 14,
+    "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IGARONDO"
   },
@@ -1443,7 +1443,7 @@
     "id": "FRO181",
     "nombre": "UARKAPE",
     "ciudad_id": "CIU015",
-    "partidos_count": 40,
+    "partidos_count": 42,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20UARKAPE"
   },
@@ -1459,7 +1459,7 @@
     "id": "FRO203",
     "nombre": "URBELTZ",
     "ciudad_id": "CIU088",
-    "partidos_count": 8,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URBELTZ"
   },
