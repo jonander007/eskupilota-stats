@@ -1,11 +1,11 @@
 {
-  "actualizado": "07/05/2026 02:25",
+  "actualizado": "08/05/2026 02:32",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
       "fecha": "08/05/2026",
       "hora": "20:45",
-      "fronton": "Kepa Arroitajauregui",
+      "fronton": "Kepa Arroitajauregi",
       "ciudad": "Iurreta",
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista Serie B",
@@ -54,7 +54,7 @@
       "fase": "Cuartos de Final",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "JAKA – LANDA // P.ETXEBERRIA – MARTIJA",
+        "JAKA – LANDA // P.ETXEBERRIA – REZUSTA",
         "PEÑA II // LARRAZABAL (Serie A)",
         "BAKAIKOA – ARANGUREN // SALABERRIA – EROSTARBE",
         "DIFERIDO",
@@ -73,9 +73,9 @@
           ],
           "eq2": [
             "P.ETXEBERRIA",
-            "MARTIJA"
+            "REZUSTA"
           ],
-          "raw": "JAKA – LANDA // P.ETXEBERRIA – MARTIJA",
+          "raw": "JAKA – LANDA // P.ETXEBERRIA – REZUSTA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -620,11 +620,13 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
+        "DESDE",
+        "47.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -717,11 +719,13 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
+        "DESDE",
+        "47.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
