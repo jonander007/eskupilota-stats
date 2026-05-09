@@ -1,51 +1,7 @@
 {
-  "actualizado": "08/05/2026 02:32",
+  "actualizado": "09/05/2026 02:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "08/05/2026",
-      "hora": "20:45",
-      "fronton": "Kepa Arroitajauregi",
-      "ciudad": "Iurreta",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "AMIANO – MORGAETXEBARRIA // REKALDE – ESKUZA",
-        "ZUBIZARRETA III // MURUA (Serie B)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2822777/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ESKUZA"
-          ],
-          "raw": "AMIANO – MORGAETXEBARRIA // REKALDE – ESKUZA",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "ZUBIZARRETA III // MURUA (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "09/05/2026",
       "hora": "17:15",
@@ -59,7 +15,7 @@
         "BAKAIKOA – ARANGUREN // SALABERRIA – EROSTARBE",
         "DIFERIDO",
         "DESDE",
-        "35.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -620,13 +576,11 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
-        "DESDE",
-        "47.00€"
+        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -864,29 +818,29 @@
         "TC",
         "CO",
         "Amiano",
-        "2",
-        "2",
-        "44",
+        "3",
+        "3",
+        "66",
         "25",
-        "19",
+        "41",
         "Murua",
-        "1",
         "2",
-        "39",
-        "31",
-        "8",
+        "3",
+        "61",
+        "47",
+        "14",
         "Zubizarreta III",
         "1",
-        "2",
-        "30",
-        "33",
-        "-3",
+        "3",
+        "46",
+        "55",
+        "-9",
         "Senar",
         "0",
-        "2",
+        "3",
         "20",
-        "44",
-        "-24"
+        "66",
+        "-46"
       ],
       "precio": null,
       "agotado": true,
