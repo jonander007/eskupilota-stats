@@ -481,14 +481,23 @@ tr:hover td{background:var(--surface2);}
 
 /* ── CARTELERA ── */
 .cart-evento{background:var(--surface);border:1px solid var(--border);margin-bottom:1.2rem;overflow:hidden;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);}
-.cart-evento-header{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--surface2);}
+.cart-evento-header{padding:.9rem 1.1rem;border-bottom:1px solid var(--border);background:var(--surface2);display:flex;align-items:center;justify-content:space-between;gap:1rem;}
 .cart-hora-wrap{text-align:center;}
 .cart-hora-h{font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:1;color:var(--green);}
 .cart-hora-m{font-family:var(--mono);font-size:.5rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
-.cart-evento-meta{}
+.cart-evento-meta{flex:1;min-width:0;}
 .cart-evento-comp{font-family:var(--mono);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.25rem;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;}
 .cart-evento-lugar{font-size:.88rem;font-weight:700;}
 .cart-evento-ciudad{font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:500;}
+.cart-evento-llegar{flex-shrink:0;font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .8rem;border:1px solid var(--green);background:transparent;color:var(--green);cursor:pointer;border-radius:999px;transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap;}
+.cart-evento-llegar:hover{background:var(--green);color:#fff;}
+.cart-evento-llegar svg{width:13px;height:13px;flex-shrink:0;}
+@media(max-width:600px){
+  .cart-evento-header{flex-wrap:wrap;}
+  .cart-evento-llegar{padding:.45rem .65rem;font-size:.55rem;}
+  .cart-evento-llegar span{display:none;}
+  .cart-evento-llegar svg{width:15px;height:15px;}
+}
 .cart-badge{font-family:var(--mono);font-size:.5rem;font-weight:600;padding:.15rem .4rem;border-radius:var(--r-sm);border:1px solid;text-transform:uppercase;letter-spacing:.06em;}
 .cart-badge.a{color:var(--green);border-color:var(--green);background:var(--green-soft);}
 .cart-badge.b{color:var(--green);border-color:rgba(11,92,46,.4);background:rgba(11,92,46,.04);}
@@ -501,14 +510,13 @@ tr:hover td{background:var(--surface2);}
 .cart-partido-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.8rem;padding:.75rem .9rem;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .18s;margin-bottom:.45rem;background:var(--surface);}
 .cart-partido-card.open{border-color:var(--green);border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0;transform:none;}
 .cart-partido-card.open .cart-partido-arrow{color:var(--green);}
-.cart-partido-actions{border:1px solid var(--green);border-top:none;background:linear-gradient(180deg,rgba(0,122,61,.04),rgba(0,122,61,0));padding:.6rem;display:none;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.45rem;border-radius:0 0 var(--r) var(--r);animation:cartActionsIn .18s ease;}
+.cart-partido-actions{border:1px solid var(--green);border-top:none;background:linear-gradient(180deg,rgba(0,122,61,.04),rgba(0,122,61,0));padding:.6rem;display:none;grid-template-columns:1fr;gap:.5rem;margin-bottom:.45rem;border-radius:0 0 var(--r) var(--r);animation:cartActionsIn .18s ease;}
 .cart-partido-actions.open{display:grid;}
 @keyframes cartActionsIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
 .cart-action-btn{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem .5rem;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:var(--r-sm);transition:all .15s;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.4rem;}
 .cart-action-btn:hover{border-color:var(--green);color:var(--green);background:rgba(0,122,61,.06);transform:translateY(-1px);}
 .cart-action-btn svg{width:14px;height:14px;flex-shrink:0;}
 .cart-action-btn.disabled{opacity:.4;cursor:not-allowed;pointer-events:none;}
-@media(max-width:700px){.cart-partido-actions{grid-template-columns:1fr;}}
 .cart-partido-card:last-child{margin-bottom:0;}
 .cart-partido-card:hover{border-color:var(--green);box-shadow:var(--shadow);transform:translateX(3px);}
 .cart-partido-equipos{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
@@ -3084,6 +3092,26 @@ function renderCartelera(data){
       const faseBadge = ev.fase ? `<span class="cart-badge fase">${ev.fase}</span>` : '';
       const compBadge = ev.competicion ? `<span class="cart-badge fase">${ev.competicion}</span>` : '';
       const tvBadge = '';
+      // URL de Google Maps a partir del frontón del evento (una vez por evento)
+      let mapsUrl = '';
+      if(ev.fronton){
+        const FRO_BY_NAME = window._FRO_BY_NAME || (window._FRO_BY_NAME = (() => {
+          const idx = {};
+          Object.values(CAT_FRONTONES).forEach(fr=>{
+            if(fr && fr.nombre) idx[fr.nombre.toUpperCase().trim()] = fr;
+          });
+          return idx;
+        })());
+        const fronInfo = FRO_BY_NAME[ev.fronton.toUpperCase().trim()];
+        mapsUrl = fronInfo?.google_maps_link
+          || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+ev.fronton)}`;
+      }
+      const llegarBtn = mapsUrl
+        ? `<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="cart-evento-llegar" title="${t('cart_como_llegar')}">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+             <span>${t('cart_como_llegar')}</span>
+           </a>`
+        : '';
       const partidosHtml = partList.map((p,idx)=>{
         const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
         const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
@@ -3091,29 +3119,6 @@ function renderCartelera(data){
         const pTipo = tipoLabel(p.tipo||tipoEv||'');
         const tipoBadge = `<span class="cart-badge ${tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`;
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
-        // URL de Google Maps para el frontón del evento
-        let mapsUrl = '';
-        if(ev.fronton){
-          const FRO_BY_NAME = window._FRO_BY_NAME || (window._FRO_BY_NAME = (() => {
-            const idx = {};
-            Object.values(CAT_FRONTONES).forEach(fr=>{
-              if(fr && fr.nombre) idx[fr.nombre.toUpperCase().trim()] = fr;
-            });
-            return idx;
-          })());
-          const fronInfo = FRO_BY_NAME[ev.fronton.toUpperCase().trim()];
-          mapsUrl = fronInfo?.google_maps_link
-            || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+ev.fronton)}`;
-        }
-        const mapsBtn = mapsUrl
-          ? `<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="cart-action-btn" onclick="event.stopPropagation()">
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-               <span>${t('cart_como_llegar')}</span>
-             </a>`
-          : `<span class="cart-action-btn disabled">
-               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-               <span>${t('cart_como_llegar')}</span>
-             </span>`;
         return `<div class="cart-partido-wrap">
           <div class="cart-partido-card" onclick="toggleCarteleraActions(this)" data-partido="${encoded}">
             <div>
@@ -3127,7 +3132,6 @@ function renderCartelera(data){
             <div class="cart-partido-arrow">${t('cart_ver_opciones')}</div>
           </div>
           <div class="cart-partido-actions">
-            ${mapsBtn}
             <button class="cart-action-btn" onclick="carteleraGoStats(this)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               <span>${t('cart_estadisticas')}</span>
@@ -3142,6 +3146,7 @@ function renderCartelera(data){
             <div class="cart-evento-lugar"><strong>${ev.hora||'—'}h</strong> · ${ev.fronton||'—'}</div>
             <div class="cart-evento-ciudad">${ev.ciudad&&ev.ciudad!==ev.fronton?ev.ciudad:''}</div>
           </div>
+          ${llegarBtn}
         </div>
         <div class="cart-partidos-list">${partidosHtml}</div>
         
