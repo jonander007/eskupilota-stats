@@ -1,65 +1,7 @@
 {
-  "actualizado": "10/05/2026 02:28",
+  "actualizado": "11/05/2026 02:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "10/05/2026",
-      "hora": "17:15",
-      "fronton": "Beotibar",
-      "ciudad": "Tolosa",
-      "fase": "Cuartos de Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "ZUBIZARRETA IV – MARIEZKURRENA II // APEZETXEA II – ZABALETA",
-        "ARTOLA // ZABALA (Serie A)",
-        "BAKAIKOA – UGARTEMENDIA // EGIGUREN V – ALDABE",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2849747/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ZABALETA"
-          ],
-          "raw": "ZUBIZARRETA IV – MARIEZKURRENA II // APEZETXEA II – ZABALETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "ARTOLA // ZABALA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ALDABE"
-          ],
-          "raw": "BAKAIKOA – UGARTEMENDIA // EGIGUREN V – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "15/05/2026",
       "hora": "20:45",
@@ -125,7 +67,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "XX – XX // XX – XX",
-        "LASO // XX – Semifinal (Serie A)",
+        "ARTOLA // LASO (Serie A)",
         "SALABERRIA – BIKUÑA // SENAR – UGARTEMENDIA",
         "DESDE",
         "35.00€"
@@ -150,14 +92,13 @@
         },
         {
           "eq1": [
-            "LASO"
+            "ARTOLA"
           ],
           "eq2": [
-            "XX",
-            "Semifinal"
+            "LASO"
           ],
-          "raw": "LASO // XX – Semifinal (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "ARTOLA // LASO (Serie A)",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
@@ -204,7 +145,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "XX – XX // XX – XX",
-        "DARÍO // XX – Semifinal (Serie A)",
+        "DARÍO // LARRAZABAL (Serie A)",
         "EGIGUREN V – LOZA // ZUBIZARRETA III – MORGAETXEBARRIA",
         "DESDE",
         "30.00€"
@@ -232,11 +173,10 @@
             "DARÍO"
           ],
           "eq2": [
-            "XX",
-            "Semifinal"
+            "LARRAZABAL"
           ],
-          "raw": "DARÍO // XX – Semifinal (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "DARÍO // LARRAZABAL (Serie A)",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
@@ -410,6 +350,78 @@
       ]
     },
     {
+      "fecha": "29/05/2026",
+      "hora": "19:30",
+      "fronton": "Mendibarren",
+      "ciudad": "Berriatua",
+      "fase": "Dieciseisavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "PAREJAS",
+        "Dieciseisavos de final",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877972/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "PAREJAS",
+          "tipo": "campeonato-a",
+          "serie": "a",
+          "pendiente": true,
+          "etiqueta": "PAREJAS"
+        }
+      ]
+    },
+    {
+      "fecha": "30/05/2026",
+      "hora": "17:15",
+      "fronton": "Orozko",
+      "ciudad": "Orozko",
+      "fase": "Dieciseisavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "PAREJAS",
+        "Dieciseisavos de final",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877973/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "PAREJAS",
+          "tipo": "campeonato-a",
+          "serie": "a",
+          "pendiente": true,
+          "etiqueta": "PAREJAS"
+        }
+      ]
+    },
+    {
       "fecha": "31/05/2026",
       "hora": "17:00",
       "fronton": "Navarra Arena",
@@ -462,7 +474,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "XXXX – XXXX // XXXX – XXXX",
+        "XX – XX // XX – XX",
         "FINAL",
         "DESDE",
         "30.00€"
@@ -474,17 +486,16 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
           "eq2": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
-          "raw": "XXXX – XXXX // XXXX – XXXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
-          "serie": "a",
-          "pendiente": true
+          "serie": "a"
         }
       ]
     },
@@ -497,8 +508,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -516,8 +526,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -535,8 +544,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -554,8 +562,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -574,7 +581,6 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
         "DESDE",
         "35.00€"
       ],
@@ -594,8 +600,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -614,7 +619,6 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
         "DESDE",
         "47.00€"
       ],
@@ -634,8 +638,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
@@ -654,7 +657,6 @@
       "cartel": [
         "San Fermín",
         "Torneo San Fermín",
-        "(Al comprar, antes de pagar, comprueba que la hora y día del festival es la que querías)",
         "Clasificación",
         "Campeonato Manomanista",
         "Campeonato Manomanista Serie B",
@@ -696,24 +698,24 @@
         "TF",
         "TC",
         "CO",
-        "Zabala",
+        "Artola",
         "2",
-        "2",
-        "44",
-        "34",
-        "10",
+        "3",
+        "61",
+        "57",
+        "4",
         "Larrazabal",
         "2",
         "3",
         "61",
         "57",
         "4",
-        "Artola",
-        "1",
+        "Zabala",
         "2",
-        "39",
-        "41",
-        "-2",
+        "3",
+        "60",
+        "56",
+        "4",
         "Peña II",
         "0",
         "3",
