@@ -1,5 +1,5 @@
 {
-  "actualizado": "11/05/2026 02:37",
+  "actualizado": "12/05/2026 02:30",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,7 +12,7 @@
       "cartel": [
         "ALBERDI II // MURUA (Serie B)",
         "AMIANO // REKALDE (Serie B)",
-        "SALABERRIA – GASKUE // SENAR – ESKIROZ",
+        "SALABERRIA – GASKUE // ZUBIZARRETA III – ESKIROZ",
         "DESDE",
         "25.00€"
       ],
@@ -49,10 +49,10 @@
             "GASKUE"
           ],
           "eq2": [
-            "SENAR",
+            "ZUBIZARRETA III",
             "ESKIROZ"
           ],
-          "raw": "SALABERRIA – GASKUE // SENAR – ESKIROZ",
+          "raw": "SALABERRIA – GASKUE // ZUBIZARRETA III – ESKIROZ",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -63,12 +63,15 @@
       "hora": "17:15",
       "fronton": "Atano III",
       "ciudad": "Donostia/San Sebastián",
-      "fase": "Semifinal",
-      "competicion": "Campeonato Manomanista",
+      "fase": "Elección ⚾️ Aukeraketa 2026/5/12 - 12:00",
+      "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
+        "Semifinal",
+        "Campeonato Manomanista",
+        "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
         "ARTOLA // LASO (Serie A)",
-        "SALABERRIA – BIKUÑA // SENAR – UGARTEMENDIA",
+        "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – BIKUÑA",
+        "DIFERIDO",
         "DESDE",
         "35.00€"
       ],
@@ -79,14 +82,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "EZKURDIA",
+            "GABIRONDO"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "PEÑA II",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -103,14 +106,14 @@
         },
         {
           "eq1": [
-            "SALABERRIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "SENAR",
+            "BAKAIKOA",
             "UGARTEMENDIA"
           ],
-          "raw": "SALABERRIA – BIKUÑA // SENAR – UGARTEMENDIA",
+          "eq2": [
+            "APEZETXEA II",
+            "BIKUÑA"
+          ],
+          "raw": "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – BIKUÑA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -141,12 +144,14 @@
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Semifinal",
-      "competicion": "Campeonato Manomanista",
+      "fase": "Elección ⚾️ Aukeraketa 2026/5/13 - 12:00",
+      "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
+        "Semifinal",
+        "Campeonato Manomanista",
+        "SALABERRIA – ZABALETA // SENAR – ALBISU",
         "DARÍO // LARRAZABAL (Serie A)",
-        "EGIGUREN V – LOZA // ZUBIZARRETA III – MORGAETXEBARRIA",
+        "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
         "DESDE",
         "30.00€"
       ],
@@ -157,14 +162,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "SALABERRIA",
+            "ZABALETA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "SENAR",
+            "ALBISU"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "SALABERRIA – ZABALETA // SENAR – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -181,14 +186,14 @@
         },
         {
           "eq1": [
+            "BAKAIKOA",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
             "EGIGUREN V",
             "LOZA"
           ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "EGIGUREN V – LOZA // ZUBIZARRETA III – MORGAETXEBARRIA",
+          "raw": "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -272,7 +277,7 @@
         "XX – XX // XX – XX",
         "XX // XX (Serie B)",
         "DESDE",
-        "22.00€"
+        "27.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -350,6 +355,85 @@
       ]
     },
     {
+      "fecha": "26/05/2026",
+      "hora": "17:00",
+      "fronton": "Bergara",
+      "ciudad": "Bergara",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
+        "EZKURDIA – REZUSTA // ARRTOLA o LASO // IZTUETA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2879131/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "MURUA",
+            "EROSTARBE"
+          ],
+          "raw": "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "ARRTOLA o LASO // IZTUETA"
+          ],
+          "raw": "EZKURDIA – REZUSTA // ARRTOLA o LASO // IZTUETA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "29/05/2026",
+      "hora": "19:00",
+      "fronton": "Goizueta",
+      "ciudad": "Goizueta",
+      "fase": "Dieciseisavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "XX – XX // XX – XX",
+        "Dieciseisavos de final",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877981/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "29/05/2026",
       "hora": "19:30",
       "fronton": "Mendibarren",
@@ -358,7 +442,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "PAREJAS",
+        "XX – XX // XX – XX",
         "Dieciseisavos de final",
         "DESDE",
         "25.00€"
@@ -370,18 +454,16 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
           "eq2": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
-          "raw": "PAREJAS",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
-          "serie": "a",
-          "pendiente": true,
-          "etiqueta": "PAREJAS"
+          "serie": "a"
         }
       ]
     },
@@ -394,7 +476,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "PAREJAS",
+        "XX – XX // XX – XX",
         "Dieciseisavos de final",
         "DESDE",
         "25.00€"
@@ -406,18 +488,16 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
           "eq2": [
-            "?",
-            "?"
+            "XX",
+            "XX"
           ],
-          "raw": "PAREJAS",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
-          "serie": "a",
-          "pendiente": true,
-          "etiqueta": "PAREJAS"
+          "serie": "a"
         }
       ]
     },
@@ -461,6 +541,68 @@
           ],
           "raw": "Campeonato Manomanista – Final (Serie A)",
           "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "13/06/2026",
+      "hora": "19:00",
+      "fronton": "Ibarrangelu",
+      "ciudad": "Ibarrangelu",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "JAKA – MORGAETXEBARRIA // LARRAZABAL – LANDA",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "LANDA"
+          ],
+          "raw": "JAKA – MORGAETXEBARRIA // LARRAZABAL – LANDA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "14/06/2026",
+      "hora": "12:45",
+      "fronton": "Errigoiti",
+      "ciudad": "Errigoiti",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA – SALAVERRI II // AMIANO – MORGAETXEBARRIA",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "AMIANO",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "BAKAIKOA – SALAVERRI II // AMIANO – MORGAETXEBARRIA",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
