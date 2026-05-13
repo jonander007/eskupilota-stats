@@ -1,5 +1,5 @@
 {
-  "actualizado": "12/05/2026 02:30",
+  "actualizado": "13/05/2026 02:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -363,7 +363,7 @@
       "competicion": null,
       "cartel": [
         "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
-        "EZKURDIA – REZUSTA // ARRTOLA o LASO // IZTUETA",
+        "EZKURDIA – REZUSTA // ARTOLA o LASO – IZTUETA",
         "DESDE",
         "25.00€"
       ],
@@ -391,9 +391,10 @@
             "REZUSTA"
           ],
           "eq2": [
-            "ARRTOLA o LASO // IZTUETA"
+            "ARTOLA o LASO",
+            "IZTUETA"
           ],
-          "raw": "EZKURDIA – REZUSTA // ARRTOLA o LASO // IZTUETA",
+          "raw": "EZKURDIA – REZUSTA // ARTOLA o LASO – IZTUETA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -404,12 +405,12 @@
       "hora": "19:00",
       "fronton": "Goizueta",
       "ciudad": "Goizueta",
-      "fase": "Dieciseisavos de final",
+      "fase": "Treintaidosavos de final",
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "XX – XX // XX – XX",
-        "Dieciseisavos de final",
+        "Treintaidosavos de final",
         "DESDE",
         "20.00€"
       ],
