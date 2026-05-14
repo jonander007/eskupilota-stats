@@ -1,5 +1,5 @@
 {
-  "actualizado": "13/05/2026 02:37",
+  "actualizado": "14/05/2026 02:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -128,7 +128,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "Cuartos de final",
+        "SENAR – ARANGUREN // AMIANO – SALAVERRI II",
         "DESDE",
         "10.00€"
       ],
@@ -136,8 +136,21 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864739/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "AMIANO",
+            "SALAVERRI II"
+          ],
+          "raw": "SENAR – ARANGUREN // AMIANO – SALAVERRI II",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "17/05/2026",
@@ -255,7 +268,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "Cuartos de final",
+        "DARÍO – ESKUZA // MURUA – LOZA",
         "DESDE",
         "15.00€"
       ],
@@ -263,8 +276,21 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864740/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "MURUA",
+            "LOZA"
+          ],
+          "raw": "DARÍO – ESKUZA // MURUA – LOZA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "23/05/2026",
