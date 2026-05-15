@@ -1,5 +1,5 @@
 {
-  "actualizado": "14/05/2026 02:37",
+  "actualizado": "15/05/2026 02:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -63,11 +63,9 @@
       "hora": "17:15",
       "fronton": "Atano III",
       "ciudad": "Donostia/San Sebastián",
-      "fase": "Elección ⚾️ Aukeraketa 2026/5/12 - 12:00",
-      "competicion": null,
+      "fase": "Semifinal",
+      "competicion": "Campeonato Manomanista",
       "cartel": [
-        "Semifinal",
-        "Campeonato Manomanista",
         "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
         "ARTOLA // LASO (Serie A)",
         "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – BIKUÑA",
@@ -157,11 +155,9 @@
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Elección ⚾️ Aukeraketa 2026/5/13 - 12:00",
-      "competicion": null,
+      "fase": "Semifinal",
+      "competicion": "Campeonato Manomanista",
       "cartel": [
-        "Semifinal",
-        "Campeonato Manomanista",
         "SALABERRIA – ZABALETA // SENAR – ALBISU",
         "DARÍO // LARRAZABAL (Serie A)",
         "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
