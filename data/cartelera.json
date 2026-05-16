@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/05/2026 02:38",
+  "actualizado": "16/05/2026 02:28",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -217,7 +217,7 @@
       "competicion": null,
       "cartel": [
         "V. Bermeo Hiria Inpesca Pilota Festibala",
-        "MURUA – ESKUZA // REKALDE – BIKUÑA",
+        "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
         "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
         "DESDE",
         "15.00€"
@@ -229,14 +229,14 @@
       "partidos": [
         {
           "eq1": [
-            "MURUA",
-            "ESKUZA"
+            "SALABERRIA",
+            "ALDABE"
           ],
           "eq2": [
             "REKALDE",
             "BIKUÑA"
           ],
-          "raw": "MURUA – ESKUZA // REKALDE – BIKUÑA",
+          "raw": "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -465,8 +465,8 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "XX – XX // XX – XX",
-        "Dieciseisavos de final",
+        "ARTOLA – LANDA // ELORDI – GABIRONDO",
+        "SENAR // ZUBIZARRETA IV",
         "DESDE",
         "25.00€"
       ],
@@ -477,15 +477,26 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "ARTOLA",
+            "LANDA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ELORDI",
+            "GABIRONDO"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ARTOLA – LANDA // ELORDI – GABIRONDO",
           "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV"
+          ],
+          "raw": "SENAR // ZUBIZARRETA IV",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
@@ -499,8 +510,8 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "XX – XX // XX – XX",
-        "Dieciseisavos de final",
+        "DARÍO – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
+        "JAKA // AMIANO",
         "DESDE",
         "25.00€"
       ],
@@ -511,15 +522,26 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "DARÍO",
+            "ESKUZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "LARRAZABAL",
+            "MORGAETXEBARRIA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "DARÍO – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
           "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "JAKA"
+          ],
+          "eq2": [
+            "AMIANO"
+          ],
+          "raw": "JAKA // AMIANO",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
@@ -821,134 +843,7 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "Clasificación",
-        "Campeonato Manomanista",
-        "Campeonato Manomanista Serie B",
-        "GRUPO A TALDEA",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Darío",
-        "2",
-        "3",
-        "58",
-        "40",
-        "18",
-        "Laso",
-        "2",
-        "3",
-        "60",
-        "44",
-        "16",
-        "Altuna III",
-        "2",
-        "3",
-        "52",
-        "54",
-        "-6",
-        "Jaka",
-        "0",
-        "3",
-        "24",
-        "66",
-        "-42",
-        "GRUPO B TALDEA",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Artola",
-        "2",
-        "3",
-        "61",
-        "57",
-        "4",
-        "Larrazabal",
-        "2",
-        "3",
-        "61",
-        "57",
-        "4",
-        "Zabala",
-        "2",
-        "3",
-        "60",
-        "56",
-        "4",
-        "Peña II",
-        "0",
-        "3",
-        "44",
-        "66",
-        "-22",
-        "GRUPO A TALDEA",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Alberdi II",
-        "2",
-        "3",
-        "59",
-        "38",
-        "21",
-        "Rekalde",
-        "2",
-        "3",
-        "59",
-        "37",
-        "22",
-        "Egiguren V",
-        "2",
-        "3",
-        "54",
-        "53",
-        "1",
-        "Agirre",
-        "0",
-        "3",
-        "22",
-        "66",
-        "-44",
-        "GRUPO B TALDEA",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Amiano",
-        "3",
-        "3",
-        "66",
-        "25",
-        "41",
-        "Murua",
-        "2",
-        "3",
-        "61",
-        "47",
-        "14",
-        "Zubizarreta III",
-        "1",
-        "3",
-        "46",
-        "55",
-        "-9",
-        "Senar",
-        "0",
-        "3",
-        "20",
-        "66",
-        "-46"
+        "Torneo San Fermín"
       ],
       "precio": null,
       "agotado": true,
