@@ -219,7 +219,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 136,
+    "partidos_count": 142,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -363,7 +363,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 130,
+    "partidos_count": 133,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -875,7 +875,7 @@
     "id": "FRO110",
     "nombre": "IGARONDO",
     "ciudad_id": "CIU077",
-    "partidos_count": 32,
+    "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IGARONDO"
   },
@@ -955,7 +955,7 @@
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
-    "partidos_count": 19,
+    "partidos_count": 21,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
   },
@@ -987,7 +987,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 270,
+    "partidos_count": 273,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1451,7 +1451,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 7,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
@@ -1459,7 +1459,7 @@
     "id": "FRO203",
     "nombre": "URBELTZ",
     "ciudad_id": "CIU088",
-    "partidos_count": 26,
+    "partidos_count": 28,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URBELTZ"
   },
