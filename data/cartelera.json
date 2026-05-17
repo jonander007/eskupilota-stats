@@ -1,155 +1,7 @@
 {
-  "actualizado": "16/05/2026 02:28",
+  "actualizado": "17/05/2026 02:35",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "15/05/2026",
-      "hora": "20:45",
-      "fronton": "Uranzu",
-      "ciudad": "Irun",
-      "fase": "Semifinales",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "ALBERDI II // MURUA (Serie B)",
-        "AMIANO // REKALDE (Serie B)",
-        "SALABERRIA – GASKUE // ZUBIZARRETA III – ESKIROZ",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2832757/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "ALBERDI II // MURUA (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "AMIANO // REKALDE (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "ESKIROZ"
-          ],
-          "raw": "SALABERRIA – GASKUE // ZUBIZARRETA III – ESKIROZ",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "16/05/2026",
-      "hora": "17:15",
-      "fronton": "Atano III",
-      "ciudad": "Donostia/San Sebastián",
-      "fase": "Semifinal",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
-        "ARTOLA // LASO (Serie A)",
-        "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – BIKUÑA",
-        "DIFERIDO",
-        "DESDE",
-        "35.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2831467/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "IMAZ"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // PEÑA II – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "ARTOLA // LASO (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "BIKUÑA"
-          ],
-          "raw": "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – BIKUÑA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "16/05/2026",
-      "hora": "18:00",
-      "fronton": "Pili",
-      "ciudad": "Badaran",
-      "fase": "Cuartos de final",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "SENAR – ARANGUREN // AMIANO – SALAVERRI II",
-        "DESDE",
-        "10.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864739/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "AMIANO",
-            "SALAVERRI II"
-          ],
-          "raw": "SENAR – ARANGUREN // AMIANO – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "17/05/2026",
       "hora": "17:15",
@@ -162,7 +14,7 @@
         "DARÍO // LARRAZABAL (Serie A)",
         "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
         "DESDE",
-        "30.00€"
+        "50.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -293,11 +145,13 @@
       "hora": "17:15",
       "fronton": "Labrit",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": "Campeonato Manomanista Serie B",
+      "fase": "Elección ⚾️ Aukeraketa 2026/5/19 - 11:00",
+      "competicion": null,
       "cartel": [
+        "Final",
+        "Campeonato Manomanista Serie B",
         "XX – XX // XX – XX",
-        "XX // XX (Serie B)",
+        "MURUA // AMIANO (Serie B)",
         "DESDE",
         "27.00€"
       ],
@@ -321,12 +175,12 @@
         },
         {
           "eq1": [
-            "XX"
+            "MURUA"
           ],
           "eq2": [
-            "XX"
+            "AMIANO"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "MURUA // AMIANO (Serie B)",
           "tipo": "manomanista-b",
           "serie": "b"
         }
@@ -341,7 +195,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "XX – XX // XX – XX",
-        "XX // XX ( 3º// 4º Puesto)",
+        "LASO // XX ( 3º// 4º Puesto)",
         "DESDE",
         "25.00€"
       ],
@@ -365,12 +219,12 @@
         },
         {
           "eq1": [
-            "XX"
+            "LASO"
           ],
           "eq2": [
             "XX ( 3º// 4º Puesto)"
           ],
-          "raw": "XX // XX ( 3º// 4º Puesto)",
+          "raw": "LASO // XX ( 3º// 4º Puesto)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -551,13 +405,15 @@
       "hora": "17:00",
       "fronton": "Navarra Arena",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": "Campeonato Manomanista",
+      "fase": "Elección ⚾️ Aukeraketa 2026/5/27 - 11:00",
+      "competicion": null,
       "cartel": [
+        "Final",
+        "Campeonato Manomanista",
         "XX – XX // XX – XX",
-        "Campeonato Manomanista – Final (Serie A)",
+        "ARTOLA // XX Campeonato Manomanista – Final (Serie A)",
         "DESDE",
-        "62.00€"
+        "83.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -579,13 +435,14 @@
         },
         {
           "eq1": [
-            "Campeonato Manomanista"
+            "ARTOLA"
           ],
           "eq2": [
+            "XX Campeonato Manomanista",
             "Final"
           ],
-          "raw": "Campeonato Manomanista – Final (Serie A)",
-          "tipo": "manomanista-a",
+          "raw": "ARTOLA // XX Campeonato Manomanista – Final (Serie A)",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -805,13 +662,11 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "DESDE",
-        "47.00€"
+        "Torneo San Fermín"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
