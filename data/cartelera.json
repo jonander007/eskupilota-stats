@@ -1,65 +1,7 @@
 {
-  "actualizado": "17/05/2026 02:35",
+  "actualizado": "18/05/2026 02:45",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "17/05/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinal",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "SALABERRIA – ZABALETA // SENAR – ALBISU",
-        "DARÍO // LARRAZABAL (Serie A)",
-        "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
-        "DESDE",
-        "50.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2831507/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "SENAR",
-            "ALBISU"
-          ],
-          "raw": "SALABERRIA – ZABALETA // SENAR – ALBISU",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "LARRAZABAL"
-          ],
-          "raw": "DARÍO // LARRAZABAL (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "LOZA"
-          ],
-          "raw": "BAKAIKOA – MORGAETXEBARRIA // EGIGUREN V – LOZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "22/05/2026",
       "hora": "19:00",
@@ -153,7 +95,7 @@
         "XX – XX // XX – XX",
         "MURUA // AMIANO (Serie B)",
         "DESDE",
-        "27.00€"
+        "22.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -195,7 +137,7 @@
       "competicion": "Campeonato Manomanista",
       "cartel": [
         "XX – XX // XX – XX",
-        "LASO // XX ( 3º// 4º Puesto)",
+        "LASO // LARRAZABAL ( 3º// 4º Puesto)",
         "DESDE",
         "25.00€"
       ],
@@ -222,9 +164,9 @@
             "LASO"
           ],
           "eq2": [
-            "XX ( 3º// 4º Puesto)"
+            "LARRAZABAL ( 3º// 4º Puesto)"
           ],
-          "raw": "LASO // XX ( 3º// 4º Puesto)",
+          "raw": "LASO // LARRAZABAL ( 3º// 4º Puesto)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -411,9 +353,9 @@
         "Final",
         "Campeonato Manomanista",
         "XX – XX // XX – XX",
-        "ARTOLA // XX Campeonato Manomanista – Final (Serie A)",
+        "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "83.00€"
+        "93.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -438,10 +380,10 @@
             "ARTOLA"
           ],
           "eq2": [
-            "XX Campeonato Manomanista",
+            "DARÍO",
             "Final"
           ],
-          "raw": "ARTOLA // XX Campeonato Manomanista – Final (Serie A)",
+          "raw": "ARTOLA // DARÍO – Final (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
