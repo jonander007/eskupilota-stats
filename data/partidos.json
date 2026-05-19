@@ -102,6 +102,23 @@
     "ganador": "equipo2"
   },
   {
+    "fecha": "2026-05-16",
+    "fronton_id": "FRO204",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL015",
+      "zag_id": null
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL026",
+      "zag_id": "PEL023"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "2026-05-15",
     "fronton_id": "FRO182",
     "competicion_id": "COMP015",

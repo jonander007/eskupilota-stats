@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 92,
+    "partidos_count": 95,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -219,7 +219,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 148,
+    "partidos_count": 151,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -363,7 +363,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 136,
+    "partidos_count": 139,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -955,7 +955,7 @@
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
-    "partidos_count": 23,
+    "partidos_count": 25,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
   },
@@ -987,7 +987,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 276,
+    "partidos_count": 279,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1304,6 +1304,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20O%C3%91ATI"
   },
   {
+    "id": "FRO204",
+    "nombre": "PILI",
+    "ciudad_id": "CIU150",
+    "partidos_count": 1
+  },
+  {
     "id": "FRO164",
     "nombre": "PINILLA DE LOS BARRUECOS",
     "ciudad_id": "CIU119",
@@ -1451,7 +1457,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 13,
+    "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
@@ -1459,7 +1465,7 @@
     "id": "FRO203",
     "nombre": "URBELTZ",
     "ciudad_id": "CIU088",
-    "partidos_count": 30,
+    "partidos_count": 32,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URBELTZ"
   },
