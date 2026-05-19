@@ -1,5 +1,5 @@
 {
-  "actualizado": "18/05/2026 02:45",
+  "actualizado": "19/05/2026 02:43",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -14,7 +14,7 @@
         "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
         "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
         "DESDE",
-        "15.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -58,7 +58,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "DARÍO – ESKUZA // MURUA – LOZA",
+        "EGIGUREN V – ESKUZA // ALBERDI II – LOZA",
         "DESDE",
         "15.00€"
       ],
@@ -69,14 +69,14 @@
       "partidos": [
         {
           "eq1": [
-            "DARÍO",
+            "EGIGUREN V",
             "ESKUZA"
           ],
           "eq2": [
-            "MURUA",
+            "ALBERDI II",
             "LOZA"
           ],
-          "raw": "DARÍO – ESKUZA // MURUA – LOZA",
+          "raw": "EGIGUREN V – ESKUZA // ALBERDI II – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -92,8 +92,9 @@
       "cartel": [
         "Final",
         "Campeonato Manomanista Serie B",
-        "XX – XX // XX – XX",
+        "PEÑA II – MARIEZKURRENA II // ZABALA – ZABALETA",
         "MURUA // AMIANO (Serie B)",
+        "DIFERIDO",
         "DESDE",
         "22.00€"
       ],
@@ -104,14 +105,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "PEÑA II",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ZABALA",
+            "ZABALETA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "PEÑA II – MARIEZKURRENA II // ZABALA – ZABALETA",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -136,8 +137,9 @@
       "fase": "3º- 4º Puesto",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "XX – XX // XX – XX",
+        "JAKA – IZTUETA // ELORDI – MARTIJA",
         "LASO // LARRAZABAL ( 3º// 4º Puesto)",
+        "SENAR – LIZEAGA // REKALDE – GASKUE",
         "DESDE",
         "25.00€"
       ],
@@ -148,14 +150,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "JAKA",
+            "IZTUETA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ELORDI",
+            "MARTIJA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "JAKA – IZTUETA // ELORDI – MARTIJA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -169,6 +171,19 @@
           "raw": "LASO // LARRAZABAL ( 3º// 4º Puesto)",
           "tipo": "manomanista-a",
           "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "GASKUE"
+          ],
+          "raw": "SENAR – LIZEAGA // REKALDE – GASKUE",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -181,7 +196,7 @@
       "competicion": null,
       "cartel": [
         "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
-        "EZKURDIA – REZUSTA // ARTOLA o LASO – IZTUETA",
+        "EZKURDIA – REZUSTA // LASO – IZTUETA",
         "DESDE",
         "25.00€"
       ],
@@ -209,10 +224,10 @@
             "REZUSTA"
           ],
           "eq2": [
-            "ARTOLA o LASO",
+            "LASO",
             "IZTUETA"
           ],
-          "raw": "EZKURDIA – REZUSTA // ARTOLA o LASO – IZTUETA",
+          "raw": "EZKURDIA – REZUSTA // LASO – IZTUETA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -352,10 +367,10 @@
       "cartel": [
         "Final",
         "Campeonato Manomanista",
-        "XX – XX // XX – XX",
+        "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "93.00€"
+        "114.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -364,14 +379,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "JAKA",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "P. ETXEBERRIA",
+            "ZABALETA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
