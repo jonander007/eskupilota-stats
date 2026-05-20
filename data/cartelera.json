@@ -1,5 +1,5 @@
 {
-  "actualizado": "19/05/2026 02:43",
+  "actualizado": "20/05/2026 02:43",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -87,11 +87,9 @@
       "hora": "17:15",
       "fronton": "Labrit",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Elección ⚾️ Aukeraketa 2026/5/19 - 11:00",
-      "competicion": null,
+      "fase": "Final",
+      "competicion": "Campeonato Manomanista Serie B",
       "cartel": [
-        "Final",
-        "Campeonato Manomanista Serie B",
         "PEÑA II – MARIEZKURRENA II // ZABALA – ZABALETA",
         "MURUA // AMIANO (Serie B)",
         "DIFERIDO",
@@ -276,7 +274,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "ARTOLA – LANDA // ELORDI – GABIRONDO",
+        "ELORDI – GABIRONDO // LASO – LANDA",
         "SENAR // ZUBIZARRETA IV",
         "DESDE",
         "25.00€"
@@ -288,14 +286,14 @@
       "partidos": [
         {
           "eq1": [
-            "ARTOLA",
-            "LANDA"
-          ],
-          "eq2": [
             "ELORDI",
             "GABIRONDO"
           ],
-          "raw": "ARTOLA – LANDA // ELORDI – GABIRONDO",
+          "eq2": [
+            "LASO",
+            "LANDA"
+          ],
+          "raw": "ELORDI – GABIRONDO // LASO – LANDA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
