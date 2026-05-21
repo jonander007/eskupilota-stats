@@ -1,5 +1,5 @@
 {
-  "actualizado": "20/05/2026 02:43",
+  "actualizado": "21/05/2026 02:46",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,7 +12,7 @@
       "cartel": [
         "V. Bermeo Hiria Inpesca Pilota Festibala",
         "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
-        "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
+        "EZKURDIA – REZUSTA // ELORDI – ZABALETA",
         "DESDE",
         "20.00€"
       ],
@@ -36,14 +36,14 @@
         },
         {
           "eq1": [
-            "ALTUNA III",
+            "EZKURDIA",
             "REZUSTA"
           ],
           "eq2": [
             "ELORDI",
             "ZABALETA"
           ],
-          "raw": "ALTUNA III – REZUSTA // ELORDI – ZABALETA",
+          "raw": "EZKURDIA – REZUSTA // ELORDI – ZABALETA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -240,8 +240,8 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "XX – XX // XX – XX",
-        "Treintaidosavos de final",
+        "ZUBIZARRETA III – ESKIROZ // APEZETXEA II – ALDABE",
+        "SALABERRIA // REKALDE",
         "DESDE",
         "20.00€"
       ],
@@ -252,15 +252,26 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "ZUBIZARRETA III",
+            "ESKIROZ"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "APEZETXEA II",
+            "ALDABE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ZUBIZARRETA III – ESKIROZ // APEZETXEA II – ALDABE",
           "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SALABERRIA"
+          ],
+          "eq2": [
+            "REKALDE"
+          ],
+          "raw": "SALABERRIA // REKALDE",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
