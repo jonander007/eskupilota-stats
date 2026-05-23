@@ -1,87 +1,7 @@
 {
-  "actualizado": "22/05/2026 02:47",
+  "actualizado": "23/05/2026 02:32",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "22/05/2026",
-      "hora": "19:00",
-      "fronton": "Artza",
-      "ciudad": "Bermeo",
-      "fase": "Semifinales",
-      "competicion": null,
-      "cartel": [
-        "V. Bermeo Hiria Inpesca Pilota Festibala",
-        "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
-        "EZKURDIA – REZUSTA // ELORDI – ZABALETA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2866953/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "ALDABE"
-          ],
-          "eq2": [
-            "REKALDE",
-            "BIKUÑA"
-          ],
-          "raw": "SALABERRIA – ALDABE // REKALDE – BIKUÑA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ELORDI",
-            "ZABALETA"
-          ],
-          "raw": "EZKURDIA – REZUSTA // ELORDI – ZABALETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "22/05/2026",
-      "hora": "19:30",
-      "fronton": "Nájera",
-      "ciudad": "Nájera",
-      "fase": "Cuartos de final",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "EGIGUREN V – ESKUZA // ALBERDI II – LOZA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864740/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "raw": "EGIGUREN V – ESKUZA // ALBERDI II – LOZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "23/05/2026",
       "hora": "17:15",
@@ -471,6 +391,117 @@
           ],
           "raw": "BAKAIKOA – SALAVERRI II // AMIANO – MORGAETXEBARRIA",
           "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/06/2026",
+      "hora": "20:30",
+      "fronton": "Barberito I",
+      "ciudad": "Baños Río Tobía",
+      "fase": "Cuartos",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "MURUA – LOZA // XX – XX",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864741/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "LOZA"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "MURUA – LOZA // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/06/2026",
+      "hora": "20:45",
+      "fronton": "Arretxe de Valcarlos",
+      "ciudad": "Arretxe de Valcarlos",
+      "fase": "Dieciseisavos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
+        "DARÍO // ALBERDI II",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2894794/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "EZKURDIA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "raw": "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO"
+          ],
+          "eq2": [
+            "ALBERDI II"
+          ],
+          "raw": "DARÍO // ALBERDI II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "20/06/2026",
+      "hora": "18:00",
+      "fronton": "Arnedo",
+      "ciudad": "Arnedo",
+      "fase": "Cuartos",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "DARÍO – ESKUZA // XX – XX",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864742/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "DARÍO – ESKUZA // XX – XX",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
