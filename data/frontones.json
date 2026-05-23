@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 104,
+    "partidos_count": 107,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -192,6 +192,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARTUNDUAGA"
   },
   {
+    "id": "FRO205",
+    "nombre": "ARTZA",
+    "ciudad_id": "CIU031",
+    "partidos_count": 1
+  },
+  {
     "id": "FRO025",
     "nombre": "ASTEASU",
     "ciudad_id": "CIU017",
@@ -219,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 160,
+    "partidos_count": 163,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -363,7 +369,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 148,
+    "partidos_count": 151,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -955,7 +961,7 @@
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
-    "partidos_count": 31,
+    "partidos_count": 33,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
   },
@@ -987,7 +993,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 288,
+    "partidos_count": 291,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1216,6 +1222,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
   {
+    "id": "FRO206",
+    "nombre": "NÁJERA",
+    "ciudad_id": "CIU108",
+    "partidos_count": 1
+  },
+  {
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
@@ -1307,7 +1319,7 @@
     "id": "FRO204",
     "nombre": "PILI",
     "ciudad_id": "CIU150",
-    "partidos_count": 4
+    "partidos_count": 5
   },
   {
     "id": "FRO164",
@@ -1457,7 +1469,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 25,
+    "partidos_count": 28,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
