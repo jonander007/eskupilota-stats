@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 107,
+    "partidos_count": 110,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -195,7 +195,7 @@
     "id": "FRO205",
     "nombre": "ARTZA",
     "ciudad_id": "CIU031",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO025",
@@ -225,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 163,
+    "partidos_count": 166,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -369,7 +369,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 151,
+    "partidos_count": 154,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -961,7 +961,7 @@
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
-    "partidos_count": 33,
+    "partidos_count": 35,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
   },
@@ -993,7 +993,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 291,
+    "partidos_count": 296,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1225,7 +1225,7 @@
     "id": "FRO206",
     "nombre": "NÁJERA",
     "ciudad_id": "CIU108",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO153",
@@ -1319,7 +1319,7 @@
     "id": "FRO204",
     "nombre": "PILI",
     "ciudad_id": "CIU150",
-    "partidos_count": 5
+    "partidos_count": 6
   },
   {
     "id": "FRO164",
@@ -1469,7 +1469,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 28,
+    "partidos_count": 31,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
