@@ -1,52 +1,7 @@
 {
-  "actualizado": "23/05/2026 02:32",
+  "actualizado": "24/05/2026 02:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "23/05/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": "Campeonato Manomanista Serie B",
-      "cartel": [
-        "PEÑA II – MARIEZKURRENA II // ZABALA – ZABALETA",
-        "MURUA // AMIANO (Serie B)",
-        "DIFERIDO",
-        "DESDE",
-        "22.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/54244/session/2852666/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "raw": "PEÑA II – MARIEZKURRENA II // ZABALA – ZABALETA",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "MURUA // AMIANO (Serie B)",
-          "tipo": "manomanista-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "24/05/2026",
       "hora": "17:15",
@@ -55,8 +10,8 @@
       "fase": "3º- 4º Puesto",
       "competicion": "Campeonato Manomanista",
       "cartel": [
-        "JAKA – IZTUETA // ELORDI – MARTIJA",
-        "LASO // LARRAZABAL ( 3º// 4º Puesto)",
+        "JAKA – IZTUETA // ELORDI – REZUSTA",
+        "LASO // LARRAZABAL ( 3º // 4º Puesto)",
         "SENAR – LIZEAGA // REKALDE – GASKUE",
         "DESDE",
         "25.00€"
@@ -73,9 +28,9 @@
           ],
           "eq2": [
             "ELORDI",
-            "MARTIJA"
+            "REZUSTA"
           ],
-          "raw": "JAKA – IZTUETA // ELORDI – MARTIJA",
+          "raw": "JAKA – IZTUETA // ELORDI – REZUSTA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -84,9 +39,9 @@
             "LASO"
           ],
           "eq2": [
-            "LARRAZABAL ( 3º// 4º Puesto)"
+            "LARRAZABAL ( 3º // 4º Puesto)"
           ],
-          "raw": "LASO // LARRAZABAL ( 3º// 4º Puesto)",
+          "raw": "LASO // LARRAZABAL ( 3º // 4º Puesto)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -404,7 +359,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "MURUA – LOZA // XX – XX",
+        "MURUA – LOZA // AMIANO – SALAVERRI II",
         "DESDE",
         "15.00€"
       ],
@@ -419,10 +374,10 @@
             "LOZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "AMIANO",
+            "SALAVERRI II"
           ],
-          "raw": "MURUA – LOZA // XX – XX",
+          "raw": "MURUA – LOZA // AMIANO – SALAVERRI II",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -482,7 +437,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "DARÍO – ESKUZA // XX – XX",
+        "DARÍO – ESKUZA // SENAR – ARANGUREN",
         "DESDE",
         "15.00€"
       ],
@@ -497,10 +452,10 @@
             "ESKUZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "SENAR",
+            "ARANGUREN"
           ],
-          "raw": "DARÍO – ESKUZA // XX – XX",
+          "raw": "DARÍO – ESKUZA // SENAR – ARANGUREN",
           "tipo": "campeonato-a",
           "serie": "a"
         }
