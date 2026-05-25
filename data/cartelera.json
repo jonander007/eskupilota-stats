@@ -1,65 +1,7 @@
 {
-  "actualizado": "24/05/2026 02:42",
+  "actualizado": "25/05/2026 02:51",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/05/2026",
-      "hora": "17:15",
-      "fronton": "Beotibar",
-      "ciudad": "Tolosa",
-      "fase": "3º- 4º Puesto",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "JAKA – IZTUETA // ELORDI – REZUSTA",
-        "LASO // LARRAZABAL ( 3º // 4º Puesto)",
-        "SENAR – LIZEAGA // REKALDE – GASKUE",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2849749/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "ELORDI",
-            "REZUSTA"
-          ],
-          "raw": "JAKA – IZTUETA // ELORDI – REZUSTA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO"
-          ],
-          "eq2": [
-            "LARRAZABAL ( 3º // 4º Puesto)"
-          ],
-          "raw": "LASO // LARRAZABAL ( 3º // 4º Puesto)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "GASKUE"
-          ],
-          "raw": "SENAR – LIZEAGA // REKALDE – GASKUE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "26/05/2026",
       "hora": "17:00",
