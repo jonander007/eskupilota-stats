@@ -1,5 +1,5 @@
 {
-  "actualizado": "25/05/2026 02:51",
+  "actualizado": "26/05/2026 02:39",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -11,7 +11,7 @@
       "competicion": null,
       "cartel": [
         "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
-        "EZKURDIA – REZUSTA // LASO – IZTUETA",
+        "EZKURDIA – ZABALETA // LASO – IZTUETA",
         "DESDE",
         "25.00€"
       ],
@@ -36,13 +36,13 @@
         {
           "eq1": [
             "EZKURDIA",
-            "REZUSTA"
+            "ZABALETA"
           ],
           "eq2": [
             "LASO",
             "IZTUETA"
           ],
-          "raw": "EZKURDIA – REZUSTA // LASO – IZTUETA",
+          "raw": "EZKURDIA – ZABALETA // LASO – IZTUETA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -147,7 +147,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "DARÍO – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
+        "ZABALA – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
         "JAKA // AMIANO",
         "DESDE",
         "25.00€"
@@ -159,14 +159,14 @@
       "partidos": [
         {
           "eq1": [
-            "DARÍO",
+            "ZABALA",
             "ESKUZA"
           ],
           "eq2": [
             "LARRAZABAL",
             "MORGAETXEBARRIA"
           ],
-          "raw": "DARÍO – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
+          "raw": "ZABALA – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -196,7 +196,7 @@
         "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "114.00€"
+        "83.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -399,6 +399,51 @@
           ],
           "raw": "DARÍO – ESKUZA // SENAR – ARANGUREN",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "21/06/2026",
+      "hora": "18:00",
+      "fronton": "Donibane",
+      "ciudad": "Muskiz",
+      "fase": "Octavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "LASO – IZTUETA // PEÑA II – ALBISU",
+        "LARRAZABAL // GANADOR DE OROZKO",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2896084/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "ALBISU"
+          ],
+          "raw": "LASO – IZTUETA // PEÑA II – ALBISU",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LARRAZABAL"
+          ],
+          "eq2": [
+            "GANADOR DE OROZKO"
+          ],
+          "raw": "LARRAZABAL // GANADOR DE OROZKO",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
