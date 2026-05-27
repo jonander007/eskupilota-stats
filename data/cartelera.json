@@ -1,53 +1,7 @@
 {
-  "actualizado": "26/05/2026 02:39",
+  "actualizado": "27/05/2026 02:50",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "26/05/2026",
-      "hora": "17:00",
-      "fronton": "Bergara",
-      "ciudad": "Bergara",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
-        "EZKURDIA – ZABALETA // LASO – IZTUETA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2879131/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "MURUA",
-            "EROSTARBE"
-          ],
-          "raw": "SENAR – UGARTEMENDIA // MURUA – EROSTARBE",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – ZABALETA // LASO – IZTUETA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "29/05/2026",
       "hora": "19:00",
@@ -196,7 +150,7 @@
         "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "83.00€"
+        "114.00€"
       ],
       "precio": null,
       "agotado": false,
