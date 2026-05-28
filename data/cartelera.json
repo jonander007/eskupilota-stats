@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/05/2026 02:50",
+  "actualizado": "28/05/2026 02:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -150,7 +150,7 @@
         "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "114.00€"
+        "93.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -326,6 +326,51 @@
     },
     {
       "fecha": "20/06/2026",
+      "hora": "17:15",
+      "fronton": "Retegi",
+      "ciudad": "Barañain",
+      "fase": "Octavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
+        "ARTOLA // GANADOR DE BERRIATUA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2895774/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "IMAZ"
+          ],
+          "raw": "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [
+            "GANADOR DE BERRIATUA"
+          ],
+          "raw": "ARTOLA // GANADOR DE BERRIATUA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "20/06/2026",
       "hora": "18:00",
       "fronton": "Arnedo",
       "ciudad": "Arnedo",
@@ -369,7 +414,7 @@
         "LASO – IZTUETA // PEÑA II – ALBISU",
         "LARRAZABAL // GANADOR DE OROZKO",
         "DESDE",
-        "20.00€"
+        "15.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -397,6 +442,80 @@
             "GANADOR DE OROZKO"
           ],
           "raw": "LARRAZABAL // GANADOR DE OROZKO",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "24/06/2026",
+      "hora": "18:00",
+      "fronton": "Baratze",
+      "ciudad": "Segura",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2897185/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "IZTUETA"
+          ],
+          "raw": "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "27/06/2026",
+      "hora": "18:00",
+      "fronton": "Igea",
+      "ciudad": "Igea",
+      "fase": "Cuartos",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "MURUA – LOZA //",
+        "SENAR – ARANGUREN",
+        "Gratuito con entrada"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA"
+          ],
+          "eq2": [
+            "LOZA //"
+          ],
+          "raw": "MURUA – LOZA //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR"
+          ],
+          "eq2": [
+            "ARANGUREN"
+          ],
+          "raw": "SENAR – ARANGUREN",
           "tipo": "manomanista-a",
           "serie": "a"
         }
