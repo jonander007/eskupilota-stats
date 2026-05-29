@@ -1,5 +1,5 @@
 {
-  "actualizado": "28/05/2026 02:38",
+  "actualizado": "29/05/2026 02:41",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -142,11 +142,9 @@
       "hora": "17:00",
       "fronton": "Navarra Arena",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Elección ⚾️ Aukeraketa 2026/5/27 - 11:00",
-      "competicion": null,
+      "fase": "Final",
+      "competicion": "Campeonato Manomanista",
       "cartel": [
-        "Final",
-        "Campeonato Manomanista",
         "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
@@ -449,6 +447,51 @@
     },
     {
       "fecha": "24/06/2026",
+      "hora": "17:00",
+      "fronton": "Astelena",
+      "ciudad": "Eibar",
+      "fase": "Octavos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "XX – XX // XX – XX",
+        "ZABALA // GANADOR DE VALCARLOS",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2900650/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZABALA"
+          ],
+          "eq2": [
+            "GANADOR DE VALCARLOS"
+          ],
+          "raw": "ZABALA // GANADOR DE VALCARLOS",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "24/06/2026",
       "hora": "18:00",
       "fronton": "Baratze",
       "ciudad": "Segura",
@@ -522,6 +565,49 @@
       ]
     },
     {
+      "fecha": "27/06/2026",
+      "hora": "18:00",
+      "fronton": "San Lorenzo",
+      "ciudad": "Ezcaray",
+      "fase": "Cuartos",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "DARÍO – ESKUZA //",
+        "AMIANO – SALAVERRI II",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864743/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO"
+          ],
+          "eq2": [
+            "ESKUZA //"
+          ],
+          "raw": "DARÍO – ESKUZA //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AMIANO"
+          ],
+          "eq2": [
+            "SALAVERRI II"
+          ],
+          "raw": "AMIANO – SALAVERRI II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "07/07/2026",
       "hora": "11:00",
       "fronton": "Navarra Arena",
@@ -533,7 +619,7 @@
         "XX – XX // XX – XX",
         "FINAL",
         "DESDE",
-        "30.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
