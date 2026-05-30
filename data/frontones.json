@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 125,
+    "partidos_count": 128,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -195,7 +195,7 @@
     "id": "FRO205",
     "nombre": "ARTZA",
     "ciudad_id": "CIU031",
-    "partidos_count": 7
+    "partidos_count": 8
   },
   {
     "id": "FRO025",
@@ -225,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 181,
+    "partidos_count": 184,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -369,7 +369,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 175,
+    "partidos_count": 178,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -385,7 +385,7 @@
     "id": "FRO048",
     "nombre": "BERGARA",
     "ciudad_id": "CIU030",
-    "partidos_count": 13,
+    "partidos_count": 15,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERGARA"
   },
@@ -790,6 +790,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GETARIA"
   },
   {
+    "id": "FRO207",
+    "nombre": "GOIZUETA",
+    "ciudad_id": "CIU151",
+    "partidos_count": 2
+  },
+  {
     "id": "FRO099",
     "nombre": "GUREA",
     "ciudad_id": "CIU020",
@@ -993,7 +999,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 309,
+    "partidos_count": 311,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1166,6 +1172,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MENDEXA"
   },
   {
+    "id": "FRO208",
+    "nombre": "MENDIBARREN",
+    "ciudad_id": "CIU152",
+    "partidos_count": 2
+  },
+  {
     "id": "FRO146",
     "nombre": "MIMETIZ",
     "ciudad_id": "CIU141",
@@ -1225,7 +1237,7 @@
     "id": "FRO206",
     "nombre": "NÁJERA",
     "ciudad_id": "CIU108",
-    "partidos_count": 7
+    "partidos_count": 8
   },
   {
     "id": "FRO153",
@@ -1319,7 +1331,7 @@
     "id": "FRO204",
     "nombre": "PILI",
     "ciudad_id": "CIU150",
-    "partidos_count": 11
+    "partidos_count": 12
   },
   {
     "id": "FRO164",
@@ -1469,7 +1481,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 46,
+    "partidos_count": 49,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },

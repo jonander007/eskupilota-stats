@@ -192,6 +192,12 @@
     "nombre_eu": "Bermeo"
   },
   {
+    "id": "CIU152",
+    "nombre": "BERRIATUA",
+    "nombre_es": "Berriatua",
+    "nombre_eu": "Berriatua"
+  },
+  {
     "id": "CIU032",
     "nombre": "BERRIOZAR",
     "nombre_es": "Berriozar",
@@ -424,6 +430,12 @@
     "nombre": "GETARIA",
     "nombre_es": "Getaria",
     "nombre_eu": "Getaria"
+  },
+  {
+    "id": "CIU151",
+    "nombre": "GOIZUETA",
+    "nombre_es": "Goizueta",
+    "nombre_eu": "Goizueta"
   },
   {
     "id": "CIU071",
