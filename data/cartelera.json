@@ -1,5 +1,5 @@
 {
-  "actualizado": "29/05/2026 02:41",
+  "actualizado": "30/05/2026 02:35",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -148,7 +148,7 @@
         "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
         "ARTOLA // DARÍO – Final (Serie A)",
         "DESDE",
-        "93.00€"
+        "114.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -396,6 +396,51 @@
           ],
           "raw": "DARÍO – ESKUZA // SENAR – ARANGUREN",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "21/06/2026",
+      "hora": "17:15",
+      "fronton": "Olazar",
+      "ciudad": "Zaldibar",
+      "fase": "Octavos de final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
+        "ELORDI // GANADOR DE GOIZUETA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2896088/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "ZABALA",
+            "GABIRONDO"
+          ],
+          "raw": "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ELORDI"
+          ],
+          "eq2": [
+            "GANADOR DE GOIZUETA"
+          ],
+          "raw": "ELORDI // GANADOR DE GOIZUETA",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
