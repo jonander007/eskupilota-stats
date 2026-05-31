@@ -1,142 +1,7 @@
 {
-  "actualizado": "30/05/2026 02:35",
+  "actualizado": "31/05/2026 02:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "29/05/2026",
-      "hora": "19:00",
-      "fronton": "Goizueta",
-      "ciudad": "Goizueta",
-      "fase": "Treintaidosavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "ZUBIZARRETA III – ESKIROZ // APEZETXEA II – ALDABE",
-        "SALABERRIA // REKALDE",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877981/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "ZUBIZARRETA III – ESKIROZ // APEZETXEA II – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SALABERRIA"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "SALABERRIA // REKALDE",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "29/05/2026",
-      "hora": "19:30",
-      "fronton": "Mendibarren",
-      "ciudad": "Berriatua",
-      "fase": "Dieciseisavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "ELORDI – GABIRONDO // LASO – LANDA",
-        "SENAR // ZUBIZARRETA IV",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877972/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "ELORDI – GABIRONDO // LASO – LANDA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "SENAR // ZUBIZARRETA IV",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "30/05/2026",
-      "hora": "17:15",
-      "fronton": "Orozko",
-      "ciudad": "Orozko",
-      "fase": "Dieciseisavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "ZABALA – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
-        "JAKA // AMIANO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2877973/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZABALA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "ZABALA – ESKUZA // LARRAZABAL – MORGAETXEBARRIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "JAKA // AMIANO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "31/05/2026",
       "hora": "17:00",
@@ -332,7 +197,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
-        "ARTOLA // GANADOR DE BERRIATUA",
+        "ARTOLA // ZUBIZARRETA IV",
         "DESDE",
         "25.00€"
       ],
@@ -359,9 +224,9 @@
             "ARTOLA"
           ],
           "eq2": [
-            "GANADOR DE BERRIATUA"
+            "ZUBIZARRETA IV"
           ],
-          "raw": "ARTOLA // GANADOR DE BERRIATUA",
+          "raw": "ARTOLA // ZUBIZARRETA IV",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -410,7 +275,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
-        "ELORDI // GANADOR DE GOIZUETA",
+        "ELORDI // SALABERRIA",
         "DESDE",
         "15.00€"
       ],
@@ -437,9 +302,9 @@
             "ELORDI"
           ],
           "eq2": [
-            "GANADOR DE GOIZUETA"
+            "SALABERRIA"
           ],
-          "raw": "ELORDI // GANADOR DE GOIZUETA",
+          "raw": "ELORDI // SALABERRIA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
