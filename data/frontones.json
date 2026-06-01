@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 131,
+    "partidos_count": 134,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -195,7 +195,7 @@
     "id": "FRO205",
     "nombre": "ARTZA",
     "ciudad_id": "CIU031",
-    "partidos_count": 9
+    "partidos_count": 10
   },
   {
     "id": "FRO025",
@@ -225,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 187,
+    "partidos_count": 190,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -369,7 +369,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 181,
+    "partidos_count": 184,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -385,7 +385,7 @@
     "id": "FRO048",
     "nombre": "BERGARA",
     "ciudad_id": "CIU030",
-    "partidos_count": 17,
+    "partidos_count": 19,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERGARA"
   },
@@ -793,7 +793,7 @@
     "id": "FRO207",
     "nombre": "GOIZUETA",
     "ciudad_id": "CIU151",
-    "partidos_count": 4
+    "partidos_count": 6
   },
   {
     "id": "FRO099",
@@ -999,7 +999,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 313,
+    "partidos_count": 315,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1175,7 +1175,7 @@
     "id": "FRO208",
     "nombre": "MENDIBARREN",
     "ciudad_id": "CIU152",
-    "partidos_count": 4
+    "partidos_count": 6
   },
   {
     "id": "FRO146",
@@ -1229,7 +1229,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 30,
+    "partidos_count": 31,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1237,7 +1237,7 @@
     "id": "FRO206",
     "nombre": "NÁJERA",
     "ciudad_id": "CIU108",
-    "partidos_count": 9
+    "partidos_count": 10
   },
   {
     "id": "FRO153",
@@ -1299,7 +1299,7 @@
     "id": "FRO160",
     "nombre": "OROZKO",
     "ciudad_id": "CIU114",
-    "partidos_count": 6,
+    "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OROZKO"
   },
@@ -1331,7 +1331,7 @@
     "id": "FRO204",
     "nombre": "PILI",
     "ciudad_id": "CIU150",
-    "partidos_count": 13
+    "partidos_count": 14
   },
   {
     "id": "FRO164",
