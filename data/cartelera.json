@@ -1,52 +1,7 @@
 {
-  "actualizado": "31/05/2026 02:52",
+  "actualizado": "01/06/2026 03:28",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "31/05/2026",
-      "hora": "17:00",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": "Campeonato Manomanista",
-      "cartel": [
-        "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
-        "ARTOLA // DARÍO – Final (Serie A)",
-        "DESDE",
-        "114.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/53663/session/2863503/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "ZABALETA"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II // P. ETXEBERRIA – ZABALETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "DARÍO",
-            "Final"
-          ],
-          "raw": "ARTOLA // DARÍO – Final (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "13/06/2026",
       "hora": "19:00",
@@ -320,7 +275,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "LASO – IZTUETA // PEÑA II – ALBISU",
-        "LARRAZABAL // GANADOR DE OROZKO",
+        "JAKA // LARRAZABAL",
         "DESDE",
         "15.00€"
       ],
@@ -344,12 +299,12 @@
         },
         {
           "eq1": [
-            "LARRAZABAL"
+            "JAKA"
           ],
           "eq2": [
-            "GANADOR DE OROZKO"
+            "LARRAZABAL"
           ],
-          "raw": "LARRAZABAL // GANADOR DE OROZKO",
+          "raw": "JAKA // LARRAZABAL",
           "tipo": "manomanista-a",
           "serie": "a"
         }
