@@ -1,5 +1,5 @@
 {
-  "actualizado": "02/06/2026 02:58",
+  "actualizado": "03/06/2026 03:33",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -152,7 +152,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
-        "ARTOLA // ZUBIZARRETA IV",
+        "JAKA // ARTOLA",
         "DESDE",
         "25.00€"
       ],
@@ -176,12 +176,12 @@
         },
         {
           "eq1": [
-            "ARTOLA"
+            "JAKA"
           ],
           "eq2": [
-            "ZUBIZARRETA IV"
+            "ARTOLA"
           ],
-          "raw": "ARTOLA // ZUBIZARRETA IV",
+          "raw": "JAKA // ARTOLA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -275,7 +275,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "LASO – IZTUETA // PEÑA II – ALBISU",
-        "JAKA // LARRAZABAL",
+        "LARRAZABAL // ZUBIZARRETA IV",
         "DESDE",
         "15.00€"
       ],
@@ -299,12 +299,12 @@
         },
         {
           "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
             "LARRAZABAL"
           ],
-          "raw": "JAKA // LARRAZABAL",
+          "eq2": [
+            "ZUBIZARRETA IV"
+          ],
+          "raw": "LARRAZABAL // ZUBIZARRETA IV",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -388,6 +388,51 @@
       ]
     },
     {
+      "fecha": "25/06/2026",
+      "hora": "19:00",
+      "fronton": "Udal Kiroldegia",
+      "ciudad": "Hernani",
+      "fase": "Octavos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "ALTUNA III – MARTIJA // MURUA – ZABALETA",
+        "P. ETXEBERRIA // ELORDI o SALABERRIA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2905317/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "MURUA",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – MARTIJA // MURUA – ZABALETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "ELORDI o SALABERRIA"
+          ],
+          "raw": "P. ETXEBERRIA // ELORDI o SALABERRIA",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "27/06/2026",
       "hora": "18:00",
       "fronton": "Igea",
@@ -424,49 +469,6 @@
             "ARANGUREN"
           ],
           "raw": "SENAR – ARANGUREN",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "27/06/2026",
-      "hora": "18:00",
-      "fronton": "San Lorenzo",
-      "ciudad": "Ezcaray",
-      "fase": "Cuartos",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "DARÍO – ESKUZA //",
-        "AMIANO – SALAVERRI II",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864743/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "ESKUZA //"
-          ],
-          "raw": "DARÍO – ESKUZA //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
-            "SALAVERRI II"
-          ],
-          "raw": "AMIANO – SALAVERRI II",
           "tipo": "manomanista-a",
           "serie": "a"
         }
