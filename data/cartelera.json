@@ -1,5 +1,5 @@
 {
-  "actualizado": "03/06/2026 03:33",
+  "actualizado": "04/06/2026 03:28",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -107,7 +107,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
-        "DARÍO // ALBERDI II",
+        "DARIO // ALBERDI II",
         "DESDE",
         "25.00€"
       ],
@@ -131,12 +131,12 @@
         },
         {
           "eq1": [
-            "DARÍO"
+            "DARIO"
           ],
           "eq2": [
             "ALBERDI II"
           ],
-          "raw": "DARÍO // ALBERDI II",
+          "raw": "DARIO // ALBERDI II",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -196,7 +196,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "DARÍO – ESKUZA // SENAR – ARANGUREN",
+        "EGIGUREN V – ESKUZA // SENAR – ARANGUREN",
         "DESDE",
         "15.00€"
       ],
@@ -207,14 +207,14 @@
       "partidos": [
         {
           "eq1": [
-            "DARÍO",
+            "EGIGUREN V",
             "ESKUZA"
           ],
           "eq2": [
             "SENAR",
             "ARANGUREN"
           ],
-          "raw": "DARÍO – ESKUZA // SENAR – ARANGUREN",
+          "raw": "EGIGUREN V – ESKUZA // SENAR – ARANGUREN",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -320,7 +320,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "XX – XX // XX – XX",
-        "ZABALA // GANADOR DE VALCARLOS",
+        "ZABALA // GANADOR VALCARLOS",
         "DESDE",
         "25.00€"
       ],
@@ -347,9 +347,9 @@
             "ZABALA"
           ],
           "eq2": [
-            "GANADOR DE VALCARLOS"
+            "GANADOR VALCARLOS"
           ],
-          "raw": "ZABALA // GANADOR DE VALCARLOS",
+          "raw": "ZABALA // GANADOR VALCARLOS",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -397,7 +397,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "ALTUNA III – MARTIJA // MURUA – ZABALETA",
-        "P. ETXEBERRIA // ELORDI o SALABERRIA",
+        "P.ETXEBERRIA // GANADOR ZALDIBAR",
         "DESDE",
         "25.00€"
       ],
@@ -421,12 +421,12 @@
         },
         {
           "eq1": [
-            "P. ETXEBERRIA"
+            "P.ETXEBERRIA"
           ],
           "eq2": [
-            "ELORDI o SALABERRIA"
+            "GANADOR ZALDIBAR"
           ],
-          "raw": "P. ETXEBERRIA // ELORDI o SALABERRIA",
+          "raw": "P.ETXEBERRIA // GANADOR ZALDIBAR",
           "tipo": "manomanista-a",
           "serie": "a"
         }
