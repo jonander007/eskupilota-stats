@@ -69,7 +69,7 @@
     "id": "COMP234",
     "nombre": "Campeonato Manomanista 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 10
+    "partidos_count": 11
   },
   {
     "id": "COMP012",
@@ -93,7 +93,7 @@
     "id": "COMP015",
     "nombre": "Campeonato Manomanista Serie A 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 297
+    "partidos_count": 300
   },
   {
     "id": "COMP016",
@@ -159,7 +159,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 474
+    "partidos_count": 484
   },
   {
     "id": "COMP027",
@@ -1377,7 +1377,7 @@
     "id": "COMP235",
     "nombre": "Torneo San Fermín 4 1/2 2026",
     "tipo": "festival-cuatro",
-    "partidos_count": 14
+    "partidos_count": 17
   },
   {
     "id": "COMP229",
