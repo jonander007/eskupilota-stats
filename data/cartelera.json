@@ -1,5 +1,5 @@
 {
-  "actualizado": "04/06/2026 03:28",
+  "actualizado": "05/06/2026 02:50",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -107,7 +107,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
-        "DARIO // ALBERDI II",
+        "DARÍO // ALBERDI II",
         "DESDE",
         "25.00€"
       ],
@@ -131,12 +131,12 @@
         },
         {
           "eq1": [
-            "DARIO"
+            "DARÍO"
           ],
           "eq2": [
             "ALBERDI II"
           ],
-          "raw": "DARIO // ALBERDI II",
+          "raw": "DARÍO // ALBERDI II",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -434,6 +434,51 @@
     },
     {
       "fecha": "27/06/2026",
+      "hora": "17:15",
+      "fronton": "Santanape",
+      "ciudad": "Gernika",
+      "fase": "Cuartos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "LARRAZABAL – MORGAETXEBARRIA // SENAR – ALBISU",
+        "LASO // GANADOR BARAÑAIN",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907975/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "LARRAZABAL",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "SENAR",
+            "ALBISU"
+          ],
+          "raw": "LARRAZABAL – MORGAETXEBARRIA // SENAR – ALBISU",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [
+            "GANADOR BARAÑAIN"
+          ],
+          "raw": "LASO // GANADOR BARAÑAIN",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "27/06/2026",
       "hora": "18:00",
       "fronton": "Igea",
       "ciudad": "Igea",
@@ -470,6 +515,128 @@
           ],
           "raw": "SENAR – ARANGUREN",
           "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "28/06/2026",
+      "hora": "17:15",
+      "fronton": "Burunda",
+      "ciudad": "Altsasu",
+      "fase": "Cuartos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "SALABERRIA – GASKUE // APEZETXEA II – EROSTARBE",
+        "EZKURDIA // GANADOR EIBAR",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907972/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "GASKUE"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "SALABERRIA – GASKUE // APEZETXEA II – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EZKURDIA"
+          ],
+          "eq2": [
+            "GANADOR EIBAR"
+          ],
+          "raw": "EZKURDIA // GANADOR EIBAR",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "28/06/2026",
+      "hora": "17:30",
+      "fronton": "Araia",
+      "ciudad": "Araia",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA // REKALDE (4 1/2)",
+        "P.ETXEBERRIA – ESKUZA // LARRAZABAL – UGARTEMENDIA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908551/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
+            "REKALDE (4 1/2)"
+          ],
+          "raw": "BAKAIKOA // REKALDE (4 1/2)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "UGARTEMENDIA"
+          ],
+          "raw": "P.ETXEBERRIA – ESKUZA // LARRAZABAL – UGARTEMENDIA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "28/06/2026",
+      "hora": "19:00",
+      "fronton": "Margubete",
+      "ciudad": "Santo Domingo de la Calzada",
+      "fase": "Semifinales",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "XX – XX // XX – XX",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2908533/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
