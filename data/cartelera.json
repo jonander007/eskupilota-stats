@@ -1,5 +1,5 @@
 {
-  "actualizado": "05/06/2026 02:50",
+  "actualizado": "06/06/2026 02:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -433,6 +433,51 @@
       ]
     },
     {
+      "fecha": "26/06/2026",
+      "hora": "20:45",
+      "fronton": "Las Llanas",
+      "ciudad": "Sestao",
+      "fase": "Cuartos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
+        "PEÑA // GANADOR MUSKIZ",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2908350/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "PEÑA"
+          ],
+          "eq2": [
+            "GANADOR MUSKIZ"
+          ],
+          "raw": "PEÑA // GANADOR MUSKIZ",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "27/06/2026",
       "hora": "17:15",
       "fronton": "Santanape",
@@ -441,7 +486,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "LARRAZABAL – MORGAETXEBARRIA // SENAR – ALBISU",
+        "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – ALBISU",
         "LASO // GANADOR BARAÑAIN",
         "DESDE",
         "20.00€"
@@ -457,10 +502,10 @@
             "MORGAETXEBARRIA"
           ],
           "eq2": [
-            "SENAR",
+            "ZUBIZARRETA IV",
             "ALBISU"
           ],
-          "raw": "LARRAZABAL – MORGAETXEBARRIA // SENAR – ALBISU",
+          "raw": "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – ALBISU",
           "tipo": "campeonato-a",
           "serie": "a"
         },
