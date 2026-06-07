@@ -1,5 +1,5 @@
 {
-  "actualizado": "06/06/2026 02:37",
+  "actualizado": "07/06/2026 02:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -486,7 +486,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – ALBISU",
+        "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
         "LASO // GANADOR BARAÑAIN",
         "DESDE",
         "20.00€"
@@ -503,9 +503,9 @@
           ],
           "eq2": [
             "ZUBIZARRETA IV",
-            "ALBISU"
+            "IMAZ"
           ],
-          "raw": "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – ALBISU",
+          "raw": "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
