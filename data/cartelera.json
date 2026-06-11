@@ -1,5 +1,5 @@
 {
-  "actualizado": "10/06/2026 02:50",
+  "actualizado": "11/06/2026 03:21",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -698,7 +698,7 @@
         "XX – XX // XX – XX",
         "FINAL",
         "DESDE",
-        "35.00€"
+        "45.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -729,11 +729,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833670/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -747,11 +749,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -765,11 +769,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833672/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -783,11 +789,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833673/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -821,11 +829,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833674/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -839,11 +849,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -857,11 +869,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833676/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -875,11 +889,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "Torneo San Fermín",
+        "DESDE",
+        "45.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833677/select?viewCode=",
       "tv": false,
       "partidos": [],
       "pendiente": true
