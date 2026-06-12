@@ -5,7 +5,7 @@
     "nombre_es": "JAKA",
     "nombre_eu": "JAKA",
     "rol": "delantero",
-    "partidos_count": 281
+    "partidos_count": 283
   },
   {
     "id": "PEL002",
@@ -13,7 +13,7 @@
     "nombre_es": "LARRAZABAL",
     "nombre_eu": "LARRAZABAL",
     "rol": "delantero",
-    "partidos_count": 267
+    "partidos_count": 268
   },
   {
     "id": "PEL003",
@@ -29,7 +29,7 @@
     "nombre_es": "ZUBIZARRETA III",
     "nombre_eu": "ZUBIZARRETA III",
     "rol": "delantero",
-    "partidos_count": 258
+    "partidos_count": 259
   },
   {
     "id": "PEL019",
@@ -45,7 +45,7 @@
     "nombre_es": "MARIEZKURRENA II",
     "nombre_eu": "MARIEZKURRENA II",
     "rol": "zaguero",
-    "partidos_count": 231
+    "partidos_count": 232
   },
   {
     "id": "PEL004",
@@ -61,7 +61,7 @@
     "nombre_es": "ZABALETA",
     "nombre_eu": "ZABALETA",
     "rol": "zaguero",
-    "partidos_count": 227
+    "partidos_count": 228
   },
   {
     "id": "PEL031",
@@ -69,7 +69,7 @@
     "nombre_es": "SALABERRIA",
     "nombre_eu": "SALABERRIA",
     "rol": "delantero",
-    "partidos_count": 220
+    "partidos_count": 221
   },
   {
     "id": "PEL012",
@@ -85,7 +85,7 @@
     "nombre_es": "ARTOLA",
     "nombre_eu": "ARTOLA",
     "rol": "delantero",
-    "partidos_count": 212
+    "partidos_count": 213
   },
   {
     "id": "PEL026",
@@ -93,7 +93,7 @@
     "nombre_es": "SENAR",
     "nombre_eu": "SENAR",
     "rol": "delantero",
-    "partidos_count": 211
+    "partidos_count": 212
   },
   {
     "id": "PEL025",
@@ -101,7 +101,7 @@
     "nombre_es": "LASO",
     "nombre_eu": "LASO",
     "rol": "delantero",
-    "partidos_count": 210
+    "partidos_count": 211
   },
   {
     "id": "PEL008",
@@ -117,7 +117,7 @@
     "nombre_es": "ESKIROZ",
     "nombre_eu": "ESKIROZ",
     "rol": "zaguero",
-    "partidos_count": 198
+    "partidos_count": 199
   },
   {
     "id": "PEL013",
@@ -133,7 +133,7 @@
     "nombre_es": "P.ETXEBERRIA",
     "nombre_eu": "P.ETXEBERRIA",
     "rol": "delantero",
-    "partidos_count": 197
+    "partidos_count": 198
   },
   {
     "id": "PEL021",
@@ -141,7 +141,7 @@
     "nombre_es": "ZABALA",
     "nombre_eu": "ZABALA",
     "rol": "delantero",
-    "partidos_count": 196
+    "partidos_count": 197
   },
   {
     "id": "PEL014",
@@ -149,7 +149,7 @@
     "nombre_es": "ELORDI",
     "nombre_eu": "ELORDI",
     "rol": "delantero",
-    "partidos_count": 194
+    "partidos_count": 195
   },
   {
     "id": "PEL016",
@@ -197,7 +197,7 @@
     "nombre_es": "DARÍO",
     "nombre_eu": "DARÍO",
     "rol": "delantero",
-    "partidos_count": 173
+    "partidos_count": 174
   },
   {
     "id": "PEL005",
@@ -253,7 +253,7 @@
     "nombre_es": "ESKUZA",
     "nombre_eu": "ESKUZA",
     "rol": "zaguero",
-    "partidos_count": 148
+    "partidos_count": 149
   },
   {
     "id": "PEL035",
@@ -269,7 +269,7 @@
     "nombre_es": "GABIRONDO",
     "nombre_eu": "GABIRONDO",
     "rol": "zaguero",
-    "partidos_count": 140
+    "partidos_count": 141
   },
   {
     "id": "PEL027",
@@ -285,7 +285,7 @@
     "nombre_es": "REKALDE",
     "nombre_eu": "REKALDE",
     "rol": "delantero",
-    "partidos_count": 132
+    "partidos_count": 133
   },
   {
     "id": "PEL022",
@@ -301,7 +301,7 @@
     "nombre_es": "ALDABE",
     "nombre_eu": "ALDABE",
     "rol": "zaguero",
-    "partidos_count": 123
+    "partidos_count": 124
   },
   {
     "id": "PEL047",
@@ -309,7 +309,7 @@
     "nombre_es": "AMIANO",
     "nombre_eu": "AMIANO",
     "rol": "delantero",
-    "partidos_count": 116
+    "partidos_count": 117
   },
   {
     "id": "PEL028",
@@ -325,7 +325,7 @@
     "nombre_es": "ZUBIZARRETA IV",
     "nombre_eu": "ZUBIZARRETA IV",
     "rol": "delantero",
-    "partidos_count": 107
+    "partidos_count": 108
   },
   {
     "id": "PEL057",
@@ -333,7 +333,7 @@
     "nombre_es": "APEZETXEA II",
     "nombre_eu": "APEZETXEA II",
     "rol": "delantero",
-    "partidos_count": 89
+    "partidos_count": 90
   },
   {
     "id": "PEL041",
@@ -357,7 +357,7 @@
     "nombre_es": "MORGAETXEBERRIA",
     "nombre_eu": "MORGAETXEBERRIA",
     "rol": "mixto",
-    "partidos_count": 67
+    "partidos_count": 68
   },
   {
     "id": "PEL040",
@@ -389,7 +389,7 @@
     "nombre_es": "LANDA",
     "nombre_eu": "LANDA",
     "rol": "zaguero",
-    "partidos_count": 59
+    "partidos_count": 60
   },
   {
     "id": "PEL044",
