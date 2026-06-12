@@ -1,5 +1,5 @@
 {
-  "actualizado": "11/06/2026 03:21",
+  "actualizado": "12/06/2026 02:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -682,6 +682,52 @@
           ],
           "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "01/07/2026",
+      "hora": "17:30",
+      "fronton": "Uranzu",
+      "ciudad": "Irun",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA IV – ESKIROZ // APEZETXEA II – ALDABE",
+        "XX – MARTIJA // AMIANO – MARIEZKURRENA II",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908346/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ALDABE"
+          ],
+          "raw": "ZUBIZARRETA IV – ESKIROZ // APEZETXEA II – ALDABE",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "XX – MARTIJA // AMIANO – MARIEZKURRENA II",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
