@@ -1,5 +1,5 @@
 {
-  "actualizado": "12/06/2026 02:56",
+  "actualizado": "13/06/2026 02:49",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -196,7 +196,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "EGIGUREN V – ESKUZA // SENAR – ARANGUREN",
+        "EGIGUREN V – ESKUZA // SENAR – UGARTEMENDIA",
         "DESDE",
         "15.00€"
       ],
@@ -212,9 +212,9 @@
           ],
           "eq2": [
             "SENAR",
-            "ARANGUREN"
+            "UGARTEMENDIA"
           ],
-          "raw": "EGIGUREN V – ESKUZA // SENAR – ARANGUREN",
+          "raw": "EGIGUREN V – ESKUZA // SENAR – UGARTEMENDIA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -733,6 +733,96 @@
       ]
     },
     {
+      "fecha": "03/07/2026",
+      "hora": "21:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "XX // XX (Semifinal 4 1/2 San Fermin)",
+        "XX // XX ( Semifinal 4 1/2 San Fermin)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2908726/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (Semifinal 4 1/2 San Fermin)"
+          ],
+          "raw": "XX // XX (Semifinal 4 1/2 San Fermin)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX ( Semifinal 4 1/2 San Fermin)"
+          ],
+          "raw": "XX // XX ( Semifinal 4 1/2 San Fermin)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "04/07/2026",
+      "hora": "17:00",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "XX -XX // XX – XX",
+        "XX – XX // XX – XX (Final)",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2908740/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX -XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX (Final)"
+          ],
+          "raw": "XX – XX // XX – XX (Final)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "07/07/2026",
       "hora": "11:00",
       "fronton": "Navarra Arena",
@@ -835,13 +925,11 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "DESDE",
-        "40.00€"
+        "Torneo San Fermín"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833673/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
