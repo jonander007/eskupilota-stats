@@ -793,7 +793,7 @@
     "id": "FRO207",
     "nombre": "GOIZUETA",
     "ciudad_id": "CIU151",
-    "partidos_count": 30
+    "partidos_count": 32
   },
   {
     "id": "FRO099",
@@ -866,6 +866,12 @@
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HUERCANOS"
+  },
+  {
+    "id": "FRO209",
+    "nombre": "IBAETA",
+    "ciudad_id": "CIU076",
+    "partidos_count": 1
   },
   {
     "id": "FRO108",
@@ -1175,7 +1181,7 @@
     "id": "FRO208",
     "nombre": "MENDIBARREN",
     "ciudad_id": "CIU152",
-    "partidos_count": 30
+    "partidos_count": 32
   },
   {
     "id": "FRO146",
@@ -1229,7 +1235,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 54,
+    "partidos_count": 56,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1299,7 +1305,7 @@
     "id": "FRO160",
     "nombre": "OROZKO",
     "ciudad_id": "CIU114",
-    "partidos_count": 32,
+    "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OROZKO"
   },
