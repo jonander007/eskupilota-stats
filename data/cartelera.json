@@ -1,38 +1,7 @@
 {
-  "actualizado": "13/06/2026 02:49",
+  "actualizado": "14/06/2026 03:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "13/06/2026",
-      "hora": "19:00",
-      "fronton": "Ibarrangelu",
-      "ciudad": "Ibarrangelu",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "JAKA – MORGAETXEBARRIA // LARRAZABAL – LANDA",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "LANDA"
-          ],
-          "raw": "JAKA – MORGAETXEBARRIA // LARRAZABAL – LANDA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "14/06/2026",
       "hora": "12:45",
