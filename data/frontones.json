@@ -871,7 +871,7 @@
     "id": "FRO209",
     "nombre": "IBAETA",
     "ciudad_id": "CIU076",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO108",
@@ -976,6 +976,12 @@
     "partidos_count": 35,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
+  },
+  {
+    "id": "FRO210",
+    "nombre": "KIRRU",
+    "ciudad_id": "CIU056",
+    "partidos_count": 1
   },
   {
     "id": "FRO121",
@@ -1235,7 +1241,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 56,
+    "partidos_count": 58,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1305,7 +1311,7 @@
     "id": "FRO160",
     "nombre": "OROZKO",
     "ciudad_id": "CIU114",
-    "partidos_count": 34,
+    "partidos_count": 36,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OROZKO"
   },
