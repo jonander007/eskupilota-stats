@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/06/2026 03:35",
+  "actualizado": "16/06/2026 03:31",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -46,6 +46,7 @@
         "Torneo 4 1/2 San Fermín",
         "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
         "DARÍO // ALBERDI II",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -91,6 +92,7 @@
         "Torneo 4 1/2 San Fermín",
         "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
         "JAKA // ARTOLA",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -170,7 +172,7 @@
         "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
         "ELORDI // SALABERRIA",
         "DESDE",
-        "15.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -620,6 +622,51 @@
           ],
           "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "29/06/2026",
+      "hora": "17:00",
+      "fronton": "Trobika",
+      "ciudad": "Mungia",
+      "fase": "Cuartos de Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo 4 1/2 San Fermín",
+        "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
+        "ALTUNA III // GANADOR HERNANI",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907733/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "EGIGUREN V",
+            "ALDABE"
+          ],
+          "eq2": [
+            "REKALDE",
+            "EROSTARBE"
+          ],
+          "raw": "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "GANADOR HERNANI"
+          ],
+          "raw": "ALTUNA III // GANADOR HERNANI",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
