@@ -871,7 +871,7 @@
     "id": "FRO209",
     "nombre": "IBAETA",
     "ciudad_id": "CIU076",
-    "partidos_count": 2
+    "partidos_count": 3
   },
   {
     "id": "FRO108",
@@ -981,7 +981,7 @@
     "id": "FRO210",
     "nombre": "KIRRU",
     "ciudad_id": "CIU056",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO121",
@@ -1241,7 +1241,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 58,
+    "partidos_count": 60,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
