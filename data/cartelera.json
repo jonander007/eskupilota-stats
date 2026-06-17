@@ -1,5 +1,5 @@
 {
-  "actualizado": "16/06/2026 03:31",
+  "actualizado": "17/06/2026 03:29",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -259,8 +259,9 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "XX – XX // XX – XX",
+        "EZKURDIA – GABIRONDO // LASO – LANDA",
         "ZABALA // GANADOR VALCARLOS",
+        "EGIGUREN V – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
         "DESDE",
         "25.00€"
       ],
@@ -271,14 +272,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "EZKURDIA",
+            "GABIRONDO"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "LASO",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EZKURDIA – GABIRONDO // LASO – LANDA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -291,6 +292,19 @@
           ],
           "raw": "ZABALA // GANADOR VALCARLOS",
           "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EGIGUREN V",
+            "EROSTARBE"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "LIZEAGA"
+          ],
+          "raw": "EGIGUREN V – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
