@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/06/2026 03:29",
+  "actualizado": "18/06/2026 02:57",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -90,7 +90,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
+        "PEÑA II – IMAZ // AMIANO – MARIEZKURRENA II",
         "JAKA // ARTOLA",
         "DIFERIDO",
         "DESDE",
@@ -103,14 +103,14 @@
       "partidos": [
         {
           "eq1": [
-            "AGIRRE",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
             "PEÑA II",
             "IMAZ"
           ],
-          "raw": "AGIRRE – MARIEZKURRENA II // PEÑA II – IMAZ",
+          "eq2": [
+            "AMIANO",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "PEÑA II – IMAZ // AMIANO – MARIEZKURRENA II",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -822,6 +822,53 @@
       ]
     },
     {
+      "fecha": "05/07/2026",
+      "hora": "17:15",
+      "fronton": "Elgeta",
+      "ciudad": "Elgeta",
+      "fase": "Serie B",
+      "competicion": null,
+      "cartel": [
+        "San Fermín",
+        "XX – XX // XX – XX (Serie B)",
+        "XX – XX // XX – XX (Serie B)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2912014/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
       "fecha": "07/07/2026",
       "hora": "11:00",
       "fronton": "Navarra Arena",
@@ -864,13 +911,11 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "DESDE",
-        "40.00€"
+        "Torneo San Fermín"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833670/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
