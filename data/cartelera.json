@@ -1,86 +1,7 @@
 {
-  "actualizado": "19/06/2026 03:44",
+  "actualizado": "20/06/2026 02:48",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "19/06/2026",
-      "hora": "20:30",
-      "fronton": "Barberito I",
-      "ciudad": "Baños Río Tobía",
-      "fase": "Cuartos",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "MURUA – LOZA // AMIANO – SALAVERRI II",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864741/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "LOZA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "SALAVERRI II"
-          ],
-          "raw": "MURUA – LOZA // AMIANO – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "19/06/2026",
-      "hora": "20:45",
-      "fronton": "Arretxe de Valcarlos",
-      "ciudad": "Arretxe de Valcarlos",
-      "fase": "Dieciseisavos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
-        "DARÍO // ALBERDI II",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2894794/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "raw": "EZKURDIA – REZUSTA // ALTUNA III – MARTIJA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "DARÍO // ALBERDI II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "20/06/2026",
       "hora": "17:15",
@@ -685,7 +606,7 @@
     },
     {
       "fecha": "01/07/2026",
-      "hora": "17:30",
+      "hora": "18:00",
       "fronton": "Uranzu",
       "ciudad": "Irun",
       "fase": "Festival",
