@@ -171,7 +171,7 @@
     "id": "FRO022",
     "nombre": "ARRETXE",
     "ciudad_id": "CIU135",
-    "partidos_count": 2,
+    "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRETXE"
   },
@@ -289,7 +289,7 @@
     "id": "FRO036",
     "nombre": "BARBERITO I",
     "ciudad_id": "CIU026",
-    "partidos_count": 3,
+    "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARBERITO%20I"
   },
@@ -871,7 +871,7 @@
     "id": "FRO209",
     "nombre": "IBAETA",
     "ciudad_id": "CIU076",
-    "partidos_count": 6
+    "partidos_count": 7
   },
   {
     "id": "FRO108",
@@ -981,7 +981,7 @@
     "id": "FRO210",
     "nombre": "KIRRU",
     "ciudad_id": "CIU056",
-    "partidos_count": 5
+    "partidos_count": 6
   },
   {
     "id": "FRO121",
