@@ -1,86 +1,7 @@
 {
-  "actualizado": "20/06/2026 02:48",
+  "actualizado": "21/06/2026 03:31",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "20/06/2026",
-      "hora": "17:15",
-      "fronton": "Retegi",
-      "ciudad": "Barañain",
-      "fase": "Octavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "PEÑA II – IMAZ // AMIANO – MARIEZKURRENA II",
-        "JAKA // ARTOLA",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2895774/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "IMAZ"
-          ],
-          "eq2": [
-            "AMIANO",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "PEÑA II – IMAZ // AMIANO – MARIEZKURRENA II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "ARTOLA"
-          ],
-          "raw": "JAKA // ARTOLA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "20/06/2026",
-      "hora": "18:00",
-      "fronton": "Arnedo",
-      "ciudad": "Arnedo",
-      "fase": "Cuartos",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "EGIGUREN V – ESKUZA // SENAR – UGARTEMENDIA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864742/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "raw": "EGIGUREN V – ESKUZA // SENAR – UGARTEMENDIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "21/06/2026",
       "hora": "17:15",
@@ -181,7 +102,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "EZKURDIA – GABIRONDO // LASO – LANDA",
-        "ZABALA // GANADOR VALCARLOS",
+        "DARÍO // ZABALA",
         "EGIGUREN V – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
         "DESDE",
         "25.00€"
@@ -206,12 +127,12 @@
         },
         {
           "eq1": [
-            "ZABALA"
+            "DARÍO"
           ],
           "eq2": [
-            "GANADOR VALCARLOS"
+            "ZABALA"
           ],
-          "raw": "ZABALA // GANADOR VALCARLOS",
+          "raw": "DARÍO // ZABALA",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -908,7 +829,7 @@
         "San Fermín",
         "Torneo San Fermín",
         "DESDE",
-        "25.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
