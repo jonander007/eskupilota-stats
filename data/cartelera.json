@@ -1,97 +1,7 @@
 {
-  "actualizado": "21/06/2026 03:31",
+  "actualizado": "22/06/2026 03:36",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "21/06/2026",
-      "hora": "17:15",
-      "fronton": "Olazar",
-      "ciudad": "Zaldibar",
-      "fase": "Octavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
-        "ELORDI // SALABERRIA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2896088/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "GABIRONDO"
-          ],
-          "raw": "P.ETXEBERRIA – BIKUÑA // ZABALA – GABIRONDO",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ELORDI"
-          ],
-          "eq2": [
-            "SALABERRIA"
-          ],
-          "raw": "ELORDI // SALABERRIA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "21/06/2026",
-      "hora": "18:00",
-      "fronton": "Donibane",
-      "ciudad": "Muskiz",
-      "fase": "Octavos de final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "LASO – IZTUETA // PEÑA II – ALBISU",
-        "LARRAZABAL // ZUBIZARRETA IV",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2896084/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "ALBISU"
-          ],
-          "raw": "LASO – IZTUETA // PEÑA II – ALBISU",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LARRAZABAL"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "LARRAZABAL // ZUBIZARRETA IV",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/06/2026",
       "hora": "17:00",
@@ -193,11 +103,13 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "ALTUNA III – MARTIJA // MURUA – ZABALETA",
-        "P.ETXEBERRIA // GANADOR ZALDIBAR"
+        "P.ETXEBERRIA // SALABERRIA",
+        "DESDE",
+        "25.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2905317/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -218,9 +130,9 @@
             "P.ETXEBERRIA"
           ],
           "eq2": [
-            "GANADOR ZALDIBAR"
+            "SALABERRIA"
           ],
-          "raw": "P.ETXEBERRIA // GANADOR ZALDIBAR",
+          "raw": "P.ETXEBERRIA // SALABERRIA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -236,7 +148,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
-        "PEÑA // GANADOR MUSKIZ",
+        "PEÑA II // GANADOR MUSKIZ",
         "DESDE",
         "25.00€"
       ],
@@ -260,12 +172,12 @@
         },
         {
           "eq1": [
-            "PEÑA"
+            "PEÑA II"
           ],
           "eq2": [
             "GANADOR MUSKIZ"
           ],
-          "raw": "PEÑA // GANADOR MUSKIZ",
+          "raw": "PEÑA II // GANADOR MUSKIZ",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -281,7 +193,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
-        "LASO // GANADOR BARAÑAIN",
+        "JAKA // LASO",
         "DESDE",
         "20.00€"
       ],
@@ -305,12 +217,12 @@
         },
         {
           "eq1": [
-            "LASO"
+            "JAKA"
           ],
           "eq2": [
-            "GANADOR BARAÑAIN"
+            "LASO"
           ],
-          "raw": "LASO // GANADOR BARAÑAIN",
+          "raw": "JAKA // LASO",
           "tipo": "manomanista-a",
           "serie": "a"
         }
