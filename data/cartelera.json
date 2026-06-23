@@ -1,5 +1,5 @@
 {
-  "actualizado": "22/06/2026 03:36",
+  "actualizado": "23/06/2026 02:41",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -69,7 +69,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
+        "AMIANO – IZTUETA // APEZETXEA II – REZUSTA",
         "DESDE",
         "20.00€"
       ],
@@ -80,14 +80,14 @@
       "partidos": [
         {
           "eq1": [
-            "SALABERRIA",
-            "REZUSTA"
-          ],
-          "eq2": [
             "AMIANO",
             "IZTUETA"
           ],
-          "raw": "SALABERRIA – REZUSTA // AMIANO – IZTUETA",
+          "eq2": [
+            "APEZETXEA II",
+            "REZUSTA"
+          ],
+          "raw": "AMIANO – IZTUETA // APEZETXEA II – REZUSTA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -148,7 +148,8 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
-        "PEÑA II // GANADOR MUSKIZ",
+        "PEÑA II // LARRAZABAL",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -175,10 +176,54 @@
             "PEÑA II"
           ],
           "eq2": [
-            "GANADOR MUSKIZ"
+            "LARRAZABAL"
           ],
-          "raw": "PEÑA II // GANADOR MUSKIZ",
+          "raw": "PEÑA II // LARRAZABAL",
           "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "26/06/2026",
+      "hora": "21:00",
+      "fronton": "Sopela/Sopelana",
+      "ciudad": "Sopela/Sopelana",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "AGIRRE // REKALDE (4 1/2)",
+        "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908348/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE"
+          ],
+          "eq2": [
+            "REKALDE (4 1/2)"
+          ],
+          "raw": "AGIRRE // REKALDE (4 1/2)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "BIKUÑA"
+          ],
+          "raw": "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
@@ -194,6 +239,7 @@
         "Torneo 4 1/2 San Fermín",
         "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
         "JAKA // LASO",
+        "DIFERIDO",
         "DESDE",
         "20.00€"
       ],
@@ -759,13 +805,11 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
-        "DESDE",
-        "40.00€"
+        "Torneo San Fermín"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833674/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
