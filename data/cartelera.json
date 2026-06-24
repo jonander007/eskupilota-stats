@@ -1,5 +1,5 @@
 {
-  "actualizado": "23/06/2026 02:41",
+  "actualizado": "24/06/2026 02:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -192,24 +192,22 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "AGIRRE // REKALDE (4 1/2)",
-        "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA",
-        "DESDE",
-        "20.00€"
+        "BAKAIKOA // REKALDE (4 1/2)",
+        "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908348/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "AGIRRE"
+            "BAKAIKOA"
           ],
           "eq2": [
             "REKALDE (4 1/2)"
           ],
-          "raw": "AGIRRE // REKALDE (4 1/2)",
+          "raw": "BAKAIKOA // REKALDE (4 1/2)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -237,7 +235,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
+        "ARTOLA – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
         "JAKA // LASO",
         "DIFERIDO",
         "DESDE",
@@ -250,14 +248,14 @@
       "partidos": [
         {
           "eq1": [
-            "LARRAZABAL",
+            "ARTOLA",
             "MORGAETXEBARRIA"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
             "IMAZ"
           ],
-          "raw": "LARRAZABAL – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
+          "raw": "ARTOLA – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -312,6 +310,63 @@
           ],
           "raw": "SENAR – ARANGUREN",
           "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "27/06/2026",
+      "hora": "18:00",
+      "fronton": "San Lorenzo",
+      "ciudad": "Ezcaray",
+      "fase": "Cuartos",
+      "competicion": null,
+      "cartel": [
+        "I Circuito de La Rioja",
+        "EGIGUREN V – ESKUZA //",
+        "AMIANO – SALAVERRI II",
+        "DARÍO – ALBISU // ZABALA – IZTUETA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864743/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "EGIGUREN V"
+          ],
+          "eq2": [
+            "ESKUZA //"
+          ],
+          "raw": "EGIGUREN V – ESKUZA //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AMIANO"
+          ],
+          "eq2": [
+            "SALAVERRI II"
+          ],
+          "raw": "AMIANO – SALAVERRI II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ZABALA",
+            "IZTUETA"
+          ],
+          "raw": "DARÍO – ALBISU // ZABALA – IZTUETA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -873,6 +928,100 @@
       "tv": false,
       "partidos": [],
       "pendiente": true
+    },
+    {
+      "fecha": "16/07/2026",
+      "hora": "18:00",
+      "fronton": "Amorebieta IV",
+      "ciudad": "Amorebieta IV",
+      "fase": "1ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "ZABALA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+        "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2923148/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZABALA",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "GABIRONDO"
+          ],
+          "raw": "ZABALA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ARTOLA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "17/07/2026",
+      "hora": "21:15",
+      "fronton": "Viana",
+      "ciudad": "Viana",
+      "fase": "1ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "ZUBIZARRETA III – SALAVERRI II // REKALDE – LOZA",
+        "DARÍO – IZTUETA // ALTUNA III – IMAZ (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2922046/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "REKALDE",
+            "LOZA"
+          ],
+          "raw": "ZUBIZARRETA III – SALAVERRI II // REKALDE – LOZA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "raw": "DARÍO – IZTUETA // ALTUNA III – IMAZ (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     }
   ]
 }
