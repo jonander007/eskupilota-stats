@@ -1,98 +1,7 @@
 {
-  "actualizado": "24/06/2026 02:42",
+  "actualizado": "25/06/2026 02:43",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/06/2026",
-      "hora": "17:00",
-      "fronton": "Astelena",
-      "ciudad": "Eibar",
-      "fase": "Octavos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "EZKURDIA – GABIRONDO // LASO – LANDA",
-        "DARÍO // ZABALA",
-        "EGIGUREN V – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2900650/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // LASO – LANDA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "DARÍO // ZABALA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "EROSTARBE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "LIZEAGA"
-          ],
-          "raw": "EGIGUREN V – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "24/06/2026",
-      "hora": "18:00",
-      "fronton": "Baratze",
-      "ciudad": "Segura",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "AMIANO – IZTUETA // APEZETXEA II – REZUSTA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2897185/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "REZUSTA"
-          ],
-          "raw": "AMIANO – IZTUETA // APEZETXEA II – REZUSTA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "25/06/2026",
       "hora": "19:00",
@@ -282,7 +191,7 @@
       "cartel": [
         "I Circuito de La Rioja",
         "MURUA – LOZA //",
-        "SENAR – ARANGUREN",
+        "SENAR – UGARTEMENDIA",
         "Gratuito con entrada"
       ],
       "precio": null,
@@ -306,9 +215,9 @@
             "SENAR"
           ],
           "eq2": [
-            "ARANGUREN"
+            "UGARTEMENDIA"
           ],
-          "raw": "SENAR – ARANGUREN",
+          "raw": "SENAR – UGARTEMENDIA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -325,7 +234,7 @@
         "I Circuito de La Rioja",
         "EGIGUREN V – ESKUZA //",
         "AMIANO – SALAVERRI II",
-        "DARÍO – ALBISU // ZABALA – IZTUETA",
+        "DARÍO – ALBISU // P. ETXEBERRIA – IZTUETA",
         "DESDE",
         "25.00€"
       ],
@@ -362,10 +271,10 @@
             "ALBISU"
           ],
           "eq2": [
-            "ZABALA",
+            "P. ETXEBERRIA",
             "IZTUETA"
           ],
-          "raw": "DARÍO – ALBISU // ZABALA – IZTUETA",
+          "raw": "DARÍO – ALBISU // P. ETXEBERRIA – IZTUETA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -381,7 +290,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "SALABERRIA – GASKUE // APEZETXEA II – EROSTARBE",
-        "EZKURDIA // GANADOR EIBAR",
+        "EZKURDIA // ZABALA",
         "DESDE",
         "25.00€"
       ],
@@ -408,9 +317,9 @@
             "EZKURDIA"
           ],
           "eq2": [
-            "GANADOR EIBAR"
+            "ZABALA"
           ],
-          "raw": "EZKURDIA // GANADOR EIBAR",
+          "raw": "EZKURDIA // ZABALA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -425,7 +334,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA // REKALDE (4 1/2)",
-        "P.ETXEBERRIA – ESKUZA // LARRAZABAL – UGARTEMENDIA",
+        "ELORDI – ESKUZA // LARRAZABAL – UGARTEMENDIA",
         "DESDE",
         "15.00€"
       ],
@@ -447,14 +356,14 @@
         },
         {
           "eq1": [
-            "P.ETXEBERRIA",
+            "ELORDI",
             "ESKUZA"
           ],
           "eq2": [
             "LARRAZABAL",
             "UGARTEMENDIA"
           ],
-          "raw": "P.ETXEBERRIA – ESKUZA // LARRAZABAL – UGARTEMENDIA",
+          "raw": "ELORDI – ESKUZA // LARRAZABAL – UGARTEMENDIA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -1018,6 +927,53 @@
             "IMAZ"
           ],
           "raw": "DARÍO – IZTUETA // ALTUNA III – IMAZ (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "18/07/2026",
+      "hora": "20:00",
+      "fronton": "Artza",
+      "ciudad": "Bermeo",
+      "fase": "Semifinales",
+      "competicion": null,
+      "cartel": [
+        "V. Bermeo Hiria Inpesca Pilota Festibala",
+        "SENAR – ARANGUREN // ZUBIZARRETA IV – MORGAETXEBARRIA",
+        "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2923570/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "SENAR – ARANGUREN // ZUBIZARRETA IV – MORGAETXEBARRIA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
