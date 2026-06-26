@@ -159,7 +159,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 614
+    "partidos_count": 626
   },
   {
     "id": "COMP027",
@@ -1377,7 +1377,7 @@
     "id": "COMP235",
     "nombre": "Torneo San Fermín 4 1/2 2026",
     "tipo": "festival-cuatro",
-    "partidos_count": 68
+    "partidos_count": 74
   },
   {
     "id": "COMP229",

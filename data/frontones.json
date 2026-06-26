@@ -155,7 +155,7 @@
     "id": "FRO020",
     "nombre": "ARNEDO",
     "ciudad_id": "CIU014",
-    "partidos_count": 7,
+    "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARNEDO"
   },
@@ -171,7 +171,7 @@
     "id": "FRO022",
     "nombre": "ARRETXE",
     "ciudad_id": "CIU135",
-    "partidos_count": 14,
+    "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRETXE"
   },
@@ -209,7 +209,7 @@
     "id": "FRO026",
     "nombre": "ASTELENA",
     "ciudad_id": "CIU046",
-    "partidos_count": 111,
+    "partidos_count": 114,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ASTELENA"
   },
@@ -273,7 +273,7 @@
     "id": "FRO034",
     "nombre": "BARATZE",
     "ciudad_id": "CIU123",
-    "partidos_count": 2,
+    "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARATZE"
   },
@@ -289,7 +289,7 @@
     "id": "FRO036",
     "nombre": "BARBERITO I",
     "ciudad_id": "CIU026",
-    "partidos_count": 9,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARBERITO%20I"
   },
@@ -529,7 +529,7 @@
     "id": "FRO066",
     "nombre": "DONIBANE",
     "ciudad_id": "CIU107",
-    "partidos_count": 11,
+    "partidos_count": 13,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20DONIBANE"
   },
@@ -831,7 +831,7 @@
     "id": "FRO103",
     "nombre": "HERNANI",
     "ciudad_id": "CIU073",
-    "partidos_count": 2,
+    "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HERNANI"
   },
@@ -871,7 +871,7 @@
     "id": "FRO209",
     "nombre": "IBAETA",
     "ciudad_id": "CIU076",
-    "partidos_count": 12
+    "partidos_count": 13
   },
   {
     "id": "FRO108",
@@ -981,7 +981,7 @@
     "id": "FRO210",
     "nombre": "KIRRU",
     "ciudad_id": "CIU056",
-    "partidos_count": 11
+    "partidos_count": 12
   },
   {
     "id": "FRO121",
@@ -1287,7 +1287,7 @@
     "id": "FRO157",
     "nombre": "OLAZAR",
     "ciudad_id": "CIU140",
-    "partidos_count": 9,
+    "partidos_count": 11,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OLAZAR"
   },
@@ -1365,7 +1365,7 @@
     "id": "FRO166",
     "nombre": "RETEGUI",
     "ciudad_id": "CIU023",
-    "partidos_count": 13,
+    "partidos_count": 15,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20RETEGUI"
   },
