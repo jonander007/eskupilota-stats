@@ -1,5 +1,5 @@
 {
-  "actualizado": "26/06/2026 02:47",
+  "actualizado": "27/06/2026 02:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -189,7 +189,7 @@
         "I Circuito de La Rioja",
         "EGIGUREN V – ESKUZA //",
         "AMIANO – SALAVERRI II",
-        "DARÍO – ALBISU // P. ETXEBERRIA – IZTUETA",
+        "DARÍO – ALBISU // ELORDI – IZTUETA",
         "DESDE",
         "25.00€"
       ],
@@ -226,10 +226,10 @@
             "ALBISU"
           ],
           "eq2": [
-            "P. ETXEBERRIA",
+            "ELORDI",
             "IZTUETA"
           ],
-          "raw": "DARÍO – ALBISU // P. ETXEBERRIA – IZTUETA",
+          "raw": "DARÍO – ALBISU // ELORDI – IZTUETA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -367,9 +367,9 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
-        "ALTUNA III // GANADOR HERNANI",
+        "ALTUNA III // P. ETXEBERRIA",
         "DESDE",
-        "20.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -394,9 +394,9 @@
             "ALTUNA III"
           ],
           "eq2": [
-            "GANADOR HERNANI"
+            "P. ETXEBERRIA"
           ],
-          "raw": "ALTUNA III // GANADOR HERNANI",
+          "raw": "ALTUNA III // P. ETXEBERRIA",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -411,7 +411,7 @@
       "competicion": null,
       "cartel": [
         "ZUBIZARRETA IV – ESKIROZ // APEZETXEA II – ALDABE",
-        "XX – MARTIJA // AMIANO – MARIEZKURRENA II",
+        "DARÍO – MARTIJA // AMIANO – MARIEZKURRENA II",
         "DESDE",
         "25.00€"
       ],
@@ -435,14 +435,14 @@
         },
         {
           "eq1": [
-            "XX",
+            "DARÍO",
             "MARTIJA"
           ],
           "eq2": [
             "AMIANO",
             "MARIEZKURRENA II"
           ],
-          "raw": "XX – MARTIJA // AMIANO – MARIEZKURRENA II",
+          "raw": "DARÍO – MARTIJA // AMIANO – MARIEZKURRENA II",
           "tipo": "festival",
           "serie": "a"
         }
