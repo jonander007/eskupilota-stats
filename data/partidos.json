@@ -1,5 +1,90 @@
 [
   {
+    "fecha": "2026-06-27",
+    "fronton_id": "FRO212",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL033",
+      "zag_id": "PEL030"
+    },
+    "puntos1": 15,
+    "equipo2": {
+      "del_id": "PEL047",
+      "zag_id": "PEL027"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-06-27",
+    "fronton_id": "FRO212",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL024",
+      "zag_id": "PEL008"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL014",
+      "zag_id": "PEL016"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-06-27",
+    "fronton_id": "FRO169",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL010",
+      "zag_id": "PEL059"
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "del_id": "PEL055",
+      "zag_id": "PEL013"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-06-27",
+    "fronton_id": "FRO169",
+    "competicion_id": "COMP015",
+    "tipo": "manomanista-a",
+    "equipo1": {
+      "del_id": "PEL001",
+      "zag_id": null
+    },
+    "puntos1": 18,
+    "equipo2": {
+      "del_id": "PEL025",
+      "zag_id": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-06-27",
+    "fronton_id": "FRO213",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL026",
+      "zag_id": "PEL020"
+    },
+    "puntos1": 6,
+    "equipo2": {
+      "del_id": "PEL038",
+      "zag_id": "PEL051"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "2026-06-26",
     "fronton_id": "FRO175",
     "competicion_id": "COMP015",
