@@ -1,240 +1,7 @@
 {
-  "actualizado": "27/06/2026 02:38",
+  "actualizado": "28/06/2026 02:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "26/06/2026",
-      "hora": "20:45",
-      "fronton": "Las Llanas",
-      "ciudad": "Sestao",
-      "fase": "Cuartos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
-        "PEÑA II // LARRAZABAL",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2908350/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "AMIANO – ALBISU // ZUBIZARRETA IV – MARIEZKURRENA II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "PEÑA II"
-          ],
-          "eq2": [
-            "LARRAZABAL"
-          ],
-          "raw": "PEÑA II // LARRAZABAL",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "26/06/2026",
-      "hora": "21:00",
-      "fronton": "Sopela/Sopelana",
-      "ciudad": "Sopela/Sopelana",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA // REKALDE (4 1/2)",
-        "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "REKALDE (4 1/2)"
-          ],
-          "raw": "BAKAIKOA // REKALDE (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "BIKUÑA"
-          ],
-          "raw": "ZUBIZARRETA III – LIZEAGA // ALBERDI II – BIKUÑA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "27/06/2026",
-      "hora": "17:15",
-      "fronton": "Santanape",
-      "ciudad": "Gernika",
-      "fase": "Cuartos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "ARTOLA – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
-        "JAKA // LASO",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907975/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "IMAZ"
-          ],
-          "raw": "ARTOLA – MORGAETXEBARRIA // ZUBIZARRETA IV – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "JAKA // LASO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "27/06/2026",
-      "hora": "18:00",
-      "fronton": "Igea",
-      "ciudad": "Igea",
-      "fase": "Cuartos",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "MURUA – LOZA //",
-        "SENAR – UGARTEMENDIA",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [
-            "LOZA //"
-          ],
-          "raw": "MURUA – LOZA //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
-          "eq2": [
-            "UGARTEMENDIA"
-          ],
-          "raw": "SENAR – UGARTEMENDIA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "27/06/2026",
-      "hora": "18:00",
-      "fronton": "San Lorenzo",
-      "ciudad": "Ezcaray",
-      "fase": "Cuartos",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "EGIGUREN V – ESKUZA //",
-        "AMIANO – SALAVERRI II",
-        "DARÍO – ALBISU // ELORDI – IZTUETA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2864743/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V"
-          ],
-          "eq2": [
-            "ESKUZA //"
-          ],
-          "raw": "EGIGUREN V – ESKUZA //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
-            "SALAVERRI II"
-          ],
-          "raw": "AMIANO – SALAVERRI II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ELORDI",
-            "IZTUETA"
-          ],
-          "raw": "DARÍO – ALBISU // ELORDI – IZTUETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "28/06/2026",
       "hora": "17:15",
@@ -333,7 +100,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "XX – XX // XX – XX",
+        "SENAR – UGARTEMENDIA // AMIANO – SALAVERRI II",
         "DESDE",
         "15.00€"
       ],
@@ -344,14 +111,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "SENAR",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "AMIANO",
+            "SALAVERRI II"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "SENAR – UGARTEMENDIA // AMIANO – SALAVERRI II",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -369,7 +136,7 @@
         "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
         "ALTUNA III // P. ETXEBERRIA",
         "DESDE",
-        "25.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -458,7 +225,7 @@
       "cartel": [
         "Torneo 4 1/2 San Fermín",
         "XX // XX (Semifinal 4 1/2 San Fermin)",
-        "XX // XX ( Semifinal 4 1/2 San Fermin)",
+        "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
         "DESDE",
         "30.00€"
       ],
@@ -480,12 +247,12 @@
         },
         {
           "eq1": [
-            "XX"
+            "LASO"
           ],
           "eq2": [
-            "XX ( Semifinal 4 1/2 San Fermin)"
+            "PEÑA II ( Semifinal 4 1/2 San Fermin)"
           ],
-          "raw": "XX // XX ( Semifinal 4 1/2 San Fermin)",
+          "raw": "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -501,7 +268,7 @@
       "cartel": [
         "I Circuito de La Rioja",
         "XX -XX // XX – XX",
-        "XX – XX // XX – XX (Final)",
+        "MURUA – LOZA // XX – XX (Final)",
         "DESDE",
         "15.00€"
       ],
@@ -525,14 +292,14 @@
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "MURUA",
+            "LOZA"
           ],
           "eq2": [
             "XX",
             "XX (Final)"
           ],
-          "raw": "XX – XX // XX – XX (Final)",
+          "raw": "MURUA – LOZA // XX – XX (Final)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -927,6 +694,120 @@
             "IZTUETA"
           ],
           "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "02/10/2026",
+      "hora": "21:00",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Abono",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "SEMIFINALES + FINAL (Serie A)",
+        "DESDE",
+        "36.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924376/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "02/10/2026",
+      "hora": "21:00",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Semifinales",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "XX – XX // XX – XX (Serie A)",
+        "XX – XX // XX – XX (Serie A)",
+        "DESDE",
+        "18.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924142/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "04/10/2026",
+      "hora": "17:15",
+      "fronton": "Navarra Arena",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)",
+        "DESDE",
+        "18.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924165/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
