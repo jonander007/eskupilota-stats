@@ -1,129 +1,7 @@
 {
-  "actualizado": "28/06/2026 02:52",
+  "actualizado": "29/06/2026 02:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "28/06/2026",
-      "hora": "17:15",
-      "fronton": "Burunda",
-      "ciudad": "Altsasu",
-      "fase": "Cuartos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "SALABERRIA – GASKUE // APEZETXEA II – EROSTARBE",
-        "EZKURDIA // ZABALA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907972/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "SALABERRIA – GASKUE // APEZETXEA II – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "EZKURDIA // ZABALA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "28/06/2026",
-      "hora": "17:30",
-      "fronton": "Araia",
-      "ciudad": "Araia",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA // REKALDE (4 1/2)",
-        "ELORDI – ESKUZA // LARRAZABAL – UGARTEMENDIA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908551/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "REKALDE (4 1/2)"
-          ],
-          "raw": "BAKAIKOA // REKALDE (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "UGARTEMENDIA"
-          ],
-          "raw": "ELORDI – ESKUZA // LARRAZABAL – UGARTEMENDIA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "28/06/2026",
-      "hora": "19:00",
-      "fronton": "Margubete",
-      "ciudad": "Santo Domingo de la Calzada",
-      "fase": "Semifinales",
-      "competicion": null,
-      "cartel": [
-        "I Circuito de La Rioja",
-        "SENAR – UGARTEMENDIA // AMIANO – SALAVERRI II",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55753/session/2908533/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "SALAVERRI II"
-          ],
-          "raw": "SENAR – UGARTEMENDIA // AMIANO – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "29/06/2026",
       "hora": "17:00",
@@ -136,7 +14,7 @@
         "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
         "ALTUNA III // P. ETXEBERRIA",
         "DESDE",
-        "20.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -224,7 +102,7 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "XX // XX (Semifinal 4 1/2 San Fermin)",
+        "ZABALA // XX (Semifinal 4 1/2 San Fermin)",
         "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
         "DESDE",
         "30.00€"
@@ -236,12 +114,12 @@
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "ZABALA"
           ],
           "eq2": [
             "XX (Semifinal 4 1/2 San Fermin)"
           ],
-          "raw": "XX // XX (Semifinal 4 1/2 San Fermin)",
+          "raw": "ZABALA // XX (Semifinal 4 1/2 San Fermin)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
