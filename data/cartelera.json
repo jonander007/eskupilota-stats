@@ -1,52 +1,7 @@
 {
-  "actualizado": "29/06/2026 02:52",
+  "actualizado": "30/06/2026 02:47",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "29/06/2026",
-      "hora": "17:00",
-      "fronton": "Trobika",
-      "ciudad": "Mungia",
-      "fase": "Cuartos de Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo 4 1/2 San Fermín",
-        "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
-        "ALTUNA III // P. ETXEBERRIA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/56130/session/2907733/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "ALDABE"
-          ],
-          "eq2": [
-            "REKALDE",
-            "EROSTARBE"
-          ],
-          "raw": "EGIGUREN V – ALDABE // REKALDE – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA"
-          ],
-          "raw": "ALTUNA III // P. ETXEBERRIA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "01/07/2026",
       "hora": "18:00",
@@ -55,7 +10,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "ZUBIZARRETA IV – ESKIROZ // APEZETXEA II – ALDABE",
+        "ALBERDI II – ALDABE // ZUBIZARRETA IV – ESKIROZ",
         "DARÍO – MARTIJA // AMIANO – MARIEZKURRENA II",
         "DESDE",
         "25.00€"
@@ -67,14 +22,14 @@
       "partidos": [
         {
           "eq1": [
+            "ALBERDI II",
+            "ALDABE"
+          ],
+          "eq2": [
             "ZUBIZARRETA IV",
             "ESKIROZ"
           ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "ZUBIZARRETA IV – ESKIROZ // APEZETXEA II – ALDABE",
+          "raw": "ALBERDI II – ALDABE // ZUBIZARRETA IV – ESKIROZ",
           "tipo": "festival",
           "serie": "a"
         },
@@ -102,8 +57,10 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "ZABALA // XX (Semifinal 4 1/2 San Fermin)",
+        "ALTUNA III // ZABALA",
+        "( Semifinal 4 1/2 San Fermin)",
         "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
+        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – EROSTARBE",
         "DESDE",
         "30.00€"
       ],
@@ -114,12 +71,12 @@
       "partidos": [
         {
           "eq1": [
-            "ZABALA"
+            "ALTUNA III"
           ],
           "eq2": [
-            "XX (Semifinal 4 1/2 San Fermin)"
+            "ZABALA"
           ],
-          "raw": "ZABALA // XX (Semifinal 4 1/2 San Fermin)",
+          "raw": "ALTUNA III // ZABALA",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -133,6 +90,19 @@
           "raw": "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
           "tipo": "manomanista-a",
           "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -145,8 +115,7 @@
       "competicion": null,
       "cartel": [
         "I Circuito de La Rioja",
-        "XX -XX // XX – XX",
-        "MURUA – LOZA // XX – XX (Final)",
+        "SENAR – UGARTEMENDIA // MURUA – LOZA",
         "DESDE",
         "15.00€"
       ],
@@ -157,27 +126,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "SENAR",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "XX",
-            "XX"
-          ],
-          "raw": "XX -XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
             "MURUA",
             "LOZA"
           ],
-          "eq2": [
-            "XX",
-            "XX (Final)"
-          ],
-          "raw": "MURUA – LOZA // XX – XX (Final)",
+          "raw": "SENAR – UGARTEMENDIA // MURUA – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -572,6 +528,100 @@
             "IZTUETA"
           ],
           "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/07/2026",
+      "hora": "17:15",
+      "fronton": "Barakaldes",
+      "ciudad": "Barakaldo",
+      "fase": "1ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "JAKA – ESKUZA // P. ETXEBERRIA – LANDA (Serie B)",
+        "EZKURDIA – ALBISU // ARTOLA – REZUSTA (Serie A)",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924321/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "P. ETXEBERRIA",
+            "LANDA"
+          ],
+          "raw": "JAKA – ESKUZA // P. ETXEBERRIA – LANDA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ARTOLA",
+            "REZUSTA"
+          ],
+          "raw": "EZKURDIA – ALBISU // ARTOLA – REZUSTA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/07/2026",
+      "hora": "18:00",
+      "fronton": "Mainondo",
+      "ciudad": "Otxandio V2",
+      "fase": "1ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "MURUA – ESKIROZ // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+        "ELORDI – MARIEZKURRENA II // LARRAZABAL – ZABALETA (Serie A)",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924318/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "BIKUÑA"
+          ],
+          "raw": "MURUA – ESKIROZ // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ZABALETA"
+          ],
+          "raw": "ELORDI – MARIEZKURRENA II // LARRAZABAL – ZABALETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
