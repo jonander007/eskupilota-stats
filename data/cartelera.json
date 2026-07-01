@@ -1,5 +1,5 @@
 {
-  "actualizado": "30/06/2026 02:47",
+  "actualizado": "01/07/2026 02:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -57,9 +57,9 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
+        "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
         "ALTUNA III // ZABALA",
         "( Semifinal 4 1/2 San Fermin)",
-        "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
         "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – EROSTARBE",
         "DESDE",
         "30.00€"
@@ -71,23 +71,23 @@
       "partidos": [
         {
           "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "ALTUNA III // ZABALA",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
             "LASO"
           ],
           "eq2": [
             "PEÑA II ( Semifinal 4 1/2 San Fermin)"
           ],
           "raw": "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "ALTUNA III // ZABALA",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -144,7 +144,7 @@
       "hora": "17:15",
       "fronton": "Elgeta",
       "ciudad": "Elgeta",
-      "fase": "Serie B",
+      "fase": "5 - San Fermin - Eliminatoria",
       "competicion": null,
       "cartel": [
         "San Fermín",
@@ -225,18 +225,45 @@
       "hora": "22:15",
       "fronton": "Labrit",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "7 - San Fermin",
+      "fase": "7 - San Fermin - Eliminatoria",
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "ARTOLA – IMAZ // LARRAZABAL – ALBISU (Serie A)",
+        "DARÍO – REZUSTA // EZKURDIA – GABIRONDO (Serie A)"
       ],
       "precio": null,
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ARTOLA",
+            "IMAZ"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ALBISU"
+          ],
+          "raw": "ARTOLA – IMAZ // LARRAZABAL – ALBISU (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "EZKURDIA",
+            "GABIRONDO"
+          ],
+          "raw": "DARÍO – REZUSTA // EZKURDIA – GABIRONDO (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "08/07/2026",
@@ -247,7 +274,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
+        "APEZETXEA II – EROSTARBE // GANADORES ELIMINATORIA (",
+        "Serie B | A",
+        ")",
+        "JAKA – MARIEZKURRENA II // GANADORES ELIMINATORIA (Serie A",
+        "| A",
+        ")",
+        "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA",
         "DESDE",
         "40.00€"
       ],
@@ -255,8 +288,45 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA ("
+          ],
+          "raw": "APEZETXEA II – EROSTARBE // GANADORES ELIMINATORIA (",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA (Serie A"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // GANADORES ELIMINATORIA (Serie A",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "ESKUZA"
+          ],
+          "raw": "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "09/07/2026",
@@ -267,14 +337,53 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "ZUBIZARRETA IV – ESKIROZ // GANADORES ELIMINATORIA (Serie B | B)",
+        "P.ETXEBERRIA – ZABALETA // GANADORES ELIMINATORIA (Serie A | B)",
+        "ZUBIZARRETA III – ARANGUREN // MURUA – LOZA"
       ],
       "precio": null,
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA (Serie B | B)"
+          ],
+          "raw": "ZUBIZARRETA IV – ESKIROZ // GANADORES ELIMINATORIA (Serie B | B)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA (Serie A | B)"
+          ],
+          "raw": "P.ETXEBERRIA – ZABALETA // GANADORES ELIMINATORIA (Serie A | B)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "MURUA",
+            "LOZA"
+          ],
+          "raw": "ZUBIZARRETA III – ARANGUREN // MURUA – LOZA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "10/07/2026",
@@ -285,14 +394,53 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "ZABALA – GASKUE // PERDEDORES DÍA 8 (Serie B)",
+        "LASO – IZTUETA // PERDEDORES DÍA 8 (Serie A)",
+        "BAKAIKOA – XX // REKALDE – XX"
       ],
       "precio": null,
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ZABALA",
+            "GASKUE"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 8"
+          ],
+          "raw": "ZABALA – GASKUE // PERDEDORES DÍA 8 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 8"
+          ],
+          "raw": "LASO – IZTUETA // PERDEDORES DÍA 8 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "XX"
+          ],
+          "eq2": [
+            "REKALDE",
+            "XX"
+          ],
+          "raw": "BAKAIKOA – XX // REKALDE – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "11/07/2026",
@@ -303,7 +451,8 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
+        "PEÑA II – UGARTEMENDIA // PERDEDORES DÍA 9 (Serie B)",
+        "ALTUNA III – MARTIJA // PERDEDORES DÍA 9 (Serie A)",
         "DESDE",
         "35.00€"
       ],
@@ -311,8 +460,32 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833961/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 9"
+          ],
+          "raw": "PEÑA II – UGARTEMENDIA // PERDEDORES DÍA 9 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 9"
+          ],
+          "raw": "ALTUNA III – MARTIJA // PERDEDORES DÍA 9 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "11/07/2026",
@@ -323,14 +496,53 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín"
+        "ZABALA – GASKUE // GANADORES DÍA 8 (Serie B)",
+        "LASO – IZTUETA // GANADORES DÍA 8 (Serie A)",
+        "ALBERDI II – LOZA // XX – MORGAETXEBARRIA"
       ],
       "precio": null,
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ZABALA",
+            "GASKUE"
+          ],
+          "eq2": [
+            "GANADORES DÍA 8"
+          ],
+          "raw": "ZABALA – GASKUE // GANADORES DÍA 8 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "GANADORES DÍA 8"
+          ],
+          "raw": "LASO – IZTUETA // GANADORES DÍA 8 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALBERDI II",
+            "LOZA"
+          ],
+          "eq2": [
+            "XX",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "ALBERDI II – LOZA // XX – MORGAETXEBARRIA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "12/07/2026",
@@ -341,7 +553,9 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
+        "PEÑA II – UGARTEMENDIA // GANADORES DÍA 9 (Serie B)",
+        "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
+        "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
         "DESDE",
         "40.00€"
       ],
@@ -349,19 +563,58 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "GANADORES DÍA 9"
+          ],
+          "raw": "PEÑA II – UGARTEMENDIA // GANADORES DÍA 9 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "GANADORES DÍA 9"
+          ],
+          "raw": "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "ARANGUREN"
+          ],
+          "raw": "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "13/07/2026",
       "hora": "22:15",
       "fronton": "Labrit",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "13 - San Fermin",
+      "fase": "13 - San Fermin - Desafío Urzante",
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
+        "XX – XX (4 1/2)",
+        "XX – XX // XX – XX",
+        "XX – XX (MANO A MANO)",
         "DESDE",
         "40.00€"
       ],
@@ -369,8 +622,43 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833676/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (4 1/2)"
+          ],
+          "raw": "XX – XX (4 1/2)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (MANO A MANO)"
+          ],
+          "raw": "XX – XX (MANO A MANO)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "14/07/2026",
@@ -381,7 +669,8 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "Torneo San Fermín",
+        "FINAL (Serie B)",
+        "FINAL (Serie A)",
         "DESDE",
         "45.00€"
       ],
@@ -623,6 +912,86 @@
           ],
           "raw": "ELORDI – MARIEZKURRENA II // LARRAZABAL – ZABALETA (Serie A)",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "04/08/2026",
+      "hora": "18:00",
+      "fronton": "Remontival",
+      "ciudad": "Estella/Lizarra",
+      "fase": "4ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "PEÑA II – LOZA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+        "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2925168/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "LOZA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "BIKUÑA"
+          ],
+          "raw": "PEÑA II – LOZA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "LANDA"
+          ],
+          "eq2": [
+            "P. ETXEBERRIA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "14/08/2026",
+      "hora": "21:00",
+      "fronton": "Amurrio",
+      "ciudad": "Amurrio",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "Festival",
+        "LARRAZABAL – LANDA // ARTOLA o LASO – IZTUETA",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/49373/session/2925354/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "LARRAZABAL",
+            "LANDA"
+          ],
+          "eq2": [
+            "ARTOLA o LASO",
+            "IZTUETA"
+          ],
+          "raw": "LARRAZABAL – LANDA // ARTOLA o LASO – IZTUETA",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
