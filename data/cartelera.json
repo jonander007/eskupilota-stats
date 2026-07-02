@@ -1,53 +1,7 @@
 {
-  "actualizado": "01/07/2026 02:52",
+  "actualizado": "02/07/2026 02:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "01/07/2026",
-      "hora": "18:00",
-      "fronton": "Uranzu",
-      "ciudad": "Irun",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ALBERDI II – ALDABE // ZUBIZARRETA IV – ESKIROZ",
-        "DARÍO – MARTIJA // AMIANO – MARIEZKURRENA II",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2908346/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "ALDABE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "ESKIROZ"
-          ],
-          "raw": "ALBERDI II – ALDABE // ZUBIZARRETA IV – ESKIROZ",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "DARÍO – MARTIJA // AMIANO – MARIEZKURRENA II",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "03/07/2026",
       "hora": "21:15",
@@ -57,10 +11,12 @@
       "competicion": null,
       "cartel": [
         "Torneo 4 1/2 San Fermín",
-        "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
+        "LASO // PEÑA II (Semifinal 4 1/2 San Fermin)",
         "ALTUNA III // ZABALA",
-        "( Semifinal 4 1/2 San Fermin)",
+        "(Semifinal 4 1/2 San Fermin)",
         "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – EROSTARBE",
+        "DIFERIDO",
+        "DIFERIDO",
         "DESDE",
         "30.00€"
       ],
@@ -74,9 +30,9 @@
             "LASO"
           ],
           "eq2": [
-            "PEÑA II ( Semifinal 4 1/2 San Fermin)"
+            "PEÑA II (Semifinal 4 1/2 San Fermin)"
           ],
-          "raw": "LASO // PEÑA II ( Semifinal 4 1/2 San Fermin)",
+          "raw": "LASO // PEÑA II (Semifinal 4 1/2 San Fermin)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -972,7 +928,7 @@
       "competicion": null,
       "cartel": [
         "Festival",
-        "LARRAZABAL – LANDA // ARTOLA o LASO – IZTUETA",
+        "ARTOLA o LASO – LANDA // LARRAZABAL – IZTUETA",
         "DESDE",
         "30.00€"
       ],
@@ -983,14 +939,14 @@
       "partidos": [
         {
           "eq1": [
-            "LARRAZABAL",
+            "ARTOLA o LASO",
             "LANDA"
           ],
           "eq2": [
-            "ARTOLA o LASO",
+            "LARRAZABAL",
             "IZTUETA"
           ],
-          "raw": "LARRAZABAL – LANDA // ARTOLA o LASO – IZTUETA",
+          "raw": "ARTOLA o LASO – LANDA // LARRAZABAL – IZTUETA",
           "tipo": "festival",
           "serie": "a"
         }
