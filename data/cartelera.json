@@ -1,5 +1,5 @@
 {
-  "actualizado": "02/07/2026 02:42",
+  "actualizado": "03/07/2026 02:24",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -153,8 +153,10 @@
         "San Fermín",
         "XX – XX // XX – XX",
         "FINAL",
+        "DIFERIDO",
+        "DIFERIDO",
         "DESDE",
-        "45.00€"
+        "30.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -627,6 +629,8 @@
         "San Fermín",
         "FINAL (Serie B)",
         "FINAL (Serie A)",
+        "DIFERIDO",
+        "DIFERIDO",
         "DESDE",
         "45.00€"
       ],
