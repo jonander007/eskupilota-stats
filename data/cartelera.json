@@ -1,5 +1,5 @@
 {
-  "actualizado": "03/07/2026 02:24",
+  "actualizado": "04/07/2026 02:23",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -156,7 +156,7 @@
         "DIFERIDO",
         "DIFERIDO",
         "DESDE",
-        "30.00€"
+        "45.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -188,11 +188,13 @@
       "cartel": [
         "San Fermín",
         "ARTOLA – IMAZ // LARRAZABAL – ALBISU (Serie A)",
-        "DARÍO – REZUSTA // EZKURDIA – GABIRONDO (Serie A)"
+        "DARÍO – REZUSTA // EZKURDIA – GABIRONDO (Serie A)",
+        "DESDE",
+        "29.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833670/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -238,13 +240,11 @@
         "JAKA – MARIEZKURRENA II // GANADORES ELIMINATORIA (Serie A",
         "| A",
         ")",
-        "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA",
-        "DESDE",
-        "40.00€"
+        "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -515,7 +515,7 @@
         "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
         "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
         "DESDE",
-        "40.00€"
+        "29.00€"
       ],
       "precio": null,
       "agotado": false,
