@@ -1,54 +1,7 @@
 {
-  "actualizado": "05/07/2026 02:32",
+  "actualizado": "06/07/2026 02:36",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "05/07/2026",
-      "hora": "17:15",
-      "fronton": "Elgeta",
-      "ciudad": "Elgeta",
-      "fase": "5 - San Fermin - Eliminatoria",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "SENAR – LIZEAGA // AMIANO – LANDA (Serie B)",
-        "ELORDI – ALDABE // SALABERRIA – BIKUÑA (Serie B)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2912014/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "LANDA"
-          ],
-          "raw": "SENAR – LIZEAGA // AMIANO – LANDA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "ALDABE"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "BIKUÑA"
-          ],
-          "raw": "ELORDI – ALDABE // SALABERRIA – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "07/07/2026",
       "hora": "11:00",
@@ -213,7 +166,7 @@
         "San Fermín",
         "ZUBIZARRETA IV – ESKIROZ // GANADORES ELIMINATORIA (Serie B | B)",
         "P.ETXEBERRIA – ZABALETA // GANADORES ELIMINATORIA (Serie A | B)",
-        "ZUBIZARRETA III – ARANGUREN // MURUA – LOZA"
+        "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA"
       ],
       "precio": null,
       "agotado": true,
@@ -250,10 +203,10 @@
             "ARANGUREN"
           ],
           "eq2": [
-            "MURUA",
+            "ALBERDI II",
             "LOZA"
           ],
-          "raw": "ZUBIZARRETA III – ARANGUREN // MURUA – LOZA",
+          "raw": "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -431,7 +384,7 @@
         "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
         "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
         "DESDE",
-        "29.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -566,7 +519,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "ZABALA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+        "SALABERRIA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
         "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
         "DESDE",
         "25.00€"
@@ -578,14 +531,14 @@
       "partidos": [
         {
           "eq1": [
-            "ZABALA",
+            "SALABERRIA",
             "MORGAETXEBARRIA"
           ],
           "eq2": [
             "AMIANO",
             "GABIRONDO"
           ],
-          "raw": "ZABALA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+          "raw": "SALABERRIA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -614,7 +567,7 @@
       "cartel": [
         "Masters CaixaBank",
         "ZUBIZARRETA III – SALAVERRI II // REKALDE – LOZA",
-        "DARÍO – IZTUETA // ALTUNA III – IMAZ (Serie A)",
+        "ALTUNA III – IMAZ // ZABALA – IZTUETA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -638,14 +591,14 @@
         },
         {
           "eq1": [
-            "DARÍO",
-            "IZTUETA"
-          ],
-          "eq2": [
             "ALTUNA III",
             "IMAZ"
           ],
-          "raw": "DARÍO – IZTUETA // ALTUNA III – IMAZ (Serie A)",
+          "eq2": [
+            "ZABALA",
+            "IZTUETA"
+          ],
+          "raw": "ALTUNA III – IMAZ // ZABALA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
