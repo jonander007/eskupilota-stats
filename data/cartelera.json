@@ -1,101 +1,7 @@
 {
-  "actualizado": "07/07/2026 02:32",
+  "actualizado": "09/07/2026 02:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "07/07/2026",
-      "hora": "11:00",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Final 4 1/2 - San Fermín",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "PEÑA II – IZTUETA // P. ETXEBERRIA – ZABALETA",
-        "ALTUNA III // LASO",
-        "DIFERIDO",
-        "DIFERIDO",
-        "DESDE",
-        "45.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833669/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "ZABALETA"
-          ],
-          "raw": "PEÑA II – IZTUETA // P. ETXEBERRIA – ZABALETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "ALTUNA III // LASO",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "07/07/2026",
-      "hora": "22:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "7 - San Fermin - Eliminatoria",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "EZKURDIA – GABIRONDO // ELORDI – REZUSTA (Serie A)",
-        "ARTOLA – IMAZ // LARRAZABAL – ALBISU (Serie A)",
-        "DESDE",
-        "47.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833670/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "ELORDI",
-            "REZUSTA"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // ELORDI – REZUSTA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "IMAZ"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ALBISU"
-          ],
-          "raw": "ARTOLA – IMAZ // LARRAZABAL – ALBISU (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "08/07/2026",
       "hora": "22:15",
@@ -108,14 +14,16 @@
         "SENAR – LIZEAGA // REKALDE – EROSTARBE (",
         "Serie B | A",
         ")",
-        "JAKA – MARIEZKURRENA II // GANADORES ELIMINATORIA (Serie A",
+        "EZKURDIA – GABIRONDO // JAKA – MARIEZKURRENA II (Serie A",
         "| A",
         ")",
-        "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA"
+        "AGIRRE – SALAVERRI II // EGIGUREN V – ESKUZA",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833671/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -133,13 +41,14 @@
         },
         {
           "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
+            "EZKURDIA",
+            "GABIRONDO"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA (Serie A"
+            "JAKA",
+            "MARIEZKURRENA II (Serie A"
           ],
-          "raw": "JAKA – MARIEZKURRENA II // GANADORES ELIMINATORIA (Serie A",
+          "raw": "EZKURDIA – GABIRONDO // JAKA – MARIEZKURRENA II (Serie A",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -169,12 +78,14 @@
         "San Fermín",
         "SALABERRIA – BIKUÑA // ZUBIZARRETA IV – ESKIROZ",
         "(Serie B | B)",
-        "P.ETXEBERRIA – ZABALETA // GANADORES ELIMINATORIA (Serie A | B)",
-        "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA"
+        "P.ETXEBERRIA – ZABALETA // LARRAZABAL – ALBISU (Serie A | B)",
+        "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA",
+        "DESDE",
+        "40.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833672/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -196,9 +107,10 @@
             "ZABALETA"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA (Serie A | B)"
+            "LARRAZABAL",
+            "ALBISU (Serie A | B)"
           ],
-          "raw": "P.ETXEBERRIA – ZABALETA // GANADORES ELIMINATORIA (Serie A | B)",
+          "raw": "P.ETXEBERRIA – ZABALETA // LARRAZABAL – ALBISU (Serie A | B)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -228,7 +140,7 @@
         "San Fermín",
         "MURUA – GASKUE // PERDEDORES DÍA 8 (Serie B)",
         "LASO – IZTUETA // PERDEDORES DÍA 8 (Serie A)",
-        "BAKAIKOA – XX // REKALDE – XX"
+        "BAKAIKOA – XX // EGIGUREN V – ALDABE"
       ],
       "precio": null,
       "agotado": true,
@@ -265,10 +177,10 @@
             "XX"
           ],
           "eq2": [
-            "REKALDE",
-            "XX"
+            "EGIGUREN V",
+            "ALDABE"
           ],
-          "raw": "BAKAIKOA – XX // REKALDE – XX",
+          "raw": "BAKAIKOA – XX // EGIGUREN V – ALDABE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -286,7 +198,7 @@
         "PEÑA II – UGARTEMENDIA // PERDEDORES DÍA 9 (Serie B)",
         "ALTUNA III – MARTIJA // PERDEDORES DÍA 9 (Serie A)",
         "DESDE",
-        "35.00€"
+        "41.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -759,7 +671,7 @@
       "competicion": null,
       "cartel": [
         "SALABERRIA – GASKUE // APEZETXEA II – GABIRONDO",
-        "DARIO – ZABALETA // ALTUNA III – MARTIJA",
+        "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA",
         "DESDE",
         "30.00€"
       ],
@@ -783,14 +695,14 @@
         },
         {
           "eq1": [
-            "DARIO",
+            "EZKURDIA",
             "ZABALETA"
           ],
           "eq2": [
             "ALTUNA III",
             "MARTIJA"
           ],
-          "raw": "DARIO – ZABALETA // ALTUNA III – MARTIJA",
+          "raw": "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -805,7 +717,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA(Serie B)",
+        "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
         "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
         "DESDE",
         "25.00€"
@@ -824,7 +736,7 @@
             "SALABERRIA",
             "MORGAETXEBARRIA"
           ],
-          "raw": "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA(Serie B)",
+          "raw": "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -852,7 +764,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "P. ETXEBERRIA – LANDA // MURUA – ARANGUREN (Serie B)",
+        "P. ETXEBERRIA – LANDA // MURUA – ESKIROZ (Serie B)",
         "JAKA – ESKUZA // ZUBIZARRETA IV – BIKUÑA ( Serie B)",
         "DESDE",
         "25.00€"
@@ -869,9 +781,9 @@
           ],
           "eq2": [
             "MURUA",
-            "ARANGUREN"
+            "ESKIROZ"
           ],
-          "raw": "P. ETXEBERRIA – LANDA // MURUA – ARANGUREN (Serie B)",
+          "raw": "P. ETXEBERRIA – LANDA // MURUA – ESKIROZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -947,7 +859,7 @@
       "cartel": [
         "Masters CaixaBank",
         "SENAR – UGARTEMENDIA // APEZEXEA II – ALDABE",
-        "ARTOLA – REZUSTA // ALTUNA III – IMAZ(Serie A)",
+        "ARTOLA – REZUSTA // ALTUNA III – IMAZ (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -978,7 +890,52 @@
             "ALTUNA III",
             "IMAZ"
           ],
-          "raw": "ARTOLA – REZUSTA // ALTUNA III – IMAZ(Serie A)",
+          "raw": "ARTOLA – REZUSTA // ALTUNA III – IMAZ (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "31/07/2026",
+      "hora": "17:15",
+      "fronton": "Madalensoro",
+      "ciudad": "Oiartzun",
+      "fase": "3ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "P. ETXEBERRIA – LANDA //AMIANO – GABIRONDO (Serie B)",
+        "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2926715/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "LANDA //AMIANO"
+          ],
+          "raw": "P. ETXEBERRIA – LANDA //AMIANO – GABIRONDO (Serie B)",
+          "tipo": "manomanista-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "eq2": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -1041,13 +998,11 @@
       "cartel": [
         "Masters CaixaBank",
         "PEÑA II – LOZA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II",
-        "DESDE",
-        "35.00€"
+        "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2925168/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -1088,7 +1043,7 @@
       "cartel": [
         "Masters CaixaBank",
         "AGIRRE – UGARTEMENDIA // APEZETXEA II – ALDABE",
-        "EZKURDIA – ALBISU // LASO – MARTIJA(Serie A)",
+        "EZKURDIA – ALBISU // LASO – MARTIJA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -1119,7 +1074,7 @@
             "LASO",
             "MARTIJA"
           ],
-          "raw": "EZKURDIA – ALBISU // LASO – MARTIJA(Serie A)",
+          "raw": "EZKURDIA – ALBISU // LASO – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
