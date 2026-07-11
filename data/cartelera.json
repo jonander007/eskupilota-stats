@@ -1,69 +1,7 @@
 {
-  "actualizado": "10/07/2026 02:26",
+  "actualizado": "11/07/2026 02:04",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "09/07/2026",
-      "hora": "22:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "9 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "SALABERRIA – BIKUÑA // ZUBIZARRETA IV – ESKIROZ",
-        "(Serie B | B)",
-        "P.ETXEBERRIA – ZABALETA // LARRAZABAL – ALBISU (Serie A | B)",
-        "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA",
-        "DESDE",
-        "40.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833672/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "ESKIROZ"
-          ],
-          "raw": "SALABERRIA – BIKUÑA // ZUBIZARRETA IV – ESKIROZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ALBISU (Serie A | B)"
-          ],
-          "raw": "P.ETXEBERRIA – ZABALETA // LARRAZABAL – ALBISU (Serie A | B)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "raw": "ZUBIZARRETA III – ARANGUREN // ALBERDI II – LOZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "10/07/2026",
       "hora": "22:15",
@@ -132,10 +70,10 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "PEÑA II – UGARTEMENDIA // PERDEDORES DÍA 9 (Serie B)",
-        "ALTUNA III – MARTIJA // PERDEDORES DÍA 9 (Serie A)",
+        "PEÑA II – UGARTEMENDIA // ZUBIZARRETA IV – ESKIROZ (Serie B)",
+        "ALTUNA III – MARTIJA // LARRAZABAL – ALBISU (Serie A)",
         "DESDE",
-        "35.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -148,9 +86,10 @@
             "UGARTEMENDIA"
           ],
           "eq2": [
-            "PERDEDORES DÍA 9"
+            "ZUBIZARRETA IV",
+            "ESKIROZ"
           ],
-          "raw": "PEÑA II – UGARTEMENDIA // PERDEDORES DÍA 9 (Serie B)",
+          "raw": "PEÑA II – UGARTEMENDIA // ZUBIZARRETA IV – ESKIROZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -160,9 +99,10 @@
             "MARTIJA"
           ],
           "eq2": [
-            "PERDEDORES DÍA 9"
+            "LARRAZABAL",
+            "ALBISU"
           ],
-          "raw": "ALTUNA III – MARTIJA // PERDEDORES DÍA 9 (Serie A)",
+          "raw": "ALTUNA III – MARTIJA // LARRAZABAL – ALBISU (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -180,7 +120,7 @@
         "MURUA – GASKUE // SENAR – LIZEAGA (Serie B)",
         "JAKA – MARIEZKURRENA II //",
         "LASO – IZTUETA (Serie A)",
-        "ALBERDI II – LOZA // XX – MORGAETXEBARRIA"
+        "ALBERDI II – LOZA // AMIANO – MORGAETXEBARRIA"
       ],
       "precio": null,
       "agotado": true,
@@ -228,10 +168,10 @@
             "LOZA"
           ],
           "eq2": [
-            "XX",
+            "AMIANO",
             "MORGAETXEBARRIA"
           ],
-          "raw": "ALBERDI II – LOZA // XX – MORGAETXEBARRIA",
+          "raw": "ALBERDI II – LOZA // AMIANO – MORGAETXEBARRIA",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -246,15 +186,13 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "PEÑA II – UGARTEMENDIA // GANADORES DÍA 9 (Serie B)",
-        "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
-        "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
-        "DESDE",
-        "29.00€"
+        "PEÑA II – UGARTEMENDIA // SALABERRIA – BIKUÑA (Serie B)",
+        "ALTUNA III – MARTIJA // P. ETXEBERRIA – ZABALETA (Serie A)",
+        "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -263,9 +201,10 @@
             "UGARTEMENDIA"
           ],
           "eq2": [
-            "GANADORES DÍA 9"
+            "SALABERRIA",
+            "BIKUÑA"
           ],
-          "raw": "PEÑA II – UGARTEMENDIA // GANADORES DÍA 9 (Serie B)",
+          "raw": "PEÑA II – UGARTEMENDIA // SALABERRIA – BIKUÑA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -275,22 +214,23 @@
             "MARTIJA"
           ],
           "eq2": [
-            "GANADORES DÍA 9"
+            "P. ETXEBERRIA",
+            "ZABALETA"
           ],
-          "raw": "ALTUNA III – MARTIJA // GANADORES DÍA 9 (Serie A)",
+          "raw": "ALTUNA III – MARTIJA // P. ETXEBERRIA – ZABALETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX",
-            "ESKUZA"
+            "AGIRRE",
+            "LANDA"
           ],
           "eq2": [
             "ZUBIZARRETA III",
             "ARANGUREN"
           ],
-          "raw": "XX – ESKUZA // ZUBIZARRETA III – ARANGUREN",
+          "raw": "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -746,38 +686,6 @@
             "BIKUÑA ( Serie B)"
           ],
           "raw": "JAKA – ESKUZA // ZUBIZARRETA IV – BIKUÑA ( Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "25/07/2026",
-      "hora": "12:30",
-      "fronton": "Buñuel",
-      "ciudad": "Buñuel",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -1348,17 +1256,17 @@
         "9",
         "13",
         "Laso - Iztueta",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "1",
+        "22",
+        "18",
+        "4",
         "Ezkurdia - Gabirondo",
         "0",
-        "1",
-        "9",
-        "22",
-        "-13",
+        "2",
+        "27",
+        "44",
+        "-17",
         "B",
         "Pelotari/Pareja",
         "PG",
@@ -1397,18 +1305,18 @@
         "22",
         "4",
         "18",
+        "Rekalde - Erostarbe",
+        "1",
+        "2",
+        "26",
+        "42",
+        "-16",
         "Murua - Gaskue",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "Rekalde - Erostarbe",
-        "0",
-        "1",
-        "4",
+        "2",
+        "20",
         "22",
-        "-18",
+        "-2",
         "B",
         "Pelotari/Pareja",
         "PG",
@@ -1545,23 +1453,23 @@
         },
         {
           "eq1": [
-            "Murua"
-          ],
-          "eq2": [
-            "Gaskue"
-          ],
-          "raw": "Murua - Gaskue",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
             "Rekalde"
           ],
           "eq2": [
             "Erostarbe"
           ],
           "raw": "Rekalde - Erostarbe",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "Murua"
+          ],
+          "eq2": [
+            "Gaskue"
+          ],
+          "raw": "Murua - Gaskue",
           "tipo": "manomanista-a",
           "serie": "a"
         },
