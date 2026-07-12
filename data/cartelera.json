@@ -1,182 +1,7 @@
 {
-  "actualizado": "11/07/2026 02:04",
+  "actualizado": "12/07/2026 02:07",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "10/07/2026",
-      "hora": "22:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "10 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "MURUA – GASKUE // REKALDE – ESKUZA (Serie B)",
-        "EZKURDIA – GABIRONDO // LASO – IZTUETA (Serie A)",
-        "BAKAIKOA – ARANGUREN // EGIGUREN V – ALDABE"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ESKUZA"
-          ],
-          "raw": "MURUA – GASKUE // REKALDE – ESKUZA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // LASO – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ALDABE"
-          ],
-          "raw": "BAKAIKOA – ARANGUREN // EGIGUREN V – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "11/07/2026",
-      "hora": "17:15",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "11 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "PEÑA II – UGARTEMENDIA // ZUBIZARRETA IV – ESKIROZ (Serie B)",
-        "ALTUNA III – MARTIJA // LARRAZABAL – ALBISU (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833961/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "ESKIROZ"
-          ],
-          "raw": "PEÑA II – UGARTEMENDIA // ZUBIZARRETA IV – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ALBISU"
-          ],
-          "raw": "ALTUNA III – MARTIJA // LARRAZABAL – ALBISU (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "11/07/2026",
-      "hora": "22:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "11 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "MURUA – GASKUE // SENAR – LIZEAGA (Serie B)",
-        "JAKA – MARIEZKURRENA II //",
-        "LASO – IZTUETA (Serie A)",
-        "ALBERDI II – LOZA // AMIANO – MORGAETXEBARRIA"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "SENAR",
-            "LIZEAGA"
-          ],
-          "raw": "MURUA – GASKUE // SENAR – LIZEAGA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "MARIEZKURRENA II //"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO"
-          ],
-          "eq2": [
-            "IZTUETA"
-          ],
-          "raw": "LASO – IZTUETA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "ALBERDI II – LOZA // AMIANO – MORGAETXEBARRIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "12/07/2026",
       "hora": "17:15",
@@ -188,11 +13,13 @@
         "San Fermín",
         "PEÑA II – UGARTEMENDIA // SALABERRIA – BIKUÑA (Serie B)",
         "ALTUNA III – MARTIJA // P. ETXEBERRIA – ZABALETA (Serie A)",
-        "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN"
+        "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN",
+        "DESDE",
+        "47.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -249,7 +76,7 @@
         "XX – XX // XX – XX",
         "XX – XX (MANO A MANO)",
         "DESDE",
-        "29.00€"
+        "40.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -302,19 +129,43 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "FINAL (Serie B)",
-        "FINAL (Serie A)",
+        "SENAR – LIZEAGA // XX – XX FINAL (Serie B)",
+        "LASO – IZTUETA // XX – XX FINAL (Serie A)",
         "DIFERIDO",
-        "DIFERIDO",
-        "DESDE",
-        "45.00€"
+        "DIFERIDO"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833677/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "XX",
+            "XX FINAL"
+          ],
+          "raw": "SENAR – LIZEAGA // XX – XX FINAL (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "XX",
+            "XX FINAL"
+          ],
+          "raw": "LASO – IZTUETA // XX – XX FINAL (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "16/07/2026",
@@ -1249,18 +1100,18 @@
         "TF",
         "TC",
         "CO",
+        "Laso - Iztueta",
+        "2",
+        "2",
+        "44",
+        "38",
+        "6",
         "Jaka - Mariezkurrena II",
         "1",
-        "1",
-        "22",
-        "9",
-        "13",
-        "Laso - Iztueta",
-        "1",
-        "1",
-        "22",
-        "18",
-        "4",
+        "2",
+        "42",
+        "31",
+        "11",
         "Ezkurdia - Gabirondo",
         "0",
         "2",
@@ -1281,17 +1132,17 @@
         "14",
         "8",
         "Altuna III - Martija",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "1",
+        "22",
+        "20",
+        "2",
         "Larrazabal - Albisu",
         "0",
-        "1",
-        "14",
-        "22",
-        "-8",
+        "2",
+        "34",
+        "44",
+        "-10",
         "A",
         "Pelotari/Pareja",
         "PG",
@@ -1301,22 +1152,22 @@
         "CO",
         "Senar - Lizeaga",
         "1",
+        "2",
+        "37",
+        "26",
+        "11",
+        "Murua - Gaskue",
         "1",
-        "22",
-        "4",
-        "18",
+        "2",
+        "42",
+        "42",
+        "0",
         "Rekalde - Erostarbe",
         "1",
         "2",
         "26",
         "42",
         "-16",
-        "Murua - Gaskue",
-        "0",
-        "2",
-        "20",
-        "22",
-        "-2",
         "B",
         "Pelotari/Pareja",
         "PG",
@@ -1324,24 +1175,24 @@
         "TF",
         "TC",
         "CO",
+        "Peña II - Ugartemendia",
+        "1",
+        "1",
+        "22",
+        "13",
+        "9",
         "Salaberria - Bikuña",
         "1",
         "1",
         "22",
         "17",
         "5",
-        "Peña II - Ugartemendia",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Zubizarreta IV - Eskiroz",
         "0",
-        "1",
-        "17",
-        "22",
-        "-5"
+        "2",
+        "30",
+        "44",
+        "-14"
       ],
       "precio": null,
       "agotado": false,
@@ -1376,23 +1227,23 @@
         },
         {
           "eq1": [
-            "Jaka"
-          ],
-          "eq2": [
-            "Mariezkurrena II"
-          ],
-          "raw": "Jaka - Mariezkurrena II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
             "Laso"
           ],
           "eq2": [
             "Iztueta"
           ],
           "raw": "Laso - Iztueta",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "Jaka"
+          ],
+          "eq2": [
+            "Mariezkurrena II"
+          ],
+          "raw": "Jaka - Mariezkurrena II",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -1453,17 +1304,6 @@
         },
         {
           "eq1": [
-            "Rekalde"
-          ],
-          "eq2": [
-            "Erostarbe"
-          ],
-          "raw": "Rekalde - Erostarbe",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
             "Murua"
           ],
           "eq2": [
@@ -1475,12 +1315,12 @@
         },
         {
           "eq1": [
-            "Salaberria"
+            "Rekalde"
           ],
           "eq2": [
-            "Bikuña"
+            "Erostarbe"
           ],
-          "raw": "Salaberria - Bikuña",
+          "raw": "Rekalde - Erostarbe",
           "tipo": "manomanista-a",
           "serie": "a"
         },
@@ -1492,6 +1332,17 @@
             "Ugartemendia"
           ],
           "raw": "Peña II - Ugartemendia",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "Salaberria"
+          ],
+          "eq2": [
+            "Bikuña"
+          ],
+          "raw": "Salaberria - Bikuña",
           "tipo": "manomanista-a",
           "serie": "a"
         },
