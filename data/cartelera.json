@@ -1,68 +1,7 @@
 {
-  "actualizado": "12/07/2026 02:07",
+  "actualizado": "13/07/2026 02:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "12/07/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "12 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "PEÑA II – UGARTEMENDIA // SALABERRIA – BIKUÑA (Serie B)",
-        "ALTUNA III – MARTIJA // P. ETXEBERRIA – ZABALETA (Serie A)",
-        "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN",
-        "DESDE",
-        "47.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833675/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "BIKUÑA"
-          ],
-          "raw": "PEÑA II – UGARTEMENDIA // SALABERRIA – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "ZABALETA"
-          ],
-          "raw": "ALTUNA III – MARTIJA // P. ETXEBERRIA – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "raw": "AGIRRE – LANDA // ZUBIZARRETA III – ARANGUREN",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "13/07/2026",
       "hora": "22:15",
@@ -72,9 +11,9 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "XX – XX (4 1/2)",
-        "XX – XX // XX – XX",
-        "XX – XX (MANO A MANO)",
+        "MURUA // JAKA (4 1/2)",
+        "EZKURDIA – REZUSTA // ARTOLA – MARIEZKURRENA II",
+        "REKALDE // AMIANO (MANO A MANO)",
         "DESDE",
         "40.00€"
       ],
@@ -85,36 +24,36 @@
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "MURUA"
           ],
           "eq2": [
-            "XX (4 1/2)"
+            "JAKA (4 1/2)"
           ],
-          "raw": "XX – XX (4 1/2)",
+          "raw": "MURUA // JAKA (4 1/2)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "EZKURDIA",
+            "REZUSTA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ARTOLA",
+            "MARIEZKURRENA II"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EZKURDIA – REZUSTA // ARTOLA – MARIEZKURRENA II",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX"
+            "REKALDE"
           ],
           "eq2": [
-            "XX (MANO A MANO)"
+            "AMIANO (MANO A MANO)"
           ],
-          "raw": "XX – XX (MANO A MANO)",
+          "raw": "REKALDE // AMIANO (MANO A MANO)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -129,8 +68,8 @@
       "competicion": null,
       "cartel": [
         "San Fermín",
-        "SENAR – LIZEAGA // XX – XX FINAL (Serie B)",
-        "LASO – IZTUETA // XX – XX FINAL (Serie A)",
+        "PEÑA II – UGARTEMENDIA // SENAR – LIZEAGA (FINAL – Serie B)",
+        "LASO – IZTUETA // P. ETXEBERRIA – ZABALETA (FINAL – Serie A)",
         "DIFERIDO",
         "DIFERIDO"
       ],
@@ -141,16 +80,17 @@
       "partidos": [
         {
           "eq1": [
-            "SENAR",
-            "LIZEAGA"
+            "PEÑA II",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "XX",
-            "XX FINAL"
+            "SENAR",
+            "LIZEAGA (FINAL",
+            "Serie B)"
           ],
-          "raw": "SENAR – LIZEAGA // XX – XX FINAL (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "raw": "PEÑA II – UGARTEMENDIA // SENAR – LIZEAGA (FINAL – Serie B)",
+          "tipo": "campeonato-a",
+          "serie": "a"
         },
         {
           "eq1": [
@@ -158,10 +98,11 @@
             "IZTUETA"
           ],
           "eq2": [
-            "XX",
-            "XX FINAL"
+            "P. ETXEBERRIA",
+            "ZABALETA (FINAL",
+            "Serie A)"
           ],
-          "raw": "LASO – IZTUETA // XX – XX FINAL (Serie A)",
+          "raw": "LASO – IZTUETA // P. ETXEBERRIA – ZABALETA (FINAL – Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -1126,17 +1067,17 @@
         "TC",
         "CO",
         "P.Etxeberria - Zabaleta",
-        "1",
-        "1",
-        "22",
-        "14",
-        "8",
+        "2",
+        "2",
+        "44",
+        "23",
+        "21",
         "Altuna III - Martija",
         "1",
-        "1",
-        "22",
-        "20",
         "2",
+        "31",
+        "42",
+        "-11",
         "Larrazabal - Albisu",
         "0",
         "2",
@@ -1176,17 +1117,17 @@
         "TC",
         "CO",
         "Peña II - Ugartemendia",
-        "1",
-        "1",
-        "22",
+        "2",
+        "2",
+        "44",
+        "31",
         "13",
-        "9",
         "Salaberria - Bikuña",
         "1",
+        "2",
+        "40",
+        "39",
         "1",
-        "22",
-        "17",
-        "5",
         "Zubizarreta IV - Eskiroz",
         "0",
         "2",
