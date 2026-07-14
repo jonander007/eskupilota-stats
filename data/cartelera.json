@@ -1,5 +1,5 @@
 {
-  "actualizado": "13/07/2026 02:09",
+  "actualizado": "14/07/2026 01:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -300,7 +300,7 @@
       "fecha": "19/07/2026",
       "hora": "18:00",
       "fronton": "Mainondo",
-      "ciudad": "Otxandio V2",
+      "ciudad": "Otxandio",
       "fase": "1ª Jornada",
       "competicion": null,
       "cartel": [
@@ -352,13 +352,11 @@
       "competicion": null,
       "cartel": [
         "SALABERRIA – GASKUE // APEZETXEA II – GABIRONDO",
-        "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA",
-        "DESDE",
-        "30.00€"
+        "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2928830/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -485,6 +483,38 @@
     },
     {
       "fecha": "25/07/2026",
+      "hora": "12:30",
+      "fronton": "Buñuel",
+      "ciudad": "Buñuel",
+      "fase": "3ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "LANDA"
+          ],
+          "eq2": [
+            "ZABALA",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "25/07/2026",
       "hora": "17:00",
       "fronton": "Aritzmendi",
       "ciudad": "Ermua",
@@ -492,7 +522,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "SALABERRIA – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
+        "BAKAIKOA – LIZEAGA // SALABERRIA – EROSTARBE",
         "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
         "DESDE",
         "25.00€"
@@ -504,14 +534,14 @@
       "partidos": [
         {
           "eq1": [
+            "BAKAIKOA",
+            "LIZEAGA"
+          ],
+          "eq2": [
             "SALABERRIA",
             "EROSTARBE"
           ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "LIZEAGA"
-          ],
-          "raw": "SALABERRIA – EROSTARBE // ZUBIZARRETA III – LIZEAGA",
+          "raw": "BAKAIKOA – LIZEAGA // SALABERRIA – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         },
