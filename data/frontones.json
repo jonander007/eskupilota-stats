@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 146,
+    "partidos_count": 147,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -115,7 +115,7 @@
     "id": "FRO015",
     "nombre": "ARAIA",
     "ciudad_id": "CIU012",
-    "partidos_count": 32,
+    "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARAIA"
   },
@@ -225,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 216,
+    "partidos_count": 217,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -465,7 +465,7 @@
     "id": "FRO058",
     "nombre": "BURUNDA",
     "ciudad_id": "CIU006",
-    "partidos_count": 38,
+    "partidos_count": 39,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BURUNDA"
   },
@@ -585,7 +585,7 @@
     "id": "FRO073",
     "nombre": "ELGETA",
     "ciudad_id": "CIU051",
-    "partidos_count": 20,
+    "partidos_count": 22,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELGETA"
   },
@@ -1017,7 +1017,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 385,
+    "partidos_count": 405,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1253,7 +1253,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 74,
+    "partidos_count": 77,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1431,7 +1431,7 @@
     "id": "FRO214",
     "nombre": "SANTO DOMINGO DE LA CALZADA",
     "ciudad_id": "CIU121",
-    "partidos_count": 15
+    "partidos_count": 16
   },
   {
     "id": "FRO172",
@@ -1501,7 +1501,7 @@
     "id": "FRO180",
     "nombre": "TROBIKA",
     "ciudad_id": "CIU104",
-    "partidos_count": 29,
+    "partidos_count": 30,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20TROBIKA"
   },
@@ -1517,7 +1517,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 64,
+    "partidos_count": 65,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
