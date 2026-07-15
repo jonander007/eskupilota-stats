@@ -1,113 +1,7 @@
 {
-  "actualizado": "14/07/2026 01:55",
+  "actualizado": "15/07/2026 01:51",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "13/07/2026",
-      "hora": "22:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "13 - San Fermin - Desafío Urzante",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "MURUA // JAKA (4 1/2)",
-        "EZKURDIA – REZUSTA // ARTOLA – MARIEZKURRENA II",
-        "REKALDE // AMIANO (MANO A MANO)",
-        "DESDE",
-        "40.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55001/session/2833676/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [
-            "JAKA (4 1/2)"
-          ],
-          "raw": "MURUA // JAKA (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "EZKURDIA – REZUSTA // ARTOLA – MARIEZKURRENA II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "REKALDE"
-          ],
-          "eq2": [
-            "AMIANO (MANO A MANO)"
-          ],
-          "raw": "REKALDE // AMIANO (MANO A MANO)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "14/07/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "14 - San Fermin",
-      "competicion": null,
-      "cartel": [
-        "San Fermín",
-        "PEÑA II – UGARTEMENDIA // SENAR – LIZEAGA (FINAL – Serie B)",
-        "LASO – IZTUETA // P. ETXEBERRIA – ZABALETA (FINAL – Serie A)",
-        "DIFERIDO",
-        "DIFERIDO"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "SENAR",
-            "LIZEAGA (FINAL",
-            "Serie B)"
-          ],
-          "raw": "PEÑA II – UGARTEMENDIA // SENAR – LIZEAGA (FINAL – Serie B)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "ZABALETA (FINAL",
-            "Serie A)"
-          ],
-          "raw": "LASO – IZTUETA // P. ETXEBERRIA – ZABALETA (FINAL – Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "16/07/2026",
       "hora": "18:00",
@@ -557,6 +451,38 @@
           "raw": "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "25/07/2026",
+      "hora": "17:30",
+      "fronton": "Txutxo",
+      "ciudad": "Etxebarria",
+      "fase": "3ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "JAKA – ESKUZA // AMIANO – GABIRONDO (Serie B)",
+        "Gratuito con entrada"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "GABIRONDO"
+          ],
+          "raw": "JAKA – ESKUZA // AMIANO – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
         }
       ]
     },
