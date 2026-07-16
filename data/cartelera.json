@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/07/2026 01:51",
+  "actualizado": "16/07/2026 02:02",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -11,7 +11,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "SALABERRIA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+        "AMIANO – GABIRONDO // REKALDE – MORGAETXEBARRIA (Serie B)",
         "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
         "DESDE",
         "25.00€"
@@ -23,14 +23,14 @@
       "partidos": [
         {
           "eq1": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
             "AMIANO",
             "GABIRONDO"
           ],
-          "raw": "SALABERRIA – MORGAETXEBARRIA // AMIANO – GABIRONDO (Serie B)",
+          "eq2": [
+            "REKALDE",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "AMIANO – GABIRONDO // REKALDE – MORGAETXEBARRIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -238,50 +238,6 @@
       ]
     },
     {
-      "fecha": "23/07/2026",
-      "hora": "17:00",
-      "fronton": "Agustina Otaola",
-      "ciudad": "Errenteria",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SALABERRIA – GASKUE // APEZETXEA II – GABIRONDO",
-        "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "GABIRONDO"
-          ],
-          "raw": "SALABERRIA – GASKUE // APEZETXEA II – GABIRONDO",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "raw": "EZKURDIA – ZABALETA // ALTUNA III – MARTIJA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
       "fecha": "24/07/2026",
       "hora": "20:45",
       "fronton": "Arretxe de Valcarlos",
@@ -416,7 +372,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "BAKAIKOA – LIZEAGA // SALABERRIA – EROSTARBE",
+        "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
         "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
         "DESDE",
         "25.00€"
@@ -432,10 +388,10 @@
             "LIZEAGA"
           ],
           "eq2": [
-            "SALABERRIA",
+            "EGIGUREN V",
             "EROSTARBE"
           ],
-          "raw": "BAKAIKOA – LIZEAGA // SALABERRIA – EROSTARBE",
+          "raw": "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -875,6 +831,150 @@
       ]
     },
     {
+      "fecha": "05/08/2026",
+      "hora": "17:30",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo La Blanca",
+        "AMIANO – LANDA // ZUBIZARRETA IV – ARANGUREN (Serie B)",
+        "LASO – ALBISU // LARRAZABAL – MARIEZKURRENA II (Serie A)",
+        "AGIRRE – MORGAETXEBARRIA // ALBERDI II – ALDABE",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946257/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "LANDA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "ARANGUREN"
+          ],
+          "raw": "AMIANO – LANDA // ZUBIZARRETA IV – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "ALBISU"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "LASO – ALBISU // LARRAZABAL – MARIEZKURRENA II (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "ALDABE"
+          ],
+          "raw": "AGIRRE – MORGAETXEBARRIA // ALBERDI II – ALDABE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "06/08/2026",
+      "hora": "17:30",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo La Blanca",
+        "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
+        "ALTUNA III – REZUSTA // ZABALA – ZABALETA (Serie A)",
+        "EGIGUREN V – LOZA // SENAR – SALAVERRI II",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946259/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "GABIRONDO"
+          ],
+          "raw": "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "ZABALA",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – REZUSTA // ZABALA – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EGIGUREN V",
+            "LOZA"
+          ],
+          "eq2": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "raw": "EGIGUREN V – LOZA // SENAR – SALAVERRI II",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "08/08/2026",
+      "hora": "21:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo La Blanca",
+        "Finales Torneo La Blanca",
+        "SERIE B",
+        "SERIE A",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946261/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
       "fecha": "14/08/2026",
       "hora": "21:00",
       "fronton": "Amurrio",
@@ -986,110 +1086,7 @@
         "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
-        "18.00€",
-        "Clasificación",
-        "Torneo San Fermín",
-        "Torneo San Fermín Serie B",
-        "A",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Laso - Iztueta",
-        "2",
-        "2",
-        "44",
-        "38",
-        "6",
-        "Jaka - Mariezkurrena II",
-        "1",
-        "2",
-        "42",
-        "31",
-        "11",
-        "Ezkurdia - Gabirondo",
-        "0",
-        "2",
-        "27",
-        "44",
-        "-17",
-        "B",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "P.Etxeberria - Zabaleta",
-        "2",
-        "2",
-        "44",
-        "23",
-        "21",
-        "Altuna III - Martija",
-        "1",
-        "2",
-        "31",
-        "42",
-        "-11",
-        "Larrazabal - Albisu",
-        "0",
-        "2",
-        "34",
-        "44",
-        "-10",
-        "A",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Senar - Lizeaga",
-        "1",
-        "2",
-        "37",
-        "26",
-        "11",
-        "Murua - Gaskue",
-        "1",
-        "2",
-        "42",
-        "42",
-        "0",
-        "Rekalde - Erostarbe",
-        "1",
-        "2",
-        "26",
-        "42",
-        "-16",
-        "B",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Peña II - Ugartemendia",
-        "2",
-        "2",
-        "44",
-        "31",
-        "13",
-        "Salaberria - Bikuña",
-        "1",
-        "2",
-        "40",
-        "39",
-        "1",
-        "Zubizarreta IV - Eskiroz",
-        "0",
-        "2",
-        "30",
-        "44",
-        "-14"
+        "18.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -1120,138 +1117,6 @@
           ],
           "raw": "XX – XX // XX – XX (Serie A)",
           "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Laso"
-          ],
-          "eq2": [
-            "Iztueta"
-          ],
-          "raw": "Laso - Iztueta",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Jaka"
-          ],
-          "eq2": [
-            "Mariezkurrena II"
-          ],
-          "raw": "Jaka - Mariezkurrena II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Ezkurdia"
-          ],
-          "eq2": [
-            "Gabirondo"
-          ],
-          "raw": "Ezkurdia - Gabirondo",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "P.Etxeberria"
-          ],
-          "eq2": [
-            "Zabaleta"
-          ],
-          "raw": "P.Etxeberria - Zabaleta",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Altuna III"
-          ],
-          "eq2": [
-            "Martija"
-          ],
-          "raw": "Altuna III - Martija",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Larrazabal"
-          ],
-          "eq2": [
-            "Albisu"
-          ],
-          "raw": "Larrazabal - Albisu",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Senar"
-          ],
-          "eq2": [
-            "Lizeaga"
-          ],
-          "raw": "Senar - Lizeaga",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Murua"
-          ],
-          "eq2": [
-            "Gaskue"
-          ],
-          "raw": "Murua - Gaskue",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Rekalde"
-          ],
-          "eq2": [
-            "Erostarbe"
-          ],
-          "raw": "Rekalde - Erostarbe",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Peña II"
-          ],
-          "eq2": [
-            "Ugartemendia"
-          ],
-          "raw": "Peña II - Ugartemendia",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Salaberria"
-          ],
-          "eq2": [
-            "Bikuña"
-          ],
-          "raw": "Salaberria - Bikuña",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "Zubizarreta IV"
-          ],
-          "eq2": [
-            "Eskiroz"
-          ],
-          "raw": "Zubizarreta IV - Eskiroz",
-          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
