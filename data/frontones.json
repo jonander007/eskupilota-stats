@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 149,
+    "partidos_count": 150,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -83,7 +83,7 @@
     "id": "FRO011",
     "nombre": "AMOREBIETA IV",
     "ciudad_id": "CIU009",
-    "partidos_count": 32,
+    "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMOREBIETA%20IV"
   },
@@ -225,7 +225,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 219,
+    "partidos_count": 220,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -585,7 +585,7 @@
     "id": "FRO073",
     "nombre": "ELGETA",
     "ciudad_id": "CIU051",
-    "partidos_count": 26,
+    "partidos_count": 28,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELGETA"
   },
@@ -1017,7 +1017,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 449,
+    "partidos_count": 471,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1253,7 +1253,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 83,
+    "partidos_count": 86,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1517,7 +1517,7 @@
     "id": "FRO182",
     "nombre": "URANZU",
     "ciudad_id": "CIU079",
-    "partidos_count": 67,
+    "partidos_count": 68,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"
   },
