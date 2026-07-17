@@ -1,54 +1,7 @@
 {
-  "actualizado": "16/07/2026 02:02",
+  "actualizado": "17/07/2026 02:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "16/07/2026",
-      "hora": "18:00",
-      "fronton": "Amorebieta IV",
-      "ciudad": "Amorebieta IV",
-      "fase": "1ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "AMIANO – GABIRONDO // REKALDE – MORGAETXEBARRIA (Serie B)",
-        "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2923148/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "REKALDE",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "AMIANO – GABIRONDO // REKALDE – MORGAETXEBARRIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "LASO – ALBISU // ARTOLA – MARIEZKURRENA II",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "17/07/2026",
       "hora": "21:15",
@@ -58,7 +11,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "ZUBIZARRETA III – SALAVERRI II // REKALDE – LOZA",
+        "ZUBIZARRETA III – SALAVERRI II // ALBERDI II – LOZA",
         "ALTUNA III – IMAZ // ZABALA – IZTUETA (Serie A)",
         "DESDE",
         "30.00€"
@@ -74,10 +27,10 @@
             "SALAVERRI II"
           ],
           "eq2": [
-            "REKALDE",
+            "ALBERDI II",
             "LOZA"
           ],
-          "raw": "ZUBIZARRETA III – SALAVERRI II // REKALDE – LOZA",
+          "raw": "ZUBIZARRETA III – SALAVERRI II // ALBERDI II – LOZA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -239,53 +192,6 @@
     },
     {
       "fecha": "24/07/2026",
-      "hora": "20:45",
-      "fronton": "Arretxe de Valcarlos",
-      "ciudad": "Arretxe de Valcarlos",
-      "fase": "2ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-        "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924312/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "LOZA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "24/07/2026",
       "hora": "21:00",
       "fronton": "Areta",
       "ciudad": "Laudio/Llodio",
@@ -328,6 +234,53 @@
           "raw": "JAKA – ESKUZA // ZUBIZARRETA IV – BIKUÑA ( Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "24/07/2026",
+      "hora": "21:00",
+      "fronton": "Arretxe de Valcarlos",
+      "ciudad": "Arretxe de Valcarlos",
+      "fase": "2ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
+        "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924312/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "LOZA"
+          ],
+          "eq2": [
+            "SALABERRIA",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ZABALETA"
+          ],
+          "raw": "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
