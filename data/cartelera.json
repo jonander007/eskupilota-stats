@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/07/2026 02:05",
+  "actualizado": "18/07/2026 01:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -12,7 +12,7 @@
       "cartel": [
         "Masters CaixaBank",
         "ZUBIZARRETA III – SALAVERRI II // ALBERDI II – LOZA",
-        "ALTUNA III – IMAZ // ZABALA – IZTUETA (Serie A)",
+        "ALTUNA III – IMAZ // P. ETXEBERRIA – IZTUETA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -40,10 +40,10 @@
             "IMAZ"
           ],
           "eq2": [
-            "ZABALA",
+            "P. ETXEBERRIA",
             "IZTUETA"
           ],
-          "raw": "ALTUNA III – IMAZ // ZABALA – IZTUETA (Serie A)",
+          "raw": "ALTUNA III – IMAZ // P. ETXEBERRIA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
