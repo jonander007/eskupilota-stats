@@ -1,54 +1,7 @@
 {
-  "actualizado": "18/07/2026 01:54",
+  "actualizado": "19/07/2026 02:06",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "17/07/2026",
-      "hora": "21:15",
-      "fronton": "Viana",
-      "ciudad": "Viana",
-      "fase": "1ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "ZUBIZARRETA III – SALAVERRI II // ALBERDI II – LOZA",
-        "ALTUNA III – IMAZ // P. ETXEBERRIA – IZTUETA (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2922046/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "raw": "ZUBIZARRETA III – SALAVERRI II // ALBERDI II – LOZA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "IZTUETA"
-          ],
-          "raw": "ALTUNA III – IMAZ // P. ETXEBERRIA – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "18/07/2026",
       "hora": "20:00",
