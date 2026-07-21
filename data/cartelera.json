@@ -1,148 +1,7 @@
 {
-  "actualizado": "19/07/2026 02:06",
+  "actualizado": "21/07/2026 02:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "18/07/2026",
-      "hora": "20:00",
-      "fronton": "Artza",
-      "ciudad": "Bermeo",
-      "fase": "Semifinales",
-      "competicion": null,
-      "cartel": [
-        "V. Bermeo Hiria Inpesca Pilota Festibala",
-        "SENAR – ARANGUREN // ZUBIZARRETA IV – MORGAETXEBARRIA",
-        "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2923570/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "SENAR – ARANGUREN // ZUBIZARRETA IV – MORGAETXEBARRIA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "19/07/2026",
-      "hora": "17:15",
-      "fronton": "Barakaldes",
-      "ciudad": "Barakaldo",
-      "fase": "1ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // P. ETXEBERRIA – LANDA (Serie B)",
-        "EZKURDIA – ALBISU // ARTOLA – REZUSTA (Serie A)",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924321/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "LANDA"
-          ],
-          "raw": "JAKA – ESKUZA // P. ETXEBERRIA – LANDA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "raw": "EZKURDIA – ALBISU // ARTOLA – REZUSTA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "19/07/2026",
-      "hora": "18:00",
-      "fronton": "Mainondo",
-      "ciudad": "Otxandio",
-      "fase": "1ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "MURUA – ESKIROZ // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ELORDI – MARIEZKURRENA II // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924318/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "BIKUÑA"
-          ],
-          "raw": "MURUA – ESKIROZ // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "ELORDI – MARIEZKURRENA II // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/07/2026",
       "hora": "21:00",
@@ -281,7 +140,7 @@
         "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
         "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
         "DESDE",
-        "25.00€"
+        "30.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -860,6 +719,52 @@
     },
     {
       "fecha": "08/08/2026",
+      "hora": "18:00",
+      "fronton": "Sunbilla",
+      "ciudad": "Sunbilla",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SALABERRIA – ALDABE // APEZETXEA II – GASKUE",
+        "EZKURDIA – GABIRONDO // MURUA – MARTIJA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2947835/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "ALDABE"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "GASKUE"
+          ],
+          "raw": "SALABERRIA – ALDABE // APEZETXEA II – GASKUE",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "MURUA",
+            "MARTIJA"
+          ],
+          "raw": "EZKURDIA – GABIRONDO // MURUA – MARTIJA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "08/08/2026",
       "hora": "21:15",
       "fronton": "Ogueta",
       "ciudad": "Vitoria-Gasteiz",
@@ -879,6 +784,297 @@
       "tv": false,
       "partidos": [],
       "pendiente": true
+    },
+    {
+      "fecha": "09/08/2026",
+      "hora": "17:15",
+      "fronton": "Bastida/Labastida",
+      "ciudad": "Bastida/Labastida",
+      "fase": "4ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
+        "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947847/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "LOZA"
+          ],
+          "raw": "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ZABALA",
+            "IZTUETA"
+          ],
+          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "10/08/2026",
+      "hora": "18:00",
+      "fronton": "Darío Gómez Gil",
+      "ciudad": "Ezcaray",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SENAR – SALAVERRI II // MURUA – LOZA",
+        "LASO – IZTUETA // ZABALA – ZABALETA",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2947849/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "MURUA",
+            "LOZA"
+          ],
+          "raw": "SENAR – SALAVERRI II // MURUA – LOZA",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "ZABALA",
+            "ZABALETA"
+          ],
+          "raw": "LASO – IZTUETA // ZABALA – ZABALETA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "10/08/2026",
+      "hora": "19:00",
+      "fronton": "Elexalde",
+      "ciudad": "Zarátamo",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA"
+      ],
+      "precio": null,
+      "agotado": true,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ESKUZA"
+          ],
+          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "11/08/2026",
+      "hora": "19:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo Donostia Hiria",
+        "SENAR – LANDA // AMIANO – UGARTEMENDIA (Serie B)",
+        "LASO – IZTUETA // PEÑA II – MARIEZKURRENA II (Serie A)",
+        "ZUBIZARRETA IV – ARANGUREN // APEZETXEA II – EROSTARBE",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58506/session/2947851/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "LANDA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "UGARTEMENDIA"
+          ],
+          "raw": "SENAR – LANDA // AMIANO – UGARTEMENDIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "LASO – IZTUETA // PEÑA II – MARIEZKURRENA II (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA IV – ARANGUREN // APEZETXEA II – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "11/08/2026",
+      "hora": "20:00",
+      "fronton": "Covaleda",
+      "ciudad": "Covaleda",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SENAR – LIZEAGA // REKALDE – ESKUZA",
+        "ALTUNA III – IMAZ // ZABALA – MARIEZKURRENA II",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2947850/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ESKUZA"
+          ],
+          "raw": "SENAR – LIZEAGA // REKALDE – ESKUZA",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "eq2": [
+            "ZABALA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALTUNA III – IMAZ // ZABALA – MARIEZKURRENA II",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "12/08/2026",
+      "hora": "19:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo Donostia Hiria",
+        "SALABERRIA – BIKUÑA // MURUA – GABIRONDO (Serie B)",
+        "EZKURDIA – ZABALETA // ALTUNA III – REZUSTA ( Serie A)",
+        "AGIRRE – LIZEAGA // EGIGUREN V – ALDABE",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58506/session/2947853/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "MURUA",
+            "GABIRONDO"
+          ],
+          "raw": "SALABERRIA – BIKUÑA // MURUA – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "REZUSTA ( Serie A)"
+          ],
+          "raw": "EZKURDIA – ZABALETA // ALTUNA III – REZUSTA ( Serie A)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "ALDABE"
+          ],
+          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ALDABE",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "14/08/2026",
@@ -912,6 +1108,27 @@
           "serie": "a"
         }
       ]
+    },
+    {
+      "fecha": "14/08/2026",
+      "hora": "21:00",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo Donostia Hiria",
+        "Final (Serie B)",
+        "Final (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58506/session/2947854/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "02/10/2026",
@@ -992,7 +1209,106 @@
         "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
-        "18.00€"
+        "18.00€",
+        "Clasificación",
+        "Masters CaixaBank",
+        "Masters CaixaBank Serie B",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Zabala-Iztueta",
+        "1",
+        "1",
+        "22",
+        "6",
+        "16",
+        "Artola-Rezusta",
+        "1",
+        "1",
+        "22",
+        "17",
+        "5",
+        "Elordi-Mariezkurrena II",
+        "1",
+        "1",
+        "22",
+        "18",
+        "4",
+        "Laso-Martija",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Larrazabal-Zabaleta",
+        "0",
+        "1",
+        "18",
+        "22",
+        "-4",
+        "Ezkurdia-Albisu",
+        "0",
+        "1",
+        "17",
+        "22",
+        "-5",
+        "Altuna III-Imaz",
+        "0",
+        "1",
+        "6",
+        "22",
+        "-16",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Murua-Eskiroz",
+        "1",
+        "1",
+        "22",
+        "6",
+        "16",
+        "Rekalde-Morgaetxebarria",
+        "1",
+        "1",
+        "22",
+        "10",
+        "12",
+        "Jaka-Eskuza",
+        "1",
+        "1",
+        "22",
+        "18",
+        "4",
+        "Peña II-Loza",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "P.Etxeberria-Landa",
+        "0",
+        "1",
+        "18",
+        "22",
+        "-4",
+        "Amiano-Gabirondo",
+        "0",
+        "1",
+        "10",
+        "22",
+        "-12",
+        "Zubizarreta IV-Bikuña",
+        "0",
+        "1",
+        "6",
+        "22",
+        "-16"
       ],
       "precio": null,
       "agotado": false,
