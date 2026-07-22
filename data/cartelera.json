@@ -1,7 +1,36 @@
 {
-  "actualizado": "21/07/2026 02:05",
+  "actualizado": "22/07/2026 02:03",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
+    {
+      "fecha": "22/07/2026",
+      "hora": "18:15",
+      "fronton": "Cardenal Orbe",
+      "ciudad": "Ermua",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "AGIRRE // REKALDE",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE"
+          ],
+          "eq2": [
+            "REKALDE"
+          ],
+          "raw": "AGIRRE // REKALDE",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
+    },
     {
       "fecha": "24/07/2026",
       "hora": "21:00",
@@ -105,7 +134,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
+        "P.ETXEBERRIA – LANDA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
         "Gratuito"
       ],
       "precio": null,
@@ -119,10 +148,10 @@
             "LANDA"
           ],
           "eq2": [
-            "ZABALA",
+            "SALABERRIA",
             "MORGAETXEBARRIA"
           ],
-          "raw": "P.ETXEBERRIA – LANDA // ZABALA – MORGAETXEBARRIA (Serie B)",
+          "raw": "P.ETXEBERRIA – LANDA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -138,13 +167,11 @@
       "cartel": [
         "Masters CaixaBank",
         "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
-        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
-        "DESDE",
-        "30.00€"
+        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2926696/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -886,11 +913,13 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA"
+        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA",
+        "DESDE",
+        "10.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2949264/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -978,7 +1007,7 @@
       "competicion": null,
       "cartel": [
         "SENAR – LIZEAGA // REKALDE – ESKUZA",
-        "ALTUNA III – IMAZ // ZABALA – MARIEZKURRENA II",
+        "ALTUNA III – IMAZ // ZABALA – ALBISU",
         "DESDE",
         "30.00€"
       ],
@@ -1007,9 +1036,9 @@
           ],
           "eq2": [
             "ZABALA",
-            "MARIEZKURRENA II"
+            "ALBISU"
           ],
-          "raw": "ALTUNA III – IMAZ // ZABALA – MARIEZKURRENA II",
+          "raw": "ALTUNA III – IMAZ // ZABALA – ALBISU",
           "tipo": "festival",
           "serie": "a"
         }
@@ -1273,7 +1302,7 @@
         "22",
         "6",
         "16",
-        "Rekalde-Morgaetxebarria",
+        "Salaberria-Morgaetxebarria",
         "1",
         "1",
         "22",
