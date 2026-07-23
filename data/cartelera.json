@@ -1,36 +1,7 @@
 {
-  "actualizado": "22/07/2026 02:03",
+  "actualizado": "23/07/2026 02:10",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "22/07/2026",
-      "hora": "18:15",
-      "fronton": "Cardenal Orbe",
-      "ciudad": "Ermua",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "AGIRRE // REKALDE",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "AGIRRE // REKALDE",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/07/2026",
       "hora": "21:00",
