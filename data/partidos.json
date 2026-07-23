@@ -1,5 +1,22 @@
 [
   {
+    "fecha": "2026-07-22",
+    "fronton_id": "FRO217",
+    "competicion_id": "COMP015",
+    "tipo": "manomanista-a",
+    "equipo1": {
+      "del_id": "PEL005",
+      "zag_id": null
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL049",
+      "zag_id": null
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "2026-07-19",
     "fronton_id": "FRO215",
     "competicion_id": "COMP236",
