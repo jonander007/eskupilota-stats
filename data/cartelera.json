@@ -1,5 +1,5 @@
 {
-  "actualizado": "24/07/2026 02:06",
+  "actualizado": "25/07/2026 02:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -247,8 +247,9 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "SENAR – UGARTEMENDIA // APEZEXEA II – ALDABE",
-        "ARTOLA – REZUSTA // ALTUNA III – IMAZ (Serie A)",
+        "SENAR – UGARTEMENDIA // APEZETXEA II – ALDABE",
+        "ALTUNA III – IMAZ //",
+        "ARTOLA – REZUSTA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -263,24 +264,33 @@
             "UGARTEMENDIA"
           ],
           "eq2": [
-            "APEZEXEA II",
+            "APEZETXEA II",
             "ALDABE"
           ],
-          "raw": "SENAR – UGARTEMENDIA // APEZEXEA II – ALDABE",
+          "raw": "SENAR – UGARTEMENDIA // APEZETXEA II – ALDABE",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "ARTOLA",
-            "REZUSTA"
+            "ALTUNA III"
           ],
           "eq2": [
-            "ALTUNA III",
-            "IMAZ"
+            "IMAZ //"
           ],
-          "raw": "ARTOLA – REZUSTA // ALTUNA III – IMAZ (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "ALTUNA III – IMAZ //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ARTOLA"
+          ],
+          "eq2": [
+            "REZUSTA"
+          ],
+          "raw": "ARTOLA – REZUSTA (Serie A)",
+          "tipo": "manomanista-a",
           "serie": "a"
         }
       ]
@@ -1238,23 +1248,23 @@
         "18",
         "4",
         "Laso-Martija",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "Larrazabal-Zabaleta",
-        "0",
         "1",
-        "18",
+        "1",
         "22",
-        "-4",
+        "19",
+        "3",
         "Ezkurdia-Albisu",
         "0",
         "1",
         "17",
         "22",
         "-5",
+        "Larrazabal-Zabaleta",
+        "0",
+        "2",
+        "37",
+        "44",
+        "-7",
         "Altuna III-Imaz",
         "0",
         "1",
@@ -1267,35 +1277,35 @@
         "TF",
         "TC",
         "CO",
+        "Jaka-Eskuza",
+        "2",
+        "2",
+        "44",
+        "33",
+        "11",
         "Murua-Eskiroz",
         "1",
+        "2",
+        "36",
+        "28",
+        "8",
+        "Peña II-Loza",
+        "1",
         "1",
         "22",
-        "6",
-        "16",
+        "14",
+        "8",
+        "P.Etxeberria-Landa",
+        "1",
+        "2",
+        "40",
+        "36",
+        "4",
         "Salaberria-Morgaetxebarria",
         "1",
-        "1",
-        "22",
-        "10",
-        "12",
-        "Jaka-Eskuza",
-        "1",
-        "1",
-        "22",
-        "18",
-        "4",
-        "Peña II-Loza",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "P.Etxeberria-Landa",
-        "0",
-        "1",
-        "18",
-        "22",
+        "2",
+        "36",
+        "32",
         "-4",
         "Amiano-Gabirondo",
         "0",
@@ -1305,10 +1315,10 @@
         "-12",
         "Zubizarreta IV-Bikuña",
         "0",
-        "1",
-        "6",
-        "22",
-        "-16"
+        "2",
+        "21",
+        "44",
+        "-23"
       ],
       "precio": null,
       "agotado": false,
