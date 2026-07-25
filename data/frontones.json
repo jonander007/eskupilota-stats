@@ -83,7 +83,7 @@
     "id": "FRO011",
     "nombre": "AMOREBIETA IV",
     "ciudad_id": "CIU009",
-    "partidos_count": 48,
+    "partidos_count": 50,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMOREBIETA%20IV"
   },
@@ -123,7 +123,7 @@
     "id": "FRO016",
     "nombre": "ARETA",
     "ciudad_id": "CIU095",
-    "partidos_count": 4,
+    "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARETA"
   },
@@ -171,7 +171,7 @@
     "id": "FRO022",
     "nombre": "ARRETXE",
     "ciudad_id": "CIU135",
-    "partidos_count": 34,
+    "partidos_count": 36,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRETXE"
   },
@@ -195,7 +195,7 @@
     "id": "FRO205",
     "nombre": "ARTZA",
     "ciudad_id": "CIU031",
-    "partidos_count": 28
+    "partidos_count": 30
   },
   {
     "id": "FRO025",
@@ -265,7 +265,7 @@
     "id": "FRO215",
     "nombre": "BARAKALDES",
     "ciudad_id": "CIU022",
-    "partidos_count": 10
+    "partidos_count": 12
   },
   {
     "id": "FRO033",
@@ -487,7 +487,7 @@
     "id": "FRO217",
     "nombre": "CARDENAL ORBE",
     "ciudad_id": "CIU054",
-    "partidos_count": 2
+    "partidos_count": 3
   },
   {
     "id": "FRO060",
@@ -1029,7 +1029,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 623,
+    "partidos_count": 640,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },
@@ -1179,7 +1179,7 @@
     "id": "FRO216",
     "nombre": "MAINONDO",
     "ciudad_id": "CIU154",
-    "partidos_count": 10
+    "partidos_count": 12
   },
   {
     "id": "FRO142",
@@ -1271,7 +1271,7 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
-    "partidos_count": 106,
+    "partidos_count": 108,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
   },
@@ -1607,7 +1607,7 @@
     "id": "FRO190",
     "nombre": "VIANA",
     "ciudad_id": "CIU136",
-    "partidos_count": 18,
+    "partidos_count": 20,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20VIANA"
   },
