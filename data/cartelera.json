@@ -1,101 +1,7 @@
 {
-  "actualizado": "25/07/2026 02:05",
+  "actualizado": "26/07/2026 02:10",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/07/2026",
-      "hora": "21:00",
-      "fronton": "Areta",
-      "ciudad": "Laudio/Llodio",
-      "fase": "2ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P. ETXEBERRIA – LANDA // MURUA – ESKIROZ (Serie B)",
-        "JAKA – ESKUZA // ZUBIZARRETA IV – BIKUÑA ( Serie B)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2925893/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P. ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "raw": "P. ETXEBERRIA – LANDA // MURUA – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "BIKUÑA ( Serie B)"
-          ],
-          "raw": "JAKA – ESKUZA // ZUBIZARRETA IV – BIKUÑA ( Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "24/07/2026",
-      "hora": "21:00",
-      "fronton": "Arretxe de Valcarlos",
-      "ciudad": "Arretxe de Valcarlos",
-      "fase": "2ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-        "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924312/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "LOZA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "PEÑA II – LOZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "LASO – MARTIJA // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "25/07/2026",
       "hora": "12:30",
@@ -125,173 +31,6 @@
           "raw": "P.ETXEBERRIA – LANDA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "25/07/2026",
-      "hora": "17:00",
-      "fronton": "Aritzmendi",
-      "ciudad": "Ermua",
-      "fase": "2ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
-        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "EROSTARBE"
-          ],
-          "raw": "BAKAIKOA – LIZEAGA // EGIGUREN V – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ZABALA",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "25/07/2026",
-      "hora": "17:30",
-      "fronton": "Txutxo",
-      "ciudad": "Etxebarria",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // AMIANO – GABIRONDO (Serie B)",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "raw": "JAKA – ESKUZA // AMIANO – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "25/07/2026",
-      "hora": "18:00",
-      "fronton": "Huércanos",
-      "ciudad": "Huércanos",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – LOZA // MURUA – ESKIROZ (Serie B)",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2942246/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "LOZA"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "raw": "PEÑA II – LOZA // MURUA – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "25/07/2026",
-      "hora": "18:30",
-      "fronton": "Baztan",
-      "ciudad": "Elizondo",
-      "fase": "2ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "SENAR – UGARTEMENDIA // APEZETXEA II – ALDABE",
-        "ALTUNA III – IMAZ //",
-        "ARTOLA – REZUSTA (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2926706/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "SENAR – UGARTEMENDIA // APEZETXEA II – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "IMAZ //"
-          ],
-          "raw": "ALTUNA III – IMAZ //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA"
-          ],
-          "eq2": [
-            "REZUSTA"
-          ],
-          "raw": "ARTOLA – REZUSTA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
         }
       ]
     },
@@ -841,6 +580,50 @@
       ]
     },
     {
+      "fecha": "09/08/2026",
+      "hora": "18:00",
+      "fronton": "Toki Eder",
+      "ciudad": "Agoitz/Aoiz",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA // APEZETXEA II (4 1/2)",
+        "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2953134/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
+            "APEZETXEA II (4 1/2)"
+          ],
+          "raw": "BAKAIKOA // APEZETXEA II (4 1/2)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "IMAZ"
+          ],
+          "raw": "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "10/08/2026",
       "hora": "18:00",
       "fronton": "Darío Gómez Gil",
@@ -929,7 +712,7 @@
         "Torneo Donostia Hiria",
         "SENAR – LANDA // AMIANO – UGARTEMENDIA (Serie B)",
         "LASO – IZTUETA // PEÑA II – MARIEZKURRENA II (Serie A)",
-        "ZUBIZARRETA IV – ARANGUREN // APEZETXEA II – EROSTARBE",
+        "ZUBIZARRETA III – ARANGUREN // APEZETXEA II – EROSTARBE",
         "DESDE",
         "27.00€"
       ],
@@ -966,14 +749,14 @@
         },
         {
           "eq1": [
-            "ZUBIZARRETA IV",
+            "ZUBIZARRETA III",
             "ARANGUREN"
           ],
           "eq2": [
             "APEZETXEA II",
             "EROSTARBE"
           ],
-          "raw": "ZUBIZARRETA IV – ARANGUREN // APEZETXEA II – EROSTARBE",
+          "raw": "ZUBIZARRETA III – ARANGUREN // APEZETXEA II – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -987,7 +770,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "SENAR – LIZEAGA // REKALDE – ESKUZA",
+        "REKALDE – ESKUZA // ZUBIZARRETA IV – LIZEAGA",
         "ALTUNA III – IMAZ // ZABALA – ALBISU",
         "DESDE",
         "30.00€"
@@ -999,14 +782,14 @@
       "partidos": [
         {
           "eq1": [
-            "SENAR",
-            "LIZEAGA"
-          ],
-          "eq2": [
             "REKALDE",
             "ESKUZA"
           ],
-          "raw": "SENAR – LIZEAGA // REKALDE – ESKUZA",
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "LIZEAGA"
+          ],
+          "raw": "REKALDE – ESKUZA // ZUBIZARRETA IV – LIZEAGA",
           "tipo": "festival",
           "serie": "a"
         },
@@ -1094,7 +877,6 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "Festival",
         "ARTOLA o LASO – LANDA // LARRAZABAL – IZTUETA",
         "DESDE",
         "30.00€"
@@ -1139,6 +921,83 @@
       "tv": false,
       "partidos": [],
       "pendiente": true
+    },
+    {
+      "fecha": "14/08/2026",
+      "hora": "21:30",
+      "fronton": "Mallabia I",
+      "ciudad": "Mallabia I",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ALDABE",
+        "ELORDI – MARIEZKURRENA II // ZABALA – IMAZ",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2947934/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ALDABE"
+          ],
+          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ALDABE",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ZABALA",
+            "IMAZ"
+          ],
+          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IMAZ",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "15/08/2026",
+      "hora": "12:00",
+      "fronton": "Askatasuna",
+      "ciudad": "Burlata/Burlada",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "AGIRRE – SALAVERRI II // BAKAIKOA – LIZEAGA",
+        "Gratuito con entrada"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "BAKAIKOA",
+            "LIZEAGA"
+          ],
+          "raw": "AGIRRE – SALAVERRI II // BAKAIKOA – LIZEAGA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "02/10/2026",
@@ -1230,17 +1089,17 @@
         "TC",
         "CO",
         "Zabala-Iztueta",
-        "1",
-        "1",
-        "22",
-        "6",
-        "16",
+        "2",
+        "2",
+        "44",
+        "15",
+        "29",
         "Artola-Rezusta",
-        "1",
-        "1",
-        "22",
-        "17",
-        "5",
+        "2",
+        "2",
+        "44",
+        "34",
+        "10",
         "Elordi-Mariezkurrena II",
         "1",
         "1",
@@ -1253,24 +1112,24 @@
         "22",
         "19",
         "3",
-        "Ezkurdia-Albisu",
-        "0",
-        "1",
-        "17",
-        "22",
-        "-5",
         "Larrazabal-Zabaleta",
         "0",
         "2",
         "37",
         "44",
         "-7",
+        "Ezkurdia-Albisu",
+        "0",
+        "2",
+        "26",
+        "44",
+        "-18",
         "Altuna III-Imaz",
         "0",
-        "1",
-        "6",
-        "22",
-        "-16",
+        "2",
+        "23",
+        "44",
+        "-21",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -1279,40 +1138,40 @@
         "CO",
         "Jaka-Eskuza",
         "2",
-        "2",
-        "44",
-        "33",
-        "11",
+        "3",
+        "65",
+        "55",
+        "10",
         "Murua-Eskiroz",
-        "1",
         "2",
-        "36",
-        "28",
-        "8",
-        "Peña II-Loza",
-        "1",
-        "1",
-        "22",
-        "14",
-        "8",
+        "3",
+        "58",
+        "41",
+        "17",
+        "Salaberria-Morgaetxebarria",
+        "2",
+        "3",
+        "58",
+        "51",
+        "7",
         "P.Etxeberria-Landa",
         "1",
-        "2",
-        "40",
-        "36",
-        "4",
-        "Salaberria-Morgaetxebarria",
+        "3",
+        "59",
+        "58",
+        "1",
+        "Peña II-Loza",
         "1",
         "2",
+        "35",
         "36",
-        "32",
-        "-4",
+        "-1",
         "Amiano-Gabirondo",
-        "0",
         "1",
-        "10",
-        "22",
-        "-12",
+        "2",
+        "32",
+        "43",
+        "-11",
         "Zubizarreta IV-Bikuña",
         "0",
         "2",
