@@ -1,85 +1,7 @@
 {
-  "actualizado": "26/07/2026 02:10",
+  "actualizado": "27/07/2026 02:23",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "25/07/2026",
-      "hora": "12:30",
-      "fronton": "Buñuel",
-      "ciudad": "Buñuel",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P.ETXEBERRIA – LANDA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "P.ETXEBERRIA – LANDA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
-    {
-      "fecha": "26/07/2026",
-      "hora": "18:00",
-      "fronton": "Beti Alai",
-      "ciudad": "Ordizia",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SALABERRIA – EROSTARBE // SENAR – UGARTEMENDIA",
-        "ELORDI – REZUSTA // LASO – IMAZ",
-        "DESDE",
-        "35.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2927705/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "EROSTARBE"
-          ],
-          "eq2": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "raw": "SALABERRIA – EROSTARBE // SENAR – UGARTEMENDIA",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LASO",
-            "IMAZ"
-          ],
-          "raw": "ELORDI – REZUSTA // LASO – IMAZ",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "27/07/2026",
       "hora": "18:00",
@@ -165,7 +87,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "EGIGUREN V – SALAVERRI II // ALBERDI II – LIZEAGA",
+        "EGIGUREN V – SALAVERRI II // ALBERDI II – ARANGUREN",
         "LASO – IZTUETA // ZABALA – ZABALETA",
         "DESDE",
         "25.00€"
@@ -182,9 +104,9 @@
           ],
           "eq2": [
             "ALBERDI II",
-            "LIZEAGA"
+            "ARANGUREN"
           ],
-          "raw": "EGIGUREN V – SALAVERRI II // ALBERDI II – LIZEAGA",
+          "raw": "EGIGUREN V – SALAVERRI II // ALBERDI II – ARANGUREN",
           "tipo": "festival",
           "serie": "a"
         },
