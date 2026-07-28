@@ -1,39 +1,7 @@
 {
-  "actualizado": "27/07/2026 02:23",
+  "actualizado": "28/07/2026 01:58",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "27/07/2026",
-      "hora": "18:00",
-      "fronton": "Huércanos",
-      "ciudad": "Huércanos",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "LASO – LANDA // P.ETXEBERRIA – ZABALETA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2942261/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "LASO",
-            "LANDA"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA",
-            "ZABALETA"
-          ],
-          "raw": "LASO – LANDA // P.ETXEBERRIA – ZABALETA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "31/07/2026",
       "hora": "17:15",
@@ -45,6 +13,7 @@
         "Masters CaixaBank",
         "P. ETXEBERRIA – LANDA //AMIANO – GABIRONDO (Serie B)",
         "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
+        "DIFERIDO",
         "DESDE",
         "25.00€"
       ],
@@ -916,6 +885,210 @@
             "LIZEAGA"
           ],
           "raw": "AGIRRE – SALAVERRI II // BAKAIKOA – LIZEAGA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "15/08/2026",
+      "hora": "17:15",
+      "fronton": "Gurea",
+      "ciudad": "Azkoitia",
+      "fase": "4ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "MURUA – ESKIROZ // AMIANO – GABIRONDO (Serie B)",
+        "ALTUNA III – IMAZ // LARRAZABAL – ZABALETA (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947936/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "AMIANO",
+            "GABIRONDO"
+          ],
+          "raw": "MURUA – ESKIROZ // AMIANO – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – IMAZ // LARRAZABAL – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/08/2026",
+      "hora": "17:15",
+      "fronton": "Aritzbatalde",
+      "ciudad": "Zarautz",
+      "fase": "4ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "SALABERRIA – MORGAETXEBARRIA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+        "ARTOLA – REZUSTA // LASO – MARTIJA (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947937/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "BIKUÑA"
+          ],
+          "raw": "SALABERRIA – MORGAETXEBARRIA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "LASO",
+            "MARTIJA"
+          ],
+          "raw": "ARTOLA – REZUSTA // LASO – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/08/2026",
+      "hora": "18:00",
+      "fronton": "Goizueta",
+      "ciudad": "Goizueta",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA III – LANDA // APEZETXEA II – ESKUZA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2949292/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "LANDA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ESKUZA"
+          ],
+          "raw": "ZUBIZARRETA III – LANDA // APEZETXEA II – ESKUZA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "17/08/2026",
+      "hora": "18:00",
+      "fronton": "Vitigudino",
+      "ciudad": "Vitigudino",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ALBERDI II – LOZA // REKALDE – ALDABE",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2949293/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALBERDI II",
+            "LOZA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ALDABE"
+          ],
+          "raw": "ALBERDI II – LOZA // REKALDE – ALDABE",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "19/08/2026",
+      "hora": "20:00",
+      "fronton": "Ereta",
+      "ciudad": "Tafalla",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "MURUA – LOZA // APEZETXEA II – GABIRONDO",
+        "ALTUNA III – MARTIJA // ELORDI – ZABALETA",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2949309/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "LOZA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "GABIRONDO"
+          ],
+          "raw": "MURUA – LOZA // APEZETXEA II – GABIRONDO",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – MARTIJA // ELORDI – ZABALETA",
           "tipo": "festival",
           "serie": "a"
         }
