@@ -1,5 +1,5 @@
 {
-  "actualizado": "28/07/2026 01:58",
+  "actualizado": "29/07/2026 02:01",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -938,6 +938,37 @@
       ]
     },
     {
+      "fecha": "15/08/2026",
+      "hora": "20:00",
+      "fronton": "Miguel Ángel Lotina",
+      "ciudad": "Meñaka",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "EZKURDIA – ESKUZA // SENAR – ARANGUREN",
+        "Gratuito con entrada"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "SENAR",
+            "ARANGUREN"
+          ],
+          "raw": "EZKURDIA – ESKUZA // SENAR – ARANGUREN",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "16/08/2026",
       "hora": "17:15",
       "fronton": "Aritzbatalde",
@@ -1011,6 +1042,38 @@
             "ESKUZA"
           ],
           "raw": "ZUBIZARRETA III – LANDA // APEZETXEA II – ESKUZA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/08/2026",
+      "hora": "18:00",
+      "fronton": "La Cigüeña",
+      "ciudad": "Uruñuela",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "JAKA – SALAVERRI II // ZABALA-LOZA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2954597/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "ZABALA",
+            "LOZA"
+          ],
+          "raw": "JAKA – SALAVERRI II // ZABALA-LOZA",
           "tipo": "festival",
           "serie": "a"
         }
