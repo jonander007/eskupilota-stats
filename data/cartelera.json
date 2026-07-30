@@ -1,5 +1,5 @@
 {
-  "actualizado": "29/07/2026 02:01",
+  "actualizado": "30/07/2026 01:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -11,7 +11,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "P. ETXEBERRIA – LANDA //AMIANO – GABIRONDO (Serie B)",
+        "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO (Serie B)",
         "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
         "DIFERIDO",
         "DESDE",
@@ -24,13 +24,15 @@
       "partidos": [
         {
           "eq1": [
-            "P. ETXEBERRIA"
+            "P. ETXEBERRIA",
+            "LANDA"
           ],
           "eq2": [
-            "LANDA //AMIANO"
+            "AMIANO",
+            "GABIRONDO"
           ],
-          "raw": "P. ETXEBERRIA – LANDA //AMIANO – GABIRONDO (Serie B)",
-          "tipo": "manomanista-b",
+          "raw": "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
           "serie": "b"
         },
         {
@@ -151,11 +153,13 @@
       "cartel": [
         "Masters CaixaBank",
         "PEÑA II – LOZA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II"
+        "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II",
+        "DESDE",
+        "30.00€"
       ],
       "precio": null,
-      "agotado": true,
-      "url": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2925168/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -357,52 +361,6 @@
     },
     {
       "fecha": "08/08/2026",
-      "hora": "18:00",
-      "fronton": "Sunbilla",
-      "ciudad": "Sunbilla",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SALABERRIA – ALDABE // APEZETXEA II – GASKUE",
-        "EZKURDIA – GABIRONDO // MURUA – MARTIJA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2947835/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "ALDABE"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "GASKUE"
-          ],
-          "raw": "SALABERRIA – ALDABE // APEZETXEA II – GASKUE",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "MURUA",
-            "MARTIJA"
-          ],
-          "raw": "EZKURDIA – GABIRONDO // MURUA – MARTIJA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "08/08/2026",
       "hora": "21:15",
       "fronton": "Ogueta",
       "ciudad": "Vitoria-Gasteiz",
@@ -481,7 +439,7 @@
         "BAKAIKOA // APEZETXEA II (4 1/2)",
         "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
         "DESDE",
-        "15.00€"
+        "18.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -1055,7 +1013,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "JAKA – SALAVERRI II // ZABALA-LOZA",
+        "JAKA – SALAVERRI II // ZABALA – LOZA",
         "DESDE",
         "15.00€"
       ],
@@ -1073,89 +1031,294 @@
             "ZABALA",
             "LOZA"
           ],
-          "raw": "JAKA – SALAVERRI II // ZABALA-LOZA",
+          "raw": "JAKA – SALAVERRI II // ZABALA – LOZA",
           "tipo": "festival",
           "serie": "a"
         }
       ]
     },
     {
-      "fecha": "17/08/2026",
-      "hora": "18:00",
-      "fronton": "Vitigudino",
-      "ciudad": "Vitigudino",
-      "fase": "Festival",
+      "fecha": "21/08/2026",
+      "hora": "21:00",
+      "fronton": "Baztan",
+      "ciudad": "Elizondo",
+      "fase": "5ª Jornada",
       "competicion": null,
       "cartel": [
-        "ALBERDI II – LOZA // REKALDE – ALDABE",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2949293/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "LOZA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ALDABE"
-          ],
-          "raw": "ALBERDI II – LOZA // REKALDE – ALDABE",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "19/08/2026",
-      "hora": "20:00",
-      "fronton": "Ereta",
-      "ciudad": "Tafalla",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "MURUA – LOZA // APEZETXEA II – GABIRONDO",
-        "ALTUNA III – MARTIJA // ELORDI – ZABALETA",
+        "Masters CaixaBank",
+        "PEÑA II – LOZA // P. ETXEBERRIA – LANDA(Serie B)",
+        "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
         "DESDE",
         "30.00€"
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotavasca/es_ES/entradas/evento/55190/session/2949309/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947939/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "MURUA",
+            "PEÑA II",
             "LOZA"
           ],
           "eq2": [
-            "APEZETXEA II",
-            "GABIRONDO"
+            "P. ETXEBERRIA",
+            "LANDA"
           ],
-          "raw": "MURUA – LOZA // APEZETXEA II – GABIRONDO",
+          "raw": "PEÑA II – LOZA // P. ETXEBERRIA – LANDA(Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "22/08/2026",
+      "hora": "18:00",
+      "fronton": "Ergizarotz",
+      "ciudad": "Beruete",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
+        "P. ETXEBERRIA – GASKUE // AMIANO – ARANGUREN",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2954394/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
           "tipo": "festival",
           "serie": "a"
         },
         {
           "eq1": [
+            "P. ETXEBERRIA",
+            "GASKUE"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ARANGUREN"
+          ],
+          "raw": "P. ETXEBERRIA – GASKUE // AMIANO – ARANGUREN",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "23/08/2026",
+      "hora": "17:15",
+      "fronton": "Aritzbatalde",
+      "ciudad": "Zarautz",
+      "fase": "5ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "AMIANO – GABIRONDO // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+        "ALTUNA III – IMAZ // LASO – MARTIJA (Serie A)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947940/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "BIKUÑA"
+          ],
+          "raw": "AMIANO – GABIRONDO // ZUBIZARRETA IV – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
             "ALTUNA III",
+            "IMAZ"
+          ],
+          "eq2": [
+            "LASO",
             "MARTIJA"
+          ],
+          "raw": "ALTUNA III – IMAZ // LASO – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "25/08/2026",
+      "hora": "18:30",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo Aste Nagusia",
+        "MURUA – ALDABE // REKALDE – ESKUZA (Serie B)",
+        "ALTUNA III – REZUSTA // ELORDI – ZABALETA (Serie A)",
+        "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58851/session/2954978/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ALDABE"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ESKUZA"
+          ],
+          "raw": "MURUA – ALDABE // REKALDE – ESKUZA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "REZUSTA"
           ],
           "eq2": [
             "ELORDI",
             "ZABALETA"
           ],
-          "raw": "ALTUNA III – MARTIJA // ELORDI – ZABALETA",
-          "tipo": "festival",
+          "raw": "ALTUNA III – REZUSTA // ELORDI – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "EROSTARBE"
+          ],
+          "raw": "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
+    },
+    {
+      "fecha": "26/08/2026",
+      "hora": "18:30",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Torneo Aste Nagusia",
+        "AMIANO – MORGAETXEBARRIA // ZUBIZARRETA IV – LANDA (Serie B)",
+        "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA (Serie A)",
+        "EGIGUREN V – GASKUE // ZUBIZARRETA III – ARANGUREN",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58851/session/2954979/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "LANDA"
+          ],
+          "raw": "AMIANO – MORGAETXEBARRIA // ZUBIZARRETA IV – LANDA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EGIGUREN V",
+            "GASKUE"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "ARANGUREN"
+          ],
+          "raw": "EGIGUREN V – GASKUE // ZUBIZARRETA III – ARANGUREN",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "28/08/2026",
+      "hora": "18:30",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "Torneo Aste Nagusia",
+        "Final (Serie B)",
+        "Final (Serie A)",
+        "DESDE",
+        "27.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58851/session/2954985/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
     },
     {
       "fecha": "02/10/2026",
