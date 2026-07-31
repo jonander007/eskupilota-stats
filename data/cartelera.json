@@ -1,5 +1,5 @@
 {
-  "actualizado": "30/07/2026 01:52",
+  "actualizado": "31/07/2026 02:10",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -619,7 +619,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "REKALDE – ESKUZA // ZUBIZARRETA IV – LIZEAGA",
+        "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
         "ALTUNA III – IMAZ // ZABALA – ALBISU",
         "DESDE",
         "30.00€"
@@ -636,9 +636,9 @@
           ],
           "eq2": [
             "ZUBIZARRETA IV",
-            "LIZEAGA"
+            "MORGAETXEBARRIA"
           ],
-          "raw": "REKALDE – ESKUZA // ZUBIZARRETA IV – LIZEAGA",
+          "raw": "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
           "tipo": "festival",
           "serie": "a"
         },
@@ -969,6 +969,52 @@
           ],
           "raw": "ARTOLA – REZUSTA // LASO – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/08/2026",
+      "hora": "17:30",
+      "fronton": "Iturrigorri",
+      "ciudad": "Aretxabaleta",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA – LIZEAGA // SENAR – UGARTEMENDIA",
+        "PEÑA II – ALBISU // LARRAZABAL – MARIEZKURRENA II",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/49373/session/2955535/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "SENAR",
+            "UGARTEMENDIA"
+          ],
+          "raw": "BAKAIKOA – LIZEAGA // SENAR – UGARTEMENDIA",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "PEÑA II",
+            "ALBISU"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "PEÑA II – ALBISU // LARRAZABAL – MARIEZKURRENA II",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
