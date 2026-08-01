@@ -1,55 +1,7 @@
 {
-  "actualizado": "31/07/2026 02:10",
+  "actualizado": "01/08/2026 02:12",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "31/07/2026",
-      "hora": "17:15",
-      "fronton": "Madalensoro",
-      "ciudad": "Oiartzun",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO (Serie B)",
-        "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2926715/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P. ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "raw": "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "eq2": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ALTUNA III – IMAZ // ELORDI – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "31/07/2026",
       "hora": "21:15",
@@ -439,7 +391,7 @@
         "BAKAIKOA // APEZETXEA II (4 1/2)",
         "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
         "DESDE",
-        "18.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -1461,18 +1413,18 @@
         "44",
         "15",
         "29",
+        "Elordi-Mariezkurrena II",
+        "2",
+        "2",
+        "44",
+        "24",
+        "20",
         "Artola-Rezusta",
         "2",
         "2",
         "44",
         "34",
         "10",
-        "Elordi-Mariezkurrena II",
-        "1",
-        "1",
-        "22",
-        "18",
-        "4",
         "Laso-Martija",
         "1",
         "1",
@@ -1493,10 +1445,10 @@
         "-18",
         "Altuna III-Imaz",
         "0",
-        "2",
-        "23",
-        "44",
-        "-21",
+        "3",
+        "29",
+        "66",
+        "-37",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -1521,24 +1473,24 @@
         "58",
         "51",
         "7",
-        "P.Etxeberria-Landa",
-        "1",
+        "Amiano-Gabirondo",
+        "2",
         "3",
-        "59",
-        "58",
-        "1",
+        "54",
+        "48",
+        "6",
         "Peña II-Loza",
         "1",
         "2",
         "35",
         "36",
         "-1",
-        "Amiano-Gabirondo",
+        "P.Etxeberria-Landa",
         "1",
-        "2",
-        "32",
-        "43",
-        "-11",
+        "4",
+        "64",
+        "80",
+        "-16",
         "Zubizarreta IV-Bikuña",
         "0",
         "2",
