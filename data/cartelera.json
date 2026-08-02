@@ -1,53 +1,7 @@
 {
-  "actualizado": "01/08/2026 02:12",
+  "actualizado": "02/08/2026 02:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "31/07/2026",
-      "hora": "21:15",
-      "fronton": "Izarraitz",
-      "ciudad": "Azpeitia",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "EGIGUREN V – SALAVERRI II // ALBERDI II – ARANGUREN",
-        "LASO – IZTUETA // ZABALA – ZABALETA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2927706/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "ARANGUREN"
-          ],
-          "raw": "EGIGUREN V – SALAVERRI II // ALBERDI II – ARANGUREN",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "raw": "LASO – IZTUETA // ZABALA – ZABALETA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "02/08/2026",
       "hora": "17:15",
