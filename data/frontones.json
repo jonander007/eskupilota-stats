@@ -123,7 +123,7 @@
     "id": "FRO016",
     "nombre": "ARETA",
     "ciudad_id": "CIU095",
-    "partidos_count": 18,
+    "partidos_count": 20,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARETA"
   },
@@ -147,7 +147,7 @@
     "id": "FRO218",
     "nombre": "ARITZMENDI",
     "ciudad_id": "CIU054",
-    "partidos_count": 12
+    "partidos_count": 14
   },
   {
     "id": "FRO019",
@@ -177,7 +177,7 @@
     "id": "FRO022",
     "nombre": "ARRETXE",
     "ciudad_id": "CIU135",
-    "partidos_count": 48,
+    "partidos_count": 50,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRETXE"
   },
@@ -201,7 +201,7 @@
     "id": "FRO205",
     "nombre": "ARTZA",
     "ciudad_id": "CIU031",
-    "partidos_count": 42
+    "partidos_count": 44
   },
   {
     "id": "FRO025",
@@ -271,7 +271,7 @@
     "id": "FRO215",
     "nombre": "BARAKALDES",
     "ciudad_id": "CIU022",
-    "partidos_count": 24
+    "partidos_count": 26
   },
   {
     "id": "FRO033",
@@ -325,7 +325,7 @@
     "id": "FRO039",
     "nombre": "BAZTAN",
     "ciudad_id": "CIU053",
-    "partidos_count": 16,
+    "partidos_count": 18,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BAZTAN"
   },
@@ -437,7 +437,7 @@
     "id": "FRO220",
     "nombre": "BETI ALAI",
     "ciudad_id": "CIU112",
-    "partidos_count": 10
+    "partidos_count": 12
   },
   {
     "id": "FRO053",
@@ -491,7 +491,7 @@
     "id": "FRO059",
     "nombre": "BUÑUEL",
     "ciudad_id": "CIU039",
-    "partidos_count": 10,
+    "partidos_count": 11,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BU%C3%91UEL"
   },
@@ -499,7 +499,7 @@
     "id": "FRO217",
     "nombre": "CARDENAL ORBE",
     "ciudad_id": "CIU054",
-    "partidos_count": 9
+    "partidos_count": 10
   },
   {
     "id": "FRO060",
@@ -697,7 +697,7 @@
     "id": "FRO084",
     "nombre": "ETXEBARRIA",
     "ciudad_id": "CIU060",
-    "partidos_count": 9,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ETXEBARRIA"
   },
@@ -895,7 +895,7 @@
     "id": "FRO219",
     "nombre": "HUÉRCANOS",
     "ciudad_id": "CIU075",
-    "partidos_count": 10
+    "partidos_count": 12
   },
   {
     "id": "FRO209",
@@ -985,7 +985,7 @@
     "id": "FRO117",
     "nombre": "IZARRAITZ",
     "ciudad_id": "CIU021",
-    "partidos_count": 3,
+    "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IZARRAITZ"
   },
@@ -1189,7 +1189,7 @@
     "id": "FRO141",
     "nombre": "MADALENSORO",
     "ciudad_id": "CIU109",
-    "partidos_count": 6,
+    "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MADALENSORO"
   },
@@ -1197,7 +1197,7 @@
     "id": "FRO216",
     "nombre": "MAINONDO",
     "ciudad_id": "CIU154",
-    "partidos_count": 24
+    "partidos_count": 26
   },
   {
     "id": "FRO142",
@@ -1625,7 +1625,7 @@
     "id": "FRO190",
     "nombre": "VIANA",
     "ciudad_id": "CIU136",
-    "partidos_count": 32,
+    "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20VIANA"
   },
