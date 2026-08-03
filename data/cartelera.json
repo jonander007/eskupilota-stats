@@ -1,54 +1,7 @@
 {
-  "actualizado": "02/08/2026 02:09",
+  "actualizado": "03/08/2026 02:11",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "02/08/2026",
-      "hora": "17:15",
-      "fronton": "Remontival",
-      "ciudad": "Estella/Lizarra",
-      "fase": "3ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-        "ZABALA – IZTUETA // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2925167/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "JAKA – ESKUZA // SALABERRIA – MORGAETXEBARRIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ZABALA",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "ZABALA – IZTUETA // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "04/08/2026",
       "hora": "18:00",
@@ -61,7 +14,7 @@
         "PEÑA II – LOZA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
         "ALTUNA III – LANDA // P. ETXEBERRIA – MARIEZKURRENA II",
         "DESDE",
-        "30.00€"
+        "35.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -277,6 +230,7 @@
         "Finales Torneo La Blanca",
         "SERIE B",
         "SERIE A",
+        "DIFERIDO",
         "DESDE",
         "27.00€"
       ],
@@ -667,6 +621,7 @@
         "Torneo Donostia Hiria",
         "Final (Serie B)",
         "Final (Serie A)",
+        "DIFERIDO",
         "DESDE",
         "30.00€"
       ],
@@ -1363,10 +1318,10 @@
         "CO",
         "Zabala-Iztueta",
         "2",
-        "2",
-        "44",
-        "15",
-        "29",
+        "3",
+        "64",
+        "37",
+        "27",
         "Elordi-Mariezkurrena II",
         "2",
         "2",
@@ -1386,11 +1341,11 @@
         "19",
         "3",
         "Larrazabal-Zabaleta",
-        "0",
-        "2",
-        "37",
-        "44",
-        "-7",
+        "1",
+        "3",
+        "59",
+        "64",
+        "-5",
         "Ezkurdia-Albisu",
         "0",
         "2",
@@ -1410,29 +1365,29 @@
         "TC",
         "CO",
         "Jaka-Eskuza",
-        "2",
         "3",
-        "65",
-        "55",
-        "10",
+        "4",
+        "87",
+        "70",
+        "17",
         "Murua-Eskiroz",
         "2",
         "3",
         "58",
         "41",
         "17",
-        "Salaberria-Morgaetxebarria",
-        "2",
-        "3",
-        "58",
-        "51",
-        "7",
         "Amiano-Gabirondo",
         "2",
         "3",
         "54",
         "48",
         "6",
+        "Salaberria-Morgaetxebarria",
+        "2",
+        "4",
+        "73",
+        "73",
+        "0",
         "Peña II-Loza",
         "1",
         "2",
