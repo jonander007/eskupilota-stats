@@ -93,7 +93,7 @@
     "id": "COMP015",
     "nombre": "Campeonato Manomanista Serie A 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 459
+    "partidos_count": 461
   },
   {
     "id": "COMP016",
@@ -159,7 +159,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 1445
+    "partidos_count": 1451
   },
   {
     "id": "COMP027",
@@ -1281,13 +1281,13 @@
     "id": "COMP236",
     "nombre": "Masters CaixaBank Serie B 2026",
     "tipo": "festival",
-    "partidos_count": 98
+    "partidos_count": 106
   },
   {
     "id": "COMP237",
     "nombre": "Masters Caixabank 2026",
     "tipo": "festival",
-    "partidos_count": 72
+    "partidos_count": 77
   },
   {
     "id": "COMP213",
