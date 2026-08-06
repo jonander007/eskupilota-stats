@@ -1,68 +1,7 @@
 {
-  "actualizado": "05/08/2026 01:56",
+  "actualizado": "06/08/2026 01:59",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "05/08/2026",
-      "hora": "17:30",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Semifinal",
-      "competicion": null,
-      "cartel": [
-        "Torneo La Blanca",
-        "AMIANO – LANDA // ZUBIZARRETA IV – ARANGUREN (Serie B)",
-        "LASO – ALBISU // LARRAZABAL – MARIEZKURRENA II (Serie A)",
-        "AGIRRE – MORGAETXEBARRIA // ALBERDI II – ALDABE",
-        "DESDE",
-        "27.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946257/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "ARANGUREN"
-          ],
-          "raw": "AMIANO – LANDA // ZUBIZARRETA IV – ARANGUREN (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "ALBISU"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "LASO – ALBISU // LARRAZABAL – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "ALDABE"
-          ],
-          "raw": "AGIRRE – MORGAETXEBARRIA // ALBERDI II – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "06/08/2026",
       "hora": "17:30",
@@ -134,8 +73,8 @@
       "cartel": [
         "Torneo La Blanca",
         "Finales Torneo La Blanca",
-        "SERIE B",
-        "SERIE A",
+        "AMIANO – LANDA // XX-XX SERIE B",
+        "LARRAZABAL – MARIEZKURRENA II // XX-XX-SERIE A",
         "DIFERIDO",
         "DESDE",
         "27.00€"
@@ -144,51 +83,31 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946261/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
-    },
-    {
-      "fecha": "09/08/2026",
-      "hora": "17:15",
-      "fronton": "Bastida/Labastida",
-      "ciudad": "Bastida/Labastida",
-      "fase": "4ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
-        "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947847/select?viewCode=",
-      "tv": false,
       "partidos": [
         {
           "eq1": [
-            "JAKA",
-            "ESKUZA"
+            "AMIANO",
+            "LANDA"
           ],
           "eq2": [
-            "PEÑA II",
-            "LOZA"
+            "XX",
+            "XX SERIE B"
           ],
-          "raw": "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "raw": "AMIANO – LANDA // XX-XX SERIE B",
+          "tipo": "campeonato-a",
+          "serie": "a"
         },
         {
           "eq1": [
-            "ELORDI",
+            "LARRAZABAL",
             "MARIEZKURRENA II"
           ],
           "eq2": [
-            "ZABALA",
-            "IZTUETA"
+            "XX",
+            "XX",
+            "SERIE A"
           ],
-          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+          "raw": "LARRAZABAL – MARIEZKURRENA II // XX-XX-SERIE A",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -434,7 +353,7 @@
         "Torneo Donostia Hiria",
         "SALABERRIA – BIKUÑA // MURUA – GABIRONDO (Serie B)",
         "EZKURDIA – ZABALETA // ALTUNA III – REZUSTA ( Serie A)",
-        "AGIRRE – LIZEAGA // EGIGUREN V – ALDABE",
+        "AGIRRE – ESKIROZ // EGIGUREN V – ALDABE",
         "DESDE",
         "27.00€"
       ],
@@ -472,13 +391,13 @@
         {
           "eq1": [
             "AGIRRE",
-            "LIZEAGA"
+            "ESKIROZ"
           ],
           "eq2": [
             "EGIGUREN V",
             "ALDABE"
           ],
-          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ALDABE",
+          "raw": "AGIRRE – ESKIROZ // EGIGUREN V – ALDABE",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -592,7 +511,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "AGIRRE – SALAVERRI II // BAKAIKOA – LIZEAGA",
+        "AGIRRE – SALAVERRI II // BAKAIKOA – UGARTEMENDIA",
         "Gratuito con entrada"
       ],
       "precio": null,
@@ -607,9 +526,9 @@
           ],
           "eq2": [
             "BAKAIKOA",
-            "LIZEAGA"
+            "UGARTEMENDIA"
           ],
-          "raw": "AGIRRE – SALAVERRI II // BAKAIKOA – LIZEAGA",
+          "raw": "AGIRRE – SALAVERRI II // BAKAIKOA – UGARTEMENDIA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -748,7 +667,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "BAKAIKOA – LIZEAGA // SENAR – UGARTEMENDIA",
+        "BAKAIKOA – IMAZ // SENAR – UGARTEMENDIA",
         "PEÑA II – ALBISU // LARRAZABAL – MARIEZKURRENA II",
         "DESDE",
         "25.00€"
@@ -761,13 +680,13 @@
         {
           "eq1": [
             "BAKAIKOA",
-            "LIZEAGA"
+            "IMAZ"
           ],
           "eq2": [
             "SENAR",
             "UGARTEMENDIA"
           ],
-          "raw": "BAKAIKOA – LIZEAGA // SENAR – UGARTEMENDIA",
+          "raw": "BAKAIKOA – IMAZ // SENAR – UGARTEMENDIA",
           "tipo": "festival",
           "serie": "a"
         },
@@ -1225,6 +1144,69 @@
       "pendiente": true
     },
     {
+      "fecha": "29/08/2026",
+      "hora": "11:30",
+      "fronton": "Nepas",
+      "ciudad": "Nepas",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SALABERRIA – GABIRONDO // ZUBIZARRETA III – ESKIROZ",
+        "Gratuito con entrada"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "ESKIROZ"
+          ],
+          "raw": "SALABERRIA – GABIRONDO // ZUBIZARRETA III – ESKIROZ",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "30/08/2026",
+      "hora": "18:00",
+      "fronton": "Berriozar",
+      "ciudad": "Berriozar",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2961710/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "02/10/2026",
       "hora": "21:00",
       "fronton": "Navarra Arena",
@@ -1235,7 +1217,7 @@
         "Masters CaixaBank",
         "SEMIFINALES + FINAL (Serie A)",
         "DESDE",
-        "36.00€"
+        "38.00€"
       ],
       "precio": null,
       "agotado": false,
