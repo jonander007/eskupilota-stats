@@ -1,68 +1,7 @@
 {
-  "actualizado": "06/08/2026 01:59",
+  "actualizado": "07/08/2026 02:22",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "06/08/2026",
-      "hora": "17:30",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Semifinal",
-      "competicion": null,
-      "cartel": [
-        "Torneo La Blanca",
-        "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
-        "ALTUNA III – REZUSTA // ZABALA – ZABALETA (Serie A)",
-        "EGIGUREN V – LOZA // SENAR – SALAVERRI II",
-        "DESDE",
-        "27.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946259/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "GABIRONDO"
-          ],
-          "raw": "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "raw": "ALTUNA III – REZUSTA // ZABALA – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "LOZA"
-          ],
-          "eq2": [
-            "SENAR",
-            "SALAVERRI II"
-          ],
-          "raw": "EGIGUREN V – LOZA // SENAR – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "08/08/2026",
       "hora": "21:15",
@@ -72,9 +11,8 @@
       "competicion": null,
       "cartel": [
         "Torneo La Blanca",
-        "Finales Torneo La Blanca",
-        "AMIANO – LANDA // XX-XX SERIE B",
-        "LARRAZABAL – MARIEZKURRENA II // XX-XX-SERIE A",
+        "MURUA – ESKUZA // AMIANO – LANDA (SERIE B)",
+        "ZABALA – ZABALETA // LARRAZABAL – MARIEZKURRENA II (SERIE A)",
         "DIFERIDO",
         "DESDE",
         "27.00€"
@@ -86,28 +24,74 @@
       "partidos": [
         {
           "eq1": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "eq2": [
             "AMIANO",
             "LANDA"
           ],
-          "eq2": [
-            "XX",
-            "XX SERIE B"
-          ],
-          "raw": "AMIANO – LANDA // XX-XX SERIE B",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "raw": "MURUA – ESKUZA // AMIANO – LANDA (SERIE B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
         },
         {
           "eq1": [
+            "ZABALA",
+            "ZABALETA"
+          ],
+          "eq2": [
             "LARRAZABAL",
             "MARIEZKURRENA II"
           ],
-          "eq2": [
-            "XX",
-            "XX",
-            "SERIE A"
+          "raw": "ZABALA – ZABALETA // LARRAZABAL – MARIEZKURRENA II (SERIE A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "09/08/2026",
+      "hora": "17:15",
+      "fronton": "Bastida/Labastida",
+      "ciudad": "Bastida/Labastida",
+      "fase": "4ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
+        "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947847/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "JAKA",
+            "ESKUZA"
           ],
-          "raw": "LARRAZABAL – MARIEZKURRENA II // XX-XX-SERIE A",
+          "eq2": [
+            "PEÑA II",
+            "LOZA"
+          ],
+          "raw": "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ZABALA",
+            "IZTUETA"
+          ],
+          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
