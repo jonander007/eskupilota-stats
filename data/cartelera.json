@@ -1,55 +1,7 @@
 {
-  "actualizado": "08/08/2026 01:07",
+  "actualizado": "09/08/2026 01:12",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "08/08/2026",
-      "hora": "21:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo La Blanca",
-        "MURUA – ESKUZA // AMIANO – LANDA (SERIE B)",
-        "ZABALA – ZABALETA // LARRAZABAL – MARIEZKURRENA II (SERIE A)",
-        "DIFERIDO",
-        "DESDE",
-        "32.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58425/session/2946261/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "LANDA"
-          ],
-          "raw": "MURUA – ESKUZA // AMIANO – LANDA (SERIE B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ZABALA – ZABALETA // LARRAZABAL – MARIEZKURRENA II (SERIE A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "09/08/2026",
       "hora": "17:15",
@@ -60,7 +12,7 @@
       "cartel": [
         "Masters CaixaBank",
         "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
-        "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+        "ELORDI – LANDA // ZABALA – IZTUETA (Serie A)",
         "DESDE",
         "25.00€"
       ],
@@ -85,13 +37,13 @@
         {
           "eq1": [
             "ELORDI",
-            "MARIEZKURRENA II"
+            "LANDA"
           ],
           "eq2": [
             "ZABALA",
             "IZTUETA"
           ],
-          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IZTUETA (Serie A)",
+          "raw": "ELORDI – LANDA // ZABALA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
