@@ -1,98 +1,7 @@
 {
-  "actualizado": "09/08/2026 01:12",
+  "actualizado": "10/08/2026 01:14",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "09/08/2026",
-      "hora": "17:15",
-      "fronton": "Bastida/Labastida",
-      "ciudad": "Bastida/Labastida",
-      "fase": "4ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
-        "ELORDI – LANDA // ZABALA – IZTUETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947847/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "LOZA"
-          ],
-          "raw": "JAKA – ESKUZA // PEÑA II – LOZA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "IZTUETA"
-          ],
-          "raw": "ELORDI – LANDA // ZABALA – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "09/08/2026",
-      "hora": "18:00",
-      "fronton": "Toki Eder",
-      "ciudad": "Agoitz/Aoiz",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA // APEZETXEA II (4 1/2)",
-        "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2953134/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "APEZETXEA II (4 1/2)"
-          ],
-          "raw": "BAKAIKOA // APEZETXEA II (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IMAZ"
-          ],
-          "raw": "P.ETXEBERRIA – MARTIJA // LARRAZABAL – IMAZ",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "10/08/2026",
       "hora": "18:00",
@@ -1232,17 +1141,17 @@
         "TC",
         "CO",
         "Zabala-Iztueta",
-        "2",
         "3",
-        "64",
-        "37",
-        "27",
+        "4",
+        "86",
+        "56",
+        "30",
         "Elordi-Mariezkurrena II",
         "2",
-        "2",
-        "44",
-        "24",
-        "20",
+        "4",
+        "63",
+        "46",
+        "17",
         "Artola-Rezusta",
         "2",
         "2",
@@ -1280,11 +1189,11 @@
         "TC",
         "CO",
         "Jaka-Eskuza",
-        "3",
         "4",
-        "87",
-        "70",
-        "17",
+        "5",
+        "109",
+        "90",
+        "19",
         "Murua-Eskiroz",
         "2",
         "3",
@@ -1305,10 +1214,10 @@
         "0",
         "Peña II-Loza",
         "1",
-        "3",
-        "55",
-        "58",
-        "-3",
+        "4",
+        "75",
+        "80",
+        "-5",
         "P.Etxeberria-Landa",
         "1",
         "4",
