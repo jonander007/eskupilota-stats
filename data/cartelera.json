@@ -1,85 +1,7 @@
 {
-  "actualizado": "10/08/2026 01:14",
+  "actualizado": "11/08/2026 01:13",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "10/08/2026",
-      "hora": "18:00",
-      "fronton": "Darío Gómez Gil",
-      "ciudad": "Ezcaray",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SENAR – SALAVERRI II // MURUA – LOZA",
-        "LASO – IZTUETA // ZABALA – ZABALETA",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2947849/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "MURUA",
-            "LOZA"
-          ],
-          "raw": "SENAR – SALAVERRI II // MURUA – LOZA",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "raw": "LASO – IZTUETA // ZABALA – ZABALETA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "10/08/2026",
-      "hora": "19:00",
-      "fronton": "Elexalde",
-      "ciudad": "Zarátamo",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA",
-        "DESDE",
-        "10.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2949264/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ESKUZA"
-          ],
-          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ESKUZA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "11/08/2026",
       "hora": "19:15",
@@ -90,7 +12,7 @@
       "cartel": [
         "Torneo Donostia Hiria",
         "SENAR – LANDA // AMIANO – UGARTEMENDIA (Serie B)",
-        "LASO – IZTUETA // PEÑA II – MARIEZKURRENA II (Serie A)",
+        "LASO – IZTUETA // PEÑA II – ALBISU (Serie A)",
         "ZUBIZARRETA III – ARANGUREN // APEZETXEA II – EROSTARBE",
         "DESDE",
         "27.00€"
@@ -120,9 +42,9 @@
           ],
           "eq2": [
             "PEÑA II",
-            "MARIEZKURRENA II"
+            "ALBISU"
           ],
-          "raw": "LASO – IZTUETA // PEÑA II – MARIEZKURRENA II (Serie A)",
+          "raw": "LASO – IZTUETA // PEÑA II – ALBISU (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -149,8 +71,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
-        "ALTUNA III – IMAZ // ZABALA – ALBISU",
+        "SENAR – MORGAETXEBARRIA // REKALDE – GASKUE",
+        "ALTUNA III – IMAZ // ZABALA – REZUSTA",
         "DESDE",
         "30.00€"
       ],
@@ -161,14 +83,14 @@
       "partidos": [
         {
           "eq1": [
-            "REKALDE",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
+            "SENAR",
             "MORGAETXEBARRIA"
           ],
-          "raw": "REKALDE – ESKUZA // ZUBIZARRETA IV – MORGAETXEBARRIA",
+          "eq2": [
+            "REKALDE",
+            "GASKUE"
+          ],
+          "raw": "SENAR – MORGAETXEBARRIA // REKALDE – GASKUE",
           "tipo": "festival",
           "serie": "a"
         },
@@ -179,9 +101,9 @@
           ],
           "eq2": [
             "ZABALA",
-            "ALBISU"
+            "REZUSTA"
           ],
-          "raw": "ALTUNA III – IMAZ // ZABALA – ALBISU",
+          "raw": "ALTUNA III – IMAZ // ZABALA – REZUSTA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -1015,6 +937,53 @@
           ],
           "raw": "SALABERRIA – GABIRONDO // ZUBIZARRETA III – ESKIROZ",
           "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "30/08/2026",
+      "hora": "17:15",
+      "fronton": "Ilunberri/Lumbier",
+      "ciudad": "Ilunberri/Lumbier",
+      "fase": "5ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – ALDABE",
+        "ARTOLA – REZUSTA // LARRAZABAL – ZABALETA (Serie A)",
+        "DESDE",
+        "10.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964250/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ALDABE"
+          ],
+          "raw": "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – ALDABE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "ZABALETA"
+          ],
+          "raw": "ARTOLA – REZUSTA // LARRAZABAL – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
