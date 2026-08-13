@@ -231,7 +231,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 225,
+    "partidos_count": 231,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -529,7 +529,7 @@
     "id": "FRO063",
     "nombre": "COVALEDA",
     "ciudad_id": "CIU042",
-    "partidos_count": 8,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20COVALEDA"
   },
@@ -545,7 +545,7 @@
     "id": "FRO223",
     "nombre": "DARÍO GÓMEZ GIL",
     "ciudad_id": "CIU062",
-    "partidos_count": 4
+    "partidos_count": 6
   },
   {
     "id": "FRO065",
@@ -615,7 +615,7 @@
     "id": "FRO222",
     "nombre": "ELEXALDE",
     "ciudad_id": "CIU155",
-    "partidos_count": 2
+    "partidos_count": 3
   },
   {
     "id": "FRO073",
@@ -757,7 +757,7 @@
     "id": "FRO221",
     "nombre": "EZTEGARA",
     "ciudad_id": "CIU029",
-    "partidos_count": 16
+    "partidos_count": 18
   },
   {
     "id": "FRO090",
@@ -1003,7 +1003,7 @@
     "id": "FRO117",
     "nombre": "IZARRAITZ",
     "ciudad_id": "CIU021",
-    "partidos_count": 25,
+    "partidos_count": 27,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IZARRAITZ"
   },
@@ -1057,7 +1057,7 @@
     "id": "FRO123",
     "nombre": "LABASTIDA",
     "ciudad_id": "CIU083",
-    "partidos_count": 22,
+    "partidos_count": 24,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABASTIDA"
   },
@@ -1207,7 +1207,7 @@
     "id": "FRO141",
     "nombre": "MADALENSORO",
     "ciudad_id": "CIU109",
-    "partidos_count": 28,
+    "partidos_count": 30,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MADALENSORO"
   },
@@ -1321,7 +1321,7 @@
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
-    "partidos_count": 145,
+    "partidos_count": 153,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"
   },
@@ -1423,7 +1423,7 @@
     "id": "FRO165",
     "nombre": "REMONTIVAL",
     "ciudad_id": "CIU094",
-    "partidos_count": 44,
+    "partidos_count": 48,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20REMONTIVAL"
   },
@@ -1547,7 +1547,7 @@
     "id": "FRO179",
     "nombre": "TOKI EDER",
     "ciudad_id": "CIU011",
-    "partidos_count": 8,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20TOKI%20EDER"
   },
