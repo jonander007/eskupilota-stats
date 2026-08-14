@@ -1,5 +1,5 @@
 {
-  "actualizado": "13/08/2026 01:22",
+  "actualizado": "14/08/2026 01:22",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -43,8 +43,8 @@
       "competicion": null,
       "cartel": [
         "Torneo Donostia Hiria",
-        "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA Final (Serie B)",
-        "EZKURDIA – ZABALETA // LASO – IZTUETA Final (Serie A)",
+        "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA (Serie B)",
+        "EZKURDIA – ZABALETA // LASO – IZTUETA (Serie A)",
         "DIFERIDO",
         "DESDE",
         "30.00€"
@@ -61,9 +61,9 @@
           ],
           "eq2": [
             "AMIANO",
-            "UGARTEMENDIA Final"
+            "UGARTEMENDIA"
           ],
-          "raw": "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA Final (Serie B)",
+          "raw": "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -74,9 +74,9 @@
           ],
           "eq2": [
             "LASO",
-            "IZTUETA Final"
+            "IZTUETA"
           ],
-          "raw": "EZKURDIA – ZABALETA // LASO – IZTUETA Final (Serie A)",
+          "raw": "EZKURDIA – ZABALETA // LASO – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
