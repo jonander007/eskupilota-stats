@@ -1,211 +1,7 @@
 {
-  "actualizado": "15/08/2026 00:53",
+  "actualizado": "16/08/2026 00:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "14/08/2026",
-      "hora": "21:00",
-      "fronton": "Amurrio",
-      "ciudad": "Amurrio",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ARTOLA – LANDA // LARRAZABAL – ALBISU",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/49373/session/2925354/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "LANDA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ALBISU"
-          ],
-          "raw": "ARTOLA – LANDA // LARRAZABAL – ALBISU",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "14/08/2026",
-      "hora": "21:00",
-      "fronton": "Atano III",
-      "ciudad": "Donostia/San Sebastián",
-      "fase": "Final",
-      "competicion": null,
-      "cartel": [
-        "Torneo Donostia Hiria",
-        "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA (Serie B)",
-        "EZKURDIA – ZABALETA // LASO – IZTUETA (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58506/session/2947854/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "UGARTEMENDIA"
-          ],
-          "raw": "SALABERRIA – BIKUÑA // AMIANO – UGARTEMENDIA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – ZABALETA // LASO – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "14/08/2026",
-      "hora": "21:30",
-      "fronton": "Mallabia I",
-      "ciudad": "Mallabia I",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ALDABE",
-        "ELORDI – MARIEZKURRENA II // ZABALA – IMAZ",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2947934/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ALDABE"
-          ],
-          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // REKALDE – ALDABE",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "ZABALA",
-            "IMAZ"
-          ],
-          "raw": "ELORDI – MARIEZKURRENA II // ZABALA – IMAZ",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "15/08/2026",
-      "hora": "12:00",
-      "fronton": "Askatasuna",
-      "ciudad": "Burlata/Burlada",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "AGIRRE – SALAVERRI II // BAKAIKOA – UGARTEMENDIA",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "BAKAIKOA",
-            "UGARTEMENDIA"
-          ],
-          "raw": "AGIRRE – SALAVERRI II // BAKAIKOA – UGARTEMENDIA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "15/08/2026",
-      "hora": "17:15",
-      "fronton": "Gurea",
-      "ciudad": "Azkoitia",
-      "fase": "4ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "MURUA – ESKIROZ // AMIANO – GABIRONDO (Serie B)",
-        "ALTUNA III – IMAZ // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947936/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "raw": "MURUA – ESKIROZ // AMIANO – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "ALTUNA III – IMAZ // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "15/08/2026",
       "hora": "20:00",
@@ -1051,6 +847,37 @@
     },
     {
       "fecha": "06/09/2026",
+      "hora": "12:00",
+      "fronton": "Cizur Menor",
+      "ciudad": "Cizur Menor",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA – SALAVERRI II // APEZETXEA II – ALDABE",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ALDABE"
+          ],
+          "raw": "BAKAIKOA – SALAVERRI II // APEZETXEA II – ALDABE",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "06/09/2026",
       "hora": "17:15",
       "fronton": "Fernando Garaita",
       "ciudad": "Legutio",
@@ -1268,6 +1095,377 @@
       ]
     },
     {
+      "fecha": "12/09/2026",
+      "hora": "18:00",
+      "fronton": "Santa María de las Hoyas",
+      "ciudad": "Santa María de las Hoyas",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "AMIANO – LIZEAGA // ZUBIZARRETA IV – ARANGUREN",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "ARANGUREN"
+          ],
+          "raw": "AMIANO – LIZEAGA // ZUBIZARRETA IV – ARANGUREN",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "13/09/2026",
+      "hora": "19:00",
+      "fronton": "Fresno de Cantespino",
+      "ciudad": "Fresno de Cantespino",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "AMIANO – LANDA // ZUBIZARRETA IV – IMAZ",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "LANDA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "IMAZ"
+          ],
+          "raw": "AMIANO – LANDA // ZUBIZARRETA IV – IMAZ",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "15/09/2026",
+      "hora": "18:00",
+      "fronton": "Villamediana de Iregua",
+      "ciudad": "Villamediana de Iregua",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "4 1/2 AGIRRE // ALBERDI II",
+        "DARÍO – IMAZ // ZABALA – LANDA",
+        "Gratuito"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "4 1/2 AGIRRE"
+          ],
+          "eq2": [
+            "ALBERDI II"
+          ],
+          "raw": "4 1/2 AGIRRE // ALBERDI II",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "IMAZ"
+          ],
+          "eq2": [
+            "ZABALA",
+            "LANDA"
+          ],
+          "raw": "DARÍO – IMAZ // ZABALA – LANDA",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/09/2026",
+      "hora": "19:00",
+      "fronton": "Artza",
+      "ciudad": "Bermeo",
+      "fase": "Final",
+      "competicion": null,
+      "cartel": [
+        "BAKAIKOA – MORGAETXEBARRIA // REKALDE – EROSTARBE",
+        "EZKURDIA – REZUSTA // LASO – IZTUETA",
+        "DESDE",
+        "15.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2964522/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "EROSTARBE"
+          ],
+          "raw": "BAKAIKOA – MORGAETXEBARRIA // REKALDE – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "raw": "EZKURDIA – REZUSTA // LASO – IZTUETA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "18/09/2026",
+      "hora": "21:00",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Abonos",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "Recibirás una única entrada que será válida para todos los festivales de San Mateo",
+        "DESDE",
+        "200.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966468/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "18/09/2026",
+      "hora": "21:00",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 18",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966432/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "19/09/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 19",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966433/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "20/09/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 20",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966434/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "21/09/2026",
+      "hora": "19:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 21",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966435/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "22/09/2026",
+      "hora": "19:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 22",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966436/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "23/09/2026",
+      "hora": "19:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 23",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966437/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "24/09/2026",
+      "hora": "19:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 24",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966438/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "25/09/2026",
+      "hora": "21:00",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 25",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966439/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "26/09/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 26",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966440/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
+      "fecha": "27/09/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Día 27",
+      "competicion": null,
+      "cartel": [
+        "Torneo San Mateo",
+        "San Mateo",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966441/select?viewCode=",
+      "tv": false,
+      "partidos": [],
+      "pendiente": true
+    },
+    {
       "fecha": "02/10/2026",
       "hora": "21:00",
       "fronton": "Navarra Arena",
@@ -1374,18 +1572,18 @@
         "44",
         "34",
         "10",
+        "Larrazabal-Zabaleta",
+        "2",
+        "4",
+        "81",
+        "80",
+        "1",
         "Laso-Martija",
         "1",
         "2",
         "43",
         "41",
         "2",
-        "Larrazabal-Zabaleta",
-        "1",
-        "3",
-        "59",
-        "64",
-        "-5",
         "Ezkurdia-Albisu",
         "1",
         "3",
@@ -1394,10 +1592,10 @@
         "-17",
         "Altuna III-Imaz",
         "0",
-        "3",
-        "29",
-        "66",
-        "-37",
+        "4",
+        "45",
+        "88",
+        "-43",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -1410,18 +1608,18 @@
         "109",
         "90",
         "19",
+        "Amiano-Gabirondo",
+        "3",
+        "4",
+        "76",
+        "68",
+        "8",
         "Murua-Eskiroz",
         "2",
-        "3",
-        "58",
-        "41",
-        "17",
-        "Amiano-Gabirondo",
-        "2",
-        "3",
-        "54",
-        "48",
-        "6",
+        "4",
+        "78",
+        "63",
+        "15",
         "Salaberria-Morgaetxebarria",
         "2",
         "4",
