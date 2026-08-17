@@ -1,195 +1,7 @@
 {
-  "actualizado": "16/08/2026 00:55",
+  "actualizado": "17/08/2026 00:53",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "15/08/2026",
-      "hora": "20:00",
-      "fronton": "Miguel Ángel Lotina",
-      "ciudad": "Meñaka",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "EZKURDIA – ESKUZA // SENAR – ARANGUREN",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "SENAR",
-            "ARANGUREN"
-          ],
-          "raw": "EZKURDIA – ESKUZA // SENAR – ARANGUREN",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "16/08/2026",
-      "hora": "17:15",
-      "fronton": "Aritzbatalde",
-      "ciudad": "Zarautz",
-      "fase": "4ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "SALABERRIA – MORGAETXEBARRIA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ARTOLA – REZUSTA // LASO – MARTIJA (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947937/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "BIKUÑA"
-          ],
-          "raw": "SALABERRIA – MORGAETXEBARRIA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "raw": "ARTOLA – REZUSTA // LASO – MARTIJA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "16/08/2026",
-      "hora": "17:30",
-      "fronton": "Iturrigorri",
-      "ciudad": "Aretxabaleta",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA – IMAZ // SENAR – UGARTEMENDIA",
-        "PEÑA II – ALBISU // LARRAZABAL – MARIEZKURRENA II",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotavasca_web/es_ES/entradas/evento/49373/session/2955535/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "IMAZ"
-          ],
-          "eq2": [
-            "SENAR",
-            "UGARTEMENDIA"
-          ],
-          "raw": "BAKAIKOA – IMAZ // SENAR – UGARTEMENDIA",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "PEÑA II",
-            "ALBISU"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "PEÑA II – ALBISU // LARRAZABAL – MARIEZKURRENA II",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "16/08/2026",
-      "hora": "18:00",
-      "fronton": "Goizueta",
-      "ciudad": "Goizueta",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA III – LANDA // APEZETXEA II – ESKUZA",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2949292/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "LANDA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ESKUZA"
-          ],
-          "raw": "ZUBIZARRETA III – LANDA // APEZETXEA II – ESKUZA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "16/08/2026",
-      "hora": "18:00",
-      "fronton": "La Cigüeña",
-      "ciudad": "Uruñuela",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "JAKA – SALAVERRI II // ZABALA – LOZA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2954597/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "ZABALA",
-            "LOZA"
-          ],
-          "raw": "JAKA – SALAVERRI II // ZABALA – LOZA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "21/08/2026",
       "hora": "21:00",
@@ -1562,28 +1374,28 @@
         "30",
         "Elordi-Mariezkurrena II",
         "2",
-        "4",
+        "3",
         "63",
         "46",
         "17",
         "Artola-Rezusta",
         "2",
+        "3",
+        "64",
+        "56",
+        "8",
+        "Laso-Martija",
         "2",
-        "44",
-        "34",
-        "10",
+        "3",
+        "65",
+        "61",
+        "4",
         "Larrazabal-Zabaleta",
         "2",
         "4",
         "81",
         "80",
         "1",
-        "Laso-Martija",
-        "1",
-        "2",
-        "43",
-        "41",
-        "2",
         "Ezkurdia-Albisu",
         "1",
         "3",
@@ -1608,6 +1420,12 @@
         "109",
         "90",
         "19",
+        "Salaberria-Morgaetxebarria",
+        "3",
+        "5",
+        "95",
+        "80",
+        "15",
         "Amiano-Gabirondo",
         "3",
         "4",
@@ -1620,12 +1438,6 @@
         "78",
         "63",
         "15",
-        "Salaberria-Morgaetxebarria",
-        "2",
-        "4",
-        "73",
-        "73",
-        "0",
         "Peña II-Loza",
         "1",
         "4",
@@ -1640,10 +1452,10 @@
         "-16",
         "Zubizarreta IV-Bikuña",
         "1",
-        "3",
-        "43",
-        "64",
-        "-21"
+        "4",
+        "50",
+        "86",
+        "-36"
       ],
       "precio": null,
       "agotado": false,
