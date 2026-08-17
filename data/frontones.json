@@ -91,7 +91,7 @@
     "id": "FRO012",
     "nombre": "AMURRIO",
     "ciudad_id": "CIU010",
-    "partidos_count": 9,
+    "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMURRIO"
   },
@@ -139,7 +139,7 @@
     "id": "FRO018",
     "nombre": "ARITZBATALDE",
     "ciudad_id": "CIU142",
-    "partidos_count": 5,
+    "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARITZBATALDE"
   },
@@ -207,7 +207,7 @@
     "id": "FRO225",
     "nombre": "ASKATASUNA",
     "ciudad_id": "CIU038",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO025",
@@ -237,7 +237,7 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
-    "partidos_count": 253,
+    "partidos_count": 261,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
   },
@@ -535,7 +535,7 @@
     "id": "FRO063",
     "nombre": "COVALEDA",
     "ciudad_id": "CIU042",
-    "partidos_count": 16,
+    "partidos_count": 18,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20COVALEDA"
   },
@@ -551,7 +551,7 @@
     "id": "FRO223",
     "nombre": "DARÍO GÓMEZ GIL",
     "ciudad_id": "CIU062",
-    "partidos_count": 12
+    "partidos_count": 14
   },
   {
     "id": "FRO065",
@@ -621,7 +621,7 @@
     "id": "FRO222",
     "nombre": "ELEXALDE",
     "ciudad_id": "CIU155",
-    "partidos_count": 6
+    "partidos_count": 7
   },
   {
     "id": "FRO073",
@@ -763,7 +763,7 @@
     "id": "FRO221",
     "nombre": "EZTEGARA",
     "ciudad_id": "CIU029",
-    "partidos_count": 24
+    "partidos_count": 26
   },
   {
     "id": "FRO090",
@@ -841,13 +841,13 @@
     "id": "FRO207",
     "nombre": "GOIZUETA",
     "ciudad_id": "CIU151",
-    "partidos_count": 32
+    "partidos_count": 33
   },
   {
     "id": "FRO099",
     "nombre": "GUREA",
     "ciudad_id": "CIU020",
-    "partidos_count": 16,
+    "partidos_count": 18,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GUREA"
   },
@@ -990,6 +990,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ISCAR"
   },
   {
+    "id": "FRO226",
+    "nombre": "ITURRIGORRI",
+    "ciudad_id": "CIU013",
+    "partidos_count": 2
+  },
+  {
     "id": "FRO115",
     "nombre": "ITZIAR",
     "ciudad_id": "CIU081",
@@ -1063,7 +1069,7 @@
     "id": "FRO123",
     "nombre": "LABASTIDA",
     "ciudad_id": "CIU083",
-    "partidos_count": 30,
+    "partidos_count": 32,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABASTIDA"
   },
@@ -1235,7 +1241,7 @@
     "id": "FRO143",
     "nombre": "MALLABIA I",
     "ciudad_id": "CIU101",
-    "partidos_count": 6,
+    "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MALLABIA%20I"
   },
@@ -1265,7 +1271,7 @@
     "id": "FRO224",
     "nombre": "MIGUEL ÁNGEL LOTINA",
     "ciudad_id": "CIU156",
-    "partidos_count": 1
+    "partidos_count": 2
   },
   {
     "id": "FRO146",
@@ -1333,7 +1339,7 @@
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
-    "partidos_count": 177,
+    "partidos_count": 185,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"
   },
@@ -1435,7 +1441,7 @@
     "id": "FRO165",
     "nombre": "REMONTIVAL",
     "ciudad_id": "CIU094",
-    "partidos_count": 60,
+    "partidos_count": 64,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20REMONTIVAL"
   },
@@ -1559,7 +1565,7 @@
     "id": "FRO179",
     "nombre": "TOKI EDER",
     "ciudad_id": "CIU011",
-    "partidos_count": 16,
+    "partidos_count": 18,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20TOKI%20EDER"
   },
@@ -1631,7 +1637,7 @@
     "id": "FRO187",
     "nombre": "URUÑUELA",
     "ciudad_id": "CIU133",
-    "partidos_count": 1,
+    "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URU%C3%91UELA"
   },

@@ -1,5 +1,107 @@
 [
   {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO187",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL001",
+      "zag_id": "PEL027"
+    },
+    "puntos1": 9,
+    "equipo2": {
+      "del_id": "PEL021",
+      "zag_id": "PEL051"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO207",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL015",
+      "zag_id": "PEL054"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL057",
+      "zag_id": "PEL030"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO226",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL019",
+      "zag_id": "PEL013"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL026",
+      "zag_id": "PEL020"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO226",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL003",
+      "zag_id": "PEL008"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "del_id": "PEL002",
+      "zag_id": "PEL011"
+    },
+    "puntos2": 15,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO018",
+    "competicion_id": "COMP236",
+    "tipo": "festival",
+    "equipo1": {
+      "del_id": "PEL031",
+      "zag_id": "PEL059"
+    },
+    "puntos1": 7,
+    "equipo2": {
+      "del_id": "PEL055",
+      "zag_id": "PEL029"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
+    "fecha": "2026-08-16",
+    "fronton_id": "FRO018",
+    "competicion_id": "COMP237",
+    "tipo": "festival",
+    "equipo1": {
+      "del_id": "PEL010",
+      "zag_id": "PEL012"
+    },
+    "puntos1": 20,
+    "equipo2": {
+      "del_id": "PEL025",
+      "zag_id": "PEL017"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "2026-08-15",
     "fronton_id": "FRO224",
     "competicion_id": "COMP026",
