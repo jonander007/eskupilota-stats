@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/08/2026 00:53",
+  "actualizado": "18/08/2026 00:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -13,6 +13,7 @@
         "Masters CaixaBank",
         "PEÑA II – LOZA // P. ETXEBERRIA – LANDA(Serie B)",
         "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
+        "DIFERIDO",
         "DESDE",
         "30.00€"
       ],
@@ -58,7 +59,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
-        "P. ETXEBERRIA – GASKUE // AMIANO – ARANGUREN",
+        "PEÑA II – ARANGUREN // P. ETXEBERRIA – GASKUE",
         "DESDE",
         "20.00€"
       ],
@@ -82,14 +83,14 @@
         },
         {
           "eq1": [
+            "PEÑA II",
+            "ARANGUREN"
+          ],
+          "eq2": [
             "P. ETXEBERRIA",
             "GASKUE"
           ],
-          "eq2": [
-            "AMIANO",
-            "ARANGUREN"
-          ],
-          "raw": "P. ETXEBERRIA – GASKUE // AMIANO – ARANGUREN",
+          "raw": "PEÑA II – ARANGUREN // P. ETXEBERRIA – GASKUE",
           "tipo": "festival",
           "serie": "a"
         }
