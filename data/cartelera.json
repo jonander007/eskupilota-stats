@@ -1,5 +1,5 @@
 {
-  "actualizado": "20/08/2026 00:53",
+  "actualizado": "21/08/2026 00:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -915,7 +915,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "AMIANO – LIZEAGA // ZUBIZARRETA IV – ARANGUREN",
+        "AMIANO – LIZEAGA // ZUBIZARRETA IV – IMAZ",
         "Gratuito"
       ],
       "precio": null,
@@ -930,9 +930,9 @@
           ],
           "eq2": [
             "ZUBIZARRETA IV",
-            "ARANGUREN"
+            "IMAZ"
           ],
-          "raw": "AMIANO – LIZEAGA // ZUBIZARRETA IV – ARANGUREN",
+          "raw": "AMIANO – LIZEAGA // ZUBIZARRETA IV – IMAZ",
           "tipo": "festival",
           "serie": "a"
         }
