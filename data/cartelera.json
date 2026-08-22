@@ -1,5 +1,5 @@
 {
-  "actualizado": "21/08/2026 00:56",
+  "actualizado": "22/08/2026 00:53",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -59,7 +59,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
-        "PEÑA II – ARANGUREN // P. ETXEBERRIA – GASKUE",
+        "EZKURDIA – GASKUE // PEÑA II – ARANGUREN",
         "DESDE",
         "20.00€"
       ],
@@ -83,14 +83,14 @@
         },
         {
           "eq1": [
+            "EZKURDIA",
+            "GASKUE"
+          ],
+          "eq2": [
             "PEÑA II",
             "ARANGUREN"
           ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "GASKUE"
-          ],
-          "raw": "PEÑA II – ARANGUREN // P. ETXEBERRIA – GASKUE",
+          "raw": "EZKURDIA – GASKUE // PEÑA II – ARANGUREN",
           "tipo": "festival",
           "serie": "a"
         }
@@ -106,7 +106,7 @@
       "cartel": [
         "Masters CaixaBank",
         "AMIANO – GABIRONDO // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ALTUNA III – IMAZ // LASO – MARTIJA (Serie A)",
+        "LASO – MARTIJA // P. ETXEBERRIA – IMAZ (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -130,14 +130,14 @@
         },
         {
           "eq1": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "eq2": [
             "LASO",
             "MARTIJA"
           ],
-          "raw": "ALTUNA III – IMAZ // LASO – MARTIJA (Serie A)",
+          "eq2": [
+            "P. ETXEBERRIA",
+            "IMAZ"
+          ],
+          "raw": "LASO – MARTIJA // P. ETXEBERRIA – IMAZ (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -940,6 +940,53 @@
     },
     {
       "fecha": "13/09/2026",
+      "hora": "17:15",
+      "fronton": "Arnedo",
+      "ciudad": "Arnedo",
+      "fase": "7ª Jornada",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "DARÍO – LOZA // PEÑA II – SALAVERRI II",
+        "LASO – MARTIJA // ZABALA",
+        "– IZTUETA (Serie B)",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966470/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "SALAVERRI II"
+          ],
+          "raw": "DARÍO – LOZA // PEÑA II – SALAVERRI II",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "LASO – MARTIJA // ZABALA",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
+    },
+    {
+      "fecha": "13/09/2026",
       "hora": "19:00",
       "fronton": "Fresno de Cantespino",
       "ciudad": "Fresno de Cantespino",
@@ -1367,18 +1414,18 @@
         "TF",
         "TC",
         "CO",
+        "Elordi-Mariezkurrena II",
+        "3",
+        "4",
+        "85",
+        "54",
+        "31",
         "Zabala-Iztueta",
         "3",
         "4",
         "86",
         "56",
         "30",
-        "Elordi-Mariezkurrena II",
-        "2",
-        "3",
-        "63",
-        "46",
-        "17",
         "Artola-Rezusta",
         "2",
         "3",
@@ -1399,10 +1446,10 @@
         "1",
         "Ezkurdia-Albisu",
         "1",
-        "3",
-        "48",
-        "65",
-        "-17",
+        "4",
+        "56",
+        "87",
+        "-31",
         "Altuna III-Imaz",
         "0",
         "4",
@@ -1439,6 +1486,12 @@
         "65",
         "71",
         "-6",
+        "P.Etxeberria-Landa",
+        "2",
+        "5",
+        "86",
+        "101",
+        "-15",
         "Salaberria-Morgaetxebarria",
         "2",
         "5",
@@ -1447,16 +1500,10 @@
         "-15",
         "Peña II-Loza",
         "1",
-        "4",
-        "75",
-        "80",
-        "-5",
-        "P.Etxeberria-Landa",
-        "1",
-        "4",
-        "64",
-        "80",
-        "-16"
+        "5",
+        "96",
+        "102",
+        "-6"
       ],
       "precio": null,
       "agotado": false,
