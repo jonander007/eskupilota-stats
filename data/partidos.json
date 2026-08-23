@@ -1,5 +1,39 @@
 [
   {
+    "fecha": "2026-08-22",
+    "fronton_id": "FRO227",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL019",
+      "zag_id": "PEL027"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "del_id": "PEL057",
+      "zag_id": "PEL034"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
+    "fecha": "2026-08-22",
+    "fronton_id": "FRO227",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL004",
+      "zag_id": "PEL035"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "del_id": "PEL003",
+      "zag_id": "PEL023"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "2026-08-21",
     "fronton_id": "FRO039",
     "competicion_id": "COMP236",
