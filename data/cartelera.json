@@ -1,101 +1,7 @@
 {
-  "actualizado": "22/08/2026 00:53",
+  "actualizado": "23/08/2026 00:57",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "21/08/2026",
-      "hora": "21:00",
-      "fronton": "Baztan",
-      "ciudad": "Elizondo",
-      "fase": "5ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – LOZA // P. ETXEBERRIA – LANDA(Serie B)",
-        "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947939/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "LOZA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "LANDA"
-          ],
-          "raw": "PEÑA II – LOZA // P. ETXEBERRIA – LANDA(Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "22/08/2026",
-      "hora": "18:00",
-      "fronton": "Ergizarotz",
-      "ciudad": "Beruete",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
-        "EZKURDIA – GASKUE // PEÑA II – ARANGUREN",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2954394/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "BAKAIKOA – SALAVERRI II // APEZETXEA II – EROSTARBE",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "ARANGUREN"
-          ],
-          "raw": "EZKURDIA – GASKUE // PEÑA II – ARANGUREN",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "23/08/2026",
       "hora": "17:15",
@@ -152,7 +58,7 @@
       "competicion": null,
       "cartel": [
         "ZUBIZARRETA III – ARANGUREN // ALBERDI II – EROSTARBE",
-        "ALTUNA III – MARTIJA // ARTOLA – IMAZ",
+        "ARTOLA – IMAZ // ZABALA – MARTIJA",
         "DESDE",
         "30.00€"
       ],
@@ -176,14 +82,14 @@
         },
         {
           "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "eq2": [
             "ARTOLA",
             "IMAZ"
           ],
-          "raw": "ALTUNA III – MARTIJA // ARTOLA – IMAZ",
+          "eq2": [
+            "ZABALA",
+            "MARTIJA"
+          ],
+          "raw": "ARTOLA – IMAZ // ZABALA – MARTIJA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -199,7 +105,7 @@
       "cartel": [
         "Torneo Aste Nagusia",
         "MURUA – ALDABE // REKALDE – ESKUZA (Serie B)",
-        "ALTUNA III – REZUSTA // ELORDI – ZABALETA (Serie A)",
+        "EZKURDIA – REZUSTA // ELORDI – ZABALETA (Serie A)",
         "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
         "DESDE",
         "25.00€"
@@ -224,14 +130,14 @@
         },
         {
           "eq1": [
-            "ALTUNA III",
+            "EZKURDIA",
             "REZUSTA"
           ],
           "eq2": [
             "ELORDI",
             "ZABALETA"
           ],
-          "raw": "ALTUNA III – REZUSTA // ELORDI – ZABALETA (Serie A)",
+          "raw": "EZKURDIA – REZUSTA // ELORDI – ZABALETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
