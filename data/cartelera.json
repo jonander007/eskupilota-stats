@@ -1,54 +1,7 @@
 {
-  "actualizado": "23/08/2026 00:57",
+  "actualizado": "24/08/2026 00:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "23/08/2026",
-      "hora": "17:15",
-      "fronton": "Aritzbatalde",
-      "ciudad": "Zarautz",
-      "fase": "5ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "AMIANO – GABIRONDO // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "LASO – MARTIJA // P. ETXEBERRIA – IMAZ (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2947940/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "BIKUÑA"
-          ],
-          "raw": "AMIANO – GABIRONDO // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "P. ETXEBERRIA",
-            "IMAZ"
-          ],
-          "raw": "LASO – MARTIJA // P. ETXEBERRIA – IMAZ (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/08/2026",
       "hora": "18:00",
@@ -651,7 +604,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA // ZUBIZARRETA III (4 1/2)",
-        "EZKURDIA – MARTIJA // AMIANO – ALBISU",
+        "EZKURDIA – MARTIJA // PENA II – ALBISU",
         "DESDE",
         "25.00€"
       ],
@@ -677,10 +630,10 @@
             "MARTIJA"
           ],
           "eq2": [
-            "AMIANO",
+            "PENA II",
             "ALBISU"
           ],
-          "raw": "EZKURDIA – MARTIJA // AMIANO – ALBISU",
+          "raw": "EZKURDIA – MARTIJA // PENA II – ALBISU",
           "tipo": "festival",
           "serie": "a"
         }
@@ -1338,18 +1291,18 @@
         "64",
         "56",
         "8",
-        "Laso-Martija",
-        "2",
-        "3",
-        "65",
-        "61",
-        "4",
         "Larrazabal-Zabaleta",
         "2",
         "4",
         "81",
         "80",
         "1",
+        "Laso-Martija",
+        "2",
+        "4",
+        "83",
+        "83",
+        "0",
         "Ezkurdia-Albisu",
         "1",
         "4",
@@ -1357,11 +1310,11 @@
         "87",
         "-31",
         "Altuna III-Imaz",
-        "0",
-        "4",
-        "45",
-        "88",
-        "-43",
+        "1",
+        "5",
+        "67",
+        "106",
+        "-39",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -1375,11 +1328,11 @@
         "90",
         "19",
         "Amiano-Gabirondo",
-        "3",
         "4",
-        "76",
-        "68",
-        "8",
+        "5",
+        "98",
+        "89",
+        "9",
         "Murua-Eskiroz",
         "2",
         "4",
@@ -1388,10 +1341,10 @@
         "15",
         "Zubizarreta IV-Bikuña",
         "2",
-        "4",
-        "65",
-        "71",
-        "-6",
+        "5",
+        "86",
+        "93",
+        "-7",
         "P.Etxeberria-Landa",
         "2",
         "5",
