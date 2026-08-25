@@ -1,53 +1,7 @@
 {
-  "actualizado": "24/08/2026 00:55",
+  "actualizado": "25/08/2026 00:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/08/2026",
-      "hora": "18:00",
-      "fronton": "Ikastola",
-      "ciudad": "Elgoibar",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA III – ARANGUREN // ALBERDI II – EROSTARBE",
-        "ARTOLA – IMAZ // ZABALA – MARTIJA",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2954744/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "EROSTARBE"
-          ],
-          "raw": "ZUBIZARRETA III – ARANGUREN // ALBERDI II – EROSTARBE",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "IMAZ"
-          ],
-          "eq2": [
-            "ZABALA",
-            "MARTIJA"
-          ],
-          "raw": "ARTOLA – IMAZ // ZABALA – MARTIJA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "25/08/2026",
       "hora": "18:30",
@@ -226,6 +180,7 @@
         "Torneo Aste Nagusia",
         "Final (Serie B)",
         "Final (Serie A)",
+        "DIFERIDO",
         "DESDE",
         "45.00€"
       ],
@@ -694,7 +649,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "SEMIFINAL (Serie B)",
+        "AMIANO – GABIRONDO // XX -XX SEMIFINAL (Serie B)",
         "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
         "DESDE",
         "20.00€"
@@ -704,6 +659,19 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964515/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "AMIANO",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "XX",
+            "XX SEMIFINAL"
+          ],
+          "raw": "AMIANO – GABIRONDO // XX -XX SEMIFINAL (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
         {
           "eq1": [
             "ARTOLA",
@@ -794,6 +762,53 @@
           "raw": "AMIANO – LIZEAGA // ZUBIZARRETA IV – IMAZ",
           "tipo": "festival",
           "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "12/09/2026",
+      "hora": "18:00",
+      "fronton": "Barberito I",
+      "ciudad": "Baños Río Tobía",
+      "fase": "Semifinal",
+      "competicion": null,
+      "cartel": [
+        "Masters CaixaBank",
+        "XX – XX // XX – XX (Serie B)",
+        "DARÍO – LOZA // PEÑA II – ESKIROZ",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966469/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "PEÑA II",
+            "ESKIROZ"
+          ],
+          "raw": "DARÍO – LOZA // PEÑA II – ESKIROZ",
+          "tipo": "campeonato-b",
+          "serie": "b"
         }
       ]
     },
