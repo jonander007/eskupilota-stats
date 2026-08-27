@@ -1,68 +1,7 @@
 {
-  "actualizado": "26/08/2026 00:55",
+  "actualizado": "27/08/2026 06:41",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "26/08/2026",
-      "hora": "18:30",
-      "fronton": "Bizkaia Frontoia",
-      "ciudad": "Bilbao",
-      "fase": "Semifinal",
-      "competicion": null,
-      "cartel": [
-        "Torneo Aste Nagusia",
-        "AMIANO – MORGAETXEBARRIA // ZUBIZARRETA IV – LANDA (Serie B)",
-        "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA (Serie A)",
-        "EGIGUREN V – GASKUE // ZUBIZARRETA III – ARANGUREN",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58851/session/2954979/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "LANDA"
-          ],
-          "raw": "AMIANO – MORGAETXEBARRIA // ZUBIZARRETA IV – LANDA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "ARTOLA – MARIEZKURRENA II // LASO – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "GASKUE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "raw": "EGIGUREN V – GASKUE // ZUBIZARRETA III – ARANGUREN",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "28/08/2026",
       "hora": "17:30",
@@ -71,8 +10,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "AGIRRE – SALAVERRI II // APEZETXEA II – LOZA",
-        "MURUA – GABIRONDO // ZUBIZARRETA IV – IMAZ",
+        "AGIRRE – SALAVERRI II // APEZETXEA II – EROSTARBE",
+        "EGIGUREN V – GABIRONDO // ZUBIZARRETA IV – IMAZ",
         "Gratuito con entrada"
       ],
       "precio": null,
@@ -87,22 +26,22 @@
           ],
           "eq2": [
             "APEZETXEA II",
-            "LOZA"
+            "EROSTARBE"
           ],
-          "raw": "AGIRRE – SALAVERRI II // APEZETXEA II – LOZA",
+          "raw": "AGIRRE – SALAVERRI II // APEZETXEA II – EROSTARBE",
           "tipo": "festival",
           "serie": "a"
         },
         {
           "eq1": [
-            "MURUA",
+            "EGIGUREN V",
             "GABIRONDO"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
             "IMAZ"
           ],
-          "raw": "MURUA – GABIRONDO // ZUBIZARRETA IV – IMAZ",
+          "raw": "EGIGUREN V – GABIRONDO // ZUBIZARRETA IV – IMAZ",
           "tipo": "festival",
           "serie": "a"
         }
@@ -117,8 +56,8 @@
       "competicion": null,
       "cartel": [
         "Torneo Aste Nagusia",
-        "Final (Serie B)",
-        "Final (Serie A)",
+        "MURUA – ALDABE // AMIANO – MORGAETXEBARRIA (Serie B)",
+        "ELORDI – ZABALETA // LASO – IZTUETA (Serie A)",
         "DIFERIDO",
         "DESDE",
         "45.00€"
@@ -127,8 +66,34 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/58851/session/2954985/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ALDABE"
+          ],
+          "eq2": [
+            "AMIANO",
+            "MORGAETXEBARRIA"
+          ],
+          "raw": "MURUA – ALDABE // AMIANO – MORGAETXEBARRIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "LASO",
+            "IZTUETA"
+          ],
+          "raw": "ELORDI – ZABALETA // LASO – IZTUETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "29/08/2026",
