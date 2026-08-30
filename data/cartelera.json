@@ -1,38 +1,7 @@
 {
-  "actualizado": "29/08/2026 05:11",
+  "actualizado": "30/08/2026 03:03",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "29/08/2026",
-      "hora": "11:30",
-      "fronton": "Nepas",
-      "ciudad": "Nepas",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SALABERRIA – GABIRONDO // ZUBIZARRETA III – ESKIROZ",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III",
-            "ESKIROZ"
-          ],
-          "raw": "SALABERRIA – GABIRONDO // ZUBIZARRETA III – ESKIROZ",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "30/08/2026",
       "hora": "17:15",
@@ -370,7 +339,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA // ZUBIZARRETA III (4 1/2)",
-        "EZKURDIA – MARTIJA // PENA II – ALBISU",
+        "DARIO – MARTIJA // PENA II – ALBISU",
         "DESDE",
         "25.00€"
       ],
@@ -392,14 +361,14 @@
         },
         {
           "eq1": [
-            "EZKURDIA",
+            "DARIO",
             "MARTIJA"
           ],
           "eq2": [
             "PENA II",
             "ALBISU"
           ],
-          "raw": "EZKURDIA – MARTIJA // PENA II – ALBISU",
+          "raw": "DARIO – MARTIJA // PENA II – ALBISU",
           "tipo": "festival",
           "serie": "a"
         }
