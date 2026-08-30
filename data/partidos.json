@@ -1,5 +1,22 @@
 [
   {
+    "fecha": "2026-08-29",
+    "fronton_id": "FRO229",
+    "competicion_id": "COMP026",
+    "tipo": "campeonato-a",
+    "equipo1": {
+      "del_id": "PEL031",
+      "zag_id": "PEL037"
+    },
+    "puntos1": 22,
+    "equipo2": {
+      "del_id": "PEL015",
+      "zag_id": "PEL006"
+    },
+    "puntos2": 21,
+    "ganador": "equipo1"
+  },
+  {
     "fecha": "2026-08-28",
     "fronton_id": "FRO228",
     "competicion_id": "COMP026",
