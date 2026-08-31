@@ -159,7 +159,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 2048
+    "partidos_count": 2071
   },
   {
     "id": "COMP027",
@@ -1281,13 +1281,13 @@
     "id": "COMP236",
     "nombre": "Masters CaixaBank Serie B 2026",
     "tipo": "festival",
-    "partidos_count": 235
+    "partidos_count": 238
   },
   {
     "id": "COMP237",
     "nombre": "Masters Caixabank 2026",
     "tipo": "festival",
-    "partidos_count": 192
+    "partidos_count": 196
   },
   {
     "id": "COMP213",
