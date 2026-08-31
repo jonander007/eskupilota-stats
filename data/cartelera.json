@@ -1,86 +1,7 @@
 {
-  "actualizado": "30/08/2026 03:03",
+  "actualizado": "31/08/2026 02:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "30/08/2026",
-      "hora": "17:15",
-      "fronton": "Ilunberri/Lumbier",
-      "ciudad": "Ilunberri/Lumbier",
-      "fase": "5ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – ALDABE",
-        "ARTOLA – REZUSTA // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "10.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964250/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "BAKAIKOA – UGARTEMENDIA // APEZETXEA II – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "ARTOLA – REZUSTA // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "30/08/2026",
-      "hora": "18:00",
-      "fronton": "Berriozar",
-      "ciudad": "Berriozar",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2961710/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA",
-            "MARTIJA"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "02/09/2026",
       "hora": "18:00",
@@ -1081,23 +1002,23 @@
         "56",
         "30",
         "Artola-Rezusta",
-        "2",
         "3",
-        "64",
-        "56",
-        "8",
-        "Larrazabal-Zabaleta",
-        "2",
         "4",
-        "81",
-        "80",
-        "1",
+        "86",
+        "76",
+        "10",
         "Laso-Martija",
         "2",
         "4",
         "83",
         "83",
         "0",
+        "Larrazabal-Zabaleta",
+        "2",
+        "5",
+        "101",
+        "102",
+        "-1",
         "Ezkurdia-Albisu",
         "1",
         "4",
