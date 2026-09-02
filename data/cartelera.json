@@ -1,5 +1,5 @@
 {
-  "actualizado": "01/09/2026 03:04",
+  "actualizado": "02/09/2026 02:24",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -137,6 +137,7 @@
         "Masters CaixaBank",
         "PEÑA II – LOZA // AMIANO – GABIRONDO (Serie B)",
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ (Serie A)",
+        "DIFERIDO",
         "DESDE",
         "20.00€"
       ],
@@ -685,31 +686,12 @@
       "hora": "21:00",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Abonos",
+      "fase": "Eliminatoria (Grupo A)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "Recibirás una única entrada que será válida para todos los festivales de San Mateo",
-        "DESDE",
-        "200.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966468/select?viewCode=",
-      "tv": false,
-      "partidos": [],
-      "pendiente": true
-    },
-    {
-      "fecha": "18/09/2026",
-      "hora": "21:00",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Día 18",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "San Mateo",
+        "ZUBIZARRETA III – ARANGUREN // AMIANO – ESKIROZ (Serie B)",
+        "ARTOLA – ALBISU // LARRAZABAL – IZTUETA (Serie A)",
         "DESDE",
         "20.00€"
       ],
@@ -717,19 +699,47 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966432/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ESKIROZ"
+          ],
+          "raw": "ZUBIZARRETA III – ARANGUREN // AMIANO – ESKIROZ (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "IZTUETA"
+          ],
+          "raw": "ARTOLA – ALBISU // LARRAZABAL – IZTUETA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "19/09/2026",
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 19",
+      "fase": "Eliminatoria",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "SALABERRIA – GASKUE // MURUA – GABIRONDO (Serie B)",
+        "EZKURDIA – MARTIJA //",
+        "ALTUNA III – BIKUÑA (Serie A)",
         "DESDE",
         "20.00€"
       ],
@@ -737,19 +747,56 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966433/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "SALABERRIA",
+            "GASKUE"
+          ],
+          "eq2": [
+            "MURUA",
+            "GABIRONDO"
+          ],
+          "raw": "SALABERRIA – GASKUE // MURUA – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "EZKURDIA"
+          ],
+          "eq2": [
+            "MARTIJA //"
+          ],
+          "raw": "EZKURDIA – MARTIJA //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "BIKUÑA"
+          ],
+          "raw": "ALTUNA III – BIKUÑA (Serie A)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "20/09/2026",
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 20",
+      "fase": "Semifinales (Grupo A)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "ELORDI – ESKUZA // GANADORES ELIMINATORIA (Serie B)",
+        "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
+        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
         "DESDE",
         "20.00€"
       ],
@@ -757,19 +804,58 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966434/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ELORDI",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA"
+          ],
+          "raw": "ELORDI – ESKUZA // GANADORES ELIMINATORIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "ZABALA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA"
+          ],
+          "raw": "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "21/09/2026",
       "hora": "19:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 21",
+      "fase": "Semifinales (Grupo B)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "P.ETXEBERRIA – LOZA // GANADORES ELIMINATORIA (Serie B)",
+        "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
+        "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
         "DESDE",
         "20.00€"
       ],
@@ -777,19 +863,57 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966435/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "LOZA"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA"
+          ],
+          "raw": "P.ETXEBERRIA – LOZA // GANADORES ELIMINATORIA (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "GANADORES ELIMINATORIA"
+          ],
+          "raw": "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "PERDEDOR DÍA 18"
+          ],
+          "eq2": [
+            "REKALDE",
+            "ALDABE"
+          ],
+          "raw": "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "22/09/2026",
       "hora": "19:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 22",
+      "fase": "Semifinales (Grupo A)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "PEÑA II – SALAVERRI II // PERDEDORES DÍA 20 (Serie B)",
+        "JAKA – MARIEZKURRENA II // PERDEDORES DÍA 20 (Serie A)",
+        "PERDEDOR DÍA 19 (Serie B) // BAKAIKOA – LIZEAGA",
         "DESDE",
         "20.00€"
       ],
@@ -797,19 +921,57 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966436/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 20"
+          ],
+          "raw": "PEÑA II – SALAVERRI II // PERDEDORES DÍA 20 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 20"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // PERDEDORES DÍA 20 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "PERDEDOR DÍA 19"
+          ],
+          "eq2": [
+            "BAKAIKOA",
+            "LIZEAGA"
+          ],
+          "raw": "PERDEDOR DÍA 19 (Serie B) // BAKAIKOA – LIZEAGA",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        }
+      ]
     },
     {
       "fecha": "23/09/2026",
       "hora": "19:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 23",
+      "fase": "Semifinales (Grupo B)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "SENAR – IMAZ // PERDEDORES DÍA 21 (Serie B)",
+        "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
+        "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
         "DESDE",
         "20.00€"
       ],
@@ -817,19 +979,58 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966437/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "IMAZ"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 21"
+          ],
+          "raw": "SENAR – IMAZ // PERDEDORES DÍA 21 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "LANDA"
+          ],
+          "eq2": [
+            "PERDEDORES DÍA 21"
+          ],
+          "raw": "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "EROSTARBE"
+          ],
+          "raw": "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "24/09/2026",
       "hora": "19:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 24",
+      "fase": "Semifinales (Grupo A)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "PEÑA II – SALAVERRI II // GANADORES DÍA 20 (Serie B)",
+        "JAKA – MARIEZKURRENA II // GANADORES DÍA 20 (Serie A)",
+        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
         "DESDE",
         "20.00€"
       ],
@@ -837,19 +1038,58 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966438/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "GANADORES DÍA 20"
+          ],
+          "raw": "PEÑA II – SALAVERRI II // GANADORES DÍA 20 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "GANADORES DÍA 20"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // GANADORES DÍA 20 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "ALDABE"
+          ],
+          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "25/09/2026",
       "hora": "21:00",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 25",
+      "fase": "Semifinales (Grupo B)",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "SENAR – IMAZ // GANADORES DÍA 21 (Serie B)",
+        "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
+        "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
         "DESDE",
         "20.00€"
       ],
@@ -857,19 +1097,58 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966439/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "IMAZ"
+          ],
+          "eq2": [
+            "GANADORES DÍA 21"
+          ],
+          "raw": "SENAR – IMAZ // GANADORES DÍA 21 (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "LASO",
+            "LANDA"
+          ],
+          "eq2": [
+            "GANADORES DÍA 21"
+          ],
+          "raw": "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "UGARTEMENDIA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "XX"
+          ],
+          "raw": "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "26/09/2026",
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 26",
+      "fase": "Desafío Urzante",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "XX // XX (4 1/2)",
+        "XX – XX // XX – XX",
+        "XX // XX (MANO A MANO)",
         "DESDE",
         "20.00€"
       ],
@@ -877,19 +1156,55 @@
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966440/select?viewCode=",
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (4 1/2)"
+          ],
+          "raw": "XX // XX (4 1/2)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX (MANO A MANO)"
+          ],
+          "raw": "XX // XX (MANO A MANO)",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "27/09/2026",
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Día 27",
+      "fase": "Finales",
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "San Mateo",
+        "Final Torneo San Mateo (Serie B)",
+        "Final Torneo San Mateo (Serie A)",
         "DESDE",
         "20.00€"
       ],
