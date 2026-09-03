@@ -1,38 +1,7 @@
 {
-  "actualizado": "02/09/2026 02:24",
+  "actualizado": "03/09/2026 02:31",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "02/09/2026",
-      "hora": "18:00",
-      "fronton": "Gautegiz-Arteaga",
-      "ciudad": "Gautegiz-Arteaga",
-      "fase": "6ª Jornada - Masters CaixaBank Serie B",
-      "competicion": null,
-      "cartel": [
-        "SALABERRIA – MORGAETXEBARRIA // MURUA – ESKIROZ (Serie B)",
-        "Gratuito con entrada"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "raw": "SALABERRIA – MORGAETXEBARRIA // MURUA – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "04/09/2026",
       "hora": "19:00",
@@ -182,7 +151,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "BAKAIKOA – SALAVERRI II // APEZETXEA II – ALDABE",
+        "SENAR – SALAVERRI II // APEZETXEA II – ALDABE",
         "Gratuito"
       ],
       "precio": null,
@@ -192,14 +161,14 @@
       "partidos": [
         {
           "eq1": [
-            "BAKAIKOA",
+            "SENAR",
             "SALAVERRI II"
           ],
           "eq2": [
             "APEZETXEA II",
             "ALDABE"
           ],
-          "raw": "BAKAIKOA – SALAVERRI II // APEZETXEA II – ALDABE",
+          "raw": "SENAR – SALAVERRI II // APEZETXEA II – ALDABE",
           "tipo": "festival",
           "serie": "a"
         }
@@ -261,7 +230,7 @@
       "competicion": null,
       "cartel": [
         "BAKAIKOA // ZUBIZARRETA III (4 1/2)",
-        "DARIO – MARTIJA // PENA II – ALBISU",
+        "DARÍO – MARTIJA // PEÑA II – ALBISU",
         "DESDE",
         "25.00€"
       ],
@@ -283,14 +252,14 @@
         },
         {
           "eq1": [
-            "DARIO",
+            "DARÍO",
             "MARTIJA"
           ],
           "eq2": [
-            "PENA II",
+            "PEÑA II",
             "ALBISU"
           ],
-          "raw": "DARIO – MARTIJA // PENA II – ALBISU",
+          "raw": "DARÍO – MARTIJA // PEÑA II – ALBISU",
           "tipo": "festival",
           "serie": "a"
         }
@@ -1247,7 +1216,7 @@
         "XX – XX // XX – XX (Serie A)",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
-        "18.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -1294,7 +1263,7 @@
         "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
-        "18.00€",
+        "20.00€",
         "Clasificación",
         "Masters CaixaBank",
         "Masters CaixaBank Serie B",
@@ -1365,11 +1334,11 @@
         "89",
         "9",
         "Murua-Eskiroz",
-        "2",
-        "4",
-        "78",
-        "63",
-        "15",
+        "3",
+        "5",
+        "100",
+        "75",
+        "25",
         "Zubizarreta IV-Bikuña",
         "2",
         "5",
@@ -1384,10 +1353,10 @@
         "-15",
         "Salaberria-Morgaetxebarria",
         "2",
-        "5",
-        "80",
-        "95",
-        "-15",
+        "6",
+        "92",
+        "117",
+        "-25",
         "Peña II-Loza",
         "1",
         "5",
