@@ -1,5 +1,22 @@
 [
   {
+    "fecha": "2026-09-02",
+    "fronton_id": "FRO096",
+    "competicion_id": "COMP236",
+    "tipo": "festival",
+    "equipo1": {
+      "del_id": "PEL031",
+      "zag_id": "PEL059"
+    },
+    "puntos1": 12,
+    "equipo2": {
+      "del_id": "PEL038",
+      "zag_id": "PEL006"
+    },
+    "puntos2": 22,
+    "ganador": "equipo2"
+  },
+  {
     "fecha": "2026-08-30",
     "fronton_id": "FRO050",
     "competicion_id": "COMP026",
