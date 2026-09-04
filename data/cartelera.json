@@ -1,5 +1,5 @@
 {
-  "actualizado": "03/09/2026 02:31",
+  "actualizado": "04/09/2026 02:27",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -104,7 +104,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "PEÑA II – LOZA // AMIANO – GABIRONDO (Serie B)",
+        "PEÑA II – GASKUE // AMIANO – GABIRONDO (Serie B)",
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ (Serie A)",
         "DIFERIDO",
         "DESDE",
@@ -118,13 +118,13 @@
         {
           "eq1": [
             "PEÑA II",
-            "LOZA"
+            "GASKUE"
           ],
           "eq2": [
             "AMIANO",
             "GABIRONDO"
           ],
-          "raw": "PEÑA II – LOZA // AMIANO – GABIRONDO (Serie B)",
+          "raw": "PEÑA II – GASKUE // AMIANO – GABIRONDO (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
