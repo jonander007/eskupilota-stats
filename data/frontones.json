@@ -139,7 +139,7 @@
     "id": "FRO018",
     "nombre": "ARITZBATALDE",
     "ciudad_id": "CIU142",
-    "partidos_count": 55,
+    "partidos_count": 57,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARITZBATALDE"
   },
@@ -331,7 +331,7 @@
     "id": "FRO039",
     "nombre": "BAZTAN",
     "ciudad_id": "CIU053",
-    "partidos_count": 58,
+    "partidos_count": 60,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BAZTAN"
   },
@@ -419,7 +419,7 @@
     "id": "FRO050",
     "nombre": "BERRIOZAR",
     "ciudad_id": "CIU032",
-    "partidos_count": 5,
+    "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERRIOZAR"
   },
@@ -465,7 +465,7 @@
     "id": "FRO055",
     "nombre": "BIZKAIA FRONTOIA",
     "ciudad_id": "CIU036",
-    "partidos_count": 181,
+    "partidos_count": 189,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BIZKAIA%20FRONTOIA"
   },
@@ -667,7 +667,7 @@
     "id": "FRO227",
     "nombre": "ERGIZAROTZ",
     "ciudad_id": "CIU157",
-    "partidos_count": 22
+    "partidos_count": 24
   },
   {
     "id": "FRO078",
@@ -823,7 +823,7 @@
     "id": "FRO096",
     "nombre": "GAUTEGIZ-ARTEAGA",
     "ciudad_id": "CIU068",
-    "partidos_count": 5,
+    "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GAUTEGIZ-ARTEAGA"
   },
@@ -967,13 +967,13 @@
     "id": "FRO228",
     "nombre": "IKASTOLA",
     "ciudad_id": "CIU052",
-    "partidos_count": 30
+    "partidos_count": 34
   },
   {
     "id": "FRO111",
     "nombre": "ILUNBERRI",
     "ciudad_id": "CIU078",
-    "partidos_count": 9,
+    "partidos_count": 11,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ILUNBERRI"
   },
@@ -1345,7 +1345,7 @@
     "id": "FRO229",
     "nombre": "NEPAS",
     "ciudad_id": "CIU158",
-    "partidos_count": 5
+    "partidos_count": 6
   },
   {
     "id": "FRO206",
