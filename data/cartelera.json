@@ -1,148 +1,7 @@
 {
-  "actualizado": "05/09/2026 02:28",
+  "actualizado": "06/09/2026 02:25",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "04/09/2026",
-      "hora": "19:00",
-      "fronton": "Zestoa",
-      "ciudad": "Zestoa",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "EGIGUREN V – UGARTEMENDIA // ALBERDI II – SALAVERRI II",
-        "ALTUNA III – REZUSTA // ARTOLA – ALBISU",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2964289/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "SALAVERRI II"
-          ],
-          "raw": "EGIGUREN V – UGARTEMENDIA // ALBERDI II – SALAVERRI II",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "ALBISU"
-          ],
-          "raw": "ALTUNA III – REZUSTA // ARTOLA – ALBISU",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "04/09/2026",
-      "hora": "19:30",
-      "fronton": "Santi Brouard",
-      "ciudad": "Lekeitio",
-      "fase": "6ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P.ETXEBERRIA – LANDA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-        "ELORDI – MARIEZKURRENA II // LASO – MARTIJA (Serie A)",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964465/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "BIKUÑA"
-          ],
-          "raw": "P.ETXEBERRIA – LANDA // ZUBIZARRETA IV – BIKUÑA (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "raw": "ELORDI – MARIEZKURRENA II // LASO – MARTIJA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "05/09/2026",
-      "hora": "17:15",
-      "fronton": "Santi Brouard",
-      "ciudad": "Lekeitio",
-      "fase": "6ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – GASKUE // AMIANO – GABIRONDO (Serie B)",
-        "EZKURDIA – ALBISU // ALTUNA III – IMAZ (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964466/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "GASKUE"
-          ],
-          "eq2": [
-            "AMIANO",
-            "GABIRONDO"
-          ],
-          "raw": "PEÑA II – GASKUE // AMIANO – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "06/09/2026",
       "hora": "12:00",
@@ -767,7 +626,7 @@
         "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
         "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
         "DESDE",
-        "20.00€"
+        "23.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -826,7 +685,7 @@
         "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
         "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
         "DESDE",
-        "20.00€"
+        "23.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -1213,7 +1072,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "XX – XX // XX – XX (Serie A)",
+        "ELORDI – MARIEZKURRENA II // XX – XX (Serie A)",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
         "20.00€"
@@ -1225,14 +1084,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "ELORDI",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
             "XX",
             "XX"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ELORDI – MARIEZKURRENA II // XX – XX (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -1304,17 +1163,17 @@
         "105",
         "-12",
         "Ezkurdia-Albisu",
-        "1",
-        "4",
-        "56",
-        "87",
-        "-31",
+        "2",
+        "5",
+        "78",
+        "101",
+        "-23",
         "Altuna III-Imaz",
         "1",
-        "5",
-        "67",
-        "106",
-        "-39",
+        "6",
+        "81",
+        "128",
+        "-47",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -1329,10 +1188,10 @@
         "19",
         "Amiano-Gabirondo",
         "4",
-        "5",
-        "98",
-        "89",
-        "9",
+        "6",
+        "109",
+        "11",
+        "-2",
         "Murua-Eskiroz",
         "3",
         "5",
@@ -1345,6 +1204,12 @@
         "108",
         "111",
         "-3",
+        "Peña II-Loza",
+        "2",
+        "6",
+        "118",
+        "113",
+        "5",
         "Zubizarreta IV-Bikuña",
         "2",
         "6",
@@ -1356,13 +1221,7 @@
         "6",
         "92",
         "117",
-        "-25",
-        "Peña II-Loza",
-        "1",
-        "5",
-        "96",
-        "102",
-        "-6"
+        "-25"
       ],
       "precio": null,
       "agotado": false,
