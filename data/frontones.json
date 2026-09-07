@@ -56,14 +56,6 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AIZPURUTXO"
   },
   {
-    "id": "FRO008",
-    "nombre": "ALSASUA",
-    "ciudad_id": "CIU006",
-    "partidos_count": 5,
-    "direccion": "",
-    "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ALSASUA"
-  },
-  {
     "id": "FRO009",
     "nombre": "AMASA-VILLABONA",
     "ciudad_id": "CIU007",
@@ -489,7 +481,7 @@
     "id": "FRO058",
     "nombre": "BURUNDA",
     "ciudad_id": "CIU006",
-    "partidos_count": 12,
+    "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BURUNDA"
   },
@@ -635,7 +627,7 @@
     "id": "FRO074",
     "nombre": "ELGOIBAR",
     "ciudad_id": "CIU052",
-    "partidos_count": 9,
+    "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELGOIBAR"
   },
@@ -1081,7 +1073,7 @@
     "id": "FRO123",
     "nombre": "LABASTIDA",
     "ciudad_id": "CIU083",
-    "partidos_count": 18,
+    "partidos_count": 17,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABASTIDA"
   },

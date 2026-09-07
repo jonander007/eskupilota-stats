@@ -54,7 +54,7 @@
     "fecha": "2026-09-06",
     "fronton_id": "FRO090",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -71,7 +71,7 @@
     "fecha": "2026-09-06",
     "fronton_id": "FRO090",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL010",
       "zag_id": "PEL012"
@@ -88,7 +88,7 @@
     "fecha": "2026-09-05",
     "fronton_id": "FRO170",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": "PEL035"
@@ -105,7 +105,7 @@
     "fecha": "2026-09-05",
     "fronton_id": "FRO170",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": "PEL008"
@@ -156,7 +156,7 @@
     "fecha": "2026-09-04",
     "fronton_id": "FRO170",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL007",
       "zag_id": "PEL054"
@@ -173,7 +173,7 @@
     "fecha": "2026-09-04",
     "fronton_id": "FRO170",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL014",
       "zag_id": "PEL011"
@@ -190,7 +190,7 @@
     "fecha": "2026-09-02",
     "fronton_id": "FRO096",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL031",
       "zag_id": "PEL022"
@@ -241,7 +241,7 @@
     "fecha": "2026-08-30",
     "fronton_id": "FRO111",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL010",
       "zag_id": "PEL012"
@@ -479,7 +479,7 @@
     "fecha": "2026-08-23",
     "fronton_id": "FRO018",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL047",
       "zag_id": "PEL037"
@@ -496,7 +496,7 @@
     "fecha": "2026-08-23",
     "fronton_id": "FRO018",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL025",
       "zag_id": "PEL017"
@@ -547,7 +547,7 @@
     "fecha": "2026-08-21",
     "fronton_id": "FRO039",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": "PEL051"
@@ -564,7 +564,7 @@
     "fecha": "2026-08-21",
     "fronton_id": "FRO039",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": "PEL008"
@@ -649,7 +649,7 @@
     "fecha": "2026-08-16",
     "fronton_id": "FRO018",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL031",
       "zag_id": "PEL022"
@@ -666,7 +666,7 @@
     "fecha": "2026-08-16",
     "fronton_id": "FRO018",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL010",
       "zag_id": "PEL012"
@@ -717,7 +717,7 @@
     "fecha": "2026-08-15",
     "fronton_id": "FRO099",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL038",
       "zag_id": "PEL006"
@@ -734,7 +734,7 @@
     "fecha": "2026-08-15",
     "fronton_id": "FRO099",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL009",
       "zag_id": "PEL013"
@@ -1057,7 +1057,7 @@
     "fecha": "2026-08-09",
     "fronton_id": "FRO123",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -1074,7 +1074,7 @@
     "fecha": "2026-08-09",
     "fronton_id": "FRO123",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL014",
       "zag_id": "PEL054"
@@ -1227,7 +1227,7 @@
     "fecha": "2026-08-04",
     "fronton_id": "FRO165",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": "PEL051"
@@ -1278,7 +1278,7 @@
     "fecha": "2026-08-04",
     "fronton_id": "FRO221",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": "PEL008"
@@ -1295,7 +1295,7 @@
     "fecha": "2026-08-02",
     "fronton_id": "FRO165",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -1312,7 +1312,7 @@
     "fecha": "2026-08-02",
     "fronton_id": "FRO165",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL007",
       "zag_id": "PEL016"
@@ -1363,7 +1363,7 @@
     "fecha": "2026-07-31",
     "fronton_id": "FRO141",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL007",
       "zag_id": "PEL054"
@@ -1380,7 +1380,7 @@
     "fecha": "2026-07-31",
     "fronton_id": "FRO141",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL009",
       "zag_id": "PEL013"
@@ -1465,7 +1465,7 @@
     "fecha": "2026-07-25",
     "fronton_id": "FRO218",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": "PEL008"
@@ -1499,7 +1499,7 @@
     "fecha": "2026-07-25",
     "fronton_id": "FRO039",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL009",
       "zag_id": "PEL013"
@@ -1516,7 +1516,7 @@
     "fecha": "2026-07-25",
     "fronton_id": "FRO059",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL007",
       "zag_id": "PEL054"
@@ -1533,7 +1533,7 @@
     "fecha": "2026-07-25",
     "fronton_id": "FRO219",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": "PEL051"
@@ -1550,7 +1550,7 @@
     "fecha": "2026-07-25",
     "fronton_id": "FRO084",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -1567,7 +1567,7 @@
     "fecha": "2026-07-24",
     "fronton_id": "FRO022",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": "PEL051"
@@ -1584,7 +1584,7 @@
     "fecha": "2026-07-24",
     "fronton_id": "FRO022",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL025",
       "zag_id": "PEL017"
@@ -1601,7 +1601,7 @@
     "fecha": "2026-07-24",
     "fronton_id": "FRO016",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL007",
       "zag_id": "PEL054"
@@ -1618,7 +1618,7 @@
     "fecha": "2026-07-24",
     "fronton_id": "FRO016",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -1652,7 +1652,7 @@
     "fecha": "2026-07-19",
     "fronton_id": "FRO215",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": "PEL030"
@@ -1669,7 +1669,7 @@
     "fecha": "2026-07-19",
     "fronton_id": "FRO215",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": "PEL008"
@@ -1686,7 +1686,7 @@
     "fecha": "2026-07-19",
     "fronton_id": "FRO216",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL038",
       "zag_id": "PEL006"
@@ -1703,7 +1703,7 @@
     "fecha": "2026-07-19",
     "fronton_id": "FRO216",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL014",
       "zag_id": "PEL011"
@@ -1771,7 +1771,7 @@
     "fecha": "2026-07-17",
     "fronton_id": "FRO190",
     "competicion_id": "COMP237",
-    "tipo": "festival",
+    "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL009",
       "zag_id": "PEL013"
@@ -1788,7 +1788,7 @@
     "fecha": "2026-07-16",
     "fronton_id": "FRO011",
     "competicion_id": "COMP236",
-    "tipo": "festival",
+    "tipo": "campeonato-b",
     "equipo1": {
       "del_id": "PEL047",
       "zag_id": "PEL037"
@@ -4014,7 +4014,7 @@
   {
     "fecha": "2026-04-12",
     "fronton_id": "FRO005",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -4031,7 +4031,7 @@
   {
     "fecha": "2026-04-12",
     "fronton_id": "FRO005",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL001",
@@ -4048,7 +4048,7 @@
   {
     "fecha": "2026-04-11",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL005",
@@ -4065,7 +4065,7 @@
   {
     "fecha": "2026-04-11",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL009",
@@ -4082,7 +4082,7 @@
   {
     "fecha": "2026-04-11",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL055",
@@ -4099,7 +4099,7 @@
   {
     "fecha": "2026-04-11",
     "fronton_id": "FRO199",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -4116,7 +4116,7 @@
   {
     "fecha": "2026-04-11",
     "fronton_id": "FRO199",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL026",
@@ -4133,7 +4133,7 @@
   {
     "fecha": "2026-04-10",
     "fronton_id": "FRO099",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL032",
@@ -4150,7 +4150,7 @@
   {
     "fecha": "2026-04-10",
     "fronton_id": "FRO099",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL010",
@@ -4167,7 +4167,7 @@
   {
     "fecha": "2026-04-10",
     "fronton_id": "FRO099",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL055",
@@ -4201,7 +4201,7 @@
   {
     "fecha": "2026-04-05",
     "fronton_id": "FRO165",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL004",
@@ -4218,7 +4218,7 @@
   {
     "fecha": "2026-04-05",
     "fronton_id": "FRO165",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL049",
@@ -4252,7 +4252,7 @@
   {
     "fecha": "2026-04-04",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL019",
@@ -4269,7 +4269,7 @@
   {
     "fecha": "2026-04-04",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -4303,7 +4303,7 @@
   {
     "fecha": "2026-04-04",
     "fronton_id": "FRO018",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL003",
@@ -4320,7 +4320,7 @@
   {
     "fecha": "2026-04-04",
     "fronton_id": "FRO018",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -4354,7 +4354,7 @@
   {
     "fecha": "2026-04-03",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL024",
@@ -4371,7 +4371,7 @@
   {
     "fecha": "2026-04-03",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -4388,7 +4388,7 @@
   {
     "fecha": "2026-03-29",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -4422,7 +4422,7 @@
   {
     "fecha": "2026-03-28",
     "fronton_id": "FRO200",
-    "competicion_id": "COMP205",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -4439,7 +4439,7 @@
   {
     "fecha": "2026-03-28",
     "fronton_id": "FRO141",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -4456,7 +4456,7 @@
   {
     "fecha": "2026-03-28",
     "fronton_id": "FRO141",
-    "competicion_id": "COMP151",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL003",
@@ -4473,7 +4473,7 @@
   {
     "fecha": "2026-03-27",
     "fronton_id": "FRO070",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -4490,7 +4490,7 @@
   {
     "fecha": "2026-03-22",
     "fronton_id": "FRO044",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -4541,7 +4541,7 @@
   {
     "fecha": "2026-03-21",
     "fronton_id": "FRO048",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -4575,7 +4575,7 @@
   {
     "fecha": "2026-03-19",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -4626,7 +4626,7 @@
   {
     "fecha": "2026-03-15",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -4643,7 +4643,7 @@
   {
     "fecha": "2026-03-15",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -4660,7 +4660,7 @@
   {
     "fecha": "2026-03-14",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -4677,7 +4677,7 @@
   {
     "fecha": "2026-03-14",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -4762,7 +4762,7 @@
   {
     "fecha": "2026-03-08",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -4830,7 +4830,7 @@
   {
     "fecha": "2026-03-07",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -4847,7 +4847,7 @@
   {
     "fecha": "2026-03-07",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -4864,7 +4864,7 @@
   {
     "fecha": "2026-03-07",
     "fronton_id": "FRO020",
-    "competicion_id": "COMP174",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -4915,7 +4915,7 @@
   {
     "fecha": "2026-03-01",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP161",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -4932,7 +4932,7 @@
   {
     "fecha": "2026-03-01",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP161",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -4966,7 +4966,7 @@
   {
     "fecha": "2026-02-28",
     "fronton_id": "FRO040",
-    "competicion_id": "COMP062",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -4983,7 +4983,7 @@
   {
     "fecha": "2026-02-28",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL047",
@@ -5000,7 +5000,7 @@
   {
     "fecha": "2026-02-28",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -5068,7 +5068,7 @@
   {
     "fecha": "2026-02-22",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -5102,7 +5102,7 @@
   {
     "fecha": "2026-02-21",
     "fronton_id": "FRO007",
-    "competicion_id": "COMP054",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -5153,7 +5153,7 @@
   {
     "fecha": "2026-02-19",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -5187,7 +5187,7 @@
   {
     "fecha": "2026-02-17",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -5238,7 +5238,7 @@
   {
     "fecha": "2026-02-16",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -5271,7 +5271,7 @@
   },
   {
     "fecha": "2026-02-15",
-    "fronton_id": "FRO008",
+    "fronton_id": "FRO058",
     "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
@@ -5408,7 +5408,7 @@
   {
     "fecha": "2026-02-08",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -5493,7 +5493,7 @@
   {
     "fecha": "2026-02-06",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP185",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -5748,7 +5748,7 @@
   {
     "fecha": "2026-01-25",
     "fronton_id": "FRO154",
-    "competicion_id": "COMP162",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -5782,7 +5782,7 @@
   {
     "fecha": "2026-01-25",
     "fronton_id": "FRO154",
-    "competicion_id": "COMP162",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -5833,7 +5833,7 @@
   {
     "fecha": "2026-01-23",
     "fronton_id": "FRO118",
-    "competicion_id": "COMP121",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -5952,7 +5952,7 @@
   {
     "fecha": "2026-01-17",
     "fronton_id": "FRO019",
-    "competicion_id": "COMP152",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -5969,7 +5969,7 @@
   {
     "fecha": "2026-01-17",
     "fronton_id": "FRO059",
-    "competicion_id": "COMP082",
+    "competicion_id": "COMP036",
     "tipo": "festival-cuatro",
     "equipo1": {
       "del_id": "PEL019",
@@ -6071,7 +6071,7 @@
   {
     "fecha": "2026-01-11",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -6224,7 +6224,7 @@
   {
     "fecha": "2026-01-06",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -6275,7 +6275,7 @@
   {
     "fecha": "2026-01-05",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -6428,7 +6428,7 @@
   {
     "fecha": "2026-01-01",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -6479,7 +6479,7 @@
   {
     "fecha": "2025-12-30",
     "fronton_id": "FRO007",
-    "competicion_id": "COMP054",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -6683,7 +6683,7 @@
   {
     "fecha": "2025-12-25",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -6734,7 +6734,7 @@
   {
     "fecha": "2025-12-22",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -6802,7 +6802,7 @@
   {
     "fecha": "2025-12-20",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -6938,7 +6938,7 @@
   {
     "fecha": "2025-12-13",
     "fronton_id": "FRO186",
-    "competicion_id": "COMP192",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -7057,7 +7057,7 @@
   {
     "fecha": "2025-12-08",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -7108,7 +7108,7 @@
   {
     "fecha": "2025-12-07",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -7227,7 +7227,7 @@
   {
     "fecha": "2025-11-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -7380,7 +7380,7 @@
   {
     "fecha": "2025-11-24",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -7482,7 +7482,7 @@
   {
     "fecha": "2025-11-21",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -7550,7 +7550,7 @@
   {
     "fecha": "2025-11-16",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP078",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -7584,7 +7584,7 @@
   {
     "fecha": "2025-11-14",
     "fronton_id": "FRO029",
-    "competicion_id": "COMP053",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -7601,7 +7601,7 @@
   {
     "fecha": "2025-11-14",
     "fronton_id": "FRO125",
-    "competicion_id": "COMP135",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -7618,7 +7618,7 @@
   {
     "fecha": "2025-11-14",
     "fronton_id": "FRO125",
-    "competicion_id": "COMP135",
+    "competicion_id": "COMP036",
     "tipo": "festival-cuatro",
     "equipo1": {
       "del_id": "PEL047",
@@ -7635,7 +7635,7 @@
   {
     "fecha": "2025-11-09",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -7669,7 +7669,7 @@
   {
     "fecha": "2025-11-08",
     "fronton_id": "FRO112",
-    "competicion_id": "COMP128",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -7703,7 +7703,7 @@
   {
     "fecha": "2025-11-03",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -7737,7 +7737,7 @@
   {
     "fecha": "2025-11-02",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -7754,7 +7754,7 @@
   {
     "fecha": "2025-11-02",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -7788,7 +7788,7 @@
   {
     "fecha": "2025-11-01",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -7805,7 +7805,7 @@
   {
     "fecha": "2025-11-01",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -7839,7 +7839,7 @@
   {
     "fecha": "2025-10-31",
     "fronton_id": "FRO065",
-    "competicion_id": "COMP088",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -7873,7 +7873,7 @@
   {
     "fecha": "2025-10-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -7924,7 +7924,7 @@
   {
     "fecha": "2025-10-25",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -7941,7 +7941,7 @@
   {
     "fecha": "2025-10-25",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP185",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -8043,7 +8043,7 @@
   {
     "fecha": "2025-10-19",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -8094,7 +8094,7 @@
   {
     "fecha": "2025-10-18",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -8111,7 +8111,7 @@
   {
     "fecha": "2025-10-18",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP040",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -8162,7 +8162,7 @@
   {
     "fecha": "2025-10-17",
     "fronton_id": "FRO191",
-    "competicion_id": "COMP196",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -8247,7 +8247,7 @@
   {
     "fecha": "2025-10-12",
     "fronton_id": "FRO133",
-    "competicion_id": "COMP142",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -8298,7 +8298,7 @@
   {
     "fecha": "2025-10-11",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -8315,7 +8315,7 @@
   {
     "fecha": "2025-10-11",
     "fronton_id": "FRO031",
-    "competicion_id": "COMP054",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -8366,7 +8366,7 @@
   {
     "fecha": "2025-10-10",
     "fronton_id": "FRO192",
-    "competicion_id": "COMP197",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -8451,7 +8451,7 @@
   {
     "fecha": "2025-10-05",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -8502,7 +8502,7 @@
   {
     "fecha": "2025-10-04",
     "fronton_id": "FRO176",
-    "competicion_id": "COMP183",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -8519,7 +8519,7 @@
   {
     "fecha": "2025-10-04",
     "fronton_id": "FRO194",
-    "competicion_id": "COMP203",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -8893,7 +8893,7 @@
   {
     "fecha": "2025-09-22",
     "fronton_id": "FRO056",
-    "competicion_id": "COMP079",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -8978,7 +8978,7 @@
   {
     "fecha": "2025-09-19",
     "fronton_id": "FRO112",
-    "competicion_id": "COMP128",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -8995,7 +8995,7 @@
   {
     "fecha": "2025-09-19",
     "fronton_id": "FRO112",
-    "competicion_id": "COMP128",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -9012,7 +9012,7 @@
   {
     "fecha": "2025-09-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -9029,7 +9029,7 @@
   {
     "fecha": "2025-09-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -9046,7 +9046,7 @@
   {
     "fecha": "2025-09-14",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP161",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -9063,7 +9063,7 @@
   {
     "fecha": "2025-09-13",
     "fronton_id": "FRO168",
-    "competicion_id": "COMP176",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9080,7 +9080,7 @@
   {
     "fecha": "2025-09-13",
     "fronton_id": "FRO190",
-    "competicion_id": "COMP195",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -9096,7 +9096,7 @@
   },
   {
     "fecha": "2025-09-13",
-    "fronton_id": "FRO008",
+    "fronton_id": "FRO058",
     "competicion_id": "COMP212",
     "tipo": "campeonato-b",
     "equipo1": {
@@ -9114,7 +9114,7 @@
   {
     "fecha": "2025-09-13",
     "fronton_id": "FRO071",
-    "competicion_id": "COMP095",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -9131,7 +9131,7 @@
   {
     "fecha": "2025-09-13",
     "fronton_id": "FRO190",
-    "competicion_id": "COMP195",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -9147,7 +9147,7 @@
   },
   {
     "fecha": "2025-09-13",
-    "fronton_id": "FRO008",
+    "fronton_id": "FRO058",
     "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
@@ -9199,7 +9199,7 @@
   {
     "fecha": "2025-09-11",
     "fronton_id": "FRO106",
-    "competicion_id": "COMP123",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -9216,7 +9216,7 @@
   {
     "fecha": "2025-09-11",
     "fronton_id": "FRO106",
-    "competicion_id": "COMP123",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9233,7 +9233,7 @@
   {
     "fecha": "2025-09-10",
     "fronton_id": "FRO158",
-    "competicion_id": "COMP165",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -9250,7 +9250,7 @@
   {
     "fecha": "2025-09-10",
     "fronton_id": "FRO158",
-    "competicion_id": "COMP165",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -9267,7 +9267,7 @@
   {
     "fecha": "2025-09-07",
     "fronton_id": "FRO045",
-    "competicion_id": "COMP064",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -9301,7 +9301,7 @@
   {
     "fecha": "2025-09-07",
     "fronton_id": "FRO045",
-    "competicion_id": "COMP064",
+    "competicion_id": "COMP036",
     "tipo": "festival-cuatro",
     "equipo1": {
       "del_id": "PEL019",
@@ -9386,7 +9386,7 @@
   {
     "fecha": "2025-09-05",
     "fronton_id": "FRO132",
-    "competicion_id": "COMP140",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -9454,7 +9454,7 @@
   {
     "fecha": "2025-08-30",
     "fronton_id": "FRO050",
-    "competicion_id": "COMP070",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -9539,7 +9539,7 @@
   {
     "fecha": "2025-08-29",
     "fronton_id": "FRO086",
-    "competicion_id": "COMP110",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -9556,7 +9556,7 @@
   {
     "fecha": "2025-08-29",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP099",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -9573,7 +9573,7 @@
   {
     "fecha": "2025-08-29",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP099",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9590,7 +9590,7 @@
   {
     "fecha": "2025-08-27",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9641,7 +9641,7 @@
   {
     "fecha": "2025-08-24",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -9658,7 +9658,7 @@
   {
     "fecha": "2025-08-24",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP099",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -9692,7 +9692,7 @@
   {
     "fecha": "2025-08-24",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP099",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -9743,7 +9743,7 @@
   {
     "fecha": "2025-08-23",
     "fronton_id": "FRO052",
-    "competicion_id": "COMP073",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9794,7 +9794,7 @@
   {
     "fecha": "2025-08-20",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP051",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -9845,7 +9845,7 @@
   {
     "fecha": "2025-08-19",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP051",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -9896,7 +9896,7 @@
   {
     "fecha": "2025-08-18",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP185",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -9913,7 +9913,7 @@
   {
     "fecha": "2025-08-18",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP185",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -9964,7 +9964,7 @@
   {
     "fecha": "2025-08-15",
     "fronton_id": "FRO057",
-    "competicion_id": "COMP081",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -9998,7 +9998,7 @@
   {
     "fecha": "2025-08-14",
     "fronton_id": "FRO142",
-    "competicion_id": "COMP148",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -10032,7 +10032,7 @@
   {
     "fecha": "2025-08-12",
     "fronton_id": "FRO012",
-    "competicion_id": "COMP041",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -10049,7 +10049,7 @@
   {
     "fecha": "2025-08-11",
     "fronton_id": "FRO063",
-    "competicion_id": "COMP084",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -10066,7 +10066,7 @@
   {
     "fecha": "2025-08-11",
     "fronton_id": "FRO063",
-    "competicion_id": "COMP084",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -10168,7 +10168,7 @@
   {
     "fecha": "2025-08-06",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -10219,7 +10219,7 @@
   {
     "fecha": "2025-08-05",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -10236,7 +10236,7 @@
   {
     "fecha": "2025-08-05",
     "fronton_id": "FRO135",
-    "competicion_id": "COMP105",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -10253,7 +10253,7 @@
   {
     "fecha": "2025-08-05",
     "fronton_id": "FRO135",
-    "competicion_id": "COMP105",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -10388,7 +10388,7 @@
   },
   {
     "fecha": "2025-08-01",
-    "fronton_id": "FRO008",
+    "fronton_id": "FRO058",
     "competicion_id": "COMP212",
     "tipo": "campeonato-b",
     "equipo1": {
@@ -10406,7 +10406,7 @@
   {
     "fecha": "2025-07-31",
     "fronton_id": "FRO007",
-    "competicion_id": "COMP056",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -10423,7 +10423,7 @@
   {
     "fecha": "2025-07-31",
     "fronton_id": "FRO007",
-    "competicion_id": "COMP056",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -10474,7 +10474,7 @@
   {
     "fecha": "2025-07-27",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP124",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -10508,7 +10508,7 @@
   {
     "fecha": "2025-07-26",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP124",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -10542,7 +10542,7 @@
   {
     "fecha": "2025-07-25",
     "fronton_id": "FRO084",
-    "competicion_id": "COMP108",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -10644,7 +10644,7 @@
   {
     "fecha": "2025-07-19",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -10661,7 +10661,7 @@
   {
     "fecha": "2025-07-19",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -10729,7 +10729,7 @@
   {
     "fecha": "2025-07-16",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP040",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -10746,7 +10746,7 @@
   {
     "fecha": "2025-07-16",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP040",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -10848,7 +10848,7 @@
   {
     "fecha": "2025-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -10899,7 +10899,7 @@
   {
     "fecha": "2025-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -10950,7 +10950,7 @@
   {
     "fecha": "2025-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -11001,7 +11001,7 @@
   {
     "fecha": "2025-07-10",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -11052,7 +11052,7 @@
   {
     "fecha": "2025-07-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -11137,7 +11137,7 @@
   {
     "fecha": "2025-07-07",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP161",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -11154,7 +11154,7 @@
   {
     "fecha": "2025-07-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -11188,7 +11188,7 @@
   {
     "fecha": "2025-07-06",
     "fronton_id": "FRO073",
-    "competicion_id": "COMP097",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11205,7 +11205,7 @@
   {
     "fecha": "2025-07-06",
     "fronton_id": "FRO073",
-    "competicion_id": "COMP097",
+    "competicion_id": "COMP036",
     "tipo": "festival-cuatro",
     "equipo1": {
       "del_id": "PEL015",
@@ -11239,7 +11239,7 @@
   {
     "fecha": "2025-07-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -11290,7 +11290,7 @@
   {
     "fecha": "2025-07-05",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -11358,7 +11358,7 @@
   {
     "fecha": "2025-06-29",
     "fronton_id": "FRO015",
-    "competicion_id": "COMP044",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -11375,7 +11375,7 @@
   {
     "fecha": "2025-06-29",
     "fronton_id": "FRO147",
-    "competicion_id": "COMP154",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -11392,7 +11392,7 @@
   {
     "fecha": "2025-06-29",
     "fronton_id": "FRO015",
-    "competicion_id": "COMP044",
+    "competicion_id": "COMP036",
     "tipo": "festival-cuatro",
     "equipo1": {
       "del_id": "PEL015",
@@ -11426,7 +11426,7 @@
   {
     "fecha": "2025-06-28",
     "fronton_id": "FRO175",
-    "competicion_id": "COMP181",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -11443,7 +11443,7 @@
   {
     "fecha": "2025-06-28",
     "fronton_id": "FRO108",
-    "competicion_id": "COMP126",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11477,7 +11477,7 @@
   {
     "fecha": "2025-06-27",
     "fronton_id": "FRO097",
-    "competicion_id": "COMP120",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11511,7 +11511,7 @@
   {
     "fecha": "2025-06-25",
     "fronton_id": "FRO103",
-    "competicion_id": "COMP122",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -11528,7 +11528,7 @@
   {
     "fecha": "2025-06-24",
     "fronton_id": "FRO173",
-    "competicion_id": "COMP179",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -11545,7 +11545,7 @@
   {
     "fecha": "2025-06-24",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -11579,7 +11579,7 @@
   {
     "fecha": "2025-06-24",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -11630,7 +11630,7 @@
   {
     "fecha": "2025-06-22",
     "fronton_id": "FRO193",
-    "competicion_id": "COMP201",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -11681,7 +11681,7 @@
   {
     "fecha": "2025-06-21",
     "fronton_id": "FRO150",
-    "competicion_id": "COMP159",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11698,7 +11698,7 @@
   {
     "fecha": "2025-06-21",
     "fronton_id": "FRO035",
-    "competicion_id": "COMP059",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -11732,7 +11732,7 @@
   {
     "fecha": "2025-06-20",
     "fronton_id": "FRO185",
-    "competicion_id": "COMP190",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -11783,7 +11783,7 @@
   {
     "fecha": "2025-06-15",
     "fronton_id": "FRO080",
-    "competicion_id": "COMP104",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -11800,7 +11800,7 @@
   {
     "fecha": "2025-06-13",
     "fronton_id": "FRO095",
-    "competicion_id": "COMP115",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11817,7 +11817,7 @@
   {
     "fecha": "2025-06-01",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP078",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -11851,7 +11851,7 @@
   {
     "fecha": "2025-05-25",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -11885,7 +11885,7 @@
   {
     "fecha": "2025-05-24",
     "fronton_id": "FRO023",
-    "competicion_id": "COMP050",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11902,7 +11902,7 @@
   {
     "fecha": "2025-05-24",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -11936,7 +11936,7 @@
   {
     "fecha": "2025-05-18",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -11953,7 +11953,7 @@
   {
     "fecha": "2025-05-18",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -11987,7 +11987,7 @@
   {
     "fecha": "2025-05-17",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -12004,7 +12004,7 @@
   {
     "fecha": "2025-05-17",
     "fronton_id": "FRO031",
-    "competicion_id": "COMP054",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -12038,7 +12038,7 @@
   {
     "fecha": "2025-05-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -12055,7 +12055,7 @@
   {
     "fecha": "2025-05-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP069",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -12106,7 +12106,7 @@
   {
     "fecha": "2025-05-11",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -12157,7 +12157,7 @@
   {
     "fecha": "2025-05-10",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -12191,7 +12191,7 @@
   {
     "fecha": "2025-05-04",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -12225,7 +12225,7 @@
   {
     "fecha": "2025-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP138",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -12242,7 +12242,7 @@
   {
     "fecha": "2025-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP138",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -12259,7 +12259,7 @@
   {
     "fecha": "2025-05-03",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -12293,7 +12293,7 @@
   {
     "fecha": "2025-05-01",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -12344,7 +12344,7 @@
   {
     "fecha": "2025-04-27",
     "fronton_id": "FRO201",
-    "competicion_id": "COMP206",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -12378,7 +12378,7 @@
   {
     "fecha": "2025-04-26",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -12463,7 +12463,7 @@
   {
     "fecha": "2025-04-21",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -12497,7 +12497,7 @@
   {
     "fecha": "2025-04-20",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -12531,7 +12531,7 @@
   {
     "fecha": "2025-04-19",
     "fronton_id": "FRO132",
-    "competicion_id": "COMP140",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -12582,7 +12582,7 @@
   {
     "fecha": "2025-04-18",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP131",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -12633,7 +12633,7 @@
   {
     "fecha": "2025-04-13",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL026",
@@ -12684,7 +12684,7 @@
   {
     "fecha": "2025-04-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -12735,7 +12735,7 @@
   {
     "fecha": "2025-04-11",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -12786,7 +12786,7 @@
   {
     "fecha": "2025-04-06",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -12837,7 +12837,7 @@
   {
     "fecha": "2025-04-05",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -12854,7 +12854,7 @@
   {
     "fecha": "2025-04-05",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -13041,7 +13041,7 @@
   {
     "fecha": "2025-03-23",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -13092,7 +13092,7 @@
   {
     "fecha": "2025-03-22",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -13126,7 +13126,7 @@
   {
     "fecha": "2025-03-16",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -13160,7 +13160,7 @@
   {
     "fecha": "2025-03-15",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -13177,7 +13177,7 @@
   {
     "fecha": "2025-03-09",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -13211,7 +13211,7 @@
   {
     "fecha": "2025-03-08",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -13228,7 +13228,7 @@
   {
     "fecha": "2025-03-04",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -13245,7 +13245,7 @@
   {
     "fecha": "2025-03-04",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -13262,7 +13262,7 @@
   {
     "fecha": "2025-03-03",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -13279,7 +13279,7 @@
   {
     "fecha": "2025-03-03",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -13313,7 +13313,7 @@
   {
     "fecha": "2025-03-02",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -13347,7 +13347,7 @@
   {
     "fecha": "2025-03-01",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -13381,7 +13381,7 @@
   {
     "fecha": "2025-02-23",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -13415,7 +13415,7 @@
   {
     "fecha": "2025-02-23",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -13500,7 +13500,7 @@
   {
     "fecha": "2025-02-20",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -13517,7 +13517,7 @@
   {
     "fecha": "2025-02-16",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -13619,7 +13619,7 @@
   {
     "fecha": "2025-02-15",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -13653,7 +13653,7 @@
   {
     "fecha": "2025-02-09",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -13908,7 +13908,7 @@
   {
     "fecha": "2025-01-26",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -13942,7 +13942,7 @@
   {
     "fecha": "2025-01-26",
     "fronton_id": "FRO096",
-    "competicion_id": "COMP118",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -14180,7 +14180,7 @@
   {
     "fecha": "2025-01-12",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -14299,7 +14299,7 @@
   {
     "fecha": "2025-01-06",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -14469,7 +14469,7 @@
   {
     "fecha": "2025-01-01",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -14588,7 +14588,7 @@
   {
     "fecha": "2024-12-29",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP117",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -14792,7 +14792,7 @@
   {
     "fecha": "2024-12-25",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -14877,7 +14877,7 @@
   {
     "fecha": "2024-12-22",
     "fronton_id": "FRO021",
-    "competicion_id": "COMP047",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -15115,7 +15115,7 @@
   {
     "fecha": "2024-12-13",
     "fronton_id": "FRO186",
-    "competicion_id": "COMP192",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -15166,7 +15166,7 @@
   {
     "fecha": "2024-12-09",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP187",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -15183,7 +15183,7 @@
   {
     "fecha": "2024-12-08",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP089",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -15336,7 +15336,7 @@
   {
     "fecha": "2024-11-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -15455,7 +15455,7 @@
   {
     "fecha": "2024-11-24",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -15472,7 +15472,7 @@
   {
     "fecha": "2024-11-23",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -15489,7 +15489,7 @@
   {
     "fecha": "2024-11-23",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -15523,7 +15523,7 @@
   {
     "fecha": "2024-11-17",
     "fronton_id": "FRO202",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -15557,7 +15557,7 @@
   {
     "fecha": "2024-11-16",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -15574,7 +15574,7 @@
   {
     "fecha": "2024-11-16",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -15591,7 +15591,7 @@
   {
     "fecha": "2024-11-15",
     "fronton_id": "FRO125",
-    "competicion_id": "COMP135",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -15659,7 +15659,7 @@
   {
     "fecha": "2024-11-15",
     "fronton_id": "FRO030",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -15676,7 +15676,7 @@
   {
     "fecha": "2024-11-10",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP092",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -15693,7 +15693,7 @@
   {
     "fecha": "2024-11-10",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL009",
@@ -15710,7 +15710,7 @@
   {
     "fecha": "2024-11-10",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -15727,7 +15727,7 @@
   {
     "fecha": "2024-11-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -15744,7 +15744,7 @@
   {
     "fecha": "2024-11-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL001",
@@ -15761,7 +15761,7 @@
   {
     "fecha": "2024-11-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -15778,7 +15778,7 @@
   {
     "fecha": "2024-11-08",
     "fronton_id": "FRO130",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL033",
@@ -15795,7 +15795,7 @@
   {
     "fecha": "2024-11-08",
     "fronton_id": "FRO130",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL019",
@@ -15880,7 +15880,7 @@
   {
     "fecha": "2024-11-08",
     "fronton_id": "FRO090",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -15897,7 +15897,7 @@
   {
     "fecha": "2024-11-03",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL009",
@@ -15914,7 +15914,7 @@
   {
     "fecha": "2024-11-03",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL019",
@@ -15931,7 +15931,7 @@
   {
     "fecha": "2024-11-03",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -15948,7 +15948,7 @@
   {
     "fecha": "2024-11-02",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL014",
@@ -16033,7 +16033,7 @@
   {
     "fecha": "2024-11-02",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -16050,7 +16050,7 @@
   {
     "fecha": "2024-11-01",
     "fronton_id": "FRO051",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL006",
@@ -16067,7 +16067,7 @@
   {
     "fecha": "2024-11-01",
     "fronton_id": "FRO051",
-    "competicion_id": "COMP071",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -16152,7 +16152,7 @@
   {
     "fecha": "2024-11-01",
     "fronton_id": "FRO181",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -16169,7 +16169,7 @@
   {
     "fecha": "2024-10-27",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL009",
@@ -16186,7 +16186,7 @@
   {
     "fecha": "2024-10-27",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -16203,7 +16203,7 @@
   {
     "fecha": "2024-10-27",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -16220,7 +16220,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -16237,7 +16237,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL025",
@@ -16254,7 +16254,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL014",
@@ -16271,7 +16271,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL005",
@@ -16288,7 +16288,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL006",
@@ -16305,7 +16305,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL019",
@@ -16356,7 +16356,7 @@
   {
     "fecha": "2024-10-26",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -16373,7 +16373,7 @@
   {
     "fecha": "2024-10-25",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL010",
@@ -16458,7 +16458,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -16475,7 +16475,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL025",
@@ -16492,7 +16492,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL009",
@@ -16509,7 +16509,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL019",
@@ -16526,7 +16526,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL002",
@@ -16543,7 +16543,7 @@
   {
     "fecha": "2024-10-20",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -16560,7 +16560,7 @@
   {
     "fecha": "2024-10-19",
     "fronton_id": "FRO176",
-    "competicion_id": "COMP183",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -16577,7 +16577,7 @@
   {
     "fecha": "2024-10-19",
     "fronton_id": "FRO176",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL001",
@@ -16594,7 +16594,7 @@
   {
     "fecha": "2024-10-19",
     "fronton_id": "FRO176",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL005",
@@ -16679,7 +16679,7 @@
   {
     "fecha": "2024-10-14",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL002",
@@ -16696,7 +16696,7 @@
   {
     "fecha": "2024-10-14",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL014",
@@ -16713,7 +16713,7 @@
   {
     "fecha": "2024-10-14",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -16730,7 +16730,7 @@
   {
     "fecha": "2024-10-13",
     "fronton_id": "FRO133",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL004",
@@ -16747,7 +16747,7 @@
   {
     "fecha": "2024-10-13",
     "fronton_id": "FRO119",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -16764,7 +16764,7 @@
   {
     "fecha": "2024-10-12",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -16781,7 +16781,7 @@
   {
     "fecha": "2024-10-12",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL025",
@@ -16798,7 +16798,7 @@
   {
     "fecha": "2024-10-12",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL006",
@@ -16815,7 +16815,7 @@
   {
     "fecha": "2024-10-11",
     "fronton_id": "FRO014",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL028",
@@ -16832,7 +16832,7 @@
   {
     "fecha": "2024-10-11",
     "fronton_id": "FRO014",
-    "competicion_id": "COMP009",
+    "competicion_id": "COMP003",
     "tipo": "cuatro-medio-b",
     "equipo1": {
       "del_id": "PEL046",
@@ -16883,7 +16883,7 @@
   {
     "fecha": "2024-10-06",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -16917,7 +16917,7 @@
   {
     "fecha": "2024-10-05",
     "fronton_id": "FRO087",
-    "competicion_id": "COMP008",
+    "competicion_id": "COMP001",
     "tipo": "cuatro-medio-a",
     "equipo1": {
       "del_id": "PEL024",
@@ -17036,7 +17036,7 @@
   {
     "fecha": "2024-10-05",
     "fronton_id": "FRO146",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17053,7 +17053,7 @@
   {
     "fecha": "2024-09-29",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -17070,7 +17070,7 @@
   {
     "fecha": "2024-09-29",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17172,7 +17172,7 @@
   {
     "fecha": "2024-09-27",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -17189,7 +17189,7 @@
   {
     "fecha": "2024-09-26",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17223,7 +17223,7 @@
   {
     "fecha": "2024-09-26",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -17240,7 +17240,7 @@
   {
     "fecha": "2024-09-25",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -17274,7 +17274,7 @@
   {
     "fecha": "2024-09-25",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -17291,7 +17291,7 @@
   {
     "fecha": "2024-09-24",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -17325,7 +17325,7 @@
   {
     "fecha": "2024-09-24",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -17342,7 +17342,7 @@
   {
     "fecha": "2024-09-23",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -17376,7 +17376,7 @@
   {
     "fecha": "2024-09-23",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -17393,7 +17393,7 @@
   {
     "fecha": "2024-09-22",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -17427,7 +17427,7 @@
   {
     "fecha": "2024-09-22",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17444,7 +17444,7 @@
   {
     "fecha": "2024-09-21",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP144",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -17478,7 +17478,7 @@
   {
     "fecha": "2024-09-21",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17495,7 +17495,7 @@
   {
     "fecha": "2024-09-21",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17529,7 +17529,7 @@
   {
     "fecha": "2024-09-20",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -17546,7 +17546,7 @@
   {
     "fecha": "2024-09-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP067",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -17563,7 +17563,7 @@
   {
     "fecha": "2024-09-16",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -17580,7 +17580,7 @@
   {
     "fecha": "2024-09-16",
     "fronton_id": "FRO056",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17596,7 +17596,7 @@
   },
   {
     "fecha": "2024-09-15",
-    "fronton_id": "FRO008",
+    "fronton_id": "FRO058",
     "competicion_id": "COMP210",
     "tipo": "campeonato-a",
     "equipo1": {
@@ -17614,7 +17614,7 @@
   {
     "fecha": "2024-09-15",
     "fronton_id": "FRO058",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -17629,26 +17629,9 @@
     "ganador": "equipo2"
   },
   {
-    "fecha": "2024-09-15",
-    "fronton_id": "FRO058",
-    "competicion_id": "COMP024",
-    "tipo": "campeonato-a",
-    "equipo1": {
-      "del_id": "PEL001",
-      "zag_id": "PEL017"
-    },
-    "puntos1": 17,
-    "equipo2": {
-      "del_id": "PEL001",
-      "zag_id": "PEL018"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
     "fecha": "2024-09-14",
     "fronton_id": "FRO190",
-    "competicion_id": "COMP195",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -17665,7 +17648,7 @@
   {
     "fecha": "2024-09-14",
     "fronton_id": "FRO158",
-    "competicion_id": "COMP165",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -17699,7 +17682,7 @@
   {
     "fecha": "2024-09-14",
     "fronton_id": "FRO168",
-    "competicion_id": "COMP176",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17716,7 +17699,7 @@
   {
     "fecha": "2024-09-14",
     "fronton_id": "FRO013",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -17733,7 +17716,7 @@
   {
     "fecha": "2024-09-14",
     "fronton_id": "FRO190",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17750,7 +17733,7 @@
   {
     "fecha": "2024-09-13",
     "fronton_id": "FRO094",
-    "competicion_id": "COMP113",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -17767,7 +17750,7 @@
   {
     "fecha": "2024-09-11",
     "fronton_id": "FRO105",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17784,7 +17767,7 @@
   {
     "fecha": "2024-09-11",
     "fronton_id": "FRO105",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -17801,7 +17784,7 @@
   {
     "fecha": "2024-09-08",
     "fronton_id": "FRO181",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -17835,7 +17818,7 @@
   {
     "fecha": "2024-09-08",
     "fronton_id": "FRO091",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -17852,7 +17835,7 @@
   {
     "fecha": "2024-09-07",
     "fronton_id": "FRO132",
-    "competicion_id": "COMP140",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -17886,7 +17869,7 @@
   {
     "fecha": "2024-09-07",
     "fronton_id": "FRO036",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17903,7 +17886,7 @@
   {
     "fecha": "2024-09-06",
     "fronton_id": "FRO100",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -17937,7 +17920,7 @@
   {
     "fecha": "2024-09-05",
     "fronton_id": "FRO132",
-    "competicion_id": "COMP140",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -17971,7 +17954,7 @@
   {
     "fecha": "2024-09-04",
     "fronton_id": "FRO159",
-    "competicion_id": "COMP166",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -18005,7 +17988,7 @@
   {
     "fecha": "2024-09-02",
     "fronton_id": "FRO096",
-    "competicion_id": "COMP118",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -18022,7 +18005,7 @@
   {
     "fecha": "2024-09-01",
     "fronton_id": "FRO061",
-    "competicion_id": "COMP083",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -18039,7 +18022,7 @@
   {
     "fecha": "2024-09-01",
     "fronton_id": "FRO072",
-    "competicion_id": "COMP096",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -18090,7 +18073,7 @@
   {
     "fecha": "2024-09-01",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -18107,7 +18090,7 @@
   {
     "fecha": "2024-08-31",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -18141,7 +18124,7 @@
   {
     "fecha": "2024-08-31",
     "fronton_id": "FRO166",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -18158,7 +18141,7 @@
   {
     "fecha": "2024-08-30",
     "fronton_id": "FRO164",
-    "competicion_id": "COMP175",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -18175,7 +18158,7 @@
   {
     "fecha": "2024-08-30",
     "fronton_id": "FRO111",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -18192,7 +18175,7 @@
   {
     "fecha": "2024-08-30",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -18243,7 +18226,7 @@
   {
     "fecha": "2024-08-28",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -18277,7 +18260,7 @@
   {
     "fecha": "2024-08-27",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -18294,7 +18277,7 @@
   {
     "fecha": "2024-08-27",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -18311,7 +18294,7 @@
   {
     "fecha": "2024-08-26",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP099",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -18328,7 +18311,7 @@
   {
     "fecha": "2024-08-26",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -18344,25 +18327,8 @@
   },
   {
     "fecha": "2024-08-26",
-    "fronton_id": "FRO074",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL001",
-      "zag_id": "PEL008"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "del_id": "PEL003",
-      "zag_id": "PEL008"
-    },
-    "puntos2": 20,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-08-26",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -18379,7 +18345,7 @@
   {
     "fecha": "2024-08-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -18413,7 +18379,7 @@
   {
     "fecha": "2024-08-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -18430,7 +18396,7 @@
   {
     "fecha": "2024-08-23",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -18464,7 +18430,7 @@
   {
     "fecha": "2024-08-23",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -18481,7 +18447,7 @@
   {
     "fecha": "2024-08-22",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -18498,7 +18464,7 @@
   {
     "fecha": "2024-08-22",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -18549,7 +18515,7 @@
   {
     "fecha": "2024-08-16",
     "fronton_id": "FRO017",
-    "competicion_id": "COMP045",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -18566,7 +18532,7 @@
   {
     "fecha": "2024-08-13",
     "fronton_id": "FRO131",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -18583,7 +18549,7 @@
   {
     "fecha": "2024-08-11",
     "fronton_id": "FRO012",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -18600,7 +18566,7 @@
   {
     "fecha": "2024-08-11",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -18634,7 +18600,7 @@
   {
     "fecha": "2024-08-10",
     "fronton_id": "FRO063",
-    "competicion_id": "COMP084",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -18668,7 +18634,7 @@
   {
     "fecha": "2024-08-09",
     "fronton_id": "FRO139",
-    "competicion_id": "COMP146",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -18702,7 +18668,7 @@
   {
     "fecha": "2024-08-08",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -18736,7 +18702,7 @@
   {
     "fecha": "2024-08-08",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -18753,7 +18719,7 @@
   {
     "fecha": "2024-08-06",
     "fronton_id": "FRO135",
-    "competicion_id": "COMP105",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -18770,7 +18736,7 @@
   {
     "fecha": "2024-08-06",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -18804,7 +18770,7 @@
   {
     "fecha": "2024-08-06",
     "fronton_id": "FRO165",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -18821,7 +18787,7 @@
   {
     "fecha": "2024-08-06",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -18855,7 +18821,7 @@
   {
     "fecha": "2024-08-05",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -18872,7 +18838,7 @@
   {
     "fecha": "2024-08-04",
     "fronton_id": "FRO047",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -18906,7 +18872,7 @@
   {
     "fecha": "2024-08-03",
     "fronton_id": "FRO087",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -18923,7 +18889,7 @@
   {
     "fecha": "2024-08-03",
     "fronton_id": "FRO087",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -18940,7 +18906,7 @@
   {
     "fecha": "2024-08-02",
     "fronton_id": "FRO052",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -18974,7 +18940,7 @@
   {
     "fecha": "2024-08-01",
     "fronton_id": "FRO099",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -18991,7 +18957,7 @@
   {
     "fecha": "2024-07-31",
     "fronton_id": "FRO053",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19008,7 +18974,7 @@
   {
     "fecha": "2024-07-31",
     "fronton_id": "FRO053",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -19025,7 +18991,7 @@
   {
     "fecha": "2024-07-31",
     "fronton_id": "FRO099",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -19042,7 +19008,7 @@
   {
     "fecha": "2024-07-28",
     "fronton_id": "FRO127",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -19076,7 +19042,7 @@
   {
     "fecha": "2024-07-27",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -19093,7 +19059,7 @@
   {
     "fecha": "2024-07-26",
     "fronton_id": "FRO027",
-    "competicion_id": "COMP052",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19127,7 +19093,7 @@
   {
     "fecha": "2024-07-25",
     "fronton_id": "FRO084",
-    "competicion_id": "COMP108",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -19144,7 +19110,7 @@
   {
     "fecha": "2024-07-25",
     "fronton_id": "FRO075",
-    "competicion_id": "COMP101",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -19161,7 +19127,7 @@
   {
     "fecha": "2024-07-25",
     "fronton_id": "FRO078",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -19195,7 +19161,7 @@
   {
     "fecha": "2024-07-25",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -19229,7 +19195,7 @@
   {
     "fecha": "2024-07-21",
     "fronton_id": "FRO162",
-    "competicion_id": "COMP168",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19280,7 +19246,7 @@
   {
     "fecha": "2024-07-21",
     "fronton_id": "FRO093",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -19314,7 +19280,7 @@
   {
     "fecha": "2024-07-20",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP067",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -19331,7 +19297,7 @@
   {
     "fecha": "2024-07-20",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -19348,7 +19314,7 @@
   {
     "fecha": "2024-07-20",
     "fronton_id": "FRO024",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -19365,7 +19331,7 @@
   {
     "fecha": "2024-07-19",
     "fronton_id": "FRO016",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -19399,7 +19365,7 @@
   {
     "fecha": "2024-07-16",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP040",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19416,7 +19382,7 @@
   {
     "fecha": "2024-07-16",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -19433,7 +19399,7 @@
   {
     "fecha": "2024-07-14",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -19467,7 +19433,7 @@
   {
     "fecha": "2024-07-13",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19535,7 +19501,7 @@
   {
     "fecha": "2024-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -19569,7 +19535,7 @@
   {
     "fecha": "2024-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -19603,7 +19569,7 @@
   {
     "fecha": "2024-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -19620,7 +19586,7 @@
   {
     "fecha": "2024-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -19654,7 +19620,7 @@
   {
     "fecha": "2024-07-10",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -19671,7 +19637,7 @@
   {
     "fecha": "2024-07-10",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -19705,7 +19671,7 @@
   {
     "fecha": "2024-07-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -19722,7 +19688,7 @@
   {
     "fecha": "2024-07-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -19739,7 +19705,7 @@
   {
     "fecha": "2024-07-08",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -19773,7 +19739,7 @@
   {
     "fecha": "2024-07-08",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -19790,7 +19756,7 @@
   {
     "fecha": "2024-07-07",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -19807,7 +19773,7 @@
   {
     "fecha": "2024-07-07",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -19824,7 +19790,7 @@
   {
     "fecha": "2024-07-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -19858,7 +19824,7 @@
   {
     "fecha": "2024-07-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -19875,7 +19841,7 @@
   {
     "fecha": "2024-07-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -19892,7 +19858,7 @@
   {
     "fecha": "2024-07-05",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP134",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -19909,7 +19875,7 @@
   {
     "fecha": "2024-07-01",
     "fronton_id": "FRO112",
-    "competicion_id": "COMP128",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -19926,7 +19892,7 @@
   {
     "fecha": "2024-07-01",
     "fronton_id": "FRO182",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -19943,7 +19909,7 @@
   {
     "fecha": "2024-06-29",
     "fronton_id": "FRO156",
-    "competicion_id": "COMP164",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -19960,7 +19926,7 @@
   {
     "fecha": "2024-06-29",
     "fronton_id": "FRO156",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -19977,7 +19943,7 @@
   {
     "fecha": "2024-06-29",
     "fronton_id": "FRO085",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -20011,7 +19977,7 @@
   {
     "fecha": "2024-06-28",
     "fronton_id": "FRO174",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -20079,7 +20045,7 @@
   {
     "fecha": "2024-06-22",
     "fronton_id": "FRO185",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -20096,7 +20062,7 @@
   {
     "fecha": "2024-06-22",
     "fronton_id": "FRO157",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -20113,7 +20079,7 @@
   {
     "fecha": "2024-06-22",
     "fronton_id": "FRO101",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -20130,7 +20096,7 @@
   {
     "fecha": "2024-06-22",
     "fronton_id": "FRO066",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -20198,7 +20164,7 @@
   {
     "fecha": "2024-06-21",
     "fronton_id": "FRO181",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -20215,7 +20181,7 @@
   {
     "fecha": "2024-06-16",
     "fronton_id": "FRO060",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -20232,7 +20198,7 @@
   {
     "fecha": "2024-06-16",
     "fronton_id": "FRO060",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -20249,7 +20215,7 @@
   {
     "fecha": "2024-06-13",
     "fronton_id": "FRO095",
-    "competicion_id": "COMP115",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -20266,7 +20232,7 @@
   {
     "fecha": "2024-06-08",
     "fronton_id": "FRO108",
-    "competicion_id": "COMP126",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -20300,7 +20266,7 @@
   {
     "fecha": "2024-06-02",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -20334,7 +20300,7 @@
   {
     "fecha": "2024-05-26",
     "fronton_id": "FRO174",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -20351,7 +20317,7 @@
   {
     "fecha": "2024-05-26",
     "fronton_id": "FRO174",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -20385,7 +20351,7 @@
   {
     "fecha": "2024-05-25",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -20402,7 +20368,7 @@
   {
     "fecha": "2024-05-25",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -20436,7 +20402,7 @@
   {
     "fecha": "2024-05-19",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -20453,7 +20419,7 @@
   {
     "fecha": "2024-05-19",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -20487,7 +20453,7 @@
   {
     "fecha": "2024-05-18",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -20504,7 +20470,7 @@
   {
     "fecha": "2024-05-18",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -20521,7 +20487,7 @@
   {
     "fecha": "2024-05-17",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP067",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -20589,7 +20555,7 @@
   {
     "fecha": "2024-05-17",
     "fronton_id": "FRO012",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -20623,7 +20589,7 @@
   {
     "fecha": "2024-05-12",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -20640,7 +20606,7 @@
   {
     "fecha": "2024-05-12",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -20657,7 +20623,7 @@
   {
     "fecha": "2024-05-11",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP040",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -20691,7 +20657,7 @@
   {
     "fecha": "2024-05-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -20725,7 +20691,7 @@
   {
     "fecha": "2024-05-10",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -20742,7 +20708,7 @@
   {
     "fecha": "2024-05-05",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP074",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -20776,7 +20742,7 @@
   {
     "fecha": "2024-05-05",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -20810,7 +20776,7 @@
   {
     "fecha": "2024-05-04",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -20827,7 +20793,7 @@
   {
     "fecha": "2024-05-04",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -20844,7 +20810,7 @@
   {
     "fecha": "2024-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP138",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -20861,7 +20827,7 @@
   {
     "fecha": "2024-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP138",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -20912,7 +20878,7 @@
   {
     "fecha": "2024-05-01",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -20963,7 +20929,7 @@
   {
     "fecha": "2024-04-28",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -21014,7 +20980,7 @@
   {
     "fecha": "2024-04-27",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -21099,7 +21065,7 @@
   {
     "fecha": "2024-04-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -21201,7 +21167,7 @@
   {
     "fecha": "2024-04-13",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -21320,7 +21286,7 @@
   {
     "fecha": "2024-04-07",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -21337,7 +21303,7 @@
   {
     "fecha": "2024-04-07",
     "fronton_id": "FRO005",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -21388,7 +21354,7 @@
   {
     "fecha": "2024-04-06",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -21405,7 +21371,7 @@
   {
     "fecha": "2024-04-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -21456,7 +21422,7 @@
   {
     "fecha": "2024-03-31",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -21507,7 +21473,7 @@
   {
     "fecha": "2024-03-30",
     "fronton_id": "FRO170",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -21524,7 +21490,7 @@
   {
     "fecha": "2024-03-30",
     "fronton_id": "FRO132",
-    "competicion_id": "COMP141",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -21558,24 +21524,7 @@
   {
     "fecha": "2024-03-29",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL025",
-      "zag_id": "PEL006"
-    },
-    "puntos1": 16,
-    "equipo2": {
-      "del_id": "PEL015",
-      "zag_id": "PEL006"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-03-29",
-    "fronton_id": "FRO123",
-    "competicion_id": "COMP133",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -21643,7 +21592,7 @@
   {
     "fecha": "2024-03-23",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP171",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -21660,7 +21609,7 @@
   {
     "fecha": "2024-03-17",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -21711,7 +21660,7 @@
   {
     "fecha": "2024-03-16",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -21779,7 +21728,7 @@
   {
     "fecha": "2024-03-10",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -21813,7 +21762,7 @@
   {
     "fecha": "2024-03-10",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP077",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -21830,7 +21779,7 @@
   {
     "fecha": "2024-03-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -21898,7 +21847,7 @@
   {
     "fecha": "2024-03-03",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -21932,7 +21881,7 @@
   {
     "fecha": "2024-03-03",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP200",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -21949,7 +21898,7 @@
   {
     "fecha": "2024-03-02",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -22017,7 +21966,7 @@
   {
     "fecha": "2024-02-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -22051,7 +22000,7 @@
   {
     "fecha": "2024-02-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP077",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -22119,7 +22068,7 @@
   {
     "fecha": "2024-02-23",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -22136,7 +22085,7 @@
   {
     "fecha": "2024-02-22",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -22170,7 +22119,7 @@
   {
     "fecha": "2024-02-22",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -22221,7 +22170,7 @@
   {
     "fecha": "2024-02-18",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -22340,7 +22289,7 @@
   {
     "fecha": "2024-02-13",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP150",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL019",
@@ -22391,7 +22340,7 @@
   {
     "fecha": "2024-02-12",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP150",
+    "competicion_id": "COMP036",
     "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL034",
@@ -22442,7 +22391,7 @@
   {
     "fecha": "2024-02-10",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -22629,7 +22578,7 @@
   {
     "fecha": "2024-01-28",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -22748,7 +22697,7 @@
   {
     "fecha": "2024-01-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -22816,7 +22765,7 @@
   {
     "fecha": "2024-01-18",
     "fronton_id": "FRO180",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -22867,7 +22816,7 @@
   {
     "fecha": "2024-01-14",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -22884,7 +22833,7 @@
   {
     "fecha": "2024-01-13",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -22901,7 +22850,7 @@
   {
     "fecha": "2024-01-13",
     "fronton_id": "FRO144",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -22918,7 +22867,7 @@
   {
     "fecha": "2024-01-13",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -22952,7 +22901,7 @@
   {
     "fecha": "2024-01-12",
     "fronton_id": "FRO167",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -22969,7 +22918,7 @@
   {
     "fecha": "2024-01-12",
     "fronton_id": "FRO167",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -22986,7 +22935,7 @@
   {
     "fecha": "2024-01-07",
     "fronton_id": "FRO083",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -23003,7 +22952,7 @@
   {
     "fecha": "2024-01-07",
     "fronton_id": "FRO083",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -23020,7 +22969,7 @@
   {
     "fecha": "2024-01-06",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -23054,7 +23003,7 @@
   {
     "fecha": "2024-01-06",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -23071,7 +23020,7 @@
   {
     "fecha": "2024-01-05",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -23088,7 +23037,7 @@
   {
     "fecha": "2024-01-05",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -23122,7 +23071,7 @@
   {
     "fecha": "2024-01-01",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP173",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -23156,7 +23105,7 @@
   {
     "fecha": "2023-12-30",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -23173,7 +23122,7 @@
   {
     "fecha": "2023-12-30",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -23190,7 +23139,7 @@
   {
     "fecha": "2023-12-30",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -23207,7 +23156,7 @@
   {
     "fecha": "2023-12-30",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -23224,7 +23173,7 @@
   {
     "fecha": "2023-12-29",
     "fronton_id": "FRO174",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -23241,7 +23190,7 @@
   {
     "fecha": "2023-12-29",
     "fronton_id": "FRO174",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -23258,7 +23207,7 @@
   {
     "fecha": "2023-12-28",
     "fronton_id": "FRO030",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -23275,7 +23224,7 @@
   {
     "fecha": "2023-12-28",
     "fronton_id": "FRO030",
-    "competicion_id": "COMP172",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -23394,7 +23343,7 @@
   {
     "fecha": "2023-12-25",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -23513,7 +23462,7 @@
   {
     "fecha": "2023-12-22",
     "fronton_id": "FRO181",
-    "competicion_id": "COMP049",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -23547,7 +23496,7 @@
   {
     "fecha": "2023-12-17",
     "fronton_id": "FRO115",
-    "competicion_id": "COMP129",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -23632,7 +23581,7 @@
   {
     "fecha": "2023-12-16",
     "fronton_id": "FRO037",
-    "competicion_id": "COMP061",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -23649,7 +23598,7 @@
   {
     "fecha": "2023-12-16",
     "fronton_id": "FRO037",
-    "competicion_id": "COMP061",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -23717,7 +23666,7 @@
   {
     "fecha": "2023-12-13",
     "fronton_id": "FRO186",
-    "competicion_id": "COMP193",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -23819,7 +23768,7 @@
   {
     "fecha": "2023-12-08",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP090",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -23921,7 +23870,7 @@
   {
     "fecha": "2023-12-02",
     "fronton_id": "FRO135",
-    "competicion_id": "COMP106",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -23938,7 +23887,7 @@
   {
     "fecha": "2023-12-02",
     "fronton_id": "FRO135",
-    "competicion_id": "COMP106",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -23989,7 +23938,7 @@
   {
     "fecha": "2023-11-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -24006,7 +23955,7 @@
   {
     "fecha": "2023-11-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -24023,7 +23972,7 @@
   {
     "fecha": "2023-11-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -24159,7 +24108,7 @@
   {
     "fecha": "2023-11-19",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -24176,7 +24125,7 @@
   {
     "fecha": "2023-11-17",
     "fronton_id": "FRO125",
-    "competicion_id": "COMP137",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -24193,7 +24142,7 @@
   {
     "fecha": "2023-11-12",
     "fronton_id": "FRO044",
-    "competicion_id": "COMP208",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -24210,7 +24159,7 @@
   {
     "fecha": "2023-11-11",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -24244,7 +24193,7 @@
   {
     "fecha": "2023-11-11",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -24278,7 +24227,7 @@
   {
     "fecha": "2023-11-05",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL042",
@@ -24295,7 +24244,7 @@
   {
     "fecha": "2023-11-04",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -24312,7 +24261,7 @@
   {
     "fecha": "2023-11-04",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -24363,7 +24312,7 @@
   {
     "fecha": "2023-11-03",
     "fronton_id": "FRO009",
-    "competicion_id": "COMP038",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL014",
@@ -24380,7 +24329,7 @@
   {
     "fecha": "2023-11-01",
     "fronton_id": "FRO051",
-    "competicion_id": "COMP072",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -24431,7 +24380,7 @@
   {
     "fecha": "2023-10-29",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -24448,7 +24397,7 @@
   {
     "fecha": "2023-10-29",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -24465,7 +24414,7 @@
   {
     "fecha": "2023-10-28",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP068",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -24499,7 +24448,7 @@
   {
     "fecha": "2023-10-22",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -24516,7 +24465,7 @@
   {
     "fecha": "2023-10-22",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -24550,7 +24499,7 @@
   {
     "fecha": "2023-10-21",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP186",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -24584,7 +24533,7 @@
   {
     "fecha": "2023-10-21",
     "fronton_id": "FRO054",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -24635,7 +24584,7 @@
   {
     "fecha": "2023-10-20",
     "fronton_id": "FRO058",
-    "competicion_id": "COMP037",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -24686,7 +24635,7 @@
   {
     "fecha": "2023-10-15",
     "fronton_id": "FRO133",
-    "competicion_id": "COMP143",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -24737,7 +24686,7 @@
   {
     "fecha": "2023-10-14",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -24788,7 +24737,7 @@
   {
     "fecha": "2023-10-12",
     "fronton_id": "FRO176",
-    "competicion_id": "COMP184",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -24941,7 +24890,7 @@
   {
     "fecha": "2023-10-01",
     "fronton_id": "FRO152",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25009,7 +24958,7 @@
   {
     "fecha": "2023-09-24",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25043,7 +24992,7 @@
   {
     "fecha": "2023-09-24",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25060,7 +25009,7 @@
   {
     "fecha": "2023-09-23",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25077,7 +25026,7 @@
   {
     "fecha": "2023-09-23",
     "fronton_id": "FRO116",
-    "competicion_id": "COMP130",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25145,7 +25094,7 @@
   {
     "fecha": "2023-09-22",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -25196,7 +25145,7 @@
   {
     "fecha": "2023-09-21",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25213,7 +25162,7 @@
   {
     "fecha": "2023-09-20",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -25230,7 +25179,7 @@
   {
     "fecha": "2023-09-20",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25281,7 +25230,7 @@
   {
     "fecha": "2023-09-19",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -25298,7 +25247,7 @@
   {
     "fecha": "2023-09-19",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL039",
@@ -25315,7 +25264,7 @@
   {
     "fecha": "2023-09-18",
     "fronton_id": "FRO056",
-    "competicion_id": "COMP080",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25332,7 +25281,7 @@
   {
     "fecha": "2023-09-17",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -25349,7 +25298,7 @@
   {
     "fecha": "2023-09-17",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -25383,7 +25332,7 @@
   {
     "fecha": "2023-09-16",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP145",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25417,7 +25366,7 @@
   {
     "fecha": "2023-08-31",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP090",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25451,7 +25400,7 @@
   {
     "fecha": "2023-08-30",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP090",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -25468,7 +25417,7 @@
   {
     "fecha": "2023-08-30",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP090",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25502,7 +25451,7 @@
   {
     "fecha": "2023-08-27",
     "fronton_id": "FRO145",
-    "competicion_id": "COMP153",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -25519,7 +25468,7 @@
   {
     "fecha": "2023-08-27",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -25536,7 +25485,7 @@
   {
     "fecha": "2023-08-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -25553,7 +25502,7 @@
   {
     "fecha": "2023-08-25",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP100",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25587,7 +25536,7 @@
   {
     "fecha": "2023-08-25",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25604,7 +25553,7 @@
   {
     "fecha": "2023-08-25",
     "fronton_id": "FRO074",
-    "competicion_id": "COMP100",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -25638,7 +25587,7 @@
   {
     "fecha": "2023-08-24",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25655,7 +25604,7 @@
   {
     "fecha": "2023-08-20",
     "fronton_id": "FRO187",
-    "competicion_id": "COMP194",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -25689,7 +25638,7 @@
   {
     "fecha": "2023-08-20",
     "fronton_id": "FRO195",
-    "competicion_id": "COMP204",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -25706,7 +25655,7 @@
   {
     "fecha": "2023-08-20",
     "fronton_id": "FRO172",
-    "competicion_id": "COMP178",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25740,7 +25689,7 @@
   {
     "fecha": "2023-08-17",
     "fronton_id": "FRO178",
-    "competicion_id": "COMP186",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25757,7 +25706,7 @@
   {
     "fecha": "2023-08-16",
     "fronton_id": "FRO017",
-    "competicion_id": "COMP046",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -25774,7 +25723,7 @@
   {
     "fecha": "2023-08-16",
     "fronton_id": "FRO017",
-    "competicion_id": "COMP046",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -25791,7 +25740,7 @@
   {
     "fecha": "2023-08-15",
     "fronton_id": "FRO031",
-    "competicion_id": "COMP055",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -25825,7 +25774,7 @@
   {
     "fecha": "2023-08-13",
     "fronton_id": "FRO014",
-    "competicion_id": "COMP043",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -25842,7 +25791,7 @@
   {
     "fecha": "2023-08-13",
     "fronton_id": "FRO123",
-    "competicion_id": "COMP132",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -25876,7 +25825,7 @@
   {
     "fecha": "2023-08-12",
     "fronton_id": "FRO012",
-    "competicion_id": "COMP042",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -25893,7 +25842,7 @@
   {
     "fecha": "2023-08-12",
     "fronton_id": "FRO063",
-    "competicion_id": "COMP085",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -25910,7 +25859,7 @@
   {
     "fecha": "2023-08-11",
     "fronton_id": "FRO139",
-    "competicion_id": "COMP147",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -25927,7 +25876,7 @@
   {
     "fecha": "2023-08-11",
     "fronton_id": "FRO063",
-    "competicion_id": "COMP085",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -25961,7 +25910,7 @@
   {
     "fecha": "2023-08-08",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -26012,7 +25961,7 @@
   {
     "fecha": "2023-08-06",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -26029,7 +25978,7 @@
   {
     "fecha": "2023-08-05",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -26063,7 +26012,7 @@
   {
     "fecha": "2023-08-04",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -26080,7 +26029,7 @@
   {
     "fecha": "2023-07-30",
     "fronton_id": "FRO133",
-    "competicion_id": "COMP143",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -26097,7 +26046,7 @@
   {
     "fecha": "2023-07-30",
     "fronton_id": "FRO082",
-    "competicion_id": "COMP107",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -26131,7 +26080,7 @@
   {
     "fecha": "2023-07-30",
     "fronton_id": "FRO082",
-    "competicion_id": "COMP107",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -26148,7 +26097,7 @@
   {
     "fecha": "2023-07-29",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP125",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -26165,7 +26114,7 @@
   {
     "fecha": "2023-07-28",
     "fronton_id": "FRO154",
-    "competicion_id": "COMP163",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -26182,7 +26131,7 @@
   {
     "fecha": "2023-07-27",
     "fronton_id": "FRO107",
-    "competicion_id": "COMP125",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -26199,7 +26148,7 @@
   {
     "fecha": "2023-07-25",
     "fronton_id": "FRO075",
-    "competicion_id": "COMP102",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -26216,7 +26165,7 @@
   {
     "fecha": "2023-07-25",
     "fronton_id": "FRO084",
-    "competicion_id": "COMP109",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -26250,7 +26199,7 @@
   {
     "fecha": "2023-07-23",
     "fronton_id": "FRO033",
-    "competicion_id": "COMP058",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -26301,7 +26250,7 @@
   {
     "fecha": "2023-07-21",
     "fronton_id": "FRO185",
-    "competicion_id": "COMP191",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -26318,7 +26267,7 @@
   {
     "fecha": "2023-07-16",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP039",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -26335,7 +26284,7 @@
   {
     "fecha": "2023-07-16",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP039",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -26403,7 +26352,7 @@
   {
     "fecha": "2023-07-14",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -26471,7 +26420,7 @@
   {
     "fecha": "2023-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -26488,7 +26437,7 @@
   {
     "fecha": "2023-07-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -26522,7 +26471,7 @@
   {
     "fecha": "2023-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL046",
@@ -26539,7 +26488,7 @@
   {
     "fecha": "2023-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -26556,7 +26505,7 @@
   {
     "fecha": "2023-07-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -26590,7 +26539,7 @@
   {
     "fecha": "2023-07-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -26607,7 +26556,7 @@
   {
     "fecha": "2023-07-09",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -26658,7 +26607,7 @@
   {
     "fecha": "2023-07-08",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -26692,7 +26641,7 @@
   {
     "fecha": "2023-07-07",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -26743,7 +26692,7 @@
   {
     "fecha": "2023-07-02",
     "fronton_id": "FRO073",
-    "competicion_id": "COMP098",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -26760,7 +26709,7 @@
   {
     "fecha": "2023-07-02",
     "fronton_id": "FRO175",
-    "competicion_id": "COMP182",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -26777,7 +26726,7 @@
   {
     "fecha": "2023-06-30",
     "fronton_id": "FRO079",
-    "competicion_id": "COMP103",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -26811,7 +26760,7 @@
   {
     "fecha": "2023-06-30",
     "fronton_id": "FRO193",
-    "competicion_id": "COMP202",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -26828,7 +26777,7 @@
   {
     "fecha": "2023-06-29",
     "fronton_id": "FRO147",
-    "competicion_id": "COMP155",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -26879,7 +26828,7 @@
   {
     "fecha": "2023-06-24",
     "fronton_id": "FRO150",
-    "competicion_id": "COMP160",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -26930,7 +26879,7 @@
   {
     "fecha": "2023-06-24",
     "fronton_id": "FRO173",
-    "competicion_id": "COMP180",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -26964,7 +26913,7 @@
   {
     "fecha": "2023-06-23",
     "fronton_id": "FRO035",
-    "competicion_id": "COMP060",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -27032,7 +26981,7 @@
   {
     "fecha": "2023-06-17",
     "fronton_id": "FRO108",
-    "competicion_id": "COMP127",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -27202,7 +27151,7 @@
   {
     "fecha": "2023-06-13",
     "fronton_id": "FRO095",
-    "competicion_id": "COMP116",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -27219,7 +27168,7 @@
   {
     "fecha": "2023-06-04",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -27270,7 +27219,7 @@
   {
     "fecha": "2023-06-03",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -27304,7 +27253,7 @@
   {
     "fecha": "2023-06-02",
     "fronton_id": "FRO148",
-    "competicion_id": "COMP157",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -27321,7 +27270,7 @@
   {
     "fecha": "2023-05-30",
     "fronton_id": "FRO048",
-    "competicion_id": "COMP066",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -27338,7 +27287,7 @@
   {
     "fecha": "2023-05-30",
     "fronton_id": "FRO048",
-    "competicion_id": "COMP066",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -27355,7 +27304,7 @@
   {
     "fecha": "2023-05-27",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -27406,7 +27355,7 @@
   {
     "fecha": "2023-05-21",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -27423,7 +27372,7 @@
   {
     "fecha": "2023-05-21",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -27474,7 +27423,7 @@
   {
     "fecha": "2023-05-20",
     "fronton_id": "FRO184",
-    "competicion_id": "COMP167",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -27491,7 +27440,7 @@
   {
     "fecha": "2023-05-20",
     "fronton_id": "FRO184",
-    "competicion_id": "COMP167",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -27508,7 +27457,7 @@
   {
     "fecha": "2023-05-20",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -27559,7 +27508,7 @@
   {
     "fecha": "2023-05-19",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP068",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -27576,7 +27525,7 @@
   {
     "fecha": "2023-05-19",
     "fronton_id": "FRO058",
-    "competicion_id": "COMP037",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -27593,7 +27542,7 @@
   {
     "fecha": "2023-05-19",
     "fronton_id": "FRO049",
-    "competicion_id": "COMP068",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -27610,7 +27559,7 @@
   {
     "fecha": "2023-05-14",
     "fronton_id": "FRO093",
-    "competicion_id": "COMP112",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -27627,7 +27576,7 @@
   {
     "fecha": "2023-05-13",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -27644,7 +27593,7 @@
   {
     "fecha": "2023-05-13",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -27678,7 +27627,7 @@
   {
     "fecha": "2023-05-12",
     "fronton_id": "FRO171",
-    "competicion_id": "COMP177",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -27695,7 +27644,7 @@
   {
     "fecha": "2023-05-12",
     "fronton_id": "FRO171",
-    "competicion_id": "COMP177",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -27712,7 +27661,7 @@
   {
     "fecha": "2023-05-12",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL019",
@@ -27814,7 +27763,7 @@
   {
     "fecha": "2023-05-06",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -27848,7 +27797,7 @@
   {
     "fecha": "2023-05-05",
     "fronton_id": "FRO032",
-    "competicion_id": "COMP057",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -27865,7 +27814,7 @@
   {
     "fecha": "2023-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP139",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -27882,7 +27831,7 @@
   {
     "fecha": "2023-05-03",
     "fronton_id": "FRO129",
-    "competicion_id": "COMP139",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -27916,7 +27865,7 @@
   {
     "fecha": "2023-04-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL004",
@@ -27933,7 +27882,7 @@
   {
     "fecha": "2023-04-30",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -27967,7 +27916,7 @@
   {
     "fecha": "2023-04-29",
     "fronton_id": "FRO040",
-    "competicion_id": "COMP063",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -27984,7 +27933,7 @@
   {
     "fecha": "2023-04-29",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
@@ -28069,7 +28018,7 @@
   {
     "fecha": "2023-04-23",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -28103,7 +28052,7 @@
   {
     "fecha": "2023-04-23",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL021",
@@ -28137,7 +28086,7 @@
   {
     "fecha": "2023-04-22",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -28154,7 +28103,7 @@
   {
     "fecha": "2023-04-21",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -28188,7 +28137,7 @@
   {
     "fecha": "2023-04-17",
     "fronton_id": "FRO201",
-    "competicion_id": "COMP207",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -28256,7 +28205,7 @@
   {
     "fecha": "2023-04-15",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -28307,7 +28256,7 @@
   {
     "fecha": "2023-04-15",
     "fronton_id": "FRO031",
-    "competicion_id": "COMP055",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL009",
@@ -28358,7 +28307,7 @@
   {
     "fecha": "2023-04-10",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -28392,7 +28341,7 @@
   {
     "fecha": "2023-04-09",
     "fronton_id": "FRO087",
-    "competicion_id": "COMP111",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -28460,7 +28409,7 @@
   {
     "fecha": "2023-03-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL033",
@@ -28477,7 +28426,7 @@
   {
     "fecha": "2023-03-26",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -28545,7 +28494,7 @@
   {
     "fecha": "2023-03-25",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -28579,7 +28528,7 @@
   {
     "fecha": "2023-03-24",
     "fronton_id": "FRO070",
-    "competicion_id": "COMP094",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -28613,7 +28562,7 @@
   {
     "fecha": "2023-03-19",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -28630,7 +28579,7 @@
   {
     "fecha": "2023-03-19",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
@@ -28681,7 +28630,7 @@
   {
     "fecha": "2023-03-18",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -28749,7 +28698,7 @@
   {
     "fecha": "2023-03-12",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -28766,7 +28715,7 @@
   {
     "fecha": "2023-03-12",
     "fronton_id": "FRO153",
-    "competicion_id": "COMP199",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL044",
@@ -28800,7 +28749,7 @@
   {
     "fecha": "2023-03-11",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP170",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -28851,7 +28800,7 @@
   {
     "fecha": "2023-03-05",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL015",
@@ -28868,7 +28817,7 @@
   {
     "fecha": "2023-03-05",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP076",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -28919,7 +28868,7 @@
   {
     "fecha": "2023-03-04",
     "fronton_id": "FRO149",
-    "competicion_id": "COMP158",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL001",
@@ -28953,7 +28902,7 @@
   {
     "fecha": "2023-03-04",
     "fronton_id": "FRO201",
-    "competicion_id": "COMP207",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -28970,7 +28919,7 @@
   {
     "fecha": "2023-03-04",
     "fronton_id": "FRO011",
-    "competicion_id": "COMP039",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -29021,7 +28970,7 @@
   {
     "fecha": "2023-02-26",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -29191,7 +29140,7 @@
   {
     "fecha": "2023-02-20",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -29208,7 +29157,7 @@
   {
     "fecha": "2023-02-20",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP189",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
@@ -29327,7 +29276,7 @@
   {
     "fecha": "2023-01-29",
     "fronton_id": "FRO096",
-    "competicion_id": "COMP119",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL005",
@@ -29344,7 +29293,7 @@
   {
     "fecha": "2023-01-29",
     "fronton_id": "FRO067",
-    "competicion_id": "COMP091",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -29548,7 +29497,7 @@
   {
     "fecha": "2023-01-18",
     "fronton_id": "FRO147",
-    "competicion_id": "COMP155",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL056",
@@ -29718,7 +29667,7 @@
   {
     "fecha": "2023-01-08",
     "fronton_id": "FRO028",
-    "competicion_id": "COMP090",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL056",
@@ -29871,7 +29820,7 @@
   {
     "fecha": "2023-01-06",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -29922,7 +29871,7 @@
   {
     "fecha": "2023-01-01",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -29956,7 +29905,7 @@
   {
     "fecha": "2023-01-01",
     "fronton_id": "FRO026",
-    "competicion_id": "COMP093",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -30024,7 +29973,7 @@
   {
     "fecha": "2022-12-30",
     "fronton_id": "FRO192",
-    "competicion_id": "COMP198",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
@@ -30041,7 +29990,7 @@
   {
     "fecha": "2022-12-26",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP188",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -30109,7 +30058,7 @@
   {
     "fecha": "2022-12-23",
     "fronton_id": "FRO148",
-    "competicion_id": "COMP156",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL002",
@@ -30143,7 +30092,7 @@
   {
     "fecha": "2022-12-22",
     "fronton_id": "FRO181",
-    "competicion_id": "COMP048",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL050",
@@ -30432,7 +30381,7 @@
   {
     "fecha": "2022-12-08",
     "fronton_id": "FRO048",
-    "competicion_id": "COMP065",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL024",
@@ -30551,7 +30500,7 @@
   {
     "fecha": "2022-12-04",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP075",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -30721,7 +30670,7 @@
   {
     "fecha": "2022-11-26",
     "fronton_id": "FRO094",
-    "competicion_id": "COMP114",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -30789,7 +30738,7 @@
   {
     "fecha": "2022-11-20",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP075",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL028",
@@ -30823,7 +30772,7 @@
   {
     "fecha": "2022-11-18",
     "fronton_id": "FRO125",
-    "competicion_id": "COMP136",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL010",
@@ -30840,7 +30789,7 @@
   {
     "fecha": "2022-11-13",
     "fronton_id": "FRO142",
-    "competicion_id": "COMP149",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL045",
@@ -30874,7 +30823,7 @@
   {
     "fecha": "2022-11-12",
     "fronton_id": "FRO124",
-    "competicion_id": "COMP169",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL025",
@@ -30908,7 +30857,7 @@
   {
     "fecha": "2022-11-11",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP188",
+    "competicion_id": "COMP036",
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL003",
