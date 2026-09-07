@@ -1,129 +1,7 @@
 {
-  "actualizado": "06/09/2026 02:25",
+  "actualizado": "07/09/2026 02:22",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "06/09/2026",
-      "hora": "12:00",
-      "fronton": "Cizur Menor",
-      "ciudad": "Cizur Menor",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SENAR – SALAVERRI II // APEZETXEA II – ALDABE",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "SENAR – SALAVERRI II // APEZETXEA II – ALDABE",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "06/09/2026",
-      "hora": "17:15",
-      "fronton": "Fernando Garaita",
-      "ciudad": "Legutio",
-      "fase": "6ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
-        "ARTOLA – REZUSTA // ZABALA – IZTUETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964504/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "raw": "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ZABALA",
-            "IZTUETA"
-          ],
-          "raw": "ARTOLA – REZUSTA // ZABALA – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "06/09/2026",
-      "hora": "18:00",
-      "fronton": "Frontón Municipal Belorado",
-      "ciudad": "Frontón Municipal Belorado",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA // ZUBIZARRETA III (4 1/2)",
-        "DARÍO – MARTIJA // PEÑA II – ALBISU",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2964507/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III (4 1/2)"
-          ],
-          "raw": "BAKAIKOA // ZUBIZARRETA III (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "ALBISU"
-          ],
-          "raw": "DARÍO – MARTIJA // PEÑA II – ALBISU",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "09/09/2026",
       "hora": "17:30",
@@ -179,7 +57,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "AMIANO – GABIRONDO // XX -XX SEMIFINAL (Serie B)",
+        "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO SEMIFINAL (Serie B)",
         "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
         "DESDE",
         "20.00€"
@@ -191,14 +69,14 @@
       "partidos": [
         {
           "eq1": [
-            "AMIANO",
-            "GABIRONDO"
+            "P. ETXEBERRIA",
+            "LANDA"
           ],
           "eq2": [
-            "XX",
-            "XX SEMIFINAL"
+            "AMIANO",
+            "GABIRONDO SEMIFINAL"
           ],
-          "raw": "AMIANO – GABIRONDO // XX -XX SEMIFINAL (Serie B)",
+          "raw": "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO SEMIFINAL (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -304,7 +182,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "XX – XX // XX – XX (Serie B)",
+        "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
         "DARÍO – LOZA // PEÑA II – ESKIROZ",
         "DESDE",
         "25.00€"
@@ -316,14 +194,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "JAKA",
+            "ESKUZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "MURUA",
+            "ESKIROZ"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -1139,17 +1017,17 @@
         "64",
         "43",
         "Zabala-Iztueta",
-        "3",
         "4",
-        "86",
-        "56",
-        "30",
+        "5",
+        "108",
+        "71",
+        "37",
         "Artola-Rezusta",
         "3",
-        "4",
-        "86",
-        "76",
-        "10",
+        "5",
+        "101",
+        "98",
+        "3",
         "Larrazabal-Zabaleta",
         "2",
         "5",
@@ -1180,24 +1058,24 @@
         "TF",
         "TC",
         "CO",
-        "Jaka-Eskuza",
-        "4",
-        "5",
-        "109",
-        "90",
-        "19",
         "Amiano-Gabirondo",
         "4",
         "6",
         "109",
-        "11",
+        "111",
         "-2",
         "Murua-Eskiroz",
-        "3",
-        "5",
-        "100",
-        "75",
-        "25",
+        "4",
+        "6",
+        "122",
+        "95",
+        "27",
+        "Jaka-Eskuza",
+        "4",
+        "6",
+        "129",
+        "112",
+        "17",
         "P.Etxeberria-Landa",
         "3",
         "6",
