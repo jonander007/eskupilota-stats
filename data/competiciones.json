@@ -177,7 +177,7 @@
     "id": "COMP029",
     "nombre": "Campeonato Parejas Serie B 2024",
     "tipo": "campeonato-b",
-    "partidos_count": 24
+    "partidos_count": 23
   },
   {
     "id": "COMP030",
@@ -1041,7 +1041,7 @@
     "id": "COMP173",
     "nombre": "Festival Parejas 2024",
     "tipo": "festival",
-    "partidos_count": 178
+    "partidos_count": 166
   },
   {
     "id": "COMP174",

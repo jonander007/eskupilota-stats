@@ -11,7 +11,7 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
-    "partidos_count": 93,
+    "partidos_count": 92,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
   },
@@ -131,7 +131,7 @@
     "id": "FRO017",
     "nombre": "ARETXABALETA",
     "ciudad_id": "CIU013",
-    "partidos_count": 4,
+    "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARETXABALETA"
   },
@@ -331,7 +331,7 @@
     "id": "FRO039",
     "nombre": "BAZTAN",
     "ciudad_id": "CIU053",
-    "partidos_count": 8,
+    "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BAZTAN"
   },
@@ -387,7 +387,7 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
-    "partidos_count": 118,
+    "partidos_count": 117,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
   },
@@ -465,7 +465,7 @@
     "id": "FRO055",
     "nombre": "BIZKAIA FRONTOIA",
     "ciudad_id": "CIU036",
-    "partidos_count": 129,
+    "partidos_count": 127,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BIZKAIA%20FRONTOIA"
   },
@@ -535,7 +535,7 @@
     "id": "FRO063",
     "nombre": "COVALEDA",
     "ciudad_id": "CIU042",
-    "partidos_count": 8,
+    "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20COVALEDA"
   },
@@ -589,7 +589,7 @@
     "id": "FRO069",
     "nombre": "EL CIEGO",
     "ciudad_id": "CIU047",
-    "partidos_count": 2,
+    "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20EL%20CIEGO"
   },
@@ -1073,7 +1073,7 @@
     "id": "FRO122",
     "nombre": "LA JUVENTUD",
     "ciudad_id": "CIU126",
-    "partidos_count": 3,
+    "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LA%20JUVENTUD"
   },
@@ -1089,7 +1089,7 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
-    "partidos_count": 255,
+    "partidos_count": 251,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
   },

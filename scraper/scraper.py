@@ -19,6 +19,7 @@ Requisitos:
 """
 
 from __future__ import annotations
+import difflib
 import json
 from collections import Counter
 import os
@@ -41,6 +42,7 @@ PELOTARIS_FILE     = os.path.join(DATA_DIR, 'pelotaris.json')
 FRONTONES_FILE     = os.path.join(DATA_DIR, 'frontones.json')
 CIUDADES_FILE      = os.path.join(DATA_DIR, 'ciudades.json')
 COMPETICIONES_FILE = os.path.join(DATA_DIR, 'competiciones.json')
+AVISOS_FILE        = os.path.join(DATA_DIR, 'avisos_scraper.json')
 
 URL = "https://www.baikopilota.eus/resultados/"
 USER_AGENT = (
@@ -71,8 +73,8 @@ PELOTARI_MAP = {
     'PEÑA':              'PEÑA II',
     'SALAVERRI':         'SALAVERRI II',
     'ZUBIZARRETA':       'ZUBIZARRETA III',
-    'MORGAETXEBARRIA':   'MORGAETXEBERRIA',
-    'MORGA':             'MORGAETXEBERRIA',
+    'MORGAETXEBERRIA':   'MORGAETXEBARRIA',
+    'MORGA':             'MORGAETXEBARRIA',
     'DARIO':             'DARÍO',
     'P. ETXEBARRIA':     'P.ETXEBERRIA',
 }
@@ -172,9 +174,21 @@ def clean_text(s):
     return " ".join(s.replace("\xa0", " ").split())
 
 
+MARCA_RE = re.compile(r"\s*(\([^)]*\)|\^\{[^}]*\}|\*+)\s*$")
+
+
 def clean_player(s):
+    """Limpia el nombre de un pelotari.
+
+    Baiko anota las sustituciones y las bajas con marcas pegadas al nombre:
+    '(1)', '(LESION)', '^{1}'. Si no se quitan todas, la marca acaba siendo
+    un pelotari fantasma en el catalogo o desplaza al zaguero real.
+    """
     s = clean_text(s)
-    s = re.sub(r"\s*\(\d+\)\s*$", "", s)
+    anterior = None
+    while anterior != s:
+        anterior = s
+        s = MARCA_RE.sub("", s).strip()
     return s
 
 
@@ -232,7 +246,11 @@ def read_side(tokens, i):
             return players, int(tok), i + 1
         if DATE_RE.match(tok) or is_location_line(tok) or is_comp_line(tok) or is_note_line(tok):
             raise ValueError(f"Token de control inesperado: {tok!r}")
-        players.append(clean_player(tok))
+        nombre = clean_player(tok)
+        if not nombre:
+            i += 1
+            continue
+        players.append(nombre)
         i += 1
     raise ValueError("No se encontró score")
 
@@ -390,16 +408,30 @@ class Catalogos:
         self.ciudades = load_catalog(CIUDADES_FILE)
         self.competiciones = load_catalog(COMPETICIONES_FILE)
         self._dirty = {'pel': False, 'fro': False, 'ciu': False, 'cmp': False}
+        self.avisos = []
         self._idx_pel = {p['nombre']: p for p in self.pelotaris}
         self._idx_fro = {f['nombre']: f for f in self.frontones}
         self._idx_ciu = {c['nombre']: c for c in self.ciudades}
         self._idx_cmp = {c['nombre']: c for c in self.competiciones}
+
+    def _avisar(self, tipo, nombre, parecidos):
+        self.avisos.append({
+            'tipo': tipo, 'nombre': nombre, 'parecidos': parecidos,
+        })
+        print(f"  !! {tipo} nuevo '{nombre}' se parece a {parecidos}. "
+              f"Revisa si es un duplicado antes de darlo por bueno.")
+
+    def _parecidos(self, nombre, indice):
+        return difflib.get_close_matches(nombre, list(indice.keys()), n=3, cutoff=0.85)
 
     def get_or_create_pelotari(self, nombre):
         if not nombre:
             return None
         if nombre in self._idx_pel:
             return self._idx_pel[nombre]['id']
+        parecidos = self._parecidos(nombre, self._idx_pel)
+        if parecidos:
+            self._avisar('pelotari', nombre, parecidos)
         pid = next_id('PEL', self.pelotaris)
         nuevo = {
             'id': pid, 'nombre': nombre,
@@ -438,6 +470,9 @@ class Catalogos:
                 f['ciudad_id'] = self.get_or_create_ciudad(ciudad_nombre)
                 self._dirty['fro'] = True
             return f['id']
+        parecidos = self._parecidos(nombre, self._idx_fro)
+        if parecidos:
+            self._avisar('fronton', nombre, parecidos)
         fid = next_id('FRO', self.frontones)
         ciudad_id = self.get_or_create_ciudad(ciudad_nombre) if ciudad_nombre else None
         nuevo = {
@@ -494,6 +529,18 @@ class Catalogos:
                 if it.get('partidos_count') != nuevo:
                     it['partidos_count'] = nuevo
                     self._dirty[flag] = True
+
+    def guardar_avisos(self):
+        if not self.avisos:
+            if os.path.exists(AVISOS_FILE):
+                os.remove(AVISOS_FILE)
+            return
+        with open(AVISOS_FILE, 'w', encoding='utf-8') as f:
+            json.dump({
+                'generado': datetime.now().strftime('%d/%m/%Y %H:%M'),
+                'avisos': self.avisos,
+            }, f, ensure_ascii=False, indent=2)
+        print(f"\n!! {len(self.avisos)} avisos escritos en {AVISOS_FILE}")
 
     def save_all(self):
         if self._dirty['pel']:
@@ -647,6 +694,7 @@ def main():
 
     if not sin_dup:
         cats.recalcular_contadores(existentes)
+        cats.guardar_avisos()
         if any(cats._dirty.values()):
             cats.save_all()
             print("Catálogos actualizados (sin partidos nuevos).")
@@ -663,6 +711,7 @@ def main():
 
     cats.recalcular_contadores(todos)
     cats.save_all()
+    cats.guardar_avisos()
 
     print(f"\n✓ data/partidos.json actualizado: {len(todos)} partidos totales")
     print("✓ Catálogos actualizados")

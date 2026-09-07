@@ -193,7 +193,7 @@
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 12,
     "equipo2": {
@@ -317,7 +317,7 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL047",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 9,
     "ganador": "equipo1"
@@ -346,7 +346,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL047",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 22,
     "equipo2": {
@@ -504,7 +504,7 @@
     "puntos1": 18,
     "equipo2": {
       "del_id": "PEL007",
-      "zag_id": null
+      "zag_id": "PEL016"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -652,7 +652,7 @@
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL031",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 7,
     "equipo2": {
@@ -754,7 +754,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL015",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 22,
     "equipo2": {
@@ -946,7 +946,7 @@
     "puntos1": 20,
     "equipo2": {
       "del_id": "PEL055",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -975,7 +975,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL015",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 16,
     "equipo2": {
@@ -1116,7 +1116,7 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL002",
-      "zag_id": "PEL060"
+      "zag_id": "PEL011"
     },
     "puntos2": 11,
     "ganador": "equipo1"
@@ -1213,7 +1213,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL005",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 10,
     "equipo2": {
@@ -1303,7 +1303,7 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL031",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 15,
     "ganador": "equipo1"
@@ -1315,7 +1315,7 @@
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL007",
-      "zag_id": null
+      "zag_id": "PEL016"
     },
     "puntos1": 20,
     "equipo2": {
@@ -1524,7 +1524,7 @@
     "puntos1": 19,
     "equipo2": {
       "del_id": "PEL031",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -1575,7 +1575,7 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL031",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 14,
     "ganador": "equipo1"
@@ -1728,7 +1728,7 @@
     "puntos1": 19,
     "equipo2": {
       "del_id": "PEL055",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -1779,7 +1779,7 @@
     "puntos1": 6,
     "equipo2": {
       "del_id": "PEL007",
-      "zag_id": null
+      "zag_id": "PEL016"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -1796,7 +1796,7 @@
     "puntos1": 10,
     "equipo2": {
       "del_id": "PEL049",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -2000,7 +2000,7 @@
     "puntos1": 15,
     "equipo2": {
       "del_id": "PEL047",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -2352,7 +2352,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL015",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 7,
     "equipo2": {
@@ -2573,7 +2573,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL010",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 18,
     "equipo2": {
@@ -2969,7 +2969,7 @@
     "puntos1": 20,
     "equipo2": {
       "del_id": "PEL047",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -2981,7 +2981,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL001",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 20,
     "equipo2": {
@@ -3037,7 +3037,7 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL002",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 15,
     "ganador": "equipo1"
@@ -3321,7 +3321,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL019",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 3,
     "equipo2": {
@@ -3559,7 +3559,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL047",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 22,
     "equipo2": {
@@ -3666,7 +3666,7 @@
     "puntos1": 19,
     "equipo2": {
       "del_id": "PEL015",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos2": 22,
     "ganador": "equipo2"
@@ -4001,7 +4001,7 @@
     "tipo": "campeonato-a",
     "equipo1": {
       "del_id": "PEL019",
-      "zag_id": "PEL059"
+      "zag_id": "PEL022"
     },
     "puntos1": 13,
     "equipo2": {
@@ -15577,7 +15577,7 @@
     "competicion_id": "COMP173",
     "tipo": "festival",
     "equipo1": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL020"
     },
     "puntos1": 14,
@@ -15773,23 +15773,6 @@
       "zag_id": "PEL016"
     },
     "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-11-09",
-    "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL044",
-      "zag_id": "PEL041"
-    },
-    "puntos1": 9,
-    "equipo2": {
-      "del_id": "PEL026",
-      "zag_id": "PEL020"
-    },
-    "puntos2": 18,
     "ganador": "equipo2"
   },
   {
@@ -16575,23 +16558,6 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "2024-10-20",
-    "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL005",
-      "zag_id": "PEL020"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL027"
-    },
-    "puntos2": 11,
-    "ganador": "equipo1"
-  },
-  {
     "fecha": "2024-10-19",
     "fronton_id": "FRO176",
     "competicion_id": "COMP183",
@@ -16672,23 +16638,6 @@
     "equipo2": {
       "del_id": "PEL049",
       "zag_id": null
-    },
-    "puntos2": 14,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-10-19",
-    "fronton_id": "FRO122",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL028",
-      "zag_id": "PEL020"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL041"
     },
     "puntos2": 14,
     "ganador": "equipo1"
@@ -17410,23 +17359,6 @@
   {
     "fecha": "2024-09-23",
     "fronton_id": "FRO002",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL044",
-      "zag_id": "PEL041"
-    },
-    "puntos1": 17,
-    "equipo2": {
-      "del_id": "PEL042",
-      "zag_id": "PEL030"
-    },
-    "puntos2": 18,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-09-23",
-    "fronton_id": "FRO002",
     "competicion_id": "COMP024",
     "tipo": "campeonato-a",
     "equipo1": {
@@ -18123,23 +18055,6 @@
   },
   {
     "fecha": "2024-09-01",
-    "fronton_id": "FRO069",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL019",
-      "zag_id": "PEL027"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL043"
-    },
-    "puntos2": 11,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-09-01",
     "fronton_id": "FRO046",
     "competicion_id": "COMP024",
     "tipo": "campeonato-a",
@@ -18450,7 +18365,7 @@
     "competicion_id": "COMP173",
     "tipo": "festival",
     "equipo1": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL041"
     },
     "puntos1": 15,
@@ -18615,23 +18530,6 @@
     "ganador": "equipo1"
   },
   {
-    "fecha": "2024-08-22",
-    "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL033",
-      "zag_id": "PEL030"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL027"
-    },
-    "puntos2": 14,
-    "ganador": "equipo1"
-  },
-  {
     "fecha": "2024-08-17",
     "fronton_id": "FRO161",
     "competicion_id": "COMP024",
@@ -18660,23 +18558,6 @@
     "puntos1": 22,
     "equipo2": {
       "del_id": "PEL032",
-      "zag_id": "PEL008"
-    },
-    "puntos2": 19,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-08-16",
-    "fronton_id": "FRO017",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL001",
-      "zag_id": "PEL023"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "del_id": "PEL044",
       "zag_id": "PEL008"
     },
     "puntos2": 19,
@@ -18757,23 +18638,6 @@
     "tipo": "festival",
     "equipo1": {
       "del_id": "PEL032",
-      "zag_id": "PEL043"
-    },
-    "puntos1": 19,
-    "equipo2": {
-      "del_id": "PEL026",
-      "zag_id": "PEL027"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-08-10",
-    "fronton_id": "FRO063",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL044",
       "zag_id": "PEL043"
     },
     "puntos1": 19,
@@ -19169,7 +19033,7 @@
     },
     "puntos1": 22,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL006"
     },
     "puntos2": 13,
@@ -19327,23 +19191,6 @@
     },
     "puntos2": 11,
     "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-07-25",
-    "fronton_id": "FRO039",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL005",
-      "zag_id": "PEL020"
-    },
-    "puntos1": 9,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL006"
-    },
-    "puntos2": 22,
-    "ganador": "equipo2"
   },
   {
     "fecha": "2024-07-25",
@@ -19725,23 +19572,6 @@
     "competicion_id": "COMP173",
     "tipo": "festival",
     "equipo1": {
-      "del_id": "PEL044",
-      "zag_id": "PEL041"
-    },
-    "puntos1": 9,
-    "equipo2": {
-      "del_id": "PEL039",
-      "zag_id": "PEL036"
-    },
-    "puntos2": 18,
-    "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-07-12",
-    "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
       "del_id": "PEL002",
       "zag_id": "PEL016"
     },
@@ -20058,23 +19888,6 @@
     },
     "puntos2": 22,
     "ganador": "equipo2"
-  },
-  {
-    "fecha": "2024-07-06",
-    "fronton_id": "FRO124",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL044",
-      "zag_id": "PEL020"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "del_id": "PEL042",
-      "zag_id": "PEL034"
-    },
-    "puntos2": 12,
-    "ganador": "equipo1"
   },
   {
     "fecha": "2024-07-05",
@@ -21005,7 +20818,7 @@
     },
     "puntos1": 22,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL016"
     },
     "puntos2": 18,
@@ -21209,7 +21022,7 @@
     },
     "puntos1": 18,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL043"
     },
     "puntos2": 8,
@@ -21294,7 +21107,7 @@
     },
     "puntos1": 22,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL043"
     },
     "puntos2": 21,
@@ -21396,7 +21209,7 @@
     },
     "puntos1": 22,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL020"
     },
     "puntos2": 9,
@@ -22000,23 +21813,6 @@
   {
     "fecha": "2024-03-10",
     "fronton_id": "FRO055",
-    "competicion_id": "COMP173",
-    "tipo": "festival",
-    "equipo1": {
-      "del_id": "PEL031",
-      "zag_id": "PEL036"
-    },
-    "puntos1": 18,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL043"
-    },
-    "puntos2": 7,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-03-10",
-    "fronton_id": "FRO055",
     "competicion_id": "COMP077",
     "tipo": "festival",
     "equipo1": {
@@ -22510,23 +22306,6 @@
   {
     "fecha": "2024-02-13",
     "fronton_id": "FRO046",
-    "competicion_id": "COMP029",
-    "tipo": "campeonato-b",
-    "equipo1": {
-      "del_id": "PEL024",
-      "zag_id": "PEL030"
-    },
-    "puntos1": 22,
-    "equipo2": {
-      "del_id": "PEL044",
-      "zag_id": "PEL041"
-    },
-    "puntos2": 11,
-    "ganador": "equipo1"
-  },
-  {
-    "fecha": "2024-02-13",
-    "fronton_id": "FRO046",
     "competicion_id": "COMP024",
     "tipo": "campeonato-a",
     "equipo1": {
@@ -22960,7 +22739,7 @@
     },
     "puntos1": 22,
     "equipo2": {
-      "del_id": "PEL044",
+      "del_id": "PEL032",
       "zag_id": "PEL043"
     },
     "puntos2": 5,
