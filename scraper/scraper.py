@@ -20,6 +20,7 @@ Requisitos:
 
 from __future__ import annotations
 import json
+from collections import Counter
 import os
 import re
 import sys
@@ -398,15 +399,12 @@ class Catalogos:
         if not nombre:
             return None
         if nombre in self._idx_pel:
-            p = self._idx_pel[nombre]
-            p['partidos_count'] = p.get('partidos_count', 0) + 1
-            self._dirty['pel'] = True
-            return p['id']
+            return self._idx_pel[nombre]['id']
         pid = next_id('PEL', self.pelotaris)
         nuevo = {
             'id': pid, 'nombre': nombre,
             'nombre_es': nombre, 'nombre_eu': nombre,
-            'rol': 'mixto', 'partidos_count': 1,
+            'rol': 'mixto', 'partidos_count': 0,
         }
         self.pelotaris.append(nuevo)
         self._idx_pel[nombre] = nuevo
@@ -436,16 +434,15 @@ class Catalogos:
             return None
         if nombre in self._idx_fro:
             f = self._idx_fro[nombre]
-            f['partidos_count'] = f.get('partidos_count', 0) + 1
             if not f.get('ciudad_id') and ciudad_nombre:
                 f['ciudad_id'] = self.get_or_create_ciudad(ciudad_nombre)
-            self._dirty['fro'] = True
+                self._dirty['fro'] = True
             return f['id']
         fid = next_id('FRO', self.frontones)
         ciudad_id = self.get_or_create_ciudad(ciudad_nombre) if ciudad_nombre else None
         nuevo = {
             'id': fid, 'nombre': nombre,
-            'ciudad_id': ciudad_id, 'partidos_count': 1,
+            'ciudad_id': ciudad_id, 'partidos_count': 0,
         }
         self.frontones.append(nuevo)
         self._idx_fro[nombre] = nuevo
@@ -457,19 +454,46 @@ class Catalogos:
         if not nombre:
             return None
         if nombre in self._idx_cmp:
-            c = self._idx_cmp[nombre]
-            c['partidos_count'] = c.get('partidos_count', 0) + 1
-            self._dirty['cmp'] = True
-            return c['id']
+            return self._idx_cmp[nombre]['id']
         cid = next_id('COMP', self.competiciones)
         nuevo = {
-            'id': cid, 'nombre': nombre, 'tipo': tipo, 'partidos_count': 1,
+            'id': cid, 'nombre': nombre, 'tipo': tipo, 'partidos_count': 0,
         }
         self.competiciones.append(nuevo)
         self._idx_cmp[nombre] = nuevo
         self._dirty['cmp'] = True
         print(f"  + nueva competición: {cid} {nombre}")
         return cid
+
+    def recalcular_contadores(self, partidos):
+        """Deriva partidos_count desde la lista final de partidos.
+
+        Los contadores no se acumulan: se recalculan enteros en cada
+        ejecucion, por lo que es imposible que se descuadren aunque el
+        scraper procese los mismos partidos muchas veces.
+        """
+        c_pel, c_fro, c_cmp = Counter(), Counter(), Counter()
+        for p in partidos:
+            if p.get('fronton_id'):
+                c_fro[p['fronton_id']] += 1
+            if p.get('competicion_id'):
+                c_cmp[p['competicion_id']] += 1
+            for equipo in ('equipo1', 'equipo2'):
+                e = p.get(equipo) or {}
+                for rol in ('del_id', 'zag_id'):
+                    if e.get(rol):
+                        c_pel[e[rol]] += 1
+
+        for items, cuenta, flag in (
+            (self.pelotaris, c_pel, 'pel'),
+            (self.frontones, c_fro, 'fro'),
+            (self.competiciones, c_cmp, 'cmp'),
+        ):
+            for it in items:
+                nuevo = cuenta.get(it['id'], 0)
+                if it.get('partidos_count') != nuevo:
+                    it['partidos_count'] = nuevo
+                    self._dirty[flag] = True
 
     def save_all(self):
         if self._dirty['pel']:
@@ -622,6 +646,7 @@ def main():
         print(f"Descartados por duplicado: {len(descartados)}")
 
     if not sin_dup:
+        cats.recalcular_contadores(existentes)
         if any(cats._dirty.values()):
             cats.save_all()
             print("Catálogos actualizados (sin partidos nuevos).")
@@ -636,6 +661,7 @@ def main():
     with open(PARTIDOS_FILE, 'w', encoding='utf-8') as f:
         json.dump(todos, f, ensure_ascii=False, indent=2)
 
+    cats.recalcular_contadores(todos)
     cats.save_all()
 
     print(f"\n✓ data/partidos.json actualizado: {len(todos)} partidos totales")

@@ -69,7 +69,7 @@
     "id": "COMP234",
     "nombre": "Campeonato Manomanista 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 31
+    "partidos_count": 2
   },
   {
     "id": "COMP012",
@@ -93,7 +93,7 @@
     "id": "COMP015",
     "nombre": "Campeonato Manomanista Serie A 2026",
     "tipo": "manomanista-a",
-    "partidos_count": 487
+    "partidos_count": 39
   },
   {
     "id": "COMP016",
@@ -159,7 +159,7 @@
     "id": "COMP026",
     "nombre": "Campeonato Parejas Serie A 2026",
     "tipo": "campeonato-a",
-    "partidos_count": 2202
+    "partidos_count": 206
   },
   {
     "id": "COMP027",
@@ -1281,13 +1281,13 @@
     "id": "COMP236",
     "nombre": "Masters CaixaBank Serie B 2026",
     "tipo": "festival",
-    "partidos_count": 262
+    "partidos_count": 21
   },
   {
     "id": "COMP237",
     "nombre": "Masters Caixabank 2026",
     "tipo": "festival",
-    "partidos_count": 222
+    "partidos_count": 18
   },
   {
     "id": "COMP213",
@@ -1389,7 +1389,7 @@
     "id": "COMP235",
     "nombre": "Torneo San Fermín 4 1/2 2026",
     "tipo": "festival-cuatro",
-    "partidos_count": 144
+    "partidos_count": 9
   },
   {
     "id": "COMP229",
