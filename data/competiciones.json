@@ -258,6 +258,12 @@
     "partidos_count": 21
   },
   {
+    "id": "COMP238",
+    "nombre": "Masters Caixabank 2026",
+    "tipo": "festival",
+    "partidos_count": 0
+  },
+  {
     "id": "COMP215",
     "nombre": "Torneo Aste Nagusia 2023",
     "tipo": "campeonato-a",
