@@ -1,53 +1,7 @@
 {
-  "actualizado": "09/09/2026 02:35",
+  "actualizado": "10/09/2026 02:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "09/09/2026",
-      "hora": "17:30",
-      "fronton": "Beti Alai",
-      "ciudad": "Ordizia",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "MURUA – ALDABE // ZUBIZARRETA IV – MORGAETXEBARRIA",
-        "ALTUNA III – MARTIJA // ARTOLA – IZTUETA",
-        "DESDE",
-        "35.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/2964508/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA",
-            "ALDABE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "MURUA – ALDABE // ZUBIZARRETA IV – MORGAETXEBARRIA",
-          "tipo": "festival",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "IZTUETA"
-          ],
-          "raw": "ALTUNA III – MARTIJA // ARTOLA – IZTUETA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "11/09/2026",
       "hora": "19:30",
