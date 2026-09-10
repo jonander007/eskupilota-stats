@@ -48,6 +48,14 @@
     "partidos_count": 179
   },
   {
+    "id": "PEL009",
+    "nombre": "ALTUNA III",
+    "nombre_es": "ALTUNA III",
+    "nombre_eu": "ALTUNA III",
+    "rol": "delantero",
+    "partidos_count": 178
+  },
+  {
     "id": "PEL008",
     "nombre": "ALBISU",
     "nombre_es": "ALBISU",
@@ -56,20 +64,12 @@
     "partidos_count": 177
   },
   {
-    "id": "PEL009",
-    "nombre": "ALTUNA III",
-    "nombre_es": "ALTUNA III",
-    "nombre_eu": "ALTUNA III",
-    "rol": "delantero",
-    "partidos_count": 177
-  },
-  {
     "id": "PEL010",
     "nombre": "ARTOLA",
     "nombre_es": "ARTOLA",
     "nombre_eu": "ARTOLA",
     "rol": "delantero",
-    "partidos_count": 175
+    "partidos_count": 176
   },
   {
     "id": "PEL006",
@@ -125,7 +125,7 @@
     "nombre_es": "IZTUETA",
     "nombre_eu": "IZTUETA",
     "rol": "zaguero",
-    "partidos_count": 164
+    "partidos_count": 165
   },
   {
     "id": "PEL018",
@@ -136,19 +136,19 @@
     "partidos_count": 160
   },
   {
-    "id": "PEL025",
-    "nombre": "LASO",
-    "nombre_es": "LASO",
-    "nombre_eu": "LASO",
-    "rol": "delantero",
-    "partidos_count": 152
-  },
-  {
     "id": "PEL017",
     "nombre": "MARTIJA",
     "nombre_es": "MARTIJA",
     "nombre_eu": "MARTIJA",
     "rol": "zaguero",
+    "partidos_count": 153
+  },
+  {
+    "id": "PEL025",
+    "nombre": "LASO",
+    "nombre_es": "LASO",
+    "nombre_eu": "LASO",
+    "rol": "delantero",
     "partidos_count": 152
   },
   {
@@ -165,7 +165,7 @@
     "nombre_es": "MORGAETXEBARRIA",
     "nombre_eu": "MORGAETXEBARRIA",
     "rol": "zaguero",
-    "partidos_count": 149
+    "partidos_count": 150
   },
   {
     "id": "PEL021",
@@ -285,7 +285,7 @@
     "nombre_es": "MURUA",
     "nombre_eu": "MURUA",
     "rol": "delantero",
-    "partidos_count": 101
+    "partidos_count": 102
   },
   {
     "id": "PEL037",
@@ -301,7 +301,7 @@
     "nombre_es": "ALDABE",
     "nombre_eu": "ALDABE",
     "rol": "zaguero",
-    "partidos_count": 93
+    "partidos_count": 94
   },
   {
     "id": "PEL039",
@@ -400,19 +400,19 @@
     "partidos_count": 33
   },
   {
-    "id": "PEL054",
-    "nombre": "LANDA",
-    "nombre_es": "LANDA",
-    "nombre_eu": "LANDA",
-    "rol": "zaguero",
-    "partidos_count": 31
-  },
-  {
     "id": "PEL055",
     "nombre": "ZUBIZARRETA IV",
     "nombre_es": "ZUBIZARRETA IV",
     "nombre_eu": "ZUBIZARRETA IV",
     "rol": "delantero",
+    "partidos_count": 32
+  },
+  {
+    "id": "PEL054",
+    "nombre": "LANDA",
+    "nombre_es": "LANDA",
+    "nombre_eu": "LANDA",
+    "rol": "zaguero",
     "partidos_count": 31
   },
   {
