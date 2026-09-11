@@ -1,5 +1,5 @@
 {
-  "actualizado": "10/09/2026 02:37",
+  "actualizado": "11/09/2026 02:31",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -186,7 +186,7 @@
         "Masters CaixaBank",
         "DARÍO – LOZA // PEÑA II – SALAVERRI II",
         "LASO – MARTIJA // ZABALA",
-        "– IZTUETA (Serie B)",
+        "– IZTUETA (Serie A)",
         "DESDE",
         "30.00€"
       ],
@@ -205,8 +205,8 @@
             "SALAVERRI II"
           ],
           "raw": "DARÍO – LOZA // PEÑA II – SALAVERRI II",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "tipo": "campeonato-a",
+          "serie": "a"
         },
         {
           "eq1": [
@@ -217,8 +217,8 @@
             "ZABALA"
           ],
           "raw": "LASO – MARTIJA // ZABALA",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
