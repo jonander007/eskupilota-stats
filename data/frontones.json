@@ -1040,6 +1040,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20JAIAN%20JAI"
   },
   {
+    "id": "FRO230",
+    "nombre": "JOSTALDI",
+    "ciudad_id": "CIU074",
+    "partidos_count": 2
+  },
+  {
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
