@@ -299,7 +299,7 @@
     "id": "FRO036",
     "nombre": "BARBERITO I",
     "ciudad_id": "CIU026",
-    "partidos_count": 4,
+    "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARBERITO%20I"
   },
@@ -481,7 +481,7 @@
     "id": "FRO058",
     "nombre": "BURUNDA",
     "ciudad_id": "CIU006",
-    "partidos_count": 16,
+    "partidos_count": 18,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BURUNDA"
   },
@@ -1490,6 +1490,12 @@
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SANTA%20MARIA%20DE%20LAS%20HOYAS"
+  },
+  {
+    "id": "FRO231",
+    "nombre": "SANTA MARÍA DE LAS HOYAS",
+    "ciudad_id": "CIU159",
+    "partidos_count": 1
   },
   {
     "id": "FRO169",
