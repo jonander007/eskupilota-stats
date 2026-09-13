@@ -1,180 +1,7 @@
 {
-  "actualizado": "12/09/2026 02:39",
+  "actualizado": "13/09/2026 02:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "11/09/2026",
-      "hora": "19:30",
-      "fronton": "Jostaldi",
-      "ciudad": "Hondarribia",
-      "fase": "7ª Jornada / Semifinal",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO SEMIFINAL (Serie B)",
-        "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964515/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P. ETXEBERRIA",
-            "LANDA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "GABIRONDO SEMIFINAL"
-          ],
-          "raw": "P. ETXEBERRIA – LANDA // AMIANO – GABIRONDO SEMIFINAL (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "12/09/2026",
-      "hora": "17:15",
-      "fronton": "Burunda",
-      "ciudad": "Altsasu",
-      "fase": "7ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "BAKAIKOA – ARANGUREN // APEZETXEA II – GASKUE",
-        "EZKURDIA – ALBISU // LARRAZABAL – ZABALETA (Serie A)",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2964516/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "GASKUE"
-          ],
-          "raw": "BAKAIKOA – ARANGUREN // APEZETXEA II – GASKUE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "ZABALETA"
-          ],
-          "raw": "EZKURDIA – ALBISU // LARRAZABAL – ZABALETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "12/09/2026",
-      "hora": "18:00",
-      "fronton": "Santa María de las Hoyas",
-      "ciudad": "Santa María de las Hoyas",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "AMIANO – UGARTEMENDIA // ZUBIZARRETA IV – MORGAETXEBARRIA",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "MORGAETXEBARRIA"
-          ],
-          "raw": "AMIANO – UGARTEMENDIA // ZUBIZARRETA IV – MORGAETXEBARRIA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "12/09/2026",
-      "hora": "18:00",
-      "fronton": "Barberito I",
-      "ciudad": "Baños Río Tobía",
-      "fase": "Semifinal",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
-        "DARÍO – LOZA // PEÑA II – SALAVERRI II",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966469/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "MURUA",
-            "ESKIROZ"
-          ],
-          "raw": "JAKA – ESKUZA // MURUA – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "LOZA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "SALAVERRI II"
-          ],
-          "raw": "DARÍO – LOZA // PEÑA II – SALAVERRI II",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        }
-      ]
-    },
     {
       "fecha": "13/09/2026",
       "hora": "17:15",
@@ -518,7 +345,7 @@
         "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
         "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
         "DESDE",
-        "23.00€"
+        "38.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -984,7 +811,7 @@
       "cartel": [
         "Masters CaixaBank",
         "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie B)",
+        "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
         "DESDE",
         "25.00€"
       ],
@@ -1008,14 +835,14 @@
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "JAKA",
+            "ESKUZA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "P.ETXEBERRIA",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         }
@@ -1061,24 +888,24 @@
         "111",
         "120",
         "-9",
-        "Larrazabal-Zabaleta",
-        "2",
-        "5",
-        "101",
-        "102",
-        "-1",
+        "Ezkurdia-Albisu",
+        "3",
+        "6",
+        "100",
+        "121",
+        "-21",
         "Laso-Martija",
         "2",
         "5",
         "93",
         "105",
         "-12",
-        "Ezkurdia-Albisu",
+        "Larrazabal-Zabaleta",
         "2",
-        "5",
-        "78",
-        "101",
-        "-23",
+        "6",
+        "121",
+        "124",
+        "-3",
         "Altuna III-Imaz",
         "1",
         "6",
