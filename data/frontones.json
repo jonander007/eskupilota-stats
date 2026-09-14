@@ -153,7 +153,7 @@
     "id": "FRO020",
     "nombre": "ARNEDO",
     "ciudad_id": "CIU014",
-    "partidos_count": 3,
+    "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARNEDO"
   },
@@ -778,6 +778,12 @@
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20FRESNO"
+  },
+  {
+    "id": "FRO232",
+    "nombre": "FRESNO DE CANTESPINO",
+    "ciudad_id": "CIU160",
+    "partidos_count": 1
   },
   {
     "id": "FRO092",

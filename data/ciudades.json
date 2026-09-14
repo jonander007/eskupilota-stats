@@ -402,6 +402,12 @@
     "nombre_eu": "Fresno"
   },
   {
+    "id": "CIU160",
+    "nombre": "FRESNO DE CANTESPINO",
+    "nombre_es": "Fresno De Cantespino",
+    "nombre_eu": "Fresno De Cantespino"
+  },
+  {
     "id": "CIU065",
     "nombre": "FUENMAYOR",
     "nombre_es": "Fuenmayor",
