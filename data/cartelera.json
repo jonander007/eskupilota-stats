@@ -1,54 +1,7 @@
 {
-  "actualizado": "13/09/2026 02:38",
+  "actualizado": "14/09/2026 02:53",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "13/09/2026",
-      "hora": "17:15",
-      "fronton": "Arnedo",
-      "ciudad": "Arnedo",
-      "fase": "7ª Jornada",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "DARÍO – LOZA // PEÑA II – SALAVERRI II",
-        "LASO – MARTIJA // ZABALA",
-        "– IZTUETA (Serie A)",
-        "DESDE",
-        "30.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966470/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO",
-            "LOZA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "SALAVERRI II"
-          ],
-          "raw": "DARÍO – LOZA // PEÑA II – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LASO",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "LASO – MARTIJA // ZABALA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "13/09/2026",
       "hora": "19:00",
@@ -870,18 +823,18 @@
         "TF",
         "TC",
         "CO",
+        "Zabala-Iztueta",
+        "5",
+        "6",
+        "130",
+        "87",
+        "43",
         "Elordi-Mariezkurrena II",
         "5",
         "6",
         "129",
         "74",
         "55",
-        "Zabala-Iztueta",
-        "4",
-        "5",
-        "108",
-        "71",
-        "37",
         "Artola-Rezusta",
         "3",
         "6",
@@ -896,10 +849,10 @@
         "-21",
         "Laso-Martija",
         "2",
-        "5",
-        "93",
-        "105",
-        "-12",
+        "6",
+        "109",
+        "127",
+        "-18",
         "Larrazabal-Zabaleta",
         "2",
         "6",
