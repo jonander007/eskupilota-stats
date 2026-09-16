@@ -1,50 +1,7 @@
 {
-  "actualizado": "15/09/2026 02:56",
+  "actualizado": "16/09/2026 02:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "15/09/2026",
-      "hora": "18:00",
-      "fronton": "Villamediana de Iregua",
-      "ciudad": "Villamediana de Iregua",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "4 1/2 AGIRRE // ALBERDI II",
-        "DARÍO – IMAZ // ZABALA – LANDA",
-        "Gratuito"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "4 1/2 AGIRRE"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "4 1/2 AGIRRE // ALBERDI II",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "IMAZ"
-          ],
-          "eq2": [
-            "ZABALA",
-            "LANDA"
-          ],
-          "raw": "DARÍO – IMAZ // ZABALA – LANDA",
-          "tipo": "festival",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "16/09/2026",
       "hora": "19:00",
@@ -209,7 +166,7 @@
         "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
         "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
         "DESDE",
-        "23.00€"
+        "38.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -733,7 +690,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "XX – XX // XX – XX",
+        "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
         "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
         "DESDE",
         "25.00€"
@@ -745,14 +702,14 @@
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "PEÑA II",
+            "MORGAETXEBARRIA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "REKALDE",
+            "MARTIJA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
           "tipo": "campeonato-b",
           "serie": "b"
         },
