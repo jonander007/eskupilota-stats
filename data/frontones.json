@@ -1702,6 +1702,12 @@
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20VILLABONA"
   },
   {
+    "id": "FRO233",
+    "nombre": "VILLAMEDIANA DE IREGUA",
+    "ciudad_id": "CIU161",
+    "partidos_count": 2
+  },
+  {
     "id": "FRO192",
     "nombre": "VILLAVA",
     "ciudad_id": "CIU138",

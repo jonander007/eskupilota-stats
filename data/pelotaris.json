@@ -93,7 +93,7 @@
     "nombre_es": "IMAZ",
     "nombre_eu": "IMAZ",
     "rol": "zaguero",
-    "partidos_count": 169
+    "partidos_count": 170
   },
   {
     "id": "PEL005",
@@ -101,7 +101,7 @@
     "nombre_es": "AGIRRE",
     "nombre_eu": "AGIRRE",
     "rol": "delantero",
-    "partidos_count": 167
+    "partidos_count": 168
   },
   {
     "id": "PEL015",
@@ -173,7 +173,7 @@
     "nombre_es": "ZABALA",
     "nombre_eu": "ZABALA",
     "rol": "delantero",
-    "partidos_count": 149
+    "partidos_count": 150
   },
   {
     "id": "PEL020",
@@ -213,7 +213,7 @@
     "nombre_es": "ALBERDI II",
     "nombre_eu": "ALBERDI II",
     "rol": "delantero",
-    "partidos_count": 132
+    "partidos_count": 133
   },
   {
     "id": "PEL024",
@@ -221,7 +221,7 @@
     "nombre_es": "DARÍO",
     "nombre_eu": "DARÍO",
     "rol": "delantero",
-    "partidos_count": 132
+    "partidos_count": 133
   },
   {
     "id": "PEL031",
@@ -392,6 +392,14 @@
     "partidos_count": 35
   },
   {
+    "id": "PEL054",
+    "nombre": "LANDA",
+    "nombre_es": "LANDA",
+    "nombre_eu": "LANDA",
+    "rol": "zaguero",
+    "partidos_count": 34
+  },
+  {
     "id": "PEL055",
     "nombre": "ZUBIZARRETA IV",
     "nombre_es": "ZUBIZARRETA IV",
@@ -404,14 +412,6 @@
     "nombre": "ARBIZU",
     "nombre_es": "ARBIZU",
     "nombre_eu": "ARBIZU",
-    "rol": "zaguero",
-    "partidos_count": 33
-  },
-  {
-    "id": "PEL054",
-    "nombre": "LANDA",
-    "nombre_es": "LANDA",
-    "nombre_eu": "LANDA",
     "rol": "zaguero",
     "partidos_count": 33
   },
