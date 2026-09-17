@@ -1,53 +1,7 @@
 {
-  "actualizado": "16/09/2026 02:52",
+  "actualizado": "17/09/2026 02:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "16/09/2026",
-      "hora": "19:00",
-      "fronton": "Artza",
-      "ciudad": "Bermeo",
-      "fase": "Final",
-      "competicion": null,
-      "cartel": [
-        "BAKAIKOA – MORGAETXEBARRIA // REKALDE – EROSTARBE",
-        "EZKURDIA – REZUSTA // LASO – IZTUETA",
-        "DESDE",
-        "15.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/55873/session/2964522/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "EROSTARBE"
-          ],
-          "raw": "BAKAIKOA – MORGAETXEBARRIA // REKALDE – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – REZUSTA // LASO – IZTUETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "18/09/2026",
       "hora": "21:00",
@@ -740,7 +694,53 @@
         "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)",
         "DESDE",
-        "20.00€",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924165/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "06/10/2026",
+      "hora": "17:30",
+      "fronton": "Lezao",
+      "ciudad": "Agurain/Salvatierra",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
+        "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
+        "DESDE",
+        "30.00€",
         "Clasificación",
         "Masters CaixaBank",
         "Masters CaixaBank Serie B",
@@ -843,33 +843,33 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924165/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014139/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "PEÑA II",
+            "LIZEAGA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ALBERDI II",
+            "GASKUE"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
+          "raw": "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
+          "tipo": "festival",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "ALTUNA III",
+            "MARTIJA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "ARTOLA",
+            "MARIEZKURRENA II"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
+          "tipo": "festival",
           "serie": "a"
         }
       ]
