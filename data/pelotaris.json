@@ -29,7 +29,7 @@
     "nombre_es": "EZKURDIA",
     "nombre_eu": "EZKURDIA",
     "rol": "delantero",
-    "partidos_count": 193
+    "partidos_count": 194
   },
   {
     "id": "PEL007",
@@ -85,7 +85,7 @@
     "nombre_es": "REZUSTA",
     "nombre_eu": "REZUSTA",
     "rol": "zaguero",
-    "partidos_count": 172
+    "partidos_count": 173
   },
   {
     "id": "PEL013",
@@ -104,6 +104,14 @@
     "partidos_count": 168
   },
   {
+    "id": "PEL016",
+    "nombre": "IZTUETA",
+    "nombre_es": "IZTUETA",
+    "nombre_eu": "IZTUETA",
+    "rol": "zaguero",
+    "partidos_count": 167
+  },
+  {
     "id": "PEL015",
     "nombre": "ZUBIZARRETA III",
     "nombre_es": "ZUBIZARRETA III",
@@ -120,20 +128,20 @@
     "partidos_count": 166
   },
   {
-    "id": "PEL016",
-    "nombre": "IZTUETA",
-    "nombre_es": "IZTUETA",
-    "nombre_eu": "IZTUETA",
-    "rol": "zaguero",
-    "partidos_count": 166
-  },
-  {
     "id": "PEL018",
     "nombre": "ZABALETA",
     "nombre_es": "ZABALETA",
     "nombre_eu": "ZABALETA",
     "rol": "zaguero",
     "partidos_count": 161
+  },
+  {
+    "id": "PEL025",
+    "nombre": "LASO",
+    "nombre_es": "LASO",
+    "nombre_eu": "LASO",
+    "rol": "delantero",
+    "partidos_count": 154
   },
   {
     "id": "PEL017",
@@ -144,20 +152,12 @@
     "partidos_count": 154
   },
   {
-    "id": "PEL025",
-    "nombre": "LASO",
-    "nombre_es": "LASO",
-    "nombre_eu": "LASO",
-    "rol": "delantero",
-    "partidos_count": 153
-  },
-  {
     "id": "PEL019",
     "nombre": "BAKAIKOA",
     "nombre_es": "BAKAIKOA",
     "nombre_eu": "BAKAIKOA",
     "rol": "delantero",
-    "partidos_count": 151
+    "partidos_count": 152
   },
   {
     "id": "PEL022",
@@ -165,7 +165,7 @@
     "nombre_es": "MORGAETXEBARRIA",
     "nombre_eu": "MORGAETXEBARRIA",
     "rol": "zaguero",
-    "partidos_count": 151
+    "partidos_count": 152
   },
   {
     "id": "PEL021",
@@ -261,7 +261,7 @@
     "nombre_es": "EROSTARBE",
     "nombre_eu": "EROSTARBE",
     "rol": "zaguero",
-    "partidos_count": 122
+    "partidos_count": 123
   },
   {
     "id": "PEL035",
@@ -357,7 +357,7 @@
     "nombre_es": "REKALDE",
     "nombre_eu": "REKALDE",
     "rol": "delantero",
-    "partidos_count": 53
+    "partidos_count": 54
   },
   {
     "id": "PEL045",
