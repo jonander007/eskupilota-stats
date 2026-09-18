@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/09/2026 02:56",
+  "actualizado": "18/09/2026 02:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
     {
@@ -683,6 +683,52 @@
       ]
     },
     {
+      "fecha": "03/10/2026",
+      "hora": "18:00",
+      "fronton": "La Juventud",
+      "ciudad": "Soria",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "SENAR – GABIRONDO // AMIANO – LOZA",
+        "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014574/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "AMIANO",
+            "LOZA"
+          ],
+          "raw": "SENAR – GABIRONDO // AMIANO – LOZA",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "ALBISU o IZTUETA"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "raw": "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "04/10/2026",
       "hora": "17:15",
       "fronton": "Navarra Arena",
@@ -739,6 +785,52 @@
       "cartel": [
         "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
         "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014139/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "GASKUE"
+          ],
+          "raw": "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
+          "tipo": "festival",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "ARTOLA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
+          "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "11/10/2026",
+      "hora": "17:15",
+      "fronton": "Jaian Jai",
+      "ciudad": "Lekunberri",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
+        "Campeonato 4 1/2 Eusko Label – Octavos de Final (Serie A)",
         "DESDE",
         "30.00€",
         "Clasificación",
@@ -843,33 +935,31 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014139/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "PEÑA II",
-            "LIZEAGA"
+            "EZKURDIA",
+            "ALBISU"
           ],
           "eq2": [
-            "ALBERDI II",
-            "GASKUE"
+            "ALTUNA III",
+            "IMAZ"
           ],
-          "raw": "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
-          "tipo": "festival",
+          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
+          "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
+            "Campeonato 4 1/2 Eusko Label"
           ],
           "eq2": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
+            "Octavos de Final"
           ],
-          "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
-          "tipo": "festival",
+          "raw": "Campeonato 4 1/2 Eusko Label – Octavos de Final (Serie A)",
+          "tipo": "cuatro-medio-a",
           "serie": "a"
         }
       ]
