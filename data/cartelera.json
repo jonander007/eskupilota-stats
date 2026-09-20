@@ -1,112 +1,7 @@
 {
-  "actualizado": "19/09/2026 02:41",
+  "actualizado": "20/09/2026 02:53",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "18/09/2026",
-      "hora": "21:00",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Eliminatoria (Grupo A)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "ZUBIZARRETA III – ARANGUREN // AMIANO – ESKIROZ (Serie B)",
-        "ARTOLA – ALBISU // LARRAZABAL – IZTUETA (Serie A)",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966432/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "AMIANO",
-            "ESKIROZ"
-          ],
-          "raw": "ZUBIZARRETA III – ARANGUREN // AMIANO – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IZTUETA"
-          ],
-          "raw": "ARTOLA – ALBISU // LARRAZABAL – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
-    {
-      "fecha": "19/09/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Eliminatoria",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "SALABERRIA – GASKUE // MURUA – GABIRONDO (Serie B)",
-        "EZKURDIA – MARTIJA //",
-        "ALTUNA III – BIKUÑA (Serie A)",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966433/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "MURUA",
-            "GABIRONDO"
-          ],
-          "raw": "SALABERRIA – GASKUE // MURUA – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "MARTIJA //"
-          ],
-          "raw": "EZKURDIA – MARTIJA //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "BIKUÑA"
-          ],
-          "raw": "ALTUNA III – BIKUÑA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "20/09/2026",
       "hora": "17:15",
@@ -116,11 +11,11 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "ELORDI – ESKUZA // GANADORES ELIMINATORIA (Serie B)",
-        "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
+        "ELORDI – ESKUZA // AMIANO – ESKIROZ (Serie B)",
+        "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)",
         "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
         "DESDE",
-        "38.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -133,9 +28,10 @@
             "ESKUZA"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA"
+            "AMIANO",
+            "ESKIROZ"
           ],
-          "raw": "ELORDI – ESKUZA // GANADORES ELIMINATORIA (Serie B)",
+          "raw": "ELORDI – ESKUZA // AMIANO – ESKIROZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -145,9 +41,10 @@
             "REZUSTA"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA"
+            "LARRAZABAL",
+            "IZTUETA"
           ],
-          "raw": "ZABALA – REZUSTA // GANADORES ELIMINATORIA (Serie A)",
+          "raw": "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -175,11 +72,11 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "P.ETXEBERRIA – LOZA // GANADORES ELIMINATORIA (Serie B)",
-        "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
-        "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
+        "P.ETXEBERRIA – LOZA // SALABERRIA – GASKUE (Serie B)",
+        "DARÍO – ZABALETA // EZKURDIA – MARTIJA (Serie A)",
+        "ZUBIZARRETA III – ARANGUREN // REKALDE – ALDABE",
         "DESDE",
-        "38.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -192,9 +89,10 @@
             "LOZA"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA"
+            "SALABERRIA",
+            "GASKUE"
           ],
-          "raw": "P.ETXEBERRIA – LOZA // GANADORES ELIMINATORIA (Serie B)",
+          "raw": "P.ETXEBERRIA – LOZA // SALABERRIA – GASKUE (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -204,23 +102,25 @@
             "ZABALETA"
           ],
           "eq2": [
-            "GANADORES ELIMINATORIA"
+            "EZKURDIA",
+            "MARTIJA"
           ],
-          "raw": "DARÍO – ZABALETA // GANADORES ELIMINATORIA (Serie A)",
+          "raw": "DARÍO – ZABALETA // EZKURDIA – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "PERDEDOR DÍA 18"
+            "ZUBIZARRETA III",
+            "ARANGUREN"
           ],
           "eq2": [
             "REKALDE",
             "ALDABE"
           ],
-          "raw": "PERDEDOR DÍA 18 (Serie B) // REKALDE – ALDABE",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "raw": "ZUBIZARRETA III – ARANGUREN // REKALDE – ALDABE",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -235,7 +135,7 @@
         "Torneo San Mateo",
         "PEÑA II – SALAVERRI II // PERDEDORES DÍA 20 (Serie B)",
         "JAKA – MARIEZKURRENA II // PERDEDORES DÍA 20 (Serie A)",
-        "PERDEDOR DÍA 19 (Serie B) // BAKAIKOA – LIZEAGA",
+        "BAKAIKOA – LIZEAGA // XX – XX",
         "DESDE",
         "20.00€"
       ],
@@ -270,15 +170,16 @@
         },
         {
           "eq1": [
-            "PERDEDOR DÍA 19"
-          ],
-          "eq2": [
             "BAKAIKOA",
             "LIZEAGA"
           ],
-          "raw": "PERDEDOR DÍA 19 (Serie B) // BAKAIKOA – LIZEAGA",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "BAKAIKOA – LIZEAGA // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
         }
       ]
     },
@@ -413,7 +314,7 @@
         "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
         "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
         "DESDE",
-        "25.00€"
+        "38.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -834,8 +735,110 @@
         "DESDE",
         "30.00€",
         "Clasificación",
+        "Torneo San Mateo Serie A",
+        "Torneo San Mateo Serie B",
         "Masters CaixaBank",
         "Masters CaixaBank Serie B",
+        "Grupo A",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Jaka-Mariezkurrena II",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Larrazabal-Iztueta",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Zabala-Rezusta",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Grupo B",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Darío-Zabaleta",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Ezkurdia-Martija",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Laso-Landa",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Grupo A",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Amiano-Eskiroz",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Elordi-Eskuza",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Peña II-Salaverri II",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Grupo B",
+        "Pelotari/Pareja",
+        "PG",
+        "PJ",
+        "TF",
+        "TC",
+        "CO",
+        "Salaberria-Gaskue",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Senar-Imaz",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "P.Etxeberria-Loza",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
         "Pelotari/Pareja",
         "PG",
         "PJ",
