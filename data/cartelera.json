@@ -1,68 +1,7 @@
 {
-  "actualizado": "20/09/2026 02:53",
+  "actualizado": "21/09/2026 02:50",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "20/09/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo A)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "ELORDI – ESKUZA // AMIANO – ESKIROZ (Serie B)",
-        "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)",
-        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
-        "DESDE",
-        "25.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966434/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "ESKIROZ"
-          ],
-          "raw": "ELORDI – ESKUZA // AMIANO – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "ZABALA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IZTUETA"
-          ],
-          "raw": "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "21/09/2026",
       "hora": "19:15",
@@ -76,7 +15,7 @@
         "DARÍO – ZABALETA // EZKURDIA – MARTIJA (Serie A)",
         "ZUBIZARRETA III – ARANGUREN // REKALDE – ALDABE",
         "DESDE",
-        "25.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -133,9 +72,10 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "PEÑA II – SALAVERRI II // PERDEDORES DÍA 20 (Serie B)",
-        "JAKA – MARIEZKURRENA II // PERDEDORES DÍA 20 (Serie A)",
-        "BAKAIKOA – LIZEAGA // XX – XX",
+        "PEÑA II – SALAVERRI II // AMIANO – ESKIROZ (Serie B)",
+        "JAKA – MARIEZKURRENA II //",
+        "ZABALA – REZUSTA (Serie A)",
+        "BAKAIKOA – LIZEAGA // MURUA – EROSTARBE",
         "DESDE",
         "20.00€"
       ],
@@ -150,22 +90,33 @@
             "SALAVERRI II"
           ],
           "eq2": [
-            "PERDEDORES DÍA 20"
+            "AMIANO",
+            "ESKIROZ"
           ],
-          "raw": "PEÑA II – SALAVERRI II // PERDEDORES DÍA 20 (Serie B)",
+          "raw": "PEÑA II – SALAVERRI II // AMIANO – ESKIROZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
         {
           "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
+            "JAKA"
           ],
           "eq2": [
-            "PERDEDORES DÍA 20"
+            "MARIEZKURRENA II //"
           ],
-          "raw": "JAKA – MARIEZKURRENA II // PERDEDORES DÍA 20 (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "JAKA – MARIEZKURRENA II //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ZABALA"
+          ],
+          "eq2": [
+            "REZUSTA"
+          ],
+          "raw": "ZABALA – REZUSTA (Serie A)",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
@@ -174,10 +125,10 @@
             "LIZEAGA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "MURUA",
+            "EROSTARBE"
           ],
-          "raw": "BAKAIKOA – LIZEAGA // XX – XX",
+          "raw": "BAKAIKOA – LIZEAGA // MURUA – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -194,7 +145,7 @@
         "Torneo San Mateo",
         "SENAR – IMAZ // PERDEDORES DÍA 21 (Serie B)",
         "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
-        "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
+        "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
         "DESDE",
         "20.00€"
       ],
@@ -230,13 +181,13 @@
         {
           "eq1": [
             "AGIRRE",
-            "UGARTEMENDIA"
+            "MORGAETXEBARRIA"
           ],
           "eq2": [
             "EGIGUREN V",
             "EROSTARBE"
           ],
-          "raw": "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
+          "raw": "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -251,8 +202,9 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "PEÑA II – SALAVERRI II // GANADORES DÍA 20 (Serie B)",
-        "JAKA – MARIEZKURRENA II // GANADORES DÍA 20 (Serie A)",
+        "ELORDI – ESKUZA // PEÑA II – SALAVERRI II (Serie B)",
+        "JAKA – MARIEZKURRENA II //",
+        "LARRAZABAL – IZTUETA (Serie A)",
         "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
         "DESDE",
         "20.00€"
@@ -264,26 +216,37 @@
       "partidos": [
         {
           "eq1": [
+            "ELORDI",
+            "ESKUZA"
+          ],
+          "eq2": [
             "PEÑA II",
             "SALAVERRI II"
           ],
-          "eq2": [
-            "GANADORES DÍA 20"
-          ],
-          "raw": "PEÑA II – SALAVERRI II // GANADORES DÍA 20 (Serie B)",
+          "raw": "ELORDI – ESKUZA // PEÑA II – SALAVERRI II (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
         {
           "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
+            "JAKA"
           ],
           "eq2": [
-            "GANADORES DÍA 20"
+            "MARIEZKURRENA II //"
           ],
-          "raw": "JAKA – MARIEZKURRENA II // GANADORES DÍA 20 (Serie A)",
-          "tipo": "campeonato-a",
+          "raw": "JAKA – MARIEZKURRENA II //",
+          "tipo": "manomanista-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "LARRAZABAL"
+          ],
+          "eq2": [
+            "IZTUETA"
+          ],
+          "raw": "LARRAZABAL – IZTUETA (Serie A)",
+          "tipo": "manomanista-a",
           "serie": "a"
         },
         {
@@ -314,7 +277,7 @@
         "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
         "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
         "DESDE",
-        "38.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -429,7 +392,7 @@
         "Final Torneo San Mateo (Serie B)",
         "Final Torneo San Mateo (Serie A)",
         "DESDE",
-        "20.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -746,13 +709,13 @@
         "TF",
         "TC",
         "CO",
-        "Jaka-Mariezkurrena II",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Larrazabal-Iztueta",
+        "1",
+        "1",
+        "22",
+        "10",
+        "12",
+        "Jaka-Mariezkurrena II",
         "0",
         "0",
         "0",
@@ -760,10 +723,10 @@
         "0",
         "Zabala-Rezusta",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "10",
+        "22",
+        "-12",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
@@ -796,24 +759,24 @@
         "TF",
         "TC",
         "CO",
-        "Amiano-Eskiroz",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Elordi-Eskuza",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "1",
+        "22",
+        "10",
+        "12",
         "Peña II-Salaverri II",
         "0",
         "0",
         "0",
         "0",
         "0",
+        "Amiano-Eskiroz",
+        "0",
+        "1",
+        "10",
+        "22",
+        "-12",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
