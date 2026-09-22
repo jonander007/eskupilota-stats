@@ -1,68 +1,7 @@
 {
-  "actualizado": "21/09/2026 02:50",
+  "actualizado": "22/09/2026 02:51",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "21/09/2026",
-      "hora": "19:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo B)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "P.ETXEBERRIA – LOZA // SALABERRIA – GASKUE (Serie B)",
-        "DARÍO – ZABALETA // EZKURDIA – MARTIJA (Serie A)",
-        "ZUBIZARRETA III – ARANGUREN // REKALDE – ALDABE",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966435/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P.ETXEBERRIA",
-            "LOZA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "raw": "P.ETXEBERRIA – LOZA // SALABERRIA – GASKUE (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "EZKURDIA",
-            "MARTIJA"
-          ],
-          "raw": "DARÍO – ZABALETA // EZKURDIA – MARTIJA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "REKALDE",
-            "ALDABE"
-          ],
-          "raw": "ZUBIZARRETA III – ARANGUREN // REKALDE – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "22/09/2026",
       "hora": "19:15",
@@ -143,7 +82,7 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "SENAR – IMAZ // PERDEDORES DÍA 21 (Serie B)",
+        "SALABERRIA – GASKUE // SENAR – IMAZ (Serie B)",
         "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
         "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
         "DESDE",
@@ -156,13 +95,14 @@
       "partidos": [
         {
           "eq1": [
+            "SALABERRIA",
+            "GASKUE"
+          ],
+          "eq2": [
             "SENAR",
             "IMAZ"
           ],
-          "eq2": [
-            "PERDEDORES DÍA 21"
-          ],
-          "raw": "SENAR – IMAZ // PERDEDORES DÍA 21 (Serie B)",
+          "raw": "SALABERRIA – GASKUE // SENAR – IMAZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -207,7 +147,7 @@
         "LARRAZABAL – IZTUETA (Serie A)",
         "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
         "DESDE",
-        "20.00€"
+        "23.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -273,11 +213,12 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "SENAR – IMAZ // GANADORES DÍA 21 (Serie B)",
+        "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
         "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
         "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
+        "DIFERIDO",
         "DESDE",
-        "25.00€"
+        "38.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -286,13 +227,14 @@
       "partidos": [
         {
           "eq1": [
+            "P. ETXEBERRIA",
+            "LOZA"
+          ],
+          "eq2": [
             "SENAR",
             "IMAZ"
           ],
-          "eq2": [
-            "GANADORES DÍA 21"
-          ],
-          "raw": "SENAR – IMAZ // GANADORES DÍA 21 (Serie B)",
+          "raw": "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
@@ -335,6 +277,7 @@
         "XX // XX (4 1/2)",
         "XX – XX // XX – XX",
         "XX // XX (MANO A MANO)",
+        "DIFERIDO",
         "DESDE",
         "20.00€"
       ],
@@ -390,13 +333,11 @@
       "cartel": [
         "Torneo San Mateo",
         "Final Torneo San Mateo (Serie B)",
-        "Final Torneo San Mateo (Serie A)",
-        "DESDE",
-        "25.00€"
+        "Final Torneo San Mateo (Serie A)"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966441/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [],
       "pendiente": true
@@ -686,6 +627,50 @@
       ]
     },
     {
+      "fecha": "09/10/2026",
+      "hora": "21:15",
+      "fronton": "Ezkurdi",
+      "ciudad": "Durango",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "ZABALA – BIKUÑA // AMIANO – IMAZ",
+        "XX // XX (Serie A)",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3016977/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZABALA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "IMAZ"
+          ],
+          "raw": "ZABALA – BIKUÑA // AMIANO – IMAZ",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
       "fecha": "11/10/2026",
       "hora": "17:15",
       "fronton": "Jaian Jai",
@@ -694,9 +679,54 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "Campeonato 4 1/2 Eusko Label – Octavos de Final (Serie A)",
+        "XX // XX (Serie A)",
         "DESDE",
-        "30.00€",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "IMAZ"
+          ],
+          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "12/10/2026",
+      "hora": "17:15",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – ARANGUREN // XX – BIKUÑA",
+        "DESDE",
+        "25.00€",
         "Clasificación",
         "Torneo San Mateo Serie A",
         "Torneo San Mateo Serie B",
@@ -734,24 +764,24 @@
         "TF",
         "TC",
         "CO",
-        "Darío-Zabaleta",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Ezkurdia-Martija",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "22",
+        "15",
+        "7",
         "Laso-Landa",
         "0",
         "0",
         "0",
         "0",
         "0",
+        "Darío-Zabaleta",
+        "1",
+        "1",
+        "15",
+        "22",
+        "-7",
         "Grupo A",
         "Pelotari/Pareja",
         "PG",
@@ -784,24 +814,24 @@
         "TF",
         "TC",
         "CO",
-        "Salaberria-Gaskue",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "P.Etxeberria-Loza",
+        "1",
+        "1",
+        "22",
+        "11",
+        "11",
         "Senar-Imaz",
         "0",
         "0",
         "0",
         "0",
         "0",
-        "P.Etxeberria-Loza",
+        "Salaberria-Gaskue",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "11",
+        "22",
+        "-11",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -901,31 +931,42 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014159/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "EZKURDIA",
-            "ALBISU"
+            "XX"
           ],
           "eq2": [
-            "ALTUNA III",
-            "IMAZ"
+            "XX"
           ],
-          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-          "tipo": "campeonato-a",
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "Campeonato 4 1/2 Eusko Label"
+            "XX",
+            "ARANGUREN"
           ],
           "eq2": [
-            "Octavos de Final"
+            "XX",
+            "BIKUÑA"
           ],
-          "raw": "Campeonato 4 1/2 Eusko Label – Octavos de Final (Serie A)",
-          "tipo": "cuatro-medio-a",
+          "raw": "XX – ARANGUREN // XX – BIKUÑA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
