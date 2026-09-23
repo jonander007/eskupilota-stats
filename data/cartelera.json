@@ -1,78 +1,7 @@
 {
-  "actualizado": "22/09/2026 02:51",
+  "actualizado": "23/09/2026 02:51",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "22/09/2026",
-      "hora": "19:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo A)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "PEÑA II – SALAVERRI II // AMIANO – ESKIROZ (Serie B)",
-        "JAKA – MARIEZKURRENA II //",
-        "ZABALA – REZUSTA (Serie A)",
-        "BAKAIKOA – LIZEAGA // MURUA – EROSTARBE",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966436/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "AMIANO",
-            "ESKIROZ"
-          ],
-          "raw": "PEÑA II – SALAVERRI II // AMIANO – ESKIROZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "MARIEZKURRENA II //"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZABALA"
-          ],
-          "eq2": [
-            "REZUSTA"
-          ],
-          "raw": "ZABALA – REZUSTA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "MURUA",
-            "EROSTARBE"
-          ],
-          "raw": "BAKAIKOA – LIZEAGA // MURUA – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "23/09/2026",
       "hora": "19:15",
@@ -83,7 +12,7 @@
       "cartel": [
         "Torneo San Mateo",
         "SALABERRIA – GASKUE // SENAR – IMAZ (Serie B)",
-        "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
+        "DARIO – ZABALETA // LASO – LANDA (Serie A)",
         "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
         "DESDE",
         "20.00€"
@@ -108,13 +37,14 @@
         },
         {
           "eq1": [
+            "DARIO",
+            "ZABALETA"
+          ],
+          "eq2": [
             "LASO",
             "LANDA"
           ],
-          "eq2": [
-            "PERDEDORES DÍA 21"
-          ],
-          "raw": "LASO – LANDA // PERDEDORES DÍA 21 (Serie A)",
+          "raw": "DARIO – ZABALETA // LASO – LANDA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -214,7 +144,7 @@
       "cartel": [
         "Torneo San Mateo",
         "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
-        "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
+        "EZKURDIA – MARTIJA // LASO – LANDA (Serie A)",
         "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
         "DIFERIDO",
         "DESDE",
@@ -240,13 +170,14 @@
         },
         {
           "eq1": [
+            "EZKURDIA",
+            "MARTIJA"
+          ],
+          "eq2": [
             "LASO",
             "LANDA"
           ],
-          "eq2": [
-            "GANADORES DÍA 21"
-          ],
-          "raw": "LASO – LANDA // GANADORES DÍA 21 (Serie A)",
+          "raw": "EZKURDIA – MARTIJA // LASO – LANDA (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -369,6 +300,52 @@
           ],
           "raw": "PEÑA II – LIZEAGA // APEZETXEA II – ESKUZA",
           "tipo": "festival",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "02/10/2026",
+      "hora": "18:30",
+      "fronton": "Uarkape",
+      "ciudad": "Arrasate/Mondragón",
+      "fase": "Maritxu Kajoi",
+      "competicion": null,
+      "cartel": [
+        "PEÑA II – LIZEAGA // EGIGUREN V – BIKUÑA",
+        "ALTUNA III – MARTIJA // MURUA – ZABALETA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3017996/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "BIKUÑA"
+          ],
+          "raw": "PEÑA II – LIZEAGA // EGIGUREN V – BIKUÑA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "MURUA",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – MARTIJA // MURUA – ZABALETA",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -745,18 +722,18 @@
         "22",
         "10",
         "12",
+        "Zabala-Rezusta",
+        "1",
+        "2",
+        "32",
+        "43",
+        "-11",
         "Jaka-Mariezkurrena II",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "Zabala-Rezusta",
-        "0",
         "1",
-        "10",
+        "21",
         "22",
-        "-12",
+        "-1",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
@@ -795,18 +772,18 @@
         "22",
         "10",
         "12",
+        "Amiano-Eskiroz",
+        "1",
+        "2",
+        "32",
+        "36",
+        "-4",
         "Peña II-Salaverri II",
         "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "Amiano-Eskiroz",
-        "0",
         "1",
-        "10",
+        "14",
         "22",
-        "-12",
+        "-8",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
