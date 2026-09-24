@@ -11,6 +11,8 @@
     "id": "FRO002",
     "nombre": "ADARRAGA",
     "ciudad_id": "CIU097",
+    "lat": 42.4667,
+    "lon": -2.4494,
     "partidos_count": 108,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"
@@ -19,6 +21,8 @@
     "id": "FRO003",
     "nombre": "AGONCILLO",
     "ciudad_id": "CIU002",
+    "lat": 42.4361,
+    "lon": -2.3633,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AGONCILLO"
@@ -35,6 +39,8 @@
     "id": "FRO005",
     "nombre": "AITZURI",
     "ciudad_id": "CIU147",
+    "lat": 43.298,
+    "lon": -2.254,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AITZURI"
@@ -43,6 +49,8 @@
     "id": "FRO006",
     "nombre": "AIZARNAZABAL",
     "ciudad_id": "CIU004",
+    "lat": 43.2636,
+    "lon": -2.2564,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AIZARNAZABAL"
@@ -51,6 +59,8 @@
     "id": "FRO007",
     "nombre": "AIZPURUTXO",
     "ciudad_id": "CIU020",
+    "lat": 43.1747,
+    "lon": -2.314,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AIZPURUTXO"
@@ -59,6 +69,8 @@
     "id": "FRO009",
     "nombre": "AMASA-VILLABONA",
     "ciudad_id": "CIU007",
+    "lat": 43.2003,
+    "lon": -2.0022,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMASA-VILLABONA"
@@ -67,6 +79,8 @@
     "id": "FRO010",
     "nombre": "AMEZKETA",
     "ciudad_id": "CIU008",
+    "lat": 43.1142,
+    "lon": -2.0744,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMEZKETA"
@@ -75,6 +89,8 @@
     "id": "FRO011",
     "nombre": "AMOREBIETA IV",
     "ciudad_id": "CIU009",
+    "lat": 43.2181,
+    "lon": -2.7303,
     "partidos_count": 34,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMOREBIETA%20IV"
@@ -83,6 +99,8 @@
     "id": "FRO012",
     "nombre": "AMURRIO",
     "ciudad_id": "CIU010",
+    "lat": 42.9958,
+    "lon": -3.0022,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AMURRIO"
@@ -99,6 +117,8 @@
     "id": "FRO014",
     "nombre": "AOIZ",
     "ciudad_id": "CIU011",
+    "lat": 42.7897,
+    "lon": -1.3694,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AOIZ"
@@ -115,6 +135,8 @@
     "id": "FRO016",
     "nombre": "ARETA",
     "ciudad_id": "CIU095",
+    "lat": 43.0814,
+    "lon": -2.979,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARETA"
@@ -123,6 +145,8 @@
     "id": "FRO017",
     "nombre": "ARETXABALETA",
     "ciudad_id": "CIU013",
+    "lat": 43.0336,
+    "lon": -2.5008,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARETXABALETA"
@@ -161,6 +185,8 @@
     "id": "FRO021",
     "nombre": "ARRASATE",
     "ciudad_id": "CIU015",
+    "lat": 43.0631,
+    "lon": -2.4908,
     "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRASATE"
@@ -177,6 +203,8 @@
     "id": "FRO023",
     "nombre": "ARRIGORRIAGA",
     "ciudad_id": "CIU016",
+    "lat": 43.2008,
+    "lon": -2.8856,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ARRIGORRIAGA"
@@ -213,6 +241,8 @@
     "id": "FRO026",
     "nombre": "ASTELENA",
     "ciudad_id": "CIU046",
+    "lat": 43.1856,
+    "lon": -2.4703,
     "partidos_count": 111,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ASTELENA"
@@ -229,6 +259,8 @@
     "id": "FRO028",
     "nombre": "ATANO III",
     "ciudad_id": "CIU044",
+    "lat": 43.3181,
+    "lon": -1.9819,
     "partidos_count": 111,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"
@@ -253,6 +285,8 @@
     "id": "FRO031",
     "nombre": "AZKOITIA",
     "ciudad_id": "CIU020",
+    "lat": 43.1747,
+    "lon": -2.3122,
     "partidos_count": 13,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AZKOITIA"
@@ -261,6 +295,8 @@
     "id": "FRO032",
     "nombre": "AZPEITIA",
     "ciudad_id": "CIU021",
+    "lat": 43.1803,
+    "lon": -2.2661,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20AZPEITIA"
@@ -275,6 +311,8 @@
     "id": "FRO033",
     "nombre": "BARAKALDO",
     "ciudad_id": "CIU022",
+    "lat": 43.2978,
+    "lon": -2.9931,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARAKALDO"
@@ -283,6 +321,8 @@
     "id": "FRO034",
     "nombre": "BARATZE",
     "ciudad_id": "CIU123",
+    "lat": 43.088,
+    "lon": -2.285,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARATZE"
@@ -291,6 +331,8 @@
     "id": "FRO035",
     "nombre": "BARAÑAIN",
     "ciudad_id": "CIU023",
+    "lat": 42.8028,
+    "lon": -1.6795,
     "partidos_count": 9,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARA%C3%91AIN"
@@ -307,6 +349,8 @@
     "id": "FRO037",
     "nombre": "BARCELONA",
     "ciudad_id": "CIU024",
+    "lat": 41.3851,
+    "lon": 2.1734,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BARCELONA"
@@ -323,6 +367,8 @@
     "id": "FRO039",
     "nombre": "BAZTAN",
     "ciudad_id": "CIU053",
+    "lat": 43.1497,
+    "lon": -1.5167,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BAZTAN"
@@ -355,6 +401,8 @@
     "id": "FRO043",
     "nombre": "BEKOERROTABERRI",
     "ciudad_id": "CIU104",
+    "lat": 43.352,
+    "lon": -2.846,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEKOERROTABERRI"
@@ -363,6 +411,8 @@
     "id": "FRO044",
     "nombre": "BELOKI",
     "ciudad_id": "CIU148",
+    "lat": 43.084,
+    "lon": -2.306,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BELOKI"
@@ -371,6 +421,8 @@
     "id": "FRO045",
     "nombre": "BELORADO",
     "ciudad_id": "CIU028",
+    "lat": 42.4161,
+    "lon": -3.1911,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BELORADO"
@@ -379,6 +431,8 @@
     "id": "FRO046",
     "nombre": "BEOTIBAR",
     "ciudad_id": "CIU129",
+    "lat": 43.1358,
+    "lon": -2.0789,
     "partidos_count": 117,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"
@@ -387,6 +441,8 @@
     "id": "FRO047",
     "nombre": "BERA",
     "ciudad_id": "CIU029",
+    "lat": 43.275,
+    "lon": -1.6856,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERA"
@@ -395,6 +451,8 @@
     "id": "FRO048",
     "nombre": "BERGARA",
     "ciudad_id": "CIU030",
+    "lat": 43.1189,
+    "lon": -2.4194,
     "partidos_count": 9,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERGARA"
@@ -403,6 +461,8 @@
     "id": "FRO049",
     "nombre": "BERMEO",
     "ciudad_id": "CIU031",
+    "lat": 43.4217,
+    "lon": -2.7236,
     "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BERMEO"
@@ -457,6 +517,8 @@
     "id": "FRO055",
     "nombre": "BIZKAIA FRONTOIA",
     "ciudad_id": "CIU036",
+    "lat": 43.2569,
+    "lon": -2.9236,
     "partidos_count": 127,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BIZKAIA%20FRONTOIA"
@@ -465,6 +527,8 @@
     "id": "FRO056",
     "nombre": "BRIONES",
     "ciudad_id": "CIU037",
+    "lat": 42.5481,
+    "lon": -2.7789,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BRIONES"
@@ -489,6 +553,8 @@
     "id": "FRO059",
     "nombre": "BUÑUEL",
     "ciudad_id": "CIU039",
+    "lat": 41.9781,
+    "lon": -1.4564,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20BU%C3%91UEL"
@@ -519,6 +585,8 @@
     "id": "FRO062",
     "nombre": "CLUB DEPORTIVO",
     "ciudad_id": "CIU036",
+    "lat": 43.263,
+    "lon": -2.932,
     "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20CLUB%20DEPORTIVO"
@@ -527,6 +595,8 @@
     "id": "FRO063",
     "nombre": "COVALEDA",
     "ciudad_id": "CIU042",
+    "lat": 41.9144,
+    "lon": -2.8019,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20COVALEDA"
@@ -557,6 +627,8 @@
     "id": "FRO066",
     "nombre": "DONIBANE",
     "ciudad_id": "CIU107",
+    "lat": 43.358,
+    "lon": -3.114,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20DONIBANE"
@@ -565,6 +637,8 @@
     "id": "FRO067",
     "nombre": "DURANGO",
     "ciudad_id": "CIU045",
+    "lat": 43.2197,
+    "lon": -2.6358,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20DURANGO"
@@ -573,6 +647,8 @@
     "id": "FRO068",
     "nombre": "EDERRENA",
     "ciudad_id": "CIU132",
+    "lat": 43.089,
+    "lon": -2.398,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20EDERRENA"
@@ -619,6 +695,8 @@
     "id": "FRO073",
     "nombre": "ELGETA",
     "ciudad_id": "CIU051",
+    "lat": 43.1592,
+    "lon": -2.5153,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELGETA"
@@ -627,6 +705,8 @@
     "id": "FRO074",
     "nombre": "ELGOIBAR",
     "ciudad_id": "CIU052",
+    "lat": 43.2136,
+    "lon": -2.4158,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELGOIBAR"
@@ -635,6 +715,8 @@
     "id": "FRO075",
     "nombre": "ELIZONDO",
     "ciudad_id": "CIU053",
+    "lat": 43.1497,
+    "lon": -1.5167,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ELIZONDO"
@@ -651,6 +733,8 @@
     "id": "FRO077",
     "nombre": "ERETA",
     "ciudad_id": "CIU128",
+    "lat": 42.5284,
+    "lon": -1.6737,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ERETA"
@@ -673,6 +757,8 @@
     "id": "FRO079",
     "nombre": "ERRATZU",
     "ciudad_id": "CIU055",
+    "lat": 43.1547,
+    "lon": -1.4367,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ERRATZU"
@@ -697,6 +783,8 @@
     "id": "FRO082",
     "nombre": "ETXARRI-ARANATZ",
     "ciudad_id": "CIU058",
+    "lat": 42.9036,
+    "lon": -2.0647,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ETXARRI-ARANATZ"
@@ -705,6 +793,8 @@
     "id": "FRO083",
     "nombre": "ETXEBARRI",
     "ciudad_id": "CIU059",
+    "lat": 43.28,
+    "lon": -2.9003,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ETXEBARRI"
@@ -713,6 +803,8 @@
     "id": "FRO084",
     "nombre": "ETXEBARRIA",
     "ciudad_id": "CIU060",
+    "lat": 43.1778,
+    "lon": -2.5372,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ETXEBARRIA"
@@ -737,6 +829,8 @@
     "id": "FRO087",
     "nombre": "EZCARAY",
     "ciudad_id": "CIU062",
+    "lat": 42.3628,
+    "lon": -3.0119,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20EZCARAY"
@@ -753,6 +847,8 @@
     "id": "FRO089",
     "nombre": "EZKURDI",
     "ciudad_id": "CIU045",
+    "lat": 43.22,
+    "lon": -2.636,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20EZKURDI"
@@ -789,6 +885,8 @@
     "id": "FRO092",
     "nombre": "FRONTION CATALUNYA",
     "ciudad_id": "CIU024",
+    "lat": 41.3851,
+    "lon": 2.174,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20FRONTION%20CATALUNYA"
@@ -797,6 +895,8 @@
     "id": "FRO093",
     "nombre": "FUENMAYOR",
     "ciudad_id": "CIU065",
+    "lat": 42.4692,
+    "lon": -2.5644,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20FUENMAYOR"
@@ -821,6 +921,8 @@
     "id": "FRO096",
     "nombre": "GAUTEGIZ-ARTEAGA",
     "ciudad_id": "CIU068",
+    "lat": 43.3647,
+    "lon": -2.6508,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GAUTEGIZ-ARTEAGA"
@@ -829,6 +931,8 @@
     "id": "FRO097",
     "nombre": "GERNIKA",
     "ciudad_id": "CIU069",
+    "lat": 43.3144,
+    "lon": -2.68,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GERNIKA"
@@ -837,6 +941,8 @@
     "id": "FRO098",
     "nombre": "GETARIA",
     "ciudad_id": "CIU070",
+    "lat": 43.2994,
+    "lon": -2.2019,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GETARIA"
@@ -851,6 +957,8 @@
     "id": "FRO099",
     "nombre": "GUREA",
     "ciudad_id": "CIU020",
+    "lat": 43.1747,
+    "lon": -2.313,
     "partidos_count": 16,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20GUREA"
@@ -867,6 +975,8 @@
     "id": "FRO101",
     "nombre": "HARO",
     "ciudad_id": "CIU071",
+    "lat": 42.5764,
+    "lon": -2.8497,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HARO"
@@ -875,6 +985,8 @@
     "id": "FRO102",
     "nombre": "HENDAIA",
     "ciudad_id": "CIU072",
+    "lat": 43.3547,
+    "lon": -1.7733,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HENDAIA"
@@ -891,6 +1003,8 @@
     "id": "FRO104",
     "nombre": "HERRI PILOTA",
     "ciudad_id": "CIU072",
+    "lat": 43.3547,
+    "lon": -1.7733,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HERRI%20PILOTA"
@@ -899,6 +1013,8 @@
     "id": "FRO105",
     "nombre": "HONDARRIBI",
     "ciudad_id": "CIU074",
+    "lat": 43.3636,
+    "lon": -1.7961,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HONDARRIBI"
@@ -907,6 +1023,8 @@
     "id": "FRO106",
     "nombre": "HONDARRIBIA",
     "ciudad_id": "CIU074",
+    "lat": 43.3636,
+    "lon": -1.7961,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HONDARRIBIA"
@@ -915,6 +1033,8 @@
     "id": "FRO107",
     "nombre": "HUERCANOS",
     "ciudad_id": "CIU075",
+    "lat": 42.4819,
+    "lon": -2.7419,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20HUERCANOS"
@@ -935,6 +1055,8 @@
     "id": "FRO108",
     "nombre": "IBARRANGELU",
     "ciudad_id": "CIU076",
+    "lat": 43.3986,
+    "lon": -2.6622,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IBARRANGELU"
@@ -943,6 +1065,8 @@
     "id": "FRO109",
     "nombre": "IDIAZABAL",
     "ciudad_id": "CIU077",
+    "lat": 43.0597,
+    "lon": -2.2261,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IDIAZABAL"
@@ -951,6 +1075,8 @@
     "id": "FRO110",
     "nombre": "IGARONDO",
     "ciudad_id": "CIU077",
+    "lat": 43.06,
+    "lon": -2.226,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IGARONDO"
@@ -987,6 +1113,8 @@
     "id": "FRO113",
     "nombre": "IRURZUN",
     "ciudad_id": "CIU080",
+    "lat": 42.9083,
+    "lon": -1.8267,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IRURZUN"
@@ -995,6 +1123,8 @@
     "id": "FRO114",
     "nombre": "ISCAR",
     "ciudad_id": "CIU149",
+    "lat": 41.3622,
+    "lon": -4.5453,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ISCAR"
@@ -1009,6 +1139,8 @@
     "id": "FRO115",
     "nombre": "ITZIAR",
     "ciudad_id": "CIU081",
+    "lat": 43.25,
+    "lon": -2.33,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ITZIAR"
@@ -1017,6 +1149,8 @@
     "id": "FRO116",
     "nombre": "IURRETA",
     "ciudad_id": "CIU082",
+    "lat": 43.2044,
+    "lon": -2.6297,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IURRETA"
@@ -1025,6 +1159,8 @@
     "id": "FRO117",
     "nombre": "IZARRAITZ",
     "ciudad_id": "CIU021",
+    "lat": 43.18,
+    "lon": -2.266,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20IZARRAITZ"
@@ -1033,6 +1169,8 @@
     "id": "FRO118",
     "nombre": "JAI ALAI",
     "ciudad_id": "CIU070",
+    "lat": 43.299,
+    "lon": -2.202,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20JAI%20ALAI"
@@ -1055,6 +1193,8 @@
     "id": "FRO120",
     "nombre": "KEPA ARROITAJAUREGI",
     "ciudad_id": "CIU082",
+    "lat": 43.2044,
+    "lon": -2.6297,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KEPA%20ARROITAJAUREGI"
@@ -1069,6 +1209,8 @@
     "id": "FRO121",
     "nombre": "KURUTZIAGA",
     "ciudad_id": "CIU045",
+    "lat": 43.22,
+    "lon": -2.636,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20KURUTZIAGA"
@@ -1077,6 +1219,8 @@
     "id": "FRO122",
     "nombre": "LA JUVENTUD",
     "ciudad_id": "CIU126",
+    "lat": 41.7667,
+    "lon": -2.483,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LA%20JUVENTUD"
@@ -1085,6 +1229,8 @@
     "id": "FRO123",
     "nombre": "LABASTIDA",
     "ciudad_id": "CIU083",
+    "lat": 42.6058,
+    "lon": -2.8019,
     "partidos_count": 17,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABASTIDA"
@@ -1093,6 +1239,8 @@
     "id": "FRO124",
     "nombre": "LABRIT",
     "ciudad_id": "CIU118",
+    "lat": 42.8125,
+    "lon": -1.6458,
     "partidos_count": 251,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"
@@ -1109,6 +1257,8 @@
     "id": "FRO126",
     "nombre": "LARRAINTZAR",
     "ciudad_id": "CIU085",
+    "lat": 42.9244,
+    "lon": -1.7122,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LARRAINTZAR"
@@ -1139,6 +1289,8 @@
     "id": "FRO129",
     "nombre": "LEGAZPI",
     "ciudad_id": "CIU088",
+    "lat": 43.0519,
+    "lon": -2.3342,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LEGAZPI"
@@ -1163,6 +1315,8 @@
     "id": "FRO132",
     "nombre": "LEKEITIO",
     "ciudad_id": "CIU091",
+    "lat": 43.3606,
+    "lon": -2.5006,
     "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LEKEITIO"
@@ -1171,6 +1325,8 @@
     "id": "FRO133",
     "nombre": "LEKUNBERRI",
     "ciudad_id": "CIU092",
+    "lat": 43.0264,
+    "lon": -1.8686,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LEKUNBERRI"
@@ -1179,6 +1335,8 @@
     "id": "FRO134",
     "nombre": "LEMOA",
     "ciudad_id": "CIU093",
+    "lat": 43.1706,
+    "lon": -2.7792,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LEMOA"
@@ -1195,6 +1353,8 @@
     "id": "FRO136",
     "nombre": "LLODIO",
     "ciudad_id": "CIU095",
+    "lat": 43.0814,
+    "lon": -2.9786,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20LLODIO"
@@ -1235,6 +1395,8 @@
     "id": "FRO141",
     "nombre": "MADALENSORO",
     "ciudad_id": "CIU109",
+    "lat": 43.2869,
+    "lon": -1.882,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MADALENSORO"
@@ -1249,6 +1411,8 @@
     "id": "FRO142",
     "nombre": "MALLABIA",
     "ciudad_id": "CIU101",
+    "lat": 43.2044,
+    "lon": -2.5497,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MALLABIA"
@@ -1257,6 +1421,8 @@
     "id": "FRO143",
     "nombre": "MALLABIA I",
     "ciudad_id": "CIU101",
+    "lat": 43.2044,
+    "lon": -2.5497,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MALLABIA%20I"
@@ -1265,6 +1431,8 @@
     "id": "FRO144",
     "nombre": "MARKINA-XEMEIN",
     "ciudad_id": "CIU102",
+    "lat": 43.2664,
+    "lon": -2.4947,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MARKINA-XEMEIN"
@@ -1293,6 +1461,8 @@
     "id": "FRO146",
     "nombre": "MIMETIZ",
     "ciudad_id": "CIU141",
+    "lat": 43.2203,
+    "lon": -3.142,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MIMETIZ"
@@ -1301,6 +1471,8 @@
     "id": "FRO147",
     "nombre": "MUNGIA",
     "ciudad_id": "CIU104",
+    "lat": 43.3517,
+    "lon": -2.8453,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MUNGIA"
@@ -1309,6 +1481,8 @@
     "id": "FRO148",
     "nombre": "MUNITIBAR",
     "ciudad_id": "CIU105",
+    "lat": 43.2961,
+    "lon": -2.6267,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MUNITIBAR"
@@ -1317,6 +1491,8 @@
     "id": "FRO149",
     "nombre": "MURUETA",
     "ciudad_id": "CIU106",
+    "lat": 43.3736,
+    "lon": -2.6722,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MURUETA"
@@ -1325,6 +1501,8 @@
     "id": "FRO150",
     "nombre": "MUSKIZ",
     "ciudad_id": "CIU107",
+    "lat": 43.3581,
+    "lon": -3.1133,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20MUSKIZ"
@@ -1341,6 +1519,8 @@
     "id": "FRO152",
     "nombre": "NAVARRA ARENA",
     "ciudad_id": "CIU118",
+    "lat": 42.7953,
+    "lon": -1.6384,
     "partidos_count": 33,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"
@@ -1361,6 +1541,8 @@
     "id": "FRO153",
     "nombre": "OGUETA",
     "ciudad_id": "CIU139",
+    "lat": 42.8469,
+    "lon": -2.6731,
     "partidos_count": 82,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"
@@ -1369,6 +1551,8 @@
     "id": "FRO154",
     "nombre": "OIARTZUN",
     "ciudad_id": "CIU109",
+    "lat": 43.2869,
+    "lon": -1.8817,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OIARTZUN"
@@ -1393,6 +1577,8 @@
     "id": "FRO157",
     "nombre": "OLAZAR",
     "ciudad_id": "CIU140",
+    "lat": 43.19,
+    "lon": -2.53,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OLAZAR"
@@ -1401,6 +1587,8 @@
     "id": "FRO158",
     "nombre": "ORDIZIA",
     "ciudad_id": "CIU112",
+    "lat": 43.0561,
+    "lon": -2.1758,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ORDIZIA"
@@ -1417,6 +1605,8 @@
     "id": "FRO160",
     "nombre": "OROZKO",
     "ciudad_id": "CIU114",
+    "lat": 43.1247,
+    "lon": -2.8819,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OROZKO"
@@ -1433,6 +1623,8 @@
     "id": "FRO162",
     "nombre": "OTXANDIO",
     "ciudad_id": "CIU116",
+    "lat": 43.0583,
+    "lon": -2.6594,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20OTXANDIO"
@@ -1471,6 +1663,8 @@
     "id": "FRO166",
     "nombre": "RETEGUI",
     "ciudad_id": "CIU023",
+    "lat": 42.8028,
+    "lon": -1.6795,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20RETEGUI"
@@ -1479,6 +1673,8 @@
     "id": "FRO167",
     "nombre": "SAHATSAGA",
     "ciudad_id": "CIU070",
+    "lat": 43.299,
+    "lon": -2.202,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SAHATSAGA"
@@ -1507,6 +1703,8 @@
     "id": "FRO169",
     "nombre": "SANTANAPE",
     "ciudad_id": "CIU069",
+    "lat": 43.314,
+    "lon": -2.681,
     "partidos_count": 9,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SANTANAPE"
@@ -1515,6 +1713,8 @@
     "id": "FRO170",
     "nombre": "SANTI BROUARD",
     "ciudad_id": "CIU091",
+    "lat": 43.361,
+    "lon": -2.501,
     "partidos_count": 10,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SANTI%20BROUARD"
@@ -1523,6 +1723,8 @@
     "id": "FRO171",
     "nombre": "SANTO DOMINGO",
     "ciudad_id": "CIU121",
+    "lat": 42.4408,
+    "lon": -2.9539,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SANTO%20DOMINGO"
@@ -1537,6 +1739,8 @@
     "id": "FRO172",
     "nombre": "SARDON",
     "ciudad_id": "CIU122",
+    "lat": 41.3083,
+    "lon": -4.9069,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SARDON"
@@ -1545,6 +1749,8 @@
     "id": "FRO173",
     "nombre": "SEGURA",
     "ciudad_id": "CIU123",
+    "lat": 43.0878,
+    "lon": -2.2847,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SEGURA"
@@ -1553,6 +1759,8 @@
     "id": "FRO174",
     "nombre": "SESTAO",
     "ciudad_id": "CIU124",
+    "lat": 43.3097,
+    "lon": -3.0094,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SESTAO"
@@ -1561,6 +1769,8 @@
     "id": "FRO175",
     "nombre": "SOPELA",
     "ciudad_id": "CIU125",
+    "lat": 43.3869,
+    "lon": -2.9797,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SOPELA"
@@ -1569,6 +1779,8 @@
     "id": "FRO176",
     "nombre": "SORIA",
     "ciudad_id": "CIU126",
+    "lat": 41.7667,
+    "lon": -2.4833,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20SORIA"
@@ -1585,6 +1797,8 @@
     "id": "FRO178",
     "nombre": "TAFALLA",
     "ciudad_id": "CIU128",
+    "lat": 42.5284,
+    "lon": -1.6737,
     "partidos_count": 14,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20TAFALLA"
@@ -1601,6 +1815,8 @@
     "id": "FRO180",
     "nombre": "TROBIKA",
     "ciudad_id": "CIU104",
+    "lat": 43.352,
+    "lon": -2.846,
     "partidos_count": 7,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20TROBIKA"
@@ -1609,6 +1825,8 @@
     "id": "FRO181",
     "nombre": "UARKAPE",
     "ciudad_id": "CIU015",
+    "lat": 43.0631,
+    "lon": -2.491,
     "partidos_count": 20,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20UARKAPE"
@@ -1633,6 +1851,8 @@
     "id": "FRO183",
     "nombre": "URDULIZ",
     "ciudad_id": "CIU130",
+    "lat": 43.3706,
+    "lon": -2.9206,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URDULIZ"
@@ -1641,6 +1861,8 @@
     "id": "FRO184",
     "nombre": "URDUÑA",
     "ciudad_id": "CIU113",
+    "lat": 42.9981,
+    "lon": -3.0072,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URDU%C3%91A"
@@ -1649,6 +1871,8 @@
     "id": "FRO185",
     "nombre": "URRESTILLA",
     "ciudad_id": "CIU131",
+    "lat": 43.1628,
+    "lon": -2.3778,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URRESTILLA"
@@ -1657,6 +1881,8 @@
     "id": "FRO186",
     "nombre": "URRETXU",
     "ciudad_id": "CIU132",
+    "lat": 43.0894,
+    "lon": -2.3978,
     "partidos_count": 8,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20URRETXU"
@@ -1673,6 +1899,8 @@
     "id": "FRO188",
     "nombre": "USANSOLO",
     "ciudad_id": "CIU134",
+    "lat": 43.2153,
+    "lon": -2.7561,
     "partidos_count": 1,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20USANSOLO"
@@ -1681,6 +1909,8 @@
     "id": "FRO189",
     "nombre": "VALL D'HEBRON",
     "ciudad_id": "CIU024",
+    "lat": 41.3851,
+    "lon": 2.174,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20VALL%20D%27HEBRON"
@@ -1689,6 +1919,8 @@
     "id": "FRO190",
     "nombre": "VIANA",
     "ciudad_id": "CIU136",
+    "lat": 42.5172,
+    "lon": -2.3728,
     "partidos_count": 6,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20VIANA"
@@ -1719,6 +1951,8 @@
     "id": "FRO193",
     "nombre": "ZALDIBAR",
     "ciudad_id": "CIU140",
+    "lat": 43.1906,
+    "lon": -2.5303,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZALDIBAR"
@@ -1727,6 +1961,8 @@
     "id": "FRO194",
     "nombre": "ZALLA",
     "ciudad_id": "CIU141",
+    "lat": 43.2203,
+    "lon": -3.1422,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZALLA"
@@ -1743,6 +1979,8 @@
     "id": "FRO196",
     "nombre": "ZEANURI",
     "ciudad_id": "CIU143",
+    "lat": 43.1039,
+    "lon": -2.7369,
     "partidos_count": 2,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZEANURI"
@@ -1759,6 +1997,8 @@
     "id": "FRO198",
     "nombre": "ZIERBENA",
     "ciudad_id": "CIU145",
+    "lat": 43.36,
+    "lon": -3.0594,
     "partidos_count": 3,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZIERBENA"
@@ -1783,6 +2023,8 @@
     "id": "FRO201",
     "nombre": "ZUMAIA",
     "ciudad_id": "CIU147",
+    "lat": 43.2981,
+    "lon": -2.2536,
     "partidos_count": 5,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZUMAIA"
@@ -1791,6 +2033,8 @@
     "id": "FRO202",
     "nombre": "ZUMARRAGA",
     "ciudad_id": "CIU148",
+    "lat": 43.0839,
+    "lon": -2.305,
     "partidos_count": 4,
     "direccion": "",
     "google_maps_link": "https://www.google.com/maps/search/?api=1&query=Fronton%20ZUMARRAGA"

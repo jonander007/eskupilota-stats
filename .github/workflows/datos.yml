@@ -1,0 +1,60 @@
+name: 🤖 Actualizar datos diarios
+
+on:
+  schedule:
+    - cron: '1 0 * * *'   # cada día a las 00:01 UTC
+  workflow_dispatch:        # también se puede lanzar manualmente desde GitHub
+
+# Nunca dos ejecuciones a la vez: evita conflictos al hacer push
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      # Un fallo en un scraper no debe impedir que se guarde lo del otro
+      - name: Scraper de cartelera
+        id: cartelera
+        run: python scraper/scraper_cartelera.py
+        continue-on-error: true
+
+      - name: Scraper de resultados
+        id: resultados
+        run: python scraper/scraper.py
+        continue-on-error: true
+
+      - name: Guardar cambios
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos"
+          else
+            git commit -m "🤖 Actualizar datos - $(date +'%d/%m/%Y')"
+            git push
+          fi
+
+      # Marca la ejecución en rojo si algún scraper falló, tras guardar lo que sí funcionó
+      - name: Comprobar scrapers
+        if: steps.cartelera.outcome == 'failure' || steps.resultados.outcome == 'failure'
+        run: |
+          echo "cartelera: ${{ steps.cartelera.outcome }} · resultados: ${{ steps.resultados.outcome }}"
+          exit 1

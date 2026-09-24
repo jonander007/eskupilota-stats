@@ -435,7 +435,6 @@ class Catalogos:
         pid = next_id('PEL', self.pelotaris)
         nuevo = {
             'id': pid, 'nombre': nombre,
-            'nombre_es': nombre, 'nombre_eu': nombre,
             'rol': 'mixto', 'partidos_count': 0,
         }
         self.pelotaris.append(nuevo)
@@ -667,7 +666,7 @@ def main():
     if existentes and not es_formato_nuevo(existentes):
         print("\n⚠️  El archivo data/partidos.json está en formato viejo (sin IDs).")
         print("    Ejecuta primero el script de migración:")
-        print("        python migrar_a_catalogos.py data/partidos.json data/")
+        print("        python tools/migrar_a_catalogos.py data/partidos.json data/")
         sys.exit(1)
 
     print(f"  partidos existentes: {len(existentes)}")
