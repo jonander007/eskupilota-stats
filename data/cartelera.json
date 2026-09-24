@@ -1,68 +1,7 @@
 {
-  "actualizado": "23/09/2026 02:51",
+  "actualizado": "24/09/2026 02:41",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "23/09/2026",
-      "hora": "19:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo B)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "SALABERRIA – GASKUE // SENAR – IMAZ (Serie B)",
-        "DARIO – ZABALETA // LASO – LANDA (Serie A)",
-        "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966437/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA",
-            "GASKUE"
-          ],
-          "eq2": [
-            "SENAR",
-            "IMAZ"
-          ],
-          "raw": "SALABERRIA – GASKUE // SENAR – IMAZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "DARIO",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "DARIO – ZABALETA // LASO – LANDA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "EROSTARBE"
-          ],
-          "raw": "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "24/09/2026",
       "hora": "19:15",
@@ -145,7 +84,7 @@
         "Torneo San Mateo",
         "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
         "EZKURDIA – MARTIJA // LASO – LANDA (Serie A)",
-        "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
+        "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
         "DIFERIDO",
         "DESDE",
         "38.00€"
@@ -184,13 +123,13 @@
         {
           "eq1": [
             "BAKAIKOA",
-            "UGARTEMENDIA"
+            "ESKIROZ"
           ],
           "eq2": [
             "ALBERDI II",
-            "XX"
+            "EROSTARBE"
           ],
-          "raw": "BAKAIKOA – UGARTEMENDIA // ALBERDI II – XX",
+          "raw": "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -568,7 +507,7 @@
         "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
         "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
         "DESDE",
-        "30.00€"
+        "25.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -600,6 +539,62 @@
           "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
           "tipo": "festival",
           "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "09/10/2026",
+      "hora": "18:00",
+      "fronton": "Lorenzo Goikoa",
+      "ciudad": "Atarrabia – Villava",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie B)",
+        "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
+        "DESDE",
+        "30.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3009286/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
+          "tipo": "campeonato-b",
+          "serie": "b"
         }
       ]
     },
@@ -643,6 +638,62 @@
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "10/10/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "MURUA",
+            "ALDABE"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "SALAVERRI II"
+          ],
+          "raw": "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
@@ -742,23 +793,23 @@
         "TC",
         "CO",
         "Ezkurdia-Martija",
-        "0",
+        "1",
         "1",
         "22",
         "15",
         "7",
-        "Laso-Landa",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
         "Darío-Zabaleta",
         "1",
+        "2",
+        "37",
+        "43",
+        "-6",
+        "Laso-Landa",
+        "0",
         "1",
-        "15",
+        "21",
         "22",
-        "-7",
+        "-1",
         "Grupo A",
         "Pelotari/Pareja",
         "PG",
@@ -798,17 +849,17 @@
         "11",
         "11",
         "Senar-Imaz",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
+        "1",
+        "1",
+        "22",
+        "14",
+        "8",
         "Salaberria-Gaskue",
         "0",
-        "1",
-        "11",
-        "22",
-        "-11",
+        "2",
+        "25",
+        "44",
+        "-19",
         "Pelotari/Pareja",
         "PG",
         "PJ",
@@ -887,18 +938,18 @@
         "108",
         "111",
         "-3",
-        "Peña II-Loza",
-        "2",
-        "6",
-        "118",
-        "113",
-        "5",
         "Zubizarreta IV-Bikuña",
         "2",
         "6",
         "96",
         "115",
         "-19",
+        "Peña II-Loza",
+        "2",
+        "6",
+        "118",
+        "113",
+        "5",
         "Salaberria-Morgaetxebarria",
         "2",
         "6",
