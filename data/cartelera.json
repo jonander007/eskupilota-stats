@@ -1,78 +1,7 @@
 {
-  "actualizado": "24/09/2026 02:41",
+  "actualizado": "25/09/2026 02:58",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "24/09/2026",
-      "hora": "19:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo A)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "ELORDI – ESKUZA // PEÑA II – SALAVERRI II (Serie B)",
-        "JAKA – MARIEZKURRENA II //",
-        "LARRAZABAL – IZTUETA (Serie A)",
-        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
-        "DESDE",
-        "23.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966438/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "SALAVERRI II"
-          ],
-          "raw": "ELORDI – ESKUZA // PEÑA II – SALAVERRI II (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "MARIEZKURRENA II //"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II //",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "LARRAZABAL"
-          ],
-          "eq2": [
-            "IZTUETA"
-          ],
-          "raw": "LARRAZABAL – IZTUETA (Serie A)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "ALDABE"
-          ],
-          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – ALDABE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "25/09/2026",
       "hora": "21:00",
@@ -87,7 +16,7 @@
         "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
         "DIFERIDO",
         "DESDE",
-        "38.00€"
+        "20.00€"
       ],
       "precio": null,
       "agotado": false,
@@ -144,9 +73,9 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "XX // XX (4 1/2)",
-        "XX – XX // XX – XX",
-        "XX // XX (MANO A MANO)",
+        "DARÍO // ARTOLA (4 1/2)",
+        "ZABALA – ZABALETA // XX – XX",
+        "MURUA // AMIANO (MANO A MANO)",
         "DIFERIDO",
         "DESDE",
         "20.00€"
@@ -158,36 +87,36 @@
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "DARÍO"
           ],
           "eq2": [
-            "XX (4 1/2)"
+            "ARTOLA (4 1/2)"
           ],
-          "raw": "XX // XX (4 1/2)",
+          "raw": "DARÍO // ARTOLA (4 1/2)",
           "tipo": "manomanista-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "ZABALA",
+            "ZABALETA"
           ],
           "eq2": [
             "XX",
             "XX"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ZABALA – ZABALETA // XX – XX",
           "tipo": "campeonato-a",
           "serie": "a"
         },
         {
           "eq1": [
-            "XX"
+            "MURUA"
           ],
           "eq2": [
-            "XX (MANO A MANO)"
+            "AMIANO (MANO A MANO)"
           ],
-          "raw": "XX // XX (MANO A MANO)",
+          "raw": "MURUA // AMIANO (MANO A MANO)",
           "tipo": "manomanista-a",
           "serie": "a"
         }
@@ -202,15 +131,41 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "Final Torneo San Mateo (Serie B)",
-        "Final Torneo San Mateo (Serie A)"
+        "ELORDI – ESKUZA // xx – xx (Serie B)",
+        "JAKA – MARIEZKURRENA II // xx – xx (Serie A)"
       ],
       "precio": null,
       "agotado": true,
       "url": null,
       "tv": false,
-      "partidos": [],
-      "pendiente": true
+      "partidos": [
+        {
+          "eq1": [
+            "ELORDI",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "xx",
+            "xx"
+          ],
+          "raw": "ELORDI – ESKUZA // xx – xx (Serie B)",
+          "tipo": "campeonato-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "xx",
+            "xx"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // xx – xx (Serie A)",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
     },
     {
       "fecha": "27/09/2026",
@@ -220,7 +175,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "PEÑA II – LIZEAGA // APEZETXEA II – ESKUZA",
+        "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA",
         "Gratuito"
       ],
       "precio": null,
@@ -235,9 +190,9 @@
           ],
           "eq2": [
             "APEZETXEA II",
-            "ESKUZA"
+            "BIKUÑA"
           ],
-          "raw": "PEÑA II – LIZEAGA // APEZETXEA II – ESKUZA",
+          "raw": "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA",
           "tipo": "festival",
           "serie": "a"
         }
@@ -314,9 +269,10 @@
       "hora": "21:00",
       "fronton": "Navarra Arena",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Semifinales",
+      "fase": "Elección ⚾ Aukeraketa 2026/09/29 - 12:00",
       "competicion": null,
       "cartel": [
+        "Semifinales",
         "Masters CaixaBank",
         "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
         "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
@@ -361,9 +317,10 @@
       "hora": "17:15",
       "fronton": "Mimetiz",
       "ciudad": "Zalla",
-      "fase": "Final",
+      "fase": "Elección ⚾ Aukeraketa 2026/09/30 - 12:00",
       "competicion": null,
       "cartel": [
+        "Final",
         "Masters CaixaBank",
         "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
         "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
@@ -754,6 +711,117 @@
         "XX // XX (Serie A)",
         "XX – ARANGUREN // XX – BIKUÑA",
         "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014159/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "XX",
+            "BIKUÑA"
+          ],
+          "raw": "XX – ARANGUREN // XX – BIKUÑA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "16/10/2026",
+      "hora": "21:15",
+      "fronton": "Amorebieta IV",
+      "ciudad": "Amorebieta IV",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – MORGAETXEBARRIA // XX – BIKUÑA",
+        "DESDE",
+        "20.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3019605/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "XX",
+            "BIKUÑA"
+          ],
+          "raw": "XX – MORGAETXEBARRIA // XX – BIKUÑA",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "17/10/2026",
+      "hora": "17:15",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "DESDE",
         "25.00€",
         "Clasificación",
         "Torneo San Mateo Serie A",
@@ -767,24 +835,24 @@
         "TF",
         "TC",
         "CO",
+        "Jaka-Mariezkurrena II",
+        "1",
+        "2",
+        "43",
+        "36",
+        "7",
         "Larrazabal-Iztueta",
         "1",
-        "1",
-        "22",
-        "10",
-        "12",
+        "2",
+        "36",
+        "42",
+        "-6",
         "Zabala-Rezusta",
         "1",
         "2",
         "32",
         "43",
         "-11",
-        "Jaka-Mariezkurrena II",
-        "0",
-        "1",
-        "21",
-        "22",
-        "-1",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
@@ -818,11 +886,11 @@
         "TC",
         "CO",
         "Elordi-Eskuza",
-        "1",
-        "1",
-        "22",
-        "10",
-        "12",
+        "2",
+        "2",
+        "44",
+        "29",
+        "15",
         "Amiano-Eskiroz",
         "1",
         "2",
@@ -831,10 +899,10 @@
         "-4",
         "Peña II-Salaverri II",
         "0",
-        "1",
-        "14",
-        "22",
-        "-8",
+        "2",
+        "33",
+        "44",
+        "-11",
         "Grupo B",
         "Pelotari/Pareja",
         "PG",
@@ -959,7 +1027,7 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014159/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -982,19 +1050,6 @@
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "XX",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "XX",
-            "BIKUÑA"
-          ],
-          "raw": "XX – ARANGUREN // XX – BIKUÑA",
-          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
