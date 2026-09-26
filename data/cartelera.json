@@ -1,69 +1,7 @@
 {
-  "actualizado": "25/09/2026 02:58",
+  "actualizado": "26/09/2026 03:02",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "25/09/2026",
-      "hora": "21:00",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Semifinales (Grupo B)",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
-        "EZKURDIA – MARTIJA // LASO – LANDA (Serie A)",
-        "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966439/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "P. ETXEBERRIA",
-            "LOZA"
-          ],
-          "eq2": [
-            "SENAR",
-            "IMAZ"
-          ],
-          "raw": "P. ETXEBERRIA – LOZA // SENAR – IMAZ (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "EZKURDIA – MARTIJA // LASO – LANDA (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "EROSTARBE"
-          ],
-          "raw": "BAKAIKOA – ESKIROZ // ALBERDI II – EROSTARBE",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "26/09/2026",
       "hora": "17:15",
@@ -74,7 +12,7 @@
       "cartel": [
         "Torneo San Mateo",
         "DARÍO // ARTOLA (4 1/2)",
-        "ZABALA – ZABALETA // XX – XX",
+        "ZABALA – ZABALETA // LASO – IZTUETA",
         "MURUA // AMIANO (MANO A MANO)",
         "DIFERIDO",
         "DESDE",
@@ -102,10 +40,10 @@
             "ZABALETA"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "LASO",
+            "IZTUETA"
           ],
-          "raw": "ZABALA – ZABALETA // XX – XX",
+          "raw": "ZABALA – ZABALETA // LASO – IZTUETA",
           "tipo": "campeonato-a",
           "serie": "a"
         },
@@ -131,8 +69,8 @@
       "competicion": null,
       "cartel": [
         "Torneo San Mateo",
-        "ELORDI – ESKUZA // xx – xx (Serie B)",
-        "JAKA – MARIEZKURRENA II // xx – xx (Serie A)"
+        "ELORDI – ESKUZA // p.etxeberria – loza (Serie B)",
+        "EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)"
       ],
       "precio": null,
       "agotado": true,
@@ -145,23 +83,23 @@
             "ESKUZA"
           ],
           "eq2": [
-            "xx",
-            "xx"
+            "p.etxeberria",
+            "loza"
           ],
-          "raw": "ELORDI – ESKUZA // xx – xx (Serie B)",
+          "raw": "ELORDI – ESKUZA // p.etxeberria – loza (Serie B)",
           "tipo": "campeonato-b",
           "serie": "b"
         },
         {
           "eq1": [
+            "EZKURDIA",
+            "MARTIJA"
+          ],
+          "eq2": [
             "JAKA",
             "MARIEZKURRENA II"
           ],
-          "eq2": [
-            "xx",
-            "xx"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II // xx – xx (Serie A)",
+          "raw": "EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)",
           "tipo": "campeonato-a",
           "serie": "a"
         }
@@ -509,13 +447,11 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie B)",
-        "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
-        "DESDE",
-        "30.00€"
+        "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II"
       ],
       "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3009286/select?viewCode=",
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
@@ -557,7 +493,7 @@
     },
     {
       "fecha": "09/10/2026",
-      "hora": "21:15",
+      "hora": "21:00",
       "fronton": "Ezkurdi",
       "ciudad": "Durango",
       "fase": "Octavos de final",
@@ -757,7 +693,7 @@
     },
     {
       "fecha": "16/10/2026",
-      "hora": "21:15",
+      "hora": "21:00",
       "fronton": "Amorebieta IV",
       "ciudad": "Amorebieta IV",
       "fase": "Cuartos de final (1ª Jornada)",
@@ -821,6 +757,107 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
+        "XX – XX // XX – XX",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "serie": "b"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "17/10/2026",
+      "hora": "18:30",
+      "fronton": "Gurea",
+      "ciudad": "Azkoitia",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)",
+        "DESDE",
+        "25.00€"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021092/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX"
+          ],
+          "eq2": [
+            "XX"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "serie": "a"
+        }
+      ]
+    },
+    {
+      "fecha": "18/10/2026",
+      "hora": "17:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – XX // XX – XX",
         "DESDE",
         "25.00€",
         "Clasificación",
@@ -861,11 +898,11 @@
         "TC",
         "CO",
         "Ezkurdia-Martija",
-        "1",
-        "1",
-        "22",
-        "15",
-        "7",
+        "2",
+        "2",
+        "44",
+        "34",
+        "10",
         "Darío-Zabaleta",
         "1",
         "2",
@@ -874,10 +911,10 @@
         "-6",
         "Laso-Landa",
         "0",
-        "1",
-        "21",
-        "22",
-        "-1",
+        "2",
+        "40",
+        "44",
+        "-4",
         "Grupo A",
         "Pelotari/Pareja",
         "PG",
@@ -911,17 +948,17 @@
         "TC",
         "CO",
         "P.Etxeberria-Loza",
-        "1",
-        "1",
-        "22",
-        "11",
-        "11",
+        "2",
+        "2",
+        "44",
+        "29",
+        "15",
         "Senar-Imaz",
         "1",
-        "1",
-        "22",
-        "14",
-        "8",
+        "2",
+        "40",
+        "36",
+        "4",
         "Salaberria-Gaskue",
         "0",
         "2",
@@ -1027,7 +1064,7 @@
       ],
       "precio": null,
       "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
       "tv": false,
       "partidos": [
         {
@@ -1050,6 +1087,19 @@
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "XX",
+            "XX"
+          ],
+          "eq2": [
+            "XX",
+            "XX"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
           "serie": "a"
         }
       ]
