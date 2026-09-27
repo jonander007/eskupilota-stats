@@ -15,6 +15,9 @@ Errores:
   - partido duplicado (misma fecha y mismos pelotaris)
   - tipo desconocido o que no cuadra con la modalidad (parejas/individual)
   - campeonato de parejas fuera de temporada (noviembre a marzo)
+  - clasificación incoherente: modalidad, categoria, serie, fase y tipo
+    (ver scraper/competiciones.py); categoria distinta de la de su
+    competición; campeonato sin serie; festival o desafío con serie
   - nombres duplicados en un catálogo (iguales sin tildes, guiones ni espacios)
   - contadores partidos_count desactualizados
 
@@ -34,6 +37,9 @@ import sys
 import unicodedata
 from collections import Counter
 from datetime import date, timedelta
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
+from competiciones import CATEGORIAS, FASES, _tipo, categoria_de_competicion  # noqa: E402
 
 DATA_DIR = 'data'
 
@@ -168,6 +174,31 @@ def main():
 
         if comp and comp['nombre'].startswith('Campeonato Parejas') and f.month not in TEMPORADA_PAREJAS:
             error(f"{ref}: '{comp['nombre']}' fuera de temporada")
+
+        # Clasificación
+        mod, cat, serie = p.get('modalidad'), p.get('categoria'), p.get('serie')
+        if mod not in ('parejas', 'mano', 'cuatro'):
+            error(f"{ref}: modalidad '{mod}'")
+        elif (mod == 'parejas') != any(pareja):
+            error(f"{ref}: modalidad '{mod}' no cuadra con los pelotaris")
+        if cat not in CATEGORIAS:
+            error(f"{ref}: categoria '{cat}'")
+        elif comp and categoria_de_competicion(comp['nombre'])[0] != cat:
+            error(f"{ref}: categoria '{cat}' distinta de la de '{comp['nombre']}'")
+        if serie not in ('A', 'B', None):
+            error(f"{ref}: serie '{serie}'")
+        elif cat == 'campeonato' and not serie:
+            error(f"{ref}: campeonato sin serie")
+        elif cat in ('festival', 'desafio') and serie:
+            error(f"{ref}: {cat} con serie {serie}")
+        if mod in ('parejas', 'mano', 'cuatro') and cat in CATEGORIAS and tipo != _tipo(mod, cat, serie):
+            error(f"{ref}: tipo '{tipo}' no cuadra con {mod}/{cat}/{serie} (sería '{_tipo(mod, cat, serie)}')")
+        if p.get('fase') is not None and p['fase'] not in FASES:
+            error(f"{ref}: fase '{p['fase']}'")
+        if p.get('fase') and cat == 'festival':
+            error(f"{ref}: festival con fase '{p['fase']}'")
+        if p.get('grupo') is not None and p['grupo'] not in ('A', 'B', 'C', 'D'):
+            error(f"{ref}: grupo '{p['grupo']}'")
 
         p1, p2 = p.get('puntos1'), p.get('puntos2')
         if not (isinstance(p1, int) and isinstance(p2, int) and 0 <= p1 <= 40 and 0 <= p2 <= 40):

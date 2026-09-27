@@ -46,10 +46,14 @@ class CarteleraPartidos(unittest.TestCase):
         self.assertFalse(tipo.startswith('manomanista'))
 
     def test_individual_con_modalidad(self):
+        # Dentro de las fiestas de San Mateo, pero el evento es el Desafío Urzante:
+        # categoría desafío, con el tipo de festival de su modalidad
         r = partidos(['Torneo San Mateo', 'DARÍO // ARTOLA (4 1/2)', 'MURUA // AMIANO (MANO A MANO)'],
                      fecha='26/09/2026', fase='Desafío Urzante')
+        self.assertEqual(r[0][:3], (['DARÍO'], ['ARTOLA'], 'festival-cuatro'))
+        self.assertEqual(r[1][:3], (['MURUA'], ['AMIANO'], 'festival-mano'))
+        r = partidos(['Torneo San Mateo', 'DARÍO // ARTOLA (4 1/2)'], fecha='26/09/2026', fase='Día 26')
         self.assertEqual(r[0][:3], (['DARÍO'], ['ARTOLA'], 'cuatro-medio-a'))
-        self.assertEqual(r[1][:3], (['MURUA'], ['AMIANO'], 'manomanista-a'))
 
     def test_modalidad_delante(self):
         r = partidos(['4 1/2 AGIRRE // ALBERDI II'], fecha='15/09/2026', fase='Festival')
@@ -260,6 +264,84 @@ class CatalogosFuentes(unittest.TestCase):
     def test_fronton_por_pueblo(self):
         self.assertEqual(self.cats.fronton_de_pueblo('ALTSASU')[0]['nombre'], 'BURUNDA')
         self.assertEqual(self.cats.fronton_de_pueblo('Bilbo')[1]['nombre'], 'BILBAO')
+
+
+class Clasificacion(unittest.TestCase):
+    """Tipos de partido con textos reales de Baiko (resultados y cartelera) y Aspe."""
+
+    CASOS = [
+        # texto, fecha, parejas, serie, textos de fase -> categoria, modalidad, serie, fase, grupo, jornada, competicion
+        ('Campeonato Parejas Serie A - Liga', '10/01/2026', True, None, (),
+         ('campeonato', 'parejas', 'A', 'liga', None, None, 'Campeonato Parejas Serie A 2026')),
+        (None, '14/12/2025', True, 'b', (),
+         ('campeonato', 'parejas', 'B', None, None, None, 'Campeonato Parejas Serie B 2026')),
+        ('Campeonato Parejas Promoción', '20/03/2023', True, None, (),
+         ('campeonato', 'parejas', 'B', None, None, None, 'Campeonato Parejas Serie B 2023')),
+        ('Campeonato 4 1/2 Eusko Label', '09/10/2026', False, 'b', ('Octavos de final',),
+         ('campeonato', 'cuatro', 'B', 'octavos', None, None, 'Campeonato 4 y Medio Serie B 2026')),
+        ('Campeonato 4 1/2 Eusko Label', '16/10/2026', False, 'a', ('Cuartos de final (1ª Jornada)',),
+         ('campeonato', 'cuatro', 'A', 'cuartos', None, 1, 'Campeonato 4 y Medio Serie A 2026')),
+        ('Eusko Label 4 1/2ko Txapelketa - Seria A · Campeonato Eusko Label 4 1/2 - Serie A', '10/10/2026', False, None,
+         ('Zortzirenak // Octavos',),
+         ('campeonato', 'cuatro', 'A', 'octavos', None, None, 'Campeonato 4 y Medio Serie A 2026')),
+        ('Campeonato Manomanista Serie A', '31/05/2026', False, None, ('Final',),
+         ('campeonato', 'mano', 'A', 'final', None, None, 'Campeonato Manomanista Serie A 2026')),
+        ('Masters CaixaBank', '13/09/2026', True, 'a', ('7ª Jornada / Semifinal',),
+         ('torneo', 'parejas', 'A', 'semifinal', None, 7, 'Masters CaixaBank Serie A 2026')),
+        ('Masters CaixaBank', '06/09/2026', True, 'b', ('6ª Jornada',),
+         ('torneo', 'parejas', 'B', 'liga', None, 6, 'Masters CaixaBank Serie B 2026')),
+        ('Masters CaixaBank semifinal', '02/10/2026', True, None, (),
+         ('torneo', 'parejas', 'A', 'semifinal', None, None, 'Masters CaixaBank Serie A 2026')),
+        ('Torneo San Mateo', '24/09/2026', True, 'b', ('Semifinales (Grupo A)',),
+         ('torneo', 'parejas', 'B', 'semifinal', 'A', None, 'Torneo San Mateo Serie B 2026')),
+        ('Final San Mateo Serie A', '27/09/2026', True, None, (),
+         ('torneo', 'parejas', 'A', 'final', None, None, 'Torneo San Mateo Serie A 2026')),
+        ('Torneo San Fermin 4 1/2', '07/07/2026', False, None, (),
+         ('torneo', 'cuatro', None, None, None, None, 'Torneo San Fermin 4 y Medio 2026')),
+        ('Desafío Urzante 4 1/2', '26/09/2026', False, None, (),
+         ('desafio', 'cuatro', None, None, None, None, 'Desafio Urzante 2026')),
+        ('Desafío Urzante', '26/09/2026', True, None, (),
+         ('desafio', 'parejas', None, None, None, None, 'Desafio Urzante 2026')),
+        ('Festival', '10/08/2026', True, None, (),
+         ('festival', 'parejas', None, None, None, None, 'Festival')),
+        ('Campeonato 4 1/2 Eusko Label', '11/10/2026', True, 'a', ('Octavos de final',),
+         ('festival', 'parejas', None, None, None, None, 'Festival')),
+        (None, '10/08/2026', True, None, (),
+         ('festival', 'parejas', None, None, None, None, 'Festival')),
+        ('Festival Despedida Elizegi', '20/12/2025', True, None, (),
+         ('festival', 'parejas', None, None, None, None, 'Festival Despedida Elizegi')),
+    ]
+
+    def test_casos_reales(self):
+        from competiciones import clasificar_partido
+        for texto, fecha, pareja, serie, fases, esperado in self.CASOS:
+            with self.subTest(texto=texto, fecha=fecha):
+                r = clasificar_partido(texto, fecha, pareja, serie, textos_fase=fases)
+                self.assertEqual((r['categoria'], r['modalidad'], r['serie'], r['fase'], r['grupo'],
+                                  r['jornada'], r['competicion']), esperado)
+
+    def test_tipo_derivado(self):
+        from competiciones import _tipo
+        self.assertEqual(_tipo('parejas', 'torneo', 'B'), 'campeonato-b')
+        self.assertEqual(_tipo('cuatro', 'campeonato', 'A'), 'cuatro-medio-a')
+        self.assertEqual(_tipo('mano', 'desafio', None), 'festival-mano')
+
+    def test_fases_en_euskera_y_castellano(self):
+        from competiciones import leer_fase
+        for texto, esperado in [('Laurdenak / Cuartos', 'cuartos'), ('Finalerdiak', 'semifinal'), ('Finala', 'final'),
+                                ('Finales', 'final'), ('Eliminatoria (Grupo A)', 'eliminatoria'), ('Día 24', None),
+                                ('Abono', None), ('Kanporaketa', 'eliminatoria')]:
+            self.assertEqual(leer_fase(texto)[0], esperado, texto)
+
+    def test_cartelera_desafio_entero(self):
+        ps = SC.parse_partidos(['Torneo San Mateo', 'DARÍO // ARTOLA (4 1/2)', 'ZABALA – ZABALETA // LASO – IZTUETA'],
+                               '26/09/2026', 'Desafío Urzante', None)
+        self.assertEqual([(p['categoria'], p['modalidad']) for p in ps], [('desafio', 'cuatro'), ('desafio', 'parejas')])
+
+    def test_cartelera_titulo_da_la_fase(self):
+        ps = SC.parse_partidos(['Final Torneo San Mateo (Serie B)', 'ELORDI – ESKUZA // P.ETXEBERRIA – LOZA (Serie B)'],
+                               '27/09/2026', 'Finales', None)
+        self.assertEqual((ps[0]['categoria'], ps[0]['serie'], ps[0]['fase']), ('torneo', 'b', 'final'))
 
 
 if __name__ == '__main__':

@@ -96,6 +96,22 @@
       <div class="fg"><span class="flabel" data-i18n="flabel_pelotari">Pelotari</span><input type="text" class="wide" id="sInput" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderTabla()"></div>
       <div class="fg"><span class="flabel" data-i18n="flabel_competicion">Competición</span><select id="fComp" onchange="renderTabla()"><option value="" data-i18n="sel_todas">Todas</option></select></div>
       <div class="fg"><span class="flabel" data-i18n="flabel_fronton">Frontón</span><select id="fFron" onchange="renderTabla()"><option value="" data-i18n="sel_todos">Todos</option></select></div>
+      <div class="fg"><span class="flabel" data-i18n="flabel_categoria">Categoría</span><select id="fCat" onchange="renderTabla()">
+        <option value="" data-i18n="sel_todas">Todas</option>
+        <option value="campeonato" data-i18n="cat_campeonatos">Campeonatos</option>
+        <option value="torneo" data-i18n="cat_torneos">Torneos</option>
+        <option value="desafio" data-i18n="cat_desafios">Desafíos</option>
+        <option value="festival" data-i18n="cat_festivales">Festivales</option>
+      </select></div>
+      <div class="fg"><span class="flabel" data-i18n="flabel_fase">Fase</span><select id="fFase" onchange="renderTabla()">
+        <option value="" data-i18n="sel_todas">Todas</option>
+        <option value="final" data-i18n="fase_final">Final</option>
+        <option value="semifinal" data-i18n="fase_semifinal">Semifinal</option>
+        <option value="cuartos" data-i18n="fase_cuartos">Cuartos</option>
+        <option value="octavos" data-i18n="fase_octavos">Octavos</option>
+        <option value="eliminatoria" data-i18n="fase_eliminatoria">Eliminatoria</option>
+        <option value="liga" data-i18n="fase_liga">Liguilla</option>
+      </select></div>
       <div class="fg" style="justify-content:flex-end"><button class="btn-ghost" onclick="resetFiltros()" data-i18n="btn_limpiar">Limpiar</button></div>
     </div>
   </div>

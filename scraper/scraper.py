@@ -30,7 +30,7 @@ from datetime import datetime, timedelta
 
 from bs4 import BeautifulSoup
 
-from competiciones import Cartelera, HistorialSeries, clasificar
+from competiciones import Cartelera, HistorialSeries, categoria_de_competicion, clasificar_partido
 from roles import aplicar_roles
 from red import descargar
 import aspe
@@ -537,8 +537,9 @@ class Catalogos:
         if nombre in self._idx_cmp:
             return self._idx_cmp[nombre]['id']
         cid = next_id('COMP', self.competiciones)
+        categoria, _ = categoria_de_competicion(nombre)
         nuevo = {
-            'id': cid, 'nombre': nombre, 'tipo': tipo, 'partidos_count': 0,
+            'id': cid, 'nombre': nombre, 'tipo': tipo, 'categoria': categoria, 'partidos_count': 0,
         }
         self.competiciones.append(nuevo)
         self._idx_cmp[nombre] = nuevo
@@ -633,7 +634,19 @@ def partido_to_catalogado(p, cats):
         'puntos2':       p['puntos2'],
         'ganador':       p['ganador'],
         'fuente':        p.get('fuente', 'baiko'),
+        **campos_clasificacion(p.get('clasificacion')),
     }
+
+
+def campos_clasificacion(c):
+    """modalidad, categoria y serie siempre; fase, grupo y jornada si se conocen."""
+    if not c:
+        return {}
+    campos = {'modalidad': c['modalidad'], 'categoria': c['categoria'], 'serie': c['serie']}
+    for k in ('fase', 'grupo', 'jornada'):
+        if c.get(k) is not None:
+            campos[k] = c[k]
+    return campos
 
 
 # ─────────────────────────────────────────────────────────────────
@@ -722,12 +735,18 @@ def clasificar_partidos(planos, existentes, cats):
         jugadores = [p['equipo1']['delantero'], p['equipo1']['zaguero'],
                      p['equipo2']['delantero'], p['equipo2']['zaguero']]
         es_pareja = bool(p['equipo1']['zaguero'] or p['equipo2']['zaguero'])
-        texto, serie = p.get('comp_texto'), None
-        if not texto:
-            texto, serie = cart.buscar(p['fecha'], p['fronton'], jugadores)
+        texto, serie, textos_fase = p.get('comp_texto'), None, ()
+        # La cartelera aporta la competición si la web no la dice, y la fase
+        # (octavos, semifinal...) aunque la diga
+        d = cart.buscar_detalle(p['fecha'], p['fronton'], jugadores)
+        if d:
+            textos_fase = d['textos_fase']
+            if not texto:
+                texto, serie = d['texto'], d['serie']
         ids = [cats._idx_pel[n]['id'] for n in jugadores if n and n in cats._idx_pel]
-        p['tipo'], p['competicion'] = clasificar(
-            texto, p['fecha'], es_pareja, serie, lambda: hist.serie(ids, p['fecha']))
+        p['clasificacion'] = clasificar_partido(
+            texto, p['fecha'], es_pareja, serie, lambda: hist.serie(ids, p['fecha']), textos_fase)
+        p['tipo'], p['competicion'] = p['clasificacion']['tipo'], p['clasificacion']['competicion']
 
 
 def planos_baiko(html):

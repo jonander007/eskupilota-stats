@@ -1,25 +1,39 @@
 """
-Eskupilota Stats — Clasificación de partidos en competiciones
+Eskupilota Stats — Clasificación de partidos
 
-Lo usan el scraper de resultados y tools/limpieza_competiciones.py, para
-que los partidos nuevos y los antiguos sigan exactamente el mismo criterio.
+Lo usan los dos scrapers (resultados y cartelera, de Baiko y de Aspe) y las
+herramientas de limpieza, para que todos los partidos sigan el mismo criterio.
 
-Criterio (el de los datos históricos):
-  - Campeonatos: "Campeonato Parejas Serie A 2026", "Campeonato Manomanista
-    Serie B 2025", "Campeonato 4 y Medio Serie A 2025". Tipo
-    campeonato-x / manomanista-x / cuatro-medio-x.
-    El de parejas se juega de noviembre a marzo y lleva el año en que
-    termina: un partido de diciembre de 2025 es del campeonato 2026.
-  - Torneos con serie (Masters, San Fermín, San Mateo...): "Masters
-    CaixaBank Serie A 2026", tipo campeonato-x. Los de 4 y medio:
-    "Torneo San Fermin 4 y Medio 2026", tipo cuatro-medio-a.
-  - Todo lo demás: competición "Festival", tipo festival (parejas),
-    festival-mano o festival-cuatro (individuales).
+Cada partido se describe con cuatro datos independientes:
+
+  modalidad  parejas | mano | cuatro          (la marcan los pelotaris y el texto)
+  categoria  campeonato | torneo | desafio | festival
+               campeonato: los tres campeonatos de la liga (Parejas,
+                 Manomanista, 4 y Medio), Serie A y Serie B (la
+                 Promoción cuenta como Serie B)
+               torneo: Masters CaixaBank, San Fermín, San Mateo, Aste
+                 Nagusia, La Blanca, Donostia Hiria, Bizkaia...
+               desafio: Desafío Urzante
+               festival: todo lo demás
+  serie      A | B | None
+  fase       liga | eliminatoria | octavos | cuartos | semifinal | final | None
+             (+ grupo 'A'/'B' y jornada n cuando se conocen)
+
+y además con el nombre de la competición en el catálogo y el campo `tipo`
+de siempre (modalidad + serie), que es el que usa la web para filtrar:
+  campeonato-a/b, manomanista-a/b, cuatro-medio-a/b  (campeonatos y torneos)
+  festival, festival-mano, festival-cuatro           (desafíos y festivales)
+
+Nombres en el catálogo:
+  "Campeonato Parejas Serie A 2026" (el de parejas se juega de noviembre a
+  marzo y lleva el año en que termina), "Campeonato 4 y Medio Serie B 2025",
+  "Torneo San Mateo Serie A 2026", "Torneo San Fermin 4 y Medio 2026",
+  "Masters CaixaBank Serie B 2026", "Desafio Urzante San Mateo 2026", "Festival".
 
 Cuando la web de resultados no dice la competición, se busca el partido en
-la cartelera (data/cartelera.json), que sí la anuncia. Si tampoco está ahí,
-solo se da por campeonato un partido de parejas jugado en temporada
-(noviembre a marzo); el resto se considera festival.
+la cartelera, que sí la anuncia. Si tampoco está ahí, solo se da por
+campeonato un partido de parejas jugado en temporada (noviembre a marzo); el
+resto se considera festival.
 """
 
 from __future__ import annotations
@@ -56,7 +70,6 @@ TORNEOS = [
     ('la blanca',      'Torneo La Blanca'),
     ('donostia hiria', 'Torneo Donostia Hiria'),
     ('bizkaia',        'Torneo Bizkaia'),
-    ('urzante',        'Desafio Urzante'),
 ]
 
 PREFIJO_TIPO = {'parejas': 'campeonato', 'mano': 'manomanista', 'cuatro': 'cuatro-medio'}
@@ -111,8 +124,43 @@ def es_texto_competicion(texto):
     return any(k in t for k in claves)
 
 
-def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
-    """Devuelve (tipo, nombre_competicion).
+CATEGORIAS = ('campeonato', 'torneo', 'desafio', 'festival')
+FASES = ('liga', 'eliminatoria', 'octavos', 'cuartos', 'semifinal', 'final')
+
+
+def leer_fase(*textos):
+    """Fase, grupo y jornada a partir de los textos del partido (en
+    castellano o euskera): 'Cuartos de final (1ª Jornada)', '7ª Jornada /
+    Semifinal', 'Semifinales (Grupo A)', 'Zortzirenak // Octavos', 'Finala',
+    'Campeonato Parejas Serie A - Liga'. Devuelve (fase, grupo, jornada)."""
+    t = " · ".join(_txt(x) for x in textos if x)
+    fase = None
+    if re.search(r"semifinal|finalerdi", t):
+        fase = 'semifinal'
+    elif re.search(r"cuartos|laurden", t):
+        fase = 'cuartos'
+    elif re.search(r"octavos|zortziren", t):
+        fase = 'octavos'
+    elif re.search(r"\bfinal(es|a|ak)?\b", t):
+        fase = 'final'
+    elif re.search(r"eliminatoria|kanporaketa", t):
+        fase = 'eliminatoria'
+    elif re.search(r"jornada|jardunaldi|\bliga\b|liguilla|ligaxka", t):
+        fase = 'liga'
+    g = re.search(r"\bgrupo ([a-d])\b|\b([a-d]) multzoa", t)
+    j = re.search(r"(\d+)\s*(?:ª|a\.?|\.)?\s*(?:jornada|jardunaldi)", t)
+    return fase, (g.group(1) or g.group(2)).upper() if g else None, int(j.group(1)) if j else None
+
+
+def _tipo(modalidad, categoria, serie):
+    if categoria in ('campeonato', 'torneo'):
+        return f"{PREFIJO_TIPO[modalidad]}-{'b' if serie == 'B' else 'a'}"
+    return {'parejas': 'festival', 'mano': 'festival-mano', 'cuatro': 'festival-cuatro'}[modalidad]
+
+
+def clasificar_partido(texto, fecha, es_pareja, serie=None, serie_jugadores=None, textos_fase=()):
+    """Clasifica un partido. Devuelve un dict con modalidad, categoria,
+    serie, fase, grupo, jornada, competicion (nombre en el catálogo) y tipo.
 
     texto            línea de competición de la web o de la cartelera (o None)
     fecha            'dd/mm/yyyy' o 'yyyy-mm-dd'
@@ -120,6 +168,8 @@ def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
     serie            'a'/'b' si ya se conoce (p. ej. por la cartelera)
     serie_jugadores  función sin argumentos que deduce la serie por los
                      pelotaris; solo se llama si hace falta
+    textos_fase      otros textos donde puede venir la fase (fase de la
+                     cartelera, título del partido...)
     """
     f = _fecha(fecha)
     t = _txt(texto)
@@ -134,50 +184,88 @@ def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
         mod = mod_texto if mod_texto in ('mano', 'cuatro') else 'mano'
         otra = mod_texto == 'parejas'
 
-    def _serie():
+    def _serie(deducir=True):
         s = serie_en_texto(texto) or serie
-        if not s and serie_jugadores:
+        if not s and deducir and serie_jugadores:
             s = serie_jugadores()
-        return s or 'a'
+        return s.upper() if s else None
 
-    def _festival():
-        if mod == 'parejas':
-            return 'festival', 'Festival'
-        return ('festival-cuatro' if mod == 'cuatro' else 'festival-mano'), 'Festival'
+    def resultado(categoria, nombre, serie_=None):
+        fase, grupo, jornada = (None, None, None)
+        if categoria != 'festival':
+            fase, grupo, jornada = leer_fase(texto, *textos_fase)
+        return {'modalidad': mod, 'categoria': categoria, 'serie': serie_,
+                'fase': fase, 'grupo': grupo, 'jornada': jornada,
+                'competicion': nombre, 'tipo': _tipo(mod, categoria, serie_)}
 
-    def _campeonato():
-        s = _serie()
+    def festival(nombre='Festival'):
+        return resultado('festival', nombre)
+
+    def campeonato():
+        s = _serie() or 'A'
         anio = f.year + 1 if (mod == 'parejas' and f.month >= 11) else f.year
-        return (f"{PREFIJO_TIPO[mod]}-{s}",
-                f"Campeonato {NOMBRE_MODALIDAD[mod]} Serie {s.upper()} {anio}")
+        return resultado('campeonato', f"Campeonato {NOMBRE_MODALIDAD[mod]} Serie {s} {anio}", s)
 
     if not t:
         if mod == 'parejas' and en_temporada('parejas', f):
-            return _campeonato()
-        return _festival()
+            return campeonato()
+        return festival()
     if otra:
-        return _festival()
+        return festival()
 
-    # Despedidas: se conservan con su nombre
+    # Despedidas: festival con su nombre
     if 'despedida' in t:
-        return _festival()[0], ' '.join(texto.split()).title()
+        return festival(' '.join(texto.split()).title())
+
+    # Desafíos: 'Desafío Urzante' (a veces con la fiesta: San Fermín, San Mateo)
+    if 'desafio' in t:
+        base = 'Desafio Urzante' if 'urzante' in t else ' '.join(texto.split()).title()
+        fiesta = ' San Fermin' if 'san fermin' in t else (' San Mateo' if 'san mateo' in t else '')
+        return resultado('desafio', f"{base}{fiesta} {f.year}")
 
     for clave, base in TORNEOS:
-        if clave in t:
+        if clave in t and clave != 'urzante':
             if mod == 'cuatro':
-                return 'cuatro-medio-a', f"{base} 4 y Medio {f.year}"
+                return resultado('torneo', f"{base} 4 y Medio {f.year}", _serie(deducir=False))
             if mod == 'mano':
-                return 'manomanista-a', f"{base} Manomanista {f.year}"
-            s = _serie()
-            return f"campeonato-{s}", f"{base} Serie {s.upper()} {f.year}"
+                return resultado('torneo', f"{base} Manomanista {f.year}", _serie(deducir=False))
+            s = _serie() or 'A'
+            return resultado('torneo', f"{base} Serie {s} {f.year}", s)
 
-    if 'festival' in t or 'torneo' in t or 'desafio' in t:
-        return _festival()
+    if 'festival' in t or 'jaialdi' in t:
+        return festival()
 
-    if 'campeonato' in t or 'eusko label' in t or 'manomanista' in t or 'serie' in t:
-        return _campeonato()
+    if 'campeonato' in t or 'txapelketa' in t or 'eusko label' in t or 'manomanista' in t or 'serie' in t:
+        return campeonato()
 
-    return _festival()
+    # Otro torneo con nombre propio ('Torneo de Navidad'): torneo, no festival
+    if 'torneo' in t:
+        nombre = re.sub(r'\s*\b(serie [ab]|20\d\d)\b', '', ' '.join(texto.split()), flags=re.I).strip().title()
+        nombre = re.sub(r'(?<=\s)(De|Del|La|Las|Los|Y)(?=\s)', lambda m: m.group(1).lower(), nombre)
+        return resultado('torneo', f"{nombre} {f.year}", _serie(deducir=False))
+
+    return festival()
+
+
+def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
+    """Compatibilidad: (tipo, competicion)."""
+    r = clasificar_partido(texto, fecha, es_pareja, serie, serie_jugadores)
+    return r['tipo'], r['competicion']
+
+
+def categoria_de_competicion(nombre):
+    """Categoría y modalidad de una competición del catálogo por su nombre."""
+    t = _txt(nombre)
+    if t.startswith('festival'):
+        cat = 'festival'
+    elif 'desafio' in t:
+        cat = 'desafio'
+    elif t.startswith('campeonato'):
+        cat = 'campeonato'
+    else:
+        cat = 'torneo'
+    mod = 'cuatro' if re.search(r'4 y medio|4 1/2', t) else ('mano' if 'manomanista' in t else None)
+    return cat, mod
 
 
 # ─────────────────────────────────────────────────────────────────
@@ -239,6 +327,8 @@ class Cartelera:
 
     @staticmethod
     def texto_evento(ev):
+        if ev.get('fase') and 'desaf' in _txt(ev['fase']):
+            return ev['fase']
         for cand in (ev.get('competicion'), (ev.get('cartel') or [None])[0], ev.get('fase')):
             if cand and es_texto_competicion(cand):
                 return cand
@@ -246,23 +336,34 @@ class Cartelera:
 
     def buscar(self, fecha, fronton, jugadores):
         """Devuelve (texto_competicion, serie) o (None, None)."""
+        d = self.buscar_detalle(fecha, fronton, jugadores)
+        return (d['texto'], d['serie']) if d else (None, None)
+
+    def buscar_detalle(self, fecha, fronton, jugadores):
+        """Como buscar(), pero con los textos donde viene la fase:
+        {'texto', 'serie', 'textos_fase'} o None."""
         fro = _nombre_pel(fronton)
         nombres = {_nombre_pel(j) for j in jugadores if j}
         for ev in self._idx.get(_fecha(fecha), []):
             fro_ev = _nombre_pel(ev.get('fronton'))
-            if fro and fro_ev and fro != fro_ev and fro not in fro_ev and fro_ev not in fro:
-                continue
+            mismo_fronton = not (fro and fro_ev) or fro == fro_ev or fro in fro_ev or fro_ev in fro
+            # Si el frontón no coincide (una web da el pueblo y otra el frontón:
+            # 'Baños de Rio Tobia' / 'Barberito I') basta con los pelotaris, pero
+            # exigiendo más: 3 de 4 en parejas (puede haber un sustituto), todos
+            # en individual
+            minimo = min(2, len(nombres)) if mismo_fronton else min(3, len(nombres))
             for p in ev.get('partidos') or []:
                 del_cartel = {_nombre_pel(j) for j in (p.get('eq1') or []) + (p.get('eq2') or [])}
-                if len(nombres & del_cartel) >= min(2, len(nombres)):
+                if nombres and len(nombres & del_cartel) >= minimo:
                     texto = self.texto_evento(ev)
                     # La modalidad a veces solo aparece en la línea del partido: "A // B (4 1/2)"
                     if texto and '4 1/2' in _txt(p.get('raw')) and modalidad(texto, True) != 'cuatro':
                         texto += ' 4 1/2'
                     elif not texto and '4 1/2' in _txt(p.get('raw')):
                         texto = 'Festival 4 1/2'
-                    return texto, p.get('serie')
+                    return {'texto': texto, 'serie': p.get('serie'),
+                            'textos_fase': (ev.get('fase'), p.get('fase'), p.get('raw'))}
             # Un único partido en el evento sin nombres conocidos (XX // XX)
             if fro and fro_ev == fro and len(ev.get('partidos') or []) <= 1:
-                return self.texto_evento(ev), None
-        return None, None
+                return {'texto': self.texto_evento(ev), 'serie': None, 'textos_fase': (ev.get('fase'),)}
+        return None

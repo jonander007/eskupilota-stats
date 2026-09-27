@@ -320,10 +320,10 @@ let _frontonActual = null;
 let _campActual = null;
 
 function competicionesOficiales(){
-  // Competiciones con partidos y que no son festivales, de la más reciente a la más antigua
+  // Campeonatos, torneos y desafíos (no festivales), de la más reciente a la más antigua
   const ultimas = {};
   PARTIDOS.forEach(p=>{
-    if(!p.competicion || (p.tipo||'').startsWith('festival')) return;
+    if(!p.competicion || p.categoria==='festival') return;
     const d = parseDate(p.fecha);
     if(!ultimas[p.competicion] || d>ultimas[p.competicion]) ultimas[p.competicion]=d;
   });
@@ -339,7 +339,9 @@ function buildCampeonatos(){
   const comps = competicionesOficiales();
   const porAnio = {};
   comps.forEach(c=>{ const a=(c.nombre.match(/\b(20\d\d)\b/)||[])[1]||tx('Otros','Besteak'); (porAnio[a]=porAnio[a]||[]).push(c); });
-  sel.innerHTML = Object.keys(porAnio).sort().reverse().map(a=>
+  // Años de más reciente a más antiguo; las competiciones sin año, al final
+  const orden = Object.keys(porAnio).sort((x,y)=>(/^\d+$/.test(y)-/^\d+$/.test(x)) || y.localeCompare(x));
+  sel.innerHTML = orden.map(a=>
     `<optgroup label="${h(a)}">${porAnio[a]
       .sort((x,y)=>(y.nombre.startsWith('Campeonato')-x.nombre.startsWith('Campeonato'))||x.nombre.localeCompare(y.nombre))
       .map(c=>`<option value="${c.id}">${h(tComp(c.nombre))}</option>`).join('')}</optgroup>`).join('');
@@ -348,6 +350,23 @@ function buildCampeonatos(){
     _campActual = (comps.find(c=>c.nombre.startsWith('Campeonato'))||comps[0]).id;
   }
   if(_campActual) sel.value = _campActual;
+}
+
+// Campeones: ganadores de la final (si la conocemos). Si la final se ha
+// deducido (último partido del campeonato), se indica.
+function htmlCampeon(parts){
+  const final = parts.find(p=>p.fase==='final');
+  if(!final) return '';
+  const gan = final.ganador==='equipo1' ? final.equipo1 : final.equipo2;
+  return `<div class="ch-card an-campeon">
+    <div class="an-campeon-ic" aria-hidden="true">🏆</div>
+    <div>
+      <div class="an-kpi-l">${t('lbl_campeones')}</div>
+      <div class="an-campeon-nombre">${pels(gan).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</div>
+      <div class="an-muted">${t('fase_final')} · ${final.fecha} · ${h(final.fronton)} · ${final.puntos1}–${final.puntos2}
+        ${final.fase_deducida?` · <span title="${h(t('lbl_final_deducida'))}">${tx('deducida','ondorioztatua')} ⓘ</span>`:''}</div>
+    </div>
+  </div>`;
 }
 
 function setCampModo(modo){ _campModo = modo; renderCampeonato(_campActual); }
@@ -401,8 +420,9 @@ function renderCampeonato(id){
       </div>
       ${botonCompartir(comp.nombre)}
     </div>
+    ${htmlCampeon(parts)}
     <div class="ch-card an-ultimo">
-      <h3>${tx('Último partido disputado','Jokatutako azken partida')} · ${ultimo.fecha} · ${h(ultimo.fronton)}</h3>
+      <h3>${tx('Último partido disputado','Jokatutako azken partida')} · ${ultimo.fecha} · ${h(ultimo.fronton)}${ultimo.fase?' · '+textoFase(ultimo):''}</h3>
       <div class="an-ultimo-res">
         <span class="${ultimo.ganador==='equipo1'?'an-win':''}">${h(neq(ultimo.equipo1))}</span>
         <span class="an-marcador">${ultimo.puntos1} – ${ultimo.puntos2}</span>
@@ -426,7 +446,7 @@ function renderCampeonato(id){
       <h3>${tx('Partidos','Partidak')}</h3>
       <div class="an-table-wrap"><table class="comp-table an-partidos">
         <tbody>${parts.map(p=>`<tr>
-          <td class="an-fecha">${p.fecha}</td><td class="an-fron">${h(p.fronton)}</td>
+          <td class="an-fecha">${p.fecha}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td><td class="an-fron">${h(p.fronton)}</td>
           <td class="${p.ganador==='equipo1'?'an-win':''}">${h(neq(p.equipo1))}</td>
           <td class="an-num an-marcador">${p.puntos1}–${p.puntos2}</td>
           <td class="${p.ganador==='equipo2'?'an-win':''}">${h(neq(p.equipo2))}</td></tr>`).join('')}</tbody></table></div>

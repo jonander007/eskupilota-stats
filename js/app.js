@@ -163,6 +163,26 @@ const TTAG={
   'festival-cuatro':{cls:'tC',lbl:'tag_festival'},
 };
 
+// Etiqueta de un partido según su categoría: campeonato ('Serie A', 'Mano B',
+// '4½ A'), torneo ('Torneo A'), desafío o festival
+function etiquetaPartido(p){
+  const serie = (p.serie||'').toUpperCase();
+  const cls = p.modalidad==='mano' ? 'tM' : p.modalidad==='cuatro' ? 'tC' : (serie==='B' ? 'tB' : 'tA');
+  if(p.categoria==='torneo')   return {cls, lbl: t('tag_torneo') + (serie ? ' '+serie : '')};
+  if(p.categoria==='desafio')  return {cls:'tF', lbl: t('tag_desafio')};
+  const tt = TTAG[p.tipo];
+  return tt ? {cls: tt.cls, lbl: t(tt.lbl)} : {cls:'', lbl: p.tipo||''};
+}
+
+// 'Semifinal · Grupo A', 'Liguilla · 6ª jornada', 'Final'
+function textoFase(p){
+  if(!p.fase) return '';
+  const partes = [t('fase_'+p.fase)];
+  if(p.grupo) partes.push(t('lbl_grupo').replace('{g}', p.grupo));
+  if(p.jornada && p.fase==='liga') partes.push(t('lbl_jornada').replace('{n}', p.jornada));
+  return partes.join(' · ');
+}
+
 // ════════════════════════════════════════════════════════════
 // I18N — Traducciones ES / EU
 // ════════════════════════════════════════════════════════════
@@ -183,8 +203,8 @@ const I18N = {
     kpi_partidos: 'Partidos', kpi_registrados: 'registrados',
     kpi_pelotaris: 'Pelotaris', kpi_distintos: 'distintos',
     kpi_frontones: 'Frontones',
-    kpi_oficiales: 'Oficiales', kpi_campeonatos: 'campeonatos',
-    kpi_festivales: 'Festivales', kpi_amistosos: 'amistosos',
+    kpi_oficiales: 'Oficiales', kpi_campeonatos: 'campeonatos y torneos',
+    kpi_festivales: 'Festivales', kpi_amistosos: 'y desafíos',
     // Filtros
     flabel_modalidad: 'Modalidad', flabel_desde: 'Desde', flabel_hasta: 'Hasta',
     flabel_pelotari: 'Pelotari', flabel_competicion: 'Competición', flabel_fronton: 'Frontón',
@@ -309,6 +329,14 @@ const I18N = {
     cart_error: 'No se ha podido cargar la cartelera.',
     map_acercar: 'Acercar', map_alejar: 'Alejar',
     abbr_tantos: 'Pts',
+    // Categorías y fases (ver scraper/competiciones.py)
+    flabel_categoria: 'Categoría', flabel_fase: 'Fase',
+    cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
+    tag_torneo: 'Torneo', tag_desafio: 'Desafío',
+    fase_liga: 'Liguilla', fase_eliminatoria: 'Eliminatoria', fase_octavos: 'Octavos',
+    fase_cuartos: 'Cuartos', fase_semifinal: 'Semifinal', fase_final: 'Final',
+    lbl_grupo: 'Grupo {g}', lbl_jornada: '{n}ª jornada',
+    lbl_campeones: 'Campeones', lbl_final_deducida: 'Final deducida: es el último partido del campeonato',
   },
   eu: {
     nav_cartelera: 'Kartelera',
@@ -322,8 +350,8 @@ const I18N = {
     kpi_partidos: 'Partidak', kpi_registrados: 'erregistratuta',
     kpi_pelotaris: 'Pilotariak', kpi_distintos: 'desberdinak',
     kpi_frontones: 'Frontoiak',
-    kpi_oficiales: 'Ofizialak', kpi_campeonatos: 'txapelketak',
-    kpi_festivales: 'Jaialdiak', kpi_amistosos: 'lagunartekoak',
+    kpi_oficiales: 'Ofizialak', kpi_campeonatos: 'txapelketak eta torneoak',
+    kpi_festivales: 'Jaialdiak', kpi_amistosos: 'eta desafioak',
     flabel_modalidad: 'Modalitatea', flabel_desde: 'Noiztik', flabel_hasta: 'Noiz arte',
     flabel_pelotari: 'Pilotaria', flabel_competicion: 'Lehiaketa', flabel_fronton: 'Frontoia',
     flabel_año: 'Urtea', flabel_serie: 'Seriea',
@@ -427,6 +455,13 @@ const I18N = {
     cart_error: 'Ezin izan da kartelera kargatu.',
     map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
+    flabel_categoria: 'Kategoria', flabel_fase: 'Fasea',
+    cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
+    tag_torneo: 'Torneoa', tag_desafio: 'Desafioa',
+    fase_liga: 'Liga', fase_eliminatoria: 'Kanporaketa', fase_octavos: 'Final-zortzirenak',
+    fase_cuartos: 'Final-laurdenak', fase_semifinal: 'Finalerdia', fase_final: 'Finala',
+    lbl_grupo: '{g} multzoa', lbl_jornada: '{n}. jardunaldia',
+    lbl_campeones: 'Txapeldunak', lbl_final_deducida: 'Ondorioztatutako finala: txapelketako azken partida da',
   }
 };
 
@@ -589,7 +624,13 @@ function partidoFromCatalogo(p){
     puntos1: p.puntos1,
     equipo2: {delantero: pel(p.equipo2?.del_id), zaguero: pel(p.equipo2?.zag_id)},
     puntos2: p.puntos2,
-    ganador: p.ganador
+    ganador: p.ganador,
+    // Clasificación (ver scraper/competiciones.py)
+    modalidad: p.modalidad || '',
+    categoria: p.categoria || cmp.categoria || ((p.tipo||'').startsWith('festival') ? 'festival' : 'campeonato'),
+    serie: p.serie || null,
+    fase: p.fase || null, grupo: p.grupo || null, jornada: p.jornada || null,
+    fase_deducida: !!p.fase_deducida,
   };
 }
 
@@ -733,8 +774,8 @@ function buildKPIs(){
     {l:t('kpi_partidos'),  v:PARTIDOS.length,                                s:t('kpi_registrados')},
     {l:t('kpi_pelotaris'), v:Object.keys(PELOTARIS).length,                  s:t('kpi_distintos'),  onclick:"goToNav('pelotaris')"},
     {l:t('kpi_frontones'), v:new Set(PARTIDOS.map(p=>p.fronton)).size,       s:t('kpi_distintos'),  onclick:"goToNav('frontones')"},
-    {l:t('kpi_oficiales'), v:PARTIDOS.filter(p=>!p.tipo.includes('festival')).length, s:t('kpi_campeonatos')},
-    {l:t('kpi_festivales'),v:PARTIDOS.filter(p=>p.tipo.includes('festival')).length,  s:t('kpi_amistosos')},
+    {l:t('kpi_oficiales'), v:PARTIDOS.filter(p=>p.categoria==='campeonato'||p.categoria==='torneo').length, s:t('kpi_campeonatos')},
+    {l:t('kpi_festivales'),v:PARTIDOS.filter(p=>p.categoria==='festival'||p.categoria==='desafio').length, s:t('kpi_amistosos')},
   ];
   document.getElementById('kpiRow').innerHTML=kpis.map(k=>`
     <div class="kpi ${k.onclick?'clickable':''}" ${k.onclick?`onclick="${k.onclick}"`:''}>
@@ -829,6 +870,8 @@ function resetFiltros(){
   document.getElementById('sInput').value='';
   document.getElementById('fComp').value='';
   document.getElementById('fFron').value='';
+  if(document.getElementById('fCat')) document.getElementById('fCat').value='';
+  if(document.getElementById('fFase')) document.getElementById('fFase').value='';
   activeTipo='todos';
   document.querySelectorAll('#pillsPartidos .pill').forEach(b=>b.classList.remove('on','onM','onC'));
   document.querySelector('#pillsPartidos .pill[data-tipo="todos"]')?.classList.add('on');
@@ -846,9 +889,13 @@ function renderTabla(){
   const fron=document.getElementById('fFron').value;
   const desde=document.getElementById('fDesde').value;
   const hasta=document.getElementById('fHasta').value;
+  const cat=document.getElementById('fCat')?.value||'';
+  const fase=document.getElementById('fFase')?.value||'';
 
   let data=PARTIDOS.filter(p=>{
     if(!tipoMatch(p.tipo,activeTipo)) return false;
+    if(cat&&p.categoria!==cat) return false;
+    if(fase&&p.fase!==fase) return false;
     if(comp&&normalizeComp(p.competicion)!==comp) return false;
     if(fron&&p.fronton!==fron) return false;
     if(q&&!(neq(p.equipo1)+' '+neq(p.equipo2)).toLowerCase().includes(q)) return false;
@@ -868,7 +915,7 @@ function renderTabla(){
 
   document.getElementById('tBody').innerHTML=data.map(p=>{
     const w1=p.ganador==='equipo1',w2=p.ganador==='equipo2';
-    const _tag=TTAG[p.tipo];const ti=_tag?{cls:_tag.cls,lbl:t(_tag.lbl)}:{cls:'',lbl:p.tipo};
+    const ti=etiquetaPartido(p);
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
@@ -876,7 +923,7 @@ function renderTabla(){
       <td style="font-weight:${w1?800:400};color:var(--red)">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
       <td style="font-weight:${w2?800:400};color:#2471a3">${neq(p.equipo2)}</td>
-      <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}</td>
+      <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td>
     </tr>`;
   }).join('');
   document.getElementById('tCount').textContent=`${data.length} / ${PARTIDOS.length} ${t('kpi_partidos').toLowerCase()}`;
@@ -891,8 +938,8 @@ function renderMobileCardsHTML(data, opts){
   const step = opts.step || 5;
   const renderRow = (p)=>{
     const w1=p.ganador==='equipo1', w2=p.ganador==='equipo2';
-    const ti=TTAG[p.tipo];
-    const tiCls=ti?ti.cls:'';
+    const ti=etiquetaPartido(p);
+    const tiCls=ti.cls;
     const rowCls=p.tipo.includes('festival')?'festival-row':p.tipo.includes('manomanista')?'mano-row':p.tipo.includes('cuatro')?'cuatro-row':'';
     const n1=neq(p.equipo1), n2=neq(p.equipo2);
     return `<div class="m-card-row ${rowCls}">
@@ -920,9 +967,9 @@ function renderMobileCardsHTML(data, opts){
           <div class="m-card-team"><span style="font-weight:${w2?800:400};color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;font-weight:${w2?800:400}">${p.puntos2}</span></div>
         </div>
         <div class="m-card-meta">
-          ${ti?`<span class="tag ${tiCls}">${t(ti.lbl)}</span>`:''}
+          <span class="tag ${tiCls}">${ti.lbl}</span>
           <span class="m-card-fronton">📍 ${p.fronton}${p.ciudad?' · '+p.ciudad:''}</span>
-          <span class="m-card-comp">${tComp(p.competicion)}</span>
+          <span class="m-card-comp">${tComp(p.competicion)}${p.fase?' · '+textoFase(p):''}</span>
         </div>
       </div>
     </div>`;
@@ -1192,7 +1239,7 @@ function renderPerfilPartidoRow(p, nombre){
   const gano = (enE1&&p.ganador==='equipo1')||(!enE1&&p.ganador==='equipo2');
   const n1 = neq(p.equipo1), n2 = neq(p.equipo2);
   const w1 = p.ganador==='equipo1', w2 = p.ganador==='equipo2';
-  const ti = TTAG[p.tipo]; const tiTag = ti?`<span class="tag ${ti.cls}">${t(ti.lbl)}</span>`:'';
+  const ti = etiquetaPartido(p); const tiTag = `<span class="tag ${ti.cls}">${ti.lbl}</span>`;
   return `<div class="m-card-row ${p.tipo?.includes('festival')?'festival-row':p.tipo?.includes('manomanista')?'mano-row':p.tipo?.includes('cuatro')?'cuatro-row':''}">
     <div class="m-card-header" onclick="toggleMCard(this)">
       <div>
@@ -1220,7 +1267,7 @@ function renderPerfilPartidoRow(p, nombre){
       <div class="m-card-meta">
         ${tiTag}
         <span class="m-card-fronton">📍 ${p.fronton}${p.ciudad?' · '+p.ciudad:''}</span>
-        <span class="m-card-comp">${tComp(p.competicion)}</span>
+        <span class="m-card-comp">${tComp(p.competicion)}${p.fase?' · '+textoFase(p):''}</span>
       </div>
     </div>
   </div>`;
@@ -1523,7 +1570,7 @@ function renderH2H(){
     const gP1=(p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2');
     const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
     const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
-    const _tag=TTAG[p.tipo];const ti=_tag?{cls:_tag.cls,lbl:t(_tag.lbl)}:{cls:'',lbl:p.tipo};
+    const ti=etiquetaPartido(p);
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
@@ -1644,7 +1691,7 @@ function c4FilaPartido(p, pivotCol, pivotAz){
   const compCol=(colEnE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==pivotCol).join('/')||'—';
   const compAz=(colEnE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==pivotAz).join('/')||'—';
   const ganCol=(colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2');
-  const _tag=TTAG[p.tipo];const ti=_tag?{cls:_tag.cls,lbl:t(_tag.lbl)}:{cls:'',lbl:p.tipo};
+  const ti=etiquetaPartido(p);
   return`<tr>
     <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
     <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
@@ -1706,7 +1753,7 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
     const gano = (pInE1&&p.ganador==='equipo1')||(!pInE1&&p.ganador==='equipo2');
     const compP = pSide.filter(n=>n!==pivotD).join('/')||'—';
     const compR = rSide.join('/')||'—';
-    const ti=TTAG[p.tipo];const tiTag=ti?`<span class="tag ${ti.cls}">${t(ti.lbl)}</span>`:'';
+    const ti=etiquetaPartido(p);const tiTag=`<span class="tag ${ti.cls}">${ti.lbl}</span>`;
     return`<tr>
       <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
       <td>${tiTag}</td>
@@ -2025,8 +2072,9 @@ function renderCartelera(data){
         const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
         const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
         const serieBadge = p.serie && p.serie!=='a' ? `<span class="cart-partido-serie">${t(p.serie==='b'?'tag_serieb':'tag_seriea')}</span>` : '';
-        const pTipo = tipoLabel(p.tipo||tipoEv||'');
-        const tipoBadge = `<span class="cart-badge ${tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`;
+        const pTipo = p.categoria ? etiquetaPartido(p).lbl : tipoLabel(p.tipo||tipoEv||'');
+        const tipoBadge = `<span class="cart-badge ${p.categoria==='torneo'?'torneo':p.categoria==='desafio'?'fest':tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`
+          + (p.fase && tFase(ev.fase||'').toLowerCase().indexOf(t('fase_'+p.fase).toLowerCase())<0 ? `<span class="cart-badge fase">${textoFase(p)}</span>` : '');
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
         return `<div class="cart-partido-wrap">
           <div class="cart-partido-card" onclick="toggleCarteleraActions(this)" data-partido="${encoded}">
