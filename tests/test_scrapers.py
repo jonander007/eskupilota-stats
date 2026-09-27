@@ -174,5 +174,93 @@ class Competiciones(unittest.TestCase):
         self.assertEqual(clasificar(None, '15/12/2026', True, 'a')[1], 'Campeonato Parejas Serie A 2027')
 
 
+FIXTURES = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fixtures')
+
+
+def fixture(nombre):
+    with open(os.path.join(FIXTURES, nombre), encoding='utf-8') as f:
+        return f.read()
+
+
+class Aspe(unittest.TestCase):
+    """Con extractos reales de aspepelota.eus (27/09/2026)."""
+
+    @classmethod
+    def setUpClass(cls):
+        import aspe
+        from scraper import norm
+        cls.res = aspe.resultados_aspe(fixture('aspe_resultados.html'), norm)
+        cls.cart = aspe.cartelera_aspe(fixture('aspe_cartelera.html'))
+
+    def test_resultados(self):
+        self.assertEqual(len(self.res), 35)
+        p = self.res[1]
+        self.assertEqual((p['fecha'], p['fronton'], p['ciudad']), ('26/09/2026', 'ADARRAGA', 'LOGROÑO'))
+        self.assertEqual((p['equipo1'], p['puntos1'], p['equipo2'], p['puntos2'], p['ganador']),
+                         ({'delantero': 'ZABALA', 'zaguero': 'ZABALETA'}, 22,
+                          {'delantero': 'LASO', 'zaguero': 'IZTUETA'}, 20, 'equipo1'))
+
+    def test_resultados_individual_y_pueblo(self):
+        p = self.res[0]
+        self.assertEqual((p['equipo1']['delantero'], p['equipo1']['zaguero'], p['equipo2']['delantero']),
+                         ('DARÍO', None, 'ARTOLA'))
+        altsasu = [p for p in self.res if p['fronton'] == 'ALTSASU']
+        self.assertEqual(len(altsasu), 2)
+
+    def test_cartelera(self):
+        self.assertEqual(len(self.cart), 15)
+        final = self.cart[1]
+        self.assertTrue(final['tv'])
+        self.assertEqual([(p['eq1'], p['eq2'], p['tipo'], p['competicion']) for p in final['partidos']], [
+            (['ELORDI', 'ESKUZA'], ['P.ETXEBERRIA', 'LOZA'], 'campeonato-b', 'Torneo San Mateo Serie B 2026'),
+            (['EZKURDIA', 'MARTIJA'], ['JAKA', 'MARIEZKURRENA II'], 'campeonato-a', 'Torneo San Mateo Serie A 2026')])
+
+    def test_cartelera_sin_pelotaris(self):
+        villava = next(e for e in self.cart if e['fecha'] == '09/10/2026' and e['hora'] == '18:00')
+        cuatro = villava['partidos'][0]
+        self.assertEqual((cuatro['eq1'], cuatro['tipo'], cuatro.get('pendiente')), (['?'], 'cuatro-medio-b', True))
+        final = next(e for e in self.cart if e['fecha'] == '04/10/2026')['partidos'][0]
+        self.assertEqual((final['eq1'], final.get('pendiente')), (['?', '?'], True))
+        tolosa = next(e for e in self.cart if e['fecha'] == '12/10/2026')['partidos'][-1]
+        self.assertEqual((tolosa['eq1'], tolosa['eq2']), (['?', 'ARANGUREN'], ['?', 'BIKUÑA']))
+
+    def test_cartelera_alternativa(self):
+        soria = next(e for e in self.cart if e['fecha'] == '03/10/2026' and e['hora'] == '18:00')
+        self.assertEqual(soria['partidos'][1]['eq1'], ['DARÍO', 'ALBISU o IZTUETA'])
+
+    def test_mismo_evento_con_otra_fuente(self):
+        bilbo = next(e for e in self.cart if e['fecha'] == '17/10/2026')
+        baiko = {'fecha': '17/10/2026', 'hora': '17:15', 'fronton': 'Bizkaia Frontoia', 'ciudad': 'Bilbao',
+                 'partidos': [{'eq1': ['?'], 'eq2': ['?']}]}
+        otro = dict(baiko, fronton='Gurea', ciudad='Azkoitia')
+        self.assertTrue(SC.mismo_evento(bilbo, baiko))
+        self.assertFalse(SC.mismo_evento(bilbo, otro))
+
+    def test_misma_fuente_no_se_fusiona(self):
+        a = {'fecha': '02/10/2026', 'hora': '21:00', 'fronton': 'Navarra Arena', 'ciudad': 'Pamplona', 'partidos': []}
+        todos = SC.fusionar_eventos([('baiko', [dict(a), dict(a)])])
+        self.assertEqual(len(todos), 2)
+
+
+class CatalogosFuentes(unittest.TestCase):
+    """Con los catálogos reales de data/ (solo lectura)."""
+
+    @classmethod
+    def setUpClass(cls):
+        from scraper import Catalogos
+        cls.cats = Catalogos()
+
+    def test_errata_en_nombre(self):
+        pid = self.cats.get_or_create_pelotari('P.ETXBERRIA')
+        self.assertEqual(self.cats._idx_pel['P.ETXEBERRIA']['id'], pid)
+
+    def test_ordinal_distinto_no_es_errata(self):
+        self.assertIsNone(self.cats._casi_igual('ZUBIZARRETA V'))
+
+    def test_fronton_por_pueblo(self):
+        self.assertEqual(self.cats.fronton_de_pueblo('ALTSASU')[0]['nombre'], 'BURUNDA')
+        self.assertEqual(self.cats.fronton_de_pueblo('Bilbo')[1]['nombre'], 'BILBAO')
+
+
 if __name__ == '__main__':
     unittest.main()

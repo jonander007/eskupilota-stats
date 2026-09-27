@@ -30,6 +30,7 @@ from bs4 import BeautifulSoup
 
 from competiciones import clasificar, es_texto_competicion
 from red import descargar
+import aspe
 
 # El scraper está en /scraper/, los datos en /data/
 DATA_DIR = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data'))
@@ -302,15 +303,49 @@ def _clave(s):
     return re.sub(r"[^A-Z0-9]", "", s.upper().translate(str.maketrans("ÁÉÍÓÚÜÑ", "AEIOUUN")))
 
 
+_CIUDADES = None
+
+
+def _ciudad(ev):
+    """Ciudad del evento con un nombre único ('Bilbo', 'Bilbao' y el frontón
+    'Bizkaia Frontoia' dan todos BILBAO), usando los catálogos de data/."""
+    global _CIUDADES
+    if _CIUDADES is None:
+        _CIUDADES = {}
+        try:
+            with open(os.path.join(DATA_DIR, "ciudades.json"), encoding="utf-8") as f:
+                ciudades = json.load(f)
+            with open(os.path.join(DATA_DIR, "frontones.json"), encoding="utf-8") as f:
+                frontones = json.load(f)
+        except (OSError, ValueError):
+            ciudades, frontones = [], []
+        por_id = {c["id"]: c["nombre"] for c in ciudades}
+        for c in ciudades:
+            for k in ("nombre", "nombre_es", "nombre_eu"):
+                if c.get(k):
+                    _CIUDADES.setdefault(_clave(c[k]), c["nombre"])
+        for fr in frontones:
+            if fr.get("ciudad_id") in por_id:
+                _CIUDADES.setdefault("FRONTON:" + _clave(fr["nombre"]), por_id[fr["ciudad_id"]])
+    for texto in (ev.get("ciudad"), *re.split(r"\s*[-/]\s*", ev.get("ciudad") or "")):
+        if texto and _clave(texto) in _CIUDADES:
+            return _CIUDADES[_clave(texto)]
+    return _CIUDADES.get("FRONTON:" + _clave(ev.get("fronton"))) or _clave(ev.get("ciudad"))
+
+
 def mismo_evento(a, b):
-    """Mismo día y mismo frontón, o mismo día con algún partido en común."""
+    """Mismo día y además: mismo frontón, algún partido en común, o misma
+    hora en la misma ciudad (cuando aún no hay pelotaris anunciados)."""
     if a["fecha"] != b["fecha"]:
         return False
     fa, fb = _clave(a.get("fronton")), _clave(b.get("fronton"))
     if fa and fb and (fa == fb or fa in fb or fb in fa):
         return True
     jug = lambda ev: [{_clave(n) for n in p["eq1"] + p["eq2"] if n != "?"} for p in ev.get("partidos", [])]
-    return any(len(x & y) >= 2 for x in jug(a) for y in jug(b))
+    if any(len(x & y) >= 2 for x in jug(a) for y in jug(b)):
+        return True
+    ca, cb = _ciudad(a), _ciudad(b)
+    return bool(ca) and ca == cb and (a.get("hora") or "") == (b.get("hora") or "")
 
 
 def fusionar_eventos(por_fuente):
@@ -318,8 +353,11 @@ def fusionar_eventos(por_fuente):
     las demás, solo los eventos que no estén ya."""
     todos = []
     for nombre, eventos in por_fuente:
+        # Solo se compara con lo de otras fuentes: una misma web puede
+        # anunciar dos eventos distintos a la misma hora en el mismo frontón
+        previos = list(todos)
         for ev in eventos:
-            if any(mismo_evento(ev, e) for e in todos):
+            if any(mismo_evento(ev, e) for e in previos):
                 continue
             ev["fuente"] = nombre
             todos.append(ev)
@@ -329,6 +367,7 @@ def fusionar_eventos(por_fuente):
 
 FUENTES = [
     ("baiko", URL_BAIKO, eventos_baiko),
+    ("aspe", aspe.URL_CARTELERA, aspe.cartelera_aspe),
 ]
 
 
