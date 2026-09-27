@@ -1,65 +1,7 @@
 {
-  "actualizado": "26/09/2026 03:02",
+  "actualizado": "27/09/2026 03:07",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "partidos": [
-    {
-      "fecha": "26/09/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Desafío Urzante",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "DARÍO // ARTOLA (4 1/2)",
-        "ZABALA – ZABALETA // LASO – IZTUETA",
-        "MURUA // AMIANO (MANO A MANO)",
-        "DIFERIDO",
-        "DESDE",
-        "20.00€"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59334/session/2966440/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
-            "ARTOLA (4 1/2)"
-          ],
-          "raw": "DARÍO // ARTOLA (4 1/2)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "ZABALA",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "LASO",
-            "IZTUETA"
-          ],
-          "raw": "ZABALA – ZABALETA // LASO – IZTUETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [
-            "AMIANO (MANO A MANO)"
-          ],
-          "raw": "MURUA // AMIANO (MANO A MANO)",
-          "tipo": "manomanista-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "27/09/2026",
       "hora": "17:15",
