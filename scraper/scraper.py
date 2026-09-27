@@ -31,6 +31,7 @@ from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 from competiciones import Cartelera, HistorialSeries, categoria_de_competicion, clasificar_partido
+from jsonio import guardar_json
 from roles import aplicar_roles
 from red import descargar
 import aspe
@@ -378,9 +379,7 @@ def load_catalog(path):
 
 
 def save_catalog(path, items):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(items, f, ensure_ascii=False, indent=2)
+    guardar_json(path, items)
 
 
 def next_id(prefix, items, width=3):
@@ -844,9 +843,7 @@ def main():
     todos = existentes + sin_dup
     todos.sort(key=lambda p: p['fecha'], reverse=True)
     if sin_dup:
-        os.makedirs(DATA_DIR, exist_ok=True)
-        with open(PARTIDOS_FILE, 'w', encoding='utf-8') as f:
-            json.dump(todos, f, ensure_ascii=False, indent=2)
+        guardar_json(PARTIDOS_FILE, todos)
     cats.recalcular_contadores(todos)
     if sin_dup or any(cats._dirty.values()):
         cats.save_all()

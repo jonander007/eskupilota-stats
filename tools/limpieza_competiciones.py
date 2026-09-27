@@ -42,6 +42,7 @@ from collections import Counter
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
 from competiciones import Cartelera, HistorialSeries, clasificar, en_temporada  # noqa: E402
+from jsonio import guardar_json  # noqa: E402
 
 DATA_DIR = 'data'
 PARTIDOS_FILE = os.path.join(DATA_DIR, 'partidos.json')
@@ -58,8 +59,7 @@ def load(path):
 
 
 def save(path, data):
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    guardar_json(path, data)
 
 
 def cartelera_historica():

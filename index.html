@@ -19,17 +19,33 @@
   <meta property="og:description" content="Estadísticas de pelota vasca a mano profesional. Resultados, rankings, comparador H2H y cartelera.">
   <meta property="og:url" content="https://www.eskupilotastats.com">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:site_name" content="EskupilotaStats">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="eu_ES">
+  <meta property="og:image" content="https://www.eskupilotastats.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="EskupilotaStats: estadísticas de pelota a mano profesional">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="EskupilotaStats">
   <meta name="twitter:description" content="Estadísticas de pelota vasca a mano profesional.">
-  <link rel="canonical" href="https://www.eskupilotastats.com">
+  <meta name="twitter:image" content="https://www.eskupilotastats.com/og-image.jpg">
+  <link rel="canonical" href="https://www.eskupilotastats.com/">
+  <link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/">
+  <link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/?lang=eu">
+  <link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/">
+  <script>
+    // La versión en euskera (?lang=eu) es su propia página canónica
+    if (/[?&]lang=eu\b/.test(location.search)) {
+      document.documentElement.lang = 'eu';
+      document.querySelector('link[rel=canonical]').href = 'https://www.eskupilotastats.com/?lang=eu';
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eskupilota Stats</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/app.css">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 <header>

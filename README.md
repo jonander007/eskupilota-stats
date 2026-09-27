@@ -14,7 +14,9 @@ js/app.js             Lógica de la web
 js/analisis.js        Enlaces directos, Elo, campeonatos, gráficos del perfil,
                       previa de la cartelera y ficha de frontón
 sw.js, manifest.json  PWA (caché sin conexión e instalación)
-data/                 Datos que lee la web
+vendor/leaflet/       Leaflet 1.9.4 (mapa); se carga al abrir Frontones
+robots.txt, sitemap.xml, og-image.jpg  Buscadores y vista previa al compartir
+data/                 Datos que lee la web (listas con un elemento por línea)
   partidos.json         Partidos, con referencias por ID a los catálogos
   pelotaris.json        Catálogo de pelotaris (PEL###)
   frontones.json        Catálogo de frontones (FRO###), con lat/lon para el mapa
@@ -26,6 +28,7 @@ scraper/
   scraper_cartelera.py  Regenera la cartelera desde baikopilota.eus/entradas
   aspe.py               Lectores de aspepelota.eus (resultados y cartelera), 2ª fuente
   red.py                Descarga con reintentos (común a los scrapers)
+  jsonio.py             Escritura de los JSON de data/
   competiciones.py      Criterio para asignar competición y tipo a cada partido
   roles.py              Rol (delantero/zaguero) de cada pelotari según sus partidos
 tests/                  Pruebas de los scrapers con casos reales (sin red)
@@ -110,6 +113,9 @@ Cada vista tiene su URL, que se puede compartir:
 - `#/pelotari/jaka`, `#/fronton/labrit`, `#/campeonato/COMP026`
 - `#/resultados`, `#/cartelera`, `#/comparador`, `#/pelotaris`, `#/frontones`,
   `#/ranking`, `#/campeonatos`, `#/contacto`
+- `?lang=eu` / `?lang=es` delante del `#` fija el idioma (ej.
+  `https://www.eskupilotastats.com/?lang=eu#/ranking`); es la URL que
+  indexan los buscadores para la versión en euskera
 
 ## Elo
 

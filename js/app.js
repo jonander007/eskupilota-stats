@@ -470,6 +470,12 @@ function t(key){ return (I18N[LANG]||I18N.es)[key] || I18N.es[key] || key; }
 function setLang(lang){
   LANG = lang === 'eu' ? 'eu' : 'es';
   try{ localStorage.setItem('eskupilota-lang', LANG); }catch(e){}
+  // Si se entró con ?lang=…, la URL sigue al idioma elegido (al recargar o compartir)
+  if(idiomaDeUrl() && idiomaDeUrl() !== LANG){
+    const u = new URL(location.href);
+    u.searchParams.set('lang', LANG);
+    history.replaceState(history.state, '', u);
+  }
   document.getElementById('langEs').classList.toggle('active', LANG==='es');
   document.getElementById('langEu').classList.toggle('active', LANG==='eu');
   // Los nombres de ciudad dependen del idioma: se recalculan los partidos
@@ -479,6 +485,15 @@ function setLang(lang){
 
 function idiomaGuardado(){
   try{ return localStorage.getItem('eskupilota-lang'); }catch(e){ return null; }
+}
+
+// ?lang=eu / ?lang=es en la URL (enlaces compartidos y buscadores) manda
+// sobre el idioma guardado
+function idiomaDeUrl(){
+  try{
+    const l = new URLSearchParams(location.search).get('lang');
+    return l === 'eu' || l === 'es' ? l : null;
+  }catch(e){ return null; }
 }
 
 function rebuildCompFilter(){
@@ -561,8 +576,10 @@ let RAW_PARTIDOS = [];
 
 async function loadData(){
   // Idioma elegido en otra visita
-  const guardado = idiomaGuardado();
+  const deUrl = idiomaDeUrl();
+  const guardado = deUrl || idiomaGuardado();
   if(guardado === 'eu' || guardado === 'es') LANG = guardado;
+  if(deUrl){ try{ localStorage.setItem('eskupilota-lang', deUrl); }catch(e){} }
   document.getElementById('langEs').classList.toggle('active', LANG==='es');
   document.getElementById('langEu').classList.toggle('active', LANG==='eu');
   // Intentar cargar modelo nuevo (catálogos). Si falla, caer al antiguo.
@@ -2210,10 +2227,35 @@ function enviarContacto(){
 // ════════════════════════════════════════════════════════════
 
 let _frontonMap = null;
+let _leaflet = null;
+
+// Leaflet (vendor/leaflet) solo se descarga la primera vez que se abre el
+// mapa: el resto de la web arranca sin esperar a sus 160 KB.
+function cargarLeaflet(){
+  if(window.L) return Promise.resolve();
+  if(_leaflet) return _leaflet;
+  _leaflet = new Promise((ok, ko) => {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'vendor/leaflet/leaflet.css';
+    document.head.appendChild(css);
+    const js = document.createElement('script');
+    js.src = 'vendor/leaflet/leaflet.js';
+    js.onload = ok;
+    js.onerror = () => { _leaflet = null; ko(new Error('Leaflet')); };
+    document.head.appendChild(js);
+  });
+  return _leaflet;
+}
 
 function initFrontonMap(){
   if(!document.getElementById('frontonMap')) return;
   if(_frontonMap){ _frontonMap.invalidateSize(); return; }
+  cargarLeaflet().then(crearFrontonMap).catch(() => {});
+}
+
+function crearFrontonMap(){
+  if(_frontonMap) return;
 
   _frontonMap = L.map('frontonMap', {zoomControl:false}).setView([43.0, -2.0], 8);
   L.control.zoom({zoomInTitle: t('map_acercar'), zoomOutTitle: t('map_alejar')}).addTo(_frontonMap);

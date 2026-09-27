@@ -46,6 +46,7 @@ from datetime import date, timedelta
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from competiciones import _tipo, _txt, categoria_de_competicion, clasificar_partido, leer_fase  # noqa: E402
+from jsonio import guardar_json  # noqa: E402
 from limpieza_competiciones import cartelera_historica  # noqa: E402
 
 DATA_DIR = 'data'
@@ -71,8 +72,7 @@ def load(path):
 
 
 def save(path, data):
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    guardar_json(path, data)
 
 
 def modalidad(p, cmp_nombre):

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+# Código del scraper y herramientas internas: no son páginas de la web
+Disallow: /scraper/
+Disallow: /tools/
+Disallow: /tests/
+
+Sitemap: https://www.eskupilotastats.com/sitemap.xml
