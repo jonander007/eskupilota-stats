@@ -29,12 +29,23 @@ import unicodedata
 from collections import Counter
 from datetime import date, timedelta
 
-# Meses en los que se juega cada campeonato
+# Meses en los que se juega cada campeonato. El manomanista termina a
+# finales de mayo o primeros de junio: lo de después son festivales.
 TEMPORADA = {
     'parejas': {11, 12, 1, 2, 3},
     'mano':    {3, 4, 5, 6},
     'cuatro':  {9, 10, 11},
 }
+FIN_MANOMANISTA = (6, 15)   # 15 de junio
+
+
+def en_temporada(mod, fecha):
+    f = _fecha(fecha) if isinstance(fecha, str) else fecha
+    if f.month not in TEMPORADA[mod]:
+        return False
+    if mod == 'mano' and (f.month, f.day) > FIN_MANOMANISTA:
+        return False
+    return True
 
 # Torneos conocidos: palabra clave -> nombre base en el catálogo
 TORNEOS = [
@@ -132,7 +143,7 @@ def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
                 f"Campeonato {NOMBRE_MODALIDAD[mod]} Serie {s.upper()} {anio}")
 
     if not t:
-        if mod == 'parejas' and f.month in TEMPORADA['parejas']:
+        if mod == 'parejas' and en_temporada('parejas', f):
             return _campeonato()
         return _festival()
 

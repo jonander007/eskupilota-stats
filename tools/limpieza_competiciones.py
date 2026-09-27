@@ -17,7 +17,7 @@ Además pasa a "festival-mano" los partidos individuales guardados con el
 tipo "festival", que es el de parejas.
 
 y los vuelve a clasificar con scraper/competiciones.py:
-  - Fuera de temporada (parejas: nov-mar; manomanista: mar-jun) se busca el
+  - Fuera de temporada (parejas: nov-mar; manomanista: mar-15 jun) se busca el
     partido en el historial de la cartelera (git log de data/cartelera.json)
     y, si no aparece, pasa a "Festival".
   - Los campeonatos sin serie reciben la serie según sus pelotaris.
@@ -41,7 +41,7 @@ import sys
 from collections import Counter
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
-from competiciones import Cartelera, HistorialSeries, clasificar  # noqa: E402
+from competiciones import Cartelera, HistorialSeries, clasificar, en_temporada  # noqa: E402
 
 DATA_DIR = 'data'
 PARTIDOS_FILE = os.path.join(DATA_DIR, 'partidos.json')
@@ -50,8 +50,6 @@ FRONTONES_FILE = os.path.join(DATA_DIR, 'frontones.json')
 COMPETICIONES_FILE = os.path.join(DATA_DIR, 'competiciones.json')
 CARTELERA_FILE = os.path.join(DATA_DIR, 'cartelera.json')
 
-TEMPORADA_PAREJAS = {11, 12, 1, 2, 3}
-TEMPORADA_MANO = {3, 4, 5, 6}
 
 
 def load(path):
@@ -137,16 +135,15 @@ def main():
         if p['competicion_id'] not in revisar:
             continue
         actual = por_id[p['competicion_id']]
-        mes = int(p['fecha'][5:7])
         es_pareja = bool(p['equipo1'].get('zag_id') or p['equipo2'].get('zag_id'))
         ids = [p[e].get(k) for e in ('equipo1', 'equipo2') for k in ('del_id', 'zag_id') if p[e].get(k)]
         nombres = [pelotaris.get(i) for i in ids]
 
-        en_temporada = mes in (TEMPORADA_PAREJAS if es_pareja else TEMPORADA_MANO)
+        temporada = en_temporada('parejas' if es_pareja else 'mano', p['fecha'])
         texto, serie = (None, None)
-        if not en_temporada or 'Masters' in actual['nombre']:
+        if not temporada or 'Masters' in actual['nombre']:
             texto, serie = cart.buscar(p['fecha'], frontones.get(p['fronton_id']), nombres)
-        if texto is None and (en_temporada or 'Masters' in actual['nombre']):
+        if texto is None and (temporada or 'Masters' in actual['nombre']):
             # Campeonato en temporada: se conserva, solo se normaliza serie y año
             texto = actual['nombre'].rsplit(' ', 1)[0]
         tipo, nombre = clasificar(texto, p['fecha'], es_pareja, serie,

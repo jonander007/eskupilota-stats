@@ -197,6 +197,7 @@ const I18N = {
     nav_pelotaris: 'Pelotaris',
     nav_frontones: 'Frontones',
     nav_ranking: 'Ranking',
+    nav_campeonatos: 'Campeonatos',
     nav_contacto: 'Contacto',
     // KPIs
     kpi_partidos: 'Partidos', kpi_registrados: 'registrados',
@@ -321,6 +322,7 @@ const I18N = {
     nav_pelotaris: 'Pilotariak',
     nav_frontones: 'Frontoiak',
     nav_ranking: 'Sailkapena',
+    nav_campeonatos: 'Txapelketak',
     nav_contacto: 'Kontaktua',
     kpi_partidos: 'Partidak', kpi_registrados: 'erregistratuta',
     kpi_pelotaris: 'Pilotariak', kpi_distintos: 'desberdinak',
@@ -422,7 +424,8 @@ function applyI18N(){
   // Nav buttons
   const navMap = {
     'cartelera':'nav_cartelera','partidos':'nav_resultados','comparador':'nav_comparador',
-    'pelotaris':'nav_pelotaris','frontones':'nav_frontones','ranking':'nav_ranking','contacto':'nav_contacto'
+    'pelotaris':'nav_pelotaris','frontones':'nav_frontones','ranking':'nav_ranking',
+    'campeonatos':'nav_campeonatos','contacto':'nav_contacto'
   };
   document.querySelectorAll('nav button').forEach(btn=>{
     const m = btn.getAttribute('onclick').match(/showSec\('(\w+)'/);
@@ -685,6 +688,7 @@ function filtByTipoYear(tipo,year){
 // INIT
 // ════════════════════════════════════════════════════════════
 function init(){
+  calcElo();
   buildKPIs();
   buildAllPills();
   buildYearPills();
@@ -696,24 +700,8 @@ function init(){
   renderFrontones();
   buildRanking();
   applyI18N();
-  initHistory();
-}
-
-// ════════════════════════════════════════════════════════════
-// HISTORIAL (botón atrás del navegador)
-// ════════════════════════════════════════════════════════════
-function initHistory(){
-  const active = document.querySelector('.section.active');
-  const id = active ? active.id.replace('sec-','') : 'partidos';
-  history.replaceState({sec:id}, '', '');
-
-  window.addEventListener('popstate', e=>{
-    const target = (e.state && e.state.sec) || 'partidos';
-    const btn = document.querySelector(`header nav button[onclick*="showSec('${target}'"]`);
-    if(btn){
-      showSec(target, btn, true);
-    }
-  });
+  buildCampeonatos();
+  initRouter();
 }
 
 function showSec(id, btn, fromHistory){
@@ -721,15 +709,14 @@ function showSec(id, btn, fromHistory){
   document.querySelectorAll('header nav button').forEach(b=>b.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
   btn.classList.add('active');
+  // Enlace directo (#/ranking…); si viene del botón atrás, la URL ya es la correcta.
+  // Va antes de pintar la sección, que puede afinar la URL (#/campeonato/COMP026).
+  if(!fromHistory) setHash('#/'+SEC_SLUG[id]);
   if(id==='cartelera') loadCartelera();
   if(id==='frontones'){ renderFrontones(); setTimeout(()=>{ initFrontonMap(); renderFrontonMarkers(); },100); }
+  if(id==='campeonatos') renderCampeonato(_campActual);
   // Sincronizar el drawer
   syncDrawerActive(id);
-  // Solo añadimos al historial si la navegación viene del usuario (no del popstate)
-  if(!fromHistory){
-    const cur = history.state && history.state.sec;
-    if(cur !== id) history.pushState({sec:id}, '', '');
-  }
 }
 
 // ════════════════════════════════════════════════════════════
@@ -752,7 +739,7 @@ function showSecFromDrawer(id, idx){
   closeDrawer();
 }
 function syncDrawerActive(id){
-  const map = {cartelera:0, partidos:1, comparador:2, pelotaris:3, frontones:4, ranking:5, contacto:6};
+  const map = {cartelera:0, partidos:1, comparador:2, pelotaris:3, frontones:4, ranking:5, campeonatos:6, contacto:7};
   const idx = map[id];
   if (idx === undefined) return;
   document.querySelectorAll('.drawer-nav button').forEach((b,i) => {
@@ -1162,6 +1149,8 @@ function openPerfil(nombre){
   _perfilPage = 1;
   populatePerfilFrontons(nombre, parts);
   renderPerfilPartidos();
+  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlEvolucionPerfil(nombre));
+  setHash('#/pelotari/'+slugify(nombre));
 }
 
 
@@ -1269,6 +1258,7 @@ function closePerfil(){
   document.getElementById('perfilSec').style.display='none';
   document.getElementById('pCards').style.display='grid';
   document.getElementById('pSearch').style.display='block';
+  if(document.getElementById('sec-pelotaris').classList.contains('active')) setHash('#/pelotaris');
 }
 
 function goToPel(n){goToNav('pelotaris');setTimeout(()=>openPerfil(n),80);}
@@ -1290,6 +1280,7 @@ function setRkTab(tab, btn){
 }
 
 function buildRanking(){
+  if(activeRkTab==='elo'){ document.getElementById('rkContent').innerHTML = htmlRankingElo(); return; }
   let parts = filtByTipoYear(activeTipo, activeYearRk);
   // Filtrado por rango de fechas
   parts = parts.filter(p=>partidoEnRango(p, dateRangeRk));
@@ -1933,7 +1924,7 @@ function renderFrontones(){
       || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+f)}`;
     return `
     <div class="fronton-card">
-      <div class="fronton-card-top" onclick="filtrarPorFronton('${esc(f)}')">
+      <div class="fronton-card-top" onclick="abrirFronton('${esc(f)}')">
         <div>
           <div class="fname">${f}</div>
           ${s.ciudad?`<div class="fcity">${s.ciudad}</div>`:''}
@@ -2070,6 +2061,7 @@ function renderCartelera(data){
                 <span class="cart-partido-vs">vs</span>
                 <span class="cart-partido-eq" style="color:#2471a3">${e2}</span>
               </div>
+              ${htmlPrevia(p)}
             </div>
             <div class="cart-partido-arrow">${t('cart_ver_opciones')}</div>
           </div>
@@ -2269,5 +2261,3 @@ function renderFrontonMarkers(){
     `);
   });
 }
-
-loadData();

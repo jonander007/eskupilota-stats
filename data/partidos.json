@@ -3130,8 +3130,8 @@
   {
     "fecha": "2026-06-29",
     "fronton_id": "FRO180",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL009",
       "zag_id": null
@@ -3147,8 +3147,8 @@
   {
     "fecha": "2026-06-28",
     "fronton_id": "FRO015",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL019",
       "zag_id": null
@@ -3198,8 +3198,8 @@
   {
     "fecha": "2026-06-28",
     "fronton_id": "FRO058",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL004",
       "zag_id": null
@@ -3283,8 +3283,8 @@
   {
     "fecha": "2026-06-27",
     "fronton_id": "FRO169",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL001",
       "zag_id": null
@@ -3317,8 +3317,8 @@
   {
     "fecha": "2026-06-26",
     "fronton_id": "FRO175",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL019",
       "zag_id": null
@@ -3368,8 +3368,8 @@
   {
     "fecha": "2026-06-26",
     "fronton_id": "FRO211",
-    "competicion_id": "COMP015",
-    "tipo": "manomanista-a",
+    "competicion_id": "COMP036",
+    "tipo": "festival-mano",
     "equipo1": {
       "del_id": "PEL003",
       "zag_id": null
