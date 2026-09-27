@@ -123,7 +123,16 @@ def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
     """
     f = _fecha(fecha)
     t = _txt(texto)
-    mod = modalidad(texto, es_pareja) if t else ('parejas' if es_pareja else 'mano')
+    # La modalidad la marca el partido (parejas o individual). Si el texto es
+    # de otra modalidad (un partido de parejas en un evento del 4 y medio), el
+    # texto no habla de este partido: es un festival dentro de ese evento.
+    mod_texto = modalidad(texto, es_pareja) if t else None
+    if es_pareja:
+        mod = 'parejas'
+        otra = mod_texto in ('mano', 'cuatro')
+    else:
+        mod = mod_texto if mod_texto in ('mano', 'cuatro') else 'mano'
+        otra = mod_texto == 'parejas'
 
     def _serie():
         s = serie_en_texto(texto) or serie
@@ -145,6 +154,8 @@ def clasificar(texto, fecha, es_pareja, serie=None, serie_jugadores=None):
     if not t:
         if mod == 'parejas' and en_temporada('parejas', f):
             return _campeonato()
+        return _festival()
+    if otra:
         return _festival()
 
     # Despedidas: se conservan con su nombre
