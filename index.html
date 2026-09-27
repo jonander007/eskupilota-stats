@@ -47,6 +47,7 @@
       <button onclick="showSec('pelotaris',this)">Pelotaris</button>
       <button onclick="showSec('frontones',this)">Frontones</button>
       <button onclick="showSec('ranking',this)">Ranking</button>
+      <button onclick="showSec('campeonatos',this)">Campeonatos</button>
       <button onclick="showSec('contacto',this)">Contacto</button>
     </nav>
     <div id="langToggle" style="display:flex;gap:.25rem;">
@@ -70,7 +71,8 @@
     <button onclick="showSecFromDrawer('pelotaris',3)">Pelotaris</button>
     <button onclick="showSecFromDrawer('frontones',4)">Frontones</button>
     <button onclick="showSecFromDrawer('ranking',5)">Ranking</button>
-    <button onclick="showSecFromDrawer('contacto',6)">Contacto</button>
+    <button onclick="showSecFromDrawer('campeonatos',6)">Campeonatos</button>
+    <button onclick="showSecFromDrawer('contacto',7)">Contacto</button>
   </nav>
 </aside>
 
@@ -192,6 +194,7 @@
     <button class="rk-tab" id="rktab-parejas" onclick="setRkTab('parejas',this)">Parejas</button>
     <button class="rk-tab" id="rktab-over365" onclick="setRkTab('over365',this)">+36.5 tantos</button>
     <button class="rk-tab" id="rktab-racha" onclick="setRkTab('racha',this)">Racha</button>
+    <button class="rk-tab" id="rktab-elo" onclick="setRkTab('elo',this)">Elo</button>
   </div>
   <div id="rkContent"></div>
 </div>
@@ -289,10 +292,24 @@
       </div>
     </div>
   </div>
+  <div class="fronton-detail" id="frontonDetail"></div>
   <div id="frontonMap"></div>
   <div class="fronton-grid" id="frontonGrid"></div>
-  <div class="fronton-detail" id="frontonDetail"></div>
 </div>
+<!-- ══ CAMPEONATOS ══════════════════════════════════════════════════════ -->
+<div class="section" id="sec-campeonatos">
+  <div class="sec-title">Campeonatos</div>
+  <div class="filter-panel">
+    <div class="filter-row">
+      <div class="fg" style="flex:1;min-width:0">
+        <label class="flabel" for="campSel">Competición</label>
+        <select id="campSel" onchange="renderCampeonato(this.value)" style="width:100%;max-width:520px"></select>
+      </div>
+    </div>
+  </div>
+  <div id="campContent"></div>
+</div>
+
 <!-- ══ CARTELERA ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-cartelera">
   <div class="sec-title">Cartelera <span class="badge bg" id="carteleraBadge"></span></div>
@@ -335,6 +352,8 @@
 
 </main>
 <script src="js/app.js"></script>
+<script src="js/analisis.js"></script>
+<script>loadData();</script>
 
 <script>
 if('serviceWorker' in navigator){
