@@ -175,7 +175,6 @@
 {"id":"FRO161","nombre":"OTEIZA","ciudad_id":"CIU115","lat":42.6191,"lon":-1.9539,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OTEIZA"},
 {"id":"FRO162","nombre":"OTXANDIO","ciudad_id":"CIU116","lat":43.0583,"lon":-2.6594,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OTXANDIO"},
 {"id":"FRO163","nombre":"OÑATI","ciudad_id":"CIU117","lat":43.0326,"lon":-2.41,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20O%C3%91ATI"},
-{"id":"FRO204","nombre":"PILI","ciudad_id":"CIU150","lat":42.3679,"lon":-2.8108,"partidos_count":1},
 {"id":"FRO164","nombre":"PINILLA DE LOS BARRUECOS","ciudad_id":"CIU119","lat":41.9179,"lon":-3.3037,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20PINILLA%20DE%20LOS%20BARRUECOS"},
 {"id":"FRO165","nombre":"REMONTIVAL","ciudad_id":"CIU094","lat":42.6718,"lon":-2.0323,"partidos_count":12,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20REMONTIVAL"},
 {"id":"FRO166","nombre":"RETEGUI","ciudad_id":"CIU023","lat":42.8028,"lon":-1.6795,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20RETEGUI"},

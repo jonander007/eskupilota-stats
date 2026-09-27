@@ -368,6 +368,8 @@ tr:hover td{background:var(--surface2);}
 .c4-sep{display:flex;align-items:center;justify-content:center;padding-top:2rem;}
 .c4-bloque{background:var(--surface);border:1px solid var(--border);padding:1.4rem;margin-bottom:1rem;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);}
 .c4-bloque-title{font-family:var(--display);font-weight:700;font-size:1.2rem;letter-spacing:.02em;margin-bottom:1.1rem;padding-bottom:.55rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.7rem;text-transform:uppercase;}
+.c4-sin-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem;}
+.c4-sin-chip{font-family:var(--mono);font-size:.6rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);background:var(--green-soft);border-radius:999px;padding:.2rem .6rem;}
 .c4-marcador{display:grid;grid-template-columns:1fr auto 1fr;gap:1rem;align-items:center;text-align:center;padding:1.1rem;background:var(--surface2);margin-bottom:.9rem;border-radius:var(--r);}
 .c4-mwins{font-family:var(--display);font-weight:700;font-size:3.2rem;line-height:1;}
 .c4-mwins.col{color:var(--red);}.c4-mwins.az{color:#2471a3;}

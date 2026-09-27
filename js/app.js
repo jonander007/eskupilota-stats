@@ -243,6 +243,9 @@ const I18N = {
     c4_con_hist: 'Con historial juntos', c4_sin_hist: 'Sin historial juntos',
     c4_partidos_label: 'partidos',
     c4_ver_mas: 'Ver {n} más ↓',
+    c4_tres_de_cuatro: 'Con 3 de los 4 pelotaris',
+    c4_tres_sin_zag: 'Selecciona los dos zagueros para ver los partidos con 3 de los 4',
+    c4_sin: 'Sin', c4_sin_pel: 'Sin {n}',
     // Stats
     stat_pj: 'Partidos', stat_ganados: 'Ganados', stat_pct_vic: '% Victorias', stat_over: '+36.5 tantos',
     stat_perd: 'perd.',
@@ -383,6 +386,9 @@ const I18N = {
     c4_con_hist: 'Elkarrekin jokatutakoak', c4_sin_hist: 'Historia gabe',
     c4_partidos_label: 'partida',
     c4_ver_mas: '{n} gehiago ikusi ↓',
+    c4_tres_de_cuatro: 'Lau pilotarietatik hiru',
+    c4_tres_sin_zag: 'Hautatu bi atzelariak lautik hiru jokatu dituzten partidak ikusteko',
+    c4_sin: 'Gabe', c4_sin_pel: '{n} gabe',
     stat_pj: 'Partidak', stat_ganados: 'Irabaziak', stat_pct_vic: '% Garaipenak', stat_over: '+36.5 tanto',
     stat_perd: 'galdu.',
     cart_ver_hist: '→ Historia ikusi', cart_cargando: '⟳ Kartelera kargatzen…',
@@ -1792,6 +1798,69 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
   return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${renderMobileCardsHTML(partidos, {paginated:true, initial:5, step:5})}</div>`;
 }
 
+// Partidos en los que jugaron exactamente 3 de los 4 pelotaris elegidos
+function c4TresDeCuatro(cuatro, partsBase){
+  return partsBase.filter(p=>{
+    const js=[...pels(p.equipo1),...pels(p.equipo2)];
+    return cuatro.filter(n=>js.includes(n)).length===3;
+  });
+}
+
+function c4TablaTresDeCuatro(partidos, d1, z1, d2, z2){
+  if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_partidos')}</div>`;
+  const MAX=3; const id='c4b'+(++_c4BlockId);
+  const cuatro=[d1,z1,d2,z2];
+  // Los cuatro elegidos en su color; quien entra por el que falta, en gris
+  const nombre=n=>{
+    const c=(n===d1||n===z1)?'var(--red)':(n===d2||n===z2)?'#2471a3':null;
+    return c?`<span style="color:${c};font-weight:600">${n}</span>`:`<span style="color:var(--muted);font-style:italic">${n}</span>`;
+  };
+  const thead=`<thead><tr>
+    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
+    <th style="color:var(--red)">${t('eq_colorada')}</th><th>${t('abbr_tantos')}</th><th></th>
+    <th>${t('abbr_tantos')}</th><th style="color:#2471a3">${t('eq_azul')}</th>
+    <th>${t('c4_sin')}</th>
+  </tr></thead>`;
+  // A la izquierda (en rojo) el lado con más pelotaris de la pareja colorada
+  const rojos=e=>pels(e).filter(n=>n===d1||n===z1).length;
+  const orientados=partidos.map(p=>{
+    const izq1=rojos(p.equipo1)>rojos(p.equipo2)||(rojos(p.equipo1)===rojos(p.equipo2)&&!pels(p.equipo2).includes(d1));
+    return izq1?p:{...p, equipo1:p.equipo2, equipo2:p.equipo1, puntos1:p.puntos2, puntos2:p.puntos1,
+      ganador:p.ganador==='equipo1'?'equipo2':'equipo1'};
+  });
+  const filas=orientados.map(p=>{
+    const e1=pels(p.equipo1), e2=pels(p.equipo2);
+    const [eI,eD,ptI,ptD]=[e1,e2,p.puntos1,p.puntos2];
+    const ganaI=p.ganador==='equipo1';
+    const falta=cuatro.find(n=>!e1.includes(n)&&!e2.includes(n));
+    const ti=etiquetaPartido(p);
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
+      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
+      <td style="font-size:.74rem">${p.fronton}</td>
+      <td style="font-size:.7rem">${eI.map(nombre).join(' / ')}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${ganaI?'#c0392b':'var(--muted)'}">${ptI}</td>
+      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganaI?'#2471a3':'var(--muted)'}">${ptD}</td>
+      <td style="font-size:.7rem">${eD.map(nombre).join(' / ')}</td>
+      <td style="font-size:.66rem;color:var(--muted);white-space:nowrap">${falta}</td>
+    </tr>`;
+  });
+  const visibles=filas.slice(0,MAX).join('');
+  const ocultos=filas.slice(MAX).join('');
+  const btnVerMas=ocultos?`<tr id="${id}-btn"><td colspan="9" style="text-align:center;padding:.5rem">
+    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
+      ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
+    </button></td></tr>`:'';
+  const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
+  // Cuántos partidos sin cada uno de los cuatro
+  const sinCada=cuatro.map(n=>[n,partidos.filter(p=>!pels(p.equipo1).includes(n)&&!pels(p.equipo2).includes(n)).length])
+    .filter(([,k])=>k).map(([n,k])=>`<span class="c4-sin-chip">${t('c4_sin_pel').replace('{n}',n)}: ${k}</span>`).join('');
+  return`<div class="c4-sin-chips">${sinCada}</div>
+    <div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div>
+    <div class="m-card">${renderMobileCardsHTML(orientados, {paginated:true, initial:5, step:5})}</div>`;
+}
+
 function c4VerMas(id){
   const extra = document.getElementById(id+'-extra');
   const btn = document.getElementById(id+'-btn');
@@ -1902,6 +1971,9 @@ function renderC4(){
     return (e1.includes(z1)&&e2.includes(z2))||(e1.includes(z2)&&e2.includes(z1));
   }) : [];
 
+  // Partidos con 3 de los 4 (el cuarto sustituido por otro pelotari)
+  const tresDeCuatro = z1&&z2 ? c4TresDeCuatro([d1,z1,d2,z2], partsBase) : [];
+
   _c4BlockId = 0; // reset IDs
 
   const mkBloque = (emoji,titulo,n,bar,tabla) => `
@@ -1928,6 +2000,11 @@ function renderC4(){
           h2hZag.length?c4Bar(h2hZag,z1,z2,t('c4_h2h_zag')):'',
           c4TablaPartidos(h2hZag,z1,z2,z1,z2))
       : `<div class="c4-bloque"><div class="c4-bloque-title">🔄 ${t('c4_h2h_zag')}</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>${t('c4_sin_zag')}</div></div>`
+    )
+    +(z1&&z2
+      ? mkBloque('3️⃣',t('c4_tres_de_cuatro'),tresDeCuatro.length,'',
+          c4TablaTresDeCuatro(tresDeCuatro,d1,z1,d2,z2))
+      : `<div class="c4-bloque"><div class="c4-bloque-title">3️⃣ ${t('c4_tres_de_cuatro')}</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>${t('c4_tres_sin_zag')}</div></div>`
     );
 }
 
