@@ -17,7 +17,7 @@
   --black:#1A1A1A;
   --cream:#E6E0D4;
   --mano:#6a0dad;
-  --cuatro:#b8860b;
+  --cuatro:#8f6a0a;
   --blue:#2471a3;
   --on-green:#fff;          /* texto sobre fondo verde */
   --brand:#007A3D; --brand-dark:#005a2c;   /* cabecera: siempre el verde oficial */
@@ -539,7 +539,7 @@ tr:hover td{background:var(--surface2);}
 .cart-partido-eq{font-size:.85rem;font-weight:700;}
 .cart-partido-vs{font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:500;}
 .cart-partido-serie{font-family:var(--mono);font-size:.5rem;font-weight:600;color:var(--muted);border:1px solid var(--border);padding:.08rem .3rem;border-radius:var(--r-sm);white-space:nowrap;}
-.cart-partido-arrow{color:var(--border);font-size:1rem;transition:color .18s;white-space:nowrap;}
+.cart-partido-arrow{color:var(--muted);font-size:1rem;transition:color .18s;white-space:nowrap;}
 .cart-partido-card:hover .cart-partido-arrow{color:var(--green);}
 
 .cart-loading{text-align:center;padding:3rem;color:var(--muted);font-family:var(--mono);font-size:.72rem;}
