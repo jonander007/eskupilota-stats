@@ -18,3 +18,29 @@ jobs:
         run: python -m unittest discover tests -v
       - name: Validar datos
         run: python tools/validar_datos.py
+      # Las páginas de pelotaris tienen que estar al día con los datos
+      - name: Páginas de pelotaris al día
+        run: |
+          python tools/generar_paginas.py
+          cambios=$(git status --porcelain -- pelotari/ eu/ sitemap.xml)
+          if [ -n "$cambios" ]; then
+            echo "$cambios"
+            echo "::error::Faltan por regenerar las páginas: python tools/generar_paginas.py"
+            exit 1
+          fi
+
+  # La web en un navegador de verdad: rutas, idiomas, comparadores,
+  # campeonatos, mapa, cartelera, móvil, modo oscuro y teclado
+  navegador:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements-web.txt
+      - name: Instalar Chromium
+        run: python -m playwright install --with-deps chromium
+      - name: Pruebas de la web
+        run: python -m unittest discover tests_web -v

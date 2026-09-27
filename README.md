@@ -15,7 +15,9 @@ js/analisis.js        Enlaces directos, Elo, campeonatos, gráficos del perfil,
                       previa de la cartelera y ficha de frontón
 sw.js, manifest.json  PWA (caché sin conexión e instalación)
 vendor/leaflet/       Leaflet 1.9.4 (mapa); se carga al abrir Frontones
-robots.txt, sitemap.xml, og-image.jpg  Buscadores y vista previa al compartir
+robots.txt, og-image.jpg  Buscadores y vista previa al compartir
+pelotari/, eu/pelotari/  Página estática de cada pelotari (ES/EU), generada
+sitemap.xml           Generado junto con las páginas de pelotaris
 data/                 Datos que lee la web (listas con un elemento por línea)
   partidos.json         Partidos, con referencias por ID a los catálogos
   pelotaris.json        Catálogo de pelotaris (PEL###)
@@ -35,6 +37,7 @@ tests/                  Pruebas de los scrapers con casos reales (sin red)
 tools/
   validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
   migrar_clasificacion.py  Añade modalidad/categoria/serie/fase a los partidos
+  generar_paginas.py    Páginas estáticas de pelotaris y sitemap.xml
   recalcular_contadores.py  Recalcula partidos_count y roles
   ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```
@@ -88,11 +91,26 @@ Si una fuente falla, se guarda lo de las demás y la ejecución sale en rojo.
 ## Pruebas
 
 ```bash
-python -m unittest discover tests
+python -m unittest discover tests          # scrapers (sin red)
 ```
 
 Se ejecutan en cada push (`.github/workflows/tests.yml`) y antes del scraping
 diario.
+
+Pruebas de la web en un navegador (Chromium con Playwright): enlaces
+directos, botón atrás, idiomas, comparadores, cuadro de eliminatorias,
+mapa, calendario de la cartelera, móvil, modo oscuro, teclado y páginas de
+pelotaris. También se ejecutan en cada push.
+
+```bash
+pip install -r requirements-web.txt
+python -m playwright install chromium      # la primera vez
+python -m unittest discover tests_web -v
+```
+
+Si cambian los datos, hay que regenerar las páginas de pelotaris
+(`python tools/generar_paginas.py`); el workflow nocturno lo hace solo y
+`tests.yml` avisa si se han quedado atrás.
 
 ## Desarrollo local
 

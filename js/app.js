@@ -253,6 +253,7 @@ const I18N = {
     cart_ver_hist: '→ Ver historial', cart_cargando: '⟳ Cargando cartelera…',
     cart_ver_opciones: '↓ Opciones',
     cart_como_llegar: 'Cómo llegar',
+    cart_calendario: 'Calendario', cart_calendario_t: 'Añadir al calendario', cal_pelota: 'Pelota',
     cart_estadisticas: 'Estadísticas',
     fronton_como_llegar: 'Cómo llegar',
     fmap_ver_partidos: 'Ver partidos →',
@@ -281,6 +282,7 @@ const I18N = {
     rk_tab_pct: '% Victorias',
     rk_tab_roles: 'Del vs Zag',
     rk_tab_parejas: 'Parejas',
+    rk_parejas_mas_v: 'Más victorias', rk_parejas_pct: 'Mejor % (mín. {n} partidos)', lbl_mejor_pareja: 'Mejor pareja', lbl_min_pj: 'mín. {n} partidos',
     rk_tab_over: '+36.5 tantos',
     rk_tab_racha: 'Racha',
     rk_min_pj: 'Mínimo {n} partidos',
@@ -318,7 +320,8 @@ const I18N = {
     pareja_exacta: 'pareja exacta',
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
-    aria_menu: 'Menú', aria_cerrar: 'Cerrar',
+    lbl_fichas: 'Fichas de todos los pelotaris',
+    aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
     lbl_pelotari1: 'Pelotari 1', lbl_pelotari2: 'Pelotari 2',
     cont_ph_email: 'tu@email.com',
@@ -394,6 +397,7 @@ const I18N = {
     cart_ver_hist: '→ Historia ikusi', cart_cargando: '⟳ Kartelera kargatzen…',
     cart_ver_opciones: '↓ Aukerak',
     cart_como_llegar: 'Nola iritsi',
+    cart_calendario: 'Egutegia', cart_calendario_t: 'Egutegira gehitu', cal_pelota: 'Pilota',
     cart_estadisticas: 'Estatistikak',
     fronton_como_llegar: 'Nola iritsi',
     fmap_ver_partidos: 'Partidak ikusi →',
@@ -417,6 +421,7 @@ const I18N = {
     rk_tab_pct: '% Garaipenak',
     rk_tab_roles: 'Aurre vs Atze',
     rk_tab_parejas: 'Bikoteak',
+    rk_parejas_mas_v: 'Garaipen gehien', rk_parejas_pct: 'Garaipen % onena (gutx. {n} partida)', lbl_mejor_pareja: 'Bikote onena', lbl_min_pj: 'gutx. {n} partida',
     rk_tab_over: '+36.5 tanto',
     rk_tab_racha: 'Bolada',
     rk_tab_elo: 'Elo',
@@ -448,7 +453,8 @@ const I18N = {
     sin_enfrentamientos: 'Ez dute elkarren aurka jokatu',
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
-    aria_menu: 'Menua', aria_cerrar: 'Itxi',
+    lbl_fichas: 'Pilotari guztien fitxak',
+    aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
     cont_ph_email: 'zure@helbidea.eus',
     lbl_pelota_mano: 'Esku pilota',
@@ -484,6 +490,8 @@ function setLang(lang){
   }
   document.getElementById('langEs').classList.toggle('active', LANG==='es');
   document.getElementById('langEu').classList.toggle('active', LANG==='eu');
+  document.getElementById('langEs').setAttribute('aria-pressed', LANG==='es');
+  document.getElementById('langEu').setAttribute('aria-pressed', LANG==='eu');
   // Los nombres de ciudad dependen del idioma: se recalculan los partidos
   if (RAW_PARTIDOS.length) PARTIDOS = RAW_PARTIDOS.map(partidoFromCatalogo);
   applyI18N();
@@ -522,6 +530,8 @@ function rebuildCompFilter(){
 
 function applyI18N(){
   document.documentElement.lang = LANG;
+  const fichas = document.getElementById('lnkFichas');
+  if(fichas) fichas.href = LANG === 'eu' ? '/eu/pelotari/' : '/pelotari/';
   // renderPCards() cierra el perfil: se recuerda para reabrirlo en el nuevo idioma
   const perfilAbierto = document.getElementById('perfilSec')?.style.display === 'block' ? _perfilNombre : null;
   // Textos fijos del HTML: data-i18n (texto), data-i18n-html, data-i18n-ph, data-i18n-aria
@@ -588,6 +598,8 @@ async function loadData(){
   if(deUrl){ try{ localStorage.setItem('eskupilota-lang', deUrl); }catch(e){} }
   document.getElementById('langEs').classList.toggle('active', LANG==='es');
   document.getElementById('langEu').classList.toggle('active', LANG==='eu');
+  document.getElementById('langEs').setAttribute('aria-pressed', LANG==='es');
+  document.getElementById('langEu').setAttribute('aria-pressed', LANG==='eu');
   // Intentar cargar modelo nuevo (catálogos). Si falla, caer al antiguo.
   try{
     const [pels, ciu, fro, cmp, par] = await Promise.all([
@@ -765,15 +777,50 @@ function showSec(id, btn, fromHistory){
 // DRAWER MÓVIL
 // ════════════════════════════════════════════════════════════
 function toggleDrawer(){
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('drawerBackdrop').classList.toggle('open');
-  document.getElementById('hamburgerBtn').classList.toggle('open');
+  const abierto = document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('drawerBackdrop').classList.toggle('open', abierto);
+  const btn = document.getElementById('hamburgerBtn');
+  btn.classList.toggle('open', abierto);
+  btn.setAttribute('aria-expanded', abierto);
+  if(abierto) document.querySelector('.drawer-nav button')?.focus();
 }
 function closeDrawer(){
+  const estabaAbierto = document.getElementById('drawer').classList.contains('open');
   document.getElementById('drawer').classList.remove('open');
   document.getElementById('drawerBackdrop').classList.remove('open');
-  document.getElementById('hamburgerBtn').classList.remove('open');
+  const btn = document.getElementById('hamburgerBtn');
+  btn.classList.remove('open');
+  btn.setAttribute('aria-expanded', 'false');
+  if(estabaAbierto && document.getElementById('drawer').contains(document.activeElement)) btn.focus();
 }
+
+// ── Accesibilidad ──
+// Los elementos con onclick que no son botones ni enlaces (tarjetas, nombres,
+// filas…) se pueden enfocar con Tab y activar con Enter o Espacio.
+const A11Y_NO = 'button,a,input,select,textarea,label,option,.drawer-backdrop,.an-previa';
+function a11yClicables(raiz){
+  (raiz || document).querySelectorAll('[onclick]:not([data-a11y])').forEach(el => {
+    el.dataset.a11y = '1';
+    if(el.matches(A11Y_NO)) return;
+    if(!el.hasAttribute('role')) el.setAttribute('role', 'button');
+    if(!el.hasAttribute('tabindex')) el.tabIndex = 0;
+  });
+}
+document.addEventListener('keydown', e => {
+  const el = e.target;
+  if((e.key === 'Enter' || e.key === ' ') && el.getAttribute && el.getAttribute('role') === 'button' && el.dataset.a11y){
+    e.preventDefault();
+    el.click();
+  }
+  if(e.key === 'Escape' && document.getElementById('drawer')?.classList.contains('open')) closeDrawer();
+});
+let _a11yPendiente = false;
+new MutationObserver(() => {
+  if(_a11yPendiente) return;
+  _a11yPendiente = true;
+  requestAnimationFrame(() => { _a11yPendiente = false; a11yClicables(); });
+}).observe(document.documentElement, {childList:true, subtree:true});
+document.addEventListener('DOMContentLoaded', () => a11yClicables());
 function showSecFromDrawer(id, idx){
   // Activar la sección y el botón del nav principal correspondiente
   const headerBtn = document.querySelectorAll('header nav button')[idx];
@@ -786,6 +833,10 @@ function syncDrawerActive(id){
   if (idx === undefined) return;
   document.querySelectorAll('.drawer-nav button').forEach((b,i) => {
     b.classList.toggle('active', i === idx);
+  });
+  // Sección actual para lectores de pantalla
+  document.querySelectorAll('header nav button, .drawer-nav button').forEach(b => {
+    if(b.classList.contains('active')) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
   });
 }
 
@@ -945,7 +996,7 @@ function renderTabla(){
       <td style="font-size:.74rem">${p.fronton}<br><span style="font-size:.6rem;color:var(--muted)">${p.ciudad||''}</span></td>
       <td style="font-weight:${w1?800:400};color:var(--red)">${neq(p.equipo1)}</td>
       <td style="text-align:center;white-space:nowrap"><span class="sc ${w1?'w':'l'}">${p.puntos1}</span><span style="color:var(--muted);margin:0 .28rem">—</span><span class="sc ${w2?'w':'l'}">${p.puntos2}</span></td>
-      <td style="font-weight:${w2?800:400};color:#2471a3">${neq(p.equipo2)}</td>
+      <td style="font-weight:${w2?800:400};color:var(--blue)">${neq(p.equipo2)}</td>
       <td style="font-size:.7rem;color:var(--muted)">${tComp(p.competicion)}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td>
     </tr>`;
   }).join('');
@@ -972,7 +1023,7 @@ function renderMobileCardsHTML(data, opts){
           <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
             <span style="font-size:.78rem;font-weight:${w1?800:400};color:var(--red)">${n1}</span>
             <span style="color:var(--muted);font-size:.65rem">vs</span>
-            <span style="font-size:.78rem;font-weight:${w2?800:400};color:#2471a3">${n2}</span>
+            <span style="font-size:.78rem;font-weight:${w2?800:400};color:var(--blue)">${n2}</span>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
@@ -987,7 +1038,7 @@ function renderMobileCardsHTML(data, opts){
       <div class="m-card-body">
         <div class="m-card-teams">
           <div class="m-card-team"><span style="font-weight:${w1?800:400};color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);font-weight:${w1?800:400}">${p.puntos1}</span></div>
-          <div class="m-card-team"><span style="font-weight:${w2?800:400};color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;font-weight:${w2?800:400}">${p.puntos2}</span></div>
+          <div class="m-card-team"><span style="font-weight:${w2?800:400};color:var(--blue)">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--blue);font-weight:${w2?800:400}">${p.puntos2}</span></div>
         </div>
         <div class="m-card-meta">
           <span class="tag ${tiCls}">${ti.lbl}</span>
@@ -1128,8 +1179,16 @@ function openPerfil(nombre){
     ellos.forEach(r=>{if(!riv[r])riv[r]={pj:0,pg:0};riv[r].pj++;if(gano)riv[r].pg++;});
   });
 
+  // Mejor pareja: más % de victorias con al menos 5 partidos juntos
+  const MIN_PAREJA = 5;
+  const mejorPareja = Object.entries(comp).filter(([,s])=>s.pj>=MIN_PAREJA)
+    .sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj||b[1].pj-a[1].pj)[0];
+  const mejorParejaHtml = mejorPareja ? `<div class="pf-mejor">⭐ ${t('lbl_mejor_pareja')}:
+    <span class="clk" onclick="openPerfil('${esc(mejorPareja[0])}')">${mejorPareja[0]}</span>
+    · ${mejorPareja[1].pg}${t('abbr_v')}–${mejorPareja[1].pj-mejorPareja[1].pg}${t('abbr_d')} · ${Math.round(mejorPareja[1].pg/mejorPareja[1].pj*100)}%
+    <span class="an-muted">(${t('lbl_min_pj').replace('{n}',MIN_PAREJA)})</span></div>` : '';
   const compRows=Object.entries(comp).sort((a,b)=>b[1].pj-a[1].pj).map(([n,s])=>`
-    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${n}</td>
+    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${mejorPareja&&mejorPareja[0]===n?'⭐ ':''}${n}</td>
     <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
     <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
     <td style="font-family:var(--mono);text-align:center">${s.pj}</td>
@@ -1158,6 +1217,7 @@ function openPerfil(nombre){
     <div class="pf-main">
       <div class="ch-card gr">
         <h3>${t('lbl_compañeros')}</h3>
+        ${mejorParejaHtml}
         <table class="comp-table"><thead><tr><th>${t('th_compañero')}</th><th>${t('abbr_v')}</th><th>${t('abbr_d')}</th><th>${t('abbr_pj')}</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
       </div>
       <div class="ch-card">
@@ -1168,17 +1228,17 @@ function openPerfil(nombre){
         <h3 id="pfUltimosTitle">${t('lbl_ultimos')}</h3>
         <div class="pf-ultimos-filters">
           <div class="fg">
-            <span class="flabel">${t('flabel_fronton')}</span>
+            <label class="flabel" for="pfFronFilter">${t('flabel_fronton')}</label>
             <select id="pfFronFilter" onchange="renderPerfilPartidos()" style="width:100%">
               <option value="">${t('sel_todos')}</option>
             </select>
           </div>
           <div class="fg">
-            <span class="flabel">${t('flabel_desde')}</span>
+            <label class="flabel" for="pfDesdeFilter">${t('flabel_desde')}</label>
             <input type="date" id="pfDesdeFilter" onchange="renderPerfilPartidos()">
           </div>
           <div class="fg">
-            <span class="flabel">${t('flabel_hasta')}</span>
+            <label class="flabel" for="pfHastaFilter">${t('flabel_hasta')}</label>
             <input type="date" id="pfHastaFilter" onchange="renderPerfilPartidos()">
           </div>
           <div class="fg" style="justify-content:flex-end">
@@ -1270,7 +1330,7 @@ function renderPerfilPartidoRow(p, nombre){
         <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
           <span style="font-size:.78rem;font-weight:${w1?800:400};color:var(--red)">${n1}</span>
           <span style="color:var(--muted);font-size:.65rem">vs</span>
-          <span style="font-size:.78rem;font-weight:${w2?800:400};color:#2471a3">${n2}</span>
+          <span style="font-size:.78rem;font-weight:${w2?800:400};color:var(--blue)">${n2}</span>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:.5rem;flex-shrink:0;">
@@ -1285,7 +1345,7 @@ function renderPerfilPartidoRow(p, nombre){
     <div class="m-card-body">
       <div class="m-card-teams">
         <div class="m-card-team"><span style="font-weight:${w1?800:400};color:var(--red)">${n1}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--red);font-weight:${w1?800:400}">${p.puntos1}</span></div>
-        <div class="m-card-team"><span style="font-weight:${w2?800:400};color:#2471a3">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:#2471a3;font-weight:${w2?800:400}">${p.puntos2}</span></div>
+        <div class="m-card-team"><span style="font-weight:${w2?800:400};color:var(--blue)">${n2}</span><span style="font-family:var(--display);font-size:1.1rem;margin-left:auto;color:var(--blue);font-weight:${w2?800:400}">${p.puntos2}</span></div>
       </div>
       <div class="m-card-meta">
         ${tiTag}
@@ -1335,14 +1395,14 @@ function buildRanking(){
   const el = document.getElementById('rkContent');
 
   // Helper: render a single ranking card
-  function mkRkCard(titulo, lista, statFn, extraCols, cls=''){
+  function mkRkCard(titulo, lista, statFn, extraCols, cls='', nombreFn=null){
     const mx = lista[0] ? statFn(lista[0][1]).val : 1;
     return `<div class="rk-card ${cls}"><h3>${titulo}</h3>
     ${lista.map(([n,s],i)=>{
       const main = statFn(s);
       return `<div class="rk-row">
         <div class="rk-pos ${i===0?'p1':i===1?'p2':i===2?'p3':''}">${i+1}</div>
-        <div class="rk-name clk" onclick="goToPel('${esc(n)}')">${n}</div>
+        ${nombreFn ? `<div class="rk-name">${nombreFn(n,s)}</div>` : `<div class="rk-name clk" onclick="goToPel('${esc(n)}')">${n}</div>`}
         ${extraCols(s)}
         <div class="rk-stat pg" style="color:var(--green);font-weight:700">${main.lbl}</div>
       </div>
@@ -1409,7 +1469,7 @@ function buildRanking(){
       [p.equipo1, p.equipo2].forEach((eq,idx)=>{
         const d=eq.delantero, z=eq.zaguero;
         if(!d||!z) return;
-        const key = [d,z].sort().join(' / ');
+        const key = d+' / '+z;
         if(!pStats[key]) pStats[key]={pj:0,pg:0,pp:0,pf:0,pc:0,d,z};
         pStats[key].pj++;
         const ganaron = (idx===0&&p.ganador==='equipo1')||(idx===1&&p.ganador==='equipo2');
@@ -1418,13 +1478,18 @@ function buildRanking(){
         pStats[key].pc += idx===0?p.puntos2:p.puntos1;
       });
     });
-    const sorted = Object.entries(pStats).filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg).slice(0,20); // parejas no filtra por activo individualmente
-    const h = Math.ceil(sorted.length/2);
-    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
-    el.innerHTML = sorted.length ? mkGrid([
-      mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
-      mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
+    // Con "solo activos", las dos de la pareja tienen que estar activas
+    const activas = Object.entries(pStats).filter(([,s])=>!_activePlayers||(_activePlayers.has(s.d.toUpperCase())&&_activePlayers.has(s.z.toUpperCase())));
+    const MIN_PCT = 10;
+    const masV = activas.filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg||b[1].pg/b[1].pj-a[1].pg/a[1].pj).slice(0,15);
+    const mejorPct = activas.filter(([,s])=>s.pj>=MIN_PCT).sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj||b[1].pj-a[1].pj).slice(0,15);
+    const nombres = (n,s)=>[s.d,s.z].map(x=>`<span class="clk" onclick="goToPel('${esc(x)}')">${x}</span>`).join(' / ');
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
+    el.innerHTML = masV.length ? mkGrid([
+      mkRkCard(t('rk_parejas_mas_v'), masV, s=>({val:s.pg, lbl:s.pg+t('abbr_v')}),
+        s=>ec(s)+`<div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`, '', nombres),
+      mkRkCard(t('rk_parejas_pct').replace('{n}',MIN_PCT), mejorPct, s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'}),
+        s=>`<div class="rk-stat">${s.pg}${t('abbr_v')}</div>`+ec(s), 'azul', nombres)
     ]) : `<div class="nodata"><div class="ic">📭</div>${t('sin_datos')}</div>`;
   }
 
@@ -1719,11 +1784,11 @@ function c4FilaPartido(p, pivotCol, pivotAz){
     <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
     <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
     <td style="font-size:.74rem">${p.fronton}</td>
-    <td style="font-size:.7rem;color:#c0392b">${compCol}</td>
-    <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'#c0392b':'var(--muted)'}">${ptCol}</td>
+    <td style="font-size:.7rem;color:var(--red)">${compCol}</td>
+    <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'var(--red)':'var(--muted)'}">${ptCol}</td>
     <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-    <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'#2471a3':'var(--muted)'}">${ptAz}</td>
-    <td style="font-size:.7rem;color:#2471a3">${compAz}</td>
+    <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'var(--blue)':'var(--muted)'}">${ptAz}</td>
+    <td style="font-size:.7rem;color:var(--blue)">${compAz}</td>
   </tr>`;
 }
 
@@ -1736,8 +1801,8 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
     <th style="color:var(--red)">${t('comp_abbr')}</th>
     <th style="color:var(--red)">${colLabel}</th><th></th>
-    <th style="color:#2471a3">${azLabel}</th>
-    <th style="color:#2471a3">${t('comp_abbr')}</th>
+    <th style="color:var(--blue)">${azLabel}</th>
+    <th style="color:var(--blue)">${t('comp_abbr')}</th>
   </tr></thead>`;
   const filas = partidos.map(p => c4FilaPartido(p, pivotCol, pivotAz));
   const visibles = filas.slice(0, MAX).join('');
@@ -1758,7 +1823,7 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
 function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
   if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_partidos')}</div>`;
   const MAX=3; const id='c4b'+(++_c4BlockId);
-  const colorMain = color==='col'?'var(--red)':'#2471a3';
+  const colorMain = color==='col'?'var(--red)':'var(--blue)';
   const thead=`<thead><tr>
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
     <th style="color:${colorMain}">${parejaLabel}</th>
@@ -1812,13 +1877,13 @@ function c4TablaTresDeCuatro(partidos, d1, z1, d2, z2){
   const cuatro=[d1,z1,d2,z2];
   // Los cuatro elegidos en su color; quien entra por el que falta, en gris
   const nombre=n=>{
-    const c=(n===d1||n===z1)?'var(--red)':(n===d2||n===z2)?'#2471a3':null;
+    const c=(n===d1||n===z1)?'var(--red)':(n===d2||n===z2)?'var(--blue)':null;
     return c?`<span style="color:${c};font-weight:600">${n}</span>`:`<span style="color:var(--muted);font-style:italic">${n}</span>`;
   };
   const thead=`<thead><tr>
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
     <th style="color:var(--red)">${t('eq_colorada')}</th><th>${t('abbr_tantos')}</th><th></th>
-    <th>${t('abbr_tantos')}</th><th style="color:#2471a3">${t('eq_azul')}</th>
+    <th>${t('abbr_tantos')}</th><th style="color:var(--blue)">${t('eq_azul')}</th>
     <th>${t('c4_sin')}</th>
   </tr></thead>`;
   // A la izquierda (en rojo) el lado con más pelotaris de la pareja colorada
@@ -1839,9 +1904,9 @@ function c4TablaTresDeCuatro(partidos, d1, z1, d2, z2){
       <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
       <td style="font-size:.74rem">${p.fronton}</td>
       <td style="font-size:.7rem">${eI.map(nombre).join(' / ')}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${ganaI?'#c0392b':'var(--muted)'}">${ptI}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${ganaI?'var(--red)':'var(--muted)'}">${ptI}</td>
       <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganaI?'#2471a3':'var(--muted)'}">${ptD}</td>
+      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganaI?'var(--blue)':'var(--muted)'}">${ptD}</td>
       <td style="font-size:.7rem">${eD.map(nombre).join(' / ')}</td>
       <td style="font-size:.66rem;color:var(--muted);white-space:nowrap">${falta}</td>
     </tr>`;
@@ -1888,7 +1953,7 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
     const w=wCol;
     const l=n-w;
     const pct=Math.round(w/n*100);
-    const color=soloColor==='col'?'var(--red)':'#2471a3';
+    const color=soloColor==='col'?'var(--red)':'var(--blue)';
     return`<div class="c4-marcador" style="grid-template-columns:repeat(4,1fr)">
       <div style="text-align:center">
         <div style="font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.25rem">${t('stat_pj')}</div>
@@ -1925,7 +1990,7 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
       <div style="font-family:var(--mono);font-size:.52rem;color:var(--muted);margin-top:.1rem">${label}</div>
     </div>
     <div>
-      <div class="c4-mnombre" style="color:#2471a3">${pivot_az}</div>
+      <div class="c4-mnombre" style="color:var(--blue)">${pivot_az}</div>
       <div class="c4-mwins az">${wAz}</div>
       <div class="c4-mpj">${t('pct_victorias').replace('{n}',100-pctCol)}</div>
       <div class="c4-mpj">${t('pts_p').replace('{n}',(pfAz/n).toFixed(1))}</div>
@@ -2131,6 +2196,7 @@ function renderCartelera(data){
       'manomanista-a':t('tag_manoa'),'manomanista-b':t('tag_manob'),'cuatro-medio-a':t('tag_cuatroa'),'cuatro-medio-b':t('tag_cuatrob')};
     return m[tp]||tp||'';
   }
+  _CART_EVENTOS = eventos;
   const byDate={};
   eventos.forEach(e=>{ if(!byDate[e.fecha])byDate[e.fecha]=[]; byDate[e.fecha].push(e); });
   const html = Object.entries(byDate).map(([fecha,evs])=>`
@@ -2162,6 +2228,12 @@ function renderCartelera(data){
              <span>${t('cart_como_llegar')}</span>
            </a>`
         : '';
+      const calBtn = ev.fecha && ev.hora
+        ? `<button type="button" class="cart-evento-llegar" onclick="descargarICS(${eventos.indexOf(ev)})" title="${t('cart_calendario_t')}" aria-label="${t('cart_calendario_t')}">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+             <span>${t('cart_calendario')}</span>
+           </button>`
+        : '';
       const partidosHtml = partList.map((p,idx)=>{
         const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
         const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
@@ -2177,7 +2249,7 @@ function renderCartelera(data){
               <div class="cart-partido-equipos">
                 <span class="cart-partido-eq" style="color:var(--red)">${e1}</span>
                 <span class="cart-partido-vs">vs</span>
-                <span class="cart-partido-eq" style="color:#2471a3">${e2}</span>
+                <span class="cart-partido-eq" style="color:var(--blue)">${e2}</span>
               </div>
               ${htmlPrevia(p)}
             </div>
@@ -2198,7 +2270,7 @@ function renderCartelera(data){
             <div class="cart-evento-lugar"><strong>${ev.hora||'—'}h</strong> · ${ev.fronton||'—'}</div>
             <div class="cart-evento-ciudad">${ev.ciudad&&ev.ciudad!==ev.fronton?ev.ciudad:''}</div>
           </div>
-          ${llegarBtn}
+          <div class="cart-evento-btns">${calBtn}${llegarBtn}</div>
         </div>
         <div class="cart-partidos-list">${partidosHtml}</div>
         
@@ -2206,6 +2278,71 @@ function renderCartelera(data){
     }).join('')}`
   ).join('');
   el.innerHTML = html;
+}
+
+// ── Añadir al calendario (.ics) ──
+let _CART_EVENTOS = [];
+
+// Hora de Madrid, para que el partido salga a su hora en cualquier calendario
+const ICS_TZ = ['BEGIN:VTIMEZONE','TZID:Europe/Madrid',
+  'BEGIN:DAYLIGHT','TZOFFSETFROM:+0100','TZOFFSETTO:+0200','TZNAME:CEST','DTSTART:19700329T020000','RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU','END:DAYLIGHT',
+  'BEGIN:STANDARD','TZOFFSETFROM:+0200','TZOFFSETTO:+0100','TZNAME:CET','DTSTART:19701025T030000','RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU','END:STANDARD',
+  'END:VTIMEZONE'];
+
+function icsTexto(s){ return String(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n'); }
+
+// Líneas de 75 octetos como máximo (RFC 5545)
+function icsPlegar(linea){
+  const bytes = new TextEncoder().encode(linea);
+  if(bytes.length <= 75) return linea;
+  const out = []; let actual = '', n = 0;
+  for(const ch of linea){
+    const b = new TextEncoder().encode(ch).length;
+    if(n + b > (out.length ? 74 : 75)){ out.push(actual); actual = ''; n = 0; }
+    actual += ch; n += b;
+  }
+  out.push(actual);
+  return out.join('\r\n ');
+}
+
+function eventoICS(ev){
+  const [d,m,y] = ev.fecha.split('/').map(Number);
+  const [hh,mm] = ev.hora.split(':').map(Number);
+  const dos = n => String(n).padStart(2,'0');
+  const fin = new Date(y, m-1, d, hh+3, mm);  // unas 3 horas de festival
+  const inicio = `${y}${dos(m)}${dos(d)}T${dos(hh)}${dos(mm)}00`;
+  const final = `${fin.getFullYear()}${dos(fin.getMonth()+1)}${dos(fin.getDate())}T${dos(fin.getHours())}${dos(fin.getMinutes())}00`;
+  const eq = e => (e||[]).filter(Boolean).map(n=>n.toUpperCase()).join('-') || '?';
+  const partidos = (ev.partidos||[]).map(p=>`${eq(p.eq1)} vs ${eq(p.eq2)}`);
+  const comp = ev.fase || ev.competicion || '';
+  const titulo = partidos.length === 1
+    ? `${t('cal_pelota')}: ${partidos[0]}`
+    : `${t('cal_pelota')} · ${ev.fronton||''}${comp ? ' · '+tFase(comp) : ''}`;
+  const fr = Object.values(CAT_FRONTONES).find(f => f && f.nombre && ev.fronton && f.nombre.toUpperCase() === ev.fronton.toUpperCase());
+  const lugar = [ev.fronton, fr?.direccion, ev.ciudad && ev.ciudad !== ev.fronton ? ev.ciudad : ''].filter(Boolean).join(', ');
+  const desc = [comp ? tFase(comp) : '', ...partidos, '', 'https://www.eskupilotastats.com/#/cartelera'].join('\n');
+  const ahora = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+Z$/,'Z');
+  const uid = `${inicio}-${(ev.fronton||'').toLowerCase().replace(/[^a-z0-9]+/g,'-')}@eskupilotastats.com`;
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//EskupilotaStats//Cartelera//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH',
+    ...ICS_TZ,
+    'BEGIN:VEVENT', `UID:${uid}`, `DTSTAMP:${ahora}`,
+    `DTSTART;TZID=Europe/Madrid:${inicio}`, `DTEND;TZID=Europe/Madrid:${final}`,
+    `SUMMARY:${icsTexto(titulo)}`, `LOCATION:${icsTexto(lugar)}`, `DESCRIPTION:${icsTexto(desc)}`,
+    ...(fr && fr.lat != null ? [`GEO:${fr.lat};${fr.lon}`] : []),
+    'URL:https://www.eskupilotastats.com/#/cartelera',
+    'END:VEVENT','END:VCALENDAR'].map(icsPlegar).join('\r\n') + '\r\n';
+}
+
+function descargarICS(i){
+  const ev = _CART_EVENTOS[i];
+  if(!ev) return;
+  const blob = new Blob([eventoICS(ev)], {type:'text/calendar;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  const [d,m,y] = ev.fecha.split('/');
+  a.download = `pelota-${y}-${m}-${d}-${(ev.fronton||'').toLowerCase().replace(/[^a-z0-9]+/g,'-')}.ics`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
 function toggleCarteleraActions(card){
@@ -2337,7 +2474,9 @@ function crearFrontonMap(){
   _frontonMap = L.map('frontonMap', {zoomControl:false}).setView([43.0, -2.0], 8);
   L.control.zoom({zoomInTitle: t('map_acercar'), zoomOutTitle: t('map_alejar')}).addTo(_frontonMap);
   _frontonMap.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  // Mapa oscuro si el dispositivo está en modo oscuro
+  const oscuro = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+  L.tileLayer(`https://{s}.basemaps.cartocdn.com/${oscuro?'dark_all':'light_all'}/{z}/{x}/{y}{r}.png`, {
     attribution: '© OpenStreetMap © CARTO',
     subdomains: 'abcd',
     maxZoom: 19
@@ -2390,7 +2529,8 @@ function renderFrontonMarkers(){
     const info = FRO_BY_NAME[f.toUpperCase().trim()];
     if(!info || info.lat==null || info.lon==null) return;
     const icon = s.count >= 20 ? bigIcon : redIcon;
-    const marker = L.marker([info.lat, info.lon], {icon}).addTo(_frontonMap);
+    // title: nombre accesible del marcador (lectores de pantalla y teclado)
+    const marker = L.marker([info.lat, info.lon], {icon, title: `${f} · ${nPartidos(s.count)}`, alt: f}).addTo(_frontonMap);
     const mapsUrl = info?.google_maps_link
       || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+f)}`;
     marker.bindPopup(`

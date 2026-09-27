@@ -7,7 +7,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#007A3D">
+<meta name="theme-color" content="#007A3D" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#12663a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="EskupilotaStats">
@@ -48,9 +50,10 @@
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
 <header>
   <div class="header-inner">
-    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Menú" data-i18n-aria="aria_menu">
+    <button class="hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Menú" data-i18n-aria="aria_menu" aria-expanded="false" aria-controls="drawer">
       <span></span><span></span><span></span>
     </button>
     <a href="#" class="logo" onclick="showSec('partidos',document.querySelector('nav button:nth-child(2)'));return false;">
@@ -67,8 +70,8 @@
       <button data-i18n="nav_contacto" onclick="showSec('contacto',this)">Contacto</button>
     </nav>
     <div id="langToggle" style="display:flex;gap:.25rem;">
-      <button class="lang-btn active" id="langEs" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" id="langEu" onclick="setLang('eu')">EU</button>
+      <button class="lang-btn active" id="langEs" onclick="setLang('es')" lang="es" aria-label="Castellano">ES</button>
+      <button class="lang-btn" id="langEu" onclick="setLang('eu')" lang="eu" aria-label="Euskara">EU</button>
     </div>
   </div>
 </header>
@@ -92,7 +95,7 @@
   </nav>
 </aside>
 
-<main>
+<main id="contenido" tabindex="-1">
 <div class="kpi-row" id="kpiRow"></div>
 
 <!-- ══ PARTIDOS ══════════════════════════════════════════════════════════ -->
@@ -107,19 +110,19 @@
       </div>
     </div>
     <div class="filter-row">
-      <div class="fg"><span class="flabel" data-i18n="flabel_desde">Desde</span><input type="date" id="fDesde" onchange="renderTabla()"></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_hasta">Hasta</span><input type="date" id="fHasta" onchange="renderTabla()"></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_pelotari">Pelotari</span><input type="text" class="wide" id="sInput" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderTabla()"></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_competicion">Competición</span><select id="fComp" onchange="renderTabla()"><option value="" data-i18n="sel_todas">Todas</option></select></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_fronton">Frontón</span><select id="fFron" onchange="renderTabla()"><option value="" data-i18n="sel_todos">Todos</option></select></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_categoria">Categoría</span><select id="fCat" onchange="renderTabla()">
+      <div class="fg"><label class="flabel" for="fDesde" data-i18n="flabel_desde">Desde</label><input type="date" id="fDesde" onchange="renderTabla()"></div>
+      <div class="fg"><label class="flabel" for="fHasta" data-i18n="flabel_hasta">Hasta</label><input type="date" id="fHasta" onchange="renderTabla()"></div>
+      <div class="fg"><label class="flabel" for="sInput" data-i18n="flabel_pelotari">Pelotari</label><input type="text" class="wide" id="sInput" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderTabla()"></div>
+      <div class="fg"><label class="flabel" for="fComp" data-i18n="flabel_competicion">Competición</label><select id="fComp" onchange="renderTabla()"><option value="" data-i18n="sel_todas">Todas</option></select></div>
+      <div class="fg"><label class="flabel" for="fFron" data-i18n="flabel_fronton">Frontón</label><select id="fFron" onchange="renderTabla()"><option value="" data-i18n="sel_todos">Todos</option></select></div>
+      <div class="fg"><label class="flabel" for="fCat" data-i18n="flabel_categoria">Categoría</label><select id="fCat" onchange="renderTabla()">
         <option value="" data-i18n="sel_todas">Todas</option>
         <option value="campeonato" data-i18n="cat_campeonatos">Campeonatos</option>
         <option value="torneo" data-i18n="cat_torneos">Torneos</option>
         <option value="desafio" data-i18n="cat_desafios">Desafíos</option>
         <option value="festival" data-i18n="cat_festivales">Festivales</option>
       </select></div>
-      <div class="fg"><span class="flabel" data-i18n="flabel_fase">Fase</span><select id="fFase" onchange="renderTabla()">
+      <div class="fg"><label class="flabel" for="fFase" data-i18n="flabel_fase">Fase</label><select id="fFase" onchange="renderTabla()">
         <option value="" data-i18n="sel_todas">Todas</option>
         <option value="final" data-i18n="fase_final">Final</option>
         <option value="semifinal" data-i18n="fase_semifinal">Semifinal</option>
@@ -169,14 +172,14 @@
     </div>
     <div class="filter-row">
       <div class="fg" style="gap:.5rem;flex-direction:row;flex-wrap:wrap;align-items:center;">
-        <span class="flabel" style="margin-right:.4rem" data-i18n="lbl_rango_fechas">Rango fechas</span>
-        <input type="date" class="date-input" id="pDateDesde" onchange="setDateRange('pel','desde',this.value)">
+        <label class="flabel" for="pDateDesde" style="margin-right:.4rem" data-i18n="lbl_rango_fechas">Rango fechas</label>
+        <input type="date" class="date-input" id="pDateDesde" data-i18n-aria="flabel_desde" onchange="setDateRange('pel','desde',this.value)">
         <span style="font-family:var(--mono);font-size:.62rem;color:var(--muted)">→</span>
-        <input type="date" class="date-input" id="pDateHasta" onchange="setDateRange('pel','hasta',this.value)">
+        <input type="date" class="date-input" id="pDateHasta" data-i18n-aria="flabel_hasta" onchange="setDateRange('pel','hasta',this.value)">
         <button class="btn-ghost" onclick="clearDateRange('pel')" id="pDateClear" style="display:none;" data-i18n="lbl_limpiar">✕ Limpiar</button>
       </div>
       <div class="fg" style="margin-left:auto;justify-content:flex-end;">
-        <input type="text" id="pSearch" class="wide" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderPCards()">
+        <input type="text" id="pSearch" data-i18n-aria="ph_buscar_pelotari" class="wide" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderPCards()">
       </div>
     </div>
   </div>
@@ -210,10 +213,10 @@
     </div>
     <div class="filter-row">
       <div class="fg" style="gap:.5rem;flex-direction:row;flex-wrap:wrap;align-items:center;">
-        <span class="flabel" style="margin-right:.4rem" data-i18n="lbl_rango_fechas">Rango fechas</span>
-        <input type="date" class="date-input" id="rkDateDesde" onchange="setDateRange('rk','desde',this.value)">
+        <label class="flabel" for="rkDateDesde" style="margin-right:.4rem" data-i18n="lbl_rango_fechas">Rango fechas</label>
+        <input type="date" class="date-input" id="rkDateDesde" data-i18n-aria="flabel_desde" onchange="setDateRange('rk','desde',this.value)">
         <span style="font-family:var(--mono);font-size:.62rem;color:var(--muted)">→</span>
-        <input type="date" class="date-input" id="rkDateHasta" onchange="setDateRange('rk','hasta',this.value)">
+        <input type="date" class="date-input" id="rkDateHasta" data-i18n-aria="flabel_hasta" onchange="setDateRange('rk','hasta',this.value)">
         <button class="btn-ghost" onclick="clearDateRange('rk')" id="rkDateClear" style="display:none;" data-i18n="lbl_limpiar">✕ Limpiar</button>
       </div>
     </div>
@@ -246,12 +249,12 @@
     <div class="comp-box">
       <div class="comp-inputs">
         <div>
-          <div class="flabel" style="margin-bottom:.35rem" data-i18n="lbl_pelotari1">Pelotari 1</div>
+          <label class="flabel" for="h2hP1" style="display:block;margin-bottom:.35rem" data-i18n="lbl_pelotari1">Pelotari 1</label>
           <select id="h2hP1" style="width:100%;" onchange="renderH2H()"><option value="" data-i18n="sel_pelotari1">— Selecciona —</option></select>
         </div>
         <div class="comp-vs">VS</div>
         <div>
-          <div class="flabel" style="margin-bottom:.35rem" data-i18n="lbl_pelotari2">Pelotari 2</div>
+          <label class="flabel" for="h2hP2" style="display:block;margin-bottom:.35rem" data-i18n="lbl_pelotari2">Pelotari 2</label>
           <select id="h2hP2" style="width:100%;" onchange="renderH2H()"><option value="" data-i18n="sel_pelotari1">— Selecciona —</option></select>
         </div>
       </div>
@@ -292,17 +295,17 @@
     <div class="c4-grid">
       <div class="c4-eq colorado">
         <div class="eq-header"><div class="eq-dot"></div><div class="eq-title" data-i18n="eq_colorada">PAREJA COLORADA</div></div>
-        <span class="c4-lbl" data-i18n="lbl_delantero">Delantero</span>
+        <label class="c4-lbl" for="c4d1" data-i18n="lbl_delantero">Delantero</label>
         <select id="c4d1" onchange="c4DelanteroChange(1)"><option value="" data-i18n="sel_delantero">— Selecciona delantero —</option></select>
-        <span class="c4-lbl" data-i18n="lbl_zaguero">Zaguero</span>
+        <label class="c4-lbl" for="c4z1" data-i18n="lbl_zaguero">Zaguero</label>
         <select id="c4z1" onchange="renderC4()"><option value="" data-i18n="sel_zaguero_any">— Cualquier zaguero —</option></select>
       </div>
       <div class="c4-sep"><span style="font-family:var(--display);font-size:2.8rem;color:var(--muted)">VS</span></div>
       <div class="c4-eq azul">
         <div class="eq-header"><div class="eq-dot"></div><div class="eq-title" data-i18n="eq_azul">PAREJA AZUL</div></div>
-        <span class="c4-lbl" data-i18n="lbl_delantero">Delantero</span>
+        <label class="c4-lbl" for="c4d2" data-i18n="lbl_delantero">Delantero</label>
         <select id="c4d2" onchange="c4DelanteroChange(2)"><option value="" data-i18n="sel_delantero">— Selecciona delantero —</option></select>
-        <span class="c4-lbl" data-i18n="lbl_zaguero">Zaguero</span>
+        <label class="c4-lbl" for="c4z2" data-i18n="lbl_zaguero">Zaguero</label>
         <select id="c4z2" onchange="renderC4()"><option value="" data-i18n="sel_zaguero_any">— Cualquier zaguero —</option></select>
       </div>
     </div>
@@ -320,12 +323,12 @@
     <div class="filter-row">
       <div class="fg"><span class="flabel" data-i18n="flabel_año">Año</span><div class="year-pills" id="yearPillsFron"></div></div>
       <div class="fg" style="margin-left:auto">
-        <input type="text" id="frontonSearch" class="wide" placeholder="Buscar frontón…" data-i18n-ph="ph_buscar_fronton" oninput="renderFrontones()">
+        <input type="text" id="frontonSearch" data-i18n-aria="ph_buscar_fronton" class="wide" placeholder="Buscar frontón…" data-i18n-ph="ph_buscar_fronton" oninput="renderFrontones()">
       </div>
     </div>
   </div>
   <div class="fronton-detail" id="frontonDetail"></div>
-  <div id="frontonMap"></div>
+  <div id="frontonMap" role="region" data-i18n-aria="aria_mapa"></div>
   <div class="fronton-grid" id="frontonGrid"></div>
 </div>
 <!-- ══ CAMPEONATOS ══════════════════════════════════════════════════════ -->
@@ -358,19 +361,19 @@
     </p>
     <div class="contact-form">
       <div class="fg">
-        <span class="flabel" data-i18n="cont_nombre">Nombre</span>
+        <label class="flabel" for="cNombre" data-i18n="cont_nombre">Nombre</label>
         <input type="text" id="cNombre" placeholder="Tu nombre" data-i18n-ph="cont_ph_nombre">
       </div>
       <div class="fg">
-        <span class="flabel" data-i18n="cont_email">Email</span>
+        <label class="flabel" for="cEmail" data-i18n="cont_email">Email</label>
         <input type="email" id="cEmail" placeholder="tu@email.com" data-i18n-ph="cont_ph_email">
       </div>
       <div class="fg">
-        <span class="flabel" data-i18n="cont_asunto">Asunto</span>
+        <label class="flabel" for="cAsunto" data-i18n="cont_asunto">Asunto</label>
         <input type="text" id="cAsunto" placeholder="Error en datos, sugerencia…" data-i18n-ph="cont_ph_asunto">
       </div>
       <div class="fg">
-        <span class="flabel" data-i18n="cont_mensaje">Mensaje</span>
+        <label class="flabel" for="cMensaje" data-i18n="cont_mensaje">Mensaje</label>
         <textarea id="cMensaje" placeholder="Cuéntanos…" data-i18n-ph="cont_ph_mensaje"></textarea>
       </div>
       <button class="btn" onclick="enviarContacto()" data-i18n="cont_btn">Enviar mensaje</button>
@@ -383,6 +386,7 @@
 </div>
 
 </main>
+<footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a></footer>
 <script src="js/app.js"></script>
 <script src="js/analisis.js"></script>
 <script>loadData();</script>

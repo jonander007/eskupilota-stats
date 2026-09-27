@@ -251,9 +251,22 @@ function htmlEvolucionPerfil(nombre){
   const barras = Object.keys(porAnio).sort().map(a=>({etiqueta:a, valor:porAnio[a].pg/porAnio[a].pj*100,
     detalle:`${porAnio[a].pg}${t('abbr_v')}–${porAnio[a].pj-porAnio[a].pg}${t('abbr_d')}`}));
 
+  // Rendimiento por frontón: todos con al menos 2 partidos, de más a menos jugados
   const porFronton = {};
-  suyos.forEach(p=>{ porFronton[p.fronton]=porFronton[p.fronton]||{pj:0,pg:0}; porFronton[p.fronton].pj++; if(gano(p)) porFronton[p.fronton].pg++; });
-  const mejores = Object.entries(porFronton).filter(([,s])=>s.pj>=5).sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj||b[1].pj-a[1].pj).slice(0,3);
+  suyos.forEach(p=>{ const f=porFronton[p.fronton]=porFronton[p.fronton]||{pj:0,pg:0,tf:0,tc:0};
+    const en1=pels(p.equipo1).includes(nombre); f.pj++; if(gano(p)) f.pg++;
+    f.tf+=en1?p.puntos1:p.puntos2; f.tc+=en1?p.puntos2:p.puntos1; });
+  const frontones = Object.entries(porFronton).filter(([,s])=>s.pj>=2).sort((a,b)=>b[1].pj-a[1].pj||b[1].pg-a[1].pg);
+  const conMin = frontones.filter(([,s])=>s.pj>=5);
+  const pctF = s=>s.pg/s.pj;
+  const mejorF = conMin.length>1 ? [...conMin].sort((a,b)=>pctF(b[1])-pctF(a[1])||b[1].pj-a[1].pj)[0] : null;
+  const peorF = conMin.length>1 ? [...conMin].sort((a,b)=>pctF(a[1])-pctF(b[1])||b[1].pj-a[1].pj)[0] : null;
+  const VISIBLES = 8;
+  const filaF = ([f,s],i)=>{ const pc=Math.round(pctF(s)*100);
+    return `<tr class="${i>=VISIBLES?'an-fr-extra':''}"><td><span class="clk" onclick="abrirFronton('${esc(f)}')">${h(f)}</span>${mejorF&&mejorF[0]===f?' ▲':''}${peorF&&peorF[0]===f?' ▼':''}</td>
+      <td class="an-num">${s.pj}</td><td class="an-num an-up">${s.pg}</td><td class="an-num an-down">${s.pj-s.pg}</td>
+      <td class="an-num" style="white-space:nowrap"><span class="an-fr-bar ${pc<50?'bajo':''}" style="width:${Math.max(4,pc*0.5)}px" aria-hidden="true"></span>${pc}%</td>
+      <td class="an-num ${s.tf-s.tc>=0?'an-up':'an-down'}">${s.tf-s.tc>0?'+':''}${s.tf-s.tc}</td></tr>`; };
 
   const hist = ELO_HIST[nombre]||[];
   const elo = ELO[nombre];
@@ -281,8 +294,12 @@ function htmlEvolucionPerfil(nombre){
       <table class="comp-table an-table-sr"><caption>${tx('Victorias por temporada','Garaipenak denboraldika')}</caption>
         <thead><tr><th>${tx('Año','Urtea')}</th><th>${t('abbr_pj')}</th><th>${t('abbr_v')}</th><th>%</th></tr></thead>
         <tbody>${barras.map(b=>`<tr><td>${b.etiqueta}</td><td>${porAnio[b.etiqueta].pj}</td><td>${porAnio[b.etiqueta].pg}</td><td>${Math.round(b.valor)}%</td></tr>`).join('')}</tbody></table>
-      ${mejores.length?`<div class="an-sub">${tx('Frontones donde mejor rinde (mín. 5 partidos)','Emaitzarik onenak dituen frontoiak (gutx. 5 partida)')}</div>
-      <div class="an-frontones">${mejores.map(([f,s])=>`<span class="an-pill clk" onclick="abrirFronton('${esc(f)}')">${h(f)} · ${Math.round(s.pg/s.pj*100)}% <small>(${s.pg}/${s.pj})</small></span>`).join('')}</div>`:''}
+      ${frontones.length?`<div class="an-sub">${tx('Rendimiento por frontón','Errendimendua frontoika')}</div>
+      ${mejorF?`<p class="an-nota">▲ ${tx('Mejor','Onena')}: <b>${h(mejorF[0])}</b> ${Math.round(pctF(mejorF[1])*100)}% · ▼ ${tx('Peor','Txarrena')}: <b>${h(peorF[0])}</b> ${Math.round(pctF(peorF[1])*100)}% <span class="an-muted">(${tx('mín. 5 partidos','gutx. 5 partida')})</span></p>`:''}
+      <div class="an-table-wrap"><table class="comp-table an-fr-tabla">
+        <thead><tr><th>${tx('Frontón','Frontoia')}</th><th class="an-num">${t('abbr_pj')}</th><th class="an-num">${t('abbr_v')}</th><th class="an-num">${t('abbr_d')}</th><th class="an-num">%</th><th class="an-num" title="${tx('Diferencia de tantos','Tanto aldea')}">${tx('Dif','Alde')}</th></tr></thead>
+        <tbody>${frontones.map(filaF).join('')}</tbody></table></div>
+      ${frontones.length>VISIBLES?`<button class="btn-ghost an-fr-mas" onclick="this.previousElementSibling.querySelector('table').classList.add('todos');this.remove()">${t('c4_ver_mas').replace('{n}',frontones.length-VISIBLES)}</button>`:''}`:''}
     </div>`;
 }
 
@@ -369,6 +386,47 @@ function htmlCampeon(parts){
   </div>`;
 }
 
+// Cuadro de eliminatorias: rondas sin grupos, coherentes (cada equipo una vez
+// por ronda y no más partidos de los que caben). Cada partido se coloca a la
+// altura del de la ronda siguiente al que da paso su ganador.
+const RONDAS_KO = ['eliminatoria','octavos','cuartos','semifinal','final'];
+const MAX_POR_RONDA = {eliminatoria:16, octavos:8, cuartos:4, semifinal:2, final:1};
+
+function htmlCuadro(parts){
+  const clave = eq => pels(eq).join(' / ');
+  const ganadorDe = p => clave(p.ganador==='equipo1' ? p.equipo1 : p.equipo2);
+  const rondas = RONDAS_KO
+    .map(f => [f, parts.filter(p => p.fase===f && !p.grupo)])
+    .filter(([f, ps]) => ps.length && ps.length <= MAX_POR_RONDA[f] &&
+      new Set(ps.flatMap(p => [clave(p.equipo1), clave(p.equipo2)])).size === ps.length*2);
+  if(rondas.length < 2) return '';
+  for(let i = rondas.length-2; i >= 0; i--){
+    const sig = rondas[i+1][1];
+    const pos = p => {
+      const g = ganadorDe(p);
+      const j = sig.findIndex(q => clave(q.equipo1)===g || clave(q.equipo2)===g);
+      return j < 0 ? 99 : j*2 + (clave(sig[j].equipo1)===g ? 0 : 1);
+    };
+    rondas[i][1] = [...rondas[i][1]].sort((a,b) => pos(a)-pos(b) || parseDate(a.fecha)-parseDate(b.fecha));
+  }
+  const deducidas = parts.some(p => p.fase_deducida && RONDAS_KO.includes(p.fase));
+  const lado = (p, eq, pts) => `<div class="an-ko-eq ${p.ganador===eq?'gana':''}">
+      <span>${pels(p[eq]).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</span>
+      <b>${p[pts]}</b></div>`;
+  const partido = p => `<div class="an-ko-m">
+      ${lado(p,'equipo1','puntos1')}${lado(p,'equipo2','puntos2')}
+      <div class="an-ko-info">${p.fecha} · ${h(p.fronton)}</div></div>`;
+  return `<div class="ch-card">
+    <h3>${tx('Eliminatorias','Kanporaketak')}</h3>
+    ${deducidas ? `<p class="an-nota">${tx('ⓘ Algunas rondas están deducidas del calendario: el partido anterior de cada clasificado, cuando cuadra como eliminatoria.',
+      'ⓘ Kanporaketa batzuk egutegitik ondorioztatuak dira: sailkatu bakoitzaren aurreko partida, kanporaketa gisa bat datorrenean.')}</p>` : ''}
+    <div class="an-ko" style="--rondas:${rondas.length}">
+      ${rondas.map(([f, ps]) => `<div class="an-ko-col">
+        <div class="an-ko-tit">${t('fase_'+f)}</div>
+        <div class="an-ko-lista">${ps.map(partido).join('')}</div></div>`).join('')}
+    </div></div>`;
+}
+
 function setCampModo(modo){ _campModo = modo; renderCampeonato(_campActual); }
 
 function renderCampeonato(id){
@@ -421,6 +479,7 @@ function renderCampeonato(id){
       ${botonCompartir(comp.nombre)}
     </div>
     ${htmlCampeon(parts)}
+    ${htmlCuadro(parts)}
     <div class="ch-card an-ultimo">
       <h3>${tx('Último partido disputado','Jokatutako azken partida')} · ${ultimo.fecha} · ${h(ultimo.fronton)}${ultimo.fase?' · '+textoFase(ultimo):''}</h3>
       <div class="an-ultimo-res">
