@@ -50,11 +50,15 @@ jobs:
       - name: Validar datos
         run: python tools/validar_datos.py
 
+      # Páginas estáticas de cada pelotari (para los buscadores) y sitemap
+      - name: Generar páginas de pelotaris
+        run: python tools/generar_paginas.py
+
       - name: Guardar cambios
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/ pelotari/ eu/ sitemap.xml
           if git diff --cached --quiet; then
             echo "Sin cambios en los datos"
           else

@@ -21,10 +21,20 @@ y recalcula `tipo` a partir de ellos. Además:
   - Los torneos de 4 y medio o manomanista con tipo de festival pasan al tipo
     de su modalidad (Torneo San Fermín 4 y Medio tenía 9 partidos como
     festival-cuatro).
+  - Manomanista y 4 y medio: si los partidos de un año forman dos grupos
+    de pelotaris que nunca se enfrentan, el grupo que no es el de la
+    Serie A es la Serie B (en 2026 el scraper antiguo guardó la Serie B
+    del Manomanista como Serie A).
   - La fase se toma del historial de la cartelera en git (desde que se
     guarda). Además, en cada campeonato ya terminado y con al menos 10
-    partidos, su último partido es la final: se marca con fase 'final' y
-    "fase_deducida": true.
+    partidos, su último partido es la final (fase 'final' y
+    "fase_deducida": true) si se jugó al menos 5 días después del anterior
+    (si no, falta la final en los datos y ese es un partido de la fase previa).
+  - En Manomanista y 4 y medio, desde la final hacia atrás: el partido
+    anterior de cada finalista es su semifinal, y así con cuartos y
+    octavos, mientras cuadre como eliminatoria (lo ganó, fue como mucho 5
+    semanas antes y el que perdió no volvió a jugar). Se para en cuanto
+    no cuadra (liguillas).
   - Cada competición del catálogo recibe su "categoria".
 
 Idempotente: se puede ejecutar varias veces.
@@ -64,6 +74,9 @@ PROMOCION = {
 # último que tenemos puede no ser la final)
 TERMINADO_TRAS = timedelta(days=30)
 MIN_PARTIDOS_FINAL = 10
+MIN_DIAS_ANTES_FINAL = 5
+RONDAS_ATRAS = ('semifinal', 'cuartos', 'octavos')
+MAX_ENTRE_RONDAS = timedelta(days=35)
 
 
 def load(path):
@@ -83,6 +96,86 @@ def modalidad(p, cmp_nombre):
         return 'cuatro'
     _, mod = categoria_de_competicion(cmp_nombre)
     return mod or 'mano'
+
+
+def equipo(p, k):
+    return tuple(sorted(x for x in (p[k].get('del_id'), p[k].get('zag_id')) if x))
+
+
+def equipos(p):
+    return equipo(p, 'equipo1'), equipo(p, 'equipo2')
+
+
+def perdedor(p):
+    return equipo(p, 'equipo2' if p['ganador'] == 'equipo1' else 'equipo1')
+
+
+def ganador(p):
+    return equipo(p, p['ganador'])
+
+
+def separar_series(partidos, comps, cambios):
+    """Manomanista / 4 y medio: la Serie A y la B no se enfrentan. Si los
+    partidos de un año forman grupos de pelotaris separados, los del grupo
+    con más partidos de Serie A son la A y el resto, la B."""
+    import re
+    por_nombre = {c['nombre']: c for c in comps}
+    grupos = {}
+    for p in partidos:
+        m = re.match(r'Campeonato (Manomanista|4 y Medio) Serie ([AB]) (\d{4})$',
+                     next(c['nombre'] for c in comps if c['id'] == p['competicion_id']))
+        if m:
+            grupos.setdefault((m[1], m[3]), []).append((m[2], p))
+    for (mod, anio), lista in grupos.items():
+        padre = {}
+
+        def raiz(x):
+            while padre.setdefault(x, x) != x:
+                x = padre[x]
+            return x
+        for _, p in lista:
+            padre[raiz(p['equipo1']['del_id'])] = raiz(p['equipo2']['del_id'])
+        cuenta = {}
+        for s, p in lista:
+            cuenta.setdefault(raiz(p['equipo1']['del_id']), Counter())[s] += 1
+        if len(cuenta) < 2:
+            continue
+        principal = max(cuenta, key=lambda r: cuenta[r]['A'])
+        destino = por_nombre.get(f'Campeonato {mod} Serie B {anio}')
+        if not destino:
+            continue
+        for s, p in lista:
+            if s == 'A' and raiz(p['equipo1']['del_id']) != principal:
+                p['competicion_id'] = destino['id']
+                cambios[f'{mod} {anio}: partido de la Serie B que estaba en la A'] += 1
+
+
+def deducir_rondas(ps, final, cambios):
+    """Desde la final hacia atrás, mientras la competición sea eliminatoria."""
+    ronda = [final]
+    for nombre in RONDAS_ATRAS:
+        nueva = []
+        for m in ronda:
+            for eq in equipos(m):
+                previos = [p for p in ps if p['fecha'] < m['fecha'] and eq in equipos(p)]
+                if not previos:
+                    return
+                q = previos[-1]
+                if ganador(q) != eq or date.fromisoformat(m['fecha']) - date.fromisoformat(q['fecha']) > MAX_ENTRE_RONDAS:
+                    return
+                if any(p['fecha'] > q['fecha'] and perdedor(q) in equipos(p) for p in ps):
+                    return
+                if q.get('fase') and q['fase'] != nombre:
+                    return
+                nueva.append(q)
+        if len({id(q) for q in nueva}) != len(nueva):
+            return
+        for q in nueva:
+            if q.get('fase') != nombre:
+                q['fase'] = nombre
+                q['fase_deducida'] = True
+                cambios[f'{nombre} deducida'] += 1
+        ronda = nueva
 
 
 def main():
@@ -112,6 +205,8 @@ def main():
         comps[:] = [c for c in comps if c['id'] != a]  # noqa
         del por_nombre[origen]
         por_id.pop(a, None)
+
+    separar_series(partidos, comps, cambios)
 
     # 2. Clasificación de cada partido
     cart = cartelera_historica()
@@ -169,9 +264,23 @@ def main():
             u = ultimos.get(p['competicion_id'])
             if u is None or p['fecha'] > u['fecha']:
                 ultimos[p['competicion_id']] = p
+    def es_final_probable(p):
+        ps = sorted((q for q in partidos if q['competicion_id'] == p['competicion_id']), key=lambda q: q['fecha'])
+        antes = [q for q in ps if q['fecha'] < p['fecha']]
+        return bool(antes) and date.fromisoformat(p['fecha']) - date.fromisoformat(antes[-1]['fecha']) >= timedelta(days=MIN_DIAS_ANTES_FINAL)
+
+    # Deducciones que ya no cumplen el criterio (se recalculan abajo)
+    for p in partidos:
+        if p.get('fase_deducida'):
+            del p['fase'], p['fase_deducida']
+            cambios['fase deducida recalculada'] += 1
+
     print('\nFINALES DEDUCIDAS (último partido de cada campeonato terminado)')
     for cid, p in sorted(ultimos.items(), key=lambda x: por_id[x[0]]['nombre']):
         if hoy - date.fromisoformat(p['fecha']) < TERMINADO_TRAS or p.get('fase'):
+            continue
+        if not es_final_probable(p):
+            print(f"  {por_id[cid]['nombre']:<38} {p['fecha']}  (no parece la final: falta el partido)")
             continue
         p['fase'] = 'final'
         p['fase_deducida'] = True
@@ -179,6 +288,13 @@ def main():
         e = lambda k: ' - '.join(pelotaris.get(p[k].get(x), '') for x in ('del_id', 'zag_id') if p[k].get(x))
         print(f"  {por_id[cid]['nombre']:<38} {p['fecha']} {frontones.get(p['fronton_id'], ''):<18} "
               f"{e('equipo1')} {p['puntos1']}-{p['puntos2']} {e('equipo2')}")
+
+    # 3b. Rondas eliminatorias hacia atrás desde la final (mano y 4 y medio)
+    for cid in {p['competicion_id'] for p in partidos}:
+        ps = sorted((p for p in partidos if p['competicion_id'] == cid), key=lambda p: p['fecha'])
+        final = next((p for p in ps if p.get('fase') == 'final'), None)
+        if final and ps[0]['modalidad'] in ('mano', 'cuatro') and ps[0]['categoria'] == 'campeonato':
+            deducir_rondas(ps, final, cambios)
 
     # 4. Categoría y tipo de cada competición del catálogo
     tipos = {}
