@@ -22,14 +22,21 @@ data/                 Datos que lee la web
 scraper/
   scraper.py            Añade resultados nuevos desde baikopilota.eus/resultados
   scraper_cartelera.py  Regenera la cartelera desde baikopilota.eus/entradas
-tools/                Scripts de mantenimiento puntuales (migración, auditorías, contadores)
+  competiciones.py      Criterio para asignar competición y tipo a cada partido
+  roles.py              Rol (delantero/zaguero) de cada pelotari según sus partidos
+tools/
+  validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
+  recalcular_contadores.py  Recalcula partidos_count y roles
+  ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```
 
 ## Actualización de datos
 
 El workflow `.github/workflows/datos.yml` se ejecuta cada día a las 00:01 UTC
-(y a mano desde la pestaña *Actions*): lanza los dos scrapers y hace un único
-commit con los cambios en `data/`.
+(y a mano desde la pestaña *Actions*): lanza el scraper de resultados (que
+aún lee la cartelera del día anterior para saber la competición), después el
+de cartelera, valida los datos con `tools/validar_datos.py` y, si todo es
+correcto, hace un único commit con los cambios en `data/`.
 
 ## Desarrollo local
 

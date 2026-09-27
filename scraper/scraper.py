@@ -30,6 +30,9 @@ from datetime import datetime, timedelta
 import requests
 from bs4 import BeautifulSoup
 
+from competiciones import Cartelera, HistorialSeries, clasificar
+from roles import aplicar_roles
+
 # ─────────────────────────────────────────────────────────────────
 # RUTAS
 # ─────────────────────────────────────────────────────────────────
@@ -43,6 +46,9 @@ FRONTONES_FILE     = os.path.join(DATA_DIR, 'frontones.json')
 CIUDADES_FILE      = os.path.join(DATA_DIR, 'ciudades.json')
 COMPETICIONES_FILE = os.path.join(DATA_DIR, 'competiciones.json')
 AVISOS_FILE        = os.path.join(DATA_DIR, 'avisos_scraper.json')
+# Se lee ANTES de que scraper_cartelera.py la regenere: aún contiene los
+# partidos de ayer, con su competición.
+CARTELERA_FILE     = os.path.join(DATA_DIR, 'cartelera.json')
 
 URL = "https://www.baikopilota.eus/resultados/"
 USER_AGENT = (
@@ -77,40 +83,6 @@ PELOTARI_MAP = {
     'MORGA':             'MORGAETXEBARRIA',
     'DARIO':             'DARÍO',
     'P. ETXEBARRIA':     'P.ETXEBERRIA',
-}
-
-COMP_NORM = {
-    'campeonato parejas serie a':        ('campeonato-a',    'Campeonato Parejas Serie A'),
-    'campeonato parejas serie b':        ('campeonato-b',    'Campeonato Parejas Serie B'),
-    'campeonato manomanista serie a':    ('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'campeonato manomanista serie b':    ('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'serie a eliminatoria manomanista':  ('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'serie b eliminatoria manomanista':  ('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'serie a manomanista':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'serie b manomanista':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'manomanista serie a':               ('manomanista-a',   'Campeonato Manomanista Serie A'),
-    'manomanista serie b':               ('manomanista-b',   'Campeonato Manomanista Serie B'),
-    'campeonato 4 1/2 serie a':          ('cuatro-medio-a',  'Campeonato 4 1/2 Serie A'),
-    'campeonato 4 1/2 serie b':          ('cuatro-medio-b',  'Campeonato 4 1/2 Serie B'),
-    'torneo san fermin serie a':         ('festival',        'Torneo San Fermín Serie A'),
-    'torneo san fermín serie a':         ('festival',        'Torneo San Fermín Serie A'),
-    'torneo san fermin serie b':         ('festival',        'Torneo San Fermín Serie B'),
-    'torneo san fermín serie b':         ('festival',        'Torneo San Fermín Serie B'),
-    'masters caixabank serie a':         ('festival',        'Masters CaixaBank Serie A'),
-    'masters caixabank serie b':         ('festival',        'Masters CaixaBank Serie B'),
-    'torneo la blanca serie a':          ('festival',        'Torneo La Blanca Serie A'),
-    'torneo la blanca serie b':          ('festival',        'Torneo La Blanca Serie B'),
-    'torneo aste nagusia serie a':       ('festival',        'Torneo Aste Nagusia Serie A'),
-    'torneo aste nagusia serie b':       ('festival',        'Torneo Aste Nagusia Serie B'),
-    'torneo donostia hiria serie a':     ('festival',        'Torneo Donostia Hiria Serie A'),
-    'torneo donostia hiria serie b':     ('festival',        'Torneo Donostia Hiria Serie B'),
-    'torneo san mateo serie a':          ('festival',        'Torneo San Mateo Serie A'),
-    'torneo san mateo serie b':          ('festival',        'Torneo San Mateo Serie B'),
-    'torneo bizkaia parejas':            ('festival',        'Torneo Bizkaia Parejas'),
-    'torneo san fermin 4 1/2':           ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
-    'torneo san fermín 4 1/2':           ('festival-cuatro', 'Torneo San Fermín 4 1/2'),
-    'torneo bizkaia manomanista':        ('festival-mano',   'Torneo Bizkaia Manomanista'),
-    'torneo bizkaia 4 1/2':              ('festival-cuatro', 'Torneo Bizkaia 4 1/2'),
 }
 
 CIUDAD_ALIAS = {
@@ -299,29 +271,6 @@ def read_side(tokens, i):
     raise ValueError("No se encontró score")
 
 
-def inferir_comp(texto_comp, tiene_zaguero, anio):
-    if texto_comp:
-        base = texto_comp.lstrip('- ').strip().lower()
-        base = re.split(r'\s*-\s*(liga|octavos|cuartos|semifinal|final)', base)[0].strip()
-        if base in COMP_NORM:
-            tipo, nombre = COMP_NORM[base]
-            return tipo, f"{nombre} {anio}"
-        for k, (tipo, nombre) in COMP_NORM.items():
-            if k in base:
-                return tipo, f"{nombre} {anio}"
-        if 'manomanista' in base:
-            if 'serie a' in base or ' a ' in base:
-                return 'manomanista-a', f"Campeonato Manomanista Serie A {anio}"
-            if 'serie b' in base or ' b ' in base:
-                return 'manomanista-b', f"Campeonato Manomanista Serie B {anio}"
-            return 'manomanista-a', f"Campeonato Manomanista {anio}"
-        if 'festival' in base or 'torneo' in base or 'masters' in base:
-            return 'festival', f"{texto_comp.strip().title()} {anio}"
-    if tiene_zaguero:
-        return 'campeonato-a', f"Campeonato Parejas Serie A {anio}"
-    return 'manomanista-a', f"Campeonato Manomanista Serie A {anio}"
-
-
 def extract_tokens(html):
     soup = BeautifulSoup(html, 'html.parser')
     tokens = [clean_text(t) for t in soup.stripped_strings if clean_text(t)]
@@ -392,17 +341,14 @@ def parse_tokens(tokens):
             if not d1 or not d2:
                 continue
 
-            tiene_zaguero = bool(z1 or z2)
-            anio = fecha[-4:]
-            tipo, comp_nombre = inferir_comp(comp, tiene_zaguero, anio)
             ganador = 'equipo1' if score1 > score2 else ('equipo2' if score2 > score1 else None)
 
             partidos.append({
                 'fecha':       fecha,
                 'fronton':     fronton or '',
                 'ciudad':      ciudad or '',
-                'tipo':        tipo,
-                'competicion': comp_nombre,
+                # tipo y competicion se deciden en clasificar_partidos()
+                'comp_texto':  comp,
                 'equipo1':     {'delantero': d1, 'zaguero': z1},
                 'puntos1':     score1,
                 'equipo2':     {'delantero': d2, 'zaguero': z2},
@@ -573,6 +519,10 @@ class Catalogos:
                     it['partidos_count'] = nuevo
                     self._dirty[flag] = True
 
+        for pid, nombre, antes, despues in aplicar_roles(self.pelotaris, partidos):
+            print(f"  rol de {nombre}: {antes} -> {despues}")
+            self._dirty['pel'] = True
+
     def guardar_avisos(self):
         if not self.avisos:
             if os.path.exists(AVISOS_FILE):
@@ -678,6 +628,36 @@ def es_formato_nuevo(partidos):
 # ─────────────────────────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────────────────────────
+def cargar_cartelera():
+    if not os.path.exists(CARTELERA_FILE):
+        return Cartelera()
+    try:
+        with open(CARTELERA_FILE, 'r', encoding='utf-8') as f:
+            return Cartelera(json.load(f).get('partidos', []))
+    except (ValueError, AttributeError):
+        return Cartelera()
+
+
+def clasificar_partidos(planos, existentes, cats):
+    """Decide tipo y competición de cada partido (ver competiciones.py).
+
+    Si la web de resultados no dice la competición, se busca el partido en
+    la cartelera; la serie, si no se sabe, se deduce por los pelotaris.
+    """
+    cart = cargar_cartelera()
+    hist = HistorialSeries(existentes)
+    for p in planos:
+        jugadores = [p['equipo1']['delantero'], p['equipo1']['zaguero'],
+                     p['equipo2']['delantero'], p['equipo2']['zaguero']]
+        es_pareja = bool(p['equipo1']['zaguero'] or p['equipo2']['zaguero'])
+        texto, serie = p.get('comp_texto'), None
+        if not texto:
+            texto, serie = cart.buscar(p['fecha'], p['fronton'], jugadores)
+        ids = [cats._idx_pel[n]['id'] for n in jugadores if n and n in cats._idx_pel]
+        p['tipo'], p['competicion'] = clasificar(
+            texto, p['fecha'], es_pareja, serie, lambda: hist.serie(ids, p['fecha']))
+
+
 def main():
     print("Eskupilota Stats — Scraper de resultados (con catálogos)")
     print(f"Fuente: {URL}\n")
@@ -691,10 +671,6 @@ def main():
 
     nuevos_planos = parse_tokens(tokens)
     print(f"Partidos encontrados: {len(nuevos_planos)}")
-    for p in nuevos_planos:
-        eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
-        eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
-        print(f"  {p['fecha']} | {p['fronton']} ({p['ciudad']}) | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
     print("\nCargando catálogos...")
     cats = Catalogos()
@@ -714,6 +690,12 @@ def main():
         sys.exit(1)
 
     print(f"  partidos existentes: {len(existentes)}")
+
+    clasificar_partidos(nuevos_planos, existentes, cats)
+    for p in nuevos_planos:
+        eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
+        eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
+        print(f"  {p['fecha']} | {p['fronton']} ({p['ciudad']}) | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
     print("\nConvirtiendo partidos nuevos a formato catalogado...")
     nuevos = [partido_to_catalogado(p, cats) for p in nuevos_planos]

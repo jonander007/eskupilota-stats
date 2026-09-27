@@ -29,16 +29,22 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      # Un fallo en un scraper no debe impedir que se guarde lo del otro
+      # Primero los resultados: así el scraper todavía lee la cartelera de
+      # ayer y puede saber la competición de los partidos que la web no dice.
+      # Un fallo en un scraper no debe impedir que se guarde lo del otro.
+      - name: Scraper de resultados
+        id: resultados
+        run: python scraper/scraper.py
+        continue-on-error: true
+
       - name: Scraper de cartelera
         id: cartelera
         run: python scraper/scraper_cartelera.py
         continue-on-error: true
 
-      - name: Scraper de resultados
-        id: resultados
-        run: python scraper/scraper.py
-        continue-on-error: true
+      # Si los datos no son coherentes no se publican
+      - name: Validar datos
+        run: python tools/validar_datos.py
 
       - name: Guardar cambios
         run: |

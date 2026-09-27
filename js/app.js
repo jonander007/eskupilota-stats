@@ -2,20 +2,6 @@
 // DATOS + ESTADO
 // ════════════════════════════════════════════════════════════
 let PARTIDOS=[], PELOTARIS={};
-// ════════════════════════════════════════════════════════════
-// ROLES — delanteros y zagueros (solo parejas)
-// ════════════════════════════════════════════════════════════
-const DELANTEROS = new Set([
-  'JAKA','PEÑA II','LARRAZABAL','P.ETXEBERRIA','ELORDI','SENAR','ALTUNA III','AGIRRE',
-  'ARTOLA','ZUBIZARRETA III','DARÍO','LASO','BAKAIKOA','URRUTIKOETXEA','ALBERDI II',
-  'EGIGUREN V','MURUA','SALABERRIA','EXPOSITO','DE LA FUENTE','MATA','AMIANO','ALBERDI',
-  'REKALDE','ZUBIZARRETA IV','ELEZKANO II','APEZETXEA II','EZKURDIA','ZABALA'
-]);
-const ZAGUEROS = new Set([
-  'ALBISU','REZUSTA','IMAZ','MARIEZKURRENA II','UGARTEMENDIA','MARTIJA','IZTUETA',
-  'ESKIROZ','ZABALETA','ARANGUREN','ESKUZA','MORGAETXEBARRIA','GASKUE','SALAVERRI II',
-  'GABIRONDO','BIKUÑA','EROSTARBE','ALDABE','LIZEAGA','ELIZEGI','TOLOSA','LOZA','LANDA'
-]);
 
 // ════════════════════════════════════════════════════════════
 // PESTAÑAS ACTIVOS / HISTÓRICO + RANGO DE FECHAS
@@ -66,13 +52,12 @@ function getActivePlayers(){
   });
   return active;
 }
-function getRol(nombre){ 
-  const n=(nombre||'').toUpperCase();
-  const cat=Object.values(CAT_PELOTARIS).find(o=>(o.nombre||'').toUpperCase()===n);
-  if(cat && (cat.rol==='delantero'||cat.rol==='zaguero')) return cat.rol;
-  if(DELANTEROS.has(n)) return 'delantero';
-  if(ZAGUEROS.has(n)) return 'zaguero';
-  return 'otro';
+// Rol de cada pelotari según el catálogo (lo calcula el scraper a partir de
+// los puestos en los que juega por parejas)
+let ROL_POR_NOMBRE = {};
+function getRol(nombre){
+  const rol = ROL_POR_NOMBRE[(nombre||'').toUpperCase()];
+  return (rol==='delantero'||rol==='zaguero') ? rol : 'otro';
 }
 
 let activeTipo='todos', sortFld='fecha', sortAsc=false;
@@ -576,6 +561,7 @@ async function loadData(){
     // Verificar que es el formato nuevo (partidos con del_id)
     if (par.length && par[0].equipo1 && 'del_id' in par[0].equipo1) {
       CAT_PELOTARIS     = Object.fromEntries(pels.map(o=>[o.id,o]));
+      ROL_POR_NOMBRE    = Object.fromEntries(pels.map(o=>[(o.nombre||'').toUpperCase(), o.rol]));
       CAT_CIUDADES      = Object.fromEntries(ciu .map(o=>[o.id,o]));
       CAT_FRONTONES     = Object.fromEntries(fro .map(o=>[o.id,o]));
       CAT_COMPETICIONES = Object.fromEntries(cmp .map(o=>[o.id,o]));
@@ -1366,8 +1352,8 @@ function buildRanking(){
   else if(activeRkTab === 'roles'){
     const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
     const st = calcStats(parsParejas);
-    const dels = filterActive(Object.entries(st).filter(([n])=>DELANTEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
-    const zags = filterActive(Object.entries(st).filter(([n])=>ZAGUEROS.has(n.toUpperCase())).sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
+    const dels = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='delantero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
+    const zags = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='zaguero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
     const sf = s=>({val:s.pg, lbl:s.pg+'V'});
     const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
     el.innerHTML = mkGrid([
@@ -1609,7 +1595,7 @@ function populateC4Sels(){
   // Solo delanteros conocidos que además tienen partidos en el JSON
   const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
     .filter(Boolean)
-    .filter(n=>DELANTEROS.has(n.toUpperCase()))
+    .filter(n=>getRol(n)==='delantero')
     .sort();
   ['c4d1','c4d2'].forEach(id=>{
     const s=document.getElementById(id);
@@ -1618,7 +1604,7 @@ function populateC4Sels(){
   // Zagueros para los selects de zaguero (habilitados desde el inicio)
   const zagueros=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
     .filter(Boolean)
-    .filter(n=>ZAGUEROS.has(n.toUpperCase()))
+    .filter(n=>getRol(n)==='zaguero')
     .sort();
   ['c4z1','c4z2'].forEach(id=>{
     const s=document.getElementById(id);
@@ -1648,7 +1634,7 @@ function c4DelanteroChange(num){
   zagSel.disabled=false;
   zagSel.innerHTML='<option value="">— Cualquier zaguero —</option>';
   const todosZag=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
-    .filter(Boolean).filter(n=>ZAGUEROS.has(n.toUpperCase())).sort();
+    .filter(Boolean).filter(n=>getRol(n)==='zaguero').sort();
   // Primero los que han jugado con este delantero (por frecuencia), luego el resto
   const conHistorial=[...comps.entries()].sort((a,b)=>b[1]-a[1]).map(([z])=>z);
   const sinHistorial=todosZag.filter(z=>!comps.has(z));

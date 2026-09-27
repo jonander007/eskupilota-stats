@@ -22,6 +22,9 @@ import os
 import sys
 from collections import Counter
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
+from roles import aplicar_roles  # noqa: E402
+
 DATA_DIR = 'data'
 PARTIDOS_FILE = os.path.join(DATA_DIR, 'partidos.json')
 PELOTARIS_FILE = os.path.join(DATA_DIR, 'pelotaris.json')
@@ -119,6 +122,11 @@ def main():
     cambios += len(aplicar(pelotaris, c_pel, 'PELOTARIS'))
     cambios += len(aplicar(frontones, c_fro, 'FRONTONES'))
     cambios += len(aplicar(competiciones, c_cmp, 'COMPETICIONES'))
+
+    roles = aplicar_roles(pelotaris, partidos)
+    for _, nombre, antes, despues in roles:
+        print(f"  rol de {nombre}: {antes} -> {despues}")
+    cambios += len(roles)
 
     # ── Reordenado (mismo criterio que scraper.save_all) ─────────────
     pelotaris.sort(key=lambda p: (-p['partidos_count'], p['nombre']))
