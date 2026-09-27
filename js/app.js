@@ -94,76 +94,56 @@ function normalizeComp(c){
   return s.replace(/\s*\d{4}\s*/g,' ').replace(/\s+/g,' ').trim();
 }
 
-// Traducción de nombres de competición
-const COMP_TRANS = {
-  es: {
-    'Campeonato Parejas':            'Campeonato Parejas',
-    'Campeonato Parejas Serie A':    'Campeonato Parejas Serie A',
-    'Campeonato Parejas Serie B':    'Campeonato Parejas Serie B',
-    'Campeonato Manomanista':        'Campeonato Manomanista',
-    'Campeonato Manomanista Serie A':'Campeonato Manomanista Serie A',
-    'Campeonato Manomanista Serie B':'Campeonato Manomanista Serie B',
-    'Campeonato 4 1/2 Serie A':      'Campeonato 4½ Serie A',
-    'Campeonato 4 1/2 Serie B':      'Campeonato 4½ Serie B',
-    'Campeonato 4½ Eusko Label':     'Campeonato 4½ Eusko Label',
-    'Campeonato 4½ Serie B Eusko Label': 'Campeonato 4½ Serie B Eusko Label',
-    'Masters CaixaBank':             'Masters CaixaBank',
-    'Masters CaixaBank Serie A':     'Masters CaixaBank Serie A',
-    'Masters CaixaBank Serie B':     'Masters CaixaBank Serie B',
-    'Torneo San Fermin':             'Torneo San Fermín',
-    'Torneo San Fermin Serie A':     'Torneo San Fermín Serie A',
-    'Torneo San Fermin Serie B':     'Torneo San Fermín Serie B',
-    'Torneo 4½ San Fermin':          'Torneo 4½ San Fermín',
-    'Torneo San Mateo Serie A':      'Torneo San Mateo Serie A',
-    'Torneo San Mateo Serie B':      'Torneo San Mateo Serie B',
-    'Torneo Aste Nagusia Serie A':   'Torneo Aste Nagusia Serie A',
-    'Torneo Aste Nagusia Serie B':   'Torneo Aste Nagusia Serie B',
-    'Torneo Donostia Hiria Serie A': 'Torneo Donostia Hiria Serie A',
-    'Torneo Donostia Hiria Serie B': 'Torneo Donostia Hiria Serie B',
-    'Torneo La Blanca Serie A':      'Torneo La Blanca Serie A',
-    'Torneo La Blanca Serie B':      'Torneo La Blanca Serie B',
-    'Desafio Urzante':               'Desafío Urzante',
-    'Desafio Urzante San Fermin':    'Desafío Urzante San Fermín',
-    'Desafio Urzante San Mateo':     'Desafío Urzante San Mateo',
-    'Festival':                      'Festival',
-  },
-  eu: {
-    'Campeonato Parejas':            'Binakako Txapelketa',
-    'Campeonato Parejas Serie A':    'Binakako Txapelketa A Seriea',
-    'Campeonato Parejas Serie B':    'Binakako Txapelketa B Seriea',
-    'Campeonato Manomanista':        'Buruz Buruko Txapelketa',
-    'Campeonato Manomanista Serie A':'Buruz Buruko Txapelketa A Seriea',
-    'Campeonato Manomanista Serie B':'Buruz Buruko Txapelketa B Seriea',
-    'Campeonato 4 1/2 Serie A':      "4 t'erdiko Txapelketa A Seriea",
-    'Campeonato 4 1/2 Serie B':      "4 t'erdiko Txapelketa B Seriea",
-    'Campeonato 4½ Eusko Label':     "4 t'erdiko Txapelketa Eusko Label",
-    'Campeonato 4½ Serie B Eusko Label': "4 t'erdiko Txapelketa B Seriea Eusko Label",
-    'Masters CaixaBank':             'Masters CaixaBank',
-    'Masters CaixaBank Serie A':     'Masters CaixaBank A Seriea',
-    'Masters CaixaBank Serie B':     'Masters CaixaBank B Seriea',
-    'Torneo San Fermin':             'San Fermin Txapelketa',
-    'Torneo San Fermin Serie A':     'San Fermin Txapelketa A Seriea',
-    'Torneo San Fermin Serie B':     'San Fermin Txapelketa B Seriea',
-    'Torneo 4½ San Fermin':          "San Fermin 4 t'erdiko Txapelketa",
-    'Torneo San Mateo Serie A':      'San Mateo Txapelketa A Seriea',
-    'Torneo San Mateo Serie B':      'San Mateo Txapelketa B Seriea',
-    'Torneo Aste Nagusia Serie A':   'Aste Nagusia Txapelketa A Seriea',
-    'Torneo Aste Nagusia Serie B':   'Aste Nagusia Txapelketa B Seriea',
-    'Torneo Donostia Hiria Serie A': 'Donostia Hiria Txapelketa A Seriea',
-    'Torneo Donostia Hiria Serie B': 'Donostia Hiria Txapelketa B Seriea',
-    'Torneo La Blanca Serie A':      'La Blanca Txapelketa A Seriea',
-    'Torneo La Blanca Serie B':      'La Blanca Txapelketa B Seriea',
-    'Desafio Urzante':               'Urzante Desafioa',
-    'Desafio Urzante San Fermin':    'San Fermin Urzante Desafioa',
-    'Desafio Urzante San Mateo':     'San Mateo Urzante Desafioa',
-    'Festival':                      'Jaialdia',
-  }
-};
-
+// Traducción de nombres de competición. Se construye por partes en vez de
+// con una lista cerrada, para que cualquier competición nueva que cree el
+// scraper salga traducida: "Torneo San Mateo Serie A" -> "San Mateo Txapelketa A Seriea".
 function tComp(nombre){
-  const norm = normalizeComp(nombre);
-  return (COMP_TRANS[LANG]||COMP_TRANS.es)[norm] || norm;
+  let s = normalizeComp(nombre);                    // sin año; festivales -> 'Festival'
+  if(LANG !== 'eu'){
+    return s.replace(/\bSan Fermin\b/,'San Fermín').replace(/^Desafio\b/,'Desafío').replace(/\b4 1\/2\b/,'4½');
+  }
+  const serie = (s.match(/\bSerie ([AB])\b/)||[])[1];
+  const promo = /\bPromoción\b/.test(s);
+  s = s.replace(/\s*\bSerie [AB]\b/,'').replace(/\s*\bPromoción\b/,'').trim();
+  const cuatro = /\b(4 y Medio|4 1\/2|4½)\b/;
+  let m, base;
+  if(s === 'Festival') base = 'Jaialdia';
+  else if((m = s.match(/^Festival Despedida (.+)$/))) base = `${m[1]}${/[aeiou]$/i.test(m[1])?'ren':'en'} agur jaialdia`;
+  else if(/^Campeonato Parejas/.test(s)) base = 'Binakako Txapelketa';
+  else if(/^Campeonato Manomanista/.test(s)) base = 'Buruz Buruko Txapelketa';
+  else if(/^Campeonato/.test(s) && cuatro.test(s)) base = "Lau t'erdiko Txapelketa" + (/Eusko Label/.test(s)?' Eusko Label':'');
+  else if((m = s.match(/^Torneo (.+?) (4 y Medio|4 1\/2|4½)$/))) base = `${m[1]} Lau t'erdiko Txapelketa`;
+  else if((m = s.match(/^Torneo (.+?) Manomanista$/))) base = `${m[1]} Buruz Buruko Txapelketa`;
+  else if((m = s.match(/^Torneo (.+)$/))) base = `${m[1]} Txapelketa`;
+  else if((m = s.match(/^Desaf[ií]o Urzante ?(.*)$/))) base = `${m[1] ? m[1]+' ' : ''}Urzante Desafioa`;
+  else base = s;                                    // Masters CaixaBank y nombres propios
+  return base + (promo ? ' (Promozioa)' : '') + (serie ? ` ${serie} Seriea` : '');
 }
+
+// Textos de fase que vienen tal cual de la cartelera de Baiko/Aspe
+// ('Semifinales (Grupo A)', '7ª Jornada', 'Festival'...)
+function tFase(texto){
+  if(!texto) return '';
+  // Aspe da algunas fases en los dos idiomas: 'Zortzirenak // Octavos', 'Laurdenak / Cuartos'
+  const bi = texto.match(/^([^\s/]+)\s*\/\/?\s*([^\s/]+)$/);
+  if(bi && !/\d/.test(texto)) return LANG === 'eu' ? bi[1] : bi[2];
+  if(LANG !== 'eu') return texto;
+  // 'Final San Mateo Serie B' -> 'San Mateo Txapelketa B Seriea · Finala'
+  const fc = texto.match(/^(Final|Finales|Semifinal|Semifinales)\s+((?:Torneo\s+)?(?:San |Masters|Aste|La Blanca|Donostia).+)$/i);
+  if(fc) return `${tComp(/^(Torneo|Masters)/i.test(fc[2]) ? fc[2] : 'Torneo '+fc[2])} · ${tFase(fc[1])}`;
+  if(/^(Campeonato|Torneo|Desaf[ií]o)\b/i.test(texto) && !/\b(final|jornada|grupo)/i.test(texto)) return tComp(texto);
+  const reglas = [
+    [/Cuartos de final/gi, 'Final-laurdenak'], [/Octavos de final/gi, 'Final-zortzirenak'],
+    [/Semifinales/gi, 'Finalerdiak'], [/Semifinal/gi, 'Finalerdia'],
+    [/\bFinales\b/gi, 'Finalak'], [/\bFinal\b(?![-a-z])/gi, 'Finala'],
+    [/(\d+)ª Jornada/gi, '$1. jardunaldia'], [/\bJornada\b/gi, 'Jardunaldia'],
+    [/\bEliminatoria\b/gi, 'Kanporaketa'], [/\bGrupo ([A-Z])\b/g, '$1 multzoa'],
+    [/\bFestival\b/gi, 'Jaialdia'], [/\bAbono\b/gi, 'Abonua'], [/\bD[ií]a (\d+)\b/gi, '$1. eguna'],
+    [/\bSerie ([AB])\b/g, '$1 Seriea'], [/\bTorneo San Mateo\b/g, 'San Mateo Txapelketa'],
+  ];
+  return reglas.reduce((t, [re, por]) => t.replace(re, por), texto);
+}
+
 const TIPOS=[
   {k:'todos',      lbl:'Todos'},
   {k:'campeonato', lbl:'Parejas'},
@@ -314,6 +294,21 @@ const I18N = {
     sin_enfrentamientos: 'Sin enfrentamientos',
     pareja_exacta: 'pareja exacta',
     lbl_fecha_sort: 'Fecha ↕',
+    // Añadidas en la revisión de traducciones
+    aria_menu: 'Menú', aria_cerrar: 'Cerrar',
+    rk_tab_elo: 'Elo',
+    lbl_pelotari1: 'Pelotari 1', lbl_pelotari2: 'Pelotari 2',
+    cont_ph_email: 'tu@email.com',
+    lbl_pelota_mano: 'Pelota a mano',
+    th_compañero: 'Compañero', th_rival: 'Rival',
+    abbr_v: 'V', abbr_d: 'D', abbr_pj: 'PJ',
+    sin_datos: 'Sin datos suficientes',
+    n_partido: '{n} partido', n_partidos: '{n} partidos',
+    pct_victorias: '{n}% victorias', pts_p: '{n} pts/p',
+    comp_abbr: 'Comp.',
+    cart_error: 'No se ha podido cargar la cartelera.',
+    map_acercar: 'Acercar', map_alejar: 'Alejar',
+    abbr_tantos: 'Pts',
   },
   eu: {
     nav_cartelera: 'Kartelera',
@@ -329,13 +324,13 @@ const I18N = {
     kpi_frontones: 'Frontoiak',
     kpi_oficiales: 'Ofizialak', kpi_campeonatos: 'txapelketak',
     kpi_festivales: 'Jaialdiak', kpi_amistosos: 'lagunartekoak',
-    flabel_modalidad: 'Modalitatea', flabel_desde: 'Nondik', flabel_hasta: 'Nora',
+    flabel_modalidad: 'Modalitatea', flabel_desde: 'Noiztik', flabel_hasta: 'Noiz arte',
     flabel_pelotari: 'Pilotaria', flabel_competicion: 'Lehiaketa', flabel_fronton: 'Frontoia',
     flabel_año: 'Urtea', flabel_serie: 'Seriea',
     btn_limpiar: 'Garbitu',
     ph_buscar_pelotari: 'Bilatu pilotaria…', ph_buscar_fronton: 'Bilatu frontoia…',
     sel_todas: 'Guztiak', sel_todos: 'Guztiak',
-    tipo_todos: 'Guztiak', tipo_parejas: 'Binakakoa', tipo_mano: 'Buruz Burukoa', tipo_cuatro: "4 t'erdi",
+    tipo_todos: 'Guztiak', tipo_parejas: 'Binakakoa', tipo_mano: 'Buruz Burukoa', tipo_cuatro: "Lau t'erdi",
     serie_todas: 'Guztiak', serie_a: 'A Seriea', serie_b: 'B Seriea', serie_fest: 'Jaialdiak',
     th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
@@ -343,7 +338,7 @@ const I18N = {
     sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
     sec_contacto: 'Kontaktua',
     lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
-    lbl_derrotas: 'Porroak', lbl_pts_p: 'Puntu/partida', lbl_diferencia: 'Aldea',
+    lbl_derrotas: 'Porrotak', lbl_pts_p: 'Tanto/partida', lbl_diferencia: 'Aldea',
     lbl_compañeros: 'Bikotekideak', lbl_rivales: 'Aurkari ohikoenak',
     lbl_volver: '← Itzuli',
     comp_h2h: 'Aurrez Aurre', comp_parejas: 'Binakako Konparatzailea',
@@ -355,8 +350,8 @@ const I18N = {
     eq_colorada: 'BIKOTE GORRIA', eq_azul: 'BIKOTE URDINA',
     lbl_delantero: 'Aurrelaria', lbl_zaguero: 'Atzelaria',
     c4_identico: 'Partida berdina', c4_partidos_col: 'Partidak',
-    c4_h2h_del: 'Aurrelarien arteko H2H', c4_h2h_zag: 'Atzelarien arteko H2H',
-    c4_sin_zag: 'Hautatu bi atzelariak haien H2H ikusteko',
+    c4_h2h_del: 'Aurrelariak aurrez aurre', c4_h2h_zag: 'Atzelariak aurrez aurre',
+    c4_sin_zag: 'Hautatu bi atzelariak aurrez aurre ikusteko',
     c4_con_hist: 'Elkarrekin jokatutakoak', c4_sin_hist: 'Historia gabe',
     c4_partidos_label: 'partida',
     c4_ver_mas: '{n} gehiago ikusi ↓',
@@ -364,42 +359,91 @@ const I18N = {
     stat_perd: 'galdu.',
     cart_ver_hist: '→ Historia ikusi', cart_cargando: '⟳ Kartelera kargatzen…',
     cart_ver_opciones: '↓ Aukerak',
-    cart_como_llegar: 'Nola heldu',
+    cart_como_llegar: 'Nola iritsi',
     cart_estadisticas: 'Estatistikak',
-    fronton_como_llegar: 'Nola heldu',
+    fronton_como_llegar: 'Nola iritsi',
     fmap_ver_partidos: 'Partidak ikusi →',
     cart_no_partidos: 'Ez dago hurrengo partidarik',
     cart_recarga: '↻ Berritu',
-    cart_recarga: '↻ Berritu',
     cont_intro: 'Iradokizunen bat duzu, daturen bat gaizki dagoela ikusi duzu edo lagundu nahi duzu?<br>Idatzi eta ahal bezain laster erantzungo dizugu.',
-    cont_nombre: 'Izena', cont_email: 'Email', cont_asunto: 'Gaia', cont_mensaje: 'Mezua',
+    cont_nombre: 'Izena', cont_email: 'Posta elektronikoa', cont_asunto: 'Gaia', cont_mensaje: 'Mezua',
     cont_ph_nombre: 'Zure izena', cont_ph_asunto: 'Datuen errorea, iradokizuna…', cont_ph_mensaje: 'Kontaiguzu…',
     cont_btn: 'Mezua bidali',
     cont_ok: '✓ Mezua prest — posta elektronikoa irekiko da.',
     cont_directo: 'Edo idatzi zuzenean helbide honetara',
     rk_title: 'Sailkapena',
-    nodata_h2h: 'Ez dago enfrentamendurik',
+    nodata_h2h: 'Ez dute elkarren aurka jokatu:',
     nodata_sin_comp: 'Bikotekiderik gabe', nodata_sin_riv: 'Aurkaririk gabe',
     tag_seriea: 'A Seriea', tag_serieb: 'B Seriea', tag_festival: 'Jaialdia',
-    tag_mano: 'Buruz Burukoa', tag_manoa: 'Mano A', tag_manob: 'Mano B',
+    tag_mano: 'Buruz Burukoa', tag_manoa: 'Buruz A', tag_manob: 'Buruz B',
     tag_cuatroa: "4½ A", tag_cuatrob: "4½ B",
     rol_del: 'Aur', rol_zag: 'Atz',
+    // Añadidas en la revisión de traducciones
+    rk_tab_victorias: 'Garaipenak',
+    rk_tab_pct: '% Garaipenak',
+    rk_tab_roles: 'Aurre vs Atze',
+    rk_tab_parejas: 'Bikoteak',
+    rk_tab_over: '+36.5 tanto',
+    rk_tab_racha: 'Bolada',
+    rk_tab_elo: 'Elo',
+    rk_min_pj: 'Gutxienez {n} partida',
+    rk_solo_parejas: 'binakakoak bakarrik',
+    rk_delanteros: 'Aurrelariak',
+    rk_zagueros: 'Atzelariak',
+    rk_mejor_racha: 'Bolada onena',
+    rk_racha_activa: 'Oraingo bolada',
+    rk_seg: 'jarraian',
+    rk_actual: 'Orain',
+    rk_mejor: 'Onena',
+    lbl_ultimos: 'Azken partidak',
+    lbl_solo_activos: 'Aktiboak bakarrik',
+    tab_activos: '⚡ Aktiboak',
+    tab_historico: '📜 Historikoa',
+    lbl_rango_fechas: 'Data tartea',
+    lbl_limpiar: '✕ Garbitu',
+    lbl_individual: 'Banakakoa',
+    h2h_pts_partido: 'tanto/partida',
+    cart_eventos: 'ekitaldi',
+    cart_fuente: 'Iturria',
+    cart_actualizado: 'Eguneratuta',
+    dias: ['Igandea','Astelehena','Asteartea','Asteazkena','Osteguna','Ostirala','Larunbata'],
+    meses: ['urtarrilaren','otsailaren','martxoaren','apirilaren','maiatzaren','ekainaren','uztailaren','abuztuaren','irailaren','urriaren','azaroaren','abenduaren'],
+    cont_alerta: 'Mesedez, bete izena, emaila eta mezua.',
+    cont_asunto_def: 'EskupilotaStats kontaktua',
+    sin_partidos: 'Partidarik ez',
+    sin_enfrentamientos: 'Ez dute elkarren aurka jokatu',
+    pareja_exacta: 'bikote bera',
+    lbl_fecha_sort: 'Data ↕',
+    aria_menu: 'Menua', aria_cerrar: 'Itxi',
+    lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
+    cont_ph_email: 'zure@helbidea.eus',
+    lbl_pelota_mano: 'Esku pilota',
+    th_compañero: 'Bikotekidea', th_rival: 'Aurkaria',
+    abbr_v: 'G', abbr_d: 'P', abbr_pj: 'PJ',
+    sin_datos: 'Ez dago datu nahikorik',
+    n_partido: '{n} partida', n_partidos: '{n} partida',
+    pct_victorias: '%{n} garaipen', pts_p: '{n} tanto/p',
+    comp_abbr: 'Bik.',
+    cart_error: 'Ezin izan da kartelera kargatu.',
+    map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
+    abbr_tantos: 'Tanto',
   }
 };
 
 function t(key){ return (I18N[LANG]||I18N.es)[key] || I18N.es[key] || key; }
 
 function setLang(lang){
-  LANG = lang;
-  document.getElementById('langEs').classList.toggle('active', lang==='es');
-  document.getElementById('langEu').classList.toggle('active', lang==='eu');
-  // Si hay catálogos cargados, recargar los nombres de ciudad según idioma
-  if (Object.keys(CAT_CIUDADES).length && PARTIDOS.length) {
-    PARTIDOS = RAW_PARTIDOS.map(partidoFromCatalogo);
-    applyI18N();
-  } else {
-    applyI18N();
-  }
+  LANG = lang === 'eu' ? 'eu' : 'es';
+  try{ localStorage.setItem('eskupilota-lang', LANG); }catch(e){}
+  document.getElementById('langEs').classList.toggle('active', LANG==='es');
+  document.getElementById('langEu').classList.toggle('active', LANG==='eu');
+  // Los nombres de ciudad dependen del idioma: se recalculan los partidos
+  if (RAW_PARTIDOS.length) PARTIDOS = RAW_PARTIDOS.map(partidoFromCatalogo);
+  applyI18N();
+}
+
+function idiomaGuardado(){
+  try{ return localStorage.getItem('eskupilota-lang'); }catch(e){ return null; }
 }
 
 function rebuildCompFilter(){
@@ -414,132 +458,61 @@ function rebuildCompFilter(){
   [...normMap.keys()].sort().forEach(norm=>{
     const o=document.createElement('option');
     o.value=norm;
-    o.textContent=(COMP_TRANS[LANG]||COMP_TRANS.es)[norm]||norm;
+    o.textContent=tComp(norm);
     fc.appendChild(o);
   });
   if(current) fc.value=current;
 }
 
 function applyI18N(){
-  // Nav buttons
-  const navMap = {
-    'cartelera':'nav_cartelera','partidos':'nav_resultados','comparador':'nav_comparador',
-    'pelotaris':'nav_pelotaris','frontones':'nav_frontones','ranking':'nav_ranking',
-    'campeonatos':'nav_campeonatos','contacto':'nav_contacto'
-  };
-  document.querySelectorAll('nav button').forEach(btn=>{
-    const m = btn.getAttribute('onclick').match(/showSec\('(\w+)'/);
-    if(m && navMap[m[1]]) btn.textContent = t(navMap[m[1]]);
-  });
-  // Filter labels
-  const labelMap = {
-    'pillsPartidos':'flabel_modalidad','pillsPel':'flabel_modalidad','pillsRk':'flabel_modalidad','pillsFron':'flabel_modalidad',
-    'fDesde':'flabel_desde','fHasta':'flabel_hasta','sInput':'flabel_pelotari',
-    'fComp':'flabel_competicion','fFron':'flabel_fronton',
-    'frontonSearch':'flabel_fronton','pSearch':'flabel_pelotari',
-  };
-  document.querySelectorAll('.flabel').forEach(el=>{
-    const inp = el.parentElement.querySelector('input,select,.tipo-pills,.year-pills');
-    if(inp){
-      const id = inp.id;
-      if(id==='fDesde') el.textContent=t('flabel_desde');
-      else if(id==='fHasta') el.textContent=t('flabel_hasta');
-      else if(id==='sInput'||id==='pSearch') el.textContent=t('flabel_pelotari');
-      else if(id==='fComp') el.textContent=t('flabel_competicion');
-      else if(id==='fFron'||id==='frontonSearch') el.textContent=t('flabel_fronton');
-      else if(id&&id.startsWith('pills')) el.textContent=t('flabel_modalidad');
-      else if(id&&id.startsWith('year')) el.textContent=t('flabel_año');
-    }
-  });
-  // Tipo pills labels
+  document.documentElement.lang = LANG;
+  // renderPCards() cierra el perfil: se recuerda para reabrirlo en el nuevo idioma
+  const perfilAbierto = document.getElementById('perfilSec')?.style.display === 'block' ? _perfilNombre : null;
+  // Textos fijos del HTML: data-i18n (texto), data-i18n-html, data-i18n-ph, data-i18n-aria
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{ el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  // Botones que genera el JS
   document.querySelectorAll('.tipo-pills .pill').forEach(btn=>{
-    const k = btn.dataset.tipo;
     const map = {todos:'tipo_todos',campeonato:'tipo_parejas',manomanista:'tipo_mano',cuatro:'tipo_cuatro'};
-    if(map[k]) btn.textContent = t(map[k]);
+    if(map[btn.dataset.tipo]) btn.textContent = t(map[btn.dataset.tipo]);
   });
-  // Year pills "Todos"
   document.querySelectorAll('.ypill[data-year="todos"]').forEach(b=>b.textContent=t('sel_todos'));
-  // Selects first option
-  const fComp = document.getElementById('fComp');
-  if(fComp && fComp.options[0]) fComp.options[0].textContent = t('sel_todas');
-  const fFron = document.getElementById('fFron');
-  if(fFron && fFron.options[0]) fFron.options[0].textContent = t('sel_todos');
-  // Table headers
-  const thMap = ['th_fecha','th_tipo','th_fronton','th_equipo1','th_marcador','th_equipo2','th_comp'];
-  document.querySelectorAll('#sec-partidos thead th').forEach((th,i)=>{ if(thMap[i]) th.childNodes[0].textContent=t(thMap[i])+' '; });
-  // Placeholders
-  const pBusPel = document.getElementById('sInput'); if(pBusPel) pBusPel.placeholder=t('ph_buscar_pelotari');
-  const pBusPel2 = document.getElementById('pSearch'); if(pBusPel2) pBusPel2.placeholder=t('ph_buscar_pelotari');
-  const pBusFr = document.getElementById('frontonSearch'); if(pBusFr) pBusFr.placeholder=t('ph_buscar_fronton');
-  // Comparador buttons
-  document.querySelector('.ctype-btn[onclick*="h2h"]').textContent = t('comp_h2h');
-  document.querySelector('.ctype-btn[onclick*="parejas"]').textContent = t('comp_parejas');
-  // H2H Serie pills
-  const serieMap = {todas:'serie_todas',a:'serie_a',b:'serie_b',festival:'serie_fest'};
-  document.querySelectorAll('.comp-sub-pill').forEach(b=>{ if(serieMap[b.dataset.serie]) b.textContent=t(serieMap[b.dataset.serie]); });
-  // H2H nodata
-  document.querySelector('#h2hRes .nodata')?.querySelector('*:last-child')?.replaceChildren(document.createTextNode(t('h2h_sin_sel')));
-  // Comparador C4 selects
-  ['c4d1','c4d2'].forEach(id=>{
-    const s=document.getElementById(id);
-    if(s&&s.options[0]) s.options[0].textContent=t('sel_delantero');
+  // Zagueros del comparador: "IZTUETA (29 partidos)"
+  document.querySelectorAll('#c4z1 option, #c4z2 option').forEach(o=>{
+    const m = o.textContent.match(/^(.*) \((\d+) \S+\)$/);
+    if(m) o.textContent = `${m[1]} (${nPartidos(+m[2])})`;
   });
-  ['c4z1','c4z2'].forEach(id=>{
-    const s=document.getElementById(id);
-    if(s&&s.options[0]) s.options[0].textContent=t('sel_zaguero_any');
-  });
-  // Equipo titles
-  document.querySelectorAll('.eq-title').forEach((el,i)=>el.textContent=i===0?t('eq_colorada'):t('eq_azul'));
-  // C4 labels
-  document.querySelectorAll('.c4-lbl').forEach(el=>{
-    if(el.textContent.trim()==='Delantero'||el.textContent.trim()==='Aurrelaria') el.textContent=t('lbl_delantero');
-    if(el.textContent.trim()==='Zaguero'||el.textContent.trim()==='Atzelaria') el.textContent=t('lbl_zaguero');
-  });
-  // Limpiar button
-  document.querySelectorAll('.btn-ghost[onclick="resetFiltros()"]').forEach(b=>b.textContent=t('btn_limpiar'));
-  // Section titles (static ones)
-  document.querySelector('#sec-pelotaris .sec-title')?.childNodes[0]?.replaceWith?.(document.createTextNode(t('sec_pelotaris')+' '));
-  // Ranking tabs
-  ['victorias','pct','roles','parejas','over365','racha'].forEach(tab=>{
-    const el=document.getElementById('rktab-'+tab);
-    if(el) el.textContent=t('rk_tab_'+tab.replace('365',''));
-  });
-  // Fix over365 tab separately
-  const tabOver=document.getElementById('rktab-over365');
-  if(tabOver) tabOver.textContent=t('rk_tab_over');
-  // Solo activos
-  const lblPel=document.getElementById('soloActivosLblPel');
-  if(lblPel) lblPel.textContent=t('lbl_solo_activos');
-  const lblRk=document.getElementById('soloActivosLblRk');
-  if(lblRk) lblRk.textContent=t('lbl_solo_activos');
-  // Individual badge
-  const badgeInd=document.getElementById('badgeIndividual');
-  if(badgeInd) badgeInd.textContent=t('lbl_individual');
-  // Últimos partidos title
-  const pfUlt=document.getElementById('pfUltimosTitle');
-  if(pfUlt) pfUlt.textContent=t('lbl_ultimos');
-  // Tabla fecha header
-  const thFecha=document.getElementById('th-fecha-sort');
-  if(thFecha) thFecha.childNodes[0].textContent=t('lbl_fecha_sort')+' ';
-  // Rebuild ranking to update translated strings
-  buildRanking();
-  // Contacto
-  document.querySelector('#cNombre')?.setAttribute('placeholder', t('cont_ph_nombre'));
-  document.querySelector('#cAsunto')?.setAttribute('placeholder', t('cont_ph_asunto'));
-  document.querySelector('#cMensaje')?.setAttribute('placeholder', t('cont_ph_mensaje'));
-  document.querySelector('.contact-intro').innerHTML = t('cont_intro');
-  document.querySelector('.contact-direct').innerHTML = t('cont_directo')+' <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>';
-  document.querySelector('.btn[onclick="enviarContacto()"]').textContent = t('cont_btn');
-  const btnVolver=document.getElementById('btnVolver'); if(btnVolver) btnVolver.textContent=t('lbl_volver');
-  // Rebuild KPIs
+  // Controles del mapa
+  document.querySelector('.leaflet-control-zoom-in')?.setAttribute('title', t('map_acercar'));
+  document.querySelector('.leaflet-control-zoom-out')?.setAttribute('title', t('map_alejar'));
+  // Contenido que se pinta desde el JS
   buildKPIs();
-  // Rebuild competition filter with translated names
   rebuildCompFilter();
-  // Re-render dynamic content that uses translated strings
   renderTabla();
   renderPCards();
   buildRanking();
+  repintarVistas(perfilAbierto);
 }
+
+// Vuelve a pintar las vistas con datos (en el idioma actual) sin tocar la URL
+function repintarVistas(perfilAbierto){
+  const antes = _routing; _routing = true;
+  try{
+    renderH2H();
+    if(document.getElementById('c4d1')?.value && document.getElementById('c4d2')?.value) renderC4();
+    if(perfilAbierto) openPerfil(perfilAbierto);
+    renderFrontones();
+    if(document.getElementById('frontonDetail')?.classList.contains('active') && _frontonActual) abrirFronton(_frontonActual, false, false);
+    buildCampeonatos();
+    if(_campActual) renderCampeonato(_campActual);
+    if(_carteleraData) renderCartelera(_carteleraData);
+  } finally { _routing = antes; }
+}
+
+// "1 partido" / "5 partidos" · "1 partida" / "5 partida"
+function nPartidos(n){ return t(n === 1 ? 'n_partido' : 'n_partidos').replace('{n}', n); }
 
 // ════════════════════════════════════════════════════════════
 // CARGA
@@ -552,6 +525,11 @@ let CAT_PELOTARIS = {}, CAT_FRONTONES = {}, CAT_CIUDADES = {}, CAT_COMPETICIONES
 let RAW_PARTIDOS = [];
 
 async function loadData(){
+  // Idioma elegido en otra visita
+  const guardado = idiomaGuardado();
+  if(guardado === 'eu' || guardado === 'es') LANG = guardado;
+  document.getElementById('langEs').classList.toggle('active', LANG==='es');
+  document.getElementById('langEu').classList.toggle('active', LANG==='eu');
   // Intentar cargar modelo nuevo (catálogos). Si falla, caer al antiguo.
   try{
     const [pels, ciu, fro, cmp, par] = await Promise.all([
@@ -837,7 +815,7 @@ function buildFilters(){
     if(norm&&!normMap.has(norm)) normMap.set(norm, norm);
   });
   [...normMap.keys()].sort().forEach(norm=>{
-    const o=document.createElement('option');o.value=norm;o.textContent=(COMP_TRANS[LANG]||COMP_TRANS.es)[norm]||norm;fc.appendChild(o);
+    const o=document.createElement('option');o.value=norm;o.textContent=tComp(norm);fc.appendChild(o);
   });
   const ff=document.getElementById('fFron');
   [...new Set(PARTIDOS.map(p=>p.fronton))].sort().forEach(f=>{
@@ -1037,11 +1015,11 @@ function renderPCards(){
 
   let html = '';
   if(dels.length){
-    html += `<div class="pel-group-header del">${t('lbl_delantero')}s <span class="pel-group-count">${dels.length}</span></div>`;
+    html += `<div class="pel-group-header del">${t('rk_delanteros')} <span class="pel-group-count">${dels.length}</span></div>`;
     html += `<div class="cards-grid">${dels.map(mkCard).join('')}</div>`;
   }
   if(zags.length){
-    html += `<div class="pel-group-header zag">${t('lbl_zaguero')}s <span class="pel-group-count">${zags.length}</span></div>`;
+    html += `<div class="pel-group-header zag">${t('rk_zagueros')} <span class="pel-group-count">${zags.length}</span></div>`;
     html += `<div class="cards-grid">${zags.map(mkCard).join('')}</div>`;
   }
   // no mostrar grupo 'otros'
@@ -1086,7 +1064,7 @@ function openPerfil(nombre){
     <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
     <td style="font-family:var(--mono);text-align:center">${s.pj}</td>
     <td style="font-family:var(--mono);text-align:center">${Math.round(s.pg/s.pj*100)}%</td></tr>`
-  ).join('')||'<tr><td colspan="5" class="nodata">Sin compañeros</td></tr>';
+  ).join('')||`<tr><td colspan="5" class="nodata">${t('nodata_sin_comp')}</td></tr>`;
 
   const rivRows=Object.entries(riv).sort((a,b)=>b[1].pj-a[1].pj).slice(0,10).map(([n,s])=>`
     <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${n}</td>
@@ -1097,7 +1075,7 @@ function openPerfil(nombre){
 
   document.getElementById('pfWrap').innerHTML=`
     <div>
-      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">Pelota a Mano</div></div>
+      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${t('lbl_pelota_mano')}</div></div>
       <div class="pf-sgrid">
         <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
         <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">${t('lbl_derrotas')}</div></div>
@@ -1110,36 +1088,36 @@ function openPerfil(nombre){
     <div class="pf-main">
       <div class="ch-card gr">
         <h3>${t('lbl_compañeros')}</h3>
-        <table class="comp-table"><thead><tr><th>${t('lbl_compañeros').split(' ')[0]}</th><th>V</th><th>D</th><th>PJ</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
+        <table class="comp-table"><thead><tr><th>${t('th_compañero')}</th><th>${t('abbr_v')}</th><th>${t('abbr_d')}</th><th>${t('abbr_pj')}</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
       </div>
       <div class="ch-card">
         <h3>${t('lbl_rivales')}</h3>
-        <table class="comp-table"><thead><tr><th>Rival</th><th>V</th><th>D</th><th>PJ</th></tr></thead><tbody>${rivRows}</tbody></table>
+        <table class="comp-table"><thead><tr><th>${t('th_rival')}</th><th>${t('abbr_v')}</th><th>${t('abbr_d')}</th><th>${t('abbr_pj')}</th></tr></thead><tbody>${rivRows}</tbody></table>
       </div>
       <div class="ch-card pf-ultimos" id="pfUltimos">
-        <h3 id="pfUltimosTitle">Últimos partidos</h3>
+        <h3 id="pfUltimosTitle">${t('lbl_ultimos')}</h3>
         <div class="pf-ultimos-filters">
           <div class="fg">
-            <span class="flabel">Frontón</span>
+            <span class="flabel">${t('flabel_fronton')}</span>
             <select id="pfFronFilter" onchange="renderPerfilPartidos()" style="width:100%">
-              <option value="">Todos</option>
+              <option value="">${t('sel_todos')}</option>
             </select>
           </div>
           <div class="fg">
-            <span class="flabel">Desde</span>
+            <span class="flabel">${t('flabel_desde')}</span>
             <input type="date" id="pfDesdeFilter" onchange="renderPerfilPartidos()">
           </div>
           <div class="fg">
-            <span class="flabel">Hasta</span>
+            <span class="flabel">${t('flabel_hasta')}</span>
             <input type="date" id="pfHastaFilter" onchange="renderPerfilPartidos()">
           </div>
           <div class="fg" style="justify-content:flex-end">
-            <button class="btn-ghost" onclick="resetPerfilFiltros()">Limpiar</button>
+            <button class="btn-ghost" onclick="resetPerfilFiltros()">${t('btn_limpiar')}</button>
           </div>
         </div>
         <div id="pfPartidosList"></div>
         <div class="pf-load-more" id="pfLoadMore" style="display:none">
-          <button class="btn-ghost" onclick="loadMorePerfilPartidos()">Ver 10 más ↓</button>
+          <button class="btn-ghost" onclick="loadMorePerfilPartidos()">${t('c4_ver_mas').replace('{n}',10)}</button>
         </div>
       </div>
     </div>`;
@@ -1161,7 +1139,7 @@ function populatePerfilFrontons(nombre, parts){
   )].sort();
   const sel = document.getElementById('pfFronFilter');
   if(!sel) return;
-  sel.innerHTML = '<option value="">Todos</option>';
+  sel.innerHTML = `<option value="" data-i18n="sel_todos">${t('sel_todos')}</option>`;
   frontons.forEach(f=>{ const o=document.createElement('option');o.value=f;o.textContent=f;sel.appendChild(o); });
 }
 
@@ -1315,8 +1293,8 @@ function buildRanking(){
     const st = calcStats(parts);
     const sorted = filterActive(Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc)));
     const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
-    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div>`;
+    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
     el.innerHTML = mkGrid([
       mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
@@ -1332,7 +1310,7 @@ function buildRanking(){
       .sort((a,b)=>(b[1].pg/b[1].pj)-(a[1].pg/a[1].pj)));
     const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
     const sf = s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'});
-    const ec = s=>`<div class="rk-stat">${s.pg}V</div><div class="rk-stat">${s.pj}PJ</div>`;
+    const ec = s=>`<div class="rk-stat">${s.pg}${t('abbr_v')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
     el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)}</div>` + mkGrid([
       mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
@@ -1345,8 +1323,8 @@ function buildRanking(){
     const st = calcStats(parsParejas);
     const dels = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='delantero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
     const zags = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='zaguero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
-    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
+    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
     el.innerHTML = mkGrid([
       mkRkCard(t('rk_delanteros'), dels, sf, ec),
       mkRkCard(t('rk_zagueros'), zags, sf, ec, 'azul')
@@ -1372,12 +1350,12 @@ function buildRanking(){
     });
     const sorted = Object.entries(pStats).filter(([,s])=>s.pj>=3).sort((a,b)=>b[1].pg-a[1].pg).slice(0,20); // parejas no filtra por activo individualmente
     const h = Math.ceil(sorted.length/2);
-    const sf = s=>({val:s.pg, lbl:s.pg+'V'});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}D</div><div class="rk-stat">${s.pj}PJ</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
+    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
+    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
     el.innerHTML = sorted.length ? mkGrid([
       mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
-    ]) : '<div class="nodata"><div class="ic">📭</div>Sin datos suficientes</div>';
+    ]) : `<div class="nodata"><div class="ic">📭</div>${t('sin_datos')}</div>`;
   }
 
   // ── TAB: +36.5 tantos ──
@@ -1401,7 +1379,7 @@ function buildRanking(){
       .slice(0,20);
     const h = Math.ceil(sorted.length/2);
     const sf = s=>({val:s.over/s.pj*100, lbl:Math.round(s.over/s.pj*100)+'%'});
-    const ec = s=>`<div class="rk-stat">${s.over} partidos</div><div class="rk-stat">${s.pj}PJ</div>`;
+    const ec = s=>`<div class="rk-stat">${nPartidos(s.over)}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
     el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)} · ${t('rk_solo_parejas')}</div>` + mkGrid([
       mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
       mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
@@ -1508,7 +1486,7 @@ function renderH2H(){
   const p2=document.getElementById('h2hP2').value;
   const el=document.getElementById('h2hRes');
   if(!p1||!p2||p1===p2){
-    el.innerHTML=`<div class="nodata"><div class="ic">🏸</div>${t('h2h_sin_sel')||'Selecciona dos pelotaris distintos'}</div>`;
+    el.innerHTML=`<div class="nodata"><div class="ic">🏸</div>${t('h2h_sin_sel')}</div>`;
     return;
   }
 
@@ -1526,7 +1504,7 @@ function renderH2H(){
   const serieLbl={todas:t('serie_todas'),a:t('serie_a'),b:t('serie_b'),festival:t('serie_fest')}[h2hSerie];
 
   if(!enfs.length){
-    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>${t('nodata_h2h')||'Sin enfrentamientos'} <strong>${modLbl} — ${serieLbl}</strong></div>`;
+    el.innerHTML=`<div class="nodata"><div class="ic">📭</div>${t('nodata_h2h')} <strong>${modLbl} — ${serieLbl}</strong></div>`;
     return;
   }
 
@@ -1559,17 +1537,17 @@ function renderH2H(){
   }).join('');
 
   el.innerHTML=`
-    <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${enfs.length} partido${enfs.length!==1?'s':''}</div>
+    <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${nPartidos(enfs.length)}</div>
     <div class="comp-bar">
       <div><div class="comp-nm" style="color:var(--green)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
-      <div><div class="comp-pj">${enfs.length} PJ</div></div>
-      <div><div class="comp-nm" style="color:var(--green-dark)">${p2}</div><div class="comp-wins der" style="color:var(--green-dark)">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} pts/partido</div></div>
+      <div><div class="comp-pj">${enfs.length} ${t('abbr_pj')}</div></div>
+      <div><div class="comp-nm" style="color:var(--green-dark)">${p2}</div><div class="comp-wins der" style="color:var(--green-dark)">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
     </div>
     <div class="twrap"><table><thead><tr>
       <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-      ${esMano?'':`<th>Comp. ${p1}</th>`}
+      ${esMano?'':`<th>${t('comp_abbr')} ${p1}</th>`}
       <th>${p1}</th><th></th><th>${p2}</th>
-      ${esMano?'':`<th>Comp. ${p2}</th>`}
+      ${esMano?'':`<th>${t('comp_abbr')} ${p2}</th>`}
     </tr></thead><tbody>${filas}</tbody></table></div>
     <div class="m-card">${renderMobileCardsHTML(enfs, {paginated:true, initial:5, step:5})}</div>`;
 }
@@ -1600,7 +1578,7 @@ function populateC4Sels(){
   ['c4z1','c4z2'].forEach(id=>{
     const s=document.getElementById(id);
     s.disabled=false;
-    s.innerHTML='<option value="">— Cualquier zaguero —</option>';
+    s.innerHTML=`<option value="" data-i18n="sel_zaguero_any">${t('sel_zaguero_any')}</option>`;
     zagueros.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
   });
 }
@@ -1623,7 +1601,7 @@ function c4DelanteroChange(num){
   }
   // Siempre mostrar todos los zagueros conocidos, con frecuencia si aplica
   zagSel.disabled=false;
-  zagSel.innerHTML='<option value="">— Cualquier zaguero —</option>';
+  zagSel.innerHTML=`<option value="" data-i18n="sel_zaguero_any">${t('sel_zaguero_any')}</option>`;
   const todosZag=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
     .filter(Boolean).filter(n=>getRol(n)==='zaguero').sort();
   // Primero los que han jugado con este delantero (por frecuencia), luego el resto
@@ -1633,7 +1611,7 @@ function c4DelanteroChange(num){
     const gr1=document.createElement('optgroup');gr1.label=t('c4_con_hist');
     conHistorial.forEach(z=>{
       const o=document.createElement('option');o.value=z;
-      o.textContent=`${z} (${comps.get(z)} partidos)`;gr1.appendChild(o);
+      o.textContent=`${z} (${nPartidos(comps.get(z))})`;gr1.appendChild(o);
     });
     zagSel.appendChild(gr1);
   }
@@ -1686,10 +1664,10 @@ function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
   const id = 'c4b' + (++_c4BlockId);
   const thead = `<thead><tr>
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-    <th style="color:var(--red)">Comp.</th>
+    <th style="color:var(--red)">${t('comp_abbr')}</th>
     <th style="color:var(--red)">${colLabel}</th><th></th>
     <th style="color:#2471a3">${azLabel}</th>
-    <th style="color:#2471a3">Comp.</th>
+    <th style="color:#2471a3">${t('comp_abbr')}</th>
   </tr></thead>`;
   const filas = partidos.map(p => c4FilaPartido(p, pivotCol, pivotAz));
   const visibles = filas.slice(0, MAX).join('');
@@ -1714,9 +1692,9 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
   const thead=`<thead><tr>
     <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
     <th style="color:${colorMain}">${parejaLabel}</th>
-    <th style="color:${colorMain}">Pts</th><th></th>
-    <th style="color:var(--muted)">Rival</th>
-    <th style="color:var(--muted)">Pts</th>
+    <th style="color:${colorMain}">${t('abbr_tantos')}</th><th></th>
+    <th style="color:var(--muted)">${t('th_rival')}</th>
+    <th style="color:var(--muted)">${t('abbr_tantos')}</th>
   </tr></thead>`;
   const filas = partidos.map(p=>{
     const e1=pels(p.equipo1), e2=pels(p.equipo2);
@@ -1805,8 +1783,8 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
     <div>
       <div class="c4-mnombre" style="color:var(--red)">${pivot_col}</div>
       <div class="c4-mwins col">${wCol}</div>
-      <div class="c4-mpj">${pctCol}% victorias</div>
-      <div class="c4-mpj">${(pfCol/n).toFixed(1)} pts/p</div>
+      <div class="c4-mpj">${t('pct_victorias').replace('{n}',pctCol)}</div>
+      <div class="c4-mpj">${t('pts_p').replace('{n}',(pfCol/n).toFixed(1))}</div>
     </div>
     <div style="text-align:center">
       <div style="font-family:var(--display);font-size:1.1rem;color:var(--muted)">${n} PJ</div>
@@ -1816,8 +1794,8 @@ function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
     <div>
       <div class="c4-mnombre" style="color:#2471a3">${pivot_az}</div>
       <div class="c4-mwins az">${wAz}</div>
-      <div class="c4-mpj">${100-pctCol}% victorias</div>
-      <div class="c4-mpj">${(pfAz/n).toFixed(1)} pts/p</div>
+      <div class="c4-mpj">${t('pct_victorias').replace('{n}',100-pctCol)}</div>
+      <div class="c4-mpj">${t('pts_p').replace('{n}',(pfAz/n).toFixed(1))}</div>
     </div>
   </div>`;
 }
@@ -1864,7 +1842,7 @@ function renderC4(){
 
   const mkBloque = (emoji,titulo,n,bar,tabla) => `
     <div class="c4-bloque">
-      <div class="c4-bloque-title">${emoji} ${titulo} <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${n} partido${n!==1?'s':''}</span></div>
+      <div class="c4-bloque-title">${emoji} ${titulo} <span style="font-family:var(--mono);font-size:.65rem;color:var(--muted);font-weight:400">${nPartidos(n)}</span></div>
       ${bar}${tabla}
     </div>`;
 
@@ -1873,17 +1851,17 @@ function renderC4(){
       exactos.length?c4Bar(exactos,d1,d2,t('pareja_exacta')):'',
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
     +mkBloque('🔴',`${t('c4_partidos_col')} ${colLabel}`,soloCol.length,
-      soloCol.length?c4Bar(soloCol,d1,d1,'pareja colorada','col'):'',
+      soloCol.length?c4Bar(soloCol,d1,d1,t('eq_colorada'),'col'):'',
       c4TablaSoloPareja(soloCol,d1,z1,colLabel,'col'))
     +mkBloque('🔵',`${t('c4_partidos_col')} ${azLabel}`,soloAz.length,
-      soloAz.length?c4Bar(soloAz,d2,d2,'pareja azul','az'):'',
+      soloAz.length?c4Bar(soloAz,d2,d2,t('eq_azul'),'az'):'',
       c4TablaSoloPareja(soloAz,d2,z2,azLabel,'az'))
     +mkBloque('⚔️',`${t('c4_h2h_del')} — ${d1} vs ${d2}`,h2hDel.length,
-      h2hDel.length?c4Bar(h2hDel,d1,d2,'H2H delanteros'):'',
+      h2hDel.length?c4Bar(h2hDel,d1,d2,t('c4_h2h_del')):'',
       c4TablaPartidos(h2hDel,d1,d2,d1,d2))
     +(z1&&z2
       ? mkBloque('🔄',`${t('c4_h2h_zag')} — ${z1} vs ${z2}`,h2hZag.length,
-          h2hZag.length?c4Bar(h2hZag,z1,z2,'H2H zagueros'):'',
+          h2hZag.length?c4Bar(h2hZag,z1,z2,t('c4_h2h_zag')):'',
           c4TablaPartidos(h2hZag,z1,z2,z1,z2))
       : `<div class="c4-bloque"><div class="c4-bloque-title">🔄 ${t('c4_h2h_zag')}</div><div class="nodata" style="padding:1.5rem"><div class="ic">🔵</div>${t('c4_sin_zag')}</div></div>`
     );
@@ -1962,6 +1940,7 @@ function goToNav(secId){
 // CARTELERA
 // ════════════════════════════════════════════════════════════
 let cartelaraLoaded = false;
+let _carteleraData = null;
 
 async function loadCartelera(){
   if(cartelaraLoaded) return;
@@ -1971,18 +1950,13 @@ async function loadCartelera(){
     const r = await fetch('data/cartelera.json?_='+Date.now());
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();
+    _carteleraData = data;
     renderCartelera(data);
     cartelaraLoaded = true;
   } catch(e){
     el.innerHTML = `<div class="cart-error">
-      <div class="cart-error-title">No se encontró data/cartelera.json</div>
-      <div class="cart-error-body">
-        Ejecuta el scraper para generar la cartelera:<br><br>
-        <code>pip install requests beautifulsoup4</code><br>
-        <code>python3 scraper/scraper_cartelera.py</code><br><br>
-        Esto genera <code>data/cartelera.json</code> que el frontend lee directamente.
-      </div>
-      <br><button class="btn" onclick="cartelaraLoaded=false;loadCartelera()">↻ Reintentar</button>
+      <div class="cart-error-title">${t('cart_error')}</div>
+      <br><button class="btn" onclick="cartelaraLoaded=false;loadCartelera()">${t('cart_recarga')}</button>
     </div>`;
   }
 }
@@ -1999,6 +1973,8 @@ function renderCartelera(data){
   const MESES=t('meses');
   function fmtFecha(f){
     try{ const[d,m,y]=f.split('/'); const dt=new Date(+y,+m-1,+d);
+      // eu: "Igandea, 2026ko irailaren 27a"
+      if(LANG==='eu') return `${DIAS[dt.getDay()]}, ${y}ko ${MESES[+m-1]} ${+d}a`;
       return `${DIAS[dt.getDay()]} ${+d} ${MESES[+m-1]} ${y}`; }
     catch{ return f; }
   }
@@ -2022,8 +1998,8 @@ function renderCartelera(data){
       const parts = ev.partidos||[];
       const partList = parts.length ? parts : [{eq1:[],eq2:[],tipo:ev.tipo||'campeonato-a',serie:'a',raw:(ev.cartel||[]).join(' ')}];
       const tipoEv = ev.tipo || (partList[0]?.tipo||'campeonato-a');
-      const faseBadge = ev.fase ? `<span class="cart-badge fase">${ev.fase}</span>` : '';
-      const compBadge = ev.competicion ? `<span class="cart-badge fase">${ev.competicion}</span>` : '';
+      const faseBadge = ev.fase ? `<span class="cart-badge fase">${tFase(ev.fase)}</span>` : '';
+      const compBadge = ev.competicion ? `<span class="cart-badge fase">${tFase(ev.competicion)}</span>` : '';
       const tvBadge = '';
       // URL de Google Maps a partir del frontón del evento (una vez por evento)
       let mapsUrl = '';
@@ -2048,7 +2024,7 @@ function renderCartelera(data){
       const partidosHtml = partList.map((p,idx)=>{
         const e1 = (p.eq1||[]).filter(Boolean).join(' / ')||'—';
         const e2 = (p.eq2||[]).filter(Boolean).join(' / ')||'—';
-        const serieBadge = p.serie && p.serie!=='a' ? `<span class="cart-partido-serie">Serie ${p.serie.toUpperCase()}</span>` : '';
+        const serieBadge = p.serie && p.serie!=='a' ? `<span class="cart-partido-serie">${t(p.serie==='b'?'tag_serieb':'tag_seriea')}</span>` : '';
         const pTipo = tipoLabel(p.tipo||tipoEv||'');
         const tipoBadge = `<span class="cart-badge ${tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`;
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
@@ -2191,7 +2167,9 @@ function initFrontonMap(){
   if(!document.getElementById('frontonMap')) return;
   if(_frontonMap){ _frontonMap.invalidateSize(); return; }
 
-  _frontonMap = L.map('frontonMap').setView([43.0, -2.0], 8);
+  _frontonMap = L.map('frontonMap', {zoomControl:false}).setView([43.0, -2.0], 8);
+  L.control.zoom({zoomInTitle: t('map_acercar'), zoomOutTitle: t('map_alejar')}).addTo(_frontonMap);
+  _frontonMap.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap © CARTO',
     subdomains: 'abcd',
@@ -2250,7 +2228,7 @@ function renderFrontonMarkers(){
       || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+f)}`;
     marker.bindPopup(`
       <div class="fmap-name">${f}</div>
-      <div class="fmap-count">${s.ciudad} · ${s.count} partido${s.count!==1?'s':''}</div>
+      <div class="fmap-count">${s.ciudad} · ${nPartidos(s.count)}</div>
       <div class="fmap-actions">
         <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');document.querySelector('.leaflet-popup-close-button').click()">${t('fmap_ver_partidos')}</button>
         <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="fmap-btn-ghost">
