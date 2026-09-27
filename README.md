@@ -24,8 +24,10 @@ data/                 Datos que lee la web
 scraper/
   scraper.py            Añade resultados nuevos desde baikopilota.eus/resultados
   scraper_cartelera.py  Regenera la cartelera desde baikopilota.eus/entradas
+  red.py                Descarga con reintentos (común a los scrapers)
   competiciones.py      Criterio para asignar competición y tipo a cada partido
   roles.py              Rol (delantero/zaguero) de cada pelotari según sus partidos
+tests/                  Pruebas de los scrapers con casos reales (sin red)
 tools/
   validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
   recalcular_contadores.py  Recalcula partidos_count y roles
@@ -39,6 +41,30 @@ El workflow `.github/workflows/datos.yml` se ejecuta cada día a las 00:01 UTC
 aún lee la cartelera del día anterior para saber la competición), después el
 de cartelera, valida los datos con `tools/validar_datos.py` y, si todo es
 correcto, hace un único commit con los cambios en `data/`.
+
+## Varias fuentes
+
+Los dos scrapers tienen una lista `FUENTES` (nombre, URL, función que lee la
+página). De la primera fuente se guarda todo; de las siguientes, solo lo que
+no esté ya:
+
+- Resultados: es el mismo partido si coincide la fecha y los pelotaris (en
+  cualquier orden y aunque cambien tildes o mayúsculas). Si el tanteo no
+  coincide se conserva el guardado y queda un aviso en
+  `data/avisos_scraper.json`. Cada partido nuevo lleva `"fuente"`.
+- Cartelera: es el mismo evento si coincide el día y el frontón, o el día y
+  algún partido.
+
+Si una fuente falla, se guarda lo de las demás y la ejecución sale en rojo.
+
+## Pruebas
+
+```bash
+python -m unittest discover tests
+```
+
+Se ejecutan en cada push (`.github/workflows/tests.yml`) y antes del scraping
+diario.
 
 ## Desarrollo local
 

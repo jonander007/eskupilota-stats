@@ -25,13 +25,14 @@ from collections import Counter
 import os
 import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta
 
-import requests
 from bs4 import BeautifulSoup
 
 from competiciones import Cartelera, HistorialSeries, clasificar
 from roles import aplicar_roles
+from red import descargar
 
 # ─────────────────────────────────────────────────────────────────
 # RUTAS
@@ -50,12 +51,7 @@ AVISOS_FILE        = os.path.join(DATA_DIR, 'avisos_scraper.json')
 # partidos de ayer, con su competición.
 CARTELERA_FILE     = os.path.join(DATA_DIR, 'cartelera.json')
 
-URL = "https://www.baikopilota.eus/resultados/"
-USER_AGENT = (
-    "Mozilla/5.0 (X11; Linux x86_64) "
-    "AppleWebKit/537.36 (KHTML, like Gecko) "
-    "Chrome/122.0 Safari/537.36 baiko-resultados-scraper/2.0"
-)
+URL_BAIKO = "https://www.baikopilota.eus/resultados/"
 
 DATE_RE = re.compile(r"^\d{2}/\d{2}/\d{4}$")
 SCORE_RE = re.compile(r"^\d{1,2}$")
@@ -206,6 +202,13 @@ def clean_player(s):
         anterior = s
         s = MARCA_RE.sub("", s).strip()
     return s
+
+
+def clave_nombre(s):
+    """'Peña II' / 'PENA II' / 'pena-ii' -> 'PENAII'."""
+    s = unicodedata.normalize('NFD', (s or '').upper())
+    s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+    return re.sub(r'[^A-Z0-9]', '', s)
 
 
 def norm(nombre):
@@ -403,6 +406,11 @@ class Catalogos:
         self._idx_fro = {f['nombre']: f for f in self.frontones}
         self._idx_ciu = {c['nombre']: c for c in self.ciudades}
         self._idx_cmp = {c['nombre']: c for c in self.competiciones}
+        # Mismo nombre escrito de otra forma ('Dario', 'PENA II', 'Nájera'):
+        # cada fuente escribe distinto y no debe crear duplicados
+        self._clave_pel = {clave_nombre(p['nombre']): p for p in self.pelotaris}
+        self._clave_fro = {clave_nombre(f['nombre']): f for f in self.frontones}
+        self._clave_ciu = {clave_nombre(c['nombre']): c for c in self.ciudades}
 
     def _avisar(self, tipo, nombre, parecidos):
         self.avisos.append({
@@ -419,6 +427,8 @@ class Catalogos:
             return None
         if nombre in self._idx_pel:
             return self._idx_pel[nombre]['id']
+        if clave_nombre(nombre) in self._clave_pel:
+            return self._clave_pel[clave_nombre(nombre)]['id']
         parecidos = self._parecidos(nombre, self._idx_pel)
         if parecidos:
             self._avisar('pelotari', nombre, parecidos)
@@ -429,6 +439,7 @@ class Catalogos:
         }
         self.pelotaris.append(nuevo)
         self._idx_pel[nombre] = nuevo
+        self._clave_pel[clave_nombre(nombre)] = nuevo
         self._dirty['pel'] = True
         print(f"  + nuevo pelotari: {pid} {nombre}")
         return pid
@@ -438,6 +449,8 @@ class Catalogos:
             return None
         if nombre in self._idx_ciu:
             return self._idx_ciu[nombre]['id']
+        if clave_nombre(nombre) in self._clave_ciu:
+            return self._clave_ciu[clave_nombre(nombre)]['id']
         cid = next_id('CIU', self.ciudades)
         trad = TRADUCCIONES_CIUDAD.get(nombre, {'es': titulo_ciudad(nombre), 'eu': titulo_ciudad(nombre)})
         nuevo = {
@@ -446,6 +459,7 @@ class Catalogos:
         }
         self.ciudades.append(nuevo)
         self._idx_ciu[nombre] = nuevo
+        self._clave_ciu[clave_nombre(nombre)] = nuevo
         self._dirty['ciu'] = True
         print(f"  + nueva ciudad: {cid} {nombre}")
         return cid
@@ -453,6 +467,8 @@ class Catalogos:
     def get_or_create_fronton(self, nombre, ciudad_nombre):
         if not nombre:
             return None
+        if nombre not in self._idx_fro and clave_nombre(nombre) in self._clave_fro:
+            nombre = self._clave_fro[clave_nombre(nombre)]['nombre']
         if nombre in self._idx_fro:
             f = self._idx_fro[nombre]
             if not f.get('ciudad_id') and ciudad_nombre:
@@ -470,6 +486,7 @@ class Catalogos:
         }
         self.frontones.append(nuevo)
         self._idx_fro[nombre] = nuevo
+        self._clave_fro[clave_nombre(nombre)] = nuevo
         self._dirty['fro'] = True
         print(f"  + nuevo frontón: {fid} {nombre} ({ciudad_nombre})")
         return fid
@@ -575,6 +592,7 @@ def partido_to_catalogado(p, cats):
         },
         'puntos2':       p['puntos2'],
         'ganador':       p['ganador'],
+        'fuente':        p.get('fuente', 'baiko'),
     }
 
 
@@ -585,35 +603,49 @@ def _safe(v):
     return v if v is not None else ''
 
 
-def firma_partido(p):
-    e1 = tuple(sorted([_safe(p['equipo1'].get('del_id')), _safe(p['equipo1'].get('zag_id'))]))
-    e2 = tuple(sorted([_safe(p['equipo2'].get('del_id')), _safe(p['equipo2'].get('zag_id'))]))
-    jugadores = tuple(sorted([e1, e2]))
-    puntos = tuple(sorted([p.get('puntos1', 0), p.get('puntos2', 0)]))
-    return (p['fecha'], jugadores, puntos)
+def jugadores_partido(p):
+    return frozenset(_safe(p[eq].get(k)) for eq in ('equipo1', 'equipo2')
+                     for k in ('del_id', 'zag_id') if p[eq].get(k))
 
 
 def firma_sin_fecha(p):
-    e1 = tuple(sorted([_safe(p['equipo1'].get('del_id')), _safe(p['equipo1'].get('zag_id'))]))
-    e2 = tuple(sorted([_safe(p['equipo2'].get('del_id')), _safe(p['equipo2'].get('zag_id'))]))
-    jugadores = tuple(sorted([e1, e2]))
     puntos = tuple(sorted([p.get('puntos1', 0), p.get('puntos2', 0)]))
-    return (jugadores, puntos)
+    return (jugadores_partido(p), puntos)
 
 
-def es_duplicado(nuevo, firmas, firmas_sf):
-    if firma_partido(nuevo) in firmas:
-        return True
-    try:
-        f = datetime.strptime(nuevo['fecha'], '%Y-%m-%d').date()
-    except Exception:
-        return False
-    sf = firma_sin_fecha(nuevo)
-    for delta in (-1, 1):
-        f_vecina = (f + timedelta(days=delta)).strftime('%Y-%m-%d')
-        if (f_vecina, sf) in firmas_sf:
-            return True
-    return False
+class IndicePartidos:
+    """Partidos ya guardados, para saber si uno nuevo es el mismo.
+
+    Es el mismo partido si coincide la fecha y los pelotaris, aunque el
+    tanteo no cuadre (una fuente puede equivocarse: se avisa y se conserva el
+    que ya estaba). Con un día de diferencia solo se da por el mismo si
+    además coincide el tanteo (hay webs que fechan mal los partidos
+    nocturnos)."""
+
+    def __init__(self, partidos):
+        self._por_fecha = {}
+        self._firmas_sf = set()
+        for p in partidos:
+            self.add(p)
+
+    def add(self, p):
+        self._por_fecha[(p['fecha'], jugadores_partido(p))] = p
+        self._firmas_sf.add((p['fecha'], firma_sin_fecha(p)))
+
+    def buscar(self, nuevo):
+        mismo = self._por_fecha.get((nuevo['fecha'], jugadores_partido(nuevo)))
+        if mismo:
+            return mismo
+        try:
+            f = datetime.strptime(nuevo['fecha'], '%Y-%m-%d').date()
+        except (TypeError, ValueError):
+            return None
+        sf = firma_sin_fecha(nuevo)
+        for delta in (-1, 1):
+            vecina = (f + timedelta(days=delta)).strftime('%Y-%m-%d')
+            if (vecina, sf) in self._firmas_sf:
+                return True
+        return None
 
 
 def es_formato_nuevo(partidos):
@@ -658,19 +690,68 @@ def clasificar_partidos(planos, existentes, cats):
             texto, p['fecha'], es_pareja, serie, lambda: hist.serie(ids, p['fecha']))
 
 
+def planos_baiko(html):
+    tokens = extract_tokens(html)
+    planos = parse_tokens(tokens)
+    fechas = sum(1 for t in tokens if DATE_RE.match(clean_text(t)))
+    if fechas and not planos:
+        raise RuntimeError(f"La página tiene {fechas} fechas pero no se ha leído ningún partido: "
+                           "¿ha cambiado la estructura de la web?")
+    return planos
+
+
+# Fuentes de resultados, por orden de preferencia: de la primera se guarda
+# todo; de las siguientes, solo los partidos que no estén ya.
+FUENTES = [
+    ('baiko', URL_BAIKO, planos_baiko),
+]
+
+
+def recoger_fuentes(fuentes):
+    """Descarga y lee cada fuente. Devuelve (planos, fuentes_fallidas)."""
+    planos, fallos = [], []
+    for nombre, url, parser in fuentes:
+        print(f"Fuente {nombre}: {url}")
+        try:
+            leidos = parser(descargar(url))
+        except Exception as e:  # una fuente caída no debe tumbar a las demás
+            print(f"  ✗ {nombre}: {e}")
+            fallos.append(nombre)
+            continue
+        for p in leidos:
+            p['fuente'] = nombre
+        print(f"  {len(leidos)} partidos leídos")
+        planos.extend(leidos)
+    return planos, fallos
+
+
+def fusionar(nuevos, existentes, cats):
+    """Devuelve los partidos de `nuevos` que no están ya en `existentes` (ni
+    repetidos entre fuentes). Avisa si dos fuentes dan distinto tanteo."""
+    indice = IndicePartidos(existentes)
+    anadir, repetidos = [], 0
+    for p in nuevos:
+        igual = indice.buscar(p)
+        if igual is None:
+            anadir.append(p)
+            indice.add(p)
+            continue
+        repetidos += 1
+        if isinstance(igual, dict) and sorted([igual['puntos1'], igual['puntos2']]) != sorted([p['puntos1'], p['puntos2']]):
+            cats.avisos.append({'tipo': 'tanteo_distinto', 'fecha': p['fecha'],
+                                'guardado': f"{igual['puntos1']}-{igual['puntos2']} ({igual.get('fuente', 'baiko')})",
+                                'otra_fuente': f"{p['puntos1']}-{p['puntos2']} ({p.get('fuente')})"})
+            print(f"  !! {p['fecha']}: tanteo distinto entre fuentes — se conserva el guardado "
+                  f"{igual['puntos1']}-{igual['puntos2']}, {p.get('fuente')} dice {p['puntos1']}-{p['puntos2']}")
+    return anadir, repetidos
+
+
 def main():
-    print("Eskupilota Stats — Scraper de resultados (con catálogos)")
-    print(f"Fuente: {URL}\n")
-
-    resp = requests.get(URL, headers={"User-Agent": USER_AGENT}, timeout=30)
-    resp.raise_for_status()
-    print(f"Status: {resp.status_code} — {len(resp.text)} chars")
-
-    tokens = extract_tokens(resp.text)
-    print(f"Tokens extraídos: {len(tokens)}")
-
-    nuevos_planos = parse_tokens(tokens)
-    print(f"Partidos encontrados: {len(nuevos_planos)}")
+    print("Eskupilota Stats — Scraper de resultados (con catálogos)\n")
+    nuevos_planos, fallos = recoger_fuentes(FUENTES)
+    if len(fallos) == len(FUENTES):
+        print("\n✗ No se ha podido leer ninguna fuente. No se toca nada.")
+        sys.exit(1)
 
     print("\nCargando catálogos...")
     cats = Catalogos()
@@ -682,64 +763,39 @@ def main():
             existentes = json.load(f)
     else:
         existentes = []
-
     if existentes and not es_formato_nuevo(existentes):
-        print("\n⚠️  El archivo data/partidos.json está en formato viejo (sin IDs).")
-        print("    Ejecuta primero el script de migración:")
-        print("        python tools/migrar_a_catalogos.py data/partidos.json data/")
+        print("\n⚠️  data/partidos.json está en formato viejo (sin IDs).")
+        print("    Ejecuta primero: python tools/migrar_a_catalogos.py data/partidos.json data/")
         sys.exit(1)
-
     print(f"  partidos existentes: {len(existentes)}")
 
     clasificar_partidos(nuevos_planos, existentes, cats)
     for p in nuevos_planos:
         eq1 = f"{p['equipo1']['delantero']}-{p['equipo1']['zaguero']}" if p['equipo1']['zaguero'] else p['equipo1']['delantero']
         eq2 = f"{p['equipo2']['delantero']}-{p['equipo2']['zaguero']}" if p['equipo2']['zaguero'] else p['equipo2']['delantero']
-        print(f"  {p['fecha']} | {p['fronton']} ({p['ciudad']}) | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
+        print(f"  [{p['fuente']}] {p['fecha']} | {p['fronton']} ({p['ciudad']}) | {eq1} {p['puntos1']}-{p['puntos2']} {eq2} | {p['competicion']}")
 
-    print("\nConvirtiendo partidos nuevos a formato catalogado...")
     nuevos = [partido_to_catalogado(p, cats) for p in nuevos_planos]
-
-    firmas = {firma_partido(p) for p in existentes}
-    firmas_sf = {(p['fecha'], firma_sin_fecha(p)) for p in existentes}
-
-    sin_dup = []
-    descartados = []
-    for p in nuevos:
-        if es_duplicado(p, firmas, firmas_sf):
-            descartados.append(p)
-        else:
-            sin_dup.append(p)
-            firmas.add(firma_partido(p))
-            firmas_sf.add((p['fecha'], firma_sin_fecha(p)))
-
-    print(f"\nPartidos nuevos: {len(sin_dup)}")
-    if descartados:
-        print(f"Descartados por duplicado: {len(descartados)}")
-
-    if not sin_dup:
-        cats.recalcular_contadores(existentes)
-        cats.guardar_avisos()
-        if any(cats._dirty.values()):
-            cats.save_all()
-            print("Catálogos actualizados (sin partidos nuevos).")
-        else:
-            print("No hay partidos nuevos. Sin cambios.")
-        return
+    sin_dup, repetidos = fusionar(nuevos, existentes, cats)
+    por_fuente = Counter(p['fuente'] for p in sin_dup)
+    print(f"\nPartidos nuevos: {len(sin_dup)} {dict(por_fuente) if por_fuente else ''}")
+    print(f"Ya guardados o repetidos entre fuentes: {repetidos}")
 
     todos = existentes + sin_dup
     todos.sort(key=lambda p: p['fecha'], reverse=True)
-
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(PARTIDOS_FILE, 'w', encoding='utf-8') as f:
-        json.dump(todos, f, ensure_ascii=False, indent=2)
-
+    if sin_dup:
+        os.makedirs(DATA_DIR, exist_ok=True)
+        with open(PARTIDOS_FILE, 'w', encoding='utf-8') as f:
+            json.dump(todos, f, ensure_ascii=False, indent=2)
     cats.recalcular_contadores(todos)
-    cats.save_all()
+    if sin_dup or any(cats._dirty.values()):
+        cats.save_all()
     cats.guardar_avisos()
+    print(f"\n✓ {len(todos)} partidos en total" if sin_dup else "\nSin partidos nuevos.")
 
-    print(f"\n✓ data/partidos.json actualizado: {len(todos)} partidos totales")
-    print("✓ Catálogos actualizados")
+    if fallos:
+        print(f"✗ Fuentes que han fallado: {', '.join(fallos)}")
+        sys.exit(1)
 
 
 if __name__ == '__main__':

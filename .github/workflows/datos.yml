@@ -29,6 +29,10 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
+      # Si el código de los scrapers está roto, mejor no tocar los datos
+      - name: Pruebas de los scrapers
+        run: python -m unittest discover tests
+
       # Primero los resultados: así el scraper todavía lee la cartelera de
       # ayer y puede saber la competición de los partidos que la web no dice.
       # Un fallo en un scraper no debe impedir que se guarde lo del otro.
