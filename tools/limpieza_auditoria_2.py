@@ -23,11 +23,11 @@ Segunda ronda de la auditoria de partidos. Aplica ocho decisiones:
 Los partidos se localizan por contenido, no por posicion.
 
 Uso:
-    python limpieza_auditoria_2.py --dry-run
-    python limpieza_auditoria_2.py
+    python tools/limpieza_auditoria_2.py --dry-run
+    python tools/limpieza_auditoria_2.py
 
 Despues:
-    python recalcular_contadores.py
+    python tools/recalcular_contadores.py
 """
 
 import json
@@ -215,7 +215,7 @@ def main():
         json.dump(competiciones, f, ensure_ascii=False, indent=2)
 
     print("\n\u2713 partidos.json, frontones.json y competiciones.json actualizados.")
-    print("  Siguiente paso: python recalcular_contadores.py")
+    print("  Siguiente paso: python tools/recalcular_contadores.py")
 
 
 if __name__ == '__main__':

@@ -20,11 +20,11 @@ no por posicion, asi que el script sigue siendo valido aunque el scraper
 haya anadido partidos nuevos desde que se preparo.
 
 Uso:
-    python limpieza_auditoria.py --dry-run
-    python limpieza_auditoria.py
+    python tools/limpieza_auditoria.py --dry-run
+    python tools/limpieza_auditoria.py
 
 Despues hay que ejecutar:
-    python recalcular_contadores.py
+    python tools/recalcular_contadores.py
 """
 
 import json
@@ -131,7 +131,7 @@ def main():
         json.dump(pelotaris, f, ensure_ascii=False, indent=2)
 
     print("\n\u2713 partidos.json y pelotaris.json actualizados.")
-    print("  Siguiente paso: python recalcular_contadores.py")
+    print("  Siguiente paso: python tools/recalcular_contadores.py")
 
 
 if __name__ == '__main__':

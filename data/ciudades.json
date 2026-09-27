@@ -38,7 +38,7 @@
   {
     "id": "CIU007",
     "nombre": "AMASA-VILLABONA",
-    "nombre_es": "Amasa-Villabona",
+    "nombre_es": "Villabona",
     "nombre_eu": "Amasa-Villabona"
   },
   {
@@ -63,7 +63,7 @@
     "id": "CIU011",
     "nombre": "AOIZ",
     "nombre_es": "Aoiz",
-    "nombre_eu": "Aoiz"
+    "nombre_eu": "Agoitz"
   },
   {
     "id": "CIU012",
@@ -158,8 +158,8 @@
   {
     "id": "CIU026",
     "nombre": "BAÑOS DE RÍO TOBÍA",
-    "nombre_es": "Baños De Río Tobía",
-    "nombre_eu": "Baños De Río Tobía"
+    "nombre_es": "Baños de Río Tobía",
+    "nombre_eu": "Baños de Río Tobía"
   },
   {
     "id": "CIU027",
@@ -216,12 +216,6 @@
     "nombre_eu": "Beruete"
   },
   {
-    "id": "CIU157",
-    "nombre": "BERUETE -",
-    "nombre_es": "Beruete -",
-    "nombre_eu": "Beruete -"
-  },
-  {
     "id": "CIU035",
     "nombre": "BIARRITZ",
     "nombre_es": "Biarritz",
@@ -243,7 +237,7 @@
     "id": "CIU038",
     "nombre": "BURLADA",
     "nombre_es": "Burlada",
-    "nombre_eu": "Burlada"
+    "nombre_eu": "Burlata"
   },
   {
     "id": "CIU039",
@@ -255,13 +249,13 @@
     "id": "CIU040",
     "nombre": "CIZUR MAYOR",
     "nombre_es": "Cizur Mayor",
-    "nombre_eu": "Cizur Mayor"
+    "nombre_eu": "Zizur Nagusia"
   },
   {
     "id": "CIU041",
     "nombre": "CIZUR MENOR",
     "nombre_es": "Cizur Menor",
-    "nombre_eu": "Cizur Menor"
+    "nombre_eu": "Zizur Txikia"
   },
   {
     "id": "CIU042",
@@ -295,27 +289,21 @@
   },
   {
     "id": "CIU047",
-    "nombre": "EL CIEGO",
-    "nombre_es": "El Ciego",
-    "nombre_eu": "El Ciego"
+    "nombre": "ELCIEGO",
+    "nombre_es": "Elciego",
+    "nombre_eu": "Eltziego"
   },
   {
     "id": "CIU048",
     "nombre": "EL VILLAR DE ARNEDO",
-    "nombre_es": "El Villar De Arnedo",
-    "nombre_eu": "El Villar De Arnedo"
+    "nombre_es": "El Villar de Arnedo",
+    "nombre_eu": "El Villar de Arnedo"
   },
   {
     "id": "CIU049",
     "nombre": "ELBURGO",
     "nombre_es": "Elburgo",
-    "nombre_eu": "Elburgo"
-  },
-  {
-    "id": "CIU050",
-    "nombre": "ELCIEGO",
-    "nombre_es": "Elciego",
-    "nombre_eu": "Elciego"
+    "nombre_eu": "Burgelu"
   },
   {
     "id": "CIU051",
@@ -360,12 +348,6 @@
     "nombre_eu": "Etxarri Aranatz"
   },
   {
-    "id": "CIU058",
-    "nombre": "ETXARRI-ARANATZ",
-    "nombre_es": "Etxarri-Aranatz",
-    "nombre_eu": "Etxarri-Aranatz"
-  },
-  {
     "id": "CIU059",
     "nombre": "ETXEBARRI",
     "nombre_es": "Etxebarri",
@@ -404,8 +386,8 @@
   {
     "id": "CIU160",
     "nombre": "FRESNO DE CANTESPINO",
-    "nombre_es": "Fresno De Cantespino",
-    "nombre_eu": "Fresno De Cantespino"
+    "nombre_es": "Fresno de Cantespino",
+    "nombre_eu": "Fresno de Cantespino"
   },
   {
     "id": "CIU065",
@@ -499,8 +481,8 @@
   },
   {
     "id": "CIU078",
-    "nombre": "ILUNBERRI",
-    "nombre_es": "Ilunberri",
+    "nombre": "LUMBIER",
+    "nombre_es": "Lumbier",
     "nombre_eu": "Ilunberri"
   },
   {
@@ -531,13 +513,13 @@
     "id": "CIU083",
     "nombre": "LABASTIDA",
     "nombre_es": "Labastida",
-    "nombre_eu": "Labastida"
+    "nombre_eu": "Bastida"
   },
   {
     "id": "CIU084",
     "nombre": "LANCIEGO",
     "nombre_es": "Lanciego",
-    "nombre_eu": "Lanciego"
+    "nombre_eu": "Lantziego"
   },
   {
     "id": "CIU085",
@@ -546,15 +528,9 @@
     "nombre_eu": "Larraintzar"
   },
   {
-    "id": "CIU086",
-    "nombre": "LARRAINZAR",
-    "nombre_es": "Larrainzar",
-    "nombre_eu": "Larrainzar"
-  },
-  {
     "id": "CIU087",
-    "nombre": "LAUDIO",
-    "nombre_es": "Laudio",
+    "nombre": "LLODIO",
+    "nombre_es": "Llodio",
     "nombre_eu": "Laudio"
   },
   {
@@ -566,7 +542,7 @@
   {
     "id": "CIU089",
     "nombre": "LEGUTIO",
-    "nombre_es": "Legutio",
+    "nombre_es": "Legutiano",
     "nombre_eu": "Legutio"
   },
   {
@@ -600,12 +576,6 @@
     "nombre_eu": "Lizarra"
   },
   {
-    "id": "CIU095",
-    "nombre": "LLODIO",
-    "nombre_es": "Llodio",
-    "nombre_eu": "Laudio"
-  },
-  {
     "id": "CIU096",
     "nombre": "LODOSA",
     "nombre_es": "Lodosa",
@@ -627,13 +597,7 @@
     "id": "CIU099",
     "nombre": "LOS ARCOS",
     "nombre_es": "Los Arcos",
-    "nombre_eu": "Los Arcos"
-  },
-  {
-    "id": "CIU100",
-    "nombre": "LUMBIER",
-    "nombre_es": "Lumbier",
-    "nombre_eu": "Lumbier"
+    "nombre_eu": "Arkoak"
   },
   {
     "id": "CIU101",
@@ -704,7 +668,7 @@
   {
     "id": "CIU110",
     "nombre": "OION",
-    "nombre_es": "Oion",
+    "nombre_es": "Oyón",
     "nombre_eu": "Oion"
   },
   {
@@ -723,7 +687,7 @@
     "id": "CIU113",
     "nombre": "ORDUÑA",
     "nombre_es": "Orduña",
-    "nombre_eu": "Orduña"
+    "nombre_eu": "Urduña"
   },
   {
     "id": "CIU114",
@@ -744,15 +708,9 @@
     "nombre_eu": "Otxandio"
   },
   {
-    "id": "CIU154",
-    "nombre": "OTXANDIO -",
-    "nombre_es": "Otxandio -",
-    "nombre_eu": "Otxandio -"
-  },
-  {
     "id": "CIU117",
     "nombre": "OÑATI",
-    "nombre_es": "Oñati",
+    "nombre_es": "Oñate",
     "nombre_eu": "Oñati"
   },
   {
@@ -764,32 +722,26 @@
   {
     "id": "CIU119",
     "nombre": "PINILLA DE LOS BARRUECOS",
-    "nombre_es": "Pinilla De Los Barruecos",
-    "nombre_eu": "Pinilla De Los Barruecos"
+    "nombre_es": "Pinilla de los Barruecos",
+    "nombre_eu": "Pinilla de los Barruecos"
   },
   {
     "id": "CIU120",
-    "nombre": "SANTA MARIA DE LAS HOYAS",
-    "nombre_es": "Santa Maria De Las Hoyas",
-    "nombre_eu": "Santa Maria De Las Hoyas"
-  },
-  {
-    "id": "CIU159",
     "nombre": "SANTA MARÍA DE LAS HOYAS",
-    "nombre_es": "Santa María De Las Hoyas",
-    "nombre_eu": "Santa María De Las Hoyas"
+    "nombre_es": "Santa María de las Hoyas",
+    "nombre_eu": "Santa María de las Hoyas"
   },
   {
     "id": "CIU121",
     "nombre": "SANTO DOMINGO DE LA CALZADA",
-    "nombre_es": "Santo Domingo De La Calzada",
-    "nombre_eu": "Santo Domingo De La Calzada"
+    "nombre_es": "Santo Domingo de la Calzada",
+    "nombre_eu": "Santo Domingo de la Calzada"
   },
   {
     "id": "CIU122",
     "nombre": "SARDÓN DE LOS FRAILES",
-    "nombre_es": "Sardón De Los Frailes",
-    "nombre_eu": "Sardón De Los Frailes"
+    "nombre_es": "Sardón de los Frailes",
+    "nombre_eu": "Sardón de los Frailes"
   },
   {
     "id": "CIU123",
@@ -867,7 +819,7 @@
     "id": "CIU135",
     "nombre": "VALCARLOS",
     "nombre_es": "Valcarlos",
-    "nombre_eu": "Valcarlos"
+    "nombre_eu": "Luzaide"
   },
   {
     "id": "CIU136",
@@ -876,22 +828,16 @@
     "nombre_eu": "Viana"
   },
   {
-    "id": "CIU137",
-    "nombre": "VILLABONA",
-    "nombre_es": "Villabona",
-    "nombre_eu": "Villabona"
-  },
-  {
     "id": "CIU161",
     "nombre": "VILLAMEDIANA DE IREGUA",
-    "nombre_es": "Villamediana De Iregua",
-    "nombre_eu": "Villamediana De Iregua"
+    "nombre_es": "Villamediana de Iregua",
+    "nombre_eu": "Villamediana de Iregua"
   },
   {
     "id": "CIU138",
     "nombre": "VILLAVA",
     "nombre_es": "Villava",
-    "nombre_eu": "Villava"
+    "nombre_eu": "Atarrabia"
   },
   {
     "id": "CIU139",

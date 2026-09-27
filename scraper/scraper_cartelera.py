@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 """
 scraper_cartelera.py
-Ejecutar: python3 scraper_cartelera.py
+Ejecutar: python3 scraper/scraper_cartelera.py
 Genera: data/cartelera.json
-
-Programar con cron cada hora:
-  0 * * * * cd /ruta/proyecto && python3 scraper_cartelera.py
 
 v2 — robustez mejorada:
   - Partidos con 'XXXX': se guardan con pendiente:true y lado desconocido = ['?']
@@ -19,6 +16,10 @@ import re, json, os
 from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
+
+# El scraper está en /scraper/, los datos en /data/
+DATA_DIR = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data'))
+CARTELERA_FILE = os.path.join(DATA_DIR, 'cartelera.json')
 
 URL = "https://www.baikopilota.eus/entradas/"
 HEADERS = {
@@ -337,8 +338,8 @@ def main():
         "partidos": festivals,
     }
 
-    os.makedirs("data", exist_ok=True)
-    with open("data/cartelera.json", "w", encoding="utf-8") as fh:
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(CARTELERA_FILE, "w", encoding="utf-8") as fh:
         json.dump(output, fh, ensure_ascii=False, indent=2)
 
     total_partidos = sum(len(f["partidos"]) for f in festivals)

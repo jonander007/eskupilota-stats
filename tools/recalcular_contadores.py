@@ -13,8 +13,8 @@ Criterio de conteo (el mismo de migrar_a_catalogos.py):
   - competiciones: 1 partido de esa comp.    = 1
 
 Uso:
-    python recalcular_contadores.py            # aplica los cambios
-    python recalcular_contadores.py --dry-run  # solo muestra el informe
+    python tools/recalcular_contadores.py            # aplica los cambios
+    python tools/recalcular_contadores.py --dry-run  # solo muestra el informe
 """
 
 import json

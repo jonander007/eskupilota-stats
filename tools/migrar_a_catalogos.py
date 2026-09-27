@@ -4,10 +4,10 @@ Lee un partidos.json "plano" (con nombres literales) y genera 5 archivos
 normalizados con IDs: pelotaris, ciudades, frontones, competiciones, partidos.
 
 Uso:
-    python migrar_a_catalogos.py  <partidos_origen.json>  <carpeta_destino>
+    python tools/migrar_a_catalogos.py  <partidos_origen.json>  <carpeta_destino>
 
 Ejemplo:
-    python migrar_a_catalogos.py partidos.json data/
+    python tools/migrar_a_catalogos.py partidos.json data/
 """
 import json
 import sys
