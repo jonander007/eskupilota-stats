@@ -80,7 +80,7 @@ function formaReciente(nombre, n=5){
 
 function chipsForma(forma){
   if(!forma.length) return '<span class="an-muted">—</span>';
-  return `<span class="an-forma">${forma.map(r=>`<span class="an-chip ${r==='V'?'v':'d'}" title="${r==='V'?tx('Victoria','Garaipena'):tx('Derrota','Porrota')}">${r==='V'?tx('V','G'):tx('D','P')}</span>`).join('')}</span>`;
+  return `<span class="an-forma">${forma.map(r=>`<span class="an-chip ${r==='V'?'v':'d'}" title="${r==='V'?tx('Victoria','Garaipena'):tx('Derrota','Porrota')}">${r==='V'?t('abbr_v'):t('abbr_d')}</span>`).join('')}</span>`;
 }
 
 // Cara a cara entre dos equipos: cuenta partidos en los que todos los de eq1
@@ -249,7 +249,7 @@ function htmlEvolucionPerfil(nombre){
   const porAnio = {};
   suyos.forEach(p=>{ const a=getYear(p); porAnio[a]=porAnio[a]||{pj:0,pg:0}; porAnio[a].pj++; if(gano(p)) porAnio[a].pg++; });
   const barras = Object.keys(porAnio).sort().map(a=>({etiqueta:a, valor:porAnio[a].pg/porAnio[a].pj*100,
-    detalle:`${porAnio[a].pg}${tx('V','G')}–${porAnio[a].pj-porAnio[a].pg}${tx('D','P')}`}));
+    detalle:`${porAnio[a].pg}${t('abbr_v')}–${porAnio[a].pj-porAnio[a].pg}${t('abbr_d')}`}));
 
   const porFronton = {};
   suyos.forEach(p=>{ porFronton[p.fronton]=porFronton[p.fronton]||{pj:0,pg:0}; porFronton[p.fronton].pj++; if(gano(p)) porFronton[p.fronton].pg++; });
@@ -279,9 +279,9 @@ function htmlEvolucionPerfil(nombre){
       <div class="an-sub">${tx('% de victorias por temporada','Garaipen % denboraldika')}</div>
       ${graficoBarras(barras)}
       <table class="comp-table an-table-sr"><caption>${tx('Victorias por temporada','Garaipenak denboraldika')}</caption>
-        <thead><tr><th>${tx('Año','Urtea')}</th><th>PJ</th><th>V</th><th>%</th></tr></thead>
+        <thead><tr><th>${tx('Año','Urtea')}</th><th>${t('abbr_pj')}</th><th>${t('abbr_v')}</th><th>%</th></tr></thead>
         <tbody>${barras.map(b=>`<tr><td>${b.etiqueta}</td><td>${porAnio[b.etiqueta].pj}</td><td>${porAnio[b.etiqueta].pg}</td><td>${Math.round(b.valor)}%</td></tr>`).join('')}</tbody></table>
-      ${mejores.length?`<div class="an-sub">${tx('Frontones donde mejor rinde (mín. 5 partidos)','Errendimendu onena duen frontoiak (gutx. 5 partida)')}</div>
+      ${mejores.length?`<div class="an-sub">${tx('Frontones donde mejor rinde (mín. 5 partidos)','Emaitzarik onenak dituen frontoiak (gutx. 5 partida)')}</div>
       <div class="an-frontones">${mejores.map(([f,s])=>`<span class="an-pill clk" onclick="abrirFronton('${esc(f)}')">${h(f)} · ${Math.round(s.pg/s.pj*100)}% <small>(${s.pg}/${s.pj})</small></span>`).join('')}</div>`:''}
     </div>`;
 }
@@ -316,6 +316,7 @@ function htmlRankingElo(){
 // CAMPEONATOS: clasificación y partidos de cada competición
 // ════════════════════════════════════════════════════════════
 let _campModo = 'equipos';
+let _frontonActual = null;
 let _campActual = null;
 
 function competicionesOficiales(){
@@ -396,7 +397,7 @@ function renderCampeonato(id){
     <div class="an-head">
       <div>
         <div class="an-camp-nombre">${h(tComp(comp.nombre))} ${(comp.nombre.match(/\b20\d\d\b/)||[''])[0]}</div>
-        <div class="an-muted">${parts.length} ${tx('partidos','partida')} · ${fechaIni} → ${fechaFin}</div>
+        <div class="an-muted">${nPartidos(parts.length)} · ${fechaIni} → ${fechaFin}</div>
       </div>
       ${botonCompartir(comp.nombre)}
     </div>
@@ -418,7 +419,7 @@ function renderCampeonato(id){
       <p class="an-nota">${tx('Ordenada por victorias y, a igualdad, por diferencia de tantos. Incluye todas las fases; las parejas que jugaron con un sustituto aparecen aparte.',
         'Garaipenen arabera ordenatua eta, berdinketan, tanto diferentziaren arabera. Fase guztiak barne; ordezko batekin jokatu zuten bikoteak bereizita agertzen dira.')}</p>
       <div class="an-table-wrap"><table class="comp-table">
-        <thead><tr><th>#</th><th>${modo==='equipos'?tx('Pareja','Bikotea'):tx('Pelotari','Pilotaria')}</th><th class="an-num">PJ</th><th class="an-num">G</th><th class="an-num">P</th><th class="an-num">TF</th><th class="an-num">TC</th><th class="an-num">Dif</th></tr></thead>
+        <thead><tr><th>#</th><th>${modo==='equipos'?tx('Pareja','Bikotea'):tx('Pelotari','Pilotaria')}</th><th class="an-num" title="${tx('Partidos jugados','Jokatutako partidak')}">${t('abbr_pj')}</th><th class="an-num" title="${tx('Victorias','Garaipenak')}">${t('abbr_v')}</th><th class="an-num" title="${tx('Derrotas','Porrotak')}">${t('abbr_d')}</th><th class="an-num" title="${tx('Tantos a favor','Aldeko tantoak')}">${tx('TF','AT')}</th><th class="an-num" title="${tx('Tantos en contra','Kontrako tantoak')}">${tx('TC','KT')}</th><th class="an-num" title="${tx('Diferencia','Aldea')}">${tx('Dif','Alde')}</th></tr></thead>
         <tbody>${filas.map(fila).join('')}</tbody></table></div>
     </div>
     <div class="ch-card">
@@ -459,13 +460,14 @@ function htmlPrevia(p){
 // ════════════════════════════════════════════════════════════
 // FICHA DE FRONTÓN
 // ════════════════════════════════════════════════════════════
-function abrirFronton(nombre, scroll=true){
-  if(!document.getElementById('sec-frontones').classList.contains('active')){
+function abrirFronton(nombre, scroll=true, navegar=true){
+  if(navegar && !document.getElementById('sec-frontones').classList.contains('active')){
     const btn = secBtn('frontones'); if(btn) showSec('frontones', btn, true);
   }
   const det = document.getElementById('frontonDetail');
   const parts = PARTIDOS.filter(p=>p.fronton===nombre);
   if(!det || !parts.length) return;
+  _frontonActual = nombre;
   setHash('#/fronton/'+slugify(nombre));
 
   const info = Object.values(CAT_FRONTONES).find(f=>(f.nombre||'').toUpperCase()===nombre.toUpperCase()) || {};
@@ -505,7 +507,7 @@ function abrirFronton(nombre, scroll=true){
       <div class="an-grid2">
         <div>
           <div class="an-sub">${tx('Más victorias aquí (mín. 3 partidos)','Hemen garaipen gehien (gutx. 3 partida)')}</div>
-          <table class="comp-table"><thead><tr><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">V</th><th class="an-num">PJ</th><th class="an-num">%</th></tr></thead>
+          <table class="comp-table"><thead><tr><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">${t('abbr_v')}</th><th class="an-num">${t('abbr_pj')}</th><th class="an-num">%</th></tr></thead>
           <tbody>${top.map(([n,s])=>`<tr><td><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></td><td class="an-num">${s.pg}</td><td class="an-num">${s.pj}</td><td class="an-num">${Math.round(s.pg/s.pj*100)}%</td></tr>`).join('')
             ||`<tr><td colspan="4" class="an-muted">${tx('Pocos partidos','Partida gutxi')}</td></tr>`}</tbody></table>
         </div>
@@ -527,5 +529,6 @@ function abrirFronton(nombre, scroll=true){
 function cerrarFronton(){
   const det = document.getElementById('frontonDetail');
   if(det){ det.classList.remove('active'); det.innerHTML=''; }
+  _frontonActual = null;
   if(document.getElementById('sec-frontones').classList.contains('active')) setHash('#/frontones');
 }
