@@ -125,6 +125,31 @@ CIUDAD_ALIAS = {
     'HENDAYA':             'HENDAIA',
     'BAÑOS DEL RIO TOBIA': 'BAÑOS DE RÍO TOBÍA',
     'OIARTZUN -':          'OIARTZUN',
+    'EL CIEGO':            'ELCIEGO',
+    'ETXARRI-ARANATZ':     'ETXARRI ARANATZ',
+    'LARRAINZAR':          'LARRAINTZAR',
+    'SANTA MARIA DE LAS HOYAS': 'SANTA MARÍA DE LAS HOYAS',
+    'VILLABONA':           'AMASA-VILLABONA',
+    'LAUDIO':              'LLODIO',
+    'ILUNBERRI':           'LUMBIER',
+    'URDUÑA':              'ORDUÑA',
+}
+
+# Variantes de nombre de un mismo frontón (ver tools/unificar_frontones_ciudades.py)
+FRONTON_ALIAS = {
+    'EL CIEGO':                 'ELCIEGO',
+    'ETXARRI-ARANATZ':          'ETXARRI ARANATZ',
+    'HONDARRIBI':               'HONDARRIBIA',
+    'HUERCANOS':                'HUÉRCANOS',
+    'LARRAINZAR':               'LARRAINTZAR',
+    'MALLABIA I':               'MALLABIA',
+    'NAJERA':                   'NÁJERA',
+    'SANTA MARIA DE LAS HOYAS': 'SANTA MARÍA DE LAS HOYAS',
+    'SANTO DOMINGO':            'SANTO DOMINGO DE LA CALZADA',
+    'AMASA-VILLABONA':          'VILLABONA',
+    'ORDUÑA':                   'URDUÑA',
+    'LAUDIO':                   'LLODIO',
+    'ILUNBERRI':                'LUMBIER',
 }
 
 FRONTON_CIUDAD_FIJA = {
@@ -153,13 +178,32 @@ TRADUCCIONES_CIUDAD = {
     'BERGARA':           {'es': 'Vergara',       'eu': 'Bergara'},
     'ARRASATE':          {'es': 'Mondragón',     'eu': 'Arrasate'},
     'LLODIO':            {'es': 'Llodio',        'eu': 'Laudio'},
+    'LUMBIER':           {'es': 'Lumbier',       'eu': 'Ilunberri'},
+    'ORDUÑA':            {'es': 'Orduña',        'eu': 'Urduña'},
+    'OION':              {'es': 'Oyón',          'eu': 'Oion'},
+    'OÑATI':             {'es': 'Oñate',         'eu': 'Oñati'},
+    'LEGUTIO':           {'es': 'Legutiano',     'eu': 'Legutio'},
+    'VILLAVA':           {'es': 'Villava',       'eu': 'Atarrabia'},
+    'BURLADA':           {'es': 'Burlada',       'eu': 'Burlata'},
+    'ELCIEGO':           {'es': 'Elciego',       'eu': 'Eltziego'},
+    'AMASA-VILLABONA':   {'es': 'Villabona',     'eu': 'Amasa-Villabona'},
 }
+
+MINUSCULAS_CIUDAD = {'De', 'La', 'Las', 'Los', 'Del', 'Y'}
+
+
+def titulo_ciudad(nombre):
+    """'SANTO DOMINGO DE LA CALZADA' -> 'Santo Domingo de la Calzada'."""
+    palabras = nombre.title().split(' ')
+    return ' '.join(p.lower() if i and p in MINUSCULAS_CIUDAD else p
+                    for i, p in enumerate(palabras))
 
 
 def normalizar_ubicacion(fronton, ciudad):
     fronton = (fronton or '').strip().upper()
-    ciudad  = (ciudad or '').strip().upper()
+    ciudad  = (ciudad or '').strip().upper().rstrip(' -')
     ciudad = CIUDAD_ALIAS.get(ciudad, ciudad)
+    fronton = FRONTON_ALIAS.get(fronton, fronton)
     if (fronton, ciudad) in FRONTON_REASIGNAR:
         fronton, ciudad = FRONTON_REASIGNAR[(fronton, ciudad)]
     if fronton in FRONTON_CIUDAD_FIJA:
@@ -449,7 +493,7 @@ class Catalogos:
         if nombre in self._idx_ciu:
             return self._idx_ciu[nombre]['id']
         cid = next_id('CIU', self.ciudades)
-        trad = TRADUCCIONES_CIUDAD.get(nombre, {'es': nombre.title(), 'eu': nombre.title()})
+        trad = TRADUCCIONES_CIUDAD.get(nombre, {'es': titulo_ciudad(nombre), 'eu': titulo_ciudad(nombre)})
         nuevo = {
             'id': cid, 'nombre': nombre,
             'nombre_es': trad['es'], 'nombre_eu': trad['eu'],
