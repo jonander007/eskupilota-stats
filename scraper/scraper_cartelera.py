@@ -28,7 +28,7 @@ from datetime import datetime
 
 from bs4 import BeautifulSoup
 
-from competiciones import clasificar, es_texto_competicion
+from competiciones import clasificar_partido, es_texto_competicion
 from red import descargar
 import aspe
 
@@ -211,6 +211,10 @@ def parse_partidos(cartel_lines, fecha, fase, competicion):
 
     # Texto de competición del evento: 'Campeonato...', 'Torneo San Mateo', 'Masters CaixaBank'
     texto_evento = competicion
+    # Un evento de desafío ('Desafío Urzante' como fase) lo es entero, aunque
+    # el cartel empiece por el torneo de las fiestas ('Torneo San Mateo')
+    if fase and "desaf" in fase.lower():
+        texto_evento = fase
     if not texto_evento:
         texto_evento = next((l for l in lineas if _es_linea_competicion(l)), None)
     if not texto_evento and fase and es_texto_competicion(fase):
@@ -220,8 +224,10 @@ def parse_partidos(cartel_lines, fecha, fase, competicion):
     serie_comun = series.pop() if len(series) == 1 else None
 
     partidos = []
+    titulo = None   # última línea de título ('Final Torneo San Mateo (Serie A)'): da la fase
     for linea in lineas:
         if _es_linea_competicion(linea) and _sin_anotaciones(linea).upper().strip() not in PAREJAS_LABELS:
+            titulo = linea
             continue
         m = SERIE_RE.search(linea)
         serie = m.group(1).lower() if m else None
@@ -234,14 +240,14 @@ def parse_partidos(cartel_lines, fecha, fase, competicion):
 
         if up in PAREJAS_LABELS:
             partidos.append(_partido(["?", "?"], ["?", "?"], linea, texto_evento, fecha, True,
-                                     serie or serie_comun, anot, pendiente=True, etiqueta=up))
+                                     serie or serie_comun, anot, pendiente=True, etiqueta=up, textos_fase=(fase, titulo)))
             continue
         if GANADORES_RE.match(up):
             partes = [p.strip() for p in limpia.split("//", 1)]
             eq1 = [partes[0]]
             eq2 = [partes[1]] if len(partes) > 1 and partes[1] else ["?"]
             partidos.append(_partido(eq1, eq2, linea, texto_evento, fecha, "–" in limpia,
-                                     serie or serie_comun, anot, pendiente=True, etiqueta=limpia))
+                                     serie or serie_comun, anot, pendiente=True, etiqueta=limpia, textos_fase=(fase, titulo)))
             continue
 
         if "//" in limpia:
@@ -259,7 +265,7 @@ def parse_partidos(cartel_lines, fecha, fase, competicion):
             eq2 = eq2 or ["?"]
             pendiente = f1 or f2 or "?" in eq1 + eq2
             partidos.append(_partido(eq1, eq2, linea, texto_evento, fecha, es_pareja,
-                                     serie or (serie_comun if es_pareja else None), anot, pendiente))
+                                     serie or (serie_comun if es_pareja else None), anot, pendiente, textos_fase=(fase, titulo)))
             continue
 
         if re.search(r"\s[–-]\s", limpia):
@@ -267,27 +273,34 @@ def parse_partidos(cartel_lines, fecha, fase, competicion):
             eq1, _ = parse_lado(limpia)
             if len(eq1) == 2:
                 partidos.append(_partido(eq1, ["?", "?"], linea, texto_evento, fecha, True,
-                                         serie or serie_comun, anot, pendiente=True))
+                                         serie or serie_comun, anot, pendiente=True, textos_fase=(fase, titulo)))
         # Cualquier otra línea (textos, tablas) no es un partido
 
     return partidos
 
 
-def _partido(eq1, eq2, raw, texto_evento, fecha, es_pareja, serie, anot, pendiente=False, etiqueta=None):
+def _partido(eq1, eq2, raw, texto_evento, fecha, es_pareja, serie, anot, pendiente=False, etiqueta=None,
+             textos_fase=()):
     texto = texto_evento or ""
     if "4 1/2" in anot or "4½" in anot:
         texto = (texto + " 4 1/2").strip()
     elif "mano a mano" in anot or "manomanista" in anot:
         texto = (texto + " manomanista").strip()
     try:
-        tipo, competicion = clasificar(texto or None, fecha, es_pareja, serie)
+        c = clasificar_partido(texto or None, fecha, es_pareja, serie, textos_fase=tuple(textos_fase) + (raw,))
     except ValueError:
-        tipo, competicion = ("festival" if es_pareja else "festival-mano"), "Festival"
+        c = {"tipo": "festival" if es_pareja else "festival-mano", "competicion": "Festival",
+             "modalidad": "parejas" if es_pareja else "mano", "categoria": "festival", "serie": None}
     p = {
         "eq1": eq1, "eq2": eq2, "raw": raw,
-        "tipo": tipo, "competicion": competicion,
-        "serie": serie or (tipo[-1] if tipo[-2:] in ("-a", "-b") else None),
+        "tipo": c["tipo"], "competicion": c["competicion"],
+        "modalidad": c["modalidad"], "categoria": c["categoria"],
+        # Solo campeonatos y torneos tienen serie
+        "serie": (c["serie"] or serie or "").lower() or None if c["categoria"] in ("campeonato", "torneo") else None,
     }
+    for k in ("fase", "grupo", "jornada"):
+        if c.get(k) is not None:
+            p[k] = c[k]
     if pendiente:
         p["pendiente"] = True
     if etiqueta:

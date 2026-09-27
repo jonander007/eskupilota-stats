@@ -31,6 +31,7 @@ scraper/
 tests/                  Pruebas de los scrapers con casos reales (sin red)
 tools/
   validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
+  migrar_clasificacion.py  Añade modalidad/categoria/serie/fase a los partidos
   recalcular_contadores.py  Recalcula partidos_count y roles
   ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```
@@ -42,6 +43,24 @@ El workflow `.github/workflows/datos.yml` se ejecuta cada día a las 00:01 UTC
 aún lee la cartelera del día anterior para saber la competición), después el
 de cartelera, valida los datos con `tools/validar_datos.py` y, si todo es
 correcto, hace un único commit con los cambios en `data/`.
+
+## Tipos de partido
+
+Cada partido guarda su clasificación (la decide `scraper/competiciones.py`, la
+misma para resultados y cartelera, de Baiko y de Aspe):
+
+| Campo | Valores |
+|---|---|
+| `modalidad` | `parejas`, `mano`, `cuatro` |
+| `categoria` | `campeonato` (Parejas, Manomanista, 4 y Medio de la liga), `torneo` (Masters CaixaBank, San Fermín, San Mateo, Aste Nagusia, La Blanca, Donostia Hiria, Bizkaia…), `desafio` (Desafío Urzante), `festival` |
+| `serie` | `A`, `B` (la Promoción es Serie B) o `null` (festivales y desafíos) |
+| `fase` | `liga`, `eliminatoria`, `octavos`, `cuartos`, `semifinal`, `final` (+ `grupo`, `jornada`) cuando se conoce |
+| `tipo` | derivado de los anteriores, el que usa la web para filtrar por modalidad |
+
+La fase viene de la cartelera (el scraper de resultados lee la del día
+anterior). En los campeonatos terminados de los que no se conocía, la final es
+su último partido y lleva `"fase_deducida": true`. Oficiales = campeonatos y
+torneos.
 
 ## Varias fuentes
 

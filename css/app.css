@@ -790,3 +790,9 @@ tr:hover td{background:var(--surface2);}
   .logo{justify-content:center;}
   nav{display:none;}
 }
+
+.fase-lbl{font-family:var(--mono);font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--green-dark);}
+.an-campeon{display:flex;gap:1rem;align-items:center;margin-bottom:1rem;border-left:4px solid var(--green);}
+.an-campeon-ic{font-size:2rem;line-height:1;}
+.an-campeon-nombre{font-family:var(--display);font-weight:700;font-size:1.35rem;margin:.1rem 0;}
+.cart-badge.torneo{color:var(--green-dark);border-color:var(--green);background:var(--green-soft);}
