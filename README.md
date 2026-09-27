@@ -24,6 +24,7 @@ data/                 Datos que lee la web
 scraper/
   scraper.py            Añade resultados nuevos desde baikopilota.eus/resultados
   scraper_cartelera.py  Regenera la cartelera desde baikopilota.eus/entradas
+  aspe.py               Lectores de aspepelota.eus (resultados y cartelera), 2ª fuente
   red.py                Descarga con reintentos (común a los scrapers)
   competiciones.py      Criterio para asignar competición y tipo a cada partido
   roles.py              Rol (delantero/zaguero) de cada pelotari según sus partidos
@@ -54,6 +55,11 @@ no esté ya:
   `data/avisos_scraper.json`. Cada partido nuevo lleva `"fuente"`.
 - Cartelera: es el mismo evento si coincide el día y el frontón, o el día y
   algún partido.
+
+Fuentes actuales: Baiko (primera) y Aspe. Cuando Aspe solo da el pueblo
+('Altsasu', 'Bilbo') se usa el frontón principal de esa ciudad, y un nombre con
+una errata ('P.Etxberria') se asigna al pelotari existente si solo hay uno
+casi igual (con el mismo ordinal), dejando un aviso.
 
 Si una fuente falla, se guarda lo de las demás y la ejecución sale en rojo.
 

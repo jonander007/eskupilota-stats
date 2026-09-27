@@ -33,6 +33,7 @@ from bs4 import BeautifulSoup
 from competiciones import Cartelera, HistorialSeries, clasificar
 from roles import aplicar_roles
 from red import descargar
+import aspe
 
 # ─────────────────────────────────────────────────────────────────
 # RUTAS
@@ -411,6 +412,11 @@ class Catalogos:
         self._clave_pel = {clave_nombre(p['nombre']): p for p in self.pelotaris}
         self._clave_fro = {clave_nombre(f['nombre']): f for f in self.frontones}
         self._clave_ciu = {clave_nombre(c['nombre']): c for c in self.ciudades}
+        # La ciudad también por su nombre en castellano y euskera ('Bilbo', 'Mondragón')
+        for c in self.ciudades:
+            for k in ('nombre_es', 'nombre_eu'):
+                if c.get(k):
+                    self._clave_ciu.setdefault(clave_nombre(c[k]), c)
 
     def _avisar(self, tipo, nombre, parecidos):
         self.avisos.append({
@@ -422,6 +428,27 @@ class Catalogos:
     def _parecidos(self, nombre, indice):
         return difflib.get_close_matches(nombre, list(indice.keys()), n=3, cutoff=0.85)
 
+    def _casi_igual(self, nombre):
+        """Pelotari existente que solo difiere por una errata ('P.Etxberria').
+        Solo si hay uno, y con el mismo ordinal: ZUBIZARRETA III no es IV."""
+        ordinal = lambda n: (re.search(r'\s(I{1,3}|IV|V|VI{0,3})$', n.upper()) or [None])[0]
+        k = clave_nombre(nombre)
+        cands = difflib.get_close_matches(k, list(self._clave_pel), n=3, cutoff=0.9)
+        cands = [self._clave_pel[c] for c in cands if ordinal(self._clave_pel[c]['nombre']) == ordinal(nombre)]
+        return cands[0] if len(cands) == 1 else None
+
+    def fronton_de_pueblo(self, pueblo):
+        """Cuando la fuente solo da el pueblo ('Altsasu', 'Bilbo'): el frontón
+        principal (con más partidos) de esa ciudad, si se conoce."""
+        for trozo in [pueblo] + re.split(r'\s*[-/]\s*', pueblo):
+            ciu = self._clave_ciu.get(clave_nombre(trozo))
+            if ciu:
+                suyos = [f for f in self.frontones if f.get('ciudad_id') == ciu['id']]
+                if suyos:
+                    return max(suyos, key=lambda f: f.get('partidos_count', 0)), ciu
+                return None, ciu
+        return None, None
+
     def get_or_create_pelotari(self, nombre):
         if not nombre:
             return None
@@ -429,6 +456,11 @@ class Catalogos:
             return self._idx_pel[nombre]['id']
         if clave_nombre(nombre) in self._clave_pel:
             return self._clave_pel[clave_nombre(nombre)]['id']
+        casi = self._casi_igual(nombre)
+        if casi:
+            self.avisos.append({'tipo': 'pelotari_aproximado', 'nombre': nombre, 'se_usa': casi['nombre']})
+            print(f"  ~ '{nombre}' se toma como {casi['nombre']} (errata probable)")
+            return casi['id']
         parecidos = self._parecidos(nombre, self._idx_pel)
         if parecidos:
             self._avisar('pelotari', nombre, parecidos)
@@ -469,6 +501,14 @@ class Catalogos:
             return None
         if nombre not in self._idx_fro and clave_nombre(nombre) in self._clave_fro:
             nombre = self._clave_fro[clave_nombre(nombre)]['nombre']
+        if nombre not in self._idx_fro and clave_nombre(nombre) == clave_nombre(ciudad_nombre):
+            # Solo sabemos el pueblo: su frontón principal, o uno nuevo con el
+            # nombre de la ciudad tal y como está en el catálogo
+            fro, ciu = self.fronton_de_pueblo(nombre)
+            if fro:
+                return fro['id']
+            if ciu:
+                nombre = ciudad_nombre = ciu['nombre']
         if nombre in self._idx_fro:
             f = self._idx_fro[nombre]
             if not f.get('ciudad_id') and ciudad_nombre:
@@ -704,6 +744,7 @@ def planos_baiko(html):
 # todo; de las siguientes, solo los partidos que no estén ya.
 FUENTES = [
     ('baiko', URL_BAIKO, planos_baiko),
+    ('aspe', aspe.URL_RESULTADOS, lambda html: aspe.resultados_aspe(html, norm)),
 ]
 
 
