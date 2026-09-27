@@ -23,6 +23,7 @@ import sys
 from collections import Counter
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
+from jsonio import guardar_json  # noqa: E402
 from roles import aplicar_roles  # noqa: E402
 
 DATA_DIR = 'data'
@@ -38,8 +39,7 @@ def cargar(path):
 
 
 def guardar(path, items):
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(items, f, ensure_ascii=False, indent=2)
+    guardar_json(path, items)
 
 
 def contar(partidos):

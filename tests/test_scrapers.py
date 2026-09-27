@@ -5,6 +5,7 @@ data/cartelera.json y de data/partidos.json. No necesitan red.
     python -m unittest discover tests
 """
 
+import json
 import os
 import sys
 import unittest
@@ -342,6 +343,21 @@ class Clasificacion(unittest.TestCase):
         ps = SC.parse_partidos(['Final Torneo San Mateo (Serie B)', 'ELORDI – ESKUZA // P.ETXEBERRIA – LOZA (Serie B)'],
                                '27/09/2026', 'Finales', None)
         self.assertEqual((ps[0]['categoria'], ps[0]['serie'], ps[0]['fase']), ('torneo', 'b', 'final'))
+
+
+class FormatoJson(unittest.TestCase):
+    def test_lista_un_elemento_por_linea(self):
+        from jsonio import dumps
+        datos = [{'fecha': '2026-09-26', 'equipo1': {'del_id': 'PEL001', 'zag_id': None}}, {'n': 'ÑANDÚ'}]
+        texto = dumps(datos)
+        self.assertEqual(texto.splitlines(), [
+            '[',
+            '{"fecha":"2026-09-26","equipo1":{"del_id":"PEL001","zag_id":null}},',
+            '{"n":"ÑANDÚ"}',
+            ']',
+        ])
+        self.assertEqual(json.loads(texto), datos)
+        self.assertEqual(dumps([]), '[]\n')
 
 
 if __name__ == '__main__':

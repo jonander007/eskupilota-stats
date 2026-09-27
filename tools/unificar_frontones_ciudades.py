@@ -48,6 +48,9 @@ import re
 import sys
 from urllib.parse import quote
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
+from jsonio import guardar_json  # noqa: E402
+
 DATA_DIR = 'data'
 PARTIDOS_FILE = os.path.join(DATA_DIR, 'partidos.json')
 FRONTONES_FILE = os.path.join(DATA_DIR, 'frontones.json')
@@ -125,8 +128,7 @@ def load(path):
 
 
 def save(path, data):
-    with open(path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    guardar_json(path, data)
 
 
 def fusionar(items, grupos, etiqueta):
