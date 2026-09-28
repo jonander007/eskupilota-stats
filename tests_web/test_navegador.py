@@ -150,6 +150,20 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.locator('.an-ko-col.liga .an-ko-grupo').first.locator('.an-ko-eq.gana').count(), 2)
         self.assertIn('ETXEBERRIA', pg.locator('.an-campeon').inner_text())
 
+    def test_filtros_competicion_y_anio(self):
+        pg = self.pagina('#/campeonatos')
+        pg.select_option('#campSel', label='Campeonato 4 y Medio Serie A')
+        # Al elegir la competición sale su año más reciente
+        anios = pg.locator('#campAnio option').all_text_contents()
+        self.assertEqual(anios, sorted(anios, reverse=True))
+        self.assertEqual(pg.input_value('#campAnio'), pg.locator('#campAnio option').first.get_attribute('value'))
+        pg.select_option('#campAnio', label='2023')
+        self.assertIn('2023', pg.text_content('.an-camp-nombre'))
+        self.assertIn('#/campeonato/', pg.evaluate('location.hash'))
+        # Sin competiciones repetidas en el desplegable
+        nombres = pg.locator('#campSel option').all_text_contents()
+        self.assertEqual(len(nombres), len(set(nombres)))
+
     def test_clasificacion_de_campeonato(self):
         pg = self.pagina('#/campeonatos')
         self.assertGreater(pg.locator('#campContent table tbody tr').count(), 3)

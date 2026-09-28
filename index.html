@@ -337,9 +337,13 @@
   <div class="sec-title"><span data-i18n="nav_campeonatos">Campeonatos</span></div>
   <div class="filter-panel">
     <div class="filter-row">
-      <div class="fg" style="flex:1;min-width:0">
+      <div class="fg" style="flex:1;min-width:0;max-width:420px">
         <label class="flabel" for="campSel" data-i18n="flabel_competicion">Competición</label>
-        <select id="campSel" onchange="renderCampeonato(this.value)" style="width:100%;max-width:520px"></select>
+        <select id="campSel" onchange="elegirCompeticion(this.value)" style="width:100%"></select>
+      </div>
+      <div class="fg">
+        <label class="flabel" for="campAnio" data-i18n="flabel_año">Año</label>
+        <select id="campAnio" onchange="renderCampeonato(this.value)"></select>
       </div>
     </div>
   </div>
