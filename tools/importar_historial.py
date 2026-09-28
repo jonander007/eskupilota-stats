@@ -36,10 +36,10 @@ from datetime import date, timedelta
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.join(RAIZ, 'scraper'))
 from competiciones import _tipo  # noqa: E402
-from historial_baiko import competicion_de_titulo, leer_historial  # noqa: E402
+from historial_baiko import competicion_de_titulo, equipo_limpio, leer_historial  # noqa: E402
 from jsonio import guardar_json  # noqa: E402
 from red import descargar  # noqa: E402
-from scraper import PARTIDOS_FILE, Catalogos, normalizar_ubicacion  # noqa: E402
+from scraper import PARTIDOS_FILE, Catalogos, clave_nombre, normalizar_ubicacion  # noqa: E402
 
 MODALIDAD = {'Manomanista': 'mano', 'Parejas': 'parejas', '4 y Medio': 'cuatro'}
 
@@ -49,6 +49,19 @@ def importar(rutas, dry):
         partidos = json.load(f)
     cats = Catalogos()
     nombre_pel = {p['id']: p['nombre'] for p in cats.pelotaris}
+    nombre_comp = {c['id']: c['nombre'] for c in cats.competiciones}
+
+    def buscar(nombre):
+        """Id del pelotari si ya existe (sin crear ninguno)."""
+        p = cats._idx_pel.get(nombre.upper()) or cats._clave_pel.get(clave_nombre(nombre)) or cats._casi_igual(nombre)
+        return p['id'] if p else None
+
+    def equipo(p, k):
+        return {x for x in (p[k].get('del_id'), p[k].get('zag_id')) if x}
+
+    def texto(p):
+        e = lambda k: ' / '.join(nombre_pel.get(x, '?') for x in (p[k].get('del_id'), p[k].get('zag_id')) if x)
+        return f"{e('equipo1')} {p['puntos1']}-{p['puntos2']} {e('equipo2')}"
     resumen = []
 
     for ruta in rutas:
@@ -75,29 +88,45 @@ def importar(rutas, dry):
         tipo = _tipo(mod, 'campeonato', serie)
         comp_id = cats.get_or_create_competicion(comp, tipo)
         confirmados = set()
-        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0}
+        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0}
 
         for h in hist['partidos']:
             iso = f"{h['fecha'][6:]}-{h['fecha'][3:5]}-{h['fecha'][:2]}"
-            ids = [[cats.get_or_create_pelotari(x.upper()) for x in h[k]] for k in ('equipo1', 'equipo2')]
-            todos = {i for eq in ids for i in eq}
-            mio = None
+            # Pelotaris que jugaron seguro (sin nota de sustitución)
+            eqs = [equipo_limpio(h[k]) for k in ('equipo1', 'equipo2')]
+            sustitucion = any(s for _, s in eqs)
+            conocidos = [{buscar(n) for n in nombres} for nombres, _ in eqs]
+            mio, en1 = None, True
             for delta in (0, -1, 1):
                 f = (date.fromisoformat(iso) + timedelta(days=delta)).isoformat()
-                mio = next((p for p in partidos if p['fecha'] == f and
-                            {x for k in ('equipo1', 'equipo2') for x in (p[k].get('del_id'), p[k].get('zag_id')) if x} == todos), None)
+                for p in (q for q in partidos if q['fecha'] == f):
+                    s1, s2 = equipo(p, 'equipo1'), equipo(p, 'equipo2')
+                    for o1, o2, orden in ((s1, s2, True), (s2, s1, False)):
+                        pts = (p['puntos1'], p['puntos2']) if orden else (p['puntos2'], p['puntos1'])
+                        if None in conocidos[0] | conocidos[1]:
+                            continue
+                        if not sustitucion and conocidos[0] == o1 and conocidos[1] == o2:
+                            mio, en1 = p, orden
+                        # Con sustitución: los que seguro jugaron están, y el
+                        # tanteo coincide
+                        elif (sustitucion and conocidos[0] <= o1 and conocidos[1] <= o2 and
+                              len(conocidos[0] | conocidos[1]) >= 1 and pts == (h['puntos1'], h['puntos2'])):
+                            mio, en1 = p, orden
+                        if mio:
+                            break
+                    if mio:
+                        break
                 if mio:
                     break
             if mio:
-                # Tanteo en el orden del historial
-                en1 = set(ids[0]) == {x for x in (mio['equipo1'].get('del_id'), mio['equipo1'].get('zag_id')) if x}
                 t_mio = (mio['puntos1'], mio['puntos2']) if en1 else (mio['puntos2'], mio['puntos1'])
                 if t_mio != (h['puntos1'], h['puntos2']):
                     n['tanteo'] += 1
                     print(f"   ~ tanteo distinto {h['fecha']} {h['equipo1']} {h['puntos1']}-{h['puntos2']} "
-                          f"{h['equipo2']}: tenemos {t_mio[0]}-{t_mio[1]}")
+                          f"{h['equipo2']}: tenemos {t_mio[0]}-{t_mio[1]} (se deja el nuestro)")
                 if mio['competicion_id'] != comp_id:
                     n['movido'] += 1
+                    print(f"   > a {comp}: {mio['fecha']} {texto(mio)} (estaba en {nombre_comp.get(mio['competicion_id'])})")
                     mio['competicion_id'] = comp_id
                     mio.update({'modalidad': mod, 'categoria': 'campeonato', 'serie': serie, 'tipo': tipo})
                 antes = (mio.get('fase'), mio.get('grupo'), mio.get('fase_deducida'))
@@ -112,7 +141,13 @@ def importar(rutas, dry):
                 if antes != (mio['fase'], mio.get('grupo'), None):
                     n['fase'] += 1
                 confirmados.add(id(mio))
+            elif sustitucion:
+                # No sabemos quién jugó en lugar del anunciado: no se añade
+                n['sustitucion'] += 1
+                print(f"   · sin emparejar (hubo sustitución, no se añade): {h['fecha']} "
+                      f"{' / '.join(h['equipo1'])} {h['puntos1']}-{h['puntos2']} {' / '.join(h['equipo2'])}")
             else:
+                ids = [[cats.get_or_create_pelotari(x.upper()) for x in nombres] for nombres, _ in eqs]
                 fronton, ciudad = normalizar_ubicacion(h['fronton'], h['ciudad'])
                 del_zag = lambda eq: {'del_id': eq[0], 'zag_id': eq[1] if len(eq) > 1 else None}
                 nuevo = {
@@ -150,7 +185,7 @@ def importar(rutas, dry):
     for comp, n, quitadas, sobran in resumen:
         print(f"  {comp}: {n['fase']} fases puestas, {n['nuevo']} partidos nuevos, {n['movido']} cambiados "
               f"de competición, {quitadas} fases deducidas quitadas, {n['tanteo']} tanteos distintos, "
-              f"{sobran} partidos nuestros que no están en el historial")
+              f"{n['sustitucion']} con sustitución sin emparejar, {sobran} partidos nuestros que no están en el historial")
     if dry:
         print('\n[--dry-run] No se ha escrito nada.')
         return

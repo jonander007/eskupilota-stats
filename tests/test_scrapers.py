@@ -414,6 +414,25 @@ class HistorialBaiko(unittest.TestCase):
         self.assertEqual((final['equipo1'], final['puntos1'], final['equipo2'], final['puntos2']),
                          (['P.ETXEBERRIA'], 22, ['ZABALA'], 11))
 
+    def test_sustituciones(self):
+        from historial_baiko import equipo_limpio, limpiar_nombre
+        self.assertEqual(limpiar_nombre('LASO 1'), ('LASO', True))
+        self.assertEqual(limpiar_nombre('ALTUNA III 2'), ('ALTUNA III', True))
+        self.assertEqual(limpiar_nombre('ZABALA (LESIÓN)'), ('ZABALA', True))
+        self.assertEqual(limpiar_nombre('ZUBIZARRETA III'), ('ZUBIZARRETA III', False))
+        # Los sustituidos no cuentan como que jugaron; con tres nombres hubo cambio
+        self.assertEqual(equipo_limpio(['LASO 1', 'ARANGUREN']), (['ARANGUREN'], True))
+        self.assertEqual(equipo_limpio(['EGIGUREN V', 'ESKUZA', 'ALDABE']), (['EGIGUREN V', 'ESKUZA'], True))
+        self.assertEqual(equipo_limpio(['JAKA', 'MARIEZKURRENA II']), (['JAKA', 'MARIEZKURRENA II'], False))
+
+    def test_promocion_abreviada_es_serie_b(self):
+        from historial_baiko import competicion_de_titulo
+        p = [{'fecha': '07/05/2023'}]
+        self.assertEqual(competicion_de_titulo('[2023] BURUZ BURUKO PROM. TX. / C. MANOMANISTA PROM.', p),
+                         'Campeonato Manomanista Serie B 2023')
+        self.assertEqual(competicion_de_titulo('[2024] CAMPEONATO PAREJAS LEP.M', [{'fecha': '31/03/2024'}]),
+                         'Campeonato Parejas Serie A 2024')
+
     def test_nombres_de_fase(self):
         from historial_baiko import fase_de_titulo
         casos = {'Liga de cuartos': ('cuartos', True), 'Liguilla de semifinales': ('semifinal', True),
