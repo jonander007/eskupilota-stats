@@ -92,7 +92,18 @@ def importar(rutas, dry):
         tipo = _tipo(mod, 'campeonato', serie)
         comp_id = cats.get_or_create_competicion(comp, tipo)
         confirmados = set()
-        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0, 'sin_fronton': 0}
+        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0, 'sin_fronton': 0, 'parecido': 0}
+
+        def parecido(iso, conocidos, tanteo):
+            todos = (conocidos[0] | conocidos[1]) - {None}
+            for delta in (0, -1, 1):
+                f = (date.fromisoformat(iso) + timedelta(days=delta)).isoformat()
+                for p in (q for q in partidos if q['fecha'] == f):
+                    suyos = equipo(p, 'equipo1') | equipo(p, 'equipo2')
+                    if (sorted(tanteo) == sorted((p['puntos1'], p['puntos2'])) and
+                            len(todos & suyos) >= max(1, len(suyos) - 1)):
+                        return True
+            return False
 
         for h in hist['partidos']:
             iso = f"{h['fecha'][6:]}-{h['fecha'][3:5]}-{h['fecha'][:2]}"
@@ -149,6 +160,12 @@ def importar(rutas, dry):
                 n['sin_fronton'] += 1
                 print(f"   · sin frontón en el historial, no se añade: {h['fecha']} "
                       f"{' / '.join(h['equipo1'])} {h['puntos1']}-{h['puntos2']} {' / '.join(h['equipo2'])}")
+            elif parecido(iso, conocidos, (h['puntos1'], h['puntos2'])):
+                # Mismo día y tanteo con casi los mismos pelotaris: es el nuestro
+                # con otro nombre en la ficha; no se duplica
+                n['parecido'] += 1
+                print(f"   · parece uno nuestro con otro pelotari, no se añade: {h['fecha']} "
+                      f"{' / '.join(h['equipo1'])} {h['puntos1']}-{h['puntos2']} {' / '.join(h['equipo2'])}")
             elif sustitucion:
                 # No sabemos quién jugó en lugar del anunciado: no se añade
                 n['sustitucion'] += 1
@@ -199,7 +216,7 @@ def importar(rutas, dry):
     for comp, n, quitadas, sobran in resumen:
         print(f"  {comp}: {n['fase']} fases puestas, {n['nuevo']} partidos nuevos, {n['movido']} cambiados "
               f"de competición, {quitadas} fases deducidas quitadas, {n['tanteo']} tanteos distintos, "
-              f"{n['sustitucion']} con sustitución sin emparejar, {n['sin_fronton']} sin frontón, "
+              f"{n['sustitucion']} con sustitución sin emparejar, {n['sin_fronton']} sin frontón, {n['parecido']} parecidos a uno nuestro, "
               f"{sobran} partidos nuestros que no están en el historial")
     if dry:
         print('\n[--dry-run] No se ha escrito nada.')
