@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v19';
+const CACHE = 'eskupilota-v20';
 
 // Todo lo necesario para que la web arranque sin conexión
 const PRECACHE = [

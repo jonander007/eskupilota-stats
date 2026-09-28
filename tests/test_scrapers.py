@@ -442,6 +442,30 @@ class HistorialBaiko(unittest.TestCase):
         for titulo, esperado in casos.items():
             self.assertEqual(fase_de_titulo(titulo), esperado, titulo)
 
+    def test_fichas_de_torneos(self):
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tools'))
+        from importar_historial import destino_torneo
+        cats = [{'id': 'C1', 'nombre': 'Torneo San Fermín 2023'},
+                {'id': 'C2', 'nombre': 'Torneo San Fermin 4 y Medio 2023'},
+                {'id': 'C3', 'nombre': 'Torneo Bizkaia 2023'},
+                {'id': 'C4', 'nombre': 'Torneo San Fermin Serie A 2025'}]
+        pp = [{'competicion_id': 'C3', 'modalidad': 'cuatro', 'equipo1': {'del_id': 'P1'}}]
+
+        def h(titulo, fecha, pareja=True):
+            return {'titulo': titulo, 'partidos': [{'fecha': fecha, 'equipo1': ['A', 'B'] if pareja else ['A']}]}
+        # El nombre que ya tenemos, aunque haya cambiado con los años
+        self.assertEqual(destino_torneo(h('[2023] Torneo San Fermín 2023', '14/07/2023'), cats, pp)[0],
+                         'Torneo San Fermín 2023')
+        self.assertEqual(destino_torneo(h('[2023] Torneo San Fermin 4 1/2', '14/07/2023', False), cats, pp)[:3],
+                         ('Torneo San Fermin 4 y Medio 2023', 'torneo', 'cuatro'))
+        # Los individuales del Bizkaia 2023 eran de 4 y medio
+        self.assertEqual(destino_torneo(h('[2023] X Torneo Bizkaia', '01/10/2023', False), cats, pp)[2], 'cuatro')
+        self.assertEqual(destino_torneo(h('[2026] Torneo San Fermín Serie B', '10/07/2026'), cats, pp),
+                         ('Torneo San Fermin Serie B 2026', 'torneo', 'mano', 'B'))
+        self.assertEqual(destino_torneo(h('[2026] Andre Maria Zuria Torneoa Serie A', '05/08/2026'), cats, pp)[0],
+                         'Torneo La Blanca Serie A 2026')
+        self.assertIsNone(destino_torneo(h('[2025] Campeonato 4 1/2 Serie B', '01/12/2025'), cats, pp))
+
 
 class FormatoJson(unittest.TestCase):
     def test_lista_un_elemento_por_linea(self):

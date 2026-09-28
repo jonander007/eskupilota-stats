@@ -131,12 +131,14 @@ class Web(unittest.TestCase):
 
     # ── Campeonatos ──
     def test_campeonato_con_cuadro_de_eliminatorias(self):
-        # 4 y Medio Serie B 2025: cuartos, semifinales y final
+        # 4 y Medio Serie B 2025 (fases del historial de Baiko): octavos,
+        # liguilla de cuartos, semifinales y final
         pg = self.pagina('#/campeonato/COMP004')
         rondas = pg.locator('.an-ko-col')
-        self.assertEqual(rondas.count(), 3)
+        self.assertEqual(rondas.count(), 4)
         self.assertEqual(rondas.nth(0).locator('.an-ko-m').count(), 4)
-        self.assertEqual(rondas.nth(2).locator('.an-ko-m').count(), 1)
+        self.assertEqual(rondas.nth(2).locator('.an-ko-m').count(), 2)
+        self.assertEqual(rondas.nth(3).locator('.an-ko-m').count(), 1)
         self.assertTrue(pg.locator('.an-campeon').is_visible())
 
     def test_fases_con_liguilla_del_historial(self):

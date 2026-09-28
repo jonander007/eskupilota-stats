@@ -571,6 +571,7 @@ tr:hover td{background:var(--surface2);}
 .m-card-row.mano-row{border-left-color:var(--mano);}
 .m-card-row.cuatro-row{border-left-color:var(--cuatro);}
 .m-card-header{display:flex;align-items:center;justify-content:space-between;padding:.7rem .9rem;cursor:pointer;gap:.5rem;}
+.m-card-oficial{display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;margin-top:.2rem;}
 .m-card-fecha{font-family:var(--mono);font-size:.6rem;font-weight:600;color:var(--muted);white-space:nowrap;}
 .m-card-marcador{display:flex;align-items:center;gap:.35rem;font-family:var(--display);font-weight:700;}
 .m-card-score{font-size:1.4rem;line-height:1;}
