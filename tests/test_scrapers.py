@@ -356,6 +356,8 @@ class WebSoloConFase(unittest.TestCase):
                    'ELORDI – ESKUZA // p.etxeberria – loza (Serie B)',
                    'EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)'],
         'partidos': [
+            {'eq1': ['ZUBIZARRETA IV', 'MORGAETXEBARRIA'], 'eq2': ['APEZETXEA II', 'EROSTARBE'],
+             'raw': 'ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE', 'tipo': 'campeonato-a', 'serie': None},
             {'eq1': ['ELORDI', 'ESKUZA'], 'eq2': ['p.etxeberria', 'loza'],
              'raw': 'ELORDI – ESKUZA // p.etxeberria – loza (Serie B)', 'tipo': 'campeonato-b', 'serie': 'b'},
             {'eq1': ['EZKURDIA', 'MARTIJA'], 'eq2': ['JAKA', 'MARIEZKURRENA II'],
@@ -377,6 +379,20 @@ class WebSoloConFase(unittest.TestCase):
     def test_final_serie_a(self):
         c = self.clasificar('Final', ['EZKURDIA', 'MARTIJA', 'JAKA', 'MARIEZKURRENA II'])
         self.assertEqual((c['competicion'], c['fase']), ('Torneo San Mateo Serie A 2026', 'final'))
+
+    def test_partido_de_apertura_sin_serie_es_festival(self):
+        # En la velada van el de la Serie A y el de la Serie B marcados; el
+        # tercero, sin marca, es el festival de apertura
+        c = self.clasificar('Final', ['ZUBIZARRETA IV', 'MORGAETXEBARRIA', 'APEZETXEA II', 'EROSTARBE'])
+        self.assertEqual((c['competicion'], c['categoria'], c['fase']), ('Festival', 'festival', None))
+
+    def test_marcas_mal_leidas_no_deciden(self):
+        from competiciones import Cartelera
+        ev = {'partidos': [{'raw': 'SALABERRIA – BIKUÑA // ZUBIZARRETA IV – ESKIROZ'},
+                           {'raw': 'P.ETXEBERRIA – ZABALETA // LARRAZABAL – ALBISU (Serie A | B)'},
+                           {'raw': 'SENAR – LIZEAGA // REKALDE – EROSTARBE ('}]}
+        self.assertFalse(Cartelera.es_apertura(ev, ev['partidos'][0]))
+        self.assertFalse(Cartelera.es_apertura(ev, ev['partidos'][2]))
 
     def test_texto_de_competicion_de_la_web_manda(self):
         c = self.clasificar('Campeonato Parejas Serie A', ['EZKURDIA', 'MARTIJA', 'JAKA', 'MARIEZKURRENA II'])
