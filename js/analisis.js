@@ -343,16 +343,19 @@ async function descargarFicha(nombre){
   const hoy = PARTIDOS.length ? PARTIDOS[0].fecha : '';
   texto(`${tx('Datos hasta el','Datuak')} ${hoy}${tx('','ra arte')}`, W - M, H - 30, mono(20), 'rgba(255,255,255,.85)', 'right');
 
+  const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
+  entregarImagen(cv, `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`, `${nombre} · EskupilotaStats`, tx('Ficha descargada','Fitxa deskargatuta'));
+}
+
+// JPG del lienzo: en el móvil, menú de compartir del sistema (guardar en la
+// galería, WhatsApp...); en el ordenador, o si no se puede, se descarga
+function entregarImagen(cv, fichero, titulo, aviso){
   cv.toBlob(async blob => {
     if(!blob) return;
-    const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
-    const fichero = `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`;
-    // En el móvil: menú de compartir del sistema (guardar en la galería,
-    // WhatsApp...). En el ordenador, o si no se puede: descarga
     const file = new File([blob], fichero, {type: 'image/jpeg'});
     const tactil = window.matchMedia && matchMedia('(pointer: coarse)').matches;
     if(tactil && navigator.canShare && navigator.canShare({files: [file]})){
-      try{ await navigator.share({files: [file], title: `${nombre} · EskupilotaStats`}); return; }
+      try{ await navigator.share({files: [file], title: titulo}); return; }
       catch(e){ if(e && e.name === 'AbortError') return; }
     }
     const a = document.createElement('a');
@@ -360,7 +363,7 @@ async function descargarFicha(nombre){
     a.download = fichero;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-    avisoBreve(tx('Ficha descargada','Fitxa deskargatuta'));
+    avisoBreve(aviso || tx('Imagen descargada','Irudia deskargatuta'));
   }, 'image/jpeg', 0.92);
 }
 
@@ -1028,9 +1031,72 @@ function abrirFronton(nombre, scroll=true, navegar=true){
           <button class="btn" style="margin-top:.8rem" onclick="filtrarPorFronton('${esc(nombre)}')">${tx('Ver todos los partidos','Partida guztiak ikusi')} →</button>
         </div>
       </div>
-    </div>`;
+    </div>
+    ${htmlEstadisticasFronton(parts)}`;
   det.classList.add('active');
   if(scroll) det.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// Más estadísticas del frontón: mejor porcentaje, parejas, por modalidad y
+// año, partidos más ajustados y mayores diferencias
+function htmlEstadisticasFronton(parts){
+  const n = parts.length;
+  const MIN_PCT = 5, MIN_PAREJA = 3;
+  const tantos = (parts.reduce((s,p)=>s+p.puntos1+p.puntos2,0)/n).toFixed(1);
+  const st = {}, parejas = {};
+  parts.forEach(p=>['equipo1','equipo2'].forEach(eq=>{
+    const gana = p.ganador===eq, js = pels(p[eq]);
+    js.forEach(x=>{ st[x]=st[x]||{pj:0,pg:0}; st[x].pj++; if(gana) st[x].pg++; });
+    if(js.length===2){ const k=js.join(' / '); parejas[k]=parejas[k]||{pj:0,pg:0,js}; parejas[k].pj++; if(gana) parejas[k].pg++; }
+  }));
+  const mejorPct = Object.entries(st).filter(([,s])=>s.pj>=MIN_PCT)
+    .sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj || b[1].pj-a[1].pj).slice(0,8);
+  const topParejas = Object.values(parejas).filter(s=>s.pj>=MIN_PAREJA)
+    .sort((a,b)=>b.pg-a.pg || b.pg/b.pj-a.pg/a.pj).slice(0,5);
+  const MOD = {parejas:tx('Parejas','Binaka'), mano:tx('Mano a mano','Buruz buru'), cuatro:tx('4 y medio',"Lau t'erdi")};
+  const porMod = {}; parts.forEach(p=>{ porMod[p.modalidad]=(porMod[p.modalidad]||0)+1; });
+  const porAnio = {}; parts.forEach(p=>{ const a=getYear(p); porAnio[a]=(porAnio[a]||0)+1; });
+  const maxAnio = Math.max(...Object.values(porAnio));
+  const dif = p => Math.abs(p.puntos1-p.puntos2);
+  const recientes = [...parts].sort((a,b)=>parseDate(b.fecha)-parseDate(a.fecha));
+  const ajustados = recientes.filter(p=>dif(p)===1);
+  const palizas = [...parts].sort((a,b)=>dif(b)-dif(a) || parseDate(b.fecha)-parseDate(a.fecha)).slice(0,4);
+  const nombres = js => js.map(x=>`<span class="clk" onclick="goToPel('${esc(x)}')">${h(x)}</span>`).join(' / ');
+  const filaP = p => `<tr><td class="an-fecha">${p.fecha}</td>
+    <td class="${p.ganador==='equipo1'?'an-win':''}">${h(neq(p.equipo1))}</td>
+    <td class="an-num an-marcador">${p.puntos1}–${p.puntos2}</td>
+    <td class="${p.ganador==='equipo2'?'an-win':''}">${h(neq(p.equipo2))}</td></tr>`;
+  const vacio = cols => `<tr><td colspan="${cols}" class="an-muted">${tx('Pocos partidos','Partida gutxi')}</td></tr>`;
+  return `<div class="ch-card an-fron-stats">
+    <h3>${tx('Estadísticas del frontón','Frontoiaren estatistikak')}</h3>
+    <div class="an-kpis">
+      <div><div class="an-kpi-v">${tantos}</div><div class="an-kpi-l">${tx('Tantos por partido (los dos)','Tantoak partidako (biak)')}</div></div>
+      <div><div class="an-kpi-v">${ajustados.length}</div><div class="an-kpi-l">${tx('Partidos por un tanto','Tanto bategatik')}</div></div>
+      ${Object.entries(porMod).sort((a,b)=>b[1]-a[1]).map(([m,k])=>`<div><div class="an-kpi-v">${k}</div><div class="an-kpi-l">${MOD[m]||m}</div></div>`).join('')}
+    </div>
+    <div class="an-sub">${tx('Partidos por año','Partidak urteka')}</div>
+    <div class="an-fron-anios">${Object.keys(porAnio).sort().map(a=>`<div><span class="an-fron-bar" style="height:${Math.max(6,porAnio[a]/maxAnio*60)}px"></span><b>${porAnio[a]}</b><span>${a}</span></div>`).join('')}</div>
+    <div class="an-grid2">
+      <div>
+        <div class="an-sub">${tx(`Mejor porcentaje aquí (mín. ${MIN_PCT} partidos)`,`Ehuneko onena hemen (gutx. ${MIN_PCT} partida)`)}</div>
+        <table class="comp-table"><thead><tr><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">%</th><th class="an-num">${t('abbr_v')}</th><th class="an-num">${t('abbr_pj')}</th></tr></thead>
+        <tbody>${mejorPct.map(([x,s])=>`<tr><td>${nombres([x])}</td><td class="an-num"><b>${Math.round(s.pg/s.pj*100)}%</b></td><td class="an-num">${s.pg}</td><td class="an-num">${s.pj}</td></tr>`).join('') || vacio(4)}</tbody></table>
+      </div>
+      <div>
+        <div class="an-sub">${tx(`Parejas con más victorias (mín. ${MIN_PAREJA})`,`Garaipen gehien dituzten bikoteak (gutx. ${MIN_PAREJA})`)}</div>
+        <table class="comp-table"><thead><tr><th>${tx('Pareja','Bikotea')}</th><th class="an-num">${t('abbr_v')}</th><th class="an-num">${t('abbr_pj')}</th><th class="an-num">%</th></tr></thead>
+        <tbody>${topParejas.map(s=>`<tr><td>${nombres(s.js)}</td><td class="an-num"><b>${s.pg}</b></td><td class="an-num">${s.pj}</td><td class="an-num">${Math.round(s.pg/s.pj*100)}%</td></tr>`).join('') || vacio(4)}</tbody></table>
+      </div>
+      <div>
+        <div class="an-sub">${tx('Los más ajustados (por un tanto)','Estuenak (tanto batez)')}</div>
+        <div class="an-table-wrap"><table class="comp-table an-partidos"><tbody>${ajustados.slice(0,5).map(filaP).join('') || vacio(4)}</tbody></table></div>
+      </div>
+      <div>
+        <div class="an-sub">${tx('Mayores diferencias','Alde handienak')}</div>
+        <div class="an-table-wrap"><table class="comp-table an-partidos"><tbody>${palizas.map(filaP).join('')}</tbody></table></div>
+      </div>
+    </div>
+  </div>`;
 }
 
 function cerrarFronton(){
@@ -1160,4 +1226,308 @@ function htmlSeguidosCartelera(eventos){
         <span class="an-muted">${h(x.ev.fronton||'')}</span></div>`).join('')
       : `<div class="an-muted">${tx('No tienen partidos en la cartelera por ahora.','Oraingoz ez dute partidarik kartelan.')}</div>`}
   </div>`;
+}
+
+
+// ════════════════════════════════════════════════════════════
+// VERSIÓN NUEVA DE LA WEB
+// index.html carga app.js?v=NN. Si el index.html del servidor pide otra
+// versión, esta página es vieja (caché del navegador, del service worker o
+// una pestaña/app abierta desde hace días): al arrancar se recarga sola y,
+// si ya se está usando, se ofrece un botón «Actualizar».
+// ════════════════════════════════════════════════════════════
+const VERSION_WEB = ((document.querySelector('script[src*="app.js?v="]')||{}).src||'').match(/v=(\d+)/)?.[1] || null;
+let _ultimaComprobacion = 0;
+
+async function comprobarVersion(alArrancar=false){
+  if(!VERSION_WEB || Date.now() - _ultimaComprobacion < 60*1000) return;
+  _ultimaComprobacion = Date.now();
+  try{
+    const r = await fetch('index.html?_=' + Date.now(), {cache: 'no-store'});
+    if(!r.ok) return;
+    const v = (await r.text()).match(/app\.js\?v=(\d+)/)?.[1];
+    if(!v || v === VERSION_WEB) return;
+    // Solo se recarga sola una vez por versión (si no, un proxy que sirva un
+    // index.html viejo provocaría recargas sin fin)
+    let ya = null; try{ ya = sessionStorage.getItem('recargado-v'); }catch(e){}
+    if(alArrancar && ya !== v){ try{ sessionStorage.setItem('recargado-v', v); }catch(e){} return actualizarWeb(); }
+    avisoNuevaVersion();
+  }catch(e){}
+}
+
+async function actualizarWeb(){
+  try{
+    const reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration();
+    if(reg) await reg.update().catch(()=>{});
+    const ks = await caches.keys();
+    await Promise.all(ks.filter(k => k !== 'eskupilota-prefs').map(k => caches.delete(k)));
+  }catch(e){}
+  location.reload();
+}
+
+function avisoNuevaVersion(){
+  if(document.getElementById('nuevaVersion')) return;
+  const d = document.createElement('div');
+  d.id = 'nuevaVersion'; d.className = 'nueva-version'; d.setAttribute('role', 'status');
+  d.innerHTML = `<span>${tx('Hay una versión nueva de la web','Webaren bertsio berria dago')}</span><button onclick="actualizarWeb()">${tx('Actualizar','Eguneratu')}</button>`;
+  document.body.appendChild(d);
+}
+
+// Al volver a la pestaña o a la app (en el móvil quedan abiertas días)
+document.addEventListener('visibilitychange', () => { if(document.visibilityState === 'visible') comprobarVersion(); });
+
+// ════════════════════════════════════════════════════════════
+// COMPARTIR POR WHATSAPP (menú del móvil)
+// ════════════════════════════════════════════════════════════
+function compartirWhatsApp(){
+  const url = 'https://www.eskupilotastats.com/' + (LANG === 'eu' ? '?lang=eu' : '') + (location.hash || '');
+  const texto = tx('Estadísticas de pelota a mano: resultados, cartelera, ranking y cara a cara 👉 ',
+                   'Esku pilotako estatistikak: emaitzak, kartela, sailkapena eta aurrez aurrekoak 👉 ') + url;
+  window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+  if(typeof closeDrawer === 'function') closeDrawer();
+}
+
+
+// ════════════════════════════════════════════════════════════
+// PERFIL: COMPARAR DOS TEMPORADAS
+// ════════════════════════════════════════════════════════════
+function statsTemporada(nombre, anio){
+  const parts = filtByTipoYear(activeTipo, anio).filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre));
+  const lado = p => pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2';
+  const gana = p => p.ganador === lado(p);
+  const pg = parts.filter(gana).length;
+  const tf = parts.reduce((s,p)=>s+(lado(p)==='equipo1'?p.puntos1:p.puntos2),0);
+  const tc = parts.reduce((s,p)=>s+(lado(p)==='equipo1'?p.puntos2:p.puntos1),0);
+  const ofi = parts.filter(p=>p.categoria==='campeonato'||p.categoria==='torneo');
+  const comp = {}, fron = {};
+  parts.forEach(p=>{
+    pels(p[lado(p)]).filter(x=>x!==nombre).forEach(x=>{ comp[x]=(comp[x]||0)+1; });
+    const f = fron[p.fronton] = fron[p.fronton]||{pj:0,pg:0}; f.pj++; if(gana(p)) f.pg++;
+  });
+  const compa = Object.entries(comp).sort((a,b)=>b[1]-a[1])[0];
+  const mejorF = Object.entries(fron).filter(([,f])=>f.pj>=3).sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj||b[1].pj-a[1].pj)[0];
+  const fin = new Date(+anio, 11, 31, 23, 59), ini = new Date(+anio-1, 11, 31, 23, 59);
+  const tieneElo = (ELO_HIST[nombre]||[]).some(([f])=>getYear({fecha:f})===anio);
+  return {
+    pj: parts.length, pg, pp: parts.length-pg, pct: parts.length ? pg/parts.length*100 : null,
+    tpp: parts.length ? tf/parts.length : null, dif: tf-tc,
+    elo: tieneElo ? eloEnFecha(nombre, fin) : null, deltaElo: tieneElo ? eloEnFecha(nombre, fin)-eloEnFecha(nombre, ini) : null,
+    ofiV: ofi.filter(gana).length, ofiD: ofi.length-ofi.filter(gana).length,
+    txapelas: palmares(nombre, parts).ganadas.length,
+    compa: compa ? `${compa[0]} (${compa[1]})` : '—',
+    mejorF: mejorF ? `${mejorF[0]} (${Math.round(mejorF[1].pg/mejorF[1].pj*100)}%)` : '—',
+  };
+}
+
+function htmlTemporadas(nombre){
+  const anios = [...new Set(PARTIDOS.filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre)).map(getYear))].sort().reverse();
+  if(anios.length < 2) return '';
+  const opts = sel => anios.map(a=>`<option value="${a}" ${a===sel?'selected':''}>${a}</option>`).join('');
+  return `<div class="ch-card pf-temporadas" id="pfTemporadas">
+    <h3>${tx('Comparar temporadas','Denboraldiak alderatu')}</h3>
+    <div class="pf-temp-sel">
+      <label class="flabel" for="tmpA">${tx('Temporada','Denboraldia')} 1</label><select id="tmpA" onchange="renderTemporadas()">${opts(anios[1])}</select>
+      <span class="an-muted">vs</span>
+      <label class="flabel" for="tmpB">${tx('Temporada','Denboraldia')} 2</label><select id="tmpB" onchange="renderTemporadas()">${opts(anios[0])}</select>
+    </div>
+    <div id="pfTempTabla">${htmlTablaTemporadas(nombre, anios[1], anios[0])}</div>
+  </div>`;
+}
+
+function renderTemporadas(){
+  const el = document.getElementById('pfTempTabla');
+  if(el) el.innerHTML = htmlTablaTemporadas(_perfilNombre, document.getElementById('tmpA').value, document.getElementById('tmpB').value);
+}
+
+function htmlTablaTemporadas(nombre, a1, a2){
+  const A = statsTemporada(nombre, a1), B = statsTemporada(nombre, a2);
+  const num = (v, dec=0, signo=false) => v===null ? '—' : (signo && v>0 ? '+' : '') + (dec ? v.toFixed(dec) : Math.round(v));
+  // [etiqueta, valor A, valor B, clave numérica para marcar el mejor (mayor es mejor; 'menor' al revés)]
+  const filas = [
+    [tx('Partidos','Partidak'), A.pj, B.pj],
+    [tx('Victorias','Garaipenak'), A.pg, B.pg, 'mayor'],
+    [tx('Derrotas','Porrotak'), A.pp, B.pp, 'menor'],
+    ['% ' + tx('victorias','garaipenak'), A.pct, B.pct, 'mayor', v=>num(v)+'%'],
+    [tx('Tantos por partido','Tantoak partidako'), A.tpp, B.tpp, 'mayor', v=>num(v,1)],
+    [tx('Diferencia de tantos','Tanto aldea'), A.dif, B.dif, 'mayor', v=>num(v,0,true)],
+    [tx('Elo al acabar el año','Eloa urte amaieran'), A.elo, B.elo, 'mayor', v=>num(v)],
+    [tx('Elo ganado en el año','Urtean irabazitako Eloa'), A.deltaElo, B.deltaElo, 'mayor', v=>num(v,0,true)],
+    [tx('Oficiales (V–D)','Ofizialak (G–P)'), `${A.ofiV}–${A.ofiD}`, `${B.ofiV}–${B.ofiD}`],
+    [tx('Txapelas','Txapelak'), A.txapelas, B.txapelas, 'mayor'],
+    [tx('Compañero más habitual','Bikotekide ohikoena'), A.compa, B.compa],
+    [tx('Mejor frontón (mín. 3)','Frontoi onena (gutx. 3)'), A.mejorF, B.mejorF],
+  ];
+  const celda = (v, otro, criterio, fmt) => {
+    const txt = fmt ? fmt(v) : v;
+    const mejor = criterio && typeof v==='number' && typeof otro==='number' && v!==otro &&
+      (criterio==='mayor' ? v>otro : v<otro);
+    return `<td class="an-num ${mejor?'pf-temp-mejor':''}">${h(String(txt))}</td>`;
+  };
+  return `<div class="an-table-wrap"><table class="comp-table pf-temp-tabla">
+    <thead><tr><th></th><th class="an-num">${a1}</th><th class="an-num">${a2}</th></tr></thead>
+    <tbody>${filas.map(([l,a,b,cr,fmt])=>`<tr><td>${l}</td>${celda(a,b,cr,fmt)}${celda(b,a,cr,fmt)}</tr>`).join('')}</tbody></table></div>
+    ${activeTipo!=='todos' ? `<p class="an-nota">${tx('Solo la modalidad elegida arriba.','Goian aukeratutako modalitatea bakarrik.')}</p>` : ''}`;
+}
+
+
+// ════════════════════════════════════════════════════════════
+// IMÁGENES PARA COMPARTIR: partido de la cartelera y cara a cara
+// Mismo estilo que la ficha del pelotari (1080×1350, cabecera verde y pie)
+// ════════════════════════════════════════════════════════════
+async function lienzoCompartir(kicker, subtitulo){
+  const W = 1080, H = 1350, M = 64;
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const c = cv.getContext('2d');
+  try{ await document.fonts.ready; }catch(e){}
+  const logo = await cargarImagen('logo-header.png');
+  const k = {
+    cv, c, W, H, M,
+    VERDE: '#007A3D', VERDE_OSC: '#005a2c', ROJO: '#C8102E', AZUL: '#2471a3', TEXTO: '#1A1A1A', GRIS: '#5e6d63', FONDO: '#f5f7f4',
+    disp: (px, w=700) => `${w} ${px}px "Barlow Condensed", "Arial Narrow", sans-serif`,
+    mono: px => `600 ${px}px "JetBrains Mono", monospace`,
+    sans: (px, w=500) => `${w} ${px}px Inter, system-ui, sans-serif`,
+  };
+  k.texto = (s, x, y, font, color, align='left') => { c.font = font; c.fillStyle = color; c.textAlign = align; c.fillText(s, x, y); };
+  k.caja = (x, y, w, h, r=18, color='#fff') => { c.fillStyle = color; c.beginPath(); c.roundRect(x, y, w, h, r); c.fill(); };
+  // Texto que cabe en 'max' bajando la letra hasta 'min' px y, si no, cortado con '…'
+  k.encajar = (s, max, px, min=30, w=700) => {
+    for(; px > min; px -= 2){ c.font = k.disp(px, w); if(c.measureText(s).width <= max) return [s, k.disp(px, w)]; }
+    c.font = k.disp(px, w); while(s.length > 3 && c.measureText(s).width > max) s = s.slice(0, -2) + '…';
+    return [s, k.disp(px, w)];
+  };
+  c.fillStyle = k.FONDO; c.fillRect(0, 0, W, H);
+  const g = c.createLinearGradient(0, 0, W, 250); g.addColorStop(0, k.VERDE); g.addColorStop(1, k.VERDE_OSC);
+  c.fillStyle = g; c.fillRect(0, 0, W, 250);
+  if(logo) c.drawImage(logo, M, 40, 220, 220 * logo.height / logo.width);
+  k.texto(kicker.toUpperCase(), W-M, 88, k.mono(26), '#fff', 'right');
+  if(subtitulo){ const [s2, f2] = k.encajar(subtitulo, W - 2*M, 40, 26, 600); k.texto(s2, M, 205, f2, 'rgba(255,255,255,.92)'); }
+  // Pie
+  c.fillStyle = k.VERDE; c.fillRect(0, H - 80, W, 80);
+  k.texto('eskupilotastats.com', M, H - 30, k.sans(28, 700), '#fff');
+  k.texto(`${tx('Datos hasta el','Datuak')} ${PARTIDOS.length ? PARTIDOS[0].fecha : ''}${tx('','ra arte')}`, W - M, H - 30, k.mono(20), 'rgba(255,255,255,.85)', 'right');
+  return k;
+}
+
+// Nombres de un equipo en una o dos líneas grandes
+function pintarEquipo(k, nombres, y, color){
+  const [s, f] = k.encajar(nombres.join(' / '), k.W - 2*k.M, 92, 44, 800);
+  k.texto(s, k.W/2, y, f, color, 'center');
+}
+
+function pintarForma(k, nombre, x, y, color){
+  const forma = formaReciente(nombre, 5);
+  const [s, f] = k.encajar(nombre, 300, 34, 24);
+  k.texto(s, x, y + 38, f, color);
+  forma.forEach((r, i) => {
+    const xx = x + 320 + i * 48;
+    k.caja(xx, y, 40, 52, 8, r === 'V' ? k.VERDE : '#e3e8e1');
+    k.texto(r === 'V' ? t('abbr_v') : t('abbr_d'), xx + 20, y + 37, k.disp(30), r === 'V' ? '#fff' : k.GRIS, 'center');
+  });
+  if(!forma.length) k.texto('—', x + 320, y + 38, k.disp(32), k.GRIS);
+}
+
+// Partido de la cartelera: equipos, pronóstico, cara a cara y forma
+async function compartirPartidoCartelera(btn, ev){
+  if(ev) ev.stopPropagation();
+  const card = btn.closest('.cart-partido-wrap').querySelector('[data-partido]');
+  const p = JSON.parse(decodeURIComponent(card.dataset.partido));
+  const eq1 = (p.eq1||[]).filter(Boolean), eq2 = (p.eq2||[]).filter(Boolean);
+  const r1 = eq1.map(resolverPelotari), r2 = eq2.map(resolverPelotari);
+  const conocidos = !r1.includes(null) && !r2.includes(null) && r1.length && r2.length;
+  const comp = [p.categoria ? etiquetaPartido(p).lbl : '', p.fase ? textoFase(p) : ''].filter(Boolean).join(' · ');
+  const k = await lienzoCompartir(tx('Próximo partido','Hurrengo partida'), `${p.fecha}${p.hora ? ' · ' + p.hora + 'h' : ''} · ${p.fronton || ''}`);
+  const {c, W, M} = k;
+  let y = 330;
+  if(comp) k.texto(comp.toUpperCase(), W/2, y, k.mono(28), k.VERDE, 'center');
+  pintarEquipo(k, eq1, y + 115, k.ROJO);
+  k.texto('VS', W/2, y + 195, k.disp(54, 800), k.GRIS, 'center');
+  pintarEquipo(k, eq2, y + 290, k.AZUL);
+  y += 340;
+  if(conocidos){
+    const prob = probVictoria(r1, r2), cc = caraACara(r1, r2);
+    // Pronóstico
+    k.caja(M, y, W - 2*M, 150);
+    k.texto(tx('PRONÓSTICO','PRONOSTIKOA'), M + 28, y + 46, k.mono(20), k.GRIS);
+    if(prob !== null){
+      const p1 = Math.round(prob*100), bw = W - 2*M - 56, bx = M + 28;
+      k.texto(p1 + '%', bx, y + 110, k.disp(56), k.ROJO);
+      k.texto((100 - p1) + '%', bx + bw, y + 110, k.disp(56), k.AZUL, 'right');
+      const ix = bx + 130, iw = bw - 260;
+      k.caja(ix, y + 76, iw * p1/100, 22, 11, k.ROJO);
+      k.caja(ix + iw * p1/100 + 4, y + 76, iw * (100-p1)/100 - 4, 22, 11, k.AZUL);
+    }
+    k.texto(`${tx('CARA A CARA','AURREZ AURRE')}: ${cc.g1} – ${cc.g2}`, W - M - 28, y + 46, k.mono(20), k.GRIS, 'right');
+    y += 174;
+    // Forma de los cuatro (o dos)
+    const filas = [...r1.map(n => [n, k.ROJO]), ...r2.map(n => [n, k.AZUL])];
+    const alto = 60 + filas.length * 70;
+    k.caja(M, y, W - 2*M, alto);
+    k.texto(tx('FORMA · ÚLTIMOS 5','FORMA · AZKEN 5'), M + 28, y + 46, k.mono(20), k.GRIS);
+    filas.forEach(([n, col], i) => pintarForma(k, n, M + 28, y + 66 + i * 70, col));
+  } else {
+    k.texto(tx('Pelotaris por confirmar','Pilotariak zehazteko'), W/2, y + 120, k.disp(48), k.GRIS, 'center');
+  }
+  entregarImagen(k.cv, `partido-${slugify([...eq1, 'vs', ...eq2].join('-'))}.jpg`,
+    `${eq1.join(' / ')} vs ${eq2.join(' / ')} · EskupilotaStats`);
+}
+
+// Cara a cara (1 contra 1 o pareja contra pareja): victorias y últimos enfrentamientos
+async function imagenCaraACara({kicker, filtro, nombreA, nombreB, partidos, esA, fichero}){
+  const k = await lienzoCompartir(kicker, filtro);
+  const {W, M} = k;
+  let wA = 0, tA = 0, tB = 0;
+  partidos.forEach(p => { const a = esA(p); if(p.ganador === a) wA++; tA += a==='equipo1'?p.puntos1:p.puntos2; tB += a==='equipo1'?p.puntos2:p.puntos1; });
+  const n = partidos.length, wB = n - wA;
+  let y = 320;
+  const [sA, fA] = k.encajar(nombreA, W/2 - M - 20, 64, 32, 800);
+  const [sB, fB] = k.encajar(nombreB, W/2 - M - 20, 64, 32, 800);
+  k.texto(sA, M, y + 40, fA, k.ROJO);
+  k.texto(sB, W - M, y + 40, fB, k.AZUL, 'right');
+  k.texto(String(wA), M, y + 230, k.disp(200, 800), wA >= wB ? k.ROJO : k.GRIS);
+  k.texto(String(wB), W - M, y + 230, k.disp(200, 800), wB >= wA ? k.AZUL : k.GRIS, 'right');
+  k.texto(tx('VICTORIAS','GARAIPENAK'), W/2, y + 140, k.mono(22), k.GRIS, 'center');
+  k.texto(`${n} ${tx('partidos','partida')}`, W/2, y + 190, k.disp(44), k.TEXTO, 'center');
+  if(n){
+    k.texto(`${(tA/n).toFixed(1)} ${tx('tantos/partido','tanto/partida')}`, M, y + 280, k.mono(22), k.GRIS);
+    k.texto(`${(tB/n).toFixed(1)} ${tx('tantos/partido','tanto/partida')}`, W - M, y + 280, k.mono(22), k.GRIS, 'right');
+  }
+  y += 320;
+  const ult = partidos.slice(0, 6);
+  k.caja(M, y, W - 2*M, 70 + Math.max(1, ult.length) * 74);
+  k.texto(tx('ÚLTIMOS ENFRENTAMIENTOS','AZKEN NORGEHIAGOKAK'), M + 28, y + 48, k.mono(20), k.GRIS);
+  ult.forEach((p, i) => {
+    const a = esA(p), ptA = a==='equipo1'?p.puntos1:p.puntos2, ptB = a==='equipo1'?p.puntos2:p.puntos1;
+    const yy = y + 110 + i * 74;
+    k.texto(p.fecha, M + 28, yy, k.mono(22), k.GRIS);
+    const [fr, ff] = k.encajar(p.fronton || '', 330, 32, 22, 600);
+    k.texto(fr, M + 230, yy, ff, k.TEXTO);
+    k.texto(String(ptA), W - M - 150, yy, k.disp(46), ptA > ptB ? k.ROJO : k.GRIS, 'right');
+    k.texto('–', W - M - 118, yy, k.disp(40), k.GRIS, 'center');
+    k.texto(String(ptB), W - M - 86, yy, k.disp(46), ptB > ptA ? k.AZUL : k.GRIS, 'left');
+  });
+  if(!ult.length) k.texto('—', M + 28, y + 110, k.disp(40), k.GRIS);
+  entregarImagen(k.cv, fichero, `${nombreA} vs ${nombreB} · EskupilotaStats`);
+}
+
+function botonImagen(onclick){
+  return `<button class="btn-ghost an-share" onclick="${onclick}" aria-label="${tx('Compartir como imagen','Irudi gisa partekatu')}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    <span>${tx('Compartir imagen','Irudia partekatu')}</span></button>`;
+}
+
+function compartirH2H(){
+  const u = _h2hUltimo; if(!u) return;
+  imagenCaraACara({kicker: tx('Cara a cara','Aurrez aurre'), filtro: u.filtro, nombreA: u.p1, nombreB: u.p2, partidos: u.enfs,
+    esA: p => pels(p.equipo1).includes(u.p1) ? 'equipo1' : 'equipo2',
+    fichero: `cara-a-cara-${slugify(u.p1)}-${slugify(u.p2)}.jpg`});
+}
+
+function compartirC4(){
+  const u = _c4Ultimo; if(!u) return;
+  const A = u.z1 ? `${u.d1} / ${u.z1}` : u.d1, B = u.z2 ? `${u.d2} / ${u.z2}` : u.d2;
+  imagenCaraACara({kicker: tx('Pareja contra pareja','Bikotea bikotearen aurka'),
+    filtro: u.anio !== 'todos' ? tx('Temporada ','') + u.anio + tx('',' denboraldia') : tx('Todos los partidos','Partida guztiak'),
+    nombreA: A, nombreB: B, partidos: u.exactos,
+    esA: p => pels(p.equipo1).includes(u.d1) ? 'equipo1' : 'equipo2',
+    fichero: `parejas-${slugify(A)}-${slugify(B)}.jpg`});
 }

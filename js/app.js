@@ -329,7 +329,7 @@ const I18N = {
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
     lbl_fichas: 'Fichas de todos los pelotaris',
-    btn_ficha: 'Descargar ficha', app_instalar: 'Instalar la app', app_android: 'App para Android',
+    btn_ficha: 'Descargar ficha', compartir_wa: 'Compartir por WhatsApp', app_instalar: 'Instalar la app', app_android: 'App para Android',
     app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
@@ -464,7 +464,7 @@ const I18N = {
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
     lbl_fichas: 'Pilotari guztien fitxak',
-    btn_ficha: 'Fitxa deskargatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
+    btn_ficha: 'Fitxa deskargatu', compartir_wa: 'WhatsApp bidez partekatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
     app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
@@ -1273,7 +1273,7 @@ function openPerfil(nombre){
   _perfilPage = 1;
   populatePerfilFrontons(nombre, parts);
   renderPerfilPartidos();
-  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlPalmares(nombre, parts) + htmlEvolucionPerfil(nombre));
+  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlPalmares(nombre, parts) + htmlEvolucionPerfil(nombre) + htmlTemporadas(nombre));
   pintarBotonSeguir();
   setHash('#/pelotari/'+slugify(nombre));
 }
@@ -1609,6 +1609,7 @@ function h2hTipos(){
   return MAP[h2hMod]?.[h2hSerie]||null;
 }
 
+let _h2hUltimo = null, _c4Ultimo = null;   // lo último mostrado, para la imagen de compartir
 function renderH2H(){
   const p1=document.getElementById('h2hP1').value;
   const p2=document.getElementById('h2hP2').value;
@@ -1664,8 +1665,10 @@ function renderH2H(){
     </tr>`;
   }).join('');
 
+  const filtroImg = [h2hMod!=='todas'?modLbl:'', h2hSerie!=='todas'?serieLbl:'', activeYearH2H!=='todos'?activeYearH2H:''].filter(Boolean).join(' · ');
+  _h2hUltimo = {p1, p2, enfs, filtro: filtroImg || tx('Todos los partidos','Partida guztiak')};
   el.innerHTML=`
-    <div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);margin-bottom:.8rem;">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${nPartidos(enfs.length)}</div>
+    <div class="an-head" style="margin-bottom:.8rem"><div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${nPartidos(enfs.length)}</div>${botonImagen('compartirH2H()')}</div>
     <div class="comp-bar">
       <div><div class="comp-nm" style="color:var(--green)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
       <div><div class="comp-pj">${enfs.length} ${t('abbr_pj')}</div></div>
@@ -2041,6 +2044,7 @@ function renderC4(){
   const tresDeCuatro = z1&&z2 ? c4TresDeCuatro([d1,z1,d2,z2], partsBase) : [];
 
   _c4BlockId = 0; // reset IDs
+  _c4Ultimo = {d1, z1, d2, z2, exactos, anio: activeYearC4};
 
   const mkBloque = (emoji,titulo,n,bar,tabla) => `
     <div class="c4-bloque">
@@ -2050,7 +2054,7 @@ function renderC4(){
 
   el.innerHTML=
     mkBloque('⚡',t('c4_identico'),exactos.length,
-      exactos.length?c4Bar(exactos,d1,d2,t('pareja_exacta')):'',
+      exactos.length?`<div style="display:flex;justify-content:flex-end;margin-bottom:.5rem">${botonImagen('compartirC4()')}</div>`+c4Bar(exactos,d1,d2,t('pareja_exacta')):'',
       c4TablaPartidos(exactos,d1,d2,colLabel,azLabel))
     +mkBloque('🔴',`${t('c4_partidos_col')} ${colLabel}`,soloCol.length,
       soloCol.length?c4Bar(soloCol,d1,d1,t('eq_colorada'),'col'):'',
@@ -2262,6 +2266,10 @@ function renderCartelera(data){
               <span>${t('cart_estadisticas')} →</span>
             </div>
           </div>
+          ${(p.eq1||[]).filter(Boolean).length && (p.eq2||[]).filter(Boolean).length
+            ? `<button type="button" class="cart-img-btn" onclick="compartirPartidoCartelera(this,event)" aria-label="${h(tx('Compartir el partido como imagen','Partida irudi gisa partekatu'))}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                ${tx('Compartir imagen','Irudia partekatu')}</button>` : ''}
         </div>`;
       }).join('');
       return `<div class="cart-evento">

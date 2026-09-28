@@ -326,6 +326,53 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_partido_de_la_cartelera_como_imagen(self):
+        pg = self.pagina('#/cartelera', descargas=True)
+        pg.wait_for_timeout(500)
+        botones = pg.locator('.cart-img-btn')
+        if not botones.count():
+            self.skipTest('La cartelera no tiene partidos ahora mismo')
+        with pg.expect_download() as d:
+            botones.first.click()
+        self.assertTrue(d.value.suggested_filename.startswith('partido-'))
+        with open(d.value.path(), 'rb') as f:
+            self.assertEqual(f.read(3), b'\xff\xd8\xff')
+        self.assertEqual(pg.evaluate('location.hash'), '#/cartelera')      # no va a estadísticas
+
+    def test_cara_a_cara_como_imagen(self):
+        pg = self.pagina('#/comparador', descargas=True)
+        pg.select_option('#h2hP1', 'LASO')
+        pg.select_option('#h2hP2', 'JAKA')
+        with pg.expect_download() as d:
+            pg.click('#h2hRes button[onclick="compartirH2H()"]')
+        self.assertEqual(d.value.suggested_filename, 'cara-a-cara-laso-jaka.jpg')
+
+    def test_estadisticas_del_fronton(self):
+        pg = self.pagina('#/frontones')
+        pg.evaluate("abrirFronton('LABRIT')")
+        pg.wait_for_selector('.an-fron-stats')
+        self.assertGreater(pg.locator('.an-fron-anios > div').count(), 2)
+        self.assertGreater(pg.locator('.an-fron-stats tbody tr').count(), 10)
+
+    def test_comparar_temporadas(self):
+        pg = self.pagina('#/pelotari/laso')
+        pg.wait_for_selector('#pfTemporadas')
+        pg.select_option('#tmpA', '2024')
+        pg.select_option('#tmpB', '2025')
+        cab = pg.locator('.pf-temp-tabla thead th').all_inner_texts()
+        self.assertEqual(cab[1:], ['2024', '2025'])
+        self.assertGreater(pg.locator('.pf-temp-mejor').count(), 0)
+
+    def test_compartir_por_whatsapp(self):
+        pg = self.pagina('#/ranking', ancho=390)
+        pg.evaluate("window.open = (u) => { window.__abierto = u; }")
+        pg.click('#hamburgerBtn')
+        pg.click('.drawer .app-wa')
+        url = pg.evaluate('window.__abierto')
+        self.assertTrue(url.startswith('https://wa.me/?text='))
+        self.assertIn('eskupilotastats.com', url)
+        self.assertIn('%23%2Franking', url)
+
     def test_instalar_app(self):
         pg = self.pagina()
         visibles = lambda: pg.evaluate("[...document.querySelectorAll('.app-instalar')].filter(b => !b.hidden).length")
