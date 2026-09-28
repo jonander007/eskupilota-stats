@@ -30,7 +30,8 @@ from datetime import datetime, timedelta
 
 from bs4 import BeautifulSoup
 
-from competiciones import Cartelera, HistorialSeries, categoria_de_competicion, clasificar_partido
+from competiciones import (Cartelera, HistorialSeries, categoria_de_competicion, clasificar_partido,
+                           es_texto_competicion)
 from jsonio import guardar_json
 from roles import aplicar_roles
 from red import descargar
@@ -722,26 +723,38 @@ def cargar_cartelera():
         return Cartelera()
 
 
-def clasificar_partidos(planos, existentes, cats):
+def textos_clasificacion(texto_web, detalle_cartelera):
+    """(texto, serie, textos_fase) para clasificar_partido().
+
+    La web de resultados a veces solo pone la fase ('Final', 'Semifinal'):
+    eso no dice la competición. Entonces la competición y la serie salen de
+    la cartelera ('Torneo San Mateo', 'Serie B') y el texto de la web se usa
+    como fase. La cartelera aporta también la fase aunque la web diga la
+    competición."""
+    texto = texto_web if texto_web and es_texto_competicion(texto_web) else None
+    serie = None
+    textos_fase = (texto_web,) if texto_web and not texto else ()
+    if detalle_cartelera:
+        textos_fase += tuple(detalle_cartelera['textos_fase'])
+        if not texto:
+            texto, serie = detalle_cartelera['texto'], detalle_cartelera['serie']
+    return texto, serie, textos_fase
+
+
+def clasificar_partidos(planos, existentes, cats, cart=None):
     """Decide tipo y competición de cada partido (ver competiciones.py).
 
     Si la web de resultados no dice la competición, se busca el partido en
     la cartelera; la serie, si no se sabe, se deduce por los pelotaris.
     """
-    cart = cargar_cartelera()
+    cart = cart if cart is not None else cargar_cartelera()
     hist = HistorialSeries(existentes)
     for p in planos:
         jugadores = [p['equipo1']['delantero'], p['equipo1']['zaguero'],
                      p['equipo2']['delantero'], p['equipo2']['zaguero']]
         es_pareja = bool(p['equipo1']['zaguero'] or p['equipo2']['zaguero'])
-        texto, serie, textos_fase = p.get('comp_texto'), None, ()
-        # La cartelera aporta la competición si la web no la dice, y la fase
-        # (octavos, semifinal...) aunque la diga
         d = cart.buscar_detalle(p['fecha'], p['fronton'], jugadores)
-        if d:
-            textos_fase = d['textos_fase']
-            if not texto:
-                texto, serie = d['texto'], d['serie']
+        texto, serie, textos_fase = textos_clasificacion(p.get('comp_texto'), d)
         ids = [cats._idx_pel[n]['id'] for n in jugadores if n and n in cats._idx_pel]
         p['clasificacion'] = clasificar_partido(
             texto, p['fecha'], es_pareja, serie, lambda: hist.serie(ids, p['fecha']), textos_fase)

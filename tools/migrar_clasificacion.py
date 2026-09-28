@@ -233,6 +233,19 @@ def main():
                 cambios[f"{por_id[p['competicion_id']]['nombre']} -> {c['competicion']} (la cartelera lo anunciaba como desafío)"] += 1
                 p['competicion_id'] = comp_id(c['competicion'], c['tipo'])
 
+        # Guardados como festival que la cartelera anunciaba con competición y
+        # con la serie en la línea del partido ('... (Serie B)'): la web de
+        # resultados solo decía 'Final' (finales de San Mateo del 27/09/2026)
+        if (d and d['texto'] and d['serie'] and
+                categoria_de_competicion(por_id[p['competicion_id']]['nombre'])[0] == 'festival'):
+            es_pareja = bool(p['equipo1'].get('zag_id') or p['equipo2'].get('zag_id'))
+            c = clasificar_partido(d['texto'], p['fecha'], es_pareja, d['serie'], None, d['textos_fase'])
+            if c['categoria'] in ('campeonato', 'torneo'):
+                cambios[f"festival -> {c['competicion']} (la cartelera lo anunciaba así)"] += 1
+                p['competicion_id'] = comp_id(c['competicion'], c['tipo'])
+                if c['fase'] and not p.get('fase'):
+                    p['fase'] = c['fase']
+
         comp = por_id[p['competicion_id']]
         cat, _ = categoria_de_competicion(comp['nombre'])
         mod = modalidad(p, comp['nombre'])
