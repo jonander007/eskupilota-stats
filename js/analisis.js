@@ -606,7 +606,28 @@ function htmlPrevia(p){
       <span>${cc.g1+cc.g2 ? `<b>${cc.g1}</b> – <b>${cc.g2}</b>` : tx('Nunca se han enfrentado','Ez dira inoiz aurrez aurre aritu')}</span></div>
     <div class="an-previa-row"><span class="an-prob-l">${tx('Forma','Forma')} (${h(eq1[0])} · ${h(eq2[0])})</span>
       <span>${forma(eq1)} <span class="an-muted">·</span> ${forma(eq2)}</span></div>
+    ${htmlExtremosForma([...eq1, ...eq2])}
   </div>`;
+}
+
+// De los cuatro pelotaris de un partido de parejas, el que llega en mejor
+// y en peor forma: victorias en sus últimos 5 partidos (a igualdad, en los
+// últimos 10). Si todos están igual, no se muestra.
+function htmlExtremosForma(jugadores){
+  if(jugadores.length < 3) return '';
+  const v = (n, k) => formaReciente(n, k).filter(r => r==='V').length;
+  const datos = jugadores.map(n => ({n, v5:v(n,5), j5:formaReciente(n,5).length, v10:v(n,10)}))
+    .filter(d => d.j5 > 0)
+    .sort((a,b) => b.v5-a.v5 || b.v10-a.v10);
+  if(datos.length < 2) return '';
+  const mejor = datos[0], peor = datos[datos.length-1];
+  if(mejor.v5 === peor.v5 && mejor.v10 === peor.v10) return '';
+  const lado = eq => `${h(eq.n)} <span class="an-muted">${eq.v5}${t('abbr_v')}–${eq.j5-eq.v5}${t('abbr_d')}</span>`;
+  return `<div class="an-previa-row"><span class="an-prob-l">${tx('De los cuatro','Lauetatik')}</span>
+    <span class="an-extremos">
+      <span class="an-mejor" title="${tx('Mejor forma: más victorias en sus últimos 5 partidos','Formarik onena: azken 5 partidetan garaipen gehien')}">▲ ${tx('Mejor forma','Formarik onena')}: ${lado(mejor)}</span>
+      <span class="an-peor" title="${tx('Peor forma: menos victorias en sus últimos 5 partidos','Formarik txarrena: azken 5 partidetan garaipen gutxien')}">▼ ${tx('Peor forma','Formarik txarrena')}: ${lado(peor)}</span>
+    </span></div>`;
 }
 
 // ════════════════════════════════════════════════════════════
