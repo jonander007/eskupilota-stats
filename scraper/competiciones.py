@@ -335,6 +335,20 @@ class Cartelera:
                 return cand
         return None
 
+    @staticmethod
+    def es_apertura(ev, p):
+        """En las veladas de un torneo con Serie A y Serie B la cartelera marca
+        cada partido del torneo con '(Serie A)' o '(Serie B)'; el que va sin
+        marca es el partido de apertura, un festival (San Mateo 2026: 'ZUBIZARRETA
+        IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE' junto a '... (Serie A)'
+        y '... (Serie B)'). Solo con marcas bien leídas: si la línea está cortada
+        ('... (') o las marcas son raras ('(Serie A | B)') no se decide nada."""
+        raw = (p.get('raw') or '').strip()
+        if 'serie' in _txt(raw) or raw.endswith('('):
+            return False
+        marca = re.compile(r'\(serie [ab]\)\s*$')
+        return any(marca.search(_txt(q.get('raw'))) for q in ev.get('partidos') or [] if q is not p)
+
     def buscar(self, fecha, fronton, jugadores):
         """Devuelve (texto_competicion, serie) o (None, None)."""
         d = self.buscar_detalle(fecha, fronton, jugadores)
@@ -356,6 +370,9 @@ class Cartelera:
             for p in ev.get('partidos') or []:
                 del_cartel = {_nombre_pel(j) for j in (p.get('eq1') or []) + (p.get('eq2') or [])}
                 if nombres and len(nombres & del_cartel) >= minimo:
+                    if self.es_apertura(ev, p):
+                        return {'texto': 'Festival 4 1/2' if '4 1/2' in _txt(p.get('raw')) else 'Festival',
+                                'serie': None, 'textos_fase': ()}
                     texto = self.texto_evento(ev)
                     # La modalidad a veces solo aparece en la línea del partido: "A // B (4 1/2)"
                     if texto and '4 1/2' in _txt(p.get('raw')) and modalidad(texto, True) != 'cuatro':
