@@ -14,7 +14,7 @@ Errores:
   - el mismo pelotari en los dos equipos o repetido en un equipo
   - partido duplicado (misma fecha y mismos pelotaris)
   - tipo desconocido o que no cuadra con la modalidad (parejas/individual)
-  - campeonato de parejas fuera de temporada (noviembre a marzo)
+  - campeonato de parejas fuera de temporada (noviembre a primeros de abril)
   - clasificación incoherente: modalidad, categoria, serie, fase y tipo
     (ver scraper/competiciones.py); categoria distinta de la de su
     competición; campeonato sin serie; festival o desafío con serie
@@ -172,7 +172,8 @@ def main():
         elif not any(pareja) and tipo in TIPOS_PAREJAS:
             error(f"{ref}: partido individual con tipo de parejas '{tipo}'")
 
-        if comp and comp['nombre'].startswith('Campeonato Parejas') and f.month not in TEMPORADA_PAREJAS:
+        if comp and comp['nombre'].startswith('Campeonato Parejas') and f.month not in TEMPORADA_PAREJAS \
+                and not (f.month == 4 and f.day <= 10):   # la final de 2023 fue el 2 de abril
             error(f"{ref}: '{comp['nombre']}' fuera de temporada")
 
         # Clasificación
