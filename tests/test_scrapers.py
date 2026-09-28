@@ -345,6 +345,44 @@ class Clasificacion(unittest.TestCase):
         self.assertEqual((ps[0]['categoria'], ps[0]['serie'], ps[0]['fase']), ('torneo', 'b', 'final'))
 
 
+class WebSoloConFase(unittest.TestCase):
+    """La web de resultados pone solo 'Final'; la competición está en la
+    cartelera (finales del Torneo San Mateo del 27/09/2026 en Adarraga)."""
+
+    EVENTO = {
+        'fecha': '27/09/2026', 'hora': '17:15', 'fronton': 'Adarraga', 'ciudad': 'Logroño',
+        'fase': 'Finales', 'competicion': None,
+        'cartel': ['Torneo San Mateo',
+                   'ELORDI – ESKUZA // p.etxeberria – loza (Serie B)',
+                   'EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)'],
+        'partidos': [
+            {'eq1': ['ELORDI', 'ESKUZA'], 'eq2': ['p.etxeberria', 'loza'],
+             'raw': 'ELORDI – ESKUZA // p.etxeberria – loza (Serie B)', 'tipo': 'campeonato-b', 'serie': 'b'},
+            {'eq1': ['EZKURDIA', 'MARTIJA'], 'eq2': ['JAKA', 'MARIEZKURRENA II'],
+             'raw': 'EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)', 'tipo': 'campeonato-a', 'serie': 'a'},
+        ],
+    }
+
+    def clasificar(self, texto_web, jugadores):
+        from competiciones import Cartelera, clasificar_partido
+        from scraper import textos_clasificacion
+        d = Cartelera([self.EVENTO]).buscar_detalle('27/09/2026', 'ADARRAGA', jugadores)
+        texto, serie, fases = textos_clasificacion(texto_web, d)
+        return clasificar_partido(texto, '27/09/2026', True, serie, None, fases)
+
+    def test_final_serie_b(self):
+        c = self.clasificar('Final', ['ELORDI', 'ESKUZA', 'P.ETXEBERRIA', 'LOZA'])
+        self.assertEqual((c['competicion'], c['categoria'], c['fase']), ('Torneo San Mateo Serie B 2026', 'torneo', 'final'))
+
+    def test_final_serie_a(self):
+        c = self.clasificar('Final', ['EZKURDIA', 'MARTIJA', 'JAKA', 'MARIEZKURRENA II'])
+        self.assertEqual((c['competicion'], c['fase']), ('Torneo San Mateo Serie A 2026', 'final'))
+
+    def test_texto_de_competicion_de_la_web_manda(self):
+        c = self.clasificar('Campeonato Parejas Serie A', ['EZKURDIA', 'MARTIJA', 'JAKA', 'MARIEZKURRENA II'])
+        self.assertEqual(c['categoria'], 'campeonato')
+
+
 class HistorialBaiko(unittest.TestCase):
     """Página de campeonato de Baiko con el «Historial de competición»."""
 
