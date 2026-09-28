@@ -168,10 +168,18 @@ const TTAG={
 function etiquetaPartido(p){
   const serie = (p.serie||'').toUpperCase();
   const cls = p.modalidad==='mano' ? 'tM' : p.modalidad==='cuatro' ? 'tC' : (serie==='B' ? 'tB' : 'tA');
-  if(p.categoria==='torneo')   return {cls, lbl: t('tag_torneo') + (serie ? ' '+serie : '')};
+  if(p.categoria==='torneo')   return {cls, lbl: nombreTorneo(p) || (t('tag_torneo') + (serie ? ' '+serie : ''))};
   if(p.categoria==='desafio')  return {cls:'tF', lbl: t('tag_desafio')};
+  if(p.categoria==='campeonato' && p.modalidad==='parejas' && serie) return {cls, lbl: t('tag_parejas')+' '+serie};
   const tt = TTAG[p.tipo];
   return tt ? {cls: tt.cls, lbl: t(tt.lbl)} : {cls:'', lbl: p.tipo||''};
+}
+
+// 'Torneo San Mateo Serie A 2026' -> 'San Mateo A'; 'Torneo San Fermin 4 y Medio 2026' -> 'San Fermín 4½'
+function nombreTorneo(p){
+  const n = (p.competicion||'').replace(/\s*\b20\d\d\b/, '').replace(/^Torneo\s+/i, '')
+    .replace(/\s*Serie\s+([AB])\b/i, ' $1').replace(/\s*4 y Medio/i, ' 4½').replace(/Fermin\b/, 'Fermín').trim();
+  return n.length <= 22 ? n : '';
 }
 
 // 'Semifinal · Grupo A', 'Liguilla · 6ª jornada', 'Final'
@@ -339,7 +347,7 @@ const I18N = {
     // Categorías y fases (ver scraper/competiciones.py)
     flabel_categoria: 'Categoría', flabel_fase: 'Fase',
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
-    tag_torneo: 'Torneo', tag_desafio: 'Desafío',
+    tag_torneo: 'Torneo', tag_desafio: 'Desafío', tag_parejas: 'Parejas',
     fase_liga: 'Liguilla', fase_eliminatoria: 'Eliminatoria', fase_octavos: 'Octavos',
     fase_cuartos: 'Cuartos', fase_semifinal: 'Semifinal', fase_tercero: 'Tercer puesto', fase_final: 'Final',
     lbl_grupo: 'Grupo {g}', lbl_jornada: '{n}ª jornada',
@@ -471,7 +479,7 @@ const I18N = {
     abbr_tantos: 'Tanto',
     flabel_categoria: 'Kategoria', flabel_fase: 'Fasea',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
-    tag_torneo: 'Torneoa', tag_desafio: 'Desafioa',
+    tag_torneo: 'Torneoa', tag_desafio: 'Desafioa', tag_parejas: 'Binaka',
     fase_liga: 'Liga', fase_eliminatoria: 'Kanporaketa', fase_octavos: 'Final-zortzirenak',
     fase_cuartos: 'Final-laurdenak', fase_semifinal: 'Finalerdia', fase_tercero: 'Hirugarren postua', fase_final: 'Finala',
     lbl_grupo: '{g} multzoa', lbl_jornada: '{n}. jardunaldia',
@@ -1022,6 +1030,7 @@ function renderMobileCardsHTML(data, opts){
       <div class="m-card-header" onclick="toggleMCard(this)">
         <div>
           <div class="m-card-fecha">${p.fecha} · ${p.fronton}</div>
+          ${p.categoria && p.categoria!=='festival' ? `<div class="m-card-oficial"><span class="tag ${tiCls}">${ti.lbl}</span>${p.fase?`<span class="fase-lbl">${textoFase(p)}</span>`:''}</div>` : ''}
           <div style="display:flex;gap:.4rem;align-items:center;margin-top:.2rem;">
             <span style="font-size:.78rem;font-weight:${w1?800:400};color:var(--red)">${n1}</span>
             <span style="color:var(--muted);font-size:.65rem">vs</span>
