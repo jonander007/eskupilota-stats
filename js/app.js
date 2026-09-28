@@ -285,7 +285,8 @@ const I18N = {
     // Roles
     rol_del: 'Del', rol_zag: 'Zag',
     // Ranking tabs
-    rk_tab_victorias: 'Victorias',
+    rk_tab_victorias: 'Victorias', rk_tab_tabla: 'Clasificación', rk_tab_titulos: 'Títulos',
+    rk_cat_todos: 'Todos', rk_cat_oficiales: 'Oficiales', rk_cat_festivales: 'Festivales',
     rk_tab_pct: '% Victorias',
     rk_tab_roles: 'Del vs Zag',
     rk_tab_parejas: 'Parejas',
@@ -425,7 +426,8 @@ const I18N = {
     tag_cuatroa: "4½ A", tag_cuatrob: "4½ B",
     rol_del: 'Aur', rol_zag: 'Atz',
     // Añadidas en la revisión de traducciones
-    rk_tab_victorias: 'Garaipenak',
+    rk_tab_victorias: 'Garaipenak', rk_tab_tabla: 'Sailkapena', rk_tab_titulos: 'Txapelak',
+    rk_cat_todos: 'Denak', rk_cat_oficiales: 'Ofizialak', rk_cat_festivales: 'Jaialdiak',
     rk_tab_pct: '% Garaipenak',
     rk_tab_roles: 'Aurre vs Atze',
     rk_tab_parejas: 'Bikoteak',
@@ -1388,7 +1390,23 @@ function goToPel(n){goToNav('pelotaris');setTimeout(()=>openPerfil(n),80);}
 // ════════════════════════════════════════════════════════════
 // RANKING
 // ════════════════════════════════════════════════════════════
-let activeRkTab = 'victorias';
+let activeRkTab = 'tabla';
+let activeCatRk = 'todos';   // todos | oficial (campeonatos y torneos) | festival (festivales y desafíos)
+
+function catRkMatch(p){
+  if(activeCatRk==='oficial') return p.categoria==='campeonato' || p.categoria==='torneo';
+  if(activeCatRk==='festival') return p.categoria==='festival' || p.categoria==='desafio';
+  return true;
+}
+
+function setCatRk(cat){
+  activeCatRk = cat;
+  document.querySelectorAll('#catPillsRk .ypill').forEach(b=>{
+    b.classList.toggle('on', b.dataset.cat===cat);
+    b.setAttribute('aria-pressed', b.dataset.cat===cat);
+  });
+  buildRanking();
+}
 let _perfilNombre = '';
 let _perfilPage = 1;
 const PERFIL_PAGE_SIZE = 10;
@@ -1405,17 +1423,17 @@ function buildRanking(){
   if(activeRkTab==='elo'){ document.getElementById('rkContent').innerHTML = htmlRankingElo(); return; }
   let parts = filtByTipoYear(activeTipo, activeYearRk);
   // Filtrado por rango de fechas
-  parts = parts.filter(p=>partidoEnRango(p, dateRangeRk));
+  parts = parts.filter(p=>partidoEnRango(p, dateRangeRk) && catRkMatch(p));
   const el = document.getElementById('rkContent');
 
   // Helper: render a single ranking card
-  function mkRkCard(titulo, lista, statFn, extraCols, cls='', nombreFn=null){
+  function mkRkCard(titulo, lista, statFn, extraCols, cls='', nombreFn=null, desde=0){
     const mx = lista[0] ? statFn(lista[0][1]).val : 1;
     return `<div class="rk-card ${cls}"><h3>${titulo}</h3>
     ${lista.map(([n,s],i)=>{
       const main = statFn(s);
       return `<div class="rk-row">
-        <div class="rk-pos ${i===0?'p1':i===1?'p2':i===2?'p3':''}">${i+1}</div>
+        <div class="rk-pos ${i+desde===0?'p1':i+desde===1?'p2':i+desde===2?'p3':''}">${i+desde+1}</div>
         ${nombreFn ? `<div class="rk-name">${nombreFn(n,s)}</div>` : `<div class="rk-name clk" onclick="goToPel('${esc(n)}')">${n}</div>`}
         ${extraCols(s)}
         <div class="rk-stat pg" style="color:var(--green);font-weight:700">${main.lbl}</div>
@@ -1432,34 +1450,9 @@ function buildRanking(){
   const _activePlayers = filterActivos ? getActivePlayers() : null;
   function filterActive(entries){ return _activePlayers ? entries.filter(([n])=>_activePlayers.has(n.toUpperCase())) : entries; }
 
-  // ── TAB: Victorias ──
-  if(activeRkTab === 'victorias'){
-    const st = calcStats(parts);
-    const sorted = filterActive(Object.entries(st).sort((a,b)=>b[1].pg-a[1].pg||(b[1].pf-b[1].pc)-(a[1].pf-a[1].pc)));
-    const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
-    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
-    el.innerHTML = mkGrid([
-      mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
-      mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
-    ]);
-  }
-
-  // ── TAB: % Victorias ──
-  else if(activeRkTab === 'pct'){
-    const MIN_PJ = 10;
-    const st = calcStats(parts);
-    const sorted = filterActive(Object.entries(st)
-      .filter(([,s])=>s.pj>=MIN_PJ)
-      .sort((a,b)=>(b[1].pg/b[1].pj)-(a[1].pg/a[1].pj)));
-    const top = sorted.slice(0,20); const h = Math.ceil(top.length/2);
-    const sf = s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'});
-    const ec = s=>`<div class="rk-stat">${s.pg}${t('abbr_v')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
-    el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)}</div>` + mkGrid([
-      mkRkCard(`1º — ${h}º`, top.slice(0,h), sf, ec),
-      mkRkCard(`${h+1}º — ${top.length}º`, top.slice(h), sf, ec)
-    ]);
-  }
+  // ── TAB: Clasificación (tabla ordenable) y Títulos ──
+  if(activeRkTab === 'tabla'){ el.innerHTML = htmlRankingTabla(parts, _activePlayers); return; }
+  if(activeRkTab === 'titulos'){ el.innerHTML = htmlRankingTitulos(parts, _activePlayers); return; }
 
   // ── TAB: Delanteros vs Zagueros ──
   else if(activeRkTab === 'roles'){
@@ -1531,15 +1524,15 @@ function buildRanking(){
     const ec = s=>`<div class="rk-stat">${nPartidos(s.over)}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`;
     el.innerHTML = `<div class="rk-min-label">${t('rk_min_pj').replace('{n}',MIN_PJ)} · ${t('rk_solo_parejas')}</div>` + mkGrid([
       mkRkCard(`1º — ${h}º`, sorted.slice(0,h), sf, ec),
-      mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec)
+      mkRkCard(`${h+1}º — ${sorted.length}º`, sorted.slice(h), sf, ec, '', null, h)
     ]);
   }
 
   // ── TAB: Racha ──
   else if(activeRkTab === 'racha'){
-    // Sort all parts by date ascending
+    // Rachas con los partidos filtrados (modalidad, año, fechas y categoría), del más antiguo al más reciente
     const parseFecha = _parseFechaDDMMYYYY;
-    const allParts = [...PARTIDOS].sort((a,b)=>parseFecha(a.fecha)-parseFecha(b.fecha));
+    const allParts = [...parts].sort((a,b)=>parseFecha(a.fecha)-parseFecha(b.fecha));
     const rachas = {};
     allParts.forEach(p=>{
       const e1=pels(p.equipo1), e2=pels(p.equipo2);
@@ -1550,29 +1543,14 @@ function buildRanking(){
         else rachas[n].actual=0;
       });
     });
-    // Filter by current year if selected
-    if(activeYearRk!=='todos'){
-      Object.keys(rachas).forEach(n=>{ rachas[n]={actual:0,max:0}; });
-      const filtered = allParts.filter(p=>getYear(p)===activeYearRk);
-      filtered.forEach(p=>{
-        const e1=pels(p.equipo1), e2=pels(p.equipo2);
-        [...e1,...e2].forEach(n=>{
-          if(!rachas[n]) rachas[n]={actual:0,max:0};
-          const gano=(e1.includes(n)&&p.ganador==='equipo1')||(e2.includes(n)&&p.ganador==='equipo2');
-          if(gano){ rachas[n].actual++; rachas[n].max=Math.max(rachas[n].max,rachas[n].actual); }
-          else rachas[n].actual=0;
-        });
-      });
-    }
     const byMax = filterActive(Object.entries(rachas).filter(([,s])=>s.max>=3).sort((a,b)=>b[1].max-a[1].max)).slice(0,20);
     const byActual = filterActive(Object.entries(rachas).filter(([,s])=>s.actual>=2).sort((a,b)=>b[1].actual-a[1].actual)).slice(0,10);
     const sfMax = s=>({val:s.max, lbl:s.max+' '+t('rk_seg')});
     const sfAct = s=>({val:s.actual, lbl:s.actual+' '+t('rk_seg')});
     const ecMax = s=>`<div class="rk-stat">${t('rk_actual')}: ${s.actual}</div>`;
     const ecAct = s=>`<div class="rk-stat">${t('rk_mejor')}: ${s.max}</div>`;
-    const h = Math.ceil(byMax.length/2);
     el.innerHTML = mkGrid([
-      mkRkCard(t('rk_mejor_racha'), byMax.slice(0,h), sfMax, ecMax),
+      mkRkCard(t('rk_mejor_racha'), byMax.slice(0,10), sfMax, ecMax),
       byActual.length ? mkRkCard(t('rk_racha_activa'), byActual, sfAct, ecAct, 'azul') : ''
     ].filter(Boolean));
   }

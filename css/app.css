@@ -910,3 +910,21 @@ header :focus-visible{outline-color:#fff;}
 .btn-ficha:hover{background:var(--green);color:var(--on-green);}
 .btn-ficha svg{width:16px;height:16px;}
 @media(max-width:600px){.btn-ficha{margin-left:0;width:100%;justify-content:center;}}
+
+/* ── Ranking: tabla ordenable, títulos y gráfico Elo ── */
+.rk-tabla td{white-space:nowrap;}
+.rk-tabla .rk-n{color:var(--muted);font-family:var(--mono);font-size:.7rem;}
+.rk-th button{all:unset;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;}
+.rk-th button:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:2px;}
+.rk-th.on{color:var(--green);}
+.rk-titulos{white-space:normal !important;min-width:14rem;}
+.rk-txapela{display:inline-block;font-family:var(--mono);font-size:.6rem;font-weight:600;padding:.12rem .4rem;margin:.1rem .25rem .1rem 0;border-radius:var(--r-sm);border:1px solid;white-space:nowrap;}
+.rk-txapela.camp{color:var(--green);border-color:var(--green);background:var(--green-soft);}
+.rk-txapela.torn{color:var(--blue);border-color:var(--blue);}
+.rk-elo-graf{margin:.4rem 0 1rem;}
+.rk-elo-graf svg{width:100%;height:auto;display:block;}
+.rk-eje{stroke:var(--border);stroke-width:1;}
+.rk-eje-txt{font-family:var(--mono);font-size:10px;fill:var(--muted);}
+.rk-leyenda{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.72rem;font-weight:600;}
+.rk-leyenda i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:.35rem;vertical-align:middle;}
+@media(max-width:600px){.rk-forma{display:none;}}

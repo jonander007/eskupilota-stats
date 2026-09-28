@@ -206,6 +206,43 @@ class Web(unittest.TestCase):
         pg = self.pagina('#/ranking')
         pg.click('#rktab-elo')
         self.assertGreaterEqual(pg.locator('#rkContent tbody tr').count(), 10)
+        # Gráfico con la evolución de los cinco primeros
+        self.assertEqual(pg.locator('.rk-elo-graf path').count(), 5)
+        self.assertEqual(pg.locator('.rk-leyenda span').count(), 5)
+
+    def test_ranking_tabla_ordenable(self):
+        pg = self.pagina('#/ranking')
+        filas = pg.locator('.rk-tabla tbody tr')
+        self.assertGreater(filas.count(), 20)
+        victorias = lambda: [int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(4)').all_inner_texts()]
+        v = victorias()
+        self.assertEqual(v, sorted(v, reverse=True))
+        # Ordenar por partidos jugados, y al pulsar otra vez al revés
+        pg.click('.rk-th button[onclick*="\'pj\'"]')
+        pj = [int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts()]
+        self.assertEqual(pj, sorted(pj, reverse=True))
+        pg.click('.rk-th button[onclick*="\'pj\'"]')
+        pj = [int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts()]
+        self.assertEqual(pj, sorted(pj))
+
+    def test_ranking_por_categoria(self):
+        pg = self.pagina('#/ranking')
+        total = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
+        pg.click('#catPillsRk [data-cat="oficial"]')
+        oficiales = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
+        pg.click('#catPillsRk [data-cat="festival"]')
+        festivales = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
+        self.assertLess(oficiales, total)
+        self.assertEqual(oficiales + festivales, total)
+
+    def test_ranking_titulos(self):
+        pg = self.pagina('#/ranking')
+        pg.click('#ahtab-rk-hist')
+        pg.click('#rktab-titulos')
+        self.assertGreater(pg.locator('.rk-tabla tbody tr').count(), 5)
+        self.assertGreater(pg.locator('.rk-txapela.camp').count(), 5)
+        primero = int(pg.locator('.rk-tabla tbody tr').first.locator('td:nth-child(3)').inner_text())
+        self.assertGreaterEqual(primero, 2)
 
     # ── Frontones y mapa ──
     def test_mapa_de_frontones(self):
