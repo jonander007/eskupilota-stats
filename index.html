@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=21">
+<link rel="stylesheet" href="css/app.css?v=23">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -220,6 +220,13 @@
       <div class="fg"><span class="flabel" data-i18n="flabel_modalidad">Modalidad</span><div class="tipo-pills" id="pillsRk"></div></div>
     </div>
     <div class="filter-row">
+      <div class="fg"><span class="flabel" data-i18n="flabel_categoria">Categoría</span><div class="year-pills" id="catPillsRk" role="group">
+        <button class="ypill on" data-cat="todos" onclick="setCatRk('todos')" data-i18n="rk_cat_todos">Todos</button>
+        <button class="ypill" data-cat="oficial" onclick="setCatRk('oficial')" data-i18n="rk_cat_oficiales">Oficiales</button>
+        <button class="ypill" data-cat="festival" onclick="setCatRk('festival')" data-i18n="rk_cat_festivales">Festivales</button>
+      </div></div>
+    </div>
+    <div class="filter-row">
       <div class="fg"><span class="flabel" data-i18n="flabel_año">Año</span><div class="year-pills" id="yearPillsRk"></div></div>
     </div>
     <div class="filter-row">
@@ -234,12 +241,12 @@
   </div>
   <!-- Tabs -->
   <div class="rk-tabs" id="rkTabs">
-    <button class="rk-tab on" id="rktab-victorias" onclick="setRkTab('victorias',this)" data-i18n="rk_tab_victorias">Victorias</button>
-    <button class="rk-tab" id="rktab-pct" onclick="setRkTab('pct',this)" data-i18n="rk_tab_pct">% Victorias</button>
+    <button class="rk-tab on" id="rktab-tabla" onclick="setRkTab('tabla',this)" data-i18n="rk_tab_tabla">Clasificación</button>
     <button class="rk-tab" id="rktab-roles" onclick="setRkTab('roles',this)" data-i18n="rk_tab_roles">Del vs Zag</button>
     <button class="rk-tab" id="rktab-parejas" onclick="setRkTab('parejas',this)" data-i18n="rk_tab_parejas">Parejas</button>
     <button class="rk-tab" id="rktab-over365" onclick="setRkTab('over365',this)" data-i18n="rk_tab_over">+36.5 tantos</button>
     <button class="rk-tab" id="rktab-racha" onclick="setRkTab('racha',this)" data-i18n="rk_tab_racha">Racha</button>
+    <button class="rk-tab" id="rktab-titulos" onclick="setRkTab('titulos',this)" data-i18n="rk_tab_titulos">Títulos</button>
     <button class="rk-tab" id="rktab-elo" onclick="setRkTab('elo',this)" data-i18n="rk_tab_elo">Elo</button>
   </div>
   <div id="rkContent"></div>
@@ -402,8 +409,8 @@
 
 </main>
 <footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=21"></script>
-<script src="js/analisis.js?v=21"></script>
+<script src="js/app.js?v=23"></script>
+<script src="js/analisis.js?v=23"></script>
 <script>loadData();</script>
 
 <script>

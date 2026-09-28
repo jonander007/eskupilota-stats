@@ -468,28 +468,164 @@ function htmlEvolucionPerfil(nombre){
 }
 
 // ════════════════════════════════════════════════════════════
-// RANKING ELO (pestaña del ranking)
+// RANKING: clasificación completa (tabla ordenable)
 // ════════════════════════════════════════════════════════════
+const RK_MIN_PCT = 10;          // para ordenar por %, los de menos partidos van al final
+let _rkOrden = {col:'pg', asc:false};
+
+function ordenarRk(col){
+  _rkOrden = _rkOrden.col===col ? {col, asc:!_rkOrden.asc} : {col, asc: col==='nombre'};
+  buildRanking();
+}
+
+function htmlRankingTabla(parts, activos){
+  const st = calcStats(parts);
+  const filas = Object.entries(st)
+    .filter(([n])=>!activos || activos.has(n.toUpperCase()))
+    .map(([n,s])=>({nombre:n, ...s, pct: s.pj ? s.pg/s.pj : 0, dif: s.pf-s.pc, elo: ELO[n] ?? null}));
+  if(!filas.length) return `<div class="nodata"><div class="ic">📭</div>${t('sin_datos')}</div>`;
+  const {col, asc} = _rkOrden;
+  const val = f => col==='nombre' ? f.nombre : (f[col] ?? -Infinity);
+  filas.sort((a,b)=>{
+    if(col==='pct'){ const pa=a.pj>=RK_MIN_PCT, pb=b.pj>=RK_MIN_PCT; if(pa!==pb) return pa?-1:1; }
+    const va=val(a), vb=val(b);
+    const c = col==='nombre' ? va.localeCompare(vb) : va-vb;
+    return (asc ? c : -c) || (b.pg-a.pg) || (b.dif-a.dif);
+  });
+  const th = (c, txt, titulo, cls='an-num') => {
+    const on = col===c;
+    return `<th class="${cls} rk-th ${on?'on':''}" aria-sort="${on?(asc?'ascending':'descending'):'none'}">
+      <button onclick="ordenarRk('${c}')" title="${h(titulo)}">${txt}${on?(asc?' ▲':' ▼'):''}</button></th>`;
+  };
+  const fila = (f,i) => `<tr>
+    <td class="an-num rk-n">${i+1}</td>
+    <td><span class="clk" onclick="goToPel('${esc(f.nombre)}')">${h(f.nombre)}</span>
+      ${getRol(f.nombre)!=='otro'?`<span class="rol-badge ${getRol(f.nombre)==='zaguero'?'zag':'del'}">${getRol(f.nombre)==='zaguero'?t('rol_zag'):t('rol_del')}</span>`:''}</td>
+    <td class="an-num">${f.pj}</td>
+    <td class="an-num an-up"><b>${f.pg}</b></td>
+    <td class="an-num an-down">${f.pp}</td>
+    <td class="an-num ${f.pj<RK_MIN_PCT?'an-muted':''}">${Math.round(f.pct*100)}%</td>
+    <td class="an-num ${f.dif>=0?'an-up':'an-down'}">${f.dif>0?'+':''}${f.dif}</td>
+    <td class="an-num">${f.elo===null?'—':Math.round(f.elo)}</td>
+    <td class="rk-forma">${chipsForma(formaReciente(f.nombre,5))}</td></tr>`;
+  return `<div class="ch-card">
+    <p class="an-nota">${tx(`Pulsa en una columna para ordenar. Al ordenar por %, los que tienen menos de ${RK_MIN_PCT} partidos van al final. El Elo y la forma (últimos 5) tienen en cuenta todos los partidos.`,
+      `Sakatu zutabe batean ordenatzeko. %-ka ordenatzean, ${RK_MIN_PCT} partida baino gutxiago dituztenak amaieran doaz. Eloak eta formak (azken 5ak) partida guztiak hartzen dituzte kontuan.`)}</p>
+    <div class="an-table-wrap"><table class="comp-table rk-tabla">
+      <thead><tr><th class="an-num">#</th>${th('nombre', tx('Pelotari','Pilotaria'), tx('Nombre','Izena'), '')}
+        ${th('pj', t('abbr_pj'), tx('Partidos jugados','Jokatutako partidak'))}
+        ${th('pg', t('abbr_v'), tx('Victorias','Garaipenak'))}
+        ${th('pp', t('abbr_d'), tx('Derrotas','Porrotak'))}
+        ${th('pct', '%', tx('Porcentaje de victorias','Garaipen ehunekoa'))}
+        ${th('dif', tx('Dif','Alde'), tx('Diferencia de tantos','Tanto aldea'))}
+        ${th('elo', 'Elo', 'Elo')}
+        <th class="rk-forma">${tx('Forma','Forma')}</th></tr></thead>
+      <tbody>${filas.map(fila).join('')}</tbody></table></div></div>`;
+}
+
+// ════════════════════════════════════════════════════════════
+// RANKING: títulos (finales de campeonatos y torneos)
+// ════════════════════════════════════════════════════════════
+// 'Campeonato Parejas Serie A 2025' -> 'Parejas A 2025'; 'Torneo San Fermin 4 y Medio 2026' -> 'San Fermín 4½ 2026'
+function nombreCortoComp(nombre){
+  return (nombre||'').replace(/^(Campeonato|Torneo)\s+/i,'').replace(/\s*Serie\s+([AB])\b/i,' $1')
+    .replace(/\s*4 y Medio/i,' 4½').replace(/Fermin\b/,'Fermín').replace(/Manomanista/,'Mano');
+}
+
+function htmlRankingTitulos(parts, activos){
+  const finales = parts.filter(p=>p.fase==='final' && (p.categoria==='campeonato' || p.categoria==='torneo'))
+    .sort((a,b)=>parseDate(b.fecha)-parseDate(a.fecha));
+  const st = {};
+  const de = n => st[n] = st[n] || {titulos:[], finales:0, camp:0};
+  finales.forEach(p=>{
+    const gan = p.ganador==='equipo1' ? p.equipo1 : p.equipo2;
+    const per = p.ganador==='equipo1' ? p.equipo2 : p.equipo1;
+    pels(gan).forEach(n=>{ const s=de(n); s.finales++; s.titulos.push(p); if(p.categoria==='campeonato') s.camp++; });
+    pels(per).forEach(n=>{ de(n).finales++; });
+  });
+  const filas = Object.entries(st).filter(([n])=>!activos || activos.has(n.toUpperCase()))
+    .sort((a,b)=>b[1].titulos.length-a[1].titulos.length || b[1].camp-a[1].camp || b[1].finales-a[1].finales || a[0].localeCompare(b[0]));
+  if(!filas.length) return `<div class="nodata"><div class="ic">🏆</div>${tx('No hay finales de campeonato o torneo con estos filtros.','Ez dago txapelketa edo torneo finalik iragazki hauekin.')}</div>`;
+  const chip = p => `<span class="rk-txapela ${p.categoria==='campeonato'?'camp':'torn'}" title="${h(tComp(p.competicion))} · ${p.fecha}">${h(nombreCortoComp(p.competicion))}</span>`;
+  return `<div class="ch-card">
+    <p class="an-nota">${tx('Finales de campeonatos (verde) y torneos (azul) ganadas por cada pelotari. Solo cuentan las competiciones con la final registrada.',
+      'Pilotari bakoitzak irabazitako txapelketa (berdea) eta torneo (urdina) finalak. Finala erregistratuta duten lehiaketak bakarrik.')}</p>
+    <div class="an-table-wrap"><table class="comp-table rk-tabla">
+      <thead><tr><th class="an-num">#</th><th>${tx('Pelotari','Pilotaria')}</th>
+        <th class="an-num" title="${tx('Finales ganadas','Irabazitako finalak')}">🏆</th>
+        <th class="an-num" title="${tx('De ellas, campeonatos','Horietatik, txapelketak')}">${tx('Camp.','Txap.')}</th>
+        <th class="an-num" title="${tx('Finales jugadas','Jokatutako finalak')}">${tx('Finales','Finalak')}</th>
+        <th>${tx('Títulos','Txapelak')}</th></tr></thead>
+      <tbody>${filas.map(([n,s],i)=>`<tr>
+        <td class="an-num rk-n">${i+1}</td>
+        <td><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></td>
+        <td class="an-num"><b>${s.titulos.length}</b></td>
+        <td class="an-num">${s.camp}</td>
+        <td class="an-num">${s.finales}</td>
+        <td class="rk-titulos">${s.titulos.map(chip).join('')||'<span class="an-muted">—</span>'}</td></tr>`).join('')}</tbody></table></div></div>`;
+}
+
+// ════════════════════════════════════════════════════════════
+// RANKING ELO (pestaña del ranking): tabla con la variación del último mes
+// y gráfico de la evolución de los cinco primeros en el último año
+// ════════════════════════════════════════════════════════════
+function eloEnFecha(n, fecha){
+  // Elo que tenía un pelotari al terminar el día `fecha` (Date)
+  let v = ELO_BASE;
+  for(const [f, e] of (ELO_HIST[n]||[])){ if(parseDate(f) > fecha) break; v = e; }
+  return v;
+}
+
+function htmlGraficoElo(nombres, desde, hasta){
+  const W=720, H=250, M={l:44, r:12, t:12, b:26};
+  const colores = ['var(--green)','var(--blue)','var(--red)','#d99a00','#8a5cc7'];
+  const series = nombres.map(n=>{
+    const pts = [[desde, eloEnFecha(n, desde)]];
+    (ELO_HIST[n]||[]).forEach(([f,e])=>{ const d=parseDate(f); if(d>desde && d<=hasta) pts.push([d,e]); });
+    pts.push([hasta, ELO[n]]);
+    return pts;
+  });
+  const vals = series.flat().map(p=>p[1]);
+  const lo = Math.floor((Math.min(...vals)-10)/25)*25, hi = Math.ceil((Math.max(...vals)+10)/25)*25;
+  const x = d => M.l + (d-desde)/(hasta-desde)*(W-M.l-M.r);
+  const y = v => M.t + (hi-v)/(hi-lo)*(H-M.t-M.b);
+  const paso = (hi-lo) > 200 ? 100 : 50;
+  const ticks = []; for(let v=Math.ceil(lo/paso)*paso; v<=hi; v+=paso) ticks.push(v);
+  const meses = [];
+  for(let d=new Date(desde.getFullYear(), desde.getMonth()+1, 1); d<hasta; d=new Date(d.getFullYear(), d.getMonth()+3, 1)) meses.push(d);
+  const camino = pts => pts.map(([d,v],i)=> i ? `H${x(d).toFixed(1)}V${y(v).toFixed(1)}` : `M${x(d).toFixed(1)} ${y(v).toFixed(1)}`).join('');
+  return `<div class="rk-elo-graf">
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${tx('Evolución del Elo en el último año','Eloaren bilakaera azken urtean')}">
+      ${ticks.map(v=>`<line x1="${M.l}" x2="${W-M.r}" y1="${y(v)}" y2="${y(v)}" class="rk-eje"/><text x="${M.l-6}" y="${y(v)+3}" text-anchor="end" class="rk-eje-txt">${v}</text>`).join('')}
+      ${meses.map(d=>`<text x="${x(d)}" y="${H-8}" text-anchor="middle" class="rk-eje-txt">${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getFullYear()).slice(2)}</text>`).join('')}
+      ${series.map((pts,i)=>`<path d="${camino(pts)}" fill="none" stroke="${colores[i]}" stroke-width="2.2" stroke-linejoin="round"/>`).join('')}
+    </svg>
+    <div class="rk-leyenda">${nombres.map((n,i)=>`<span><i style="background:${colores[i]}"></i>${h(n)}</span>`).join('')}</div>
+  </div>`;
+}
+
 function htmlRankingElo(){
   const activos = getActivePlayers();
   const lista = Object.keys(ELO)
     .filter(n=>!filterActivos || activos.has(n.toUpperCase()))
     .sort((a,b)=>ELO[b]-ELO[a]).slice(0,30);
+  const hasta = PARTIDOS.reduce((mx,p)=>{ const d=parseDate(p.fecha); return d>mx?d:mx; }, new Date(0));
+  const haceMes = new Date(hasta); haceMes.setDate(haceMes.getDate()-30);
+  const haceAnio = new Date(hasta); haceAnio.setFullYear(haceAnio.getFullYear()-1);
   const filas = lista.map((n,i)=>{
-    const hist = ELO_HIST[n]||[];
-    const hace = hist.length>10 ? hist[hist.length-11][1] : ELO_BASE;
-    const dif = Math.round(ELO[n]-hace);
+    const dif = Math.round(ELO[n]-eloEnFecha(n, haceMes));
     return `<tr><td class="an-num">${i+1}</td><td><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span> <span class="rol-badge ${getRol(n)==='zaguero'?'zag':'del'}">${getRol(n)==='zaguero'?t('rol_zag'):t('rol_del')}</span></td>
       <td class="an-num"><b>${Math.round(ELO[n])}</b></td>
-      <td class="an-num ${dif>=0?'an-up':'an-down'}">${dif>0?'▲ +':dif<0?'▼ ':''}${dif}</td>
-      <td>${chipsForma(formaReciente(n,5))}</td></tr>`;
+      <td class="an-num ${dif>0?'an-up':dif<0?'an-down':'an-muted'}">${dif>0?'▲ +'+dif:dif<0?'▼ '+dif:'='}</td>
+      <td class="rk-forma">${chipsForma(formaReciente(n,5))}</td></tr>`;
   }).join('');
   return `<div class="ch-card">
     <h3>${tx('Ranking Elo','Elo sailkapena')}</h3>
-    <p class="an-nota">${tx('Puntuación de fuerza calculada con todos los partidos: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Todos empiezan en 1500. La columna "10 últ." es el cambio en los últimos 10 partidos.',
-      'Partida guztiekin kalkulatutako indar puntuazioa: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Denek 1500ean hasten dute. "Azken 10" zutabea azken 10 partidetako aldaketa da.')}</p>
+    <p class="an-nota">${tx('Puntuación de fuerza calculada con todos los partidos: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Todos empiezan en 1500. La columna "1 mes" es lo que ha subido o bajado en los últimos 30 días.',
+      'Partida guztiekin kalkulatutako indar puntuazioa: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Denek 1500ean hasten dute. "Hilabete" zutabea azken 30 egunetan igo edo jaitsi dena da.')}</p>
+    ${lista.length>=2 ? `<div class="an-sub">${tx('Evolución de los cinco primeros en el último año','Lehen bosten bilakaera azken urtean')}</div>${htmlGraficoElo(lista.slice(0,5), haceAnio, hasta)}` : ''}
     <div class="an-table-wrap"><table class="comp-table">
-      <thead><tr><th>#</th><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">Elo</th><th class="an-num">${tx('10 últ.','Azken 10')}</th><th>${tx('Forma','Forma')}</th></tr></thead>
+      <thead><tr><th>#</th><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">Elo</th><th class="an-num">${tx('1 mes','Hilabete')}</th><th class="rk-forma">${tx('Forma','Forma')}</th></tr></thead>
       <tbody>${filas||`<tr><td colspan="5" class="nodata">${tx('Sin datos','Daturik ez')}</td></tr>`}</tbody></table></div></div>`;
 }
 
