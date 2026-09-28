@@ -885,3 +885,4 @@ header :focus-visible{outline-color:#fff;}
 .an-mejor{color:var(--green);font-weight:600;}
 .an-peor{color:var(--red);font-weight:600;}
 .an-extremos .an-muted{font-weight:400;font-family:var(--mono);font-size:.72rem;}
+.an-head-btns{display:flex;gap:.5rem;flex-wrap:wrap;}
