@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v20';
+const CACHE = 'eskupilota-v21';
 
 // Todo lo necesario para que la web arranque sin conexión
 const PRECACHE = [
@@ -36,8 +36,10 @@ self.addEventListener('activate', e => {
 
 // Red primero y copia en caché; si no hay red, lo último guardado.
 // La cartelera se pide con ?_=timestamp, así que se busca ignorando la query.
+// cache: 'no-cache' obliga a revalidar con el servidor: si no, el navegador
+// puede dar un app.js o app.css de hace unos minutos junto a un index.html nuevo
 function networkFirst(request, fallbackUrl) {
-  return fetch(request)
+  return fetch(request, { cache: 'no-cache' })
     .then(res => {
       if (res && res.ok) {
         const clone = res.clone();
