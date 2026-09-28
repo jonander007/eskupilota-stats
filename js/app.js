@@ -2458,14 +2458,10 @@ function crearFrontonMap(){
 
   _frontonMap = L.map('frontonMap', {zoomControl:false, attributionControl:false}).setView([43.0, -2.0], 8);
   L.control.zoom({zoomInTitle: t('map_acercar'), zoomOutTitle: t('map_alejar')}).addTo(_frontonMap);
-  // Mapa base: CARTO Voyager (carreteras y pueblos legibles); oscuro en modo oscuro
-  const oscuro = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
-  L.tileLayer(oscuro
-      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    subdomains: 'abcd',
+  // Mapa base: OpenStreetMap estándar (no pide clave; CARTO empezó a exigirla y
+  // salía «API KEY REQUIRED»). En modo oscuro se oscurece con un filtro (CSS).
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    detectRetina: true,
   }).addTo(_frontonMap);
   // Atribución (obligatoria por la licencia de OpenStreetMap) plegada en un ⓘ
   const Atribucion = L.Control.extend({
@@ -2473,7 +2469,7 @@ function crearFrontonMap(){
     onAdd(){
       const div = L.DomUtil.create('div', 'fmap-atrib');
       div.innerHTML = `<button type="button" class="fmap-atrib-btn" aria-label="${t('map_creditos')}" aria-expanded="false">i</button>
-        <span class="fmap-atrib-txt">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> · <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>`;
+        <span class="fmap-atrib-txt">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>`;
       const btn = div.querySelector('button');
       btn.onclick = () => btn.setAttribute('aria-expanded', div.classList.toggle('abierto'));
       L.DomEvent.disableClickPropagation(div);
