@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=27">
+<link rel="stylesheet" href="css/app.css?v=28">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -196,8 +196,14 @@
   <div id="pCards"></div>
   <div id="perfilSec" style="display:none;margin-top:1.5rem;">
     <div class="pf-top">
-      <button class="btn" id="btnVolver" onclick="closePerfil()" data-i18n="lbl_volver">← Volver</button>
+      <button class="btn" id="btnVolver" onclick="renderPCards()" data-i18n="lbl_volver">← Volver</button>
+      <div class="pf-nombre-fila">
       <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
+      <button class="btn-filtrar" id="btnFiltrarPf" onclick="toggleFiltrosPerfil()" aria-expanded="false" aria-controls="pfFiltros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        <span class="btn-filtrar-txt" data-i18n="btn_filtrar">Filtrar</span><b class="btn-filtrar-n" hidden></b>
+      </button>
+      </div>
       <div class="pf-acciones">
         <!-- Seguir: sus partidos se destacan en la cartelera y llega un aviso -->
         <button class="btn-seguir" id="btnSeguir" onclick="toggleSeguir(_perfilNombre)" aria-pressed="false">
@@ -211,6 +217,7 @@
         </button>
       </div>
     </div>
+    <div class="filter-panel pf-filtros" id="pfFiltros" hidden></div>
     <div class="pfwrap" id="pfWrap"></div>
   </div>
 </div>
@@ -234,6 +241,11 @@
         <button class="ypill on" data-cat="todos" onclick="setCatRk('todos')" data-i18n="rk_cat_todos">Todos</button>
         <button class="ypill" data-cat="oficial" onclick="setCatRk('oficial')" data-i18n="rk_cat_oficiales">Oficiales</button>
         <button class="ypill" data-cat="festival" onclick="setCatRk('festival')" data-i18n="rk_cat_festivales">Festivales</button>
+      </div></div>
+      <div class="fg"><span class="flabel" data-i18n="flabel_empresa">Empresa</span><div class="year-pills" id="empPillsRk" role="group">
+        <button class="ypill on" data-emp="todas" onclick="setEmpRk('todas')" data-i18n="sel_todas">Todas</button>
+        <button class="ypill" data-emp="baiko" onclick="setEmpRk('baiko')">Baiko</button>
+        <button class="ypill" data-emp="aspe" onclick="setEmpRk('aspe')">Aspe</button>
       </div></div>
     </div>
     <div class="filter-row">
@@ -419,8 +431,8 @@
 
 </main>
 <footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=27"></script>
-<script src="js/analisis.js?v=27"></script>
+<script src="js/app.js?v=28"></script>
+<script src="js/analisis.js?v=28"></script>
 <script>loadData();</script>
 
 <script>

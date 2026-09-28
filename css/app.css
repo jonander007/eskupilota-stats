@@ -984,3 +984,22 @@ header :focus-visible{outline-color:#fff;}
 .cart-img-btn svg{width:14px;height:14px;}
 .cart-img-btn:hover{border-color:var(--green);color:var(--green);}
 .cart-partido-wrap{display:flex;flex-direction:column;}
+
+/* Ficha del pelotari: filtros detrás del botón «Filtrar» */
+.btn-filtrar{display:inline-flex;align-items:center;gap:.4rem;background:var(--surface);color:var(--text);border:1.5px solid var(--border);border-radius:999px;padding:.45rem .9rem;font-family:var(--sans);font-weight:700;font-size:.78rem;cursor:pointer;}
+.btn-filtrar svg{width:15px;height:15px;}
+.btn-filtrar.on,.btn-filtrar:hover{border-color:var(--green);color:var(--green);}
+.btn-filtrar-n{background:var(--green);color:#fff;border-radius:999px;min-width:1.2rem;height:1.2rem;font-size:.66rem;display:inline-flex;align-items:center;justify-content:center;padding:0 .3rem;}
+.btn-filtrar-n[hidden]{display:none;}
+.pf-filtros{margin-bottom:1rem;}
+.pf-filtros-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.7rem 1rem;}
+.pf-filtros-grid select,.pf-filtros-grid input{width:100%;}
+.pf-filtros-pie{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap;margin-top:.8rem;font-size:.74rem;}
+@media(max-width:600px){.pf-filtros-grid{grid-template-columns:1fr 1fr;}}
+
+.pf-empresa{display:inline-block;font-weight:700;padding:.05rem .45rem;border-radius:4px;background:rgba(255,255,255,.18);letter-spacing:.06em;text-transform:uppercase;}
+
+.pf-nombre-fila{display:flex;align-items:center;gap:.7rem;min-width:0;flex:1 1 auto;}
+.pf-nombre-fila #perfilTitle{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.btn-filtrar{flex-shrink:0;}
+@media(max-width:480px){.btn-filtrar-txt{display:none;}.btn-filtrar{padding:.5rem .6rem;}}

@@ -55,6 +55,9 @@ function getActivePlayers(){
 // Rol de cada pelotari según el catálogo (lo calcula el scraper a partir de
 // los puestos en los que juega por parejas)
 let ROL_POR_NOMBRE = {};
+let EMPRESA_POR_NOMBRE = {};   // 'baiko' | 'aspe' (data/pelotaris.json, ver tools/empresas.py)
+function getEmpresa(nombre){ return EMPRESA_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
+const NOMBRE_EMPRESA = {baiko:'Baiko', aspe:'Aspe'};
 function getRol(nombre){
   const rol = ROL_POR_NOMBRE[(nombre||'').toUpperCase()];
   return (rol==='delantero'||rol==='zaguero') ? rol : 'otro';
@@ -329,7 +332,7 @@ const I18N = {
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
     lbl_fichas: 'Fichas de todos los pelotaris',
-    btn_ficha: 'Descargar ficha', compartir_wa: 'Compartir por WhatsApp', app_instalar: 'Instalar la app', app_android: 'App para Android',
+    btn_ficha: 'Descargar ficha', btn_filtrar: 'Filtrar', compartir_wa: 'Compartir por WhatsApp', app_instalar: 'Instalar la app', app_android: 'App para Android',
     app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
@@ -346,7 +349,7 @@ const I18N = {
     map_creditos: 'Créditos del mapa', map_acercar: 'Acercar', map_alejar: 'Alejar',
     abbr_tantos: 'Pts',
     // Categorías y fases (ver scraper/competiciones.py)
-    flabel_categoria: 'Categoría', flabel_fase: 'Fase',
+    flabel_categoria: 'Categoría', flabel_empresa: 'Empresa', flabel_fase: 'Fase',
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
     tag_torneo: 'Torneo', tag_desafio: 'Desafío', tag_parejas: 'Parejas',
     fase_liga: 'Liguilla', fase_eliminatoria: 'Eliminatoria', fase_octavos: 'Octavos',
@@ -464,7 +467,7 @@ const I18N = {
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
     lbl_fichas: 'Pilotari guztien fitxak',
-    btn_ficha: 'Fitxa deskargatu', compartir_wa: 'WhatsApp bidez partekatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
+    btn_ficha: 'Fitxa deskargatu', btn_filtrar: 'Iragazi', compartir_wa: 'WhatsApp bidez partekatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
     app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
@@ -479,7 +482,7 @@ const I18N = {
     cart_error: 'Ezin izan da kartelera kargatu.',
     map_creditos: 'Maparen kredituak', map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
-    flabel_categoria: 'Kategoria', flabel_fase: 'Fasea',
+    flabel_categoria: 'Kategoria', flabel_empresa: 'Enpresa', flabel_fase: 'Fasea',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
     tag_torneo: 'Torneoa', tag_desafio: 'Desafioa', tag_parejas: 'Binaka',
     fase_liga: 'Liga', fase_eliminatoria: 'Kanporaketa', fase_octavos: 'Final-zortzirenak',
@@ -625,6 +628,7 @@ async function loadData(){
     if (par.length && par[0].equipo1 && 'del_id' in par[0].equipo1) {
       CAT_PELOTARIS     = Object.fromEntries(pels.map(o=>[o.id,o]));
       ROL_POR_NOMBRE    = Object.fromEntries(pels.map(o=>[(o.nombre||'').toUpperCase(), o.rol]));
+      EMPRESA_POR_NOMBRE = Object.fromEntries(pels.filter(o=>o.empresa).map(o=>[(o.nombre||'').toUpperCase(), o.empresa]));
       CAT_CIUDADES      = Object.fromEntries(ciu .map(o=>[o.id,o]));
       CAT_FRONTONES     = Object.fromEntries(fro .map(o=>[o.id,o]));
       CAT_COMPETICIONES = Object.fromEntries(cmp .map(o=>[o.id,o]));
@@ -1162,15 +1166,35 @@ function partidosFiltroPelotaris(){
   return filtByTipoYear(activeTipo,activeYearPel).filter(p=>partidoEnRango(p, dateRangePel));
 }
 
+// Filtros que solo tiene la ficha de un pelotari (además de modalidad, año y fechas)
+let pfExtra = {fronton:'', comp:'', rival:''};
+
+// Partidos del pelotari con todos los filtros de su ficha
+function partidosPerfil(nombre){
+  return partidosFiltroPelotaris().filter(p=>{
+    const e1=pels(p.equipo1), e2=pels(p.equipo2);
+    const mio = e1.includes(nombre) ? e1 : e2.includes(nombre) ? e2 : null;
+    if(!mio) return false;
+    const suyo = mio===e1 ? e2 : e1;
+    if(pfExtra.fronton && p.fronton!==pfExtra.fronton) return false;
+    if(pfExtra.comp && !mio.includes(pfExtra.comp)) return false;
+    if(pfExtra.rival && !suyo.includes(pfExtra.rival)) return false;
+    return true;
+  });
+}
+
 function openPerfil(nombre){
+  if(nombre!==_perfilNombre) pfExtra = {fronton:'', comp:'', rival:''};
   document.getElementById('pCards').style.display='none';
   document.getElementById('pSearch').style.display='none';
+  // En la ficha los filtros van detrás del botón «Filtrar», junto al nombre
+  document.querySelectorAll('#sec-pelotaris > .ah-tabs, #sec-pelotaris > .filter-panel').forEach(e=>e.hidden=true);
   const ps=document.getElementById('perfilSec');
   ps.style.display='block';
   document.getElementById('perfilTitle').textContent=nombre;
 
-  // Mismos filtros que las tarjetas: modalidad, año y rango de fechas
-  const parts=partidosFiltroPelotaris();
+  // Filtros de la ficha: modalidad, año, fechas, frontón, compañero y rival
+  const parts=partidosPerfil(nombre);
   const st=calcStats(parts);
   const s=st[nombre]||{pj:0,pg:0,pp:0,pf:0,pc:0};
   const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
@@ -1220,7 +1244,7 @@ function openPerfil(nombre){
 
   document.getElementById('pfWrap').innerHTML=`
     <div>
-      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${t('lbl_pelota_mano')}</div></div>
+      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
       <div class="pf-sgrid">
         <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
         <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">${t('lbl_derrotas')}</div></div>
@@ -1242,25 +1266,6 @@ function openPerfil(nombre){
       </div>
       <div class="ch-card pf-ultimos" id="pfUltimos">
         <h3 id="pfUltimosTitle">${t('lbl_ultimos')}</h3>
-        <div class="pf-ultimos-filters">
-          <div class="fg">
-            <label class="flabel" for="pfFronFilter">${t('flabel_fronton')}</label>
-            <select id="pfFronFilter" onchange="renderPerfilPartidos()" style="width:100%">
-              <option value="">${t('sel_todos')}</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label class="flabel" for="pfDesdeFilter">${t('flabel_desde')}</label>
-            <input type="date" id="pfDesdeFilter" onchange="renderPerfilPartidos()">
-          </div>
-          <div class="fg">
-            <label class="flabel" for="pfHastaFilter">${t('flabel_hasta')}</label>
-            <input type="date" id="pfHastaFilter" onchange="renderPerfilPartidos()">
-          </div>
-          <div class="fg" style="justify-content:flex-end">
-            <button class="btn-ghost" onclick="resetPerfilFiltros()">${t('btn_limpiar')}</button>
-          </div>
-        </div>
         <div id="pfPartidosList"></div>
         <div class="pf-load-more" id="pfLoadMore" style="display:none">
           <button class="btn-ghost" onclick="loadMorePerfilPartidos()">${t('c4_ver_mas').replace('{n}',10)}</button>
@@ -1271,7 +1276,7 @@ function openPerfil(nombre){
   // Init recent matches
   _perfilNombre = nombre;
   _perfilPage = 1;
-  populatePerfilFrontons(nombre, parts);
+  pintarFiltrosPerfil(nombre);
   renderPerfilPartidos();
   document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlPalmares(nombre, parts) + htmlEvolucionPerfil(nombre) + htmlTemporadas(nombre));
   pintarBotonSeguir();
@@ -1279,33 +1284,8 @@ function openPerfil(nombre){
 }
 
 
-function populatePerfilFrontons(nombre, parts){
-  const frontons = [...new Set(
-    parts.filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre))
-         .map(p=>p.fronton)
-  )].sort();
-  const sel = document.getElementById('pfFronFilter');
-  if(!sel) return;
-  sel.innerHTML = `<option value="" data-i18n="sel_todos">${t('sel_todos')}</option>`;
-  frontons.forEach(f=>{ const o=document.createElement('option');o.value=f;o.textContent=f;sel.appendChild(o); });
-}
-
 function getPerfilPartidos(){
-  const nombre = _perfilNombre;
-  const parts = filtByTipoYear(activeTipo, activeYearPel);
-  const fron = (document.getElementById('pfFronFilter')?.value)||'';
-  const desde = document.getElementById('pfDesdeFilter')?.value||'';
-  const hasta = document.getElementById('pfHastaFilter')?.value||'';
-  return parts.filter(p=>{
-    if(!pels(p.equipo1).includes(nombre)&&!pels(p.equipo2).includes(nombre)) return false;
-    if(fron&&p.fronton!==fron) return false;
-    if(desde||hasta){
-      const d=parseDate(p.fecha);
-      if(desde&&d<new Date(desde)) return false;
-      if(hasta&&d>new Date(hasta)) return false;
-    }
-    return true;
-  }); // already sorted desc by fecha from partidos array
+  return partidosPerfil(_perfilNombre);   // ya ordenados del más reciente al más antiguo
 }
 
 function renderPerfilPartidos(){
@@ -1373,14 +1353,10 @@ function renderPerfilPartidoRow(p, nombre){
   </div>`;
 }
 
-function resetPerfilFiltros(){
-  document.getElementById('pfFronFilter').value='';
-  document.getElementById('pfDesdeFilter').value='';
-  document.getElementById('pfHastaFilter').value='';
-  renderPerfilPartidos();
-}
 function closePerfil(){
   document.getElementById('perfilSec').style.display='none';
+  document.querySelectorAll('#sec-pelotaris > .ah-tabs, #sec-pelotaris > .filter-panel').forEach(e=>e.hidden=false);
+  const pf=document.getElementById('pfFiltros'); if(pf) pf.hidden=true;
   document.getElementById('pCards').style.display='grid';
   document.getElementById('pSearch').style.display='block';
   if(document.getElementById('sec-pelotaris').classList.contains('active')) setHash('#/pelotaris');
@@ -1393,6 +1369,13 @@ function goToPel(n){goToNav('pelotaris');setTimeout(()=>openPerfil(n),80);}
 // ════════════════════════════════════════════════════════════
 let activeRkTab = 'tabla';
 let activeCatRk = 'todos';   // todos | oficial (campeonatos y torneos) | festival (festivales y desafíos)
+
+let activeEmpRk = 'todas';   // todas | baiko | aspe
+function setEmpRk(emp){
+  activeEmpRk = emp;
+  document.querySelectorAll('#empPillsRk .ypill').forEach(b=>{ b.classList.toggle('on', b.dataset.emp===emp); b.setAttribute('aria-pressed', b.dataset.emp===emp); });
+  buildRanking();
+}
 
 function catRkMatch(p){
   if(activeCatRk==='oficial') return p.categoria==='campeonato' || p.categoria==='torneo';
@@ -1448,7 +1431,12 @@ function buildRanking(){
     return `<div class="rk-grid">${cards.join('')}</div>`;
   }
 
-  const _activePlayers = filterActivos ? getActivePlayers() : null;
+  let _activePlayers = filterActivos ? getActivePlayers() : null;
+  // Empresa: se deja solo a los pelotaris de Baiko o de Aspe
+  if(activeEmpRk!=='todas'){
+    const base = _activePlayers || new Set(Object.keys(PELOTARIS).map(n=>n.toUpperCase()));
+    _activePlayers = new Set([...base].filter(n=>EMPRESA_POR_NOMBRE[n]===activeEmpRk));
+  }
   function filterActive(entries){ return _activePlayers ? entries.filter(([n])=>_activePlayers.has(n.toUpperCase())) : entries; }
 
   // ── TAB: Clasificación (tabla ordenable) y Títulos ──
