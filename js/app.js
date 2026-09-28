@@ -320,7 +320,7 @@ const I18N = {
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
     lbl_fichas: 'Fichas de todos los pelotaris',
-    app_instalar: 'Instalar la app', app_android: 'App para Android',
+    btn_ficha: 'Descargar ficha', app_instalar: 'Instalar la app', app_android: 'App para Android',
     app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
@@ -454,7 +454,7 @@ const I18N = {
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
     lbl_fichas: 'Pilotari guztien fitxak',
-    app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
+    btn_ficha: 'Fitxa deskargatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
     app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',

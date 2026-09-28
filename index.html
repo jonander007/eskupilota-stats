@@ -192,9 +192,14 @@
 
   <div id="pCards"></div>
   <div id="perfilSec" style="display:none;margin-top:1.5rem;">
-    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+    <div class="pf-top">
       <button class="btn" id="btnVolver" onclick="closePerfil()" data-i18n="lbl_volver">← Volver</button>
       <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
+      <!-- Ficha en JPG con el filtro aplicado -->
+      <button class="btn-ficha" onclick="descargarFicha(_perfilNombre)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="btn_ficha">Descargar ficha</span>
+      </button>
     </div>
     <div class="pfwrap" id="pfWrap"></div>
   </div>
