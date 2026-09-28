@@ -208,8 +208,16 @@ class Web(unittest.TestCase):
     # ── Frontones y mapa ──
     def test_mapa_de_frontones(self):
         pg = self.pagina('#/frontones')
-        pg.wait_for_selector('.leaflet-marker-icon')
-        self.assertGreater(pg.locator('.leaflet-marker-icon').count(), 100)
+        pg.wait_for_selector('.fmap-cluster')
+        # Todos los frontones con coordenadas están en el mapa, agrupados
+        self.assertGreater(pg.evaluate('_frontonCapa.getLayers().length'), 100)
+        # Encuadrado en la zona de los frontones, no en toda España
+        self.assertGreaterEqual(pg.evaluate('_frontonMap.getZoom()'), 7)
+        # La atribución va plegada en un botón ⓘ y se abre al pulsarlo
+        self.assertFalse(pg.is_visible('.fmap-atrib-txt'))
+        pg.click('.fmap-atrib-btn')
+        self.assertIn('OpenStreetMap', pg.text_content('.fmap-atrib-txt'))
+        self.assertTrue(pg.is_visible('.fmap-atrib-txt'))
 
     # ── Cartelera ──
     def test_cartelera_y_calendario(self):

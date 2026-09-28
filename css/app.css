@@ -77,7 +77,6 @@
   .rol-badge.zag{background:rgba(90,169,224,.1);}
   #frontonMap.leaflet-container{background:#1b2520;}
   #frontonMap .leaflet-bar a{background:var(--surface);color:var(--text);border-bottom-color:var(--border);}
-  #frontonMap .leaflet-control-attribution{background:rgba(21,29,24,.8);color:var(--muted);}
   .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text);}
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -551,8 +550,8 @@ tr:hover td{background:var(--surface2);}
 
 
 /* ── MAPA FRONTONES ── */
-#frontonMap{height:420px;border:1px solid var(--border);margin-bottom:1.4rem;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);}
-@media(max-width:900px){#frontonMap{height:280px;}}
+#frontonMap{isolation:isolate;height:480px;border:1px solid var(--border);margin-bottom:1.4rem;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);}
+@media(max-width:900px){#frontonMap{height:360px;}}
 .leaflet-popup-content-wrapper{border-radius:var(--r);font-family:var(--sans);font-size:.75rem;}
 .leaflet-popup-content{margin:.7rem .9rem;}
 .fmap-name{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--green);letter-spacing:.02em;text-transform:uppercase;}
@@ -876,7 +875,6 @@ header :focus-visible{outline-color:#fff;}
 @media (max-width:600px){.an-fr-tabla th:last-child,.an-fr-tabla td:last-child{display:none;}}
 .site-footer{text-align:center;padding:1.5rem 1rem 2.5rem;font-size:.75rem;}
 .site-footer a{color:var(--muted);}
-#frontonMap .leaflet-control-attribution a{color:var(--green);text-decoration:underline;}
 .an-ko-gtit{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.25rem;}
 .an-ko-grupo .an-ko-eq b{font-family:var(--mono);font-size:.75rem;}
 .an-ko-col.liga .an-ko-m::after,.an-ko-col.liga .an-ko-m::before{display:none;}
@@ -886,3 +884,16 @@ header :focus-visible{outline-color:#fff;}
 .an-peor{color:var(--red);font-weight:600;}
 .an-extremos .an-muted{font-weight:400;font-family:var(--mono);font-size:.72rem;}
 .an-head-btns{display:flex;gap:.5rem;flex-wrap:wrap;}
+
+/* ── Mapa de frontones ── */
+.fmap-pin{background:var(--red);border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.45);transition:transform .15s;}
+.fmap-pin:hover{transform:scale(1.25);}
+.fmap-pin.grande{background:#9e0b22;}
+.fmap-cluster{background:rgba(0,122,61,.25);border-radius:50%;}
+.fmap-cluster span{display:flex;align-items:center;justify-content:center;margin:4px;width:calc(100% - 8px);height:calc(100% - 8px);border-radius:50%;background:var(--brand);color:#fff;font-family:var(--mono);font-weight:700;font-size:.8rem;box-shadow:0 1px 4px rgba(0,0,0,.35);}
+.fmap-tip{font-family:var(--sans);font-size:.72rem;border-radius:var(--r-sm);}
+.fmap-atrib{display:flex;align-items:center;gap:.35rem;margin:0 6px 6px 0 !important;font-family:var(--sans);font-size:.62rem;}
+.fmap-atrib-btn{width:22px;height:22px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);font:600 .7rem/1 Georgia,serif;font-style:italic;cursor:pointer;box-shadow:var(--shadow-sm);}
+.fmap-atrib-txt{display:none;background:var(--surface);color:var(--muted);padding:.2rem .5rem;border-radius:999px;box-shadow:var(--shadow-sm);white-space:nowrap;}
+.fmap-atrib.abierto .fmap-atrib-txt{display:inline-block;order:-1;}
+.fmap-atrib-txt a{color:var(--green);}
