@@ -500,3 +500,17 @@ class FormatoJson(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class Empresas(unittest.TestCase):
+    """Plantillas de Baiko y Aspe: se buscan los nombres del catálogo."""
+
+    def test_nombres_en_la_plantilla(self):
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tools'))
+        from empresas import encontrados
+        html = ('<ul><li><a>P. Etxeberria</a></li><li>Peña II</li><li>Altuna III</li><li>Darío</li>'
+                '<li>Zubizarreta IV</li><li>Alberdi II</li></ul>')
+        catalogo = ['P.ETXEBERRIA', 'PEÑA II', 'ALTUNA III', 'DARÍO', 'ZUBIZARRETA III',
+                    'ZUBIZARRETA IV', 'ALBERDI', 'ALBERDI II', 'LASO']
+        self.assertEqual(encontrados(catalogo, html),
+                         {'P.ETXEBERRIA', 'PEÑA II', 'ALTUNA III', 'DARÍO', 'ZUBIZARRETA IV', 'ALBERDI II'})

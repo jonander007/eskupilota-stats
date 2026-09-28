@@ -180,6 +180,11 @@ function textoFiltroPelotaris(){
     const f = s => s ? s.split('-').reverse().join('/') : '…';
     partes.push(`${f(dateRangePel.desde)} – ${f(dateRangePel.hasta)}`);
   } else if(activeYearPel !== 'todos') partes.push(tx('Temporada ','') + activeYearPel + tx('',' denboraldia'));
+  if(typeof pfExtra !== 'undefined'){
+    if(pfExtra.fronton) partes.push(pfExtra.fronton);
+    if(pfExtra.comp) partes.push(tx('Con ','') + pfExtra.comp + tx('','-rekin'));
+    if(pfExtra.rival) partes.push(tx('Contra ','') + pfExtra.rival + tx('','-ren aurka'));
+  }
   return partes.length ? partes.join(' · ') : tx('Todos los partidos','Partida guztiak');
 }
 
@@ -215,7 +220,7 @@ function htmlPalmares(nombre, parts){
 }
 
 function datosFicha(nombre){
-  const parts = partidosFiltroPelotaris().filter(p => pels(p.equipo1).includes(nombre) || pels(p.equipo2).includes(nombre));
+  const parts = partidosPerfil(nombre);
   const lado = p => pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2';
   const gana = p => p.ganador === lado(p);
   const pg = parts.filter(gana).length;
@@ -264,7 +269,8 @@ async function descargarFicha(nombre){
   texto(textoFiltroPelotaris().toUpperCase(), W-M, 92, mono(24), 'rgba(255,255,255,.85)', 'right');
   texto(ajustar(nombre, disp(118, 800), W-2*M), M, 262, disp(118, 800), '#fff');
   const rol = getRol(nombre) === 'zaguero' ? tx('Zaguero','Atzelaria') : getRol(nombre) === 'delantero' ? tx('Delantero','Aurrelaria') : '';
-  texto(`${rol ? rol.toUpperCase() + ' · ' : ''}${tx('PELOTA A MANO','ESKU PILOTA')}`, M, 318, mono(24), 'rgba(255,255,255,.85)');
+  const emp = getEmpresa(nombre) ? NOMBRE_EMPRESA[getEmpresa(nombre)] : '';
+  texto(`${rol ? rol.toUpperCase() + ' · ' : ''}${emp ? emp.toUpperCase() + ' · ' : ''}${tx('PELOTA A MANO','ESKU PILOTA')}`, M, 318, mono(24), 'rgba(255,255,255,.85)');
 
   // Cifras (3 x 2)
   const pct = d.pj ? Math.round(d.pg / d.pj * 100) : 0;
@@ -343,7 +349,8 @@ async function descargarFicha(nombre){
   const hoy = PARTIDOS.length ? PARTIDOS[0].fecha : '';
   texto(`${tx('Datos hasta el','Datuak')} ${hoy}${tx('','ra arte')}`, W - M, H - 30, mono(20), 'rgba(255,255,255,.85)', 'right');
 
-  const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
+  const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : '',
+    pfExtra.fronton, pfExtra.comp ? 'con-' + pfExtra.comp : '', pfExtra.rival ? 'vs-' + pfExtra.rival : ''].filter(Boolean).map(slugify).join('-');
   entregarImagen(cv, `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`, `${nombre} · EskupilotaStats`, tx('Ficha descargada','Fitxa deskargatuta'));
 }
 
@@ -1530,4 +1537,83 @@ function compartirC4(){
     nombreA: A, nombreB: B, partidos: u.exactos,
     esA: p => pels(p.equipo1).includes(u.d1) ? 'equipo1' : 'equipo2',
     fichero: `parejas-${slugify(A)}-${slugify(B)}.jpg`});
+}
+
+
+// ════════════════════════════════════════════════════════════
+// FILTROS DE LA FICHA DEL PELOTARI (detrás del botón «Filtrar»)
+// Modalidad, año y fechas son los mismos de la lista de pelotaris; frontón,
+// compañero y rival solo valen dentro de la ficha.
+// ════════════════════════════════════════════════════════════
+function toggleFiltrosPerfil(forzar){
+  const p = document.getElementById('pfFiltros'), b = document.getElementById('btnFiltrarPf');
+  const abrir = forzar ?? p.hidden;
+  p.hidden = !abrir;
+  b.setAttribute('aria-expanded', abrir);
+  b.classList.toggle('on', abrir);
+}
+
+function pintarFiltrosPerfil(nombre){
+  const el = document.getElementById('pfFiltros');
+  if(!el) return;
+  const suyos = PARTIDOS.filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre));
+  const cuenta = f => { const c={}; suyos.forEach(p=>f(p).forEach(k=>{ c[k]=(c[k]||0)+1; })); return Object.entries(c).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])); };
+  const mio = p => pels(p.equipo1).includes(nombre) ? pels(p.equipo1) : pels(p.equipo2);
+  const suyo = p => pels(p.equipo1).includes(nombre) ? pels(p.equipo2) : pels(p.equipo1);
+  const frontones = cuenta(p=>[p.fronton]), comps = cuenta(p=>mio(p).filter(x=>x!==nombre)), rivales = cuenta(p=>suyo(p));
+  const opt = (lista, sel) => `<option value="">${t('sel_todos')}</option>` +
+    lista.map(([k,n])=>`<option value="${h(k)}" ${k===sel?'selected':''}>${h(k)} (${n})</option>`).join('');
+  const activos = [activeTipo!=='todos', activeYearPel!=='todos', !!dateRangePel.desde, !!dateRangePel.hasta,
+    !!pfExtra.fronton, !!pfExtra.comp, !!pfExtra.rival].filter(Boolean).length;
+  const n = document.querySelector('#btnFiltrarPf .btn-filtrar-n');
+  if(n){ n.hidden = !activos; n.textContent = activos; }
+  el.innerHTML = `
+    <div class="pf-filtros-grid">
+      <div class="fg"><label class="flabel" for="pfMod">${t('flabel_modalidad')}</label>
+        <select id="pfMod" onchange="cambiarFiltroPerfil('mod',this.value)">${TIPOS.map(x=>`<option value="${x.k}" ${x.k===activeTipo?'selected':''}>${h(x.k==='todos'?t('sel_todos'):({campeonato:t('tipo_parejas'),manomanista:t('tipo_mano'),cuatro:t('tipo_cuatro')}[x.k]||x.lbl))}</option>`).join('')}</select></div>
+      <div class="fg"><label class="flabel" for="pfAnio">${t('flabel_año')}</label>
+        <select id="pfAnio" onchange="cambiarFiltroPerfil('anio',this.value)"><option value="todos">${t('sel_todos')}</option>${getYears().map(y=>`<option value="${y}" ${y===activeYearPel?'selected':''}>${y}</option>`).join('')}</select></div>
+      <div class="fg"><label class="flabel" for="pfDesde">${t('flabel_desde')}</label>
+        <input type="date" id="pfDesde" value="${dateRangePel.desde||''}" onchange="cambiarFiltroPerfil('desde',this.value)"></div>
+      <div class="fg"><label class="flabel" for="pfHasta">${t('flabel_hasta')}</label>
+        <input type="date" id="pfHasta" value="${dateRangePel.hasta||''}" onchange="cambiarFiltroPerfil('hasta',this.value)"></div>
+      <div class="fg"><label class="flabel" for="pfFron">${t('flabel_fronton')}</label>
+        <select id="pfFron" onchange="cambiarFiltroPerfil('fronton',this.value)">${opt(frontones, pfExtra.fronton)}</select></div>
+      <div class="fg"><label class="flabel" for="pfComp">${tx('Compañero','Bikotekidea')}</label>
+        <select id="pfComp" onchange="cambiarFiltroPerfil('comp',this.value)">${opt(comps, pfExtra.comp)}</select></div>
+      <div class="fg"><label class="flabel" for="pfRival">${tx('Rival','Aurkaria')}</label>
+        <select id="pfRival" onchange="cambiarFiltroPerfil('rival',this.value)">${opt(rivales, pfExtra.rival)}</select></div>
+    </div>
+    <div class="pf-filtros-pie">
+      <span class="an-muted">${h(textoFiltroPelotaris())} · ${nPartidos(partidosPerfil(nombre).length)}</span>
+      ${activos ? `<button class="btn-ghost" onclick="limpiarFiltrosPerfil()">${t('btn_limpiar')}</button>` : ''}
+    </div>`;
+}
+
+// Refleja en la lista de pelotaris los filtros compartidos (sin volver a pintarla)
+function sincronizarFiltrosPelotaris(){
+  document.querySelectorAll('#pillsPel .pill').forEach(b=>{
+    b.classList.remove('on','onF','onM','onC');
+    if(b.dataset.tipo===activeTipo) b.classList.add(activeTipo==='manomanista'?'onM':activeTipo==='cuatro'?'onC':'on');
+  });
+  document.querySelectorAll('#yearPillsPel .ypill').forEach(b=>b.classList.toggle('on', b.dataset.year===activeYearPel));
+  const d=document.getElementById('pDateDesde'), hh=document.getElementById('pDateHasta'), cl=document.getElementById('pDateClear');
+  if(d) d.value = dateRangePel.desde||''; if(hh) hh.value = dateRangePel.hasta||'';
+  if(cl) cl.style.display = (dateRangePel.desde||dateRangePel.hasta) ? '' : 'none';
+}
+
+function cambiarFiltroPerfil(campo, valor){
+  if(campo==='mod') activeTipo = valor;
+  else if(campo==='anio') activeYearPel = valor;
+  else if(campo==='desde' || campo==='hasta') dateRangePel[campo] = valor;
+  else pfExtra[campo] = valor;
+  sincronizarFiltrosPelotaris();
+  openPerfil(_perfilNombre);
+}
+
+function limpiarFiltrosPerfil(){
+  activeTipo = 'todos'; activeYearPel = 'todos'; dateRangePel.desde = ''; dateRangePel.hasta = '';
+  pfExtra = {fronton:'', comp:'', rival:''};
+  sincronizarFiltrosPelotaris();
+  openPerfil(_perfilNombre);
 }

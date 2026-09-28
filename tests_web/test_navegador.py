@@ -193,6 +193,28 @@ class Web(unittest.TestCase):
         pg.click('.an-fr-mas')
         self.assertEqual(visibles(), filas.count())
 
+    def test_filtros_en_la_ficha(self):
+        pg = self.pagina('#/pelotari/laso')
+        # Los filtros de la lista no se ven: van detrás del botón «Filtrar»
+        self.assertFalse(pg.locator('#sec-pelotaris > .filter-panel').is_visible())
+        self.assertFalse(pg.locator('#pfFiltros').is_visible())
+        pj = lambda: int(pg.locator('.pf-sgrid .pf-s').nth(2).locator('.v').inner_text())
+        total = pj()
+        pg.click('#btnFiltrarPf')
+        self.assertTrue(pg.locator('#pfFiltros').is_visible())
+        companero = pg.locator('#pfComp option').nth(1).get_attribute('value')
+        pg.select_option('#pfComp', companero)
+        self.assertLess(pj(), total)
+        self.assertEqual(pg.inner_text('#btnFiltrarPf .btn-filtrar-n'), '1')
+        self.assertTrue(pg.locator('#pfFiltros').is_visible())          # sigue abierto
+        pg.select_option('#pfAnio', '2025')
+        self.assertEqual(pg.inner_text('#btnFiltrarPf .btn-filtrar-n'), '2')
+        pg.click('#pfFiltros .btn-ghost')                                # limpiar
+        self.assertEqual(pj(), total)
+        # Al volver, la lista de pelotaris y sus filtros aparecen de nuevo
+        pg.click('#btnVolver')
+        self.assertTrue(pg.locator('#sec-pelotaris > .filter-panel').is_visible())
+
     def test_palmares_en_el_perfil(self):
         pg = self.pagina('#/pelotari/laso')
         self.assertTrue(pg.locator('.pf-palmares').is_visible())
