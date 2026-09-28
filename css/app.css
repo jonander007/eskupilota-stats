@@ -525,9 +525,6 @@ tr:hover td{background:var(--surface2);}
 .cart-partidos-list{padding:.6rem .9rem .9rem;}
 .cart-partido-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.8rem;padding:.75rem .9rem;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;transition:all .18s;margin-bottom:.45rem;background:var(--surface);}
 .cart-partido-card.open{border-color:var(--green);border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0;transform:none;}
-.cart-partido-card.open .cart-partido-arrow{color:var(--green);}
-.cart-partido-actions{border:1px solid var(--green);border-top:none;background:linear-gradient(180deg,rgba(0,122,61,.04),rgba(0,122,61,0));padding:.6rem;display:none;grid-template-columns:1fr;gap:.5rem;margin-bottom:.45rem;border-radius:0 0 var(--r) var(--r);animation:cartActionsIn .18s ease;}
-.cart-partido-actions.open{display:grid;}
 @keyframes cartActionsIn{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
 .cart-action-btn{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.6rem .5rem;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;border-radius:var(--r-sm);transition:all .15s;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.4rem;}
 .cart-action-btn:hover{border-color:var(--green);color:var(--green);background:rgba(0,122,61,.06);transform:translateY(-1px);}
@@ -539,15 +536,16 @@ tr:hover td{background:var(--surface2);}
 .cart-partido-eq{font-size:.85rem;font-weight:700;}
 .cart-partido-vs{font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:500;}
 .cart-partido-serie{font-family:var(--mono);font-size:.5rem;font-weight:600;color:var(--muted);border:1px solid var(--border);padding:.08rem .3rem;border-radius:var(--r-sm);white-space:nowrap;}
-.cart-partido-arrow{color:var(--muted);font-size:1rem;transition:color .18s;white-space:nowrap;}
-.cart-partido-card:hover .cart-partido-arrow{color:var(--green);}
+.cart-partido-arrow{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--green);border:1px solid var(--green);border-radius:999px;padding:.45rem .8rem;transition:all .18s;white-space:nowrap;}
+.cart-partido-arrow svg{width:14px;height:14px;}
+.cart-partido-card:hover .cart-partido-arrow{background:var(--green);color:var(--on-green);}
 
 .cart-loading{text-align:center;padding:3rem;color:var(--muted);font-family:var(--mono);font-size:.72rem;}
 .cart-error{background:var(--surface);border:1px solid var(--border);padding:1.3rem 1.5rem;border-radius:var(--r-lg);border-left:4px solid var(--red);}
 .cart-error-title{font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--red);margin-bottom:.5rem;text-transform:uppercase;}
 .cart-error-body{font-family:var(--mono);font-size:.65rem;color:var(--muted);line-height:1.7;}
 .cart-hint{background:var(--green-soft);border:1px solid rgba(11,92,46,.15);padding:.85rem 1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--green-dark);margin-bottom:1.2rem;line-height:1.6;border-radius:var(--r);}
-.cart-day-label{font-family:var(--mono);font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);padding:.55rem 0 .45rem;border-bottom:2px solid var(--border);margin-bottom:.8rem;margin-top:1.3rem;}
+.cart-day-label{font-family:var(--display);font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--text);background:var(--green-soft);border-left:5px solid var(--green);border-radius:var(--r-sm);padding:.5rem .9rem;margin-bottom:.9rem;margin-top:2rem;}
 .cart-day-label:first-child{margin-top:0;}
 
 
@@ -738,7 +736,8 @@ tr:hover td{background:var(--surface2);}
   .comp-wins{font-size:2.8rem;}
 
   /* CARTELERA */
-  .cart-partido-arrow{display:none;}
+  .cart-partido-card{grid-template-columns:1fr;}
+  .cart-partido-arrow{justify-content:center;}
 
   /* FRONTONES */
   .fronton-grid{grid-template-columns:repeat(2,1fr);}
