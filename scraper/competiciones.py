@@ -68,6 +68,7 @@ TORNEOS = [
     ('san mateo',      'Torneo San Mateo'),
     ('aste nagusia',   'Torneo Aste Nagusia'),
     ('la blanca',      'Torneo La Blanca'),
+    ('andre maria zuria', 'Torneo La Blanca'),     # su nombre en euskera
     ('donostia hiria', 'Torneo Donostia Hiria'),
     ('bizkaia',        'Torneo Bizkaia'),
 ]

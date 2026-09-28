@@ -35,13 +35,50 @@ from datetime import date, timedelta
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, os.path.join(RAIZ, 'scraper'))
-from competiciones import _tipo  # noqa: E402
+from competiciones import TORNEOS, _tipo, clasificar_partido, sin_tildes  # noqa: E402
 from historial_baiko import competicion_de_titulo, equipo_limpio, leer_historial  # noqa: E402
 from jsonio import guardar_json  # noqa: E402
 from red import descargar  # noqa: E402
 from scraper import PARTIDOS_FILE, Catalogos, clave_nombre, normalizar_ubicacion  # noqa: E402
 
 MODALIDAD = {'Manomanista': 'mano', 'Parejas': 'parejas', '4 y Medio': 'cuatro'}
+
+
+def destino_torneo(hist, competiciones, partidos):
+    """Competición de nuestro catálogo para la ficha de un torneo (San Fermín,
+    San Mateo, Masters...): (nombre, 'torneo', modalidad de sus partidos
+    individuales, serie). None si la ficha no es de un torneo."""
+    t = sin_tildes(hist['titulo']).lower()
+    base = next((b for clave, b in TORNEOS if clave in t), None)
+    if not base:
+        return None
+    ult = max(hist['partidos'], key=lambda p: p['fecha'][-4:] + p['fecha'][3:5] + p['fecha'][:2])
+    r = clasificar_partido(hist['titulo'], ult['fecha'], len(ult['equipo1']) > 1)
+    anio = ult['fecha'][-4:]
+    cuatro = r['modalidad'] == 'cuatro'
+    # Los nombres de los torneos han cambiado con los años ('Torneo San
+    # Fermín 2023', 'Torneo San Fermin Serie A 2025'): se busca el que ya
+    # tenemos antes de crear otro
+    cands = {}
+    for c in competiciones:
+        n = sin_tildes(c['nombre']).lower()
+        if (n.startswith(sin_tildes(base).lower()) and n.endswith(anio) and
+                cuatro == ('4 y medio' in n) and ('manomanista' in n) == ('manomanista' in t) and
+                (r['serie'] == 'B') == ('serie b' in n)):
+            cands[c['nombre']] = c['id']
+    if r['competicion'] in cands or not cands:
+        nombre = r['competicion']
+    elif len(cands) == 1:
+        nombre = next(iter(cands))
+    else:
+        return None
+    serie = 'B' if 'Serie B' in nombre else ('A' if 'Serie A' in nombre else None)
+    # Modalidad de los partidos individuales: la del título, o la que ya
+    # tienen los nuestros de ese torneo ('Torneo Bizkaia 2023' es de 4 y medio)
+    ya = [p['modalidad'] for p in partidos
+          if p['competicion_id'] == cands.get(nombre) and not p['equipo1'].get('zag_id')]
+    mod_ind = 'cuatro' if cuatro else max(set(ya), key=ya.count) if ya else 'mano'
+    return nombre, 'torneo', mod_ind, serie
 
 
 def importar(rutas, dry):
@@ -75,7 +112,8 @@ def importar(rutas, dry):
             print(f"\n== {ruta}\n   !! no se ha podido leer: {e}")
             continue
         hist = leer_historial(html)
-        comp = competicion_de_titulo(hist['titulo'], hist['partidos'])
+        torneo = hist['partidos'] and destino_torneo(hist, cats.competiciones, partidos)
+        comp = torneo[0] if torneo else competicion_de_titulo(hist['titulo'], hist['partidos'])
         print(f"\n== {hist['titulo'] or ruta} -> {comp} ({len(hist['partidos'])} partidos)")
         if not hist['partidos']:
             print('   !! la página no tiene historial (o ha cambiado su formato); se salta')
@@ -87,10 +125,18 @@ def importar(rutas, dry):
         # se descarta entera
         copia = json.loads(json.dumps(partidos))
         partidos_orig, partidos = partidos, copia
-        mod = next(v for k, v in MODALIDAD.items() if f'Campeonato {k} ' in comp)
-        serie = comp.split(' Serie ')[1][0]
-        tipo = _tipo(mod, 'campeonato', serie)
-        comp_id = cats.get_or_create_competicion(comp, tipo)
+        if torneo:
+            # En un torneo cada partido lleva su modalidad (parejas o individual)
+            _, categoria, mod_ind, serie = torneo
+        else:
+            categoria = 'campeonato'
+            mod_ind = next(v for k, v in MODALIDAD.items() if f'Campeonato {k} ' in comp)
+            serie = comp.split(' Serie ')[1][0]
+
+        def clase(pareja):
+            mod = 'parejas' if (pareja and categoria == 'torneo') else mod_ind
+            return mod, _tipo(mod, categoria, serie)
+        comp_id = cats.get_or_create_competicion(comp, clase(any(len(h['equipo1']) > 1 for h in hist['partidos']))[1])
         confirmados = set()
         n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0, 'sin_fronton': 0, 'parecido': 0}
 
@@ -143,7 +189,8 @@ def importar(rutas, dry):
                     n['movido'] += 1
                     print(f"   > a {comp}: {mio['fecha']} {texto(mio)} (estaba en {nombre_comp.get(mio['competicion_id'])})")
                     mio['competicion_id'] = comp_id
-                    mio.update({'modalidad': mod, 'categoria': 'campeonato', 'serie': serie, 'tipo': tipo})
+                    mod, tipo = clase(bool(mio['equipo1'].get('zag_id')))
+                    mio.update({'modalidad': mod, 'categoria': categoria, 'serie': serie, 'tipo': tipo})
                 antes = (mio.get('fase'), mio.get('grupo'), mio.get('fase_deducida'))
                 mio.pop('fase_deducida', None)
                 if h['fase'] != 'liga':
@@ -174,6 +221,7 @@ def importar(rutas, dry):
             else:
                 ids = [[cats.get_or_create_pelotari(x.upper()) for x in nombres] for nombres, _ in eqs]
                 fronton, ciudad = normalizar_ubicacion(h['fronton'], h['ciudad'])
+                mod, tipo = clase(len(ids[0]) > 1)
                 del_zag = lambda eq: {'del_id': eq[0], 'zag_id': eq[1] if len(eq) > 1 else None}
                 nuevo = {
                     'fecha': iso, 'fronton_id': cats.get_or_create_fronton(fronton, ciudad),
@@ -181,7 +229,7 @@ def importar(rutas, dry):
                     'equipo1': del_zag(ids[0]), 'puntos1': h['puntos1'],
                     'equipo2': del_zag(ids[1]), 'puntos2': h['puntos2'],
                     'ganador': 'equipo1' if h['puntos1'] > h['puntos2'] else 'equipo2',
-                    'fuente': 'baiko-historial', 'modalidad': mod, 'categoria': 'campeonato',
+                    'fuente': 'baiko-historial', 'modalidad': mod, 'categoria': categoria,
                     'serie': serie, 'fase': h['fase'],
                 }
                 if h['grupo']:
