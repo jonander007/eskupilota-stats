@@ -251,7 +251,6 @@ const I18N = {
     stat_perd: 'perd.',
     // Cartelera
     cart_ver_hist: '→ Ver historial', cart_cargando: '⟳ Cargando cartelera…',
-    cart_ver_opciones: '↓ Opciones',
     cart_como_llegar: 'Cómo llegar',
     cart_calendario: 'Calendario', cart_calendario_t: 'Añadir al calendario', cal_pelota: 'Pelota',
     cart_estadisticas: 'Estadísticas',
@@ -395,7 +394,6 @@ const I18N = {
     stat_pj: 'Partidak', stat_ganados: 'Irabaziak', stat_pct_vic: '% Garaipenak', stat_over: '+36.5 tanto',
     stat_perd: 'galdu.',
     cart_ver_hist: '→ Historia ikusi', cart_cargando: '⟳ Kartelera kargatzen…',
-    cart_ver_opciones: '↓ Aukerak',
     cart_como_llegar: 'Nola iritsi',
     cart_calendario: 'Egutegia', cart_calendario_t: 'Egutegira gehitu', cal_pelota: 'Pilota',
     cart_estadisticas: 'Estatistikak',
@@ -2243,7 +2241,7 @@ function renderCartelera(data){
           + (p.fase && tFase(ev.fase||'').toLowerCase().indexOf(t('fase_'+p.fase).toLowerCase())<0 ? `<span class="cart-badge fase">${textoFase(p)}</span>` : '');
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
         return `<div class="cart-partido-wrap">
-          <div class="cart-partido-card" onclick="toggleCarteleraActions(this)" data-partido="${encoded}">
+          <div class="cart-partido-card" onclick="carteleraGoStats(this)" data-partido="${encoded}" aria-label="${h(t('cart_estadisticas')+': '+e1+' vs '+e2)}">
             <div>
               <div style="display:flex;gap:.35rem;margin-bottom:.3rem;">${tipoBadge}${serieBadge}</div>
               <div class="cart-partido-equipos">
@@ -2253,13 +2251,10 @@ function renderCartelera(data){
               </div>
               ${htmlPrevia(p)}
             </div>
-            <div class="cart-partido-arrow">${t('cart_ver_opciones')}</div>
-          </div>
-          <div class="cart-partido-actions">
-            <button class="cart-action-btn" onclick="carteleraGoStats(this)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              <span>${t('cart_estadisticas')}</span>
-            </button>
+            <div class="cart-partido-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span>${t('cart_estadisticas')} →</span>
+            </div>
           </div>
         </div>`;
       }).join('');
@@ -2345,23 +2340,9 @@ function descargarICS(i){
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 }
 
-function toggleCarteleraActions(card){
-  const wrap = card.parentElement;
-  const actions = wrap.querySelector('.cart-partido-actions');
-  const isOpen = card.classList.contains('open');
-  // Cerrar todos los demás abiertos
-  document.querySelectorAll('.cart-partido-card.open').forEach(c=>{
-    if(c!==card){
-      c.classList.remove('open');
-      c.parentElement.querySelector('.cart-partido-actions')?.classList.remove('open');
-    }
-  });
-  card.classList.toggle('open', !isOpen);
-  actions?.classList.toggle('open', !isOpen);
-}
-
-function carteleraGoStats(btn){
-  const card = btn.closest('.cart-partido-wrap')?.querySelector('.cart-partido-card');
+// Pulsar un partido de la cartelera lleva a sus estadísticas (comparador)
+function carteleraGoStats(el){
+  const card = el.closest('.cart-partido-card');
   if(!card) return;
   try{ goToComparadorFromPartido(JSON.parse(decodeURIComponent(card.dataset.partido))); }
   catch(e){ console.error(e); }

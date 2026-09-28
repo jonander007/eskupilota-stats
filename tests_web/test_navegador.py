@@ -213,6 +213,17 @@ class Web(unittest.TestCase):
         self.assertIn('DTSTART;TZID=Europe/Madrid:', ics)
         self.assertTrue(all(len(linea.encode()) <= 75 for linea in ics.split('\r\n')))
 
+    def test_cartelera_lleva_a_estadisticas(self):
+        pg = self.pagina('#/cartelera')
+        pg.wait_for_timeout(500)
+        tarjetas = pg.locator('.cart-partido-card')
+        if not tarjetas.count():
+            self.skipTest('La cartelera no tiene partidos ahora mismo')
+        # Sin paso intermedio de "Opciones": se pulsa y va al comparador
+        tarjetas.first.locator('.an-previa, .cart-partido-equipos').first.click()
+        pg.wait_for_timeout(400)
+        self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
+
     # ── Móvil, modo oscuro y accesibilidad ──
     def test_movil_sin_scroll_horizontal(self):
         pg = self.pagina(ancho=390)

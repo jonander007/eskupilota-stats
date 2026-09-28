@@ -595,7 +595,7 @@ function htmlPrevia(p){
   const cc = caraACara(eq1, eq2);
   const forma = eq => chipsForma(formaReciente(eq[0],5));
   const p1 = prob==null ? null : Math.round(prob*100);
-  return `<div class="an-previa" onclick="event.stopPropagation()">
+  return `<div class="an-previa">
     ${p1==null?'':`<div class="an-prob" title="${tx('Estimación orientativa según el Elo de cada pelotari. En partidos pasados acertó el ganador en torno al 56% de las veces: los partidos suelen estar muy igualados.','Pilotari bakoitzaren Elo-aren araberako estimazio orientagarria. Iraganeko partidetan irabazlea %56 inguru asmatu zuen: partidak oso parekatuak izan ohi dira.')}">
       <span class="an-prob-l">${tx('Pronóstico','Pronostikoa')}</span>
       <span class="an-prob-n">${p1}%</span>
