@@ -901,6 +901,11 @@ header :focus-visible{outline-color:#fff;}
 
 /* ── Instalar la app ── */
 .drawer-app{margin-top:auto;padding:1rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;border-top:1px solid rgba(255,255,255,.15);}
+.drawer-app .app-wa{display:flex;align-items:center;gap:.5rem;background:#25D366;border:none;color:#fff;border-radius:999px;padding:.55rem .9rem;font-family:var(--sans);font-size:.8rem;font-weight:700;cursor:pointer;}
+.drawer-app .app-wa svg{width:18px;height:18px;flex-shrink:0;}
+.drawer-app .app-wa:hover{filter:brightness(.95);}
+.nueva-version{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);z-index:3000;display:flex;align-items:center;gap:.8rem;background:var(--text,#1a1a1a);color:#fff;padding:.7rem .8rem .7rem 1.1rem;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.25);font-size:.8rem;max-width:calc(100% - 2rem);}
+.nueva-version button{background:var(--green);color:#fff;border:none;border-radius:999px;padding:.45rem .9rem;font-weight:700;font-size:.75rem;cursor:pointer;white-space:nowrap;}
 .drawer-app .app-instalar,.drawer-app .app-apk{background:none;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.9);border-radius:999px;padding:.45rem .9rem;font-family:var(--sans);font-size:.75rem;cursor:pointer;text-decoration:none;text-align:left;}
 .drawer-app .app-instalar:hover,.drawer-app .app-apk:hover{background:rgba(255,255,255,.12);}
 .site-footer .app-instalar,.site-footer .app-apk{background:none;border:none;padding:0;margin-left:1rem;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;}
@@ -958,3 +963,24 @@ header :focus-visible{outline-color:#fff;}
 .cart-seg-fecha{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--green);min-width:8.5rem;}
 .cart-seg-tip{font-size:.74rem;color:var(--muted);margin-bottom:.8rem;}
 .cart-seguido{color:#d4a017;font-size:.9rem;line-height:1;}
+
+/* Estadísticas del frontón */
+.an-fron-stats{margin-top:1rem;}
+.an-fron-anios{display:flex;align-items:flex-end;gap:.8rem;margin:.3rem 0 1rem;flex-wrap:wrap;}
+.an-fron-anios div{display:flex;flex-direction:column;align-items:center;gap:.15rem;font-family:var(--mono);font-size:.62rem;}
+.an-fron-anios b{font-size:.72rem;}
+.an-fron-anios span:last-child{color:var(--muted);}
+.an-fron-bar{display:block;width:26px;background:var(--green);border-radius:4px 4px 0 0;opacity:.85;}
+
+/* Comparar temporadas */
+.pf-temp-sel{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.pf-temp-sel select{min-width:5.5rem;}
+.pf-temp-tabla td:first-child{color:var(--muted);font-size:.74rem;}
+.pf-temp-tabla td.an-num{font-weight:600;white-space:nowrap;}
+.pf-temp-mejor{color:var(--green);background:var(--green-soft);}
+
+/* Compartir un partido de la cartelera como imagen */
+.cart-img-btn{display:inline-flex;align-items:center;gap:.35rem;margin:.45rem 0 0 auto;background:none;border:1px solid var(--border);color:var(--muted);border-radius:999px;padding:.3rem .75rem;font-family:var(--mono);font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;}
+.cart-img-btn svg{width:14px;height:14px;}
+.cart-img-btn:hover{border-color:var(--green);color:var(--green);}
+.cart-partido-wrap{display:flex;flex-direction:column;}
