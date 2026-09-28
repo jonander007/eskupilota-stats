@@ -16,9 +16,14 @@ Importa el «Historial de competición» de páginas de campeonato de Baiko
     historial no confirma.
   - Avisa de los tanteos que no coinciden (se deja el nuestro).
 
+Las páginas pueden ser ficheros HTML guardados o direcciones de Baiko, y
+--lista data/historial_baiko.json lee las direcciones de ese fichero (las
+fichas de los campeonatos). Lo usa el workflow «Historial de Baiko».
+
 Uso:
     python tools/importar_historial.py --dry-run pagina1.html pagina2.html ...
-    python tools/importar_historial.py pagina1.html ...
+    python tools/importar_historial.py pagina1.html https://baikopilota.eus/campeonato/...
+    python tools/importar_historial.py --lista data/historial_baiko.json
     python tools/recalcular_contadores.py
     python tools/generar_paginas.py
 """
@@ -33,6 +38,7 @@ sys.path.insert(0, os.path.join(RAIZ, 'scraper'))
 from competiciones import _tipo  # noqa: E402
 from historial_baiko import competicion_de_titulo, leer_historial  # noqa: E402
 from jsonio import guardar_json  # noqa: E402
+from red import descargar  # noqa: E402
 from scraper import PARTIDOS_FILE, Catalogos, normalizar_ubicacion  # noqa: E402
 
 MODALIDAD = {'Manomanista': 'mano', 'Parejas': 'parejas', '4 y Medio': 'cuatro'}
@@ -46,10 +52,21 @@ def importar(rutas, dry):
     resumen = []
 
     for ruta in rutas:
-        with open(ruta, encoding='utf-8', errors='replace') as f:
-            hist = leer_historial(f.read())
+        try:
+            if ruta.startswith('http'):
+                html = descargar(ruta)
+            else:
+                with open(ruta, encoding='utf-8', errors='replace') as f:
+                    html = f.read()
+        except Exception as e:      # una ficha que falla no para las demás
+            print(f"\n== {ruta}\n   !! no se ha podido leer: {e}")
+            continue
+        hist = leer_historial(html)
         comp = competicion_de_titulo(hist['titulo'], hist['partidos'])
-        print(f"\n== {hist['titulo']} -> {comp} ({len(hist['partidos'])} partidos)")
+        print(f"\n== {hist['titulo'] or ruta} -> {comp} ({len(hist['partidos'])} partidos)")
+        if not hist['partidos']:
+            print('   !! la página no tiene historial (o ha cambiado su formato); se salta')
+            continue
         if not comp:
             print('   !! no sé a qué competición corresponde; se salta')
             continue
@@ -144,9 +161,13 @@ def importar(rutas, dry):
 
 if __name__ == '__main__':
     args = [a for a in sys.argv[1:] if a != '--dry-run']
+    if '--lista' in args:
+        i = args.index('--lista')
+        with open(args[i + 1], encoding='utf-8') as f:
+            args = args[:i] + json.load(f) + args[i + 2:]
     if not args:
         print(__doc__)
         sys.exit(1)
-    rutas = [os.path.abspath(a) for a in args]
+    rutas = [a if a.startswith('http') else os.path.abspath(a) for a in args]
     os.chdir(RAIZ)          # los catálogos se leen con rutas relativas (data/...)
     importar(rutas, '--dry-run' in sys.argv)

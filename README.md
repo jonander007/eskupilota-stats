@@ -39,8 +39,9 @@ tools/
   validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
   migrar_clasificacion.py  Añade modalidad/categoria/serie/fase a los partidos
   generar_paginas.py    Páginas estáticas de pelotaris y sitemap.xml
-  importar_historial.py Fases reales (y partidos que falten) desde páginas de
-                        campeonato de Baiko guardadas como HTML
+  importar_historial.py Fases reales (y partidos que falten) desde las fichas de
+                        campeonato de Baiko (HTML guardado o URL; lista en
+                        data/historial_baiko.json, workflow «Historial de Baiko»)
   recalcular_contadores.py  Recalcula partidos_count y roles
   ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```
