@@ -1,52 +1,11 @@
 {
-  "actualizado": "27/09/2026 03:07",
+  "actualizado": "28/09/2026 02:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
+  "fuentes": [
+    "https://www.baikopilota.eus/entradas/",
+    "https://aspepelota.eus/cartelera/"
+  ],
   "partidos": [
-    {
-      "fecha": "27/09/2026",
-      "hora": "17:15",
-      "fronton": "Adarraga",
-      "ciudad": "Logroño",
-      "fase": "Finales",
-      "competicion": null,
-      "cartel": [
-        "Torneo San Mateo",
-        "ELORDI – ESKUZA // p.etxeberria – loza (Serie B)",
-        "EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ELORDI",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "p.etxeberria",
-            "loza"
-          ],
-          "raw": "ELORDI – ESKUZA // p.etxeberria – loza (Serie B)",
-          "tipo": "campeonato-b",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "EZKURDIA – MARTIJA // JAKA – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "serie": "a"
-        }
-      ]
-    },
     {
       "fecha": "27/09/2026",
       "hora": "18:00",
@@ -55,10 +14,9 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA",
-        "Gratuito"
+        "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA"
       ],
-      "precio": null,
+      "precio": "0",
       "agotado": false,
       "url": null,
       "tv": false,
@@ -74,9 +32,13 @@
           ],
           "raw": "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA",
           "tipo": "festival",
-          "serie": "a"
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "02/10/2026",
@@ -87,11 +49,9 @@
       "competicion": null,
       "cartel": [
         "PEÑA II – LIZEAGA // EGIGUREN V – BIKUÑA",
-        "ALTUNA III – MARTIJA // MURUA – ZABALETA",
-        "DESDE",
-        "20.00€"
+        "ALTUNA III – MARTIJA // MURUA – ZABALETA"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3017996/select?viewCode=",
       "tv": false,
@@ -106,8 +66,11 @@
             "BIKUÑA"
           ],
           "raw": "PEÑA II – LIZEAGA // EGIGUREN V – BIKUÑA",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         },
         {
           "eq1": [
@@ -119,10 +82,14 @@
             "ZABALETA"
           ],
           "raw": "ALTUNA III – MARTIJA // MURUA – ZABALETA",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "02/10/2026",
@@ -133,16 +100,16 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "SEMIFINALES + FINAL (Serie A)",
-        "DESDE",
-        "38.00€"
+        "SEMIFINALES + FINAL",
+        "(Serie A)"
       ],
-      "precio": null,
+      "precio": "38.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924376/select?viewCode=",
       "tv": false,
       "partidos": [],
-      "pendiente": true
+      "pendiente": true,
+      "fuente": "baiko"
     },
     {
       "fecha": "02/10/2026",
@@ -155,11 +122,9 @@
         "Semifinales",
         "Masters CaixaBank",
         "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
-        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
-        "DESDE",
-        "20.00€"
+        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924142/select?viewCode=",
       "tv": false,
@@ -175,6 +140,9 @@
           ],
           "raw": "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
           "tipo": "campeonato-a",
+          "competicion": "Masters CaixaBank Serie A 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
           "serie": "a"
         },
         {
@@ -188,9 +156,13 @@
           ],
           "raw": "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
+          "competicion": "Masters CaixaBank Serie A 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
           "serie": "a"
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "03/10/2026",
@@ -203,11 +175,9 @@
         "Final",
         "Masters CaixaBank",
         "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
-        "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
-        "DESDE",
-        "25.00€"
+        "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966471/select?viewCode=",
       "tv": false,
@@ -223,6 +193,9 @@
           ],
           "raw": "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
           "tipo": "campeonato-b",
+          "competicion": "Masters CaixaBank Serie B 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
           "serie": "b"
         },
         {
@@ -236,9 +209,13 @@
           ],
           "raw": "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
           "tipo": "campeonato-b",
+          "competicion": "Masters CaixaBank Serie B 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
           "serie": "b"
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "03/10/2026",
@@ -249,11 +226,9 @@
       "competicion": null,
       "cartel": [
         "SENAR – GABIRONDO // AMIANO – LOZA",
-        "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ",
-        "DESDE",
-        "25.00€"
+        "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014574/select?viewCode=",
       "tv": false,
@@ -269,7 +244,10 @@
           ],
           "raw": "SENAR – GABIRONDO // AMIANO – LOZA",
           "tipo": "festival",
-          "serie": "a"
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         },
         {
           "eq1": [
@@ -282,9 +260,13 @@
           ],
           "raw": "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ",
           "tipo": "festival",
-          "serie": "a"
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "04/10/2026",
@@ -296,42 +278,51 @@
       "cartel": [
         "Masters CaixaBank",
         "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)",
-        "DESDE",
-        "20.00€"
+        "XX – XX // XX – XX (Serie A)"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924165/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
-          "serie": "a"
+          "competicion": "Masters CaixaBank Serie A 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
+          "serie": "a",
+          "fase": "final",
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "raw": "XX – XX // XX – XX (Serie A)",
           "tipo": "campeonato-a",
-          "serie": "a"
+          "competicion": "Masters CaixaBank Serie A 2026",
+          "modalidad": "parejas",
+          "categoria": "torneo",
+          "serie": "a",
+          "fase": "final",
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "06/10/2026",
@@ -342,11 +333,9 @@
       "competicion": null,
       "cartel": [
         "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
-        "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
-        "DESDE",
-        "25.00€"
+        "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014139/select?viewCode=",
       "tv": false,
@@ -362,7 +351,10 @@
           ],
           "raw": "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
           "tipo": "festival",
-          "serie": "a"
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         },
         {
           "eq1": [
@@ -375,9 +367,13 @@
           ],
           "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
           "tipo": "festival",
-          "serie": "a"
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "09/10/2026",
@@ -398,25 +394,35 @@
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
@@ -428,10 +434,14 @@
             "MARIEZKURRENA II"
           ],
           "raw": "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
-          "tipo": "campeonato-b",
-          "serie": "b"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "09/10/2026",
@@ -442,11 +452,9 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "ZABALA – BIKUÑA // AMIANO – IMAZ",
-        "XX // XX (Serie A)",
-        "DESDE",
-        "20.00€"
+        "XX // XX (Serie A)"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3016977/select?viewCode=",
       "tv": false,
@@ -461,21 +469,30 @@
             "IMAZ"
           ],
           "raw": "ZABALA – BIKUÑA // AMIANO – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "octavos",
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "10/10/2026",
@@ -487,36 +504,44 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
-        "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
-        "DESDE",
-        "20.00€"
+        "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
@@ -528,10 +553,14 @@
             "SALAVERRI II"
           ],
           "raw": "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "11/10/2026",
@@ -542,11 +571,10 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "XX // XX (Serie A)",
-        "DESDE",
-        "30.00€"
+        "XX // XX",
+        "(Serie A)"
       ],
-      "precio": null,
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
       "tv": false,
@@ -561,21 +589,30 @@
             "IMAZ"
           ],
           "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "octavos",
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "12/10/2026",
@@ -587,51 +624,64 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
-        "XX – ARANGUREN // XX – BIKUÑA",
-        "DESDE",
-        "25.00€"
+        "XX – ARANGUREN // XX – BIKUÑA"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014159/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "octavos",
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX",
+            "?",
             "ARANGUREN"
           ],
           "eq2": [
-            "XX",
+            "?",
             "BIKUÑA"
           ],
           "raw": "XX – ARANGUREN // XX – BIKUÑA",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "16/10/2026",
@@ -643,51 +693,66 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
-        "XX – MORGAETXEBARRIA // XX – BIKUÑA",
-        "DESDE",
-        "20.00€"
+        "XX – MORGAETXEBARRIA // XX – BIKUÑA"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3019605/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX",
+            "?",
             "MORGAETXEBARRIA"
           ],
           "eq2": [
-            "XX",
+            "?",
             "BIKUÑA"
           ],
           "raw": "XX – MORGAETXEBARRIA // XX – BIKUÑA",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "17/10/2026",
@@ -699,51 +764,66 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
-        "XX – XX // XX – XX",
-        "DESDE",
-        "25.00€"
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "17/10/2026",
@@ -754,40 +834,49 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX – XX // XX – XX",
-        "XX // XX (Serie A)",
-        "DESDE",
-        "25.00€"
+        "XX // XX (Serie A)"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021092/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "18/10/2026",
@@ -799,252 +888,66 @@
       "cartel": [
         "XX // XX (Serie B)",
         "XX // XX (Serie A)",
-        "XX – XX // XX – XX",
-        "DESDE",
-        "25.00€",
-        "Clasificación",
-        "Torneo San Mateo Serie A",
-        "Torneo San Mateo Serie B",
-        "Masters CaixaBank",
-        "Masters CaixaBank Serie B",
-        "Grupo A",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Jaka-Mariezkurrena II",
-        "1",
-        "2",
-        "43",
-        "36",
-        "7",
-        "Larrazabal-Iztueta",
-        "1",
-        "2",
-        "36",
-        "42",
-        "-6",
-        "Zabala-Rezusta",
-        "1",
-        "2",
-        "32",
-        "43",
-        "-11",
-        "Grupo B",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Ezkurdia-Martija",
-        "2",
-        "2",
-        "44",
-        "34",
-        "10",
-        "Darío-Zabaleta",
-        "1",
-        "2",
-        "37",
-        "43",
-        "-6",
-        "Laso-Landa",
-        "0",
-        "2",
-        "40",
-        "44",
-        "-4",
-        "Grupo A",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Elordi-Eskuza",
-        "2",
-        "2",
-        "44",
-        "29",
-        "15",
-        "Amiano-Eskiroz",
-        "1",
-        "2",
-        "32",
-        "36",
-        "-4",
-        "Peña II-Salaverri II",
-        "0",
-        "2",
-        "33",
-        "44",
-        "-11",
-        "Grupo B",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "P.Etxeberria-Loza",
-        "2",
-        "2",
-        "44",
-        "29",
-        "15",
-        "Senar-Imaz",
-        "1",
-        "2",
-        "40",
-        "36",
-        "4",
-        "Salaberria-Gaskue",
-        "0",
-        "2",
-        "25",
-        "44",
-        "-19",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Zabala-Iztueta",
-        "5",
-        "6",
-        "130",
-        "87",
-        "43",
-        "Elordi-Mariezkurrena II",
-        "5",
-        "6",
-        "129",
-        "74",
-        "55",
-        "Artola-Rezusta",
-        "3",
-        "6",
-        "111",
-        "120",
-        "-9",
-        "Ezkurdia-Albisu",
-        "3",
-        "6",
-        "100",
-        "121",
-        "-21",
-        "Laso-Martija",
-        "2",
-        "6",
-        "109",
-        "127",
-        "-18",
-        "Larrazabal-Zabaleta",
-        "2",
-        "6",
-        "121",
-        "124",
-        "-3",
-        "Altuna III-Imaz",
-        "1",
-        "6",
-        "81",
-        "128",
-        "-47",
-        "Pelotari/Pareja",
-        "PG",
-        "PJ",
-        "TF",
-        "TC",
-        "CO",
-        "Amiano-Gabirondo",
-        "4",
-        "6",
-        "109",
-        "111",
-        "-2",
-        "Murua-Eskiroz",
-        "4",
-        "6",
-        "122",
-        "95",
-        "27",
-        "Jaka-Eskuza",
-        "4",
-        "6",
-        "129",
-        "112",
-        "17",
-        "P.Etxeberria-Landa",
-        "3",
-        "6",
-        "108",
-        "111",
-        "-3",
-        "Zubizarreta IV-Bikuña",
-        "2",
-        "6",
-        "96",
-        "115",
-        "-19",
-        "Peña II-Loza",
-        "2",
-        "6",
-        "118",
-        "113",
-        "5",
-        "Salaberria-Morgaetxebarria",
-        "2",
-        "6",
-        "92",
-        "117",
-        "-25"
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
-          "serie": "b"
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX"
+            "?"
           ],
           "eq2": [
-            "XX"
+            "?"
           ],
           "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
-          "serie": "a"
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
         },
         {
           "eq1": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "eq2": [
-            "XX",
-            "XX"
+            "?",
+            "?"
           ],
           "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "serie": "a"
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
         }
-      ]
+      ],
+      "fuente": "baiko"
     }
   ]
 }

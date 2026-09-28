@@ -1,6 +1,6 @@
 [
 {"id":"FRO001","nombre":"ABADIÑO","ciudad_id":"CIU001","lat":43.1511,"lon":-2.6094,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ABADI%C3%91O"},
-{"id":"FRO002","nombre":"ADARRAGA","ciudad_id":"CIU097","lat":42.4667,"lon":-2.4494,"partidos_count":117,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"},
+{"id":"FRO002","nombre":"ADARRAGA","ciudad_id":"CIU097","lat":42.4667,"lon":-2.4494,"partidos_count":119,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"},
 {"id":"FRO003","nombre":"AGONCILLO","ciudad_id":"CIU002","lat":42.4361,"lon":-2.3633,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AGONCILLO"},
 {"id":"FRO004","nombre":"AIEGI","ciudad_id":"CIU003","lat":42.6563,"lon":-2.0386,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AIEGI"},
 {"id":"FRO005","nombre":"AITZURI","ciudad_id":"CIU147","lat":43.298,"lon":-2.254,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AITZURI"},
@@ -193,6 +193,7 @@
 {"id":"FRO178","nombre":"TAFALLA","ciudad_id":"CIU128","lat":42.5284,"lon":-1.6737,"partidos_count":14,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20TAFALLA"},
 {"id":"FRO179","nombre":"TOKI EDER","ciudad_id":"CIU011","lat":42.7897,"lon":-1.3694,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20TOKI%20EDER"},
 {"id":"FRO180","nombre":"TROBIKA","ciudad_id":"CIU104","lat":43.352,"lon":-2.846,"partidos_count":7,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20TROBIKA"},
+{"id":"FRO234","nombre":"TXOMIÑENEA","ciudad_id":"CIU018","partidos_count":1},
 {"id":"FRO181","nombre":"UARKAPE","ciudad_id":"CIU015","lat":43.0631,"lon":-2.491,"partidos_count":20,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20UARKAPE"},
 {"id":"FRO182","nombre":"URANZU","ciudad_id":"CIU079","lat":43.339,"lon":-1.7894,"partidos_count":8,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"},
 {"id":"FRO203","nombre":"URBELTZ","ciudad_id":"CIU088","lat":43.0519,"lon":-2.3342,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20URBELTZ"},
