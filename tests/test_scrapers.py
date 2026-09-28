@@ -345,6 +345,47 @@ class Clasificacion(unittest.TestCase):
         self.assertEqual((ps[0]['categoria'], ps[0]['serie'], ps[0]['fase']), ('torneo', 'b', 'final'))
 
 
+class HistorialBaiko(unittest.TestCase):
+    """Página de campeonato de Baiko con el «Historial de competición»."""
+
+    @classmethod
+    def setUpClass(cls):
+        from historial_baiko import competicion_de_titulo, leer_historial
+        with open(os.path.join(FIXTURES, 'baiko_historial_cuatro_2025.html'), encoding='utf-8') as f:
+            cls.h = leer_historial(f.read())
+        cls.comp = competicion_de_titulo(cls.h['titulo'], cls.h['partidos'])
+
+    def test_competicion(self):
+        self.assertEqual(self.comp, 'Campeonato 4 y Medio Serie A 2025')
+
+    def test_fases(self):
+        from collections import Counter
+        fases = Counter(p['fase'] for p in self.h['partidos'])
+        # El partido suspendido (sin fecha) no cuenta
+        self.assertEqual(fases, {'octavos': 4, 'cuartos': 11, 'semifinal': 2, 'tercero': 1, 'final': 1})
+
+    def test_grupo_solo_en_liguillas(self):
+        octavos = [p for p in self.h['partidos'] if p['fase'] == 'octavos']
+        self.assertTrue(all(p['grupo'] is None for p in octavos))     # mitades del cuadro
+        cuartos = {p['grupo'] for p in self.h['partidos'] if p['fase'] == 'cuartos'}
+        self.assertEqual(cuartos, {'A', 'B'})
+
+    def test_final(self):
+        final = next(p for p in self.h['partidos'] if p['fase'] == 'final')
+        self.assertEqual((final['fecha'], final['fronton'], final['ciudad']), ('16/11/2025', 'Bizkaia Frontoia', 'Bilbao'))
+        self.assertEqual((final['equipo1'], final['puntos1'], final['equipo2'], final['puntos2']),
+                         (['P.ETXEBERRIA'], 22, ['ZABALA'], 11))
+
+    def test_nombres_de_fase(self):
+        from historial_baiko import fase_de_titulo
+        casos = {'Liga de cuartos': ('cuartos', True), 'Liguilla de semifinales': ('semifinal', True),
+                 'Octavos': ('octavos', False), 'Semifinales': ('semifinal', False),
+                 'Tercer y cuarto': ('tercero', False), 'Final': ('final', False),
+                 'Dieciseisavos': ('eliminatoria', False), 'Liga': ('liga', True)}
+        for titulo, esperado in casos.items():
+            self.assertEqual(fase_de_titulo(titulo), esperado, titulo)
+
+
 class FormatoJson(unittest.TestCase):
     def test_lista_un_elemento_por_linea(self):
         from jsonio import dumps

@@ -386,45 +386,86 @@ function htmlCampeon(parts){
   </div>`;
 }
 
-// Cuadro de eliminatorias: rondas sin grupos, coherentes (cada equipo una vez
-// por ronda y no más partidos de los que caben). Cada partido se coloca a la
-// altura del de la ronda siguiente al que da paso su ganador.
+// Cuadro de fases: una columna por fase. Las eliminatorias directas se
+// dibujan como cruces (cada partido a la altura del de la ronda siguiente al
+// que da paso su ganador) y las liguillas (fase con grupos), como una
+// pequeña clasificación por grupo. Solo entran las fases coherentes: en una
+// eliminatoria cada equipo una vez y no más partidos de los que caben; en
+// una liguilla, grupos de hasta 6 equipos que juegan al menos 2 partidos.
 const RONDAS_KO = ['eliminatoria','octavos','cuartos','semifinal','final'];
 const MAX_POR_RONDA = {eliminatoria:16, octavos:8, cuartos:4, semifinal:2, final:1};
 
 function htmlCuadro(parts){
   const clave = eq => pels(eq).join(' / ');
   const ganadorDe = p => clave(p.ganador==='equipo1' ? p.equipo1 : p.equipo2);
-  const rondas = RONDAS_KO
-    .map(f => [f, parts.filter(p => p.fase===f && !p.grupo)])
-    .filter(([f, ps]) => ps.length && ps.length <= MAX_POR_RONDA[f] &&
-      new Set(ps.flatMap(p => [clave(p.equipo1), clave(p.equipo2)])).size === ps.length*2);
-  if(rondas.length < 2) return '';
-  for(let i = rondas.length-2; i >= 0; i--){
-    const sig = rondas[i+1][1];
+  const koOk = (f, ps) => ps.length <= MAX_POR_RONDA[f] &&
+    new Set(ps.flatMap(p => [clave(p.equipo1), clave(p.equipo2)])).size === ps.length*2;
+  const grupos = ps => {
+    const g = {};
+    ps.forEach(p => (g[p.grupo] = g[p.grupo] || []).push(p));
+    return g;
+  };
+  const ligaOk = ps => Object.values(grupos(ps)).every(gp => {
+    const n = {};
+    gp.forEach(p => [clave(p.equipo1), clave(p.equipo2)].forEach(k => n[k] = (n[k]||0)+1));
+    return Object.keys(n).length <= 6 && Object.values(n).every(x => x >= 2);
+  });
+  const fases = [];
+  RONDAS_KO.forEach(f => {
+    const ps = parts.filter(p => p.fase===f);
+    if(!ps.length) return;
+    const conGrupo = ps.filter(p => p.grupo), sinGrupo = ps.filter(p => !p.grupo);
+    if(conGrupo.length && !sinGrupo.length && ligaOk(conGrupo)) fases.push({f, liga:true, ps:conGrupo});
+    else if(!conGrupo.length && koOk(f, sinGrupo)) fases.push({f, liga:false, ps:sinGrupo});
+  });
+  if(fases.length < 2) return '';
+  // Orden de los cruces según la ronda siguiente (si también es eliminatoria)
+  for(let i = fases.length-2; i >= 0; i--){
+    if(fases[i].liga || fases[i+1].liga) continue;
+    const sig = fases[i+1].ps;
     const pos = p => {
       const g = ganadorDe(p);
       const j = sig.findIndex(q => clave(q.equipo1)===g || clave(q.equipo2)===g);
       return j < 0 ? 99 : j*2 + (clave(sig[j].equipo1)===g ? 0 : 1);
     };
-    rondas[i][1] = [...rondas[i][1]].sort((a,b) => pos(a)-pos(b) || parseDate(a.fecha)-parseDate(b.fecha));
+    fases[i].ps = [...fases[i].ps].sort((a,b) => pos(a)-pos(b) || parseDate(a.fecha)-parseDate(b.fecha));
   }
+  const tercero = parts.filter(p => p.fase==='tercero');
   const deducidas = parts.some(p => p.fase_deducida && RONDAS_KO.includes(p.fase));
-  const lado = (p, eq, pts) => `<div class="an-ko-eq ${p.ganador===eq?'gana':''}">
-      <span>${pels(p[eq]).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</span>
-      <b>${p[pts]}</b></div>`;
+  const nombres = eq => pels(eq).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ');
+  const lado = (p, eq, pts) => `<div class="an-ko-eq ${p.ganador===eq?'gana':''}"><span>${nombres(p[eq])}</span><b>${p[pts]}</b></div>`;
   const partido = p => `<div class="an-ko-m">
       ${lado(p,'equipo1','puntos1')}${lado(p,'equipo2','puntos2')}
       <div class="an-ko-info">${p.fecha} · ${h(p.fronton)}</div></div>`;
+  // Clasificados de una liguilla: los que juegan la fase siguiente
+  const enFase = i => new Set((fases[i]?.ps || []).flatMap(p => [clave(p.equipo1), clave(p.equipo2)]));
+  const tablaGrupo = (g, ps, pasan) => {
+    const tabla = {};
+    ps.forEach(p => ['equipo1','equipo2'].forEach(eq => {
+      const k = clave(p[eq]); const f = tabla[k] = tabla[k] || {eq:p[eq], v:0, d:0};
+      p.ganador===eq ? f.v++ : f.d++;
+    }));
+    const filas = Object.values(tabla).sort((a,b) => b.v-a.v || a.d-b.d);
+    return `<div class="an-ko-m an-ko-grupo">
+      <div class="an-ko-gtit">${t('lbl_grupo').replace('{g}', h(g))}</div>
+      ${filas.map((f,i) => `<div class="an-ko-eq ${(pasan.size ? pasan.has(clave(f.eq)) : i===0)?'gana':''}"><span>${nombres(f.eq)}</span><b>${f.v}–${f.d}</b></div>`).join('')}
+    </div>`;
+  };
+  const columna = (fase, idx) => {
+    const cuerpo = fase.liga
+      ? Object.entries(grupos(fase.ps)).sort().map(([g, ps]) => tablaGrupo(g, ps, enFase(idx+1))).join('')
+      : fase.ps.map(partido).join('');
+    const extra = idx === fases.length-1 && tercero.length
+      ? `<div class="an-ko-tit an-ko-tit2">${t('fase_tercero')}</div>${tercero.map(partido).join('')}` : '';
+    return `<div class="an-ko-col ${fase.liga?'liga':''}">
+      <div class="an-ko-tit">${fase.liga ? tx('Liguilla de ','') : ''}${t('fase_'+fase.f).toLowerCase().replace(/^./, c=>c.toUpperCase())}${fase.liga ? tx('',' (liga)') : ''}</div>
+      <div class="an-ko-lista">${cuerpo}${extra}</div></div>`;
+  };
   return `<div class="ch-card">
-    <h3>${tx('Eliminatorias','Kanporaketak')}</h3>
+    <h3>${tx('Fases','Faseak')}</h3>
     ${deducidas ? `<p class="an-nota">${tx('ⓘ Algunas rondas están deducidas del calendario: el partido anterior de cada clasificado, cuando cuadra como eliminatoria.',
       'ⓘ Kanporaketa batzuk egutegitik ondorioztatuak dira: sailkatu bakoitzaren aurreko partida, kanporaketa gisa bat datorrenean.')}</p>` : ''}
-    <div class="an-ko" style="--rondas:${rondas.length}">
-      ${rondas.map(([f, ps]) => `<div class="an-ko-col">
-        <div class="an-ko-tit">${t('fase_'+f)}</div>
-        <div class="an-ko-lista">${ps.map(partido).join('')}</div></div>`).join('')}
-    </div></div>`;
+    <div class="an-ko" style="--rondas:${fases.length}">${fases.map(columna).join('')}</div></div>`;
 }
 
 function setCampModo(modo){ _campModo = modo; renderCampeonato(_campActual); }

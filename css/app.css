@@ -878,3 +878,7 @@ header :focus-visible{outline-color:#fff;}
 .site-footer{text-align:center;padding:1.5rem 1rem 2.5rem;font-size:.75rem;}
 .site-footer a{color:var(--muted);}
 #frontonMap .leaflet-control-attribution a{color:var(--green);text-decoration:underline;}
+.an-ko-gtit{font-family:var(--mono);font-size:.58rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.25rem;}
+.an-ko-grupo .an-ko-eq b{font-family:var(--mono);font-size:.75rem;}
+.an-ko-col.liga .an-ko-m::after,.an-ko-col.liga .an-ko-m::before{display:none;}
+.an-ko-tit2{margin-top:.6rem;}

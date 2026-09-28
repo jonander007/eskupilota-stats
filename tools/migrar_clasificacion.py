@@ -245,7 +245,8 @@ def main():
         nuevo = {'modalidad': mod, 'categoria': cat, 'serie': serie, 'tipo': tipo}
 
         # Fase desde la cartelera (si el partido pasó por ella)
-        if cat != 'festival' and not p.get('fase_deducida'):
+        # (no pisa una fase ya conocida, p. ej. la del historial de Baiko)
+        if cat != 'festival' and not p.get('fase'):
             jug = [pelotaris.get(p[e].get(k)) for e in ('equipo1', 'equipo2') for k in ('del_id', 'zag_id')]
             d = cart.buscar_detalle(p['fecha'], frontones.get(p['fronton_id']), jug)
             if d:
