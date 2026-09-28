@@ -172,12 +172,6 @@ function botonCompartir(titulo){
 // ════════════════════════════════════════════════════════════
 // FICHA DEL PELOTARI EN JPG (con los filtros de la sección Pelotaris)
 // ════════════════════════════════════════════════════════════
-function botonFicha(nombre){
-  return `<button class="btn-ghost an-share" onclick="descargarFicha('${h(esc(nombre))}')" aria-label="${tx('Descargar ficha en imagen','Fitxa irudi gisa deskargatu')}">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    <span>${tx('Ficha','Fitxa')}</span></button>`;
-}
-
 // Texto del filtro aplicado: "Parejas · 2025", "Todos los partidos"...
 function textoFiltroPelotaris(){
   const partes = [];
@@ -318,12 +312,21 @@ async function descargarFicha(nombre){
   const hoy = PARTIDOS.length ? PARTIDOS[0].fecha : '';
   texto(`${tx('Datos hasta el','Datuak')} ${hoy}${tx('','ra arte')}`, W - M, H - 30, mono(20), 'rgba(255,255,255,.85)', 'right');
 
-  cv.toBlob(blob => {
+  cv.toBlob(async blob => {
     if(!blob) return;
+    const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
+    const fichero = `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`;
+    // En el móvil: menú de compartir del sistema (guardar en la galería,
+    // WhatsApp...). En el ordenador, o si no se puede: descarga
+    const file = new File([blob], fichero, {type: 'image/jpeg'});
+    const tactil = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+    if(tactil && navigator.canShare && navigator.canShare({files: [file]})){
+      try{ await navigator.share({files: [file], title: `${nombre} · EskupilotaStats`}); return; }
+      catch(e){ if(e && e.name === 'AbortError') return; }
+    }
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
-    a.download = `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`;
+    a.download = fichero;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     avisoBreve(tx('Ficha descargada','Fitxa deskargatuta'));
@@ -440,7 +443,7 @@ function htmlEvolucionPerfil(nombre){
     <div class="ch-card an-perfil">
       <div class="an-head">
         <h3>${tx('Evolución histórica','Bilakaera historikoa')}</h3>
-        <div class="an-head-btns">${botonFicha(nombre)}${botonCompartir(nombre)}</div>
+        ${botonCompartir(nombre)}
       </div>
       <div class="an-kpis">
         <div><div class="an-kpi-v">${elo?Math.round(elo):'—'}</div><div class="an-kpi-l">${tx('Elo actual','Oraingo Elo')}</div></div>
