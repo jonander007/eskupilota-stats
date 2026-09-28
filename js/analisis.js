@@ -170,6 +170,167 @@ function botonCompartir(titulo){
 }
 
 // ════════════════════════════════════════════════════════════
+// FICHA DEL PELOTARI EN JPG (con los filtros de la sección Pelotaris)
+// ════════════════════════════════════════════════════════════
+function botonFicha(nombre){
+  return `<button class="btn-ghost an-share" onclick="descargarFicha('${h(esc(nombre))}')" aria-label="${tx('Descargar ficha en imagen','Fitxa irudi gisa deskargatu')}">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span>${tx('Ficha','Fitxa')}</span></button>`;
+}
+
+// Texto del filtro aplicado: "Parejas · 2025", "Todos los partidos"...
+function textoFiltroPelotaris(){
+  const partes = [];
+  if(activeTipo !== 'todos') partes.push({campeonato:t('tipo_parejas'), manomanista:t('tipo_mano'), cuatro:t('tipo_cuatro')}[activeTipo] || activeTipo);
+  if(dateRangePel.desde || dateRangePel.hasta){
+    const f = s => s ? s.split('-').reverse().join('/') : '…';
+    partes.push(`${f(dateRangePel.desde)} – ${f(dateRangePel.hasta)}`);
+  } else if(activeYearPel !== 'todos') partes.push(tx('Temporada ','') + activeYearPel + tx('',' denboraldia'));
+  return partes.length ? partes.join(' · ') : tx('Todos los partidos','Partida guztiak');
+}
+
+function datosFicha(nombre){
+  const parts = partidosFiltroPelotaris().filter(p => pels(p.equipo1).includes(nombre) || pels(p.equipo2).includes(nombre));
+  const lado = p => pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2';
+  const gana = p => p.ganador === lado(p);
+  const pg = parts.filter(gana).length;
+  const pf = parts.reduce((s,p) => s + (lado(p)==='equipo1' ? p.puntos1 : p.puntos2), 0);
+  const pc = parts.reduce((s,p) => s + (lado(p)==='equipo1' ? p.puntos2 : p.puntos1), 0);
+  const cuenta = f => { const c = {}; parts.forEach(p => f(p).forEach(k => { c[k] = c[k] || {pj:0, pg:0}; c[k].pj++; if(gana(p)) c[k].pg++; })); return c; };
+  const top = (c, n) => Object.entries(c).sort((a,b) => b[1].pj-a[1].pj || b[1].pg-a[1].pg).slice(0, n);
+  const hist = ELO_HIST[nombre] || [];
+  const activos = getActivePlayers();
+  const ranking = Object.keys(ELO).filter(n => activos.has(n.toUpperCase())).sort((a,b) => ELO[b]-ELO[a]);
+  return {
+    pj: parts.length, pg, pp: parts.length-pg, pf, pc,
+    ultimos: parts.slice(0, 10).map(p => gana(p) ? 'V' : 'D').reverse(),   // PARTIDOS va del más reciente al más antiguo
+    companeros: top(cuenta(p => pels(p[lado(p)]).filter(n => n !== nombre)), 3),
+    frontones: top(cuenta(p => [p.fronton]), 3),
+    finales: parts.filter(p => p.fase==='final' && p.categoria!=='festival'),
+    elo: ELO[nombre], eloMax: hist.length ? Math.max(...hist.map(x => x[1])) : null,
+    pos: ranking.indexOf(nombre) + 1,
+  };
+}
+
+function cargarImagen(src){
+  return new Promise(ok => { const img = new Image(); img.onload = () => ok(img); img.onerror = () => ok(null); img.src = src; });
+}
+
+async function descargarFicha(nombre){
+  const d = datosFicha(nombre);
+  const W = 1080, H = 1350, M = 64;
+  const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+  const c = cv.getContext('2d');
+  try{ await document.fonts.ready; }catch(e){}
+  const logo = await cargarImagen('logo-header.png');
+  const VERDE = '#007A3D', VERDE_OSC = '#005a2c', ROJO = '#C8102E', TEXTO = '#1A1A1A', GRIS = '#5e6d63', FONDO = '#f5f7f4';
+  const disp = (px, w=700) => `${w} ${px}px "Barlow Condensed", "Arial Narrow", sans-serif`;
+  const mono = px => `600 ${px}px "JetBrains Mono", monospace`;
+  const sans = (px, w=500) => `${w} ${px}px Inter, system-ui, sans-serif`;
+  const texto = (s, x, y, font, color, align='left') => { c.font = font; c.fillStyle = color; c.textAlign = align; c.fillText(s, x, y); };
+  const ajustar = (s, font, max) => { c.font = font; while(s.length > 3 && c.measureText(s).width > max) s = s.slice(0, -2) + '…'; return s; };
+  const caja = (x, y, w, h, r=18, color='#fff') => { c.fillStyle = color; c.beginPath(); c.roundRect(x, y, w, h, r); c.fill(); };
+
+  // Fondo y cabecera verde
+  c.fillStyle = FONDO; c.fillRect(0, 0, W, H);
+  const g = c.createLinearGradient(0, 0, W, 360); g.addColorStop(0, VERDE); g.addColorStop(1, VERDE_OSC);
+  c.fillStyle = g; c.fillRect(0, 0, W, 360);
+  if(logo) c.drawImage(logo, M, 44, 240, 240 * logo.height / logo.width);
+  texto(textoFiltroPelotaris().toUpperCase(), W-M, 92, mono(24), 'rgba(255,255,255,.85)', 'right');
+  texto(ajustar(nombre, disp(118, 800), W-2*M), M, 262, disp(118, 800), '#fff');
+  const rol = getRol(nombre) === 'zaguero' ? tx('Zaguero','Atzelaria') : getRol(nombre) === 'delantero' ? tx('Delantero','Aurrelaria') : '';
+  texto(`${rol ? rol.toUpperCase() + ' · ' : ''}${tx('PELOTA A MANO','ESKU PILOTA')}`, M, 318, mono(24), 'rgba(255,255,255,.85)');
+
+  // Cifras (3 x 2)
+  const pct = d.pj ? Math.round(d.pg / d.pj * 100) : 0;
+  const dif = d.pf - d.pc;
+  const kpis = [
+    [d.pj, t('lbl_partidos'), TEXTO], [d.pg, t('lbl_victorias'), VERDE], [d.pp, t('lbl_derrotas'), ROJO],
+    [pct + '%', t('lbl_pct_vic'), pct >= 50 ? VERDE : ROJO], [d.pj ? (d.pf/d.pj).toFixed(1) : '—', t('lbl_pts_p'), TEXTO],
+    [(dif > 0 ? '+' : '') + dif, t('lbl_diferencia'), dif >= 0 ? VERDE : ROJO],
+  ];
+  const kw = (W - 2*M - 2*24) / 3, kh = 150;
+  kpis.forEach(([v, l, col], i) => {
+    const x = M + (i % 3) * (kw + 24), y = 400 + Math.floor(i / 3) * (kh + 24);
+    caja(x, y, kw, kh);
+    texto(String(v), x + 28, y + 88, disp(80), col);
+    texto(String(l).toUpperCase(), x + 28, y + 128, mono(20), GRIS);
+  });
+
+  // Elo y últimos 10
+  let y = 400 + 2*(kh+24) + 8;
+  caja(M, y, W - 2*M, 170);
+  texto('ELO', M + 28, y + 50, mono(20), GRIS);
+  texto(d.elo ? String(Math.round(d.elo)) : '—', M + 28, y + 128, disp(84), TEXTO);
+  texto(`${tx('Máx.','Gor.')} ${d.eloMax ? Math.round(d.eloMax) : '—'}${d.pos ? ` · ${d.pos}º ${tx('activos','aktiboak')}` : ''}`, M + 28, y + 156, mono(19), GRIS);
+  texto(tx('ÚLTIMOS','AZKENAK').toUpperCase() + ` ${d.ultimos.length}`, M + 400, y + 50, mono(20), GRIS);
+  d.ultimos.forEach((r, i) => {
+    const x = M + 400 + i * 50, yy = y + 78;
+    caja(x, yy, 42, 58, 8, r === 'V' ? VERDE : '#e3e8e1');
+    texto(r === 'V' ? t('abbr_v') : t('abbr_d'), x + 21, yy + 41, disp(34), r === 'V' ? '#fff' : GRIS, 'center');
+  });
+  if(!d.ultimos.length) texto('—', M + 400, y + 120, disp(40), GRIS);
+
+  // Compañeros / frontones (o palmarés si hay finales)
+  y += 170 + 24;
+  const colW = (W - 2*M - 24) / 2, colH = H - y - 110;
+  // Texto que cabe en 'max': baja el tamaño de letra (hasta 26 px) y, si aun
+  // así no cabe, lo corta con '…'
+  const encajar = (s, max, px=36) => {
+    for(; px > 26; px -= 2){ c.font = disp(px); if(c.measureText(s).width <= max) return [s, disp(px)]; }
+    return [ajustar(s, disp(px), max), disp(px)];
+  };
+  const lista = (x, titulo, filas) => {
+    caja(x, y, colW, colH);
+    texto(titulo.toUpperCase(), x + 28, y + 50, mono(20), GRIS);
+    if(!filas.length) texto('—', x + 28, y + 110, disp(40), GRIS);
+    filas.forEach(([n, s, color], i) => {
+      if(color){   // dos líneas: nombre y, debajo, el detalle (finales)
+        const yy = y + 100 + i * 72;
+        const [txt, font] = encajar(n, colW - 56, 34);
+        texto(txt, x + 28, yy, font, TEXTO);
+        texto(s, x + 28, yy + 28, mono(19), color);
+        return;
+      }
+      const yy = y + 108 + i * 64;
+      c.font = mono(22); const ancho = c.measureText(s).width;
+      const [txt, font] = encajar(n, colW - 56 - ancho - 16);
+      texto(txt, x + 28, yy, font, TEXTO);
+      texto(s, x + colW - 28, yy, mono(22), GRIS, 'right');
+    });
+  };
+  const fila = ([n, s]) => [n, `${s.pg}/${s.pj} · ${Math.round(s.pg / s.pj * 100)}%`];
+  const izq = d.finales.length
+    ? [tx('Finales','Finalak'), d.finales.slice(0, 3).map(p => {
+        const g2 = p.ganador === (pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2');
+        // Nombre corto: 'Parejas Serie A 2026', 'Binakako A Seriea 2026'
+        const corto = tComp(p.competicion).replace(/^(Campeonato|Torneo)\s+/, '').replace(/\s*Txapelketa\b/, '');
+        const anio = (p.competicion.match(/\b20\d\d\b/)||[''])[0];
+        return [corto, `${anio} · ${(g2 ? tx('Campeón','Txapelduna') : tx('Finalista','Finalista')).toUpperCase()}`, g2 ? VERDE : GRIS];
+      })]
+    : [t('lbl_compañeros'), d.companeros.map(fila)];
+  lista(M, izq[0], izq[1]);
+  lista(M + colW + 24, tx('Frontones','Frontoiak'), d.frontones.map(fila));
+
+  // Pie
+  c.fillStyle = VERDE; c.fillRect(0, H - 80, W, 80);
+  texto('eskupilotastats.com', M, H - 30, sans(28, 700), '#fff');
+  const hoy = PARTIDOS.length ? PARTIDOS[0].fecha : '';
+  texto(`${tx('Datos hasta el','Datuak')} ${hoy}${tx('','ra arte')}`, W - M, H - 30, mono(20), 'rgba(255,255,255,.85)', 'right');
+
+  cv.toBlob(blob => {
+    if(!blob) return;
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    const filtro = [activeTipo !== 'todos' ? activeTipo : '', activeYearPel !== 'todos' ? activeYearPel : ''].filter(Boolean).join('-');
+    a.download = `ficha-${slugify(nombre)}${filtro ? '-' + filtro : ''}.jpg`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    avisoBreve(tx('Ficha descargada','Fitxa deskargatuta'));
+  }, 'image/jpeg', 0.92);
+}
+
+// ════════════════════════════════════════════════════════════
 // GRÁFICOS SVG (una sola serie cada uno, con tooltip al pasar el ratón)
 // ════════════════════════════════════════════════════════════
 function tooltipEl(){
@@ -279,7 +440,7 @@ function htmlEvolucionPerfil(nombre){
     <div class="ch-card an-perfil">
       <div class="an-head">
         <h3>${tx('Evolución histórica','Bilakaera historikoa')}</h3>
-        ${botonCompartir(nombre)}
+        <div class="an-head-btns">${botonFicha(nombre)}${botonCompartir(nombre)}</div>
       </div>
       <div class="an-kpis">
         <div><div class="an-kpi-v">${elo?Math.round(elo):'—'}</div><div class="an-kpi-l">${tx('Elo actual','Oraingo Elo')}</div></div>
@@ -604,9 +765,12 @@ function htmlPrevia(p){
     </div>`}
     <div class="an-previa-row"><span class="an-prob-l">${tx('Cara a cara','Aurrez aurre')}</span>
       <span>${cc.g1+cc.g2 ? `<b>${cc.g1}</b> – <b>${cc.g2}</b>` : tx('Nunca se han enfrentado','Ez dira inoiz aurrez aurre aritu')}</span></div>
-    <div class="an-previa-row"><span class="an-prob-l">${tx('Forma','Forma')} (${h(eq1[0])} · ${h(eq2[0])})</span>
-      <span>${forma(eq1)} <span class="an-muted">·</span> ${forma(eq2)}</span></div>
-    ${htmlExtremosForma([...eq1, ...eq2])}
+    ${eq1.length + eq2.length > 2
+      // Parejas: solo el mejor y el peor en forma de los cuatro
+      ? htmlExtremosForma([...eq1, ...eq2])
+      // Mano a mano: la forma de los dos
+      : `<div class="an-previa-row"><span class="an-prob-l">${tx('Forma','Forma')} (${h(eq1[0])} · ${h(eq2[0])})</span>
+      <span>${forma(eq1)} <span class="an-muted">·</span> ${forma(eq2)}</span></div>`}
   </div>`;
 }
 

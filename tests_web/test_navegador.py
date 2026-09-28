@@ -178,6 +178,19 @@ class Web(unittest.TestCase):
         pg.click('.an-fr-mas')
         self.assertEqual(visibles(), filas.count())
 
+    def test_ficha_jpg_con_el_filtro(self):
+        pg = self.pagina('#/pelotari/laso', descargas=True)
+        with pg.expect_download() as d:
+            pg.click('button[onclick^="descargarFicha"]')
+        self.assertEqual(d.value.suggested_filename, 'ficha-laso.jpg')
+        with open(d.value.path(), 'rb') as f:
+            self.assertEqual(f.read(3), b'\xff\xd8\xff')          # JPEG
+        # Con filtro de año y modalidad, el nombre del fichero lo indica
+        pg.evaluate("activeYearPel='2025'; activeTipo='campeonato'; renderPCards(); openPerfil('LASO')")
+        with pg.expect_download() as d:
+            pg.click('button[onclick^="descargarFicha"]')
+        self.assertEqual(d.value.suggested_filename, 'ficha-laso-campeonato-2025.jpg')
+
     def test_ranking_de_parejas(self):
         pg = self.pagina('#/ranking')
         pg.click('#rktab-parejas')

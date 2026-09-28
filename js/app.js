@@ -1103,9 +1103,7 @@ function toggleMCard(header){
 function renderPCards(){
   const q=(document.getElementById('pSearch').value||'').toLowerCase();
   closePerfil();
-  let parts=filtByTipoYear(activeTipo,activeYearPel);
-  // Filtrado por rango de fechas
-  parts = parts.filter(p=>partidoEnRango(p, dateRangePel));
+  const parts=partidosFiltroPelotaris();
   const st=calcStats(parts);
   const activePlayers = filterActivos ? getActivePlayers() : null;
   let ns=Object.keys(st).filter(n=>{
@@ -1145,6 +1143,10 @@ function renderPCards(){
   document.getElementById('pCards').innerHTML = html;
 }
 
+function partidosFiltroPelotaris(){
+  return filtByTipoYear(activeTipo,activeYearPel).filter(p=>partidoEnRango(p, dateRangePel));
+}
+
 function openPerfil(nombre){
   document.getElementById('pCards').style.display='none';
   document.getElementById('pSearch').style.display='none';
@@ -1152,7 +1154,8 @@ function openPerfil(nombre){
   ps.style.display='block';
   document.getElementById('perfilTitle').textContent=nombre;
 
-  const parts=filtByTipoYear(activeTipo,activeYearPel);
+  // Mismos filtros que las tarjetas: modalidad, año y rango de fechas
+  const parts=partidosFiltroPelotaris();
   const st=calcStats(parts);
   const s=st[nombre]||{pj:0,pg:0,pp:0,pf:0,pc:0};
   const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
