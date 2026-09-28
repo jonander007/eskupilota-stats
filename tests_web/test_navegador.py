@@ -245,6 +245,27 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_instalar_app(self):
+        pg = self.pagina()
+        visibles = lambda: pg.evaluate("[...document.querySelectorAll('.app-instalar')].filter(b => !b.hidden).length")
+        self.assertEqual(visibles(), 0)            # el navegador aún no ofrece instalarla
+        # El navegador avisa de que se puede instalar: aparece en el menú y el pie
+        pg.evaluate("""(() => { const e = new Event('beforeinstallprompt');
+          e.prompt = () => { window.__instalada = 1; }; e.userChoice = Promise.resolve({outcome: 'accepted'});
+          window.dispatchEvent(e); })()""")
+        self.assertEqual(visibles(), 2)
+        pg.locator('.site-footer .app-instalar').click()
+        pg.wait_for_timeout(200)
+        self.assertEqual(pg.evaluate('window.__instalada'), 1)
+        self.assertEqual(visibles(), 0)
+        # Dentro de la app (abierta desde la APK) no se ofrece
+        pg.evaluate("sessionStorage.setItem('eskupilota-app','1')")
+        pg.evaluate("""(() => { const e = new Event('beforeinstallprompt'); e.prompt = () => {};
+          e.userChoice = Promise.resolve({}); window.dispatchEvent(e); })()""")
+        self.assertEqual(visibles(), 0)
+        # Sin dirección de APK, el enlace de Android no sale
+        self.assertEqual(pg.evaluate("[...document.querySelectorAll('.app-apk')].filter(a => !a.hidden).length"), 0)
+
     # ── Móvil, modo oscuro y accesibilidad ──
     def test_movil_sin_scroll_horizontal(self):
         pg = self.pagina(ancho=390)

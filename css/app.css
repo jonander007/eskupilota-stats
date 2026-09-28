@@ -897,3 +897,10 @@ header :focus-visible{outline-color:#fff;}
 .fmap-atrib-txt{display:none;background:var(--surface);color:var(--muted);padding:.2rem .5rem;border-radius:999px;box-shadow:var(--shadow-sm);white-space:nowrap;}
 .fmap-atrib.abierto .fmap-atrib-txt{display:inline-block;order:-1;}
 .fmap-atrib-txt a{color:var(--green);}
+
+/* ── Instalar la app ── */
+.drawer-app{margin-top:auto;padding:1rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.4rem;border-top:1px solid rgba(255,255,255,.15);}
+.drawer-app .app-instalar,.drawer-app .app-apk{background:none;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.9);border-radius:999px;padding:.45rem .9rem;font-family:var(--sans);font-size:.75rem;cursor:pointer;text-decoration:none;text-align:left;}
+.drawer-app .app-instalar:hover,.drawer-app .app-apk:hover{background:rgba(255,255,255,.12);}
+.site-footer .app-instalar,.site-footer .app-apk{background:none;border:none;padding:0;margin-left:1rem;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;}
+[hidden]{display:none !important;}

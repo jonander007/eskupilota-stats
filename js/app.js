@@ -320,6 +320,8 @@ const I18N = {
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
     lbl_fichas: 'Fichas de todos los pelotaris',
+    app_instalar: 'Instalar la app', app_android: 'App para Android',
+    app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
     lbl_pelotari1: 'Pelotari 1', lbl_pelotari2: 'Pelotari 2',
@@ -452,6 +454,8 @@ const I18N = {
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
     lbl_fichas: 'Pilotari guztien fitxak',
+    app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
+    app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
     cont_ph_email: 'zure@helbidea.eus',
@@ -2578,3 +2582,51 @@ function renderFrontonMarkers(encuadrar){
   }
   _frontonEncuadre = clave;
 }
+
+
+// ════════════════════════════════════════════════════════════
+// INSTALAR LA APP (discreto: final del menú y pie de página)
+// ════════════════════════════════════════════════════════════
+// Dirección de la APK de Android (p. ej. la de una release de GitHub).
+// Vacía: el enlace «App para Android» no se muestra.
+const APK_URL = '';
+let _promptInstalar = null;
+
+// ¿Se está viendo dentro de la app instalada (PWA o APK)? Entonces no se
+// ofrece instalarla. La APK (Trusted Web Activity) abre la web con el
+// referrer android-app://; se recuerda para el resto de la visita.
+function enLaApp(){
+  try{
+    if(document.referrer.startsWith('android-app://')) sessionStorage.setItem('eskupilota-app', '1');
+    if(sessionStorage.getItem('eskupilota-app')) return true;
+  }catch(e){}
+  return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+}
+const esIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const esAndroid = () => /android/i.test(navigator.userAgent);
+
+function mostrarInstalar(){
+  const app = enLaApp();
+  document.querySelectorAll('.app-instalar').forEach(b => b.hidden = app || !(_promptInstalar || esIOS()));
+  document.querySelectorAll('.app-apk').forEach(a => {
+    a.hidden = app || !APK_URL || !esAndroid();
+    if(APK_URL) a.href = APK_URL;
+  });
+}
+
+async function instalarApp(){
+  if(_promptInstalar){
+    _promptInstalar.prompt();
+    try{ await _promptInstalar.userChoice; }catch(e){}
+    _promptInstalar = null;
+    mostrarInstalar();
+  } else if(esIOS()){
+    alert(t('app_ios'));
+  }
+}
+
+// Chrome/Edge avisan cuando la web se puede instalar
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); _promptInstalar = e; mostrarInstalar(); });
+window.addEventListener('appinstalled', () => { _promptInstalar = null; mostrarInstalar(); });
+document.addEventListener('DOMContentLoaded', mostrarInstalar);
+

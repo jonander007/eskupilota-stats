@@ -138,6 +138,17 @@ Cada vista tiene su URL, que se puede compartir:
   `https://www.eskupilotastats.com/?lang=eu#/ranking`); es la URL que
   indexan los buscadores para la versión en euskera
 
+## App
+
+La web se puede instalar como app (PWA): el botón «Instalar la app» sale al
+final del menú y en el pie cuando el navegador lo permite (y en iPhone, con
+las instrucciones de Safari). Dentro de la app instalada no se muestra.
+
+Para ofrecer además una APK de Android (p. ej. generada con PWABuilder),
+pon su dirección en `APK_URL` (js/app.js) y publica el `assetlinks.json` en
+`.well-known/`: aparecerá «App para Android» solo en móviles Android y
+nunca dentro de la app.
+
 ## Elo
 
 Puntuación de fuerza de cada pelotari (empieza en 1500) calculada en el
