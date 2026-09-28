@@ -125,7 +125,7 @@ def es_texto_competicion(texto):
 
 
 CATEGORIAS = ('campeonato', 'torneo', 'desafio', 'festival')
-FASES = ('liga', 'eliminatoria', 'octavos', 'cuartos', 'semifinal', 'final')
+FASES = ('liga', 'eliminatoria', 'octavos', 'cuartos', 'semifinal', 'tercero', 'final')
 
 
 def leer_fase(*textos):

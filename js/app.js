@@ -340,7 +340,7 @@ const I18N = {
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
     tag_torneo: 'Torneo', tag_desafio: 'Desafío',
     fase_liga: 'Liguilla', fase_eliminatoria: 'Eliminatoria', fase_octavos: 'Octavos',
-    fase_cuartos: 'Cuartos', fase_semifinal: 'Semifinal', fase_final: 'Final',
+    fase_cuartos: 'Cuartos', fase_semifinal: 'Semifinal', fase_tercero: 'Tercer puesto', fase_final: 'Final',
     lbl_grupo: 'Grupo {g}', lbl_jornada: '{n}ª jornada',
     lbl_campeones: 'Campeones', lbl_final_deducida: 'Final deducida: es el último partido del campeonato',
   },
@@ -471,7 +471,7 @@ const I18N = {
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
     tag_torneo: 'Torneoa', tag_desafio: 'Desafioa',
     fase_liga: 'Liga', fase_eliminatoria: 'Kanporaketa', fase_octavos: 'Final-zortzirenak',
-    fase_cuartos: 'Final-laurdenak', fase_semifinal: 'Finalerdia', fase_final: 'Finala',
+    fase_cuartos: 'Final-laurdenak', fase_semifinal: 'Finalerdia', fase_tercero: 'Hirugarren postua', fase_final: 'Finala',
     lbl_grupo: '{g} multzoa', lbl_jornada: '{n}. jardunaldia',
     lbl_campeones: 'Txapeldunak', lbl_final_deducida: 'Ondorioztatutako finala: txapelketako azken partida da',
   }

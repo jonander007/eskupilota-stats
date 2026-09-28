@@ -31,6 +31,7 @@ scraper/
   aspe.py               Lectores de aspepelota.eus (resultados y cartelera), 2ª fuente
   red.py                Descarga con reintentos (común a los scrapers)
   jsonio.py             Escritura de los JSON de data/
+  historial_baiko.py    Lector del «Historial de competición» de Baiko (fases reales)
   competiciones.py      Criterio para asignar competición y tipo a cada partido
   roles.py              Rol (delantero/zaguero) de cada pelotari según sus partidos
 tests/                  Pruebas de los scrapers con casos reales (sin red)
@@ -38,6 +39,8 @@ tools/
   validar_datos.py      Comprueba la coherencia de data/ (lo usa el workflow)
   migrar_clasificacion.py  Añade modalidad/categoria/serie/fase a los partidos
   generar_paginas.py    Páginas estáticas de pelotaris y sitemap.xml
+  importar_historial.py Fases reales (y partidos que falten) desde páginas de
+                        campeonato de Baiko guardadas como HTML
   recalcular_contadores.py  Recalcula partidos_count y roles
   ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```

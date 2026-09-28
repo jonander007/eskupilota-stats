@@ -139,6 +139,17 @@ class Web(unittest.TestCase):
         self.assertEqual(rondas.nth(2).locator('.an-ko-m').count(), 1)
         self.assertTrue(pg.locator('.an-campeon').is_visible())
 
+    def test_fases_con_liguilla_del_historial(self):
+        # 4 y Medio Serie A 2025, importado del historial de Baiko: octavos,
+        # liguilla de cuartos (grupos A y B), semifinales, final y tercer puesto
+        pg = self.pagina('#/campeonato/COMP002')
+        cols = pg.locator('.an-ko-col')
+        self.assertEqual(cols.count(), 4)
+        self.assertEqual(pg.locator('.an-ko-col.liga .an-ko-grupo').count(), 2)
+        # En cada grupo se resaltan los dos que pasan a semifinales
+        self.assertEqual(pg.locator('.an-ko-col.liga .an-ko-grupo').first.locator('.an-ko-eq.gana').count(), 2)
+        self.assertIn('ETXEBERRIA', pg.locator('.an-campeon').inner_text())
+
     def test_clasificacion_de_campeonato(self):
         pg = self.pagina('#/campeonatos')
         self.assertGreater(pg.locator('#campContent table tbody tr').count(), 3)
