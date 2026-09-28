@@ -93,6 +93,11 @@
     <button data-i18n="nav_campeonatos" onclick="showSecFromDrawer('campeonatos',6)">Campeonatos</button>
     <button data-i18n="nav_contacto" onclick="showSecFromDrawer('contacto',7)">Contacto</button>
   </nav>
+  <!-- Instalar la app: solo en el navegador (no dentro de la app instalada) -->
+  <div class="drawer-app">
+    <button type="button" class="app-instalar" hidden onclick="instalarApp()"><span aria-hidden="true">📲</span> <span data-i18n="app_instalar">Instalar la app</span></button>
+    <a class="app-apk" hidden rel="noopener"><span aria-hidden="true">🤖</span> <span data-i18n="app_android">App para Android</span></a>
+  </div>
 </aside>
 
 <main id="contenido" tabindex="-1">
@@ -391,7 +396,7 @@
 </div>
 
 </main>
-<footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a></footer>
+<footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
 <script src="js/app.js"></script>
 <script src="js/analisis.js"></script>
 <script>loadData();</script>

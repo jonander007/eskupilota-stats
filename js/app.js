@@ -320,6 +320,8 @@ const I18N = {
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
     lbl_fichas: 'Fichas de todos los pelotaris',
+    app_instalar: 'Instalar la app', app_android: 'App para Android',
+    app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
     rk_tab_elo: 'Elo',
     lbl_pelotari1: 'Pelotari 1', lbl_pelotari2: 'Pelotari 2',
@@ -332,7 +334,7 @@ const I18N = {
     pct_victorias: '{n}% victorias', pts_p: '{n} pts/p',
     comp_abbr: 'Comp.',
     cart_error: 'No se ha podido cargar la cartelera.',
-    map_acercar: 'Acercar', map_alejar: 'Alejar',
+    map_creditos: 'Créditos del mapa', map_acercar: 'Acercar', map_alejar: 'Alejar',
     abbr_tantos: 'Pts',
     // Categorías y fases (ver scraper/competiciones.py)
     flabel_categoria: 'Categoría', flabel_fase: 'Fase',
@@ -452,6 +454,8 @@ const I18N = {
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
     lbl_fichas: 'Pilotari guztien fitxak',
+    app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
+    app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
     cont_ph_email: 'zure@helbidea.eus',
@@ -463,7 +467,7 @@ const I18N = {
     pct_victorias: '%{n} garaipen', pts_p: '{n} tanto/p',
     comp_abbr: 'Bik.',
     cart_error: 'Ezin izan da kartelera kargatu.',
-    map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
+    map_creditos: 'Maparen kredituak', map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
     flabel_categoria: 'Kategoria', flabel_fase: 'Fasea',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
@@ -2437,11 +2441,19 @@ function cargarLeaflet(){
     css.rel = 'stylesheet';
     css.href = 'vendor/leaflet/leaflet.css';
     document.head.appendChild(css);
-    const js = document.createElement('script');
-    js.src = 'vendor/leaflet/leaflet.js';
-    js.onload = ok;
-    js.onerror = () => { _leaflet = null; ko(new Error('Leaflet')); };
-    document.head.appendChild(js);
+    const css2 = document.createElement('link');
+    css2.rel = 'stylesheet';
+    css2.href = 'vendor/leaflet/MarkerCluster.css';
+    document.head.appendChild(css2);
+    const script = (src, sig) => {
+      const js = document.createElement('script');
+      js.src = src;
+      js.onload = sig;
+      js.onerror = () => { _leaflet = null; ko(new Error(src)); };
+      document.head.appendChild(js);
+    };
+    // Leaflet y después la agrupación de marcadores (necesita Leaflet)
+    script('vendor/leaflet/leaflet.js', () => script('vendor/leaflet/leaflet.markercluster.js', ok));
   });
   return _leaflet;
 }
@@ -2452,30 +2464,65 @@ function initFrontonMap(){
   cargarLeaflet().then(crearFrontonMap).catch(() => {});
 }
 
+let _frontonCapa = null, _frontonEncuadre = '';
+
 function crearFrontonMap(){
   if(_frontonMap) return;
 
-  _frontonMap = L.map('frontonMap', {zoomControl:false}).setView([43.0, -2.0], 8);
+  _frontonMap = L.map('frontonMap', {zoomControl:false, attributionControl:false}).setView([43.0, -2.0], 8);
   L.control.zoom({zoomInTitle: t('map_acercar'), zoomOutTitle: t('map_alejar')}).addTo(_frontonMap);
-  _frontonMap.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
-  // Mapa oscuro si el dispositivo está en modo oscuro
+  // Mapa base: CARTO Voyager (carreteras y pueblos legibles); oscuro en modo oscuro
   const oscuro = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
-  L.tileLayer(`https://{s}.basemaps.cartocdn.com/${oscuro?'dark_all':'light_all'}/{z}/{x}/{y}{r}.png`, {
-    attribution: '© OpenStreetMap © CARTO',
+  L.tileLayer(oscuro
+      ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
+      : 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     subdomains: 'abcd',
-    maxZoom: 19
+    maxZoom: 19,
+    detectRetina: true,
   }).addTo(_frontonMap);
+  // Atribución (obligatoria por la licencia de OpenStreetMap) plegada en un ⓘ
+  const Atribucion = L.Control.extend({
+    options: {position: 'bottomright'},
+    onAdd(){
+      const div = L.DomUtil.create('div', 'fmap-atrib');
+      div.innerHTML = `<button type="button" class="fmap-atrib-btn" aria-label="${t('map_creditos')}" aria-expanded="false">i</button>
+        <span class="fmap-atrib-txt">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a> · <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a></span>`;
+      const btn = div.querySelector('button');
+      btn.onclick = () => btn.setAttribute('aria-expanded', div.classList.toggle('abierto'));
+      L.DomEvent.disableClickPropagation(div);
+      return div;
+    }
+  });
+  new Atribucion().addTo(_frontonMap);
 
-  renderFrontonMarkers();
+  // Frontones cercanos agrupados en un círculo con el número; se separan al acercar
+  _frontonCapa = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    maxClusterRadius: 45,
+    spiderfyOnMaxZoom: true,
+    zoomToBoundsOnClick: false,
+    disableClusteringAtZoom: 15,
+    iconCreateFunction: grupo => {
+      const n = grupo.getChildCount();
+      const tam = n < 10 ? 34 : n < 40 ? 42 : 50;
+      return L.divIcon({html: `<span>${n}</span>`, className: 'fmap-cluster', iconSize: [tam, tam]});
+    },
+  }).addTo(_frontonMap);
+  // Al pulsar un grupo: si sus frontones están muy juntos (el mismo pueblo)
+  // o ya estamos cerca, se abren en abanico; si no, se acerca hasta ellos
+  _frontonCapa.on('clusterclick', e => {
+    const b = e.layer.getBounds();
+    const zoomNuevo = Math.min(13, _frontonMap.getBoundsZoom(b, false, L.point(80, 80)));
+    if(b.getNorthEast().distanceTo(b.getSouthWest()) < 2000 || zoomNuevo <= _frontonMap.getZoom()) e.layer.spiderfy();
+    else _frontonMap.fitBounds(b, {padding: [40, 40], maxZoom: 13});
+  });
+
+  renderFrontonMarkers(true);
 }
 
-function renderFrontonMarkers(){
-  if(!_frontonMap) return;
-
-  // Clear existing markers
-  _frontonMap.eachLayer(layer => {
-    if(layer instanceof L.Marker) _frontonMap.removeLayer(layer);
-  });
+function renderFrontonMarkers(encuadrar){
+  if(!_frontonMap || !_frontonCapa) return;
+  _frontonCapa.clearLayers();
 
   const parts = PARTIDOS.filter(p =>
     tipoMatch(p.tipo, activeTipoFron) &&
@@ -2489,44 +2536,97 @@ function renderFrontonMarkers(){
     stats[f].count++;
   });
 
-  const redIcon = L.divIcon({
-    html: '<div style="width:12px;height:12px;background:var(--red);border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
-    iconSize:[12,12],
-    iconAnchor:[6,6],
-    className:''
-  });
-
-  const bigIcon = L.divIcon({
-    html: '<div style="width:18px;height:18px;background:var(--red);border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
-    iconSize:[18,18],
-    iconAnchor:[9,9],
-    className:''
-  });
-
-  // Construir índice del catálogo de frontones por nombre (para enlaces de Google Maps)
+  // Índice del catálogo de frontones por nombre (coordenadas y enlace de Google Maps)
   const FRO_BY_NAME = {};
   Object.values(CAT_FRONTONES).forEach(fr=>{
     if(fr && fr.nombre) FRO_BY_NAME[fr.nombre.toUpperCase().trim()] = fr;
   });
 
+  const marcadores = [];
   Object.entries(stats).forEach(([f, s]) => {
     const info = FRO_BY_NAME[f.toUpperCase().trim()];
     if(!info || info.lat==null || info.lon==null) return;
-    const icon = s.count >= 20 ? bigIcon : redIcon;
+    // Tamaño según los partidos jugados en él
+    const tam = Math.round(12 + Math.min(14, Math.sqrt(s.count) * 1.6));
+    const icon = L.divIcon({className: 'fmap-pin' + (s.count >= 20 ? ' grande' : ''), iconSize: [tam, tam]});
     // title: nombre accesible del marcador (lectores de pantalla y teclado)
-    const marker = L.marker([info.lat, info.lon], {icon, title: `${f} · ${nPartidos(s.count)}`, alt: f}).addTo(_frontonMap);
+    const marker = L.marker([info.lat, info.lon], {icon, title: `${f} · ${nPartidos(s.count)}`, alt: f});
+    marker.bindTooltip(`<b>${f}</b> · ${nPartidos(s.count)}`, {direction: 'top', offset: [0, -tam/2], className: 'fmap-tip'});
     const mapsUrl = info?.google_maps_link
       || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+f)}`;
     marker.bindPopup(`
       <div class="fmap-name">${f}</div>
       <div class="fmap-count">${s.ciudad} · ${nPartidos(s.count)}</div>
       <div class="fmap-actions">
-        <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');document.querySelector('.leaflet-popup-close-button').click()">${t('fmap_ver_partidos')}</button>
+        <button class="fmap-btn" onclick="filtrarPorFronton('${esc(f)}');_frontonMap.closePopup()">${t('fmap_ver_partidos')}</button>
         <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer" class="fmap-btn-ghost">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span>${t('fronton_como_llegar')}</span>
         </a>
       </div>
     `);
+    marcadores.push(marker);
+  });
+  _frontonCapa.addLayers(marcadores);
+  // Encuadra los frontones al abrir el mapa y cuando el filtro cambia cuáles se ven
+  const clave = Object.keys(stats).sort().join('|');
+  if(marcadores.length && (encuadrar === true || clave !== _frontonEncuadre)){
+    // La zona de la gran mayoría: sin el 5 % más alejado por cada lado
+    // (unos pocos frontones lejanos dejarían el mapa demasiado alejado)
+    const lats = marcadores.map(m => m.getLatLng().lat).sort((a,b) => a-b);
+    const lons = marcadores.map(m => m.getLatLng().lng).sort((a,b) => a-b);
+    const q = (v, f) => v[Math.min(v.length-1, Math.max(0, Math.round(f*(v.length-1))))];
+    const recorte = marcadores.length >= 20 ? 0.05 : 0;
+    _frontonMap.fitBounds([[q(lats, recorte), q(lons, recorte)], [q(lats, 1-recorte), q(lons, 1-recorte)]],
+      {padding: [24, 24], maxZoom: 11});
+  }
+  _frontonEncuadre = clave;
+}
+
+
+// ════════════════════════════════════════════════════════════
+// INSTALAR LA APP (discreto: final del menú y pie de página)
+// ════════════════════════════════════════════════════════════
+// Dirección de la APK de Android (p. ej. la de una release de GitHub).
+// Vacía: el enlace «App para Android» no se muestra.
+const APK_URL = '';
+let _promptInstalar = null;
+
+// ¿Se está viendo dentro de la app instalada (PWA o APK)? Entonces no se
+// ofrece instalarla. La APK (Trusted Web Activity) abre la web con el
+// referrer android-app://; se recuerda para el resto de la visita.
+function enLaApp(){
+  try{
+    if(document.referrer.startsWith('android-app://')) sessionStorage.setItem('eskupilota-app', '1');
+    if(sessionStorage.getItem('eskupilota-app')) return true;
+  }catch(e){}
+  return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+}
+const esIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const esAndroid = () => /android/i.test(navigator.userAgent);
+
+function mostrarInstalar(){
+  const app = enLaApp();
+  document.querySelectorAll('.app-instalar').forEach(b => b.hidden = app || !(_promptInstalar || esIOS()));
+  document.querySelectorAll('.app-apk').forEach(a => {
+    a.hidden = app || !APK_URL || !esAndroid();
+    if(APK_URL) a.href = APK_URL;
   });
 }
+
+async function instalarApp(){
+  if(_promptInstalar){
+    _promptInstalar.prompt();
+    try{ await _promptInstalar.userChoice; }catch(e){}
+    _promptInstalar = null;
+    mostrarInstalar();
+  } else if(esIOS()){
+    alert(t('app_ios'));
+  }
+}
+
+// Chrome/Edge avisan cuando la web se puede instalar
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); _promptInstalar = e; mostrarInstalar(); });
+window.addEventListener('appinstalled', () => { _promptInstalar = null; mostrarInstalar(); });
+document.addEventListener('DOMContentLoaded', mostrarInstalar);
+
