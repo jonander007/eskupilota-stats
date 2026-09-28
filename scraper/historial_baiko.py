@@ -100,12 +100,28 @@ def leer_historial(html):
     return {'titulo': titulo, 'partidos': partidos}
 
 
+def limpiar_nombre(nombre):
+    """('LASO 1') -> ('LASO', True). Baiko marca con un número de nota (o
+    '(LESIÓN)') al pelotari anunciado que al final no jugó: se sustituyó."""
+    n = _limpio(nombre)
+    m = re.match(r'^(.*?)\s+\d+$', n) or re.match(r'^(.*?)\s*\(.*\)$', n)
+    return (m[1].strip(), True) if m else (n, False)
+
+
+def equipo_limpio(nombres):
+    """Pelotaris del equipo sin notas y si hubo sustitución. Con tres nombres
+    ('EGIGUREN V / ESKUZA / ALDABE') el tercero entró durante el partido."""
+    limpios = [limpiar_nombre(n) for n in nombres]
+    sustitucion = any(s for _, s in limpios) or len(limpios) > 2
+    return [n for n, s in limpios[:2] if not s], sustitucion
+
+
 def competicion_de_titulo(titulo, partidos):
     """'[2025] Campeonato 4 1/2 Eusko Label Serie A' -> nombre en nuestro
     catálogo: 'Campeonato 4 y Medio Serie A 2025'. El año es el de la final
     (el del último partido): así el Parejas 2024-2025 es el de 2025."""
     t = _txt(titulo)
-    serie = 'B' if re.search(r'serie b|promocion', t) else 'A'
+    serie = 'B' if re.search(r'serie b|promocion|\bprom\b', t) else 'A'   # 'C. MANOMANISTA PROM.'
     if 'manomanista' in t or 'mano a mano' in t:
         mod = 'Manomanista'
     elif 'parejas' in t:
