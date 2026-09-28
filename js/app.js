@@ -1273,7 +1273,8 @@ function openPerfil(nombre){
   _perfilPage = 1;
   populatePerfilFrontons(nombre, parts);
   renderPerfilPartidos();
-  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlEvolucionPerfil(nombre));
+  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlPalmares(nombre, parts) + htmlEvolucionPerfil(nombre));
+  pintarBotonSeguir();
   setHash('#/pelotari/'+slugify(nombre));
 }
 
@@ -2159,6 +2160,7 @@ async function loadCartelera(){
     _carteleraData = data;
     renderCartelera(data);
     cartelaraLoaded = true;
+    avisarSeguidos(data.partidos || []);
   } catch(e){
     el.innerHTML = `<div class="cart-error">
       <div class="cart-error-title">${t('cart_error')}</div>
@@ -2242,10 +2244,12 @@ function renderCartelera(data){
         const tipoBadge = `<span class="cart-badge ${p.categoria==='torneo'?'torneo':p.categoria==='desafio'?'fest':tipoBadgeClass(p.tipo||tipoEv)}">${pTipo}</span>`
           + (p.fase && tFase(ev.fase||'').toLowerCase().indexOf(t('fase_'+p.fase).toLowerCase())<0 ? `<span class="cart-badge fase">${textoFase(p)}</span>` : '');
         const encoded = encodeURIComponent(JSON.stringify({...p, fecha:ev.fecha, hora:ev.hora, fronton:ev.fronton}));
+        const segSet = new Set(seguidos().map(normNombre));
+        const esSeguido = [...(p.eq1||[]),...(p.eq2||[])].some(n=>segSet.has(normNombre(n)));
         return `<div class="cart-partido-wrap">
           <div class="cart-partido-card" onclick="carteleraGoStats(this)" data-partido="${encoded}" aria-label="${h(t('cart_estadisticas')+': '+e1+' vs '+e2)}">
             <div>
-              <div style="display:flex;gap:.35rem;margin-bottom:.3rem;">${tipoBadge}${serieBadge}</div>
+              <div style="display:flex;gap:.35rem;margin-bottom:.3rem;">${tipoBadge}${serieBadge}${esSeguido?`<span class="cart-seguido" title="${h(tx('Juega uno de tus pelotaris','Zure pilotarietako batek jokatzen du'))}">★</span>`:''}</div>
               <div class="cart-partido-equipos">
                 <span class="cart-partido-eq" style="color:var(--red)">${e1}</span>
                 <span class="cart-partido-vs">vs</span>
@@ -2274,7 +2278,7 @@ function renderCartelera(data){
       </div>`;
     }).join('')}`
   ).join('');
-  el.innerHTML = html;
+  el.innerHTML = htmlSeguidosCartelera(eventos) + html;
 }
 
 // ── Añadir al calendario (.ics) ──

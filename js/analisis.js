@@ -183,6 +183,37 @@ function textoFiltroPelotaris(){
   return partes.length ? partes.join(' · ') : tx('Todos los partidos','Partida guztiak');
 }
 
+// ════════════════════════════════════════════════════════════
+// PALMARÉS: finales de campeonato y torneo de un pelotari
+// ════════════════════════════════════════════════════════════
+function palmares(nombre, parts){
+  const finales = parts.filter(p => p.fase==='final' && (p.categoria==='campeonato' || p.categoria==='torneo') &&
+      (pels(p.equipo1).includes(nombre) || pels(p.equipo2).includes(nombre)))
+    .sort((a,b) => parseDate(b.fecha)-parseDate(a.fecha));
+  const gana = p => p.ganador === (pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2');
+  return {finales, ganadas: finales.filter(gana), perdidas: finales.filter(p => !gana(p))};
+}
+
+function htmlPalmares(nombre, parts){
+  const pa = palmares(nombre, parts);
+  if(!pa.finales.length) return '';
+  const rival = p => neq(pels(p.equipo1).includes(nombre) ? p.equipo2 : p.equipo1);
+  const chip = (p, ok) => `<span class="rk-txapela ${ok ? (p.categoria==='campeonato' ? 'camp' : 'torn') : 'fin'}"
+    title="${h(tComp(p.competicion))} · ${p.fecha} · ${p.puntos1}-${p.puntos2} ${h(tx('contra','-ren aurka'))} ${h(rival(p))}">${ok ? '🏆 ' : ''}${h(nombreCortoComp(p.competicion))}</span>`;
+  const camp = pa.ganadas.filter(p => p.categoria==='campeonato').length;
+  return `<div class="ch-card pf-palmares">
+    <h3>${tx('Palmarés','Palmaresa')}</h3>
+    <div class="pf-palm-cifras">
+      <div><b>${pa.ganadas.length}</b><span>${tx('Txapelas','Txapelak')}</span></div>
+      <div><b>${camp}</b><span>${tx('De campeonato','Txapelketakoak')}</span></div>
+      <div><b>${pa.finales.length}</b><span>${tx('Finales jugadas','Jokatutako finalak')}</span></div>
+    </div>
+    ${pa.ganadas.length ? `<div class="an-sub">${tx('Campeón','Txapelduna')}</div><div class="pf-palm-chips">${pa.ganadas.map(p => chip(p, true)).join('')}</div>` : ''}
+    ${pa.perdidas.length ? `<div class="an-sub">${tx('Finalista','Finalista')}</div><div class="pf-palm-chips">${pa.perdidas.map(p => chip(p, false)).join('')}</div>` : ''}
+    <p class="an-nota">${tx('Según los filtros de arriba. Solo cuentan las competiciones con la final registrada.','Goiko iragazkien arabera. Finala erregistratuta duten lehiaketak bakarrik.')}</p>
+  </div>`;
+}
+
 function datosFicha(nombre){
   const parts = partidosFiltroPelotaris().filter(p => pels(p.equipo1).includes(nombre) || pels(p.equipo2).includes(nombre));
   const lado = p => pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2';
@@ -200,7 +231,7 @@ function datosFicha(nombre){
     ultimos: parts.slice(0, 10).map(p => gana(p) ? 'V' : 'D').reverse(),   // PARTIDOS va del más reciente al más antiguo
     companeros: top(cuenta(p => pels(p[lado(p)]).filter(n => n !== nombre)), 3),
     frontones: top(cuenta(p => [p.fronton]), 3),
-    finales: parts.filter(p => p.fase==='final' && p.categoria!=='festival'),
+    ...(pa => ({finales: [...pa.ganadas, ...pa.perdidas], txapelas: pa.ganadas.length}))(palmares(nombre, parts)),
     elo: ELO[nombre], eloMax: hist.length ? Math.max(...hist.map(x => x[1])) : null,
     pos: ranking.indexOf(nombre) + 1,
   };
@@ -295,7 +326,7 @@ async function descargarFicha(nombre){
   };
   const fila = ([n, s]) => [n, `${s.pg}/${s.pj} · ${Math.round(s.pg / s.pj * 100)}%`];
   const izq = d.finales.length
-    ? [tx('Finales','Finalak'), d.finales.slice(0, 3).map(p => {
+    ? [`${tx('Palmarés','Palmaresa')} · ${d.txapelas} ${d.txapelas===1 ? 'txapela' : tx('txapelas','txapela')}`, d.finales.slice(0, 3).map(p => {
         const g2 = p.ganador === (pels(p.equipo1).includes(nombre) ? 'equipo1' : 'equipo2');
         // Nombre corto: 'Parejas Serie A 2026', 'Binakako A Seriea 2026'
         const corto = tComp(p.competicion).replace(/^(Campeonato|Torneo)\s+/, '').replace(/\s*Txapelketa\b/, '');
@@ -1007,4 +1038,126 @@ function cerrarFronton(){
   if(det){ det.classList.remove('active'); det.innerHTML=''; }
   _frontonActual = null;
   if(document.getElementById('sec-frontones').classList.contains('active')) setHash('#/frontones');
+}
+
+
+// ════════════════════════════════════════════════════════════
+// SEGUIR PELOTARIS Y AVISOS DE LA CARTELERA
+// Los pelotaris seguidos se guardan en este navegador. Cuando uno aparece en
+// la cartelera se avisa con una notificación (al abrir la web y, en Android
+// con la app instalada, también en segundo plano: ver sw.js).
+// ════════════════════════════════════════════════════════════
+const SEG_KEY = 'eskupilota-seguidos', AVI_KEY = 'eskupilota-avisados';
+const leerLS = (k, def) => { try{ const v = JSON.parse(localStorage.getItem(k)); return v ?? def; }catch(e){ return def; } };
+const guardarLS = (k, v) => { try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} };
+// Misma normalización que sw.js: 'P. ETXEBERRIA' = 'P.ETXEBERRIA', 'DARIO' = 'DARÍO'
+const normNombre = n => (n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const claveAviso = (ev, p) => `${ev.fecha}|${ev.fronton||''}|${(p.eq1||[]).join('-')}|${(p.eq2||[]).join('-')}`;
+
+function seguidos(){ return leerLS(SEG_KEY, []); }
+function sigue(n){ return seguidos().includes(n); }
+
+// Copia para el service worker, que no puede leer localStorage
+function sincronizarPrefsSW(){
+  try{
+    caches.open('eskupilota-prefs').then(c => {
+      c.put('/__prefs/seguidos', new Response(JSON.stringify(seguidos())));
+      c.put('/__prefs/avisados', new Response(JSON.stringify(leerLS(AVI_KEY, []))));
+    }).catch(()=>{});
+  }catch(e){}
+}
+
+function pintarBotonSeguir(){
+  const b = document.getElementById('btnSeguir');
+  if(!b || !_perfilNombre) return;
+  const on = sigue(_perfilNombre);
+  b.classList.toggle('on', on);
+  b.setAttribute('aria-pressed', on);
+  b.querySelector('span').textContent = on ? tx('Siguiendo','Jarraitzen') : tx('Seguir','Jarraitu');
+}
+
+function toggleSeguir(nombre){
+  const s = seguidos(), i = s.indexOf(nombre);
+  if(i >= 0) s.splice(i, 1); else s.push(nombre);
+  guardarLS(SEG_KEY, s);
+  sincronizarPrefsSW();
+  pintarBotonSeguir();
+  if(i < 0 && 'Notification' in window && Notification.permission === 'default') pedirAvisos();
+  if(typeof _CART_EVENTOS !== 'undefined' && _CART_EVENTOS.length) renderCartelera({partidos: _CART_EVENTOS});
+}
+
+function partidosDeSeguidos(eventos){
+  const seg = new Map(seguidos().map(n => [normNombre(n), n]));
+  if(!seg.size) return [];
+  const res = [];
+  (eventos||[]).forEach(ev => (ev.partidos||[]).forEach(p => {
+    const suyos = [...new Set([...(p.eq1||[]), ...(p.eq2||[])].map(normNombre).filter(k => seg.has(k)).map(k => seg.get(k)))];
+    if(suyos.length) res.push({ev, p, suyos, clave: claveAviso(ev, p)});
+  }));
+  return res;
+}
+
+async function pedirAvisos(){
+  if(!('Notification' in window)) return;
+  if(Notification.permission === 'default'){
+    try{ await Notification.requestPermission(); }catch(e){}
+  }
+  if(Notification.permission === 'granted'){
+    registrarAvisosSegundoPlano();
+    if(typeof _CART_EVENTOS !== 'undefined' && _CART_EVENTOS.length) avisarSeguidos(_CART_EVENTOS);
+  }
+  if(typeof _CART_EVENTOS !== 'undefined' && _CART_EVENTOS.length) renderCartelera({partidos: _CART_EVENTOS});
+}
+
+async function registrarAvisosSegundoPlano(){
+  try{
+    const reg = await navigator.serviceWorker.ready;
+    if(!('periodicSync' in reg)) return;
+    const st = await navigator.permissions.query({name: 'periodic-background-sync'});
+    if(st.state === 'granted') await reg.periodicSync.register('avisos-seguidos', {minInterval: 12*60*60*1000});
+  }catch(e){}
+}
+
+async function avisarSeguidos(eventos){
+  if(!('Notification' in window) || Notification.permission !== 'granted') return;
+  const avisados = new Set(leerLS(AVI_KEY, []));
+  const nuevos = partidosDeSeguidos(eventos).filter(x => !avisados.has(x.clave));
+  if(!nuevos.length) return;
+  let reg = null;
+  try{ reg = navigator.serviceWorker && await navigator.serviceWorker.getRegistration(); }catch(e){}
+  const mostrar = (titulo, op) => { try{ reg ? reg.showNotification(titulo, op) : new Notification(titulo, op); }catch(e){} };
+  const base = {icon: 'icon-192.png', badge: 'favicon-32.png', data: {url: '/#/cartelera'}};
+  if(nuevos.length > 3){
+    // Muchos a la vez (p. ej. al activar los avisos): uno solo con el resumen
+    mostrar(tx(`${nuevos.length} partidos de tus pelotaris en la cartelera`, `Zure pilotarien ${nuevos.length} partida kartelan`),
+      {...base, tag: 'resumen-seguidos', body: [...new Set(nuevos.flatMap(x => x.suyos))].join(', ')});
+  } else {
+    nuevos.forEach(x => mostrar(`${x.suyos.join(', ')} · ${x.ev.fecha}${x.ev.hora ? ' ' + x.ev.hora + 'h' : ''}`,
+      {...base, tag: x.clave, body: `${(x.p.eq1||[]).join(' / ')} vs ${(x.p.eq2||[]).join(' / ')} · ${x.ev.fronton||''}`}));
+  }
+  nuevos.forEach(x => avisados.add(x.clave));
+  guardarLS(AVI_KEY, [...avisados].slice(-300));
+  sincronizarPrefsSW();
+}
+
+// Recuadro al principio de la cartelera con los partidos de los seguidos
+function htmlSeguidosCartelera(eventos){
+  const seg = seguidos();
+  if(!seg.length){
+    return `<div class="cart-seg-tip">☆ ${tx('Sigue a tus pelotaris desde su ficha y verás aquí sus próximos partidos, con aviso en el móvil.',
+      'Jarraitu zure pilotariei haien fitxatik eta hemen ikusiko dituzu haien hurrengo partidak, mugikorrean abisuarekin.')}</div>`;
+  }
+  const lista = partidosDeSeguidos(eventos);
+  const permiso = 'Notification' in window ? Notification.permission : 'no';
+  const avisoBtn = permiso === 'default'
+    ? `<button class="btn-ghost" onclick="pedirAvisos()">🔔 ${tx('Activar avisos','Abisuak aktibatu')}</button>`
+    : permiso === 'granted' ? `<span class="cart-seg-ok">🔔 ${tx('Avisos activados','Abisuak aktibatuta')}</span>`
+    : permiso === 'denied' ? `<span class="an-muted">${tx('Los avisos están bloqueados en este navegador','Abisuak blokeatuta daude nabigatzaile honetan')}</span>` : '';
+  return `<div class="cart-seg">
+    <div class="cart-seg-head"><b>★ ${tx('Tus pelotaris','Zure pilotariak')}</b> <span class="an-muted">${seg.map(h).join(', ')}</span> ${avisoBtn}</div>
+    ${lista.length ? lista.map(x => `<div class="cart-seg-fila"><span class="cart-seg-fecha">${x.ev.fecha}${x.ev.hora ? ' · ' + x.ev.hora + 'h' : ''}</span>
+        <span>${h((x.p.eq1||[]).join(' / '))} <span class="an-muted">vs</span> ${h((x.p.eq2||[]).join(' / '))}</span>
+        <span class="an-muted">${h(x.ev.fronton||'')}</span></div>`).join('')
+      : `<div class="an-muted">${tx('No tienen partidos en la cartelera por ahora.','Oraingoz ez dute partidarik kartelan.')}</div>`}
+  </div>`;
 }
