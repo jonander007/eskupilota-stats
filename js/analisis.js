@@ -350,23 +350,55 @@ function competicionesOficiales(){
     .sort((a,b)=>b.ultima-a.ultima);
 }
 
+// Dos filtros: la competición (sin año) y el año. Al cambiar de competición
+// se muestra su año más reciente.
+// (la clave ignora tildes: 'Torneo San Fermin' y 'Torneo San Fermín' son la misma)
+const baseComp = nombre => slugify(nombre.replace(/\s*\b20\d\d\b/, ''));
+const anioComp = nombre => (nombre.match(/\b(20\d\d)\b/)||[])[1] || '';
+
 function buildCampeonatos(){
   const sel = document.getElementById('campSel');
   if(!sel) return;
   const comps = competicionesOficiales();
-  const porAnio = {};
-  comps.forEach(c=>{ const a=(c.nombre.match(/\b(20\d\d)\b/)||[])[1]||tx('Otros','Besteak'); (porAnio[a]=porAnio[a]||[]).push(c); });
-  // Años de más reciente a más antiguo; las competiciones sin año, al final
-  const orden = Object.keys(porAnio).sort((x,y)=>(/^\d+$/.test(y)-/^\d+$/.test(x)) || y.localeCompare(x));
-  sel.innerHTML = orden.map(a=>
-    `<optgroup label="${h(a)}">${porAnio[a]
-      .sort((x,y)=>(y.nombre.startsWith('Campeonato')-x.nombre.startsWith('Campeonato'))||x.nombre.localeCompare(y.nombre))
-      .map(c=>`<option value="${c.id}">${h(tComp(c.nombre))}</option>`).join('')}</optgroup>`).join('');
+  const bases = {};
+  comps.forEach(c => (bases[baseComp(c.nombre)] = bases[baseComp(c.nombre)] || []).push(c));
+  const cat = b => (CAT_COMPETICIONES[bases[b][0].id]||{}).categoria || 'campeonato';
+  const GRUPOS = [['campeonato', tx('Campeonatos','Txapelketak')], ['torneo', tx('Torneos','Torneoak')], ['desafio', tx('Desafíos','Desafioak')]];
+  sel.innerHTML = GRUPOS.map(([k, titulo]) => {
+    const nombre = b => tComp(bases[b][0].nombre);
+    const suyas = Object.keys(bases).filter(b => cat(b)===k).sort((x,y) => nombre(x).localeCompare(nombre(y)));
+    return suyas.length ? `<optgroup label="${h(titulo)}">${suyas.map(b =>
+      `<option value="${h(b)}">${h(nombre(b))}</option>`).join('')}</optgroup>` : '';
+  }).join('');
+  _campBases = bases;
   if(!_campActual && comps.length){
     // Por defecto, el campeonato (no torneo) que se jugó más recientemente
     _campActual = (comps.find(c=>c.nombre.startsWith('Campeonato'))||comps[0]).id;
   }
-  if(_campActual) sel.value = _campActual;
+  if(_campActual) sincronizarFiltrosCamp(_campActual);
+}
+
+let _campBases = {};
+
+// Pone los dos filtros (competición y año) en la competición id
+function sincronizarFiltrosCamp(id){
+  const comp = CAT_COMPETICIONES[id];
+  const sel = document.getElementById('campSel'), anio = document.getElementById('campAnio');
+  if(!comp || !sel) return;
+  const base = baseComp(comp.nombre);
+  sel.value = base;
+  if(anio){
+    const lista = (_campBases[base] || []).slice().sort((a,b) => anioComp(b.nombre).localeCompare(anioComp(a.nombre)));
+    anio.innerHTML = lista.map(c => `<option value="${c.id}">${anioComp(c.nombre) || '—'}</option>`).join('');
+    anio.value = comp.id;
+    anio.disabled = lista.length < 2;
+  }
+}
+
+// Al elegir competición: su año más reciente
+function elegirCompeticion(base){
+  const lista = (_campBases[base] || []).slice().sort((a,b) => anioComp(b.nombre).localeCompare(anioComp(a.nombre)));
+  if(lista.length) renderCampeonato(lista[0].id);
 }
 
 // Campeones: ganadores de la final (si la conocemos). Si la final se ha
@@ -477,7 +509,7 @@ function renderCampeonato(id){
   const comp = CAT_COMPETICIONES[id] || CAT_COMPETICIONES[_campActual];
   if(!comp){ cont.innerHTML = `<div class="nodata">${tx('Sin competiciones','Txapelketarik ez')}</div>`; return; }
   _campActual = comp.id;
-  document.getElementById('campSel').value = comp.id;
+  sincronizarFiltrosCamp(comp.id);
   // Sustituye la entrada del historial: así "atrás" vuelve a la sección anterior
   setHash('#/campeonato/'+comp.id, true);
 
