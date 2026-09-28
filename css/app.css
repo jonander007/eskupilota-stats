@@ -906,10 +906,15 @@ header :focus-visible{outline-color:#fff;}
 .site-footer .app-instalar,.site-footer .app-apk{background:none;border:none;padding:0;margin-left:1rem;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer;}
 [hidden]{display:none !important;}
 .pf-top{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;flex-wrap:wrap;}
-.btn-ficha{margin-left:auto;display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:.55rem 1rem;font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;transition:all .15s;}
+.pf-acciones{margin-left:auto;display:flex;gap:.5rem;flex-wrap:wrap;}
+.btn-seguir{display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);color:#b8860b;border:1.5px solid #d4a017;border-radius:999px;padding:.55rem 1rem;font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;transition:all .15s;}
+.btn-seguir svg{width:16px;height:16px;}
+.btn-seguir.on{background:#d4a017;color:#fff;}
+.btn-seguir.on svg{fill:currentColor;}
+.btn-ficha{display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);color:var(--green);border:1.5px solid var(--green);border-radius:999px;padding:.55rem 1rem;font-family:var(--sans);font-weight:700;font-size:.8rem;cursor:pointer;transition:all .15s;}
 .btn-ficha:hover{background:var(--green);color:var(--on-green);}
 .btn-ficha svg{width:16px;height:16px;}
-@media(max-width:600px){.btn-ficha{margin-left:0;width:100%;justify-content:center;}}
+@media(max-width:600px){.pf-acciones{margin-left:0;width:100%;}.btn-ficha,.btn-seguir{flex:1;justify-content:center;}}
 
 /* ── Ranking: tabla ordenable, títulos y gráfico Elo ── */
 .rk-tabla td{white-space:nowrap;}
@@ -935,3 +940,21 @@ header :focus-visible{outline-color:#fff;}
 @media (prefers-color-scheme: dark){
   #frontonMap .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6);}
 }
+
+/* Palmarés en el perfil */
+.pf-palm-cifras{display:flex;gap:1.5rem;flex-wrap:wrap;margin:.2rem 0 .6rem;}
+.pf-palm-cifras div{display:flex;flex-direction:column;}
+.pf-palm-cifras b{font-family:var(--display);font-size:1.9rem;line-height:1;color:var(--green);}
+.pf-palm-cifras span{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:.2rem;}
+.pf-palm-chips{margin-bottom:.4rem;}
+.rk-txapela.fin{color:var(--muted);border-color:var(--border);}
+
+/* Pelotaris seguidos en la cartelera */
+.cart-seg{border:1.5px solid #d4a017;background:color-mix(in srgb,#d4a017 7%,var(--surface));border-radius:var(--r-md,12px);padding:.8rem 1rem;margin-bottom:1rem;font-size:.8rem;}
+.cart-seg-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;margin-bottom:.5rem;}
+.cart-seg-head .btn-ghost{margin-left:auto;}
+.cart-seg-ok{margin-left:auto;font-size:.72rem;color:var(--green);font-weight:600;}
+.cart-seg-fila{display:flex;flex-wrap:wrap;gap:.2rem .8rem;padding:.35rem 0;border-top:1px solid var(--border);}
+.cart-seg-fecha{font-family:var(--mono);font-size:.66rem;font-weight:600;color:var(--green);min-width:8.5rem;}
+.cart-seg-tip{font-size:.74rem;color:var(--muted);margin-bottom:.8rem;}
+.cart-seguido{color:#d4a017;font-size:.9rem;line-height:1;}

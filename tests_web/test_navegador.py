@@ -193,6 +193,35 @@ class Web(unittest.TestCase):
         pg.click('.an-fr-mas')
         self.assertEqual(visibles(), filas.count())
 
+    def test_palmares_en_el_perfil(self):
+        pg = self.pagina('#/pelotari/laso')
+        self.assertTrue(pg.locator('.pf-palmares').is_visible())
+        txapelas = int(pg.locator('.pf-palm-cifras b').first.inner_text())
+        self.assertGreaterEqual(txapelas, 2)
+        self.assertEqual(pg.locator('.pf-palmares .rk-txapela.camp, .pf-palmares .rk-txapela.torn').count(), txapelas)
+
+    def test_seguir_pelotari_y_cartelera(self):
+        pg = self.pagina('#/cartelera')
+        pg.wait_for_selector('.cart-evento')
+        self.assertTrue(pg.locator('.cart-seg-tip').is_visible())
+        # Un pelotari que está en la cartelera
+        nombre = pg.evaluate('''() => { for(const ev of _CART_EVENTOS) for(const p of ev.partidos||[])
+            for(const n of [...(p.eq1||[]), ...(p.eq2||[])]){ const r = resolverPelotari(n); if(r) return r; } return null; }''')
+        self.assertIsNotNone(nombre)
+        pg.evaluate(f"goToPel({nombre!r})")
+        pg.wait_for_selector('#btnSeguir')
+        pg.wait_for_timeout(200)
+        pg.click('#btnSeguir')
+        self.assertEqual(pg.get_attribute('#btnSeguir', 'aria-pressed'), 'true')
+        pg.evaluate("goToNav('cartelera')")
+        pg.wait_for_selector('.cart-seg')
+        self.assertGreater(pg.locator('.cart-seg-fila').count(), 0)
+        self.assertGreater(pg.locator('.cart-seguido').count(), 0)
+        # Se guarda en el navegador y se deja de seguir
+        self.assertIn(nombre, pg.evaluate('seguidos()'))
+        pg.evaluate(f"toggleSeguir({nombre!r})")
+        self.assertEqual(pg.evaluate('seguidos()'), [])
+
     def test_ficha_jpg_con_el_filtro(self):
         pg = self.pagina('#/pelotari/laso', descargas=True)
         with pg.expect_download() as d:

@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=24">
+<link rel="stylesheet" href="css/app.css?v=25">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -195,11 +195,18 @@
     <div class="pf-top">
       <button class="btn" id="btnVolver" onclick="closePerfil()" data-i18n="lbl_volver">← Volver</button>
       <div class="sec-title" style="margin:0;border:none;padding:0;" id="perfilTitle"></div>
-      <!-- Ficha en JPG con el filtro aplicado -->
-      <button class="btn-ficha" onclick="descargarFicha(_perfilNombre)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span data-i18n="btn_ficha">Descargar ficha</span>
-      </button>
+      <div class="pf-acciones">
+        <!-- Seguir: sus partidos se destacan en la cartelera y llega un aviso -->
+        <button class="btn-seguir" id="btnSeguir" onclick="toggleSeguir(_perfilNombre)" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Seguir</span>
+        </button>
+        <!-- Ficha en JPG con el filtro aplicado -->
+        <button class="btn-ficha" onclick="descargarFicha(_perfilNombre)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="btn_ficha">Descargar ficha</span>
+        </button>
+      </div>
     </div>
     <div class="pfwrap" id="pfWrap"></div>
   </div>
@@ -409,8 +416,8 @@
 
 </main>
 <footer class="site-footer"><a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=24"></script>
-<script src="js/analisis.js?v=24"></script>
+<script src="js/app.js?v=25"></script>
+<script src="js/analisis.js?v=25"></script>
 <script>loadData();</script>
 
 <script>
