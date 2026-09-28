@@ -83,12 +83,16 @@ def importar(rutas, dry):
         if not comp:
             print('   !! no sé a qué competición corresponde; se salta')
             continue
+        # Se trabaja sobre una copia: si la ficha no cuadra con lo que tenemos,
+        # se descarta entera
+        copia = json.loads(json.dumps(partidos))
+        partidos_orig, partidos = partidos, copia
         mod = next(v for k, v in MODALIDAD.items() if f'Campeonato {k} ' in comp)
         serie = comp.split(' Serie ')[1][0]
         tipo = _tipo(mod, 'campeonato', serie)
         comp_id = cats.get_or_create_competicion(comp, tipo)
         confirmados = set()
-        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0}
+        n = {'fase': 0, 'movido': 0, 'nuevo': 0, 'tanteo': 0, 'sustitucion': 0, 'sin_fronton': 0}
 
         for h in hist['partidos']:
             iso = f"{h['fecha'][6:]}-{h['fecha'][3:5]}-{h['fecha'][:2]}"
@@ -141,6 +145,10 @@ def importar(rutas, dry):
                 if antes != (mio['fase'], mio.get('grupo'), None):
                     n['fase'] += 1
                 confirmados.add(id(mio))
+            elif not h['fronton'].strip(' -'):
+                n['sin_fronton'] += 1
+                print(f"   · sin frontón en el historial, no se añade: {h['fecha']} "
+                      f"{' / '.join(h['equipo1'])} {h['puntos1']}-{h['puntos2']} {' / '.join(h['equipo2'])}")
             elif sustitucion:
                 # No sabemos quién jugó en lugar del anunciado: no se añade
                 n['sustitucion'] += 1
@@ -176,8 +184,14 @@ def importar(rutas, dry):
                 quitadas += 1
         sobran = [p for p in partidos if p['competicion_id'] == comp_id and id(p) not in confirmados]
         for p in sobran:
-            e = lambda k: ' / '.join(nombre_pel.get(x, '?') for x in (p[k].get('del_id'), p[k].get('zag_id')) if x)
-            print(f"   ? no está en el historial: {p['fecha']} {e('equipo1')} {p['puntos1']}-{p['puntos2']} {e('equipo2')}")
+            print(f"   ? no está en el historial: {p['fecha']} {texto(p)}")
+        nuestros = sum(1 for p in partidos_orig if p['competicion_id'] == comp_id)
+        if nuestros >= 10 and len(sobran) > 0.25 * nuestros:
+            print(f"   !! {len(sobran)} de nuestros {nuestros} partidos no están en esta ficha: no cuadra, "
+                  f"no se aplica (revisar a mano)")
+            partidos = partidos_orig
+            resumen.append((comp + ' [NO APLICADO]', n, quitadas, len(sobran)))
+            continue
         resumen.append((comp, n, quitadas, len(sobran)))
 
     partidos.sort(key=lambda p: p['fecha'], reverse=True)
@@ -185,7 +199,8 @@ def importar(rutas, dry):
     for comp, n, quitadas, sobran in resumen:
         print(f"  {comp}: {n['fase']} fases puestas, {n['nuevo']} partidos nuevos, {n['movido']} cambiados "
               f"de competición, {quitadas} fases deducidas quitadas, {n['tanteo']} tanteos distintos, "
-              f"{n['sustitucion']} con sustitución sin emparejar, {sobran} partidos nuestros que no están en el historial")
+              f"{n['sustitucion']} con sustitución sin emparejar, {n['sin_fronton']} sin frontón, "
+              f"{sobran} partidos nuestros que no están en el historial")
     if dry:
         print('\n[--dry-run] No se ha escrito nada.')
         return
