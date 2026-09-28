@@ -53,7 +53,7 @@ def destino_torneo(hist, competiciones, partidos):
     if not base:
         return None
     ult = max(hist['partidos'], key=lambda p: p['fecha'][-4:] + p['fecha'][3:5] + p['fecha'][:2])
-    r = clasificar_partido(hist['titulo'], ult['fecha'], len(ult['equipo1']) > 1)
+    r = clasificar_partido(hist['titulo'], ult['fecha'], any(len(h['equipo1']) > 1 for h in hist['partidos']))
     anio = ult['fecha'][-4:]
     cuatro = r['modalidad'] == 'cuatro'
     # Los nombres de los torneos han cambiado con los años ('Torneo San
@@ -120,6 +120,9 @@ def importar(rutas, dry):
             continue
         if not comp:
             print('   !! no sé a qué competición corresponde; se salta')
+            continue
+        if max(max(h['puntos1'], h['puntos2']) for h in hist['partidos']) < 10:
+            print('   !! se juega a sets (2-1, 0-2...), no a tantos; se salta')
             continue
         # Se trabaja sobre una copia: si la ficha no cuadra con lo que tenemos,
         # se descarta entera
