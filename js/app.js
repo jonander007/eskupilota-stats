@@ -1855,11 +1855,19 @@ function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
   return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${renderMobileCardsHTML(partidos, {paginated:true, initial:5, step:5})}</div>`;
 }
 
-// Partidos en los que jugaron exactamente 3 de los 4 pelotaris elegidos
+// Partidos con 3 de los 4 pelotaris elegidos: una de las dos parejas juega
+// junta tal cual y enfrente está el delantero o el zaguero de la otra (no los
+// dos). No cuentan los partidos con los tres repartidos de otra manera
+// (p. ej. un pelotari de cada pareja jugando juntos).
 function c4TresDeCuatro(cuatro, partsBase){
+  const [d1,z1,d2,z2]=cuatro;
+  const juntos=(e,a,b)=>e.includes(a)&&e.includes(b);
+  const uno=(e,a,b)=>e.includes(a)!==e.includes(b);
+  const vale=(eA,eB)=>(juntos(eA,d1,z1)&&uno(eB,d2,z2)&&!eA.includes(d2)&&!eA.includes(z2)) ||
+                      (juntos(eA,d2,z2)&&uno(eB,d1,z1)&&!eA.includes(d1)&&!eA.includes(z1));
   return partsBase.filter(p=>{
-    const js=[...pels(p.equipo1),...pels(p.equipo2)];
-    return cuatro.filter(n=>js.includes(n)).length===3;
+    const e1=pels(p.equipo1), e2=pels(p.equipo2);
+    return vale(e1,e2)||vale(e2,e1);
   });
 }
 

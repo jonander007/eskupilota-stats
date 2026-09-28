@@ -128,6 +128,19 @@ class Web(unittest.TestCase):
         self.assertIn('3', ultimo.locator('.c4-bloque-title').inner_text())
         self.assertGreater(ultimo.locator('.twrap tbody tr').count(), 0)
         self.assertTrue(ultimo.locator('.c4-sin-chip').count() >= 2)
+        # Siempre una de las parejas completa y enfrente uno de la otra: no vale
+        # Ezkurdia / Iztueta contra Elordi / Albisu para Ezkurdia-Albisu vs Zabala-Iztueta
+        ok = pg.evaluate('''() => {
+          const cuatro = ['EZKURDIA','ALBISU','ZABALA','IZTUETA'];
+          const ps = c4TresDeCuatro(cuatro, PARTIDOS);
+          const mal = ps.filter(p => {
+            const a = pels(p.equipo1), b = pels(p.equipo2);
+            const par = (e,x,y) => e.includes(x) && e.includes(y);
+            return !(par(a,'EZKURDIA','ALBISU') || par(b,'EZKURDIA','ALBISU') || par(a,'ZABALA','IZTUETA') || par(b,'ZABALA','IZTUETA'));
+          });
+          return [ps.length, mal.length];
+        }''')
+        self.assertEqual(ok[1], 0)
 
     # ── Campeonatos ──
     def test_campeonato_con_cuadro_de_eliminatorias(self):
