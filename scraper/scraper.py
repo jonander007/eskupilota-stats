@@ -173,6 +173,11 @@ FRONTON_ALIAS = {
     'ZUMARRAGA':                'BELOKI',
     'DURANGO':                  'EZKURDI',
     'KURUTZIAGA':               'EZKURDI',
+    'BILBAO':                   'BIZKAIA FRONTOIA',
+    'GETARIA':                  'SAHATSAGA',
+    'MUNGIA':                   'TROBIKA',
+    'EZCARAY':                  'DARÍO GÓMEZ GIL',
+    'AZKOITIA':                 'GUREA',
 }
 
 FRONTON_CIUDAD_FIJA = {
