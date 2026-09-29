@@ -51,6 +51,7 @@ TXT = {
         'companeros': 'Compañeros más habituales', 'frontones': 'Frontones donde más ha jugado',
         'pj': 'PJ', 'ficha': 'Ver la ficha completa: gráficos, comparador y cara a cara →',
         'actualizado': 'Datos actualizados el {f}. Fuente: resultados de Baiko Pilota y Aspe.',
+        'derechos': '© 2022-2026 EskupilotaStats · Todos los derechos reservados',
         'todos': 'Todos los pelotaris', 'indice_titulo': 'Pelotaris: estadísticas de pelota a mano | EskupilotaStats',
         'indice_desc': 'Estadísticas de los {n} pelotaris profesionales de pelota a mano: partidos, victorias, Elo y palmarés.',
         'indice_h1': 'Pelotaris', 'festival': 'Festival', 'otro_idioma': 'Euskaraz', 'inicio': 'Inicio',
@@ -71,6 +72,7 @@ TXT = {
         'companeros': 'Bikotekide ohikoenak', 'frontones': 'Gehien jokatu duen frontoiak',
         'pj': 'PJ', 'ficha': 'Fitxa osoa ikusi: grafikoak, konparatzailea eta aurrez aurrekoak →',
         'actualizado': 'Datuak {f}an eguneratuak. Iturria: Baiko Pilota eta Aspe-ren emaitzak.',
+        'derechos': '© 2022-2026 EskupilotaStats · Eskubide guztiak erreserbatuta',
         'todos': 'Pilotari guztiak', 'indice_titulo': 'Pilotariak: esku pilotako estatistikak | EskupilotaStats',
         'indice_desc': 'Esku pilotako {n} pilotari profesionalen estatistikak: partidak, garaipenak, Elo eta palmaresa.',
         'indice_h1': 'Pilotariak', 'festival': 'Jaialdia', 'otro_idioma': 'En castellano', 'inicio': 'Hasiera',
@@ -360,7 +362,7 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
 {f'<section class="card"><h2>{T["companeros"]}</h2><div class="tw"><table><thead><tr>{th}</tr></thead><tbody>{comps}</tbody></table></div></section>' if comps else ''}
 <section class="card"><h2>{T['frontones']}</h2><div class="tw"><table><thead><tr>{th}</tr></thead><tbody>{frons}</tbody></table></div></section>
 </div>
-<footer>{T['actualizado'].format(f=hoy)}</footer>
+<footer>{T['actualizado'].format(f=hoy)}<br>{T['derechos']}</footer>
 </main>
 </body>
 </html>
@@ -379,7 +381,7 @@ def pagina_indice(st, lang, elo, slugs, hoy):
 <h1>{T['indice_h1']}</h1>
 <p class="sub">{T['indice_desc'].format(n=len(st))}</p>
 <section class="card"><ul class="lista">{items}</ul></section>
-<footer>{T['actualizado'].format(f=hoy)}</footer>
+<footer>{T['actualizado'].format(f=hoy)}<br>{T['derechos']}</footer>
 </main>
 </body>
 </html>
