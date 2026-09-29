@@ -1003,3 +1003,5 @@ header :focus-visible{outline-color:#fff;}
 .pf-nombre-fila #perfilTitle{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .btn-filtrar{flex-shrink:0;}
 @media(max-width:480px){.btn-filtrar-txt{display:none;}.btn-filtrar{padding:.5rem .6rem;}}
+
+.site-footer .derechos{display:block;margin-bottom:.4rem;font-size:.68rem;color:var(--muted);}
