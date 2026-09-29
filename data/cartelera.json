@@ -1,45 +1,11 @@
 {
-  "actualizado": "28/09/2026 02:38",
+  "actualizado": "29/09/2026 03:20",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "27/09/2026",
-      "hora": "18:00",
-      "fronton": "Txomiñenea",
-      "ciudad": "Astigarraga",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA"
-      ],
-      "precio": "0",
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "BIKUÑA"
-          ],
-          "raw": "PEÑA II – LIZEAGA // APEZETXEA II – BIKUÑA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "02/10/2026",
       "hora": "18:30",
@@ -685,10 +651,63 @@
     },
     {
       "fecha": "16/10/2026",
+      "hora": "19:30",
+      "fronton": "Bear Zana",
+      "ciudad": "Villabona",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX – LANDA // XX – GABIRONDO"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021280/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "LANDA"
+          ],
+          "eq2": [
+            "?",
+            "GABIRONDO"
+          ],
+          "raw": "XX – LANDA // XX – GABIRONDO",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "16/10/2026",
       "hora": "21:00",
       "fronton": "Amorebieta IV",
       "ciudad": "Amorebieta IV",
-      "fase": "Cuartos de final (1ª Jornada)",
+      "fase": "Final laurdenak (1.Jardunaldia)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX // XX (Serie B)",
@@ -927,6 +946,77 @@
           "serie": "a",
           "fase": "cuartos",
           "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "23/10/2026",
+      "hora": "20:00",
+      "fronton": "Ereta",
+      "ciudad": "Tafalla",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – XX // XX – XX"
+      ],
+      "precio": "30.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021336/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         },
         {
