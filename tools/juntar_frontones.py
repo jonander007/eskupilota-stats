@@ -82,6 +82,12 @@ JUNTAR = {
     # Durango: todo es Ezkurdi
     'DURANGO': 'EZKURDI',
     'KURUTZIAGA': 'EZKURDI',
+    # Pueblos con varios frontones: el genérico es este
+    'BILBAO': 'BIZKAIA FRONTOIA',
+    'GETARIA': 'SAHATSAGA',
+    'MUNGIA': 'TROBIKA',
+    'EZCARAY': 'DARÍO GÓMEZ GIL',
+    'AZKOITIA': 'GUREA',
 }
 
 
