@@ -1,5 +1,5 @@
 {
-  "actualizado": "29/09/2026 03:20",
+  "actualizado": "30/09/2026 03:03",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -82,10 +82,9 @@
       "hora": "21:00",
       "fronton": "Navarra Arena",
       "ciudad": "Iruñea/Pamplona",
-      "fase": "Elección ⚾ Aukeraketa 2026/09/29 - 12:00",
+      "fase": "Semifinales",
       "competicion": null,
       "cartel": [
-        "Semifinales",
         "Masters CaixaBank",
         "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
         "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)"
@@ -109,7 +108,8 @@
           "competicion": "Masters CaixaBank Serie A 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
-          "serie": "a"
+          "serie": "a",
+          "fase": "semifinal"
         },
         {
           "eq1": [
@@ -125,7 +125,8 @@
           "competicion": "Masters CaixaBank Serie A 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
-          "serie": "a"
+          "serie": "a",
+          "fase": "semifinal"
         }
       ],
       "fuente": "baiko"
@@ -243,7 +244,7 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "XX – XX // XX – XX",
+        "DARÍO – XX // LARRAZABAL – IMAZ",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "20.00",
@@ -253,14 +254,14 @@
       "partidos": [
         {
           "eq1": [
-            "?",
+            "DARÍO",
             "?"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "DARÍO – XX // LARRAZABAL – IMAZ",
           "tipo": "campeonato-a",
           "competicion": "Masters CaixaBank Serie A 2026",
           "modalidad": "parejas",
@@ -983,6 +984,77 @@
       "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021336/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "24/10/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – XX // XX – XX"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
       "tv": false,
       "partidos": [
         {
