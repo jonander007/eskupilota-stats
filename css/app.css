@@ -1005,3 +1005,10 @@ header :focus-visible{outline-color:#fff;}
 @media(max-width:480px){.btn-filtrar-txt{display:none;}.btn-filtrar{padding:.5rem .6rem;}}
 
 .site-footer .derechos{display:block;margin-bottom:.4rem;font-size:.68rem;color:var(--muted);}
+
+/* Nota discreta sobre desde cuándo hay datos */
+.nota-datos{margin:0 auto .5rem;max-width:34rem;color:var(--muted);font-size:.68rem;}
+.nota-datos summary{cursor:pointer;display:inline-block;list-style:none;}
+.nota-datos summary::-webkit-details-marker{display:none;}
+.nota-datos summary:hover{color:var(--green);}
+.nota-datos p{margin:.4rem 0 0;line-height:1.4;}

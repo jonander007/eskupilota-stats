@@ -215,7 +215,7 @@ function htmlPalmares(nombre, parts){
     </div>
     ${pa.ganadas.length ? `<div class="an-sub">${tx('Campeón','Txapelduna')}</div><div class="pf-palm-chips">${pa.ganadas.map(p => chip(p, true)).join('')}</div>` : ''}
     ${pa.perdidas.length ? `<div class="an-sub">${tx('Finalista','Finalista')}</div><div class="pf-palm-chips">${pa.perdidas.map(p => chip(p, false)).join('')}</div>` : ''}
-    <p class="an-nota">${tx('Según los filtros de arriba. Solo cuentan las competiciones con la final registrada.','Goiko iragazkien arabera. Finala erregistratuta duten lehiaketak bakarrik.')}</p>
+    <p class="an-nota">${tx('Según los filtros de arriba. Solo cuentan las competiciones con la final registrada, desde noviembre de 2022.','Goiko iragazkien arabera. Finala erregistratuta duten lehiaketak bakarrik, 2022ko azarotik aurrera.')}</p>
   </div>`;
 }
 
@@ -589,8 +589,8 @@ function htmlRankingTitulos(parts, activos){
   if(!filas.length) return `<div class="nodata"><div class="ic">🏆</div>${tx('No hay finales de campeonato o torneo con estos filtros.','Ez dago txapelketa edo torneo finalik iragazki hauekin.')}</div>`;
   const chip = p => `<span class="rk-txapela ${p.categoria==='campeonato'?'camp':'torn'}" title="${h(tComp(p.competicion))} · ${p.fecha}">${h(nombreCortoComp(p.competicion))}</span>`;
   return `<div class="ch-card">
-    <p class="an-nota">${tx('Finales de campeonatos (verde) y torneos (azul) ganadas por cada pelotari. Solo cuentan las competiciones con la final registrada.',
-      'Pilotari bakoitzak irabazitako txapelketa (berdea) eta torneo (urdina) finalak. Finala erregistratuta duten lehiaketak bakarrik.')}</p>
+    <p class="an-nota">${tx('Finales de campeonatos (verde) y torneos (azul) ganadas por cada pelotari. Solo cuentan las competiciones con la final registrada, desde noviembre de 2022.',
+      'Pilotari bakoitzak irabazitako txapelketa (berdea) eta torneo (urdina) finalak. Finala erregistratuta duten lehiaketak bakarrik, 2022ko azarotik aurrera.')}</p>
     <div class="an-table-wrap"><table class="comp-table rk-tabla">
       <thead><tr><th class="an-num">#</th><th>${tx('Pelotari','Pilotaria')}</th>
         <th class="an-num" title="${tx('Finales ganadas','Irabazitako finalak')}">🏆</th>
