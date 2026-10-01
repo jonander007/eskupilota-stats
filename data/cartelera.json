@@ -1,5 +1,5 @@
 {
-  "actualizado": "30/09/2026 03:03",
+  "actualizado": "01/10/2026 03:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -92,7 +92,7 @@
       "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924142/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
@@ -136,10 +136,9 @@
       "hora": "17:15",
       "fronton": "Mimetiz",
       "ciudad": "Zalla",
-      "fase": "Elección ⚾ Aukeraketa 2026/09/30 - 12:00",
+      "fase": "Final",
       "competicion": null,
       "cartel": [
-        "Final",
         "Masters CaixaBank",
         "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
         "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)"
@@ -163,7 +162,8 @@
           "competicion": "Masters CaixaBank Serie B 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
-          "serie": "b"
+          "serie": "b",
+          "fase": "final"
         },
         {
           "eq1": [
@@ -179,7 +179,8 @@
           "competicion": "Masters CaixaBank Serie B 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
-          "serie": "b"
+          "serie": "b",
+          "fase": "final"
         }
       ],
       "fuente": "baiko"
