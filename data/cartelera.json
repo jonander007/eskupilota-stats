@@ -1,170 +1,11 @@
 {
-  "actualizado": "03/10/2026 02:57",
+  "actualizado": "04/10/2026 03:26",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "02/10/2026",
-      "hora": "21:00",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Semifinales",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
-        "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924142/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ARTOLA – REZUSTA // ELORDI – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Masters CaixaBank Serie A 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "a",
-          "fase": "semifinal"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ZABALA",
-            "IZTUETA"
-          ],
-          "raw": "EZKURDIA – ALBISU // ZABALA – IZTUETA (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Masters CaixaBank Serie A 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "a",
-          "fase": "semifinal"
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "03/10/2026",
-      "hora": "17:15",
-      "fronton": "Mimetiz",
-      "ciudad": "Zalla",
-      "fase": "Final",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
-        "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2966471/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "PEÑA II",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "MARTIJA"
-          ],
-          "raw": "PEÑA II – MORGAETXEBARRIA // REKALDE – MARTIJA",
-          "tipo": "campeonato-b",
-          "competicion": "Masters CaixaBank Serie B 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "b",
-          "fase": "final"
-        },
-        {
-          "eq1": [
-            "JAKA",
-            "ESKUZA"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA",
-            "LANDA"
-          ],
-          "raw": "JAKA – ESKUZA // P.ETXEBERRIA – LANDA (Serie B)",
-          "tipo": "campeonato-b",
-          "competicion": "Masters CaixaBank Serie B 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "b",
-          "fase": "final"
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "03/10/2026",
-      "hora": "18:00",
-      "fronton": "La Juventud",
-      "ciudad": "Soria",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "SENAR – GABIRONDO // AMIANO – LOZA",
-        "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014574/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "GABIRONDO"
-          ],
-          "eq2": [
-            "AMIANO",
-            "LOZA"
-          ],
-          "raw": "SENAR – GABIRONDO // AMIANO – LOZA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "ALBISU o IZTUETA"
-          ],
-          "eq2": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "raw": "DARÍO – ALBISU o IZTUETA // ALTUNA III – IMAZ",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "04/10/2026",
       "hora": "17:15",
@@ -174,8 +15,8 @@
       "competicion": null,
       "cartel": [
         "Masters CaixaBank",
-        "DARÍO – XX // LARRAZABAL – IMAZ",
-        "XX – XX // XX – XX (Serie A)"
+        "DARÍO – REZUSTA // LARRAZABAL – IMAZ",
+        "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -185,38 +26,36 @@
         {
           "eq1": [
             "DARÍO",
-            "?"
+            "REZUSTA"
           ],
           "eq2": [
             "LARRAZABAL",
             "IMAZ"
           ],
-          "raw": "DARÍO – XX // LARRAZABAL – IMAZ",
+          "raw": "DARÍO – REZUSTA // LARRAZABAL – IMAZ",
           "tipo": "campeonato-a",
           "competicion": "Masters CaixaBank Serie A 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
           "serie": "a",
-          "fase": "final",
-          "pendiente": true
+          "fase": "final"
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "EZKURDIA",
+            "ALBISU"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ELORDI",
+            "MARIEZKURRENA II"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Masters CaixaBank Serie A 2026",
           "modalidad": "parejas",
           "categoria": "torneo",
           "serie": "a",
-          "fase": "final",
-          "pendiente": true
+          "fase": "final"
         }
       ],
       "fuente": "baiko"
@@ -280,8 +119,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie B)",
+        "AGIRRE // XX (Serie B)",
+        "BAKAIKOA // XX (Serie B)",
         "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II"
       ],
       "precio": "20.00",
@@ -291,12 +130,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "AGIRRE"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "AGIRRE // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -307,12 +146,12 @@
         },
         {
           "eq1": [
-            "?"
+            "BAKAIKOA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "BAKAIKOA // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -349,7 +188,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "ZABALA – BIKUÑA // AMIANO – IMAZ",
-        "XX // XX (Serie A)"
+        "ELORDI // XX (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -374,12 +213,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ELORDI"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ELORDI // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -399,8 +238,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "SALABERRIA // XX (Serie B)",
+        "LASO // XX (Serie A)",
         "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
       ],
       "precio": "20.00",
@@ -410,12 +249,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "SALABERRIA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "SALABERRIA // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -426,12 +265,12 @@
         },
         {
           "eq1": [
-            "?"
+            "LASO"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "LASO // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -468,7 +307,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "XX // XX",
+        "DARÍO // XX",
         "(Serie A)"
       ],
       "precio": "30.00",
@@ -494,12 +333,12 @@
         },
         {
           "eq1": [
-            "?"
+            "DARÍO"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "DARÍO // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -519,8 +358,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "APEZETXEA II // XX (Serie B)",
+        "ARTOLA // XX (Serie A)",
         "XX – ARANGUREN // XX – BIKUÑA"
       ],
       "precio": "25.00",
@@ -530,12 +369,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "APEZETXEA II"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "APEZETXEA II // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -546,12 +385,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ARTOLA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ARTOLA // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
