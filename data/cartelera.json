@@ -1,65 +1,11 @@
 {
-  "actualizado": "04/10/2026 03:26",
+  "actualizado": "05/10/2026 03:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "04/10/2026",
-      "hora": "17:15",
-      "fronton": "Navarra Arena",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Final",
-      "competicion": null,
-      "cartel": [
-        "Masters CaixaBank",
-        "DARÍO – REZUSTA // LARRAZABAL – IMAZ",
-        "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/57620/session/2924165/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IMAZ"
-          ],
-          "raw": "DARÍO – REZUSTA // LARRAZABAL – IMAZ",
-          "tipo": "campeonato-a",
-          "competicion": "Masters CaixaBank Serie A 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "a",
-          "fase": "final"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ELORDI",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "EZKURDIA – ALBISU // ELORDI – MARIEZKURRENA II (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Masters CaixaBank Serie A 2026",
-          "modalidad": "parejas",
-          "categoria": "torneo",
-          "serie": "a",
-          "fase": "final"
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "06/10/2026",
       "hora": "17:30",
@@ -68,7 +14,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
+        "ALBERDI II – GASKUE // ZUBIZARRETA IV – LIZEAGA",
         "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II"
       ],
       "precio": "25.00",
@@ -78,14 +24,14 @@
       "partidos": [
         {
           "eq1": [
-            "PEÑA II",
-            "LIZEAGA"
-          ],
-          "eq2": [
             "ALBERDI II",
             "GASKUE"
           ],
-          "raw": "PEÑA II – LIZEAGA // ALBERDI II – GASKUE",
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "LIZEAGA"
+          ],
+          "raw": "ALBERDI II – GASKUE // ZUBIZARRETA IV – LIZEAGA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -360,7 +306,7 @@
       "cartel": [
         "APEZETXEA II // XX (Serie B)",
         "ARTOLA // XX (Serie A)",
-        "XX – ARANGUREN // XX – BIKUÑA"
+        "XX – UGARTEMENDIA // XX – BIKUÑA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -402,13 +348,13 @@
         {
           "eq1": [
             "?",
-            "ARANGUREN"
+            "UGARTEMENDIA"
           ],
           "eq2": [
             "?",
             "BIKUÑA"
           ],
-          "raw": "XX – ARANGUREN // XX – BIKUÑA",
+          "raw": "XX – UGARTEMENDIA // XX – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",

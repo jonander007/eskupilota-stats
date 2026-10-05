@@ -122,7 +122,7 @@
 {"id":"FRO146","nombre":"MIMETIZ","ciudad_id":"CIU141","lat":43.2203,"lon":-3.142,"partidos_count":15,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20MIMETIZ"},
 {"id":"FRO148","nombre":"MUNITIBAR","ciudad_id":"CIU105","lat":43.2961,"lon":-2.6267,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20MUNITIBAR"},
 {"id":"FRO149","nombre":"MURUETA","ciudad_id":"CIU106","lat":43.3736,"lon":-2.6722,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20MURUETA"},
-{"id":"FRO152","nombre":"NAVARRA ARENA","ciudad_id":"CIU118","lat":42.7953,"lon":-1.6384,"partidos_count":39,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"},
+{"id":"FRO152","nombre":"NAVARRA ARENA","ciudad_id":"CIU118","lat":42.7953,"lon":-1.6384,"partidos_count":41,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"},
 {"id":"FRO229","nombre":"NEPAS","ciudad_id":"CIU158","lat":41.5264,"lon":-2.3987,"partidos_count":1},
 {"id":"FRO151","nombre":"NÁJERA","ciudad_id":"CIU108","lat":42.4182,"lon":-2.7287,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20N%C3%81JERA"},
 {"id":"FRO153","nombre":"OGUETA","ciudad_id":"CIU139","lat":42.8469,"lon":-2.6731,"partidos_count":83,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"},
