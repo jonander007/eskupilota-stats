@@ -1,8 +1,14 @@
 name: 🤖 Actualizar datos diarios
 
+# A las 00:00 y a las 12:00 de España. GitHub solo entiende la hora UTC y
+# España cambia de hora (UTC+2 en verano, UTC+1 en invierno): se programan las
+# dos posibilidades y el trabajo «hora» deja seguir solo la que toca hoy.
 on:
   schedule:
-    - cron: '1 0 * * *'   # cada día a las 00:01 UTC
+    - cron: '1 22 * * *'   # 00:01 en verano
+    - cron: '1 10 * * *'   # 12:01 en verano
+    - cron: '1 23 * * *'   # 00:01 en invierno
+    - cron: '1 11 * * *'   # 12:01 en invierno
   workflow_dispatch:        # también se puede lanzar manualmente desde GitHub
 
 # Nunca dos ejecuciones a la vez: evita conflictos al hacer push
@@ -11,7 +17,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  hora:
+    runs-on: ubuntu-latest
+    outputs:
+      toca: ${{ steps.comprobar.outputs.toca }}
+    steps:
+      - name: ¿Es la hora de España que toca?
+        id: comprobar
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "toca=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          desfase=$(TZ=Europe/Madrid date +%z)   # +0200 en verano, +0100 en invierno
+          case "$desfase|${{ github.event.schedule }}" in
+            "+0200|1 22 * * *"|"+0200|1 10 * * *"|"+0100|1 23 * * *"|"+0100|1 11 * * *") toca=1 ;;
+            *) toca=0 ;;
+          esac
+          echo "Desfase $desfase, programación '${{ github.event.schedule }}' -> toca=$toca"
+          echo "toca=$toca" >> "$GITHUB_OUTPUT"
+
   scrape:
+    needs: hora
+    if: needs.hora.outputs.toca == '1'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -62,7 +87,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Sin cambios en los datos"
           else
-            git commit -m "🤖 Actualizar datos - $(date +'%d/%m/%Y')"
+            git commit -m "🤖 Actualizar datos - $(TZ=Europe/Madrid date +'%d/%m/%Y %H:%M')"
             git push
           fi
 
