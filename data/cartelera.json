@@ -1,5 +1,5 @@
 {
-  "actualizado": "05/10/2026 03:05",
+  "actualizado": "06/10/2026 03:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -191,7 +191,7 @@
       "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
