@@ -348,6 +348,24 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_duelo_individual_desde_la_cartelera(self):
+        pg = self.pagina('#/cartelera')
+        pg.wait_for_timeout(500)
+        i = pg.evaluate('''() => [...document.querySelectorAll('.cart-partido-card')].findIndex(c => {
+            const p = JSON.parse(decodeURIComponent(c.dataset.partido));
+            return (p.modalidad === 'cuatro' || p.modalidad === 'mano') && (p.eq1||[]).length === 1 && (p.eq2||[]).length === 1
+              && resolverPelotari(p.eq1[0]) && resolverPelotari(p.eq2[0]); })''')
+        if i < 0:
+            self.skipTest('No hay partidos individuales en la cartelera ahora mismo')
+        tarjeta = pg.locator('.cart-partido-card').nth(i)
+        # El cara a cara de la tarjeta, si sale, es solo de esa modalidad
+        filas = tarjeta.locator('.an-previa-row .an-prob-l').all_inner_texts()
+        self.assertFalse(any(f.strip() == 'Cara a cara' for f in filas))
+        tarjeta.locator('.cart-partido-equipos').click()
+        pg.wait_for_selector('#h2hRes .duelo')
+        self.assertEqual(pg.evaluate('h2hMod'), 'todas')
+        self.assertTrue(pg.locator('#h2hRes .duelo-general').is_visible())
+
     def test_partido_de_la_cartelera_como_imagen(self):
         pg = self.pagina('#/cartelera', descargas=True)
         pg.wait_for_timeout(500)

@@ -1655,7 +1655,9 @@ function renderH2H(){
 
   const filtroImg = [h2hMod!=='todas'?modLbl:'', h2hSerie!=='todas'?serieLbl:'', activeYearH2H!=='todos'?activeYearH2H:''].filter(Boolean).join(' · ');
   _h2hUltimo = {p1, p2, enfs, filtro: filtroImg || tx('Todos los partidos','Partida guztiak')};
-  el.innerHTML=`
+  const duelo = _h2hContexto && [p1,p2].sort().join('|')===[_h2hContexto.p1,_h2hContexto.p2].sort().join('|')
+    ? htmlDueloIndividual(p1, p2, _h2hContexto) : '';
+  el.innerHTML=duelo+`
     <div class="an-head" style="margin-bottom:.8rem"><div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${nPartidos(enfs.length)}</div>${botonImagen('compartirH2H()')}</div>
     <div class="comp-bar">
       <div><div class="comp-nm" style="color:var(--green)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
@@ -2352,7 +2354,8 @@ function carteleraGoStats(el){
 
 function goToComparadorFromPartido(p){
   const tipo = p.tipo||'campeonato-a';
-  const isMano = tipo.includes('manomanista');
+  // Individual (mano a mano o 4 y medio): al cara a cara con el duelo completo
+  const isMano = tipo.includes('manomanista') || ((p.eq1||[]).filter(Boolean).length===1 && (p.eq2||[]).filter(Boolean).length===1);
   if(p.pendiente){ goToNav('comparador'); return; }
 
   function selOpt(selId, nombre){
@@ -2371,14 +2374,13 @@ function goToComparadorFromPartido(p){
     goToNav('comparador');
     setTimeout(()=>{
       document.querySelector('.ctype-btn[onclick*="h2h"]')?.click();
-      setH2HMod('manomanista');
-      // Determinar serie por el tipo
-      let serie = 'todas';
-      if(tipo.endsWith('-a')) serie='a';
-      else if(tipo.endsWith('-b')) serie='b';
-      else if(tipo.startsWith('festival')) serie='festival';
-      setH2HSerie(serie);
-      selOpt('h2hP1',p1); selOpt('h2hP2',p2);
+      // Arriba los enfrentamientos a 4½ y a mano y la competición; debajo el
+      // cara a cara general (todas las modalidades)
+      const r1 = resolverPelotari(p1) || p1, r2 = resolverPelotari(p2) || p2;
+      _h2hContexto = {p1:r1, p2:r2, modalidad:p.modalidad, competicion:p.competicion};
+      setH2HMod('todas');
+      setH2HSerie('todas');
+      selOpt('h2hP1',r1); selOpt('h2hP2',r2);
       renderH2H();
     },100);
   } else {
