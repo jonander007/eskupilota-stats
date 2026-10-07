@@ -1,25 +1,24 @@
 {
-  "actualizado": "07/10/2026 01:15",
+  "actualizado": "07/10/2026 02:05",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
+    "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
     {
       "fecha": "09/10/2026",
       "hora": "18:00",
-      "fronton": "Villava-Atarrabia",
-      "ciudad": "Villava-Atarrabia",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fronton": "Lorenzo Goikoa",
+      "ciudad": "Atarrabia – Villava",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Agirre // Zubizarreta III",
-        "Eusko Label 4 1/2 Serie B",
-        "Bakaikoa // Alberdi II",
-        "Ezkurdia - Albisu // P.Etxeberria - Mariezkurrena II"
+        "AGIRRE // ZUBIZARRETA III (Serie B)",
+        "BAKAIKOA // ALBERDI II (Serie B)",
+        "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3009286/select?viewCode=",
       "tv": false,
@@ -31,12 +30,13 @@
           "eq2": [
             "ZUBIZARRETA III"
           ],
-          "raw": "Agirre // Zubizarreta III",
+          "raw": "AGIRRE // ZUBIZARRETA III (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -45,12 +45,13 @@
           "eq2": [
             "ALBERDI II"
           ],
-          "raw": "Bakaikoa // Alberdi II",
+          "raw": "BAKAIKOA // ALBERDI II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -61,7 +62,7 @@
             "P.ETXEBERRIA",
             "MARIEZKURRENA II"
           ],
-          "raw": "Ezkurdia - Albisu // P.Etxeberria - Mariezkurrena II",
+          "raw": "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -69,24 +70,23 @@
           "serie": null
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "09/10/2026",
-      "hora": "21:15",
-      "fronton": "Durango",
+      "hora": "21:00",
+      "fronton": "Ezkurdi",
       "ciudad": "Durango",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie A",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Zabala - Bikuña // Amiano - Imaz",
-        "Eusko Label 4 1/2 Serie A",
-        "Elordi // Larrazabal"
+        "ZABALA – BIKUÑA // AMIANO – IMAZ",
+        "ELORDI // LARRAZABAL (Serie A)"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3016977/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
         {
           "eq1": [
@@ -97,7 +97,7 @@
             "AMIANO",
             "IMAZ"
           ],
-          "raw": "Zabala - Bikuña // Amiano - Imaz",
+          "raw": "ZABALA – BIKUÑA // AMIANO – IMAZ",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -111,34 +111,33 @@
           "eq2": [
             "LARRAZABAL"
           ],
-          "raw": "Elordi // Larrazabal",
+          "raw": "ELORDI // LARRAZABAL (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "octavos"
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "10/10/2026",
       "hora": "17:15",
       "fronton": "Labrit",
-      "ciudad": "Iruñea-Pamplona",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Egiguren V // Salaberria",
-        "Eusko Label 4 1/2 Serie A",
-        "Jaka // Laso",
-        "Murua - Aldabe // Zubizarreta IV - Salaverri II"
+        "EGIGUREN V // SALABERRIA (Serie B)",
+        "JAKA // LASO (Serie A)",
+        "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
@@ -147,12 +146,13 @@
           "eq2": [
             "SALABERRIA"
           ],
-          "raw": "Egiguren V // Salaberria",
+          "raw": "EGIGUREN V // SALABERRIA (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -161,12 +161,13 @@
           "eq2": [
             "LASO"
           ],
-          "raw": "Jaka // Laso",
+          "raw": "JAKA // LASO (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -177,7 +178,7 @@
             "ZUBIZARRETA IV",
             "SALAVERRI II"
           ],
-          "raw": "Murua - Aldabe // Zubizarreta IV - Salaverri II",
+          "raw": "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -185,24 +186,24 @@
           "serie": null
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "11/10/2026",
       "hora": "17:15",
-      "fronton": "Lekunberri",
+      "fronton": "Jaian Jai",
       "ciudad": "Lekunberri",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie A",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Ezkurdia - Albisu // Altuna III - Imaz",
-        "Eusko Label 4 1/2 Serie A",
-        "Darío // Senar"
+        "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
+        "DARÍO // SENAR",
+        "(Serie A)"
       ],
-      "precio": null,
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
         {
           "eq1": [
@@ -213,7 +214,7 @@
             "ALTUNA III",
             "IMAZ"
           ],
-          "raw": "Ezkurdia - Albisu // Altuna III - Imaz",
+          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -227,34 +228,33 @@
           "eq2": [
             "SENAR"
           ],
-          "raw": "Darío // Senar",
+          "raw": "DARÍO // SENAR (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "octavos"
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "12/10/2026",
       "hora": "17:15",
-      "fronton": "Tolosa",
+      "fronton": "Beotibar",
       "ciudad": "Tolosa",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fase": "Octavos de final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Eskiroz // Apezetxea II",
-        "Eusko Label 4 1/2 Serie A",
-        "Artola // Peña II",
-        "Agirre - Ugartemendia // Alberdi II - Bikuña"
+        "ESKIROZ // APEZETXEA II (Serie B)",
+        "ARTOLA // PEÑA II (Serie A)",
+        "AGIRRE – UGARTEMENDIA // ALBERDI II – BIKUÑA"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014159/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
         {
           "eq1": [
@@ -263,12 +263,13 @@
           "eq2": [
             "APEZETXEA II"
           ],
-          "raw": "Eskiroz // Apezetxea II",
+          "raw": "ESKIROZ // APEZETXEA II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -277,12 +278,13 @@
           "eq2": [
             "PEÑA II"
           ],
-          "raw": "Artola // Peña II",
+          "raw": "ARTOLA // PEÑA II (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -293,7 +295,7 @@
             "ALBERDI II",
             "BIKUÑA"
           ],
-          "raw": "Agirre - Ugartemendia // Alberdi II - Bikuña",
+          "raw": "AGIRRE – UGARTEMENDIA // ALBERDI II – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -301,21 +303,20 @@
           "serie": null
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "16/10/2026",
       "hora": "19:30",
-      "fronton": "Villabona",
+      "fronton": "Bear Zana",
       "ciudad": "Villabona",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Amiano // Zubizarreta IV",
-        "XXX - Landa // XXX - Gabirondo"
+        "AMIANO // ZUBIZARRETA IV (Serie B)",
+        "XX – LANDA // XX – GABIRONDO"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021280/select?viewCode=",
       "tv": false,
@@ -327,12 +328,14 @@
           "eq2": [
             "ZUBIZARRETA IV"
           ],
-          "raw": "Amiano // Zubizarreta IV",
+          "raw": "AMIANO // ZUBIZARRETA IV (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1
         },
         {
           "eq1": [
@@ -343,7 +346,7 @@
             "?",
             "GABIRONDO"
           ],
-          "raw": "XXX - Landa // XXX - Gabirondo",
+          "raw": "XX – LANDA // XX – GABIRONDO",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -352,23 +355,21 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "16/10/2026",
       "hora": "21:00",
-      "fronton": "Amorebieta-Zornotza",
-      "ciudad": "Amorebieta-Zornotza",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fronton": "Amorebieta IV",
+      "ciudad": "Amorebieta IV",
+      "fase": "Final laurdenak (1.Jardunaldia)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Murua // Rekalde",
-        "Eusko Label 4 1/2 Serie A",
-        "Ezkurdia // P.Etxeberria",
-        "XXX - Morgaetxebarria // XXX - Bikuña"
+        "MURUA // REKALDE (Serie B)",
+        "EZKURDIA // P.ETXEBERRIA (Serie A)",
+        "XX – MORGAETXEBARRIA // XX – BIKUÑA"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3019605/select?viewCode=",
       "tv": false,
@@ -380,12 +381,14 @@
           "eq2": [
             "REKALDE"
           ],
-          "raw": "Murua // Rekalde",
+          "raw": "MURUA // REKALDE (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1
         },
         {
           "eq1": [
@@ -394,12 +397,14 @@
           "eq2": [
             "P.ETXEBERRIA"
           ],
-          "raw": "Ezkurdia // P.Etxeberria",
+          "raw": "EZKURDIA // P.ETXEBERRIA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1
         },
         {
           "eq1": [
@@ -410,7 +415,7 @@
             "?",
             "BIKUÑA"
           ],
-          "raw": "XXX - Morgaetxebarria // XXX - Bikuña",
+          "raw": "XX – MORGAETXEBARRIA // XX – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -419,22 +424,21 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "17/10/2026",
       "hora": "17:15",
-      "fronton": "Bilbo",
-      "ciudad": "Bilbo",
-      "fase": null,
-      "competicion": "Serie B",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Serie B",
-        "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
-        "Serie A",
-        "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2"
+        "XX // XX (Serie B)",
+        "XX // XX (Serie A)",
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
       "tv": false,
@@ -446,12 +450,14 @@
           "eq2": [
             "?"
           ],
-          "raw": "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
+          "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
           "pendiente": true
         },
         {
@@ -461,30 +467,48 @@
           "eq2": [
             "?"
           ],
-          "raw": "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
+          "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "17/10/2026",
       "hora": "18:30",
-      "fronton": "Azkoitia",
+      "fronton": "Gurea",
       "ciudad": "Azkoitia",
-      "fase": null,
-      "competicion": "Serie A",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XXX - XXX // XXX - XXX",
-        "Serie A",
-        "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2"
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021092/select?viewCode=",
       "tv": false,
@@ -498,7 +522,7 @@
             "?",
             "?"
           ],
-          "raw": "XXX - XXX // XXX - XXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -513,32 +537,32 @@
           "eq2": [
             "?"
           ],
-          "raw": "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
+          "raw": "XX // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1,
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "18/10/2026",
       "hora": "17:15",
       "fronton": "Ogueta",
       "ciudad": "Vitoria-Gasteiz",
-      "fase": null,
-      "competicion": "Serie B",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Serie B",
-        "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
-        "Eusko Label 4 1/2 Serie A",
-        "Altuna III // Zabala",
-        "XXX - XXX // XXX - XXX"
+        "XX // XX (Serie B)",
+        "ALTUNA III // ZABALA (Serie A)",
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
       "tv": false,
@@ -550,12 +574,14 @@
           "eq2": [
             "?"
           ],
-          "raw": "Eusko Label 4 1/2ko Txapelketa // Campeonato Eusko Label 4 1/2",
+          "raw": "XX // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1,
           "pendiente": true
         },
         {
@@ -565,12 +591,14 @@
           "eq2": [
             "ZABALA"
           ],
-          "raw": "Altuna III // Zabala",
+          "raw": "ALTUNA III // ZABALA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1
         },
         {
           "eq1": [
@@ -581,7 +609,7 @@
             "?",
             "?"
           ],
-          "raw": "XXX - XXX // XXX - XXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -590,23 +618,21 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "23/10/2026",
       "hora": "20:00",
-      "fronton": "Tafalla",
+      "fronton": "Ereta",
       "ciudad": "Tafalla",
-      "fase": null,
-      "competicion": "Serie B",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Serie B",
-        "Amiano // Campeonato Eusko Label 4 1/2",
-        "Serie A",
-        "P.Etxeberria // Campeonato Eusko Label 4 1/2",
-        "XXX - XXX // XXX - XXX"
+        "AMIANO // XX (Serie B)",
+        "P.ETXEBERRIA // XX (Serie A)",
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021336/select?viewCode=",
       "tv": false,
@@ -616,28 +642,34 @@
             "AMIANO"
           ],
           "eq2": [
-            "CAMPEONATO EUSKO LABEL 4 1 o 2"
+            "?"
           ],
-          "raw": "Amiano // Campeonato Eusko Label 4 1/2",
-          "tipo": "manomanista-b",
-          "competicion": "Campeonato Manomanista Serie B 2026",
-          "modalidad": "mano",
+          "raw": "AMIANO // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
         },
         {
           "eq1": [
             "P.ETXEBERRIA"
           ],
           "eq2": [
-            "CAMPEONATO EUSKO LABEL 4 1 o 2"
+            "?"
           ],
-          "raw": "P.Etxeberria // Campeonato Eusko Label 4 1/2",
-          "tipo": "manomanista-a",
-          "competicion": "Campeonato Manomanista Serie A 2026",
-          "modalidad": "mano",
+          "raw": "P.ETXEBERRIA // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
         },
         {
           "eq1": [
@@ -648,7 +680,7 @@
             "?",
             "?"
           ],
-          "raw": "XXX - XXX // XXX - XXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -657,21 +689,91 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "24/10/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "MURUA // XX (Serie B)",
+        "EZKURDIA // XX (Serie A)",
+        "XX – XX // XX – XX"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "MURUA // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "EZKURDIA"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "EZKURDIA // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
     },
     {
       "fecha": "24/10/2026",
       "hora": "17:15",
       "fronton": "Atano III",
-      "ciudad": "Donostia-San Sebastian",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie A",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XXX - XXX // XXX - XXX",
-        "Eusko Label 4 1/2 Serie A",
-        "Altuna III // XXX"
+        "XX – XX // XX – XX",
+        "ALTUNA III // XX (Serie A)"
       ],
-      "precio": null,
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037977/select?viewCode=",
       "tv": false,
@@ -685,7 +787,7 @@
             "?",
             "?"
           ],
-          "raw": "XXX - XXX // XXX - XXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -700,97 +802,31 @@
           "eq2": [
             "?"
           ],
-          "raw": "Altuna III // XXX",
+          "raw": "ALTUNA III // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
-    },
-    {
-      "fecha": "24/10/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea-Pamplona",
-      "fase": null,
-      "competicion": "Serie B",
-      "cartel": [
-        "Serie B",
-        "Murua // Campeonato Eusko Label 4 1/2",
-        "Serie A",
-        "Ezkurdia // Campeonato Eusko Label 4 1/2",
-        "XXX - XXX // XXX - XXX"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "MURUA"
-          ],
-          "eq2": [
-            "CAMPEONATO EUSKO LABEL 4 1 o 2"
-          ],
-          "raw": "Murua // Campeonato Eusko Label 4 1/2",
-          "tipo": "manomanista-b",
-          "competicion": "Campeonato Manomanista Serie B 2026",
-          "modalidad": "mano",
-          "categoria": "campeonato",
-          "serie": "b"
-        },
-        {
-          "eq1": [
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "CAMPEONATO EUSKO LABEL 4 1 o 2"
-          ],
-          "raw": "Ezkurdia // Campeonato Eusko Label 4 1/2",
-          "tipo": "manomanista-a",
-          "competicion": "Campeonato Manomanista Serie A 2026",
-          "modalidad": "mano",
-          "categoria": "campeonato",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XXX - XXX // XXX - XXX",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
-          "pendiente": true
-        }
-      ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "24/10/2026",
       "hora": "18:30",
-      "fronton": "Ataun",
+      "fronton": "Auzoeta",
       "ciudad": "Ataun",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Zubizarreta IV // XXX",
-        "XXX - Albisu // XXX - Landa"
+        "ZUBIZARRETA IV // XX (Serie B)",
+        "XX – LANDA // XX – ALBISU"
       ],
-      "precio": null,
+      "precio": "10.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3034454/select?viewCode=",
       "tv": false,
@@ -802,24 +838,26 @@
           "eq2": [
             "?"
           ],
-          "raw": "Zubizarreta IV // XXX",
+          "raw": "ZUBIZARRETA IV // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         },
         {
           "eq1": [
             "?",
-            "ALBISU"
+            "LANDA"
           ],
           "eq2": [
             "?",
-            "LANDA"
+            "ALBISU"
           ],
-          "raw": "XXX - Albisu // XXX - Landa",
+          "raw": "XX – LANDA // XX – ALBISU",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -828,23 +866,21 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     },
     {
       "fecha": "25/10/2026",
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Serie B",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Eusko Label 4 1/2 Serie B",
-        "Rekalde // XXX",
-        "Eusko Label 4 1/2 Serie A",
-        "Zabala // XXX",
-        "XXX - XXX // XXX - XXX"
+        "REKALDE // XX (Serie B)",
+        "ZABALA // XX (Serie A)",
+        "XX – XX // XX – XX"
       ],
-      "precio": null,
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037985/select?viewCode=",
       "tv": false,
@@ -856,12 +892,14 @@
           "eq2": [
             "?"
           ],
-          "raw": "Rekalde // XXX",
+          "raw": "REKALDE // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         },
         {
@@ -871,12 +909,14 @@
           "eq2": [
             "?"
           ],
-          "raw": "Zabala // XXX",
+          "raw": "ZABALA // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         },
         {
@@ -888,7 +928,7 @@
             "?",
             "?"
           ],
-          "raw": "XXX - XXX // XXX - XXX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -897,7 +937,7 @@
           "pendiente": true
         }
       ],
-      "fuente": "aspe"
+      "fuente": "baiko"
     }
   ]
 }
