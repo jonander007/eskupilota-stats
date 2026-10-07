@@ -331,7 +331,7 @@ const I18N = {
     pareja_exacta: 'pareja exacta',
     lbl_fecha_sort: 'Fecha ↕',
     // Añadidas en la revisión de traducciones
-    lbl_fichas: 'Fichas de todos los pelotaris',
+    lbl_fichas: 'Fichas de todos los pelotaris', lbl_comps: 'Competiciones', lbl_fros: 'Frontones',
     btn_ficha: 'Descargar ficha', btn_filtrar: 'Filtrar', derechos: 'Todos los derechos reservados', nota_datos_t: 'Sobre los datos', nota_datos: 'Los datos empiezan el 22 de noviembre de 2022. Los partidos, las estadísticas y las txapelas anteriores a esa fecha no están incluidos.', compartir_wa: 'Compartir por WhatsApp', app_instalar: 'Instalar la app', app_android: 'App para Android',
     app_ios: 'Para instalarla en el iPhone: abre la web en Safari, pulsa Compartir (el cuadrado con la flecha) y después «Añadir a pantalla de inicio».',
     aria_menu: 'Menú', aria_cerrar: 'Cerrar', aria_mapa: 'Mapa de frontones', aria_saltar: 'Saltar al contenido',
@@ -466,7 +466,7 @@ const I18N = {
     sin_enfrentamientos: 'Ez dute elkarren aurka jokatu',
     pareja_exacta: 'bikote bera',
     lbl_fecha_sort: 'Data ↕',
-    lbl_fichas: 'Pilotari guztien fitxak',
+    lbl_fichas: 'Pilotari guztien fitxak', lbl_comps: 'Txapelketak', lbl_fros: 'Frontoiak',
     btn_ficha: 'Fitxa deskargatu', btn_filtrar: 'Iragazi', derechos: 'Eskubide guztiak erreserbatuta', nota_datos_t: 'Datuei buruz', nota_datos: 'Datuak 2022ko azaroaren 22an hasten dira. Data horren aurreko partidak, estatistikak eta txapelak ez daude sartuta.', compartir_wa: 'WhatsApp bidez partekatu', app_instalar: 'Aplikazioa instalatu', app_android: 'Android aplikazioa',
     app_ios: 'iPhonean instalatzeko: ireki webgunea Safarin, sakatu Partekatu (gezia duen laukia) eta gero «Gehitu hasierako pantailan».',
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
@@ -547,6 +547,9 @@ function applyI18N(){
   document.documentElement.lang = LANG;
   const fichas = document.getElementById('lnkFichas');
   if(fichas) fichas.href = LANG === 'eu' ? '/eu/pelotari/' : '/pelotari/';
+  [['lnkComps','competicion'],['lnkFros','fronton']].forEach(([id, ruta])=>{
+    const a = document.getElementById(id); if(a) a.href = (LANG === 'eu' ? '/eu/' : '/') + ruta + '/';
+  });
   // renderPCards() cierra el perfil: se recuerda para reabrirlo en el nuevo idioma
   const perfilAbierto = document.getElementById('perfilSec')?.style.display === 'block' ? _perfilNombre : null;
   // Textos fijos del HTML: data-i18n (texto), data-i18n-html, data-i18n-ph, data-i18n-aria

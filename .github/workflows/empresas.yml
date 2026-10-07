@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ pelotari/ eu/ sitemap.xml
+          git add data/ pelotari/ competicion/ fronton/ eu/ sitemap.xml
           if git diff --cached --quiet; then
             echo "Sin cambios"
           else

@@ -487,5 +487,27 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.evaluate('document.documentElement.lang'), 'eu')
 
 
+    def test_paginas_de_competiciones_y_frontones(self):
+        pg = self.pagina()
+        campeon = pg.evaluate("""(() => {
+          const f = PARTIDOS.find(p => p.competicion === 'Campeonato Manomanista Serie A 2025' && p.fase === 'final');
+          return f[f.ganador].delantero;
+        })()""")
+        pg.goto(f'{self.url}competicion/')
+        pg.click('a[href="/competicion/campeonato-manomanista-serie-a-2025/"]')
+        self.assertIn('Manomanista', pg.locator('h1').inner_text())
+        self.assertIn(campeon, pg.locator('main p').first.inner_text())
+        pg.click('a.cta')
+        pg.wait_for_selector('#campContent table')
+        self.assertTrue(pg.evaluate('location.hash').startswith('#/campeonato/'))
+        pg.goto(f'{self.url}fronton/labrit/')
+        self.assertIn('Labrit', pg.locator('h1').inner_text())
+        pg.click('a.cta')
+        pg.wait_for_function("document.getElementById('frontonDetail').innerText.length > 0")
+        self.assertEqual(pg.evaluate('location.hash'), '#/fronton/labrit')
+        pg.goto(f'{self.url}eu/fronton/')
+        self.assertEqual(pg.evaluate('document.documentElement.lang'), 'eu')
+
+
 if __name__ == '__main__':
     unittest.main()
