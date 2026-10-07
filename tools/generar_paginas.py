@@ -262,6 +262,7 @@ def main():
 
     sl_comp = generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima)
     sl_fro = generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima)
+    generar_privacidad(ultima)
     escribir_sitemap(sorted(slugs.values()), sl_comp, sl_fro)
     print(f'✓ {len(st)} pelotaris, {len(sl_comp)} competiciones y {len(sl_fro)} frontones × 2 idiomas; sitemap.xml actualizado')
 
@@ -447,6 +448,7 @@ def escribir_sitemap(slugs, sl_comp=(), sl_fro=()):
                        for loc in (es, eu))
     cuerpo = url(f'{WEB}/', f'{WEB}/?lang=eu') + url(f'{WEB}/pelotari/', f'{WEB}/eu/pelotari/')
     cuerpo += ''.join(url(f'{WEB}/pelotari/{s}/', f'{WEB}/eu/pelotari/{s}/') for s in slugs)
+    cuerpo += url(f'{WEB}/privacidad/', f'{WEB}/eu/privacidad/', 'monthly')
     for tipo, lista in (('competicion', sl_comp), ('fronton', sl_fro)):
         cuerpo += url(f'{WEB}/{tipo}/', f'{WEB}/eu/{tipo}/')
         cuerpo += ''.join(url(f'{WEB}/{tipo}/{s}/', f'{WEB}/eu/{tipo}/{s}/', 'weekly') for s in lista)
@@ -717,6 +719,86 @@ def generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima):
                  f"<thead><tr><th>{T['fronton']}</th><th>{T['localidad']}</th><th style=text-align:right>{T['pj']}</th></tr></thead>"
                  f"<tbody>{filas}</tbody></table></div></section>\n" + pie(lang, hoy))
     return sorted(sl.values())
+
+
+# ─────────────────────────────────────────────────────────────────
+# POLÍTICA DE PRIVACIDAD
+# ─────────────────────────────────────────────────────────────────
+PRIVACIDAD = {
+    'es': ('Política de privacidad | EskupilotaStats',
+           'Qué datos guarda EskupilotaStats, para qué y cómo borrarlos.',
+           'Política de privacidad', """
+<p class="sub">Última actualización: octubre de 2026</p>
+<section class="card"><h2>Quién es el responsable</h2>
+<p>EskupilotaStats (www.eskupilotastats.com), web de estadísticas de pelota a mano hecha por aficionados.
+Contacto: <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
+<section class="card"><h2>Si solo consultas la web</h2>
+<p>No necesitas cuenta y no te pedimos ningún dato. Usamos Cloudflare Web Analytics para contar visitas de forma
+agregada: no usa cookies ni identifica a nadie. Tus preferencias (idioma, modo oscuro, pelotaris que sigues) se
+guardan solo en tu propio navegador y no nos llegan.</p></section>
+<section class="card"><h2>Si juegas a la porra</h2>
+<p>Para participar hay que crear una cuenta, entrando con Google o con un enlace enviado a tu correo. Guardamos:</p>
+<ul class="pal">
+<li>tu dirección de correo y, si entras con Google, tu nombre y foto de perfil tal como los da Google;</li>
+<li>el nombre (alias) que eliges para la clasificación;</li>
+<li>tus pronósticos y los puntos que consigues.</li>
+</ul>
+<p>Los usamos solo para que puedas entrar, guardar tus pronósticos y aparecer en la clasificación. Los demás
+participantes solo ven tu alias, tus puntos y, cuando el partido ya ha empezado, lo que pronosticaste. Tu correo no
+se muestra nunca. No vendemos ni compartimos los datos y no los usamos para publicidad.</p>
+<p>La base legal es tu consentimiento al crear la cuenta. Los datos se guardan mientras tengas la cuenta.</p></section>
+<section class="card"><h2>Dónde se guardan</h2>
+<p>En Supabase, con servidores en la Unión Europea (Fráncfort, Alemania). El inicio de sesión con Google lo gestiona
+Google según su propia política de privacidad. La web se sirve a través de GitHub Pages y Cloudflare.</p></section>
+<section class="card"><h2>Tus derechos</h2>
+<p>Puedes borrar tu cuenta y todos tus datos en cualquier momento desde la porra (Normas → «Borrar mi cuenta»).
+También puedes pedirnos acceder, corregir o borrar tus datos escribiendo a
+<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>. Si crees que no los tratamos bien,
+puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</p></section>
+"""),
+    'eu': ('Pribatutasun politika | EskupilotaStats',
+           'EskupilotaStatsek zer datu gordetzen dituen, zertarako eta nola ezabatu.',
+           'Pribatutasun politika', """
+<p class="sub">Azken eguneraketa: 2026ko urria</p>
+<section class="card"><h2>Nor da arduraduna</h2>
+<p>EskupilotaStats (www.eskupilotastats.com), zaleek egindako esku pilotako estatistika webgunea.
+Harremana: <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
+<section class="card"><h2>Webgunea kontsultatzen baduzu bakarrik</h2>
+<p>Ez duzu konturik behar eta ez dizugu daturik eskatzen. Cloudflare Web Analytics erabiltzen dugu bisitak modu
+bateratuan zenbatzeko: ez du cookierik erabiltzen eta ez du inor identifikatzen. Zure hobespenak (hizkuntza, modu
+iluna, jarraitzen dituzun pilotariak) zure nabigatzailean bakarrik gordetzen dira eta ez zaizkigu iristen.</p></section>
+<section class="card"><h2>Porran jokatzen baduzu</h2>
+<p>Parte hartzeko kontu bat sortu behar da, Google-rekin edo zure postara bidalitako esteka batekin sartuta. Hau gordetzen dugu:</p>
+<ul class="pal">
+<li>zure helbide elektronikoa eta, Google-rekin sartzen bazara, Google-k ematen dituen izena eta profileko argazkia;</li>
+<li>sailkapenerako aukeratzen duzun izena (aliasa);</li>
+<li>zure iragarpenak eta lortzen dituzun puntuak.</li>
+</ul>
+<p>Sartu ahal izateko, zure iragarpenak gordetzeko eta sailkapenean agertzeko bakarrik erabiltzen ditugu. Beste
+parte-hartzaileek zure aliasa, puntuak eta, partida hasi ondoren, iragarri zenuena bakarrik ikusten dituzte. Zure posta
+ez da inoiz erakusten. Ez ditugu datuak saltzen ez partekatzen, ezta publizitaterako erabiltzen ere.</p>
+<p>Oinarri juridikoa kontua sortzean ematen duzun baimena da. Datuak kontua duzun bitartean gordetzen dira.</p></section>
+<section class="card"><h2>Non gordetzen diren</h2>
+<p>Supabasen, Europar Batasuneko zerbitzarietan (Frankfurt, Alemania). Google-rekin saioa hastea Google-k kudeatzen du
+bere pribatutasun politikaren arabera. Webgunea GitHub Pages eta Cloudflare bidez zerbitzatzen da.</p></section>
+<section class="card"><h2>Zure eskubideak</h2>
+<p>Zure kontua eta datu guztiak edozein unetan ezaba ditzakezu porratik (Arauak → «Nire kontua ezabatu»).
+Zure datuak eskuratzeko, zuzentzeko edo ezabatzeko eska diezagukezu
+<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a> helbidera idatzita. Ondo tratatzen ez
+ditugula uste baduzu, Datuak Babesteko Espainiako Agentziaren aurrean erreklamazioa egin dezakezu
+(<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</p></section>
+"""),
+}
+
+
+def generar_privacidad(ultima):
+    url_es, url_eu = f'{WEB}/privacidad/', f'{WEB}/eu/privacidad/'
+    for lang in ('es', 'eu'):
+        titulo, desc, h1, cuerpo = PRIVACIDAD[lang]
+        carpeta = limpiar('privacidad', lang)
+        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu)
+                 + barra(lang, url_eu if lang == 'es' else url_es)
+                 + f'<main>\n<h1>{h1}</h1>\n{cuerpo}\n' + pie(lang, fecha_hoy(ultima, lang)))
 
 
 if __name__ == '__main__':

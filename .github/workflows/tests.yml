@@ -22,7 +22,7 @@ jobs:
       - name: Páginas estáticas al día
         run: |
           python tools/generar_paginas.py
-          cambios=$(git status --porcelain -- pelotari/ competicion/ fronton/ eu/ sitemap.xml)
+          cambios=$(git status --porcelain -- pelotari/ competicion/ fronton/ privacidad/ eu/ sitemap.xml)
           if [ -n "$cambios" ]; then
             echo "$cambios"
             echo "::error::Faltan por regenerar las páginas: python tools/generar_paginas.py"
