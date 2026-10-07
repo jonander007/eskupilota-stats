@@ -1,10 +1,12 @@
 -- ════════════════════════════════════════════════════════════════════
 -- PORRA DE ESKUPILOTASTATS
--- Para hacerte administrador (ver y abrir/cerrar partidos), una vez creado
--- tu alias ejecuta:  update public.perfiles set admin = true where alias = 'TuAlias';
 -- Pegar entero en Supabase → SQL Editor → New query → Run.
 -- Se puede volver a ejecutar sin perder datos (crea solo lo que falta y
 -- rehace reglas, vistas y funciones).
+--
+-- Para hacerte administrador (elegir qué partidos entran en la general),
+-- una vez creado tu alias ejecuta:
+--   update public.perfiles set admin = true where alias = 'TuAlias';
 -- ════════════════════════════════════════════════════════════════════
 
 -- ── Perfiles: el alias público de cada usuario ──────────────────────
@@ -15,6 +17,7 @@ create table if not exists public.perfiles (
   oculto  boolean not null default false,          -- moderación: true lo saca de las clasificaciones
   creado  timestamptz not null default now()
 );
+alter table public.perfiles add column if not exists admin boolean not null default false;
 create unique index if not exists perfiles_alias_unico on public.perfiles (lower(alias));
 
 -- ── Partidos de la porra (los sube el workflow desde la cartelera) ──
@@ -32,34 +35,59 @@ create table if not exists public.porra_partidos (
   puntos2     smallint,
   actualizado timestamptz not null default now()
 );
+alter table public.porra_partidos add column if not exists categoria text;   -- campeonato, torneo, desafio, festival
+alter table public.porra_partidos add column if not exists activo boolean;   -- general: null = según el modo
 create index if not exists porra_partidos_inicio on public.porra_partidos (inicio);
 
--- ── Pronósticos ─────────────────────────────────────────────────────
-create table if not exists public.porra_pronosticos (
-  usuario         uuid not null default auth.uid() references public.perfiles (id) on delete cascade,
-  partido         text not null references public.porra_partidos (id) on delete cascade,
-  ganador         smallint not null check (ganador in (1, 2)),
-  tantos_perdedor smallint check (tantos_perdedor between 0 and 21),
-  actualizado     timestamptz not null default now(),
-  primary key (usuario, partido)
-);
-create index if not exists porra_pronosticos_partido on public.porra_pronosticos (partido);
-
--- ── Qué partidos se pueden pronosticar (lo decide el administrador) ─
--- Modo general: 'todos' | 'oficiales' (sin festivales) | 'manual' (ninguno).
--- Cada partido puede forzarse abierto (activo = true) o cerrado (false);
--- null sigue el modo general.
-alter table public.porra_partidos add column if not exists categoria text;   -- campeonato, torneo, desafio, festival
-alter table public.porra_partidos add column if not exists activo boolean;
-alter table public.perfiles       add column if not exists admin boolean not null default false;
+-- Qué partidos entran en la clasificación general (lo decide el administrador):
+-- 'todos' | 'oficiales' (sin festivales) | 'manual' (solo los marcados)
 create table if not exists public.porra_config (
   id   smallint primary key default 1 check (id = 1),
   modo text not null default 'oficiales' check (modo in ('todos', 'oficiales', 'manual'))
 );
 insert into public.porra_config (id) values (1) on conflict (id) do nothing;
 
--- Partidos aún abiertos (futuros) y si se pueden pronosticar
-drop view if exists public.porra_abiertos;
+-- ── Ligas privadas (hasta 20 personas, de una competición) ──────────
+create table if not exists public.porra_ligas (
+  id      uuid primary key default gen_random_uuid(),
+  nombre  text not null check (char_length(nombre) between 3 and 40),
+  codigo  text not null unique,                    -- para unirse: 6 letras/números
+  creador uuid not null references public.perfiles (id) on delete cascade,
+  alcance text[] not null check (cardinality(alcance) between 1 and 10),   -- competiciones que cuentan
+  creada  timestamptz not null default now()
+);
+create table if not exists public.porra_miembros (
+  liga    uuid not null references public.porra_ligas (id) on delete cascade,
+  usuario uuid not null references public.perfiles (id) on delete cascade,
+  unido   timestamptz not null default now(),
+  primary key (liga, usuario)
+);
+create index if not exists porra_miembros_usuario on public.porra_miembros (usuario);
+
+-- ── Pronósticos: uno por partido para la general (liga null) y otro por liga ─
+create table if not exists public.porra_pronosticos (
+  usuario         uuid not null default auth.uid() references public.perfiles (id) on delete cascade,
+  partido         text not null references public.porra_partidos (id) on delete cascade,
+  ganador         smallint not null check (ganador in (1, 2)),
+  tantos_perdedor smallint check (tantos_perdedor between 0 and 21),
+  actualizado     timestamptz not null default now()
+);
+alter table public.porra_pronosticos add column if not exists liga uuid references public.porra_ligas (id) on delete cascade;
+do $$ begin
+  -- La primera versión tenía la clave (usuario, partido): ahora va con la liga
+  if exists (select 1 from pg_constraint where conname = 'porra_pronosticos_pkey') then
+    alter table public.porra_pronosticos drop constraint porra_pronosticos_pkey;
+  end if;
+  if not exists (select 1 from pg_constraint where conname = 'porra_pronosticos_unico') then
+    alter table public.porra_pronosticos
+      add constraint porra_pronosticos_unico unique nulls not distinct (usuario, partido, liga);
+  end if;
+end $$;
+create index if not exists porra_pronosticos_partido on public.porra_pronosticos (partido);
+
+-- ── Funciones de apoyo para las reglas ──────────────────────────────
+-- Partidos aún abiertos (futuros) y si cuentan para la general
+drop view if exists public.porra_abiertos cascade;
 create view public.porra_abiertos with (security_invoker = true) as
 select p.id, p.inicio, p.competicion, p.fase, p.fronton, p.modalidad, p.categoria, p.eq1, p.eq2, p.activo,
        coalesce(p.activo, case c.modo when 'todos' then true
@@ -68,20 +96,39 @@ select p.id, p.inicio, p.competicion, p.fase, p.fronton, p.modalidad, p.categori
 from public.porra_partidos p cross join public.porra_config c
 where p.estado = 'abierto' and p.inicio > now();
 
-create or replace function public.porra_pronosticable(pid text)
-returns boolean language sql stable security definer set search_path = '' as $$
-  select coalesce((select pronosticable from public.porra_abiertos where id = pid), false)
-$$;
-
 create or replace function public.porra_es_admin()
 returns boolean language sql stable security definer set search_path = '' as $$
   select coalesce((select admin from public.perfiles where id = auth.uid()), false)
+$$;
+
+create or replace function public.porra_soy_miembro(lid uuid)
+returns boolean language sql stable security definer set search_path = '' as $$
+  select exists (select 1 from public.porra_miembros where liga = lid and usuario = auth.uid())
+$$;
+
+-- ¿Se puede pronosticar ahora este partido en este ámbito (null = general)?
+drop policy if exists "pronosticos: crear"   on public.porra_pronosticos;
+drop policy if exists "pronosticos: cambiar" on public.porra_pronosticos;
+drop policy if exists "pronosticos: borrar"  on public.porra_pronosticos;
+drop function if exists public.porra_pronosticable(text);
+create or replace function public.porra_pronosticable(pid text, lid uuid default null)
+returns boolean language sql stable security definer set search_path = '' as $$
+  select case
+    when lid is null then coalesce((select pronosticable from public.porra_abiertos where id = pid), false)
+    else exists (select 1 from public.porra_abiertos a
+                 join public.porra_ligas l on l.id = lid
+                 join public.porra_miembros m on m.liga = l.id and m.usuario = auth.uid()
+                 where a.id = pid and a.competicion = any(l.alcance))
+  end
 $$;
 
 -- ── Seguridad (Row Level Security) ──────────────────────────────────
 alter table public.perfiles          enable row level security;
 alter table public.porra_partidos    enable row level security;
 alter table public.porra_pronosticos enable row level security;
+alter table public.porra_config      enable row level security;
+alter table public.porra_ligas       enable row level security;
+alter table public.porra_miembros    enable row level security;
 
 drop policy if exists "perfiles: ver"      on public.perfiles;
 drop policy if exists "perfiles: crear"    on public.perfiles;
@@ -90,60 +137,112 @@ create policy "perfiles: ver"     on public.perfiles for select using (not ocult
 create policy "perfiles: crear"   on public.perfiles for insert to authenticated with check (id = auth.uid() and not oculto);
 create policy "perfiles: cambiar" on public.perfiles for update to authenticated using (id = auth.uid()) with check (id = auth.uid());
 
-drop policy if exists "partidos: ver" on public.porra_partidos;
+drop policy if exists "partidos: ver"   on public.porra_partidos;
 drop policy if exists "partidos: admin" on public.porra_partidos;
-create policy "partidos: ver" on public.porra_partidos for select using (true);
+create policy "partidos: ver"   on public.porra_partidos for select using (true);
 create policy "partidos: admin" on public.porra_partidos for update to authenticated
   using (public.porra_es_admin()) with check (public.porra_es_admin());
 
-alter table public.porra_config enable row level security;
-drop policy if exists "config: ver" on public.porra_config;
+drop policy if exists "config: ver"   on public.porra_config;
 drop policy if exists "config: admin" on public.porra_config;
-create policy "config: ver" on public.porra_config for select using (true);
+create policy "config: ver"   on public.porra_config for select using (true);
 create policy "config: admin" on public.porra_config for update to authenticated
   using (public.porra_es_admin()) with check (public.porra_es_admin());
 
--- Los pronósticos ajenos solo se ven cuando el partido ya ha empezado (nadie copia)
--- y solo se puede pronosticar, cambiar o borrar antes de la hora de inicio.
-drop policy if exists "pronosticos: ver"     on public.porra_pronosticos;
-drop policy if exists "pronosticos: crear"   on public.porra_pronosticos;
-drop policy if exists "pronosticos: cambiar" on public.porra_pronosticos;
-drop policy if exists "pronosticos: borrar"  on public.porra_pronosticos;
+-- Las ligas y sus miembros solo los ven sus miembros. Se crean y se entra
+-- con las funciones de abajo; el creador puede borrarla y cada uno salirse.
+drop policy if exists "ligas: ver"    on public.porra_ligas;
+drop policy if exists "ligas: borrar" on public.porra_ligas;
+create policy "ligas: ver"    on public.porra_ligas for select to authenticated using (public.porra_soy_miembro(id));
+create policy "ligas: borrar" on public.porra_ligas for delete to authenticated using (creador = auth.uid());
+drop policy if exists "miembros: ver"   on public.porra_miembros;
+drop policy if exists "miembros: salir" on public.porra_miembros;
+create policy "miembros: ver"   on public.porra_miembros for select to authenticated using (public.porra_soy_miembro(liga));
+create policy "miembros: salir" on public.porra_miembros for delete to authenticated using (usuario = auth.uid());
+
+-- Pronósticos: los ajenos solo se ven cuando el partido ha empezado (y los
+-- de una liga, solo sus miembros); se pronostica antes de la hora de inicio.
+drop policy if exists "pronosticos: ver" on public.porra_pronosticos;
 create policy "pronosticos: ver" on public.porra_pronosticos for select using (
   usuario = auth.uid()
-  or exists (select 1 from public.porra_partidos p where p.id = partido and p.inicio <= now()));
+  or (exists (select 1 from public.porra_partidos p where p.id = partido and p.inicio <= now())
+      and (liga is null or public.porra_soy_miembro(liga))));
 create policy "pronosticos: crear" on public.porra_pronosticos for insert to authenticated with check (
-  usuario = auth.uid()
-  and public.porra_pronosticable(partido));
+  usuario = auth.uid() and public.porra_pronosticable(partido, liga));
 create policy "pronosticos: cambiar" on public.porra_pronosticos for update to authenticated
   using (usuario = auth.uid())
-  with check (usuario = auth.uid()
-  and public.porra_pronosticable(partido));
+  with check (usuario = auth.uid() and public.porra_pronosticable(partido, liga));
 create policy "pronosticos: borrar" on public.porra_pronosticos for delete to authenticated using (
-  usuario = auth.uid()
-  and public.porra_pronosticable(partido));
+  usuario = auth.uid() and public.porra_pronosticable(partido, liga));
 
--- Permisos: el usuario solo puede tocar su alias (no "oculto", "admin" ni "creado")
-revoke all on public.perfiles, public.porra_partidos, public.porra_pronosticos from anon, authenticated;
-grant select on public.perfiles, public.porra_partidos, public.porra_pronosticos to anon, authenticated;
-grant insert (id, alias), update (alias) on public.perfiles to authenticated;
-grant insert (partido, ganador, tantos_perdedor), update (partido, ganador, tantos_perdedor), delete
+-- ── Permisos por columna ────────────────────────────────────────────
+revoke all on public.perfiles, public.porra_partidos, public.porra_pronosticos, public.porra_config,
+              public.porra_ligas, public.porra_miembros from anon, authenticated;
+grant select on public.perfiles, public.porra_partidos, public.porra_pronosticos, public.porra_config,
+               public.porra_abiertos to anon, authenticated;
+grant select on public.porra_ligas, public.porra_miembros to anon;                -- sin reglas para anon: no ve nada
+grant select, delete on public.porra_ligas, public.porra_miembros to authenticated;
+grant insert (id, alias), update (alias) on public.perfiles to authenticated;      -- ni "admin" ni "oculto"
+grant insert (partido, liga, ganador, tantos_perdedor), update (partido, liga, ganador, tantos_perdedor), delete
   on public.porra_pronosticos to authenticated;
-grant all on public.perfiles, public.porra_partidos, public.porra_pronosticos to service_role;
--- El administrador solo puede abrir/cerrar partidos y cambiar el modo (lo controlan las reglas de arriba)
-revoke all on public.porra_config from anon, authenticated;
-grant select on public.porra_config, public.porra_abiertos to anon, authenticated;
-grant update (activo) on public.porra_partidos to authenticated;
-grant update (modo) on public.porra_config to authenticated;
-grant all on public.porra_config to service_role;
-revoke execute on function public.porra_pronosticable(text), public.porra_es_admin() from public, anon;
-grant execute on function public.porra_pronosticable(text), public.porra_es_admin() to authenticated;
+grant update (activo) on public.porra_partidos to authenticated;                  -- solo admin (regla)
+grant update (modo) on public.porra_config to authenticated;                      -- solo admin (regla)
+grant all on public.perfiles, public.porra_partidos, public.porra_pronosticos, public.porra_config,
+             public.porra_ligas, public.porra_miembros to service_role;
+revoke execute on function public.porra_pronosticable(text, uuid), public.porra_es_admin() from public, anon;
+grant execute on function public.porra_pronosticable(text, uuid), public.porra_es_admin() to authenticated;
+revoke execute on function public.porra_soy_miembro(uuid) from public;
+grant execute on function public.porra_soy_miembro(uuid) to anon, authenticated;    -- anon: siempre false
+
+-- ── Ligas: crear, unirse ────────────────────────────────────────────
+create or replace function public.porra_crear_liga(nombre text, alcance text[])
+returns table (id uuid, codigo text) language plpgsql security definer set search_path = '' as $$
+declare nueva uuid; cod text;
+begin
+  if not exists (select 1 from public.perfiles p where p.id = auth.uid()) then
+    raise exception 'Primero elige tu alias';
+  end if;
+  if (select count(*) from public.porra_ligas l where l.creador = auth.uid()) >= 10 then
+    raise exception 'Como mucho puedes crear 10 ligas';
+  end if;
+  loop
+    -- 6 caracteres sin los que se confunden (0/O, 1/I/L)
+    cod := (select string_agg(substr('ABCDEFGHJKMNPQRSTUVWXYZ23456789', 1 + floor(random() * 31)::int, 1), '')
+            from generate_series(1, 6));
+    exit when not exists (select 1 from public.porra_ligas l where l.codigo = cod);
+  end loop;
+  insert into public.porra_ligas (nombre, codigo, creador, alcance)
+    values (trim(porra_crear_liga.nombre), cod, auth.uid(), porra_crear_liga.alcance) returning porra_ligas.id into nueva;
+  insert into public.porra_miembros (liga, usuario) values (nueva, auth.uid());
+  return query select nueva, cod;
+end $$;
+
+create or replace function public.porra_unirse(codigo text)
+returns uuid language plpgsql security definer set search_path = '' as $$
+declare lid uuid;
+begin
+  if not exists (select 1 from public.perfiles p where p.id = auth.uid()) then
+    raise exception 'Primero elige tu alias';
+  end if;
+  select l.id into lid from public.porra_ligas l where l.codigo = upper(trim(porra_unirse.codigo)) for update;
+  if lid is null then raise exception 'No existe ninguna liga con ese código'; end if;
+  if exists (select 1 from public.porra_miembros m where m.liga = lid and m.usuario = auth.uid()) then return lid; end if;
+  if (select count(*) from public.porra_miembros m where m.liga = lid) >= 20 then
+    raise exception 'La liga está completa (20 personas)';
+  end if;
+  insert into public.porra_miembros (liga, usuario) values (lid, auth.uid());
+  return lid;
+end $$;
+revoke execute on function public.porra_crear_liga(text, text[]), public.porra_unirse(text) from public, anon;
+grant execute on function public.porra_crear_liga(text, text[]), public.porra_unirse(text) to authenticated;
 
 -- ── Puntuación ──────────────────────────────────────────────────────
 -- 3 puntos por acertar el ganador; si además se acierta el tanteo del
 -- perdedor, +3 (exacto) o +1 (a 2 tantos o menos). Máximo 6.
-create or replace view public.porra_puntuados with (security_invoker = true) as
-select pr.usuario, pr.partido, pr.ganador, pr.tantos_perdedor,
+drop function if exists public.porra_clasificacion(timestamptz);
+drop view if exists public.porra_puntuados;
+create view public.porra_puntuados with (security_invoker = true) as
+select pr.usuario, pr.partido, pr.liga, pr.ganador, pr.tantos_perdedor,
        pa.inicio, pa.competicion, pa.fronton, pa.eq1, pa.eq2, pa.estado, pa.puntos1, pa.puntos2,
        case
          when pa.estado <> 'jugado' or pa.puntos1 is null or pa.puntos2 is null then null
@@ -159,30 +258,36 @@ from public.porra_pronosticos pr
 join public.porra_partidos pa on pa.id = pr.partido;
 grant select on public.porra_puntuados to anon, authenticated;
 
--- Clasificación desde una fecha (null = toda la temporada)
-create or replace function public.porra_clasificacion(desde timestamptz default null)
+-- Clasificación de la general (liga null) o de una liga, desde una fecha (null = todo).
+-- En una liga salen todos sus miembros, aunque aún no tengan puntos.
+create or replace function public.porra_clasificacion(desde timestamptz default null, liga uuid default null)
 returns table (usuario uuid, alias text, puntos bigint, jugados bigint, aciertos bigint, exactos bigint)
 language sql stable security invoker set search_path = '' as $$
   select pe.id, pe.alias,
-         sum(pu.puntos), count(*), count(*) filter (where pu.puntos >= 3), count(*) filter (where pu.puntos = 6)
-  from public.porra_puntuados pu
-  join public.perfiles pe on pe.id = pu.usuario
-  where pu.puntos is not null and (desde is null or pu.inicio >= desde)
+         coalesce(sum(pu.puntos), 0), count(pu.puntos), count(*) filter (where pu.puntos >= 3),
+         count(*) filter (where pu.puntos = 6)
+  from public.perfiles pe
+  left join public.porra_puntuados pu
+         on pu.usuario = pe.id and pu.liga is not distinct from porra_clasificacion.liga
+        and pu.puntos is not null and (desde is null or pu.inicio >= desde)
+  where case when porra_clasificacion.liga is null then pu.usuario is not null
+             else exists (select 1 from public.porra_miembros m
+                          where m.liga = porra_clasificacion.liga and m.usuario = pe.id) end
   group by pe.id, pe.alias
   order by 3 desc, 5 desc, 6 desc, 4 asc, 2 asc
 $$;
-grant execute on function public.porra_clasificacion(timestamptz) to anon, authenticated;
+grant execute on function public.porra_clasificacion(timestamptz, uuid) to anon, authenticated;
 
--- Cuántos han elegido a cada equipo (se ve solo cuando el partido ha empezado)
+-- Cuántos han elegido a cada equipo en la general (cuando el partido ha empezado)
 create or replace function public.porra_reparto(ids text[])
 returns table (partido text, ganador smallint, votos bigint)
 language sql stable security invoker set search_path = '' as $$
   select partido, ganador, count(*) from public.porra_pronosticos
-  where partido = any(ids) group by partido, ganador
+  where partido = any(ids) and liga is null group by partido, ganador
 $$;
 grant execute on function public.porra_reparto(text[]) to anon, authenticated;
 
--- Borrar mi cuenta (perfil y pronósticos se borran en cascada)
+-- Borrar mi cuenta (perfil, pronósticos, ligas creadas y membresías en cascada)
 create or replace function public.porra_borrar_cuenta()
 returns void language sql security definer set search_path = '' as $$
   delete from auth.users where id = auth.uid();

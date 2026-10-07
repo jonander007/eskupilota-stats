@@ -9,9 +9,18 @@ const PORRA = {
   key: 'sb_publishable_bVJumfuxrHV_CH3NScZF6Q_qSN2I7-2',
 };
 let _sb = null, _porraSesion = null, _porraPerfil = undefined;
-let _porraTab = 'pronosticar', _porraClasif = 'general';
+let _porraTab = 'pronosticar', _porraClasif = 'general', _porraClasifLiga = null;
+let _porraLigas = [];            // mis ligas: {id, nombre, codigo, alcance, creador}
 // Vuelta del inicio de sesión (Google o enlace del correo): /?porra=1&code=…
-const _porraVuelta = /[?&](porra|code)=/.test(location.search);
+const _porraVuelta = /[?&](porra|code|liga)=/.test(location.search);
+// Enlace de invitación a una liga (/?porra=1&liga=ABC123): se guarda por si
+// antes hay que entrar con Google, que vuelve sin ese parámetro.
+(()=>{
+  const cod = new URLSearchParams(location.search).get('liga');
+  if(cod) try{ localStorage.setItem('porra_liga_pendiente', cod.toUpperCase()); }catch(e){}
+})();
+function porraLeer(k, def){ try{ const v = localStorage.getItem(k); return v===null ? def : v; }catch(e){ return def; } }
+function porraGuardarPref(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
 
 function porraCont(){ return document.getElementById('porraContent'); }
 
@@ -61,8 +70,16 @@ async function porraRender(){
     _porraPerfil = data;
   }
   if(!_porraPerfil){ cont.innerHTML = htmlPorraAlias(); return; }
+  await porraCargarLigas();
+  // Invitación pendiente: unirse y abrir la pestaña de ligas
+  const pendiente = porraLeer('porra_liga_pendiente', '');
+  if(pendiente){
+    try{ localStorage.removeItem('porra_liga_pendiente'); }catch(e){}
+    const {error} = await _sb.rpc('porra_unirse', {codigo: pendiente});
+    if(error) alert(error.message); else { await porraCargarLigas(); _porraTab = 'ligas'; }
+  }
   const tabs = [['pronosticar', tx('Pronosticar','Iragarri')], ['mios', tx('Mis pronósticos','Nire iragarpenak')],
-    ['clasificacion', tx('Clasificación','Sailkapena')], ['normas', tx('Normas','Arauak')]];
+    ['clasificacion', tx('Clasificación','Sailkapena')], ['ligas', tx('Ligas','Ligak')], ['normas', tx('Normas','Arauak')]];
   cont.innerHTML = `
     <div class="pr-user"><span>👤 <b>${h(_porraPerfil.alias)}</b></span>
       <button class="btn-ghost pr-salir" onclick="porraSalir()">${tx('Salir','Irten')}</button></div>
@@ -73,6 +90,7 @@ async function porraRender(){
   if(_porraTab==='pronosticar') porraPintarPronosticar(panel);
   else if(_porraTab==='mios') porraPintarMios(panel);
   else if(_porraTab==='clasificacion'){ panel.innerHTML = `<div id="prClasif"></div>`; porraPintarClasif('prClasif'); }
+  else if(_porraTab==='ligas') porraPintarLigas(panel);
   else panel.innerHTML = htmlPorraNormas(true);
 }
 
@@ -153,21 +171,37 @@ function porraFecha(iso){
   return new Date(iso).toLocaleString(LANG==='eu'?'eu-ES':'es-ES', {weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
 }
 
+async function porraCargarLigas(){
+  const {data} = await _sb.from('porra_ligas').select('id,nombre,codigo,alcance,creador').order('creada');
+  _porraLigas = data || [];
+}
+
+// Dónde cuenta un partido: la general (si está abierto en ella) y mis ligas de esa competición
+function porraAmbitos(p){
+  const amb = p.pronosticable ? [{liga: null, nombre: tx('General','Orokorra')}] : [];
+  _porraLigas.forEach(l=>{ if((l.alcance||[]).includes(p.competicion)) amb.push({liga: l.id, nombre: l.nombre}); });
+  return amb;
+}
+
+function porraSetMismo(v){ porraGuardarPref('porra_mismo', v ? '1' : '0'); porraPintarPronosticar(document.getElementById('prPanel')); }
+
 async function porraPintarPronosticar(panel){
   const admin = !!_porraPerfil?.admin;
-  let q = _sb.from('porra_abiertos').select('*').order('inicio').limit(80);
-  if(!admin) q = q.eq('pronosticable', true);
-  const {data: partidos, error} = await q;
+  const {data, error} = await _sb.from('porra_abiertos').select('*').order('inicio').limit(100);
   if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
+  const partidos = data.filter(p=>admin || porraAmbitos(p).length);
   let html = admin ? await htmlPorraAdmin() : '';
   if(!partidos.length){
     panel.innerHTML = html + `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
     return;
   }
-  const {data: mios} = await _sb.from('porra_pronosticos').select('partido,ganador,tantos_perdedor')
+  const {data: mios} = await _sb.from('porra_pronosticos').select('partido,liga,ganador,tantos_perdedor')
     .eq('usuario', _porraSesion.user.id).in('partido', partidos.map(p=>p.id));
-  const mio = Object.fromEntries((mios||[]).map(x=>[x.partido, x]));
+  const mio = Object.fromEntries((mios||[]).map(x=>[x.partido+'|'+(x.liga||''), x]));
+  const mismo = porraLeer('porra_mismo', '1') === '1';
   html += `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de la velada.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Jaialdiaren ordura arte alda dezakezu.')}</p>`;
+  if(_porraLigas.length) html += `<label class="pr-mismo"><input type="checkbox"${mismo?' checked':''} onchange="porraSetMismo(this.checked)">
+    ${tx('Mismo pronóstico para la general y mis ligas','Iragarpen bera orokorrerako eta nire ligetarako')}</label>`;
   let velada = '';
   partidos.forEach(p=>{
     const v = p.inicio + p.fronton;
@@ -175,26 +209,37 @@ async function porraPintarPronosticar(panel){
       velada = v;
       html += `<div class="pr-velada">${h(porraFecha(p.inicio))} · ${h(p.fronton||'')}</div>`;
     }
-    const m = mio[p.id] || {};
-    const cerrado = !p.pronosticable;
+    const amb = porraAmbitos(p);
     const prob = probVictoria(p.eq1.map(resolverPelotari).filter(Boolean), p.eq2.map(resolverPelotari).filter(Boolean));
     const pct = prob===null ? null : Math.round(prob*100);
-    const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
-      `<option value="${i}"${m.tantos_perdedor===i?' selected':''}>22 – ${i}</option>`)).join('');
     const nombreComp = p.categoria==='festival' ? tx('Festival','Jaialdia') : tComp(p.competicion||'');
-    const interruptor = admin ? `<label class="pr-switch" title="${tx('Abierto en la porra','Porran irekita')}">
-        <input type="checkbox"${cerrado?'':' checked'} onchange="porraActivar('${esc(p.id)}',this.checked)">
-        <span>${tx('En la porra','Porran')}</span></label>` : '';
-    html += `<div class="pr-partido${cerrado?' pr-cerrado':''}" data-id="${h(p.id)}">
+    const interruptor = admin ? `<label class="pr-switch" title="${tx('Abierto en la general','Orokorrean irekita')}">
+        <input type="checkbox"${p.pronosticable?' checked':''} onchange="porraActivar('${esc(p.id)}',this.checked)">
+        <span>${tx('En la general','Orokorrean')}</span></label>` : '';
+    // Una fila para todos los ámbitos, o una por ámbito
+    const grupos = !amb.length ? [[]] : (mismo || amb.length===1) ? [amb] : amb.map(a=>[a]);
+    const filas = grupos.map(g=>{
+      const m = g.map(a=>mio[p.id+'|'+(a.liga||'')]).find(Boolean) || {};
+      const cerrado = !g.length;
+      const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
+        `<option value="${i}"${m.tantos_perdedor===i?' selected':''}>22 – ${i}</option>`)).join('');
+      const etiqueta = g.length && (_porraLigas.length || !p.pronosticable)
+        ? `<div class="pr-ambitos">${g.map(a=>`<span class="${a.liga?'pr-liga':'pr-gen'}">${h(a.nombre)}</span>`).join('')}</div>` : '';
+      return `<div class="pr-fila" data-partido="${h(p.id)}" data-ligas="${h(g.map(a=>a.liga||'').join(','))}">
+        ${etiqueta}
+        <div class="pr-elige">
+          <button class="pr-eq${m.ganador===1?' on':''}" onclick="porraElegir(this,1)"${cerrado?' disabled':''}>${porraEquipo(p.eq1)}${pct!==null?`<small>Elo ${pct}%</small>`:''}</button>
+          <span class="an-muted">vs</span>
+          <button class="pr-eq${m.ganador===2?' on':''}" onclick="porraElegir(this,2)"${cerrado?' disabled':''}>${porraEquipo(p.eq2)}${pct!==null?`<small>Elo ${100-pct}%</small>`:''}</button>
+        </div>
+        <div class="pr-pie"><label class="pr-tantos">${tx('Resultado','Emaitza')}
+          <select onchange="porraTantos(this)"${m.ganador && !cerrado?'':' disabled'}>${opciones}</select></label>
+          <span class="pr-ok" aria-live="polite"></span></div>
+      </div>`;
+    }).join('');
+    html += `<div class="pr-partido${amb.length?'':' pr-cerrado'}" data-id="${h(p.id)}">
       <div class="pr-comp"><span>${h(nombreComp)}${p.fase?` · ${h(p.fase)}`:''}</span>${interruptor}</div>
-      <div class="pr-elige">
-        <button class="pr-eq${m.ganador===1?' on':''}" onclick="porraElegir('${esc(p.id)}',1)"${cerrado?' disabled':''}>${porraEquipo(p.eq1)}${pct!==null?`<small>Elo ${pct}%</small>`:''}</button>
-        <span class="an-muted">vs</span>
-        <button class="pr-eq${m.ganador===2?' on':''}" onclick="porraElegir('${esc(p.id)}',2)"${cerrado?' disabled':''}>${porraEquipo(p.eq2)}${pct!==null?`<small>Elo ${100-pct}%</small>`:''}</button>
-      </div>
-      <label class="pr-tantos">${tx('Resultado','Emaitza')}
-        <select onchange="porraTantos('${esc(p.id)}',this.value)"${m.ganador && !cerrado?'':' disabled'}>${opciones}</select></label>
-      <span class="pr-ok" aria-live="polite"></span>
+      ${filas}
     </div>`;
   });
   panel.innerHTML = html;
@@ -228,31 +273,29 @@ async function porraActivar(id, activo){
   porraPintarPronosticar(document.getElementById('prPanel'));
 }
 
-async function porraGuardar(id, cambios){
-  const fila = document.querySelector(`.pr-partido[data-id="${CSS.escape(id)}"]`);
-  const ok = fila?.querySelector('.pr-ok');
-  const {error} = await _sb.from('porra_pronosticos').upsert({partido: id, ...cambios}, {onConflict: 'usuario,partido'});
-  if(ok){
-    ok.textContent = error ? tx('✗ Cerrado o sin conexión','✗ Itxita edo konexiorik gabe') : tx('✓ Guardado','✓ Gordeta');
-    ok.classList.toggle('mal', !!error);
-  }
+async function porraGuardar(fila, ganador, tantos){
+  const partido = fila.dataset.partido;
+  const filas = fila.dataset.ligas.split(',').map(l=>({partido, liga: l || null, ganador, tantos_perdedor: tantos}));
+  const {error} = await _sb.from('porra_pronosticos').upsert(filas, {onConflict: 'usuario,partido,liga'});
+  const ok = fila.querySelector('.pr-ok');
+  ok.textContent = error ? tx('✗ Cerrado o sin conexión','✗ Itxita edo konexiorik gabe') : tx('✓ Guardado','✓ Gordeta');
+  ok.classList.toggle('mal', !!error);
   return !error;
 }
 
-async function porraElegir(id, ganador){
-  const fila = document.querySelector(`.pr-partido[data-id="${CSS.escape(id)}"]`);
+async function porraElegir(btn, ganador){
+  const fila = btn.closest('.pr-fila');
   const sel = fila.querySelector('select');
-  const tantos = sel.value==='' ? null : +sel.value;
-  if(await porraGuardar(id, {ganador, tantos_perdedor: tantos})){
+  if(await porraGuardar(fila, ganador, sel.value==='' ? null : +sel.value)){
     fila.querySelectorAll('.pr-eq').forEach((b,i)=>b.classList.toggle('on', i+1===ganador));
     sel.disabled = false;
   }
 }
 
-async function porraTantos(id, valor){
-  const fila = document.querySelector(`.pr-partido[data-id="${CSS.escape(id)}"]`);
+async function porraTantos(sel){
+  const fila = sel.closest('.pr-fila');
   const ganador = [...fila.querySelectorAll('.pr-eq')].findIndex(b=>b.classList.contains('on')) + 1;
-  if(ganador) await porraGuardar(id, {ganador, tantos_perdedor: valor==='' ? null : +valor});
+  if(ganador) await porraGuardar(fila, ganador, sel.value==='' ? null : +sel.value);
 }
 
 // ── Mis pronósticos ─────────────────────────────────────────
@@ -261,12 +304,14 @@ async function porraPintarMios(panel){
     .eq('usuario', _porraSesion.user.id).order('inicio', {ascending: false}).limit(80);
   if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
   if(!data.length){ panel.innerHTML = `<div class="nodata">${tx('Todavía no has pronosticado ningún partido.','Oraindik ez duzu partidarik iragarri.')}</div>`; return; }
-  const total = data.reduce((s,x)=>s+(x.puntos||0), 0);
-  const jugados = data.filter(x=>x.puntos!==null);
+  const ligas = Object.fromEntries(_porraLigas.map(l=>[l.id, l.nombre]));
+  const general = data.filter(x=>!x.liga);
+  const total = general.reduce((s,x)=>s+(x.puntos||0), 0);
+  const jugados = general.filter(x=>x.puntos!==null);
   const aciertos = jugados.filter(x=>x.puntos>=3).length;
   panel.innerHTML = `
     <div class="an-kpis">
-      <div><div class="an-kpi-v">${total}</div><div class="an-kpi-l">${tx('Puntos','Puntuak')}</div></div>
+      <div><div class="an-kpi-v">${total}</div><div class="an-kpi-l">${tx('Puntos en la general','Puntuak orokorrean')}</div></div>
       <div><div class="an-kpi-v">${aciertos}/${jugados.length}</div><div class="an-kpi-l">${tx('Ganadores acertados','Asmatutako irabazleak')}</div></div>
     </div>
     <div class="pr-wrap"><table class="pr-tabla"><tbody>${data.map(x=>{
@@ -277,7 +322,8 @@ async function porraPintarMios(panel){
       const tantos = x.tantos_perdedor!==null ? ` (22–${x.tantos_perdedor})` : '';
       return `<tr><td class="pr-f">${h(porraFecha(x.inicio))}</td>
         <td><span class="${x.ganador===1?'pr-elegido':''}">${porraEquipo(x.eq1)}</span> <span class="an-muted">vs</span>
-            <span class="${x.ganador===2?'pr-elegido':''}">${porraEquipo(x.eq2)}</span><span class="an-muted">${tantos}</span></td>
+            <span class="${x.ganador===2?'pr-elegido':''}">${porraEquipo(x.eq2)}</span><span class="an-muted">${tantos}</span>
+            <div class="pr-ambitos"><span class="${x.liga?'pr-liga':'pr-gen'}">${h(x.liga ? (ligas[x.liga]||tx('Liga','Liga')) : tx('General','Orokorra'))}</span></div></td>
         <td class="pr-n">${res}</td><td class="pr-n">${estado}</td></tr>`;
     }).join('')}</tbody></table></div>`;
 }
@@ -292,15 +338,20 @@ function porraDesde(){
 }
 
 function porraSetClasif(k, id){ _porraClasif = k; porraPintarClasif(id); }
+function porraSetClasifLiga(lid, id){ _porraClasifLiga = lid || null; porraPintarClasif(id); }
 
 async function porraPintarClasif(id){
   const cont = document.getElementById(id);
   if(!cont) return;
   const filtros = [['general', tx('Temporada','Denboraldia')], ['mes', tx('Este mes','Hilabete hau')], ['semana', tx('Esta semana','Aste hau')]];
-  cont.innerHTML = `<div class="pr-filtros">${filtros.map(([k,l])=>
+  const ligas = _porraSesion ? _porraLigas : [];
+  if(_porraClasifLiga && !ligas.some(l=>l.id===_porraClasifLiga)) _porraClasifLiga = null;
+  const selLiga = ligas.length ? `<select class="pr-sel-liga" onchange="porraSetClasifLiga(this.value,'${id}')" aria-label="${tx('Clasificación','Sailkapena')}">
+      <option value="">${tx('General','Orokorra')}</option>${ligas.map(l=>`<option value="${l.id}"${l.id===_porraClasifLiga?' selected':''}>${h(l.nombre)}</option>`).join('')}</select>` : '';
+  cont.innerHTML = `<div class="pr-filtros">${selLiga}${filtros.map(([k,l])=>
     `<button class="pill${_porraClasif===k?' on':''}" onclick="porraSetClasif('${k}','${id}')">${l}</button>`).join('')}</div>
     <div class="cart-loading">⟳</div>`;
-  const {data, error} = await _sb.rpc('porra_clasificacion', {desde: porraDesde()});
+  const {data, error} = await _sb.rpc('porra_clasificacion', {desde: porraDesde(), liga: _porraClasifLiga});
   const tabla = cont.querySelector('.cart-loading');
   if(error){ tabla.outerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
   if(!data.length){ tabla.outerHTML = `<div class="nodata">${tx('Aún no hay partidos puntuados en este periodo.','Oraindik ez dago puntuatutako partidarik aldi honetan.')}</div>`; return; }
@@ -317,6 +368,129 @@ async function porraPintarClasif(id){
     }).join('')}</tbody></table></div>`;
 }
 
+// ── Ligas privadas ──────────────────────────────────────────
+// Competiciones para una liga: las que están en juego o por empezar
+// (en la cartelera o de este año sin final), agrupadas sin la serie.
+async function porraCompeticionesLiga(){
+  const nombres = new Set();
+  const {data} = await _sb.from('porra_abiertos').select('competicion,categoria').limit(200);
+  (data||[]).forEach(p=>{ if(p.competicion && p.categoria!=='festival') nombres.add(p.competicion); });
+  const anio = String(new Date().getFullYear());
+  const conFinal = new Set(PARTIDOS.filter(p=>p.fase==='final').map(p=>p.competicion));
+  PARTIDOS.forEach(p=>{
+    if(['campeonato','torneo','desafio'].includes(p.categoria) && p.competicion.includes(anio) && !conFinal.has(p.competicion))
+      nombres.add(p.competicion);
+  });
+  const grupos = {};
+  [...nombres].forEach(n=>{
+    const base = n.replace(/\s*\bSerie [AB]\b/, '');
+    const g = grupos[base] = grupos[base] || {base, series: /\bSerie [AB]\b/.test(n), nombres: new Set()};
+    g.nombres.add(n);
+  });
+  // Con series: siempre A, B y entero, aunque una de las dos aún no haya empezado
+  Object.values(grupos).forEach(g=>{
+    if(!g.series) return;
+    const n = [...g.nombres][0];
+    g.A = n.replace(/\bSerie [AB]\b/, 'Serie A');
+    g.B = n.replace(/\bSerie [AB]\b/, 'Serie B');
+  });
+  return Object.values(grupos).sort((a,b)=>a.base.localeCompare(b.base));
+}
+
+function porraEnlaceLiga(cod){ return `${location.origin}/?porra=1&liga=${cod}`; }
+
+async function porraPintarLigas(panel){
+  const {data: miembros} = _porraLigas.length
+    ? await _sb.from('porra_miembros').select('liga,usuario,perfiles(alias)').in('liga', _porraLigas.map(l=>l.id))
+    : {data: []};
+  const porLiga = {};
+  (miembros||[]).forEach(m=>(porLiga[m.liga] = porLiga[m.liga] || []).push(m.perfiles?.alias || '—'));
+  const yo = _porraSesion.user.id;
+  let html = _porraLigas.map(l=>{
+    const gente = porLiga[l.id] || [];
+    const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
+    return `<div class="pr-card pr-liga-card">
+      <div class="pr-liga-top"><h4>${h(l.nombre)}</h4><span class="an-muted">${gente.length}/20</span></div>
+      <div class="pr-help">${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</div>
+      <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>
+        <button class="btn-ghost" onclick="navigator.clipboard?.writeText('${porraEnlaceLiga(l.codigo)}');this.textContent='✓'">${tx('Copiar enlace','Esteka kopiatu')}</button>
+        <a class="btn-ghost" href="https://wa.me/?text=${texto}" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div class="pr-help">${gente.map(a=>h(a)).join(', ')}</div>
+      <div class="pr-liga-acc">
+        <button class="btn-ghost" onclick="_porraClasifLiga='${l.id}';porraSetTab('clasificacion')">${tx('Ver clasificación','Sailkapena ikusi')}</button>
+        ${l.creador===yo
+          ? `<button class="btn-ghost pr-borrar" onclick="porraBorrarLiga('${l.id}')">${tx('Borrar liga','Liga ezabatu')}</button>`
+          : `<button class="btn-ghost pr-borrar" onclick="porraSalirLiga('${l.id}')">${tx('Salir de la liga','Ligatik irten')}</button>`}
+      </div></div>`;
+  }).join('');
+  if(!_porraLigas.length) html = `<p class="pr-help">${tx('Juega con tu cuadrilla: crea una liga privada de una competición (hasta 20 personas) o únete con un código.',
+    'Jokatu zure koadrilarekin: sortu txapelketa bateko liga pribatu bat (20 lagun arte) edo batu kode batekin.')}</p>`;
+  const grupos = await porraCompeticionesLiga();
+  window._porraGrupos = grupos;
+  html += `
+    <div class="pr-card"><h4>${tx('Unirme a una liga','Liga batera batu')}</h4>
+      <form class="pr-alias" onsubmit="porraUnirse(event)">
+        <input id="prCodigo" required maxlength="6" placeholder="ABC123" aria-label="${tx('Código','Kodea')}" style="text-transform:uppercase">
+        <button class="btn" type="submit">${tx('Unirme','Batu')}</button></form></div>
+    <div class="pr-card"><h4>${tx('Crear una liga','Liga bat sortu')}</h4>
+      ${grupos.length ? `<form class="pr-crear" onsubmit="porraCrearLiga(event)">
+        <input id="prLigaNombre" required minlength="3" maxlength="40" placeholder="${tx('Nombre de la liga','Ligaren izena')}" aria-label="${tx('Nombre de la liga','Ligaren izena')}">
+        <select id="prLigaComp" onchange="porraPintarSeries()" aria-label="${tx('Competición','Txapelketa')}">
+          ${grupos.map((g,i)=>`<option value="${i}">${h(tComp(g.base))}</option>`).join('')}</select>
+        <div id="prLigaSeries" class="pr-series"></div>
+        <button class="btn" type="submit">${tx('Crear liga','Liga sortu')}</button>
+        <p class="pr-help" id="prLigaMsg"></p></form>`
+      : `<p class="pr-help">${tx('Ahora mismo no hay ninguna competición en juego o por empezar.','Une honetan ez dago txapelketarik jokoan edo hastear.')}</p>`}
+    </div>`;
+  panel.innerHTML = html;
+  porraPintarSeries();
+}
+
+function porraPintarSeries(){
+  const cont = document.getElementById('prLigaSeries');
+  const sel = document.getElementById('prLigaComp');
+  if(!cont || !sel) return;
+  const g = window._porraGrupos[+sel.value];
+  cont.innerHTML = g.series ? [['A', tx('Serie A','A seriea')], ['B', tx('Serie B','B seriea')], ['AB', tx('Entero (A y B)','Osoa (A eta B)')]]
+    .map(([k,l],i)=>`<label><input type="radio" name="prSerie" value="${k}"${i===0?' checked':''}> ${l}</label>`).join('') : '';
+}
+
+async function porraCrearLiga(ev){
+  ev.preventDefault();
+  const g = window._porraGrupos[+document.getElementById('prLigaComp').value];
+  const serie = document.querySelector('input[name="prSerie"]:checked')?.value;
+  const alcance = !g.series ? [...g.nombres] : serie==='A' ? [g.A] : serie==='B' ? [g.B] : [g.A, g.B];
+  const nombre = document.getElementById('prLigaNombre').value.trim();
+  const {error} = await _sb.rpc('porra_crear_liga', {nombre, alcance});
+  if(error){ document.getElementById('prLigaMsg').textContent = error.message; return; }
+  await porraCargarLigas();
+  porraRender();
+}
+
+async function porraUnirse(ev){
+  ev.preventDefault();
+  const {error} = await _sb.rpc('porra_unirse', {codigo: document.getElementById('prCodigo').value});
+  if(error){ alert(error.message); return; }
+  await porraCargarLigas();
+  porraRender();
+}
+
+async function porraSalirLiga(id){
+  if(!confirm(tx('¿Salir de la liga? Tus pronósticos de esta liga dejarán de contar.','Ligatik irten? Liga honetako zure iragarpenek ez dute balioko.'))) return;
+  const {error} = await _sb.from('porra_miembros').delete().eq('liga', id).eq('usuario', _porraSesion.user.id);
+  if(error){ alert(error.message); return; }
+  await porraCargarLigas();
+  porraRender();
+}
+
+async function porraBorrarLiga(id){
+  if(!confirm(tx('¿Borrar la liga para todos sus miembros? No se puede deshacer.','Liga kide guztientzat ezabatu? Ezin da desegin.'))) return;
+  const {error} = await _sb.from('porra_ligas').delete().eq('id', id);
+  if(error){ alert(error.message); return; }
+  await porraCargarLigas();
+  porraRender();
+}
+
 // ── Normas y privacidad ─────────────────────────────────────
 function htmlPorraNormas(conCuenta){
   return `<div class="pr-card pr-normas">
@@ -329,6 +503,8 @@ function htmlPorraNormas(conCuenta){
                'Jaialdiaren hasiera ordura arte iragarri eta alda daiteke. Besteen iragarpenak hasten denean ikusten dira.')}</li>
       <li>${tx('Si cambia el cartel o el partido no se juega, ese pronóstico se anula y no cuenta.',
                'Kartela aldatzen bada edo partida ez bada jokatzen, iragarpen hori baliogabetu egiten da eta ez da kontatzen.')}</li>
+      <li>${tx('Hay una clasificación general y puedes crear ligas privadas de una competición (hasta 20 personas). Puedes pronosticar lo mismo para todas o distinto en cada una.',
+               'Sailkapen orokor bat dago eta txapelketa bateko liga pribatuak sor ditzakezu (20 lagun arte). Guztietarako gauza bera edo bakoitzean desberdina iragar dezakezu.')}</li>
       <li>${tx('Es un juego gratuito entre aficionados: no hay apuestas ni dinero.','Zaleen arteko doako jokoa da: ez dago apusturik ez dirurik.')}</li>
     </ul>
     <h4>${tx('Tus datos','Zure datuak')}</h4>

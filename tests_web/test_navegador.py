@@ -510,7 +510,7 @@ class Web(unittest.TestCase):
 
 
     # ── Porra (Supabase simulado) ──
-    def pagina_porra(self, con_sesion, ancho=1300, admin=False):
+    def pagina_porra(self, con_sesion, ancho=1300, admin=False, ligas=()):
         import base64
         import json as _json
         from datetime import datetime, timedelta, timezone
@@ -534,6 +534,9 @@ class Web(unittest.TestCase):
                               + ([{'id': 'p2', 'inicio': inicio, 'competicion': 'Festival', 'fronton': 'Bizkaia', 'eq1': ['JAKA'],
                                    'eq2': ['DARIO'], 'categoria': 'festival', 'activo': None, 'pronosticable': False}] if admin else []),
             'porra_config': [{'modo': 'oficiales'}],
+            'porra_ligas': list(ligas),
+            'porra_miembros': [{'liga': l['id'], 'usuario': uid, 'perfiles': {'alias': 'Jon'}} for l in ligas],
+            'porra_crear_liga': [{'id': 'nueva', 'codigo': 'XYZ789'}],
             'porra_pronosticos': [],
             'porra_puntuados': [{'usuario': uid, 'partido': 'p0', 'ganador': 1, 'tantos_perdedor': 18, 'inicio': inicio,
                                  'eq1': ['LASO'], 'eq2': ['JAKA'], 'estado': 'jugado', 'puntos1': 22, 'puntos2': 18, 'puntos': 6}],
@@ -544,7 +547,9 @@ class Web(unittest.TestCase):
         def supabase(route):
             req = route.request
             tabla = req.url.split('?')[0].rstrip('/').split('/')[-1]
-            if req.method == 'POST' and tabla == 'porra_pronosticos':
+            if req.method == 'POST' and tabla in ('porra_crear_liga', 'porra_unirse'):
+                self.porra_envios.append((tabla, _json.loads(req.post_data)))
+            elif req.method == 'POST' and tabla == 'porra_pronosticos':
                 self.porra_envios.append(_json.loads(req.post_data))
                 return route.fulfill(status=201, body='')
             if req.method == 'PATCH':
@@ -578,10 +583,10 @@ class Web(unittest.TestCase):
         self.assertTrue(pg.locator('.pr-tantos select').is_disabled())
         pg.locator('.pr-eq').nth(1).click()
         pg.wait_for_selector('.pr-eq.on')
-        self.assertEqual(self.porra_envios[-1], {'partido': 'p1', 'ganador': 2, 'tantos_perdedor': None})
+        self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': None, 'ganador': 2, 'tantos_perdedor': None}])
         pg.select_option('.pr-tantos select', '20')
         pg.wait_for_function('document.querySelector(".pr-ok").textContent.length > 0')
-        self.assertEqual(self.porra_envios[-1], {'partido': 'p1', 'ganador': 2, 'tantos_perdedor': 20})
+        self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': None, 'ganador': 2, 'tantos_perdedor': 20}])
         pg.click('#porraContent .rk-tab >> nth=1')
         pg.wait_for_selector('.pr-pts.p6')
         pg.click('#porraContent .rk-tab >> nth=2')
@@ -589,6 +594,41 @@ class Web(unittest.TestCase):
         self.assertIn('Jon', pg.locator('.pr-yo').inner_text())
         sin_desborde = pg.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
         self.assertTrue(sin_desborde)
+
+    def test_porra_ligas(self):
+        liga = {'id': 'L1', 'nombre': 'Cuadrilla', 'codigo': 'ABC123', 'creador': '00000000-0000-0000-0000-00000000000a',
+                'alcance': ['Campeonato Manomanista Serie A 2026']}
+        pg = self.pagina_porra(True, ligas=[liga])
+        pg.wait_for_selector('.pr-partido')
+        # Mismo pronóstico: una fila que cuenta para la general y la liga
+        self.assertEqual(pg.locator('.pr-fila').count(), 1)
+        self.assertEqual(pg.locator('.pr-fila .pr-ambitos span').all_inner_texts(), ['General', 'Cuadrilla'])
+        pg.locator('.pr-eq').first.click()
+        pg.wait_for_selector('.pr-eq.on')
+        self.assertEqual([x['liga'] for x in self.porra_envios[-1]], [None, 'L1'])
+        # Por separado: una fila por ámbito
+        pg.uncheck('.pr-mismo input')
+        pg.wait_for_function('document.querySelectorAll(".pr-fila").length === 2')
+        pg.locator('.pr-fila').nth(1).locator('.pr-eq').nth(1).click()
+        pg.wait_for_function('document.querySelectorAll(".pr-fila")[1].querySelector(".pr-eq.on")')
+        self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': 'L1', 'ganador': 2, 'tantos_perdedor': None}])
+        # Pestaña de ligas: código, invitación y crear otra (4½ entero)
+        pg.click('#porraContent .rk-tab >> nth=3')
+        pg.wait_for_selector('.pr-liga-card')
+        self.assertIn('ABC123', pg.locator('.pr-codigo').inner_text())
+        self.assertIn('liga%3DABC123', pg.locator('.pr-codigo a').get_attribute('href').replace('=', '%3D'))
+        pg.evaluate("PARTIDOS.push({competicion: 'Campeonato 4 y Medio Serie A ' + new Date().getFullYear(), categoria: 'campeonato', fase: null})")
+        pg.click('#porraContent .rk-tab >> nth=3')
+        pg.wait_for_selector('#prLigaComp')
+        pg.fill('#prLigaNombre', 'Los del 4 y medio')
+        valor = pg.evaluate("[...document.querySelectorAll('#prLigaComp option')].find(o => o.textContent.includes('4')).value")
+        pg.select_option('#prLigaComp', valor)
+        pg.check('input[name="prSerie"][value="AB"]')
+        pg.click('.pr-crear button[type="submit"]')
+        pg.wait_for_function("document.querySelector('.pr-liga-card')")
+        anio = pg.evaluate('new Date().getFullYear()')
+        self.assertIn(('porra_crear_liga', {'nombre': 'Los del 4 y medio', 'alcance': [
+            f'Campeonato 4 y Medio Serie A {anio}', f'Campeonato 4 y Medio Serie B {anio}']}), self.porra_envios)
 
     def test_porra_administrador(self):
         pg = self.pagina_porra(True, admin=True)
