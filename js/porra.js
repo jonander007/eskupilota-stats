@@ -678,7 +678,7 @@ async function porraPintarLiga(panel, id){
   const gente = (miembros||[]).map(m=>m.perfiles?.alias || '—');
   const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
   const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['cerrados', tx('Cerrados','Itxitakoak')],
-                ['info', tx('Invitar y miembros','Gonbidatu eta kideak')], ['clasificacion', tx('Clasificación','Sailkapena')]];
+                ['clasificacion', tx('Clasificación','Sailkapena')], ['info', tx('Invitar y miembros','Gonbidatu eta kideak')]];
   let cuerpo;
   if(_porraLigaSub==='info') cuerpo = `<div class="pr-card pr-liga-card">
       <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>

@@ -652,10 +652,10 @@ class Web(unittest.TestCase):
         pg.wait_for_function('document.querySelectorAll(".pr-eq.on").length === 1 && document.querySelectorAll(".pr-eq")[1].classList.contains("on")')
         self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': 'L1', 'ganador': 2, 'tantos_perdedor': None}])
         # Clasificación de la liga e invitación
-        pg.click('.pr-subtabs .pill >> nth=3')
+        pg.click('.pr-subtabs .pill >> nth=2')
         pg.wait_for_selector('.pr-clasif')
         self.assertEqual(self.porra_rpc[-1][1]['liga'], 'L1')
-        pg.click('.pr-subtabs .pill >> nth=2')
+        pg.click('.pr-subtabs .pill >> nth=3')
         pg.wait_for_selector('.pr-codigo')
         self.assertIn('ABC123', pg.locator('.pr-codigo').inner_text())
         self.assertIn('liga%3DABC123', pg.locator('.pr-codigo a').get_attribute('href').replace('=', '%3D'))
