@@ -181,8 +181,8 @@ function htmlSelPorra(opc, fn){
 
 async function porraPintarGeneral(panel){
   const opc = await porraOpciones();
-  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')],
-                ['mios', tx('Cerrados','Itxitakoak')]];
+  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['mios', tx('Cerrados','Itxitakoak')],
+                ['clasificacion', tx('Clasificación','Sailkapena')]];
   panel.innerHTML = `<div class="pr-barra">${htmlSubtabs(subs, _porraSub, 'porraSetSub')}
       ${_porraSub!=='mios' ? htmlSelPorra(opc, 'porraSetSel') : ''}</div>
     <div id="prSub"><div class="cart-loading">⟳</div></div>`;
@@ -640,26 +640,31 @@ async function porraPintarMisLigas(panel){
         'Jokatu zure koadrilarekin: sortu txapelketa bateko liga pribatu bat (20 lagun arte) edo batu kode batekin.')}</p>`;
   const grupos = await porraCompeticionesLiga();
   window._porraGrupos = grupos;
+  // Unirse y crear, juntos en un desplegable discreto (abierto si aún no hay ligas)
   panel.innerHTML = lista + `
-    <div class="pr-card"><h4>${tx('Unirme a una liga','Liga batera batu')}</h4>
-      <form class="pr-alias" onsubmit="porraUnirse(event)">
-        <input id="prCodigo" required maxlength="6" placeholder="ABC123" aria-label="${tx('Código','Kodea')}" style="text-transform:uppercase">
-        <button class="btn" type="submit">${tx('Unirme','Batu')}</button></form></div>
-    <div class="pr-card"><h4>${tx('Crear una liga','Liga bat sortu')}</h4>
-      <form class="pr-crear" onsubmit="porraCrearLiga(event)">
-        <input id="prLigaNombre" required minlength="3" maxlength="40" placeholder="${tx('Nombre de la liga','Ligaren izena')}" aria-label="${tx('Nombre de la liga','Ligaren izena')}">
-        <div class="pr-series" role="radiogroup">
-          <label><input type="radio" name="prLigaTipo" value="torneo" checked onchange="porraPintarSeries()"> ${tx('De un torneo','Txapelketa batekoa')}</label>
-          <label><input type="radio" name="prLigaTipo" value="mes" onchange="porraPintarSeries()"> ${tx('De un mes','Hilabete batekoa')}</label>
-        </div>
-        <select id="prLigaComp" onchange="porraPintarSeries()" aria-label="${tx('Competición','Txapelketa')}">
-          ${grupos.map((g,i)=>`<option value="${i}">${h(porraNombreComp(g.base))}</option>`).join('')}</select>
-        <select id="prLigaMes" aria-label="${tx('Mes','Hilabetea')}" hidden>
-          ${porraProximosMeses().map(m=>`<option value="${m}">${h(porraNombreMes(m))}</option>`).join('')}</select>
-        <div id="prLigaSeries" class="pr-series"></div>
-        <button class="btn" type="submit">${tx('Crear liga','Liga sortu')}</button>
-        <p class="pr-help" id="prLigaMsg"></p></form>
-    </div>`;
+    <details class="pr-anadir"${_porraLigas.length ? '' : ' open'}>
+      <summary>➕ ${tx('Añadir liga','Liga gehitu')}</summary>
+      <div class="pr-anadir-c">
+        <h4>${tx('Unirme con un código','Kode batekin batu')}</h4>
+        <form class="pr-alias" onsubmit="porraUnirse(event)">
+          <input id="prCodigo" required maxlength="6" placeholder="ABC123" aria-label="${tx('Código','Kodea')}" style="text-transform:uppercase">
+          <button class="btn" type="submit">${tx('Unirme','Batu')}</button></form>
+        <h4>${tx('Crear una nueva','Berri bat sortu')}</h4>
+        <form class="pr-crear" onsubmit="porraCrearLiga(event)">
+          <input id="prLigaNombre" required minlength="3" maxlength="40" placeholder="${tx('Nombre de la liga','Ligaren izena')}" aria-label="${tx('Nombre de la liga','Ligaren izena')}">
+          <div class="pr-series" role="radiogroup">
+            <label><input type="radio" name="prLigaTipo" value="torneo" checked onchange="porraPintarSeries()"> ${tx('De un torneo','Txapelketa batekoa')}</label>
+            <label><input type="radio" name="prLigaTipo" value="mes" onchange="porraPintarSeries()"> ${tx('De un mes','Hilabete batekoa')}</label>
+          </div>
+          <select id="prLigaComp" onchange="porraPintarSeries()" aria-label="${tx('Competición','Txapelketa')}">
+            ${grupos.map((g,i)=>`<option value="${i}">${h(porraNombreComp(g.base))}</option>`).join('')}</select>
+          <select id="prLigaMes" aria-label="${tx('Mes','Hilabetea')}" hidden>
+            ${porraProximosMeses().map(m=>`<option value="${m}">${h(porraNombreMes(m))}</option>`).join('')}</select>
+          <div id="prLigaSeries" class="pr-series"></div>
+          <button class="btn" type="submit">${tx('Crear liga','Liga sortu')}</button>
+          <p class="pr-help" id="prLigaMsg"></p></form>
+      </div>
+    </details>`;
   porraPintarSeries();
 }
 
@@ -673,7 +678,7 @@ async function porraPintarLiga(panel, id){
   const gente = (miembros||[]).map(m=>m.perfiles?.alias || '—');
   const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
   const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['cerrados', tx('Cerrados','Itxitakoak')],
-                ['clasificacion', tx('Clasificación','Sailkapena')], ['info', tx('Invitar y miembros','Gonbidatu eta kideak')]];
+                ['info', tx('Invitar y miembros','Gonbidatu eta kideak')], ['clasificacion', tx('Clasificación','Sailkapena')]];
   let cuerpo;
   if(_porraLigaSub==='info') cuerpo = `<div class="pr-card pr-liga-card">
       <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>

@@ -1142,3 +1142,13 @@ header :focus-visible{outline-color:#fff;}
 .pr-cerrado-item[open] summary{border-bottom:1px solid var(--border);}
 .pr-cerrado-lista{padding:.3rem .8rem .6rem;}
 @media (max-width:600px){.pr-cerrado-item summary{grid-template-columns:1fr auto;} .pr-cerrado-item summary .pr-f{grid-column:1/-1;}}
+/* Porra: añadir liga (desplegable discreto bajo las ligas) */
+.pr-anadir{margin:.2rem 0 1rem;}
+.pr-anadir summary{display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;list-style:none;color:var(--green);font-weight:700;font-size:.82rem;
+  padding:.45rem .9rem;border:1.5px dashed var(--border-strong);border-radius:999px;}
+.pr-anadir summary::-webkit-details-marker{display:none;}
+.pr-anadir summary:hover{border-color:var(--green);background:var(--green-soft);}
+.pr-anadir[open] summary{margin-bottom:.6rem;}
+.pr-anadir-c{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;}
+.pr-anadir-c h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 .5rem;}
+.pr-anadir-c form + h4{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border);}
