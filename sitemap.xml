@@ -856,6 +856,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/privacidad/"/>
   </url>
   <url>
+    <loc>https://www.eskupilotastats.com/porra/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/porra/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/porra/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/porra/"/>
+  </url>
+  <url>
+    <loc>https://www.eskupilotastats.com/eu/porra/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/porra/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/porra/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/porra/"/>
+  </url>
+  <url>
     <loc>https://www.eskupilotastats.com/competicion/</loc>
     <changefreq>daily</changefreq>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/competicion/"/>
