@@ -1067,3 +1067,11 @@ header :focus-visible{outline-color:#fff;}
 .pr-normas ul{margin:0 0 1rem;padding-left:1.1rem;line-height:1.6;font-size:.88rem;}
 .pr-borrar{color:var(--red);border-color:var(--red);}
 .pr-help{font-size:.78rem;color:var(--muted);line-height:1.5;margin:.4rem 0;}
+.pr-comp{display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.pr-cerrado{opacity:.6;border-style:dashed;}
+.pr-eq:disabled{cursor:not-allowed;}
+.pr-switch{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;color:var(--text);cursor:pointer;white-space:nowrap;}
+.pr-switch input{accent-color:var(--green);width:16px;height:16px;}
+.pr-admin{background:var(--green-soft);border:1px solid var(--green);border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.85rem;}
+.pr-admin label{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;}
+.pr-admin select{padding:.35rem .5rem;border:1.5px solid var(--border-strong);border-radius:6px;background:var(--surface);color:var(--text);font:inherit;}

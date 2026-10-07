@@ -57,7 +57,7 @@ async function porraRender(){
   if(!cont || !_sb) return;
   if(!_porraSesion){ cont.innerHTML = htmlPorraEntrar(); porraPintarClasif('prClasifPublica'); return; }
   if(_porraPerfil === undefined){
-    const {data} = await _sb.from('perfiles').select('alias').eq('id', _porraSesion.user.id).maybeSingle();
+    const {data} = await _sb.from('perfiles').select('alias,admin').eq('id', _porraSesion.user.id).maybeSingle();
     _porraPerfil = data;
   }
   if(!_porraPerfil){ cont.innerHTML = htmlPorraAlias(); return; }
@@ -154,18 +154,20 @@ function porraFecha(iso){
 }
 
 async function porraPintarPronosticar(panel){
-  const ahora = new Date().toISOString();
-  const {data: partidos, error} = await _sb.from('porra_partidos').select('*')
-    .eq('estado','abierto').gt('inicio', ahora).order('inicio').limit(60);
+  const admin = !!_porraPerfil?.admin;
+  let q = _sb.from('porra_abiertos').select('*').order('inicio').limit(80);
+  if(!admin) q = q.eq('pronosticable', true);
+  const {data: partidos, error} = await q;
   if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
+  let html = admin ? await htmlPorraAdmin() : '';
   if(!partidos.length){
-    panel.innerHTML = `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
+    panel.innerHTML = html + `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
     return;
   }
   const {data: mios} = await _sb.from('porra_pronosticos').select('partido,ganador,tantos_perdedor')
     .eq('usuario', _porraSesion.user.id).in('partido', partidos.map(p=>p.id));
   const mio = Object.fromEntries((mios||[]).map(x=>[x.partido, x]));
-  let html = `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de la velada.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Jaialdiaren ordura arte alda dezakezu.')}</p>`;
+  html += `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de la velada.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Jaialdiaren ordura arte alda dezakezu.')}</p>`;
   let velada = '';
   partidos.forEach(p=>{
     const v = p.inicio + p.fronton;
@@ -174,23 +176,56 @@ async function porraPintarPronosticar(panel){
       html += `<div class="pr-velada">${h(porraFecha(p.inicio))} · ${h(p.fronton||'')}</div>`;
     }
     const m = mio[p.id] || {};
+    const cerrado = !p.pronosticable;
     const prob = probVictoria(p.eq1.map(resolverPelotari).filter(Boolean), p.eq2.map(resolverPelotari).filter(Boolean));
     const pct = prob===null ? null : Math.round(prob*100);
     const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
       `<option value="${i}"${m.tantos_perdedor===i?' selected':''}>22 – ${i}</option>`)).join('');
-    html += `<div class="pr-partido" data-id="${h(p.id)}">
-      <div class="pr-comp">${h(tComp(p.competicion||''))}${p.fase?` · ${h(p.fase)}`:''}</div>
+    const nombreComp = p.categoria==='festival' ? tx('Festival','Jaialdia') : tComp(p.competicion||'');
+    const interruptor = admin ? `<label class="pr-switch" title="${tx('Abierto en la porra','Porran irekita')}">
+        <input type="checkbox"${cerrado?'':' checked'} onchange="porraActivar('${esc(p.id)}',this.checked)">
+        <span>${tx('En la porra','Porran')}</span></label>` : '';
+    html += `<div class="pr-partido${cerrado?' pr-cerrado':''}" data-id="${h(p.id)}">
+      <div class="pr-comp"><span>${h(nombreComp)}${p.fase?` · ${h(p.fase)}`:''}</span>${interruptor}</div>
       <div class="pr-elige">
-        <button class="pr-eq${m.ganador===1?' on':''}" onclick="porraElegir('${esc(p.id)}',1)">${porraEquipo(p.eq1)}${pct!==null?`<small>Elo ${pct}%</small>`:''}</button>
+        <button class="pr-eq${m.ganador===1?' on':''}" onclick="porraElegir('${esc(p.id)}',1)"${cerrado?' disabled':''}>${porraEquipo(p.eq1)}${pct!==null?`<small>Elo ${pct}%</small>`:''}</button>
         <span class="an-muted">vs</span>
-        <button class="pr-eq${m.ganador===2?' on':''}" onclick="porraElegir('${esc(p.id)}',2)">${porraEquipo(p.eq2)}${pct!==null?`<small>Elo ${100-pct}%</small>`:''}</button>
+        <button class="pr-eq${m.ganador===2?' on':''}" onclick="porraElegir('${esc(p.id)}',2)"${cerrado?' disabled':''}>${porraEquipo(p.eq2)}${pct!==null?`<small>Elo ${100-pct}%</small>`:''}</button>
       </div>
       <label class="pr-tantos">${tx('Resultado','Emaitza')}
-        <select onchange="porraTantos('${esc(p.id)}',this.value)"${m.ganador?'':' disabled'}>${opciones}</select></label>
+        <select onchange="porraTantos('${esc(p.id)}',this.value)"${m.ganador && !cerrado?'':' disabled'}>${opciones}</select></label>
       <span class="pr-ok" aria-live="polite"></span>
     </div>`;
   });
   panel.innerHTML = html;
+}
+
+// ── Administración: qué partidos entran en la porra ─────────
+async function htmlPorraAdmin(){
+  const {data} = await _sb.from('porra_config').select('modo').maybeSingle();
+  const modo = data?.modo || 'oficiales';
+  const modos = [['oficiales', tx('Solo campeonatos y torneos','Txapelketak eta torneoak bakarrik')],
+                 ['todos', tx('Todos los partidos (también festivales)','Partida guztiak (jaialdiak ere)')],
+                 ['manual', tx('Elegir a mano','Eskuz aukeratu')]];
+  return `<div class="pr-admin">
+    <b>⚙️ ${tx('Administración','Administrazioa')}</b>
+    <label>${tx('Partidos en la porra','Porrako partidak')}
+      <select onchange="porraSetModo(this.value)">${modos.map(([k,l])=>`<option value="${k}"${k===modo?' selected':''}>${l}</option>`).join('')}</select></label>
+    <p class="pr-help">${tx('Con el interruptor «En la porra» de cada partido lo abres o lo cierras aunque el modo diga otra cosa. Solo tú ves este panel y los partidos cerrados.',
+      'Partida bakoitzeko «Porran» etengailuarekin ireki edo itxi egiten duzu, moduak beste zerbait esan arren. Zuk bakarrik ikusten dituzu panel hau eta itxitako partidak.')}</p>
+  </div>`;
+}
+
+async function porraSetModo(modo){
+  const {error} = await _sb.from('porra_config').update({modo}).eq('id', 1);
+  if(error){ alert(error.message); return; }
+  porraPintarPronosticar(document.getElementById('prPanel'));
+}
+
+async function porraActivar(id, activo){
+  const {error} = await _sb.from('porra_partidos').update({activo}).eq('id', id);
+  if(error){ alert(error.message); return; }
+  porraPintarPronosticar(document.getElementById('prPanel'));
 }
 
 async function porraGuardar(id, cambios){

@@ -1,5 +1,7 @@
 -- ════════════════════════════════════════════════════════════════════
 -- PORRA DE ESKUPILOTASTATS
+-- Para hacerte administrador (ver y abrir/cerrar partidos), una vez creado
+-- tu alias ejecuta:  update public.perfiles set admin = true where alias = 'TuAlias';
 -- Pegar entero en Supabase → SQL Editor → New query → Run.
 -- Se puede volver a ejecutar sin perder datos (crea solo lo que falta y
 -- rehace reglas, vistas y funciones).
@@ -43,6 +45,39 @@ create table if not exists public.porra_pronosticos (
 );
 create index if not exists porra_pronosticos_partido on public.porra_pronosticos (partido);
 
+-- ── Qué partidos se pueden pronosticar (lo decide el administrador) ─
+-- Modo general: 'todos' | 'oficiales' (sin festivales) | 'manual' (ninguno).
+-- Cada partido puede forzarse abierto (activo = true) o cerrado (false);
+-- null sigue el modo general.
+alter table public.porra_partidos add column if not exists categoria text;   -- campeonato, torneo, desafio, festival
+alter table public.porra_partidos add column if not exists activo boolean;
+alter table public.perfiles       add column if not exists admin boolean not null default false;
+create table if not exists public.porra_config (
+  id   smallint primary key default 1 check (id = 1),
+  modo text not null default 'oficiales' check (modo in ('todos', 'oficiales', 'manual'))
+);
+insert into public.porra_config (id) values (1) on conflict (id) do nothing;
+
+-- Partidos aún abiertos (futuros) y si se pueden pronosticar
+drop view if exists public.porra_abiertos;
+create view public.porra_abiertos with (security_invoker = true) as
+select p.id, p.inicio, p.competicion, p.fase, p.fronton, p.modalidad, p.categoria, p.eq1, p.eq2, p.activo,
+       coalesce(p.activo, case c.modo when 'todos' then true
+                                      when 'oficiales' then coalesce(p.categoria, '') <> 'festival'
+                                      else false end) as pronosticable
+from public.porra_partidos p cross join public.porra_config c
+where p.estado = 'abierto' and p.inicio > now();
+
+create or replace function public.porra_pronosticable(pid text)
+returns boolean language sql stable security definer set search_path = '' as $$
+  select coalesce((select pronosticable from public.porra_abiertos where id = pid), false)
+$$;
+
+create or replace function public.porra_es_admin()
+returns boolean language sql stable security definer set search_path = '' as $$
+  select coalesce((select admin from public.perfiles where id = auth.uid()), false)
+$$;
+
 -- ── Seguridad (Row Level Security) ──────────────────────────────────
 alter table public.perfiles          enable row level security;
 alter table public.porra_partidos    enable row level security;
@@ -56,7 +91,17 @@ create policy "perfiles: crear"   on public.perfiles for insert to authenticated
 create policy "perfiles: cambiar" on public.perfiles for update to authenticated using (id = auth.uid()) with check (id = auth.uid());
 
 drop policy if exists "partidos: ver" on public.porra_partidos;
+drop policy if exists "partidos: admin" on public.porra_partidos;
 create policy "partidos: ver" on public.porra_partidos for select using (true);
+create policy "partidos: admin" on public.porra_partidos for update to authenticated
+  using (public.porra_es_admin()) with check (public.porra_es_admin());
+
+alter table public.porra_config enable row level security;
+drop policy if exists "config: ver" on public.porra_config;
+drop policy if exists "config: admin" on public.porra_config;
+create policy "config: ver" on public.porra_config for select using (true);
+create policy "config: admin" on public.porra_config for update to authenticated
+  using (public.porra_es_admin()) with check (public.porra_es_admin());
 
 -- Los pronósticos ajenos solo se ven cuando el partido ya ha empezado (nadie copia)
 -- y solo se puede pronosticar, cambiar o borrar antes de la hora de inicio.
@@ -69,22 +114,30 @@ create policy "pronosticos: ver" on public.porra_pronosticos for select using (
   or exists (select 1 from public.porra_partidos p where p.id = partido and p.inicio <= now()));
 create policy "pronosticos: crear" on public.porra_pronosticos for insert to authenticated with check (
   usuario = auth.uid()
-  and exists (select 1 from public.porra_partidos p where p.id = partido and p.estado = 'abierto' and p.inicio > now()));
+  and public.porra_pronosticable(partido));
 create policy "pronosticos: cambiar" on public.porra_pronosticos for update to authenticated
   using (usuario = auth.uid())
   with check (usuario = auth.uid()
-  and exists (select 1 from public.porra_partidos p where p.id = partido and p.estado = 'abierto' and p.inicio > now()));
+  and public.porra_pronosticable(partido));
 create policy "pronosticos: borrar" on public.porra_pronosticos for delete to authenticated using (
   usuario = auth.uid()
-  and exists (select 1 from public.porra_partidos p where p.id = partido and p.estado = 'abierto' and p.inicio > now()));
+  and public.porra_pronosticable(partido));
 
--- Permisos: el usuario solo puede tocar su alias (no "oculto" ni "creado")
+-- Permisos: el usuario solo puede tocar su alias (no "oculto", "admin" ni "creado")
 revoke all on public.perfiles, public.porra_partidos, public.porra_pronosticos from anon, authenticated;
 grant select on public.perfiles, public.porra_partidos, public.porra_pronosticos to anon, authenticated;
 grant insert (id, alias), update (alias) on public.perfiles to authenticated;
 grant insert (partido, ganador, tantos_perdedor), update (partido, ganador, tantos_perdedor), delete
   on public.porra_pronosticos to authenticated;
 grant all on public.perfiles, public.porra_partidos, public.porra_pronosticos to service_role;
+-- El administrador solo puede abrir/cerrar partidos y cambiar el modo (lo controlan las reglas de arriba)
+revoke all on public.porra_config from anon, authenticated;
+grant select on public.porra_config, public.porra_abiertos to anon, authenticated;
+grant update (activo) on public.porra_partidos to authenticated;
+grant update (modo) on public.porra_config to authenticated;
+grant all on public.porra_config to service_role;
+revoke execute on function public.porra_pronosticable(text), public.porra_es_admin() from public, anon;
+grant execute on function public.porra_pronosticable(text), public.porra_es_admin() to authenticated;
 
 -- ── Puntuación ──────────────────────────────────────────────────────
 -- 3 puntos por acertar el ganador; si además se acierta el tanteo del
