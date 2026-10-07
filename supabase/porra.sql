@@ -240,6 +240,8 @@ grant execute on function public.porra_crear_liga(text, text[]), public.porra_un
 -- 3 puntos por acertar el ganador; si además se acierta el tanteo del
 -- perdedor, +3 (exacto) o +1 (a 2 tantos o menos). Máximo 6.
 drop function if exists public.porra_clasificacion(timestamptz);
+drop function if exists public.porra_clasificacion(timestamptz, uuid);
+drop function if exists public.porra_clasificacion(timestamptz, uuid, text);
 drop view if exists public.porra_puntuados;
 create view public.porra_puntuados with (security_invoker = true) as
 select pr.usuario, pr.partido, pr.liga, pr.ganador, pr.tantos_perdedor,
@@ -258,9 +260,11 @@ from public.porra_pronosticos pr
 join public.porra_partidos pa on pa.id = pr.partido;
 grant select on public.porra_puntuados to anon, authenticated;
 
--- Clasificación de la general (liga null) o de una liga, desde una fecha (null = todo).
--- En una liga salen todos sus miembros, aunque aún no tengan puntos.
-create or replace function public.porra_clasificacion(desde timestamptz default null, liga uuid default null)
+-- Clasificación de la general (liga null) o de una liga, desde una fecha (null = todo)
+-- y, si se indica, solo de una competición. En una liga salen todos sus miembros,
+-- aunque aún no tengan puntos.
+create or replace function public.porra_clasificacion(desde timestamptz default null, liga uuid default null,
+                                                      competicion text default null)
 returns table (usuario uuid, alias text, puntos bigint, jugados bigint, aciertos bigint, exactos bigint)
 language sql stable security invoker set search_path = '' as $$
   select pe.id, pe.alias,
@@ -270,13 +274,14 @@ language sql stable security invoker set search_path = '' as $$
   left join public.porra_puntuados pu
          on pu.usuario = pe.id and pu.liga is not distinct from porra_clasificacion.liga
         and pu.puntos is not null and (desde is null or pu.inicio >= desde)
+        and (porra_clasificacion.competicion is null or pu.competicion = porra_clasificacion.competicion)
   where case when porra_clasificacion.liga is null then pu.usuario is not null
              else exists (select 1 from public.porra_miembros m
                           where m.liga = porra_clasificacion.liga and m.usuario = pe.id) end
   group by pe.id, pe.alias
   order by 3 desc, 5 desc, 6 desc, 4 asc, 2 asc
 $$;
-grant execute on function public.porra_clasificacion(timestamptz, uuid) to anon, authenticated;
+grant execute on function public.porra_clasificacion(timestamptz, uuid, text) to anon, authenticated;
 
 -- Cuántos han elegido a cada equipo en la general (cuando el partido ha empezado)
 create or replace function public.porra_reparto(ids text[])
