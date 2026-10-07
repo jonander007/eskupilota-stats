@@ -263,6 +263,7 @@ def main():
     sl_comp = generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima)
     sl_fro = generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima)
     generar_privacidad(ultima)
+    generar_porra_info(ultima)
     escribir_sitemap(sorted(slugs.values()), sl_comp, sl_fro)
     print(f'✓ {len(st)} pelotaris, {len(sl_comp)} competiciones y {len(sl_fro)} frontones × 2 idiomas; sitemap.xml actualizado')
 
@@ -449,6 +450,7 @@ def escribir_sitemap(slugs, sl_comp=(), sl_fro=()):
     cuerpo = url(f'{WEB}/', f'{WEB}/?lang=eu') + url(f'{WEB}/pelotari/', f'{WEB}/eu/pelotari/')
     cuerpo += ''.join(url(f'{WEB}/pelotari/{s}/', f'{WEB}/eu/pelotari/{s}/') for s in slugs)
     cuerpo += url(f'{WEB}/privacidad/', f'{WEB}/eu/privacidad/', 'monthly')
+    cuerpo += url(f'{WEB}/porra/', f'{WEB}/eu/porra/', 'monthly')
     for tipo, lista in (('competicion', sl_comp), ('fronton', sl_fro)):
         cuerpo += url(f'{WEB}/{tipo}/', f'{WEB}/eu/{tipo}/')
         cuerpo += ''.join(url(f'{WEB}/{tipo}/{s}/', f'{WEB}/eu/{tipo}/{s}/', 'weekly') for s in lista)
@@ -726,69 +728,213 @@ def generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima):
 # ─────────────────────────────────────────────────────────────────
 PRIVACIDAD = {
     'es': ('Política de privacidad | EskupilotaStats',
-           'Qué datos guarda EskupilotaStats, para qué y cómo borrarlos.',
+           'Qué datos recoge EskupilotaStats (también al entrar con Google), para qué se usan, cómo se protegen y cómo borrarlos.',
            'Política de privacidad', """
 <p class="sub">Última actualización: octubre de 2026</p>
-<section class="card"><h2>Quién es el responsable</h2>
-<p>EskupilotaStats (www.eskupilotastats.com), web de estadísticas de pelota a mano hecha por aficionados.
-Contacto: <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
-<section class="card"><h2>Si solo consultas la web</h2>
-<p>No necesitas cuenta y no te pedimos ningún dato. Usamos Cloudflare Web Analytics para contar visitas de forma
-agregada: no usa cookies ni identifica a nadie. Tus preferencias (idioma, modo oscuro, pelotaris que sigues) se
-guardan solo en tu propio navegador y no nos llegan.</p></section>
-<section class="card"><h2>Si juegas a la porra</h2>
-<p>Para participar hay que crear una cuenta, entrando con Google o con un enlace enviado a tu correo. Guardamos:</p>
+<section class="card"><h2>1. Quién es el responsable</h2>
+<p>EskupilotaStats (<a href="https://www.eskupilotastats.com">www.eskupilotastats.com</a>) es una web de estadísticas de
+pelota a mano profesional hecha por aficionados, con una porra gratuita de pronósticos
+(<a href="/porra/">qué es la porra</a>). Contacto para cualquier cuestión de privacidad:
+<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
+<section class="card"><h2>2. Si solo consultas la web</h2>
+<p>No hace falta cuenta y no te pedimos ningún dato. Contamos las visitas con Cloudflare Web Analytics, que no usa
+cookies ni identifica a las personas. Tus preferencias (idioma, modo oscuro, pelotaris que sigues) se guardan solo en tu
+propio navegador y no nos llegan.</p></section>
+<section class="card"><h2>3. Qué datos recogemos si usas la porra</h2>
+<p>Para jugar a la porra hay que crear una cuenta, entrando con Google («Iniciar sesión con Google») o con un enlace
+enviado a tu correo. Recogemos:</p>
 <ul class="pal">
-<li>tu dirección de correo y, si entras con Google, tu nombre y foto de perfil tal como los da Google;</li>
-<li>el nombre (alias) que eliges para la clasificación;</li>
-<li>tus pronósticos y los puntos que consigues.</li>
+<li><b>Datos de tu cuenta de Google</b>, solo si entras con Google: tu <b>dirección de correo</b>, tu <b>nombre</b>, tu
+<b>foto de perfil</b> y el <b>identificador de tu cuenta de Google</b>. Son los permisos básicos de inicio de sesión
+(<i>openid</i>, <i>email</i> y <i>profile</i>). No pedimos acceso a tus contactos, Gmail, Drive ni a ningún otro servicio de Google.</li>
+<li><b>El alias</b> (nombre público) que eliges para la clasificación.</li>
+<li><b>Tus pronósticos</b>, los puntos que consigues y las <b>ligas privadas</b> que creas o a las que te unes.</li>
+<li>Datos técnicos de la sesión (fecha de alta y del último acceso), necesarios para mantenerte conectado.</li>
+</ul></section>
+<section class="card"><h2>4. Para qué los usamos</h2>
+<ul class="pal">
+<li>Para <b>identificarte y que puedas entrar</b> en tu cuenta.</li>
+<li>Para <b>guardar tus pronósticos</b>, calcular tus puntos y mostrarte en las clasificaciones y en tus ligas.</li>
+<li>Para responderte si nos escribes.</li>
 </ul>
-<p>Los usamos solo para que puedas entrar, guardar tus pronósticos y aparecer en la clasificación. Los demás
-participantes solo ven tu alias, tus puntos y, cuando el partido ya ha empezado, lo que pronosticaste. Tu correo no
-se muestra nunca. No vendemos ni compartimos los datos y no los usamos para publicidad.</p>
-<p>La base legal es tu consentimiento al crear la cuenta. Los datos se guardan mientras tengas la cuenta.</p></section>
-<section class="card"><h2>Dónde se guardan</h2>
-<p>En Supabase, con servidores en la Unión Europea (Fráncfort, Alemania). El inicio de sesión con Google lo gestiona
-Google según su propia política de privacidad. La web se sirve a través de GitHub Pages y Cloudflare.</p></section>
-<section class="card"><h2>Tus derechos</h2>
-<p>Puedes borrar tu cuenta y todos tus datos en cualquier momento desde la porra (Normas → «Borrar mi cuenta»).
-También puedes pedirnos acceder, corregir o borrar tus datos escribiendo a
-<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>. Si crees que no los tratamos bien,
-puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</p></section>
+<p>No usamos tus datos para publicidad ni para crear perfiles, no los vendemos y no los cedemos a terceros. Los demás
+participantes solo ven tu alias, tus puntos y, cuando un partido ya ha empezado, lo que pronosticaste. Tu correo, tu
+nombre real y tu foto no se muestran nunca a otros usuarios.</p>
+<p><b>Uso limitado de los datos de Google:</b> el uso y la transferencia de la información recibida de las API de Google
+se ajustan a la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Política de
+datos de usuario de los servicios de las API de Google</a>, incluidos los requisitos de uso limitado. Los datos de Google
+solo se usan para el inicio de sesión descrito aquí y no se transfieren a nadie salvo a los proveedores técnicos del
+apartado 6, ni se usan para publicidad ni para entrenar modelos de inteligencia artificial.</p></section>
+<section class="card"><h2>5. Base legal</h2>
+<p>Tu <b>consentimiento</b>, que das al crear la cuenta, y la necesidad de tratar los datos para prestarte el servicio
+de la porra que solicitas. Puedes retirarlo en cualquier momento borrando tu cuenta.</p></section>
+<section class="card"><h2>6. Dónde se guardan y cómo se protegen</h2>
+<ul class="pal">
+<li>En <b>Supabase</b>, con servidores en la <b>Unión Europea</b> (Fráncfort, Alemania), que actúa como encargado del tratamiento.</li>
+<li>Las conexiones van <b>cifradas</b> (HTTPS/TLS) y los datos se guardan cifrados en reposo.</li>
+<li>Las reglas de la base de datos impiden que un usuario lea o cambie los datos de otro; solo el responsable de la web
+tiene acceso de administración.</li>
+<li>El inicio de sesión con Google lo gestiona Google según su propia
+<a href="https://policies.google.com/privacy" rel="noopener">política de privacidad</a>. La web se sirve a través de
+GitHub Pages y Cloudflare.</li>
+<li>Para mantener la sesión abierta, tu navegador guarda un identificador de sesión en su almacenamiento local. No usamos
+cookies publicitarias ni de seguimiento.</li>
+</ul></section>
+<section class="card"><h2>7. Cuánto tiempo los guardamos</h2>
+<p>Mientras tengas la cuenta. Si la borras, se eliminan <b>al momento y de forma definitiva</b> tu cuenta, tus datos de
+Google, tu alias, tus pronósticos, tus ligas y tus membresías. Las copias de seguridad técnicas del proveedor se
+sobrescriben en un plazo máximo de 30 días.</p></section>
+<section class="card"><h2>8. Tus derechos y cómo borrar tus datos</h2>
+<ul class="pal">
+<li><b>Borrar tu cuenta y todos tus datos</b> tú mismo, cuando quieras: en la porra, abre «Normas, puntuación y tus
+datos» y pulsa <b>«Borrar mi cuenta»</b>.</li>
+<li>Pedirnos <b>acceso, rectificación, supresión, limitación, portabilidad u oposición</b> escribiendo a
+<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>. Respondemos en un mes como máximo.</li>
+<li>Quitar el acceso de EskupilotaStats a tu cuenta de Google en
+<a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>.</li>
+<li>Reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</li>
+</ul></section>
+<section class="card"><h2>9. Menores</h2>
+<p>La porra no está dirigida a menores de 14 años, que no deben crear una cuenta.</p></section>
+<section class="card"><h2>10. Cambios</h2>
+<p>Si cambiamos esta política lo indicaremos en esta página con su fecha de actualización.</p></section>
 """),
     'eu': ('Pribatutasun politika | EskupilotaStats',
-           'EskupilotaStatsek zer datu gordetzen dituen, zertarako eta nola ezabatu.',
+           'EskupilotaStatsek zer datu biltzen dituen (Google-rekin sartzean ere), zertarako, nola babesten diren eta nola ezabatu.',
            'Pribatutasun politika', """
 <p class="sub">Azken eguneraketa: 2026ko urria</p>
-<section class="card"><h2>Nor da arduraduna</h2>
-<p>EskupilotaStats (www.eskupilotastats.com), zaleek egindako esku pilotako estatistika webgunea.
-Harremana: <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
-<section class="card"><h2>Webgunea kontsultatzen baduzu bakarrik</h2>
-<p>Ez duzu konturik behar eta ez dizugu daturik eskatzen. Cloudflare Web Analytics erabiltzen dugu bisitak modu
-bateratuan zenbatzeko: ez du cookierik erabiltzen eta ez du inor identifikatzen. Zure hobespenak (hizkuntza, modu
-iluna, jarraitzen dituzun pilotariak) zure nabigatzailean bakarrik gordetzen dira eta ez zaizkigu iristen.</p></section>
-<section class="card"><h2>Porran jokatzen baduzu</h2>
-<p>Parte hartzeko kontu bat sortu behar da, Google-rekin edo zure postara bidalitako esteka batekin sartuta. Hau gordetzen dugu:</p>
+<section class="card"><h2>1. Nor da arduraduna</h2>
+<p>EskupilotaStats (<a href="https://www.eskupilotastats.com">www.eskupilotastats.com</a>) zaleek egindako esku pilota
+profesionaleko estatistika webgunea da, iragarpenen porra doako batekin (<a href="/eu/porra/">zer da porra</a>).
+Pribatutasunari buruzko harremana: <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>.</p></section>
+<section class="card"><h2>2. Webgunea kontsultatzen baduzu bakarrik</h2>
+<p>Ez da konturik behar eta ez dizugu daturik eskatzen. Bisitak Cloudflare Web Analytics-ekin zenbatzen ditugu: ez du
+cookierik erabiltzen eta ez ditu pertsonak identifikatzen. Zure hobespenak (hizkuntza, modu iluna, jarraitzen dituzun
+pilotariak) zure nabigatzailean bakarrik gordetzen dira eta ez zaizkigu iristen.</p></section>
+<section class="card"><h2>3. Zer datu biltzen ditugu porra erabiltzen baduzu</h2>
+<p>Porran jokatzeko kontu bat sortu behar da, Google-rekin («Hasi saioa Google-rekin») edo zure postara bidalitako esteka
+batekin sartuta. Hau biltzen dugu:</p>
 <ul class="pal">
-<li>zure helbide elektronikoa eta, Google-rekin sartzen bazara, Google-k ematen dituen izena eta profileko argazkia;</li>
-<li>sailkapenerako aukeratzen duzun izena (aliasa);</li>
-<li>zure iragarpenak eta lortzen dituzun puntuak.</li>
+<li><b>Zure Google kontuko datuak</b>, Google-rekin sartzen bazara bakarrik: <b>helbide elektronikoa</b>, <b>izena</b>,
+<b>profileko argazkia</b> eta <b>Google kontuaren identifikatzailea</b>. Saioa hasteko oinarrizko baimenak dira
+(<i>openid</i>, <i>email</i> eta <i>profile</i>). Ez dugu zure kontaktuetarako, Gmailerako, Driverako edo Google-ren beste
+zerbitzuetarako sarbiderik eskatzen.</li>
+<li>Sailkapenerako aukeratzen duzun <b>aliasa</b> (izen publikoa).</li>
+<li><b>Zure iragarpenak</b>, lortzen dituzun puntuak eta sortzen edo batzen zaren <b>liga pribatuak</b>.</li>
+<li>Saioaren datu teknikoak (alta eta azken sarbidearen data), konektatuta mantentzeko beharrezkoak.</li>
+</ul></section>
+<section class="card"><h2>4. Zertarako erabiltzen ditugun</h2>
+<ul class="pal">
+<li><b>Zu identifikatzeko eta zure kontuan sartu ahal izateko</b>.</li>
+<li><b>Zure iragarpenak gordetzeko</b>, puntuak kalkulatzeko eta sailkapenetan eta zure ligetan erakusteko.</li>
+<li>Idazten badiguzu, erantzuteko.</li>
 </ul>
-<p>Sartu ahal izateko, zure iragarpenak gordetzeko eta sailkapenean agertzeko bakarrik erabiltzen ditugu. Beste
-parte-hartzaileek zure aliasa, puntuak eta, partida hasi ondoren, iragarri zenuena bakarrik ikusten dituzte. Zure posta
-ez da inoiz erakusten. Ez ditugu datuak saltzen ez partekatzen, ezta publizitaterako erabiltzen ere.</p>
-<p>Oinarri juridikoa kontua sortzean ematen duzun baimena da. Datuak kontua duzun bitartean gordetzen dira.</p></section>
-<section class="card"><h2>Non gordetzen diren</h2>
-<p>Supabasen, Europar Batasuneko zerbitzarietan (Frankfurt, Alemania). Google-rekin saioa hastea Google-k kudeatzen du
-bere pribatutasun politikaren arabera. Webgunea GitHub Pages eta Cloudflare bidez zerbitzatzen da.</p></section>
-<section class="card"><h2>Zure eskubideak</h2>
-<p>Zure kontua eta datu guztiak edozein unetan ezaba ditzakezu porratik (Arauak → «Nire kontua ezabatu»).
-Zure datuak eskuratzeko, zuzentzeko edo ezabatzeko eska diezagukezu
-<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a> helbidera idatzita. Ondo tratatzen ez
-ditugula uste baduzu, Datuak Babesteko Espainiako Agentziaren aurrean erreklamazioa egin dezakezu
-(<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</p></section>
+<p>Ez ditugu zure datuak publizitaterako edo profilak sortzeko erabiltzen, ez ditugu saltzen eta ez dizkiegu hirugarrenei
+lagatzen. Beste parte-hartzaileek zure aliasa, puntuak eta, partida bat hasi ondoren, iragarri zenuena bakarrik ikusten
+dituzte. Zure posta, benetako izena eta argazkia ez zaizkie inoiz beste erabiltzaileei erakusten.</p>
+<p><b>Google-ren datuen erabilera mugatua:</b> Google-ren APIetatik jasotako informazioaren erabilera eta transferentzia
+<a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data
+Policy</a>-ra egokitzen dira, erabilera mugatuko baldintzak barne. Google-ren datuak hemen azaldutako saio-hasierarako
+bakarrik erabiltzen dira eta ez zaizkio inori transferitzen, 6. ataleko hornitzaile teknikoei izan ezik, ezta publizitaterako
+edo adimen artifizialeko ereduak entrenatzeko erabiltzen ere.</p></section>
+<section class="card"><h2>5. Oinarri juridikoa</h2>
+<p>Kontua sortzean ematen duzun <b>baimena</b> eta eskatzen duzun porraren zerbitzua emateko datuak tratatzeko beharra.
+Edozein unetan erretira dezakezu zure kontua ezabatuta.</p></section>
+<section class="card"><h2>6. Non gordetzen diren eta nola babesten diren</h2>
+<ul class="pal">
+<li><b>Supabasen</b>, <b>Europar Batasuneko</b> zerbitzarietan (Frankfurt, Alemania), tratamenduaren eragile gisa.</li>
+<li>Konexioak <b>zifratuta</b> doaz (HTTPS/TLS) eta datuak zifratuta gordetzen dira.</li>
+<li>Datu-basearen arauek erabiltzaile batek beste baten datuak irakurtzea edo aldatzea eragozten dute; webgunearen
+arduradunak bakarrik du administrazio-sarbidea.</li>
+<li>Google-rekin saioa hastea Google-k kudeatzen du bere <a href="https://policies.google.com/privacy" rel="noopener">pribatutasun
+politikaren</a> arabera. Webgunea GitHub Pages eta Cloudflare bidez zerbitzatzen da.</li>
+<li>Saioa irekita mantentzeko, zure nabigatzaileak saio-identifikatzaile bat gordetzen du bere biltegi lokalean. Ez dugu
+publizitate- edo jarraipen-cookierik erabiltzen.</li>
+</ul></section>
+<section class="card"><h2>7. Zenbat denboraz gordetzen ditugun</h2>
+<p>Kontua duzun bitartean. Ezabatzen baduzu, <b>berehala eta behin betiko</b> ezabatzen dira zure kontua, Google-ren datuak,
+aliasa, iragarpenak, ligak eta kidetzak. Hornitzailearen segurtasun-kopia teknikoak gehienez 30 egunean gainidazten dira.</p></section>
+<section class="card"><h2>8. Zure eskubideak eta datuak nola ezabatu</h2>
+<ul class="pal">
+<li><b>Zure kontua eta datu guztiak ezabatu</b> zeuk, nahi duzunean: porran, ireki «Arauak, puntuazioa eta zure datuak» eta
+sakatu <b>«Nire kontua ezabatu»</b>.</li>
+<li><b>Sarbidea, zuzenketa, ezabaketa, mugaketa, eramangarritasuna edo aurkaratzea</b> eskatu
+<a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a> helbidera idatzita. Gehienez hilabeteko epean erantzuten dugu.</li>
+<li>EskupilotaStatsek zure Google kontura duen sarbidea kendu
+<a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a> helbidean.</li>
+<li>Datuak Babesteko Espainiako Agentziaren aurrean erreklamatu (<a href="https://www.aepd.es" rel="noopener">aepd.es</a>).</li>
+</ul></section>
+<section class="card"><h2>9. Adingabeak</h2>
+<p>Porra ez dago 14 urtetik beherakoei zuzendua, eta ez dute konturik sortu behar.</p></section>
+<section class="card"><h2>10. Aldaketak</h2>
+<p>Politika hau aldatzen badugu, orri honetan adieraziko dugu eguneraketa-datarekin.</p></section>
 """),
 }
+
+PORRA_INFO = {
+    'es': ('La porra de EskupilotaStats: pronósticos de pelota a mano',
+           'Porra gratuita de pelota a mano profesional: pronostica los partidos de la cartelera, suma puntos, compite en el ranking mensual y anual y crea ligas privadas con tus amigos.',
+           'La porra de EskupilotaStats', """
+<p class="sub">Un juego gratuito de pronósticos de pelota a mano profesional, sin apuestas ni dinero.</p>
+<a class="cta" href="/#/porra">Jugar a la porra →</a>
+<section class="card"><h2>Qué es</h2>
+<p>EskupilotaStats es una web de estadísticas de pelota a mano profesional: resultados desde 2022, fichas de cada
+pelotari, ranking Elo, campeonatos, frontones y cartelera. La <b>porra</b> es la parte en la que los aficionados
+pronostican los partidos de la cartelera y compiten entre ellos por acertar más.</p></section>
+<section class="card"><h2>Cómo funciona</h2>
+<ul class="pal">
+<li>Antes de cada partido eliges quién gana y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de inicio.</li>
+<li><b>3 puntos</b> por acertar el ganador y <b>+3</b> si aciertas el resultado exacto (o <b>+1</b> si te quedas a 2 tantos o menos).</li>
+<li>Hay una <b>porra por cada mes</b> y una <b>por cada torneo</b> (por ejemplo, el Campeonato de 4 y medio, serie A, B o entero).</li>
+<li><b>Ranking anual:</b> al cerrar cada mes, los 50 primeros suman de 50 a 1 puntos. Los empates se deshacen con los puntos en partidos oficiales.</li>
+<li><b>Ligas privadas</b> de hasta 20 personas, de un torneo o de un mes, para jugar con tu cuadrilla.</li>
+<li>Los resultados se recogen automáticamente y la clasificación se actualiza sola.</li>
+</ul></section>
+<section class="card"><h2>Tu cuenta y tus datos</h2>
+<p>Para guardar tus pronósticos hace falta una cuenta: puedes entrar con <b>Google</b> o con un enlace a tu correo. Solo
+usamos tu correo, tu nombre y tu foto de Google para identificarte; en las clasificaciones solo aparece el alias que eliges.
+No hay publicidad ni se comparten los datos, y puedes borrar tu cuenta cuando quieras. Todos los detalles, en la
+<a href="/privacidad/">política de privacidad</a>.</p></section>
+<section class="card"><h2>Contacto</h2>
+<p><a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a></p></section>
+"""),
+    'eu': ('EskupilotaStatsen porra: esku pilotako iragarpenak',
+           'Esku pilota profesionaleko doako porra: iragarri kartelerako partidak, batu puntuak, lehiatu hileko eta urteko sailkapenean eta sortu liga pribatuak lagunekin.',
+           'EskupilotaStatsen porra', """
+<p class="sub">Esku pilota profesionaleko iragarpenen doako jokoa, apusturik eta dirurik gabe.</p>
+<a class="cta" href="/?lang=eu#/porra">Porran jokatu →</a>
+<section class="card"><h2>Zer da</h2>
+<p>EskupilotaStats esku pilota profesionaleko estatistika webgunea da: 2022tik aurrerako emaitzak, pilotari bakoitzaren
+fitxak, Elo sailkapena, txapelketak, frontoiak eta kartelera. <b>Porra</b> zaleek kartelerako partidak iragartzen dituzten
+eta gehiago asmatzeko lehiatzen diren atala da.</p></section>
+<section class="card"><h2>Nola funtzionatzen du</h2>
+<ul class="pal">
+<li>Partida bakoitzaren aurretik nork irabaziko duen aukeratzen duzu eta, nahi baduzu, galtzailearen tantoak. Hasiera ordura arte alda dezakezu.</li>
+<li><b>3 puntu</b> irabazlea asmatzeagatik eta <b>+3</b> emaitza zehatza asmatzen baduzu (edo <b>+1</b> 2 tanto edo gutxiagora geratzen bazara).</li>
+<li><b>Hilabete bakoitzeko</b> porra bat dago eta <b>txapelketa bakoitzeko</b> beste bat (adibidez, Lau t'erdiko Txapelketa, A, B seriea edo osoa).</li>
+<li><b>Urteko sailkapena:</b> hilabete bakoitza ixtean, lehen 50ek 50etik 1era puntu batzen dituzte. Berdinketak partida ofizialetako puntuek hausten dituzte.</li>
+<li>20 lagun arteko <b>liga pribatuak</b>, txapelketa edo hilabete batekoak, zure koadrilarekin jokatzeko.</li>
+<li>Emaitzak automatikoki jasotzen dira eta sailkapena berez eguneratzen da.</li>
+</ul></section>
+<section class="card"><h2>Zure kontua eta datuak</h2>
+<p>Iragarpenak gordetzeko kontu bat behar da: <b>Google</b>-rekin edo zure postara bidalitako esteka batekin sar zaitezke.
+Google-ren posta, izena eta argazkia zu identifikatzeko bakarrik erabiltzen ditugu; sailkapenetan aukeratzen duzun aliasa
+bakarrik agertzen da. Ez dago publizitaterik, datuak ez dira partekatzen eta nahi duzunean ezaba dezakezu kontua. Xehetasun
+guztiak <a href="/eu/privacidad/">pribatutasun politikan</a>.</p></section>
+<section class="card"><h2>Harremana</h2>
+<p><a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a></p></section>
+"""),
+}
+
+
+def generar_porra_info(ultima):
+    url_es, url_eu = f'{WEB}/porra/', f'{WEB}/eu/porra/'
+    for lang in ('es', 'eu'):
+        titulo, desc, h1, cuerpo = PORRA_INFO[lang]
+        carpeta = limpiar('porra', lang)
+        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu)
+                 + barra(lang, url_eu if lang == 'es' else url_es)
+                 + f'<main>\n<h1>{h1}</h1>\n{cuerpo}\n' + pie(lang, fecha_hoy(ultima, lang)))
 
 
 def generar_privacidad(ultima):

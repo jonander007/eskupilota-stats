@@ -661,7 +661,8 @@ function htmlPorraNormas(conCuenta){
     <h4>${tx('Tus datos','Zure datuak')}</h4>
     <p class="pr-help">${tx('Solo guardamos tu correo (para entrar), el nombre que elijas y tus pronósticos, en servidores de la Unión Europea (Supabase, Fráncfort). No se comparten con nadie ni se usan para publicidad. Los demás solo ven tu nombre y tus puntos. Puedes borrar tu cuenta y todos tus datos cuando quieras.',
       'Zure posta (sartzeko), aukeratzen duzun izena eta zure iragarpenak bakarrik gordetzen ditugu, Europar Batasuneko zerbitzarietan (Supabase, Frankfurt). Ez dira inorekin partekatzen ez publizitaterako erabiltzen. Besteek zure izena eta puntuak bakarrik ikusten dituzte. Zure kontua eta datu guztiak nahi duzunean ezaba ditzakezu.')}</p>
-    <p class="pr-help"><a href="${LANG==='eu'?'/eu':''}/privacidad/">${tx('Política de privacidad completa','Pribatutasun politika osoa')}</a></p>
+    <p class="pr-help"><a href="${LANG==='eu'?'/eu':''}/porra/">${tx('Qué es la porra','Zer da porra')}</a> ·
+      <a href="${LANG==='eu'?'/eu':''}/privacidad/">${tx('Política de privacidad completa','Pribatutasun politika osoa')}</a></p>
     ${conCuenta ? `<button class="btn-ghost pr-borrar" onclick="porraBorrarCuenta()">${tx('Borrar mi cuenta','Nire kontua ezabatu')}</button>` : ''}
   </div>`;
 }
