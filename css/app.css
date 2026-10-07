@@ -1099,3 +1099,22 @@ header :focus-visible{outline-color:#fff;}
 .pr-series{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.85rem;}
 .pr-series input{accent-color:var(--green);}
 @media (prefers-color-scheme:dark){.pr-liga{background:#3a2f10;color:#f0c75e;}}
+/* Porra: navegación general / mis ligas */
+.pr-vistas .rk-tab{font-size:.72rem;padding:.45rem 1rem;}
+.pr-barra{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem;margin:.2rem 0 .8rem;}
+.pr-subtabs{display:flex;flex-wrap:wrap;gap:.3rem;}
+.pr-barra .pr-sel-liga{max-width:100%;}
+.pr-ligas{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;}
+.pr-liga-item{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;gap:.1rem .8rem;
+  text-align:left;width:100%;background:var(--surface);border:1px solid var(--border);border-left:4px solid #d4a017;border-radius:10px;
+  padding:.75rem 1rem;font:inherit;color:var(--text);cursor:pointer;transition:border-color .15s,box-shadow .15s;}
+.pr-liga-item:hover{border-color:var(--green);box-shadow:var(--shadow);}
+.pr-liga-item b{font-size:1rem;}
+.pr-liga-item span{font-size:.75rem;color:var(--muted);grid-column:1;}
+.pr-liga-item .pr-flecha{grid-column:2;grid-row:1/3;font-size:1.6rem;color:var(--muted);}
+.pr-volver{background:none;border:none;color:var(--green);font:inherit;font-weight:700;font-size:.85rem;padding:.2rem 0;cursor:pointer;margin-bottom:.4rem;}
+.pr-volver:hover{text-decoration:underline;}
+.pr-liga-top{margin-top:.2rem;}
+.pr-liga-top h4{font-family:var(--display);font-size:1.4rem;}
+.pr-normas-det{margin-top:1.5rem;}
+.pr-normas-det summary{cursor:pointer;color:var(--muted);font-size:.85rem;margin-bottom:.6rem;}

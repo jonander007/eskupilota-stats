@@ -9,7 +9,9 @@ const PORRA = {
   key: 'sb_publishable_bVJumfuxrHV_CH3NScZF6Q_qSN2I7-2',
 };
 let _sb = null, _porraSesion = null, _porraPerfil = undefined;
-let _porraTab = 'pronosticar', _porraClasif = 'general', _porraClasifLiga = null;
+let _porraVista = 'general', _porraSub = 'pronosticar', _porraLigaSub = 'pronosticar';
+let _porraLigaSel = null, _porraComp = '', _porraClasif = 'general', _porraClasifCtx = {};
+let _porraComps = null;          // competiciones de la porra (filtro de la general)
 let _porraLigas = [];            // mis ligas: {id, nombre, codigo, alcance, creador}
 // Vuelta del inicio de sesión (Google o enlace del correo): /?porra=1&code=…
 const _porraVuelta = /[?&](porra|code|liga)=/.test(location.search);
@@ -64,7 +66,7 @@ async function porraInit(){
 async function porraRender(){
   const cont = porraCont();
   if(!cont || !_sb) return;
-  if(!_porraSesion){ cont.innerHTML = htmlPorraEntrar(); porraPintarClasif('prClasifPublica'); return; }
+  if(!_porraSesion){ cont.innerHTML = htmlPorraEntrar(); porraPintarClasif('prClasifPublica', {publico: true}); return; }
   if(_porraPerfil === undefined){
     // select('*'): no depende de columnas nuevas que la base de datos aún no tenga
     const {data, error} = await _sb.from('perfiles').select('*').eq('id', _porraSesion.user.id).maybeSingle();
@@ -76,30 +78,67 @@ async function porraRender(){
   }
   if(!_porraPerfil){ cont.innerHTML = htmlPorraAlias(); return; }
   await porraCargarLigas();
-  // Invitación pendiente: unirse y abrir la pestaña de ligas
+  // Invitación pendiente: unirse y abrir esa liga
   const pendiente = porraLeer('porra_liga_pendiente', '');
   if(pendiente){
     try{ localStorage.removeItem('porra_liga_pendiente'); }catch(e){}
-    const {error} = await _sb.rpc('porra_unirse', {codigo: pendiente});
-    if(error) alert(error.message); else { await porraCargarLigas(); _porraTab = 'ligas'; }
+    const {data: lid, error} = await _sb.rpc('porra_unirse', {codigo: pendiente});
+    if(error) alert(error.message);
+    else { await porraCargarLigas(); _porraVista = 'ligas'; _porraLigaSel = lid; _porraLigaSub = 'pronosticar'; }
   }
-  const tabs = [['pronosticar', tx('Pronosticar','Iragarri')], ['mios', tx('Mis pronósticos','Nire iragarpenak')],
-    ['clasificacion', tx('Clasificación','Sailkapena')], ['ligas', tx('Ligas','Ligak')], ['normas', tx('Normas','Arauak')]];
+  const vistas = [['general', tx('Porra general','Porra orokorra')],
+                  ['ligas', tx('Mis ligas','Nire ligak') + (_porraLigas.length ? ` (${_porraLigas.length})` : '')]];
   cont.innerHTML = `
     <div class="pr-user"><span>👤 <b>${h(_porraPerfil.alias)}</b></span>
       <button class="btn-ghost pr-salir" onclick="porraSalir()">${tx('Salir','Irten')}</button></div>
-    <div class="rk-tabs" role="tablist">${tabs.map(([k,l])=>
-      `<button class="rk-tab${_porraTab===k?' on':''}" role="tab" aria-selected="${_porraTab===k}" onclick="porraSetTab('${k}')">${l}</button>`).join('')}</div>
-    <div id="prPanel"><div class="cart-loading">⟳</div></div>`;
+    <div class="rk-tabs pr-vistas" role="tablist">${vistas.map(([k,l])=>
+      `<button class="rk-tab${_porraVista===k?' on':''}" role="tab" aria-selected="${_porraVista===k}" onclick="porraSetVista('${k}')">${l}</button>`).join('')}</div>
+    <div id="prPanel"><div class="cart-loading">⟳</div></div>
+    <details class="pr-normas-det"><summary>${tx('Normas, puntuación y tus datos','Arauak, puntuazioa eta zure datuak')}</summary>${htmlPorraNormas(true)}</details>`;
   const panel = document.getElementById('prPanel');
-  if(_porraTab==='pronosticar') porraPintarPronosticar(panel);
-  else if(_porraTab==='mios') porraPintarMios(panel);
-  else if(_porraTab==='clasificacion'){ panel.innerHTML = `<div id="prClasif"></div>`; porraPintarClasif('prClasif'); }
-  else if(_porraTab==='ligas') porraPintarLigas(panel);
-  else panel.innerHTML = htmlPorraNormas(true);
+  if(_porraVista==='ligas') porraPintarMisLigas(panel); else porraPintarGeneral(panel);
 }
 
-function porraSetTab(k){ _porraTab = k; porraRender(); }
+function porraSetVista(v){ _porraVista = v; _porraLigaSel = null; porraRender(); }
+function porraPanel(){ return document.getElementById('prPanel'); }
+function htmlSubtabs(subs, actual, fn){
+  return `<div class="pr-subtabs" role="tablist">${subs.map(([k,l])=>
+    `<button class="pill${actual===k?' on':''}" role="tab" aria-selected="${actual===k}" onclick="${fn}('${k}')">${l}</button>`).join('')}</div>`;
+}
+
+// ── Porra general ───────────────────────────────────────────
+// Competiciones con partidos en la porra (sin festivales): cada una es como una liga pública
+async function porraCompeticiones(){
+  if(_porraComps) return _porraComps;
+  const {data} = await _sb.from('porra_partidos').select('competicion,categoria').limit(3000);
+  const nombres = [...new Set((data||[]).filter(p=>p.competicion && p.categoria!=='festival').map(p=>p.competicion))];
+  const anio = n => (n.match(/\b(20\d\d)\b/)||[0,''])[1];
+  _porraComps = nombres.sort((a,b)=>anio(b).localeCompare(anio(a)) || a.localeCompare(b));
+  return _porraComps;
+}
+
+function htmlSelComp(comps, fn){
+  if(!comps.length) return '';
+  return `<select class="pr-sel-liga" onchange="${fn}(this.value)" aria-label="${tx('Competición','Txapelketa')}">
+    <option value="">${tx('Todas las competiciones','Txapelketa guztiak')}</option>
+    ${comps.map(c=>`<option value="${h(c)}"${c===_porraComp?' selected':''}>${h(tComp(c))} ${h((c.match(/\b20\d\d\b/)||[''])[0])}</option>`).join('')}</select>`;
+}
+
+async function porraPintarGeneral(panel){
+  const comps = await porraCompeticiones();
+  if(_porraComp && !comps.includes(_porraComp)) _porraComp = '';
+  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')],
+                ['mios', tx('Mis pronósticos','Nire iragarpenak')]];
+  panel.innerHTML = `<div class="pr-barra">${htmlSubtabs(subs, _porraSub, 'porraSetSub')}
+      ${_porraSub!=='mios' ? htmlSelComp(comps, 'porraSetComp') : ''}</div>
+    <div id="prSub"><div class="cart-loading">⟳</div></div>`;
+  const sub = panel.querySelector('#prSub');
+  if(_porraSub==='clasificacion'){ sub.innerHTML = '<div id="prClasif"></div>'; porraPintarClasif(sub.firstChild, {comp: _porraComp}); }
+  else if(_porraSub==='mios') porraPintarMios(sub);
+  else porraPintarPronosticar(sub, {liga: null, comp: _porraComp});
+}
+function porraSetSub(k){ _porraSub = k; porraPintarGeneral(porraPanel()); }
+function porraSetComp(c){ _porraComp = c; porraPintarGeneral(porraPanel()); }
 
 // ── Entrar ──────────────────────────────────────────────────
 function htmlPorraEntrar(){
@@ -188,13 +227,16 @@ function porraAmbitos(p){
   return amb;
 }
 
-function porraSetMismo(v){ porraGuardarPref('porra_mismo', v ? '1' : '0'); porraPintarPronosticar(document.getElementById('prPanel')); }
+function porraSetMismo(v){ porraGuardarPref('porra_mismo', v ? '1' : '0'); porraRender(); }
 
-async function porraPintarPronosticar(panel){
-  const admin = !!_porraPerfil?.admin;
+// ctx: {liga: null (general) | id de liga, comp: competición para filtrar la general}
+async function porraPintarPronosticar(panel, ctx){
+  const liga = ctx.liga ? _porraLigas.find(l=>l.id===ctx.liga) : null;
+  const admin = !!_porraPerfil?.admin && !liga;
   const {data, error} = await _sb.from('porra_abiertos').select('*').order('inicio').limit(100);
   if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
-  const partidos = data.filter(p=>admin || porraAmbitos(p).length);
+  const partidos = data.filter(p=> liga ? (liga.alcance||[]).includes(p.competicion)
+    : (admin || p.pronosticable) && (!ctx.comp || p.competicion===ctx.comp));
   let html = admin ? await htmlPorraAdmin() : '';
   if(!partidos.length){
     panel.innerHTML = html + `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
@@ -207,6 +249,7 @@ async function porraPintarPronosticar(panel){
   html += `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de la velada.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Jaialdiaren ordura arte alda dezakezu.')}</p>`;
   if(_porraLigas.length) html += `<label class="pr-mismo"><input type="checkbox"${mismo?' checked':''} onchange="porraSetMismo(this.checked)">
     ${tx('Mismo pronóstico para la general y mis ligas','Iragarpen bera orokorrerako eta nire ligetarako')}</label>`;
+  const aqui = liga ? liga.id : null;
   let velada = '';
   partidos.forEach(p=>{
     const v = p.inicio + p.fronton;
@@ -221,14 +264,15 @@ async function porraPintarPronosticar(panel){
     const interruptor = admin ? `<label class="pr-switch" title="${tx('Abierto en la general','Orokorrean irekita')}">
         <input type="checkbox"${p.pronosticable?' checked':''} onchange="porraActivar('${esc(p.id)}',this.checked)">
         <span>${tx('En la general','Orokorrean')}</span></label>` : '';
-    // Una fila para todos los ámbitos, o una por ámbito
-    const grupos = !amb.length ? [[]] : (mismo || amb.length===1) ? [amb] : amb.map(a=>[a]);
+    // Con «mismo pronóstico», una fila que guarda en todos los ámbitos; si no, solo el de esta vista
+    const propio = amb.filter(a=>a.liga===aqui);
+    const grupos = [mismo ? amb : propio];
     const filas = grupos.map(g=>{
       const m = g.map(a=>mio[p.id+'|'+(a.liga||'')]).find(Boolean) || {};
       const cerrado = !g.length;
       const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
         `<option value="${i}"${m.tantos_perdedor===i?' selected':''}>22 – ${i}</option>`)).join('');
-      const etiqueta = g.length && (_porraLigas.length || !p.pronosticable)
+      const etiqueta = g.length > 1
         ? `<div class="pr-ambitos">${g.map(a=>`<span class="${a.liga?'pr-liga':'pr-gen'}">${h(a.nombre)}</span>`).join('')}</div>` : '';
       return `<div class="pr-fila" data-partido="${h(p.id)}" data-ligas="${h(g.map(a=>a.liga||'').join(','))}">
         ${etiqueta}
@@ -269,13 +313,13 @@ async function htmlPorraAdmin(){
 async function porraSetModo(modo){
   const {error} = await _sb.from('porra_config').update({modo}).eq('id', 1);
   if(error){ alert(error.message); return; }
-  porraPintarPronosticar(document.getElementById('prPanel'));
+  porraPintarGeneral(porraPanel());
 }
 
 async function porraActivar(id, activo){
   const {error} = await _sb.from('porra_partidos').update({activo}).eq('id', id);
   if(error){ alert(error.message); return; }
-  porraPintarPronosticar(document.getElementById('prPanel'));
+  porraPintarGeneral(porraPanel());
 }
 
 async function porraGuardar(fila, ganador, tantos){
@@ -342,24 +386,26 @@ function porraDesde(){
   return d.toISOString();
 }
 
-function porraSetClasif(k, id){ _porraClasif = k; porraPintarClasif(id); }
-function porraSetClasifLiga(lid, id){ _porraClasifLiga = lid || null; porraPintarClasif(id); }
+function porraSetClasif(k){ _porraClasif = k; porraPintarClasif(_porraClasifCtx.id, _porraClasifCtx); }
+function porraSetCompPublica(c){ _porraComp = c; porraPintarClasif(_porraClasifCtx.id, _porraClasifCtx); }
 
-async function porraPintarClasif(id){
-  const cont = document.getElementById(id);
+// ctx: {liga, comp, publico}. En la vista sin cuenta se elige la competición aquí mismo.
+async function porraPintarClasif(id, ctx){
+  const cont = typeof id === 'string' ? document.getElementById(id) : id;
   if(!cont) return;
+  _porraClasifCtx = {...ctx, id: cont};
   const filtros = [['general', tx('Temporada','Denboraldia')], ['mes', tx('Este mes','Hilabete hau')], ['semana', tx('Esta semana','Aste hau')]];
-  const ligas = _porraSesion ? _porraLigas : [];
-  if(_porraClasifLiga && !ligas.some(l=>l.id===_porraClasifLiga)) _porraClasifLiga = null;
-  const selLiga = ligas.length ? `<select class="pr-sel-liga" onchange="porraSetClasifLiga(this.value,'${id}')" aria-label="${tx('Clasificación','Sailkapena')}">
-      <option value="">${tx('General','Orokorra')}</option>${ligas.map(l=>`<option value="${l.id}"${l.id===_porraClasifLiga?' selected':''}>${h(l.nombre)}</option>`).join('')}</select>` : '';
-  cont.innerHTML = `<div class="pr-filtros">${selLiga}${filtros.map(([k,l])=>
-    `<button class="pill${_porraClasif===k?' on':''}" onclick="porraSetClasif('${k}','${id}')">${l}</button>`).join('')}</div>
+  const selComp = ctx.publico ? htmlSelComp(await porraCompeticiones(), 'porraSetCompPublica') : '';
+  cont.innerHTML = `<div class="pr-filtros">${selComp}${filtros.map(([k,l])=>
+    `<button class="pill${_porraClasif===k?' on':''}" onclick="porraSetClasif('${k}')">${l}</button>`).join('')}</div>
     <div class="cart-loading">⟳</div>`;
-  const {data, error} = await _sb.rpc('porra_clasificacion', {desde: porraDesde(), liga: _porraClasifLiga});
+  const comp = ctx.publico ? _porraComp : ctx.comp;
+  const args = {desde: porraDesde(), liga: ctx.liga || null};
+  if(comp) args.competicion = comp;
+  const {data, error} = await _sb.rpc('porra_clasificacion', args);
   const tabla = cont.querySelector('.cart-loading');
   if(error){ tabla.outerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
-  if(!data.length){ tabla.outerHTML = `<div class="nodata">${tx('Aún no hay partidos puntuados en este periodo.','Oraindik ez dago puntuatutako partidarik aldi honetan.')}</div>`; return; }
+  if(!data.length){ tabla.outerHTML = `<div class="nodata">${tx('Aún no hay partidos puntuados aquí.','Oraindik ez dago puntuatutako partidarik hemen.')}</div>`; return; }
   const yo = _porraSesion?.user?.id;
   let pos = 0, prev = null;
   tabla.outerHTML = `<div class="pr-wrap"><table class="pr-tabla pr-clasif">
@@ -404,35 +450,19 @@ async function porraCompeticionesLiga(){
 
 function porraEnlaceLiga(cod){ return `${location.origin}/?porra=1&liga=${cod}`; }
 
-async function porraPintarLigas(panel){
-  const {data: miembros} = _porraLigas.length
-    ? await _sb.from('porra_miembros').select('liga,usuario,perfiles(alias)').in('liga', _porraLigas.map(l=>l.id))
-    : {data: []};
-  const porLiga = {};
-  (miembros||[]).forEach(m=>(porLiga[m.liga] = porLiga[m.liga] || []).push(m.perfiles?.alias || '—'));
-  const yo = _porraSesion.user.id;
-  let html = _porraLigas.map(l=>{
-    const gente = porLiga[l.id] || [];
-    const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
-    return `<div class="pr-card pr-liga-card">
-      <div class="pr-liga-top"><h4>${h(l.nombre)}</h4><span class="an-muted">${gente.length}/20</span></div>
-      <div class="pr-help">${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</div>
-      <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>
-        <button class="btn-ghost" onclick="navigator.clipboard?.writeText('${porraEnlaceLiga(l.codigo)}');this.textContent='✓'">${tx('Copiar enlace','Esteka kopiatu')}</button>
-        <a class="btn-ghost" href="https://wa.me/?text=${texto}" target="_blank" rel="noopener">WhatsApp</a></div>
-      <div class="pr-help">${gente.map(a=>h(a)).join(', ')}</div>
-      <div class="pr-liga-acc">
-        <button class="btn-ghost" onclick="_porraClasifLiga='${l.id}';porraSetTab('clasificacion')">${tx('Ver clasificación','Sailkapena ikusi')}</button>
-        ${l.creador===yo
-          ? `<button class="btn-ghost pr-borrar" onclick="porraBorrarLiga('${l.id}')">${tx('Borrar liga','Liga ezabatu')}</button>`
-          : `<button class="btn-ghost pr-borrar" onclick="porraSalirLiga('${l.id}')">${tx('Salir de la liga','Ligatik irten')}</button>`}
-      </div></div>`;
-  }).join('');
-  if(!_porraLigas.length) html = `<p class="pr-help">${tx('Juega con tu cuadrilla: crea una liga privada de una competición (hasta 20 personas) o únete con un código.',
-    'Jokatu zure koadrilarekin: sortu txapelketa bateko liga pribatu bat (20 lagun arte) edo batu kode batekin.')}</p>`;
+async function porraPintarMisLigas(panel){
+  if(_porraLigaSel && _porraLigas.some(l=>l.id===_porraLigaSel)) return porraPintarLiga(panel, _porraLigaSel);
+  _porraLigaSel = null;
+  const lista = _porraLigas.length
+    ? `<div class="pr-ligas">${_porraLigas.map(l=>`
+        <button class="pr-liga-item" onclick="porraAbrirLiga('${l.id}')">
+          <b>${h(l.nombre)}</b><span>${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</span><span class="pr-flecha" aria-hidden="true">›</span>
+        </button>`).join('')}</div>`
+    : `<p class="pr-help">${tx('Juega con tu cuadrilla: crea una liga privada de una competición (hasta 20 personas) o únete con un código.',
+        'Jokatu zure koadrilarekin: sortu txapelketa bateko liga pribatu bat (20 lagun arte) edo batu kode batekin.')}</p>`;
   const grupos = await porraCompeticionesLiga();
   window._porraGrupos = grupos;
-  html += `
+  panel.innerHTML = lista + `
     <div class="pr-card"><h4>${tx('Unirme a una liga','Liga batera batu')}</h4>
       <form class="pr-alias" onsubmit="porraUnirse(event)">
         <input id="prCodigo" required maxlength="6" placeholder="ABC123" aria-label="${tx('Código','Kodea')}" style="text-transform:uppercase">
@@ -447,8 +477,40 @@ async function porraPintarLigas(panel){
         <p class="pr-help" id="prLigaMsg"></p></form>`
       : `<p class="pr-help">${tx('Ahora mismo no hay ninguna competición en juego o por empezar.','Une honetan ez dago txapelketarik jokoan edo hastear.')}</p>`}
     </div>`;
-  panel.innerHTML = html;
   porraPintarSeries();
+}
+
+function porraAbrirLiga(id){ _porraLigaSel = id; _porraLigaSub = 'pronosticar'; porraPintarMisLigas(porraPanel()); }
+function porraCerrarLiga(){ _porraLigaSel = null; porraPintarMisLigas(porraPanel()); }
+function porraSetLigaSub(k){ _porraLigaSub = k; porraPintarMisLigas(porraPanel()); }
+
+async function porraPintarLiga(panel, id){
+  const l = _porraLigas.find(x=>x.id===id);
+  const {data: miembros} = await _sb.from('porra_miembros').select('usuario,perfiles(alias)').eq('liga', id);
+  const gente = (miembros||[]).map(m=>m.perfiles?.alias || '—');
+  const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
+  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')], ['info', tx('Invitar y miembros','Gonbidatu eta kideak')]];
+  let cuerpo;
+  if(_porraLigaSub==='info') cuerpo = `<div class="pr-card pr-liga-card">
+      <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>
+        <button class="btn-ghost" onclick="navigator.clipboard?.writeText('${porraEnlaceLiga(l.codigo)}');this.textContent='✓'">${tx('Copiar enlace','Esteka kopiatu')}</button>
+        <a class="btn-ghost" href="https://wa.me/?text=${texto}" target="_blank" rel="noopener">WhatsApp</a></div>
+      <h4>${tx('Miembros','Kideak')} (${gente.length}/20)</h4>
+      <p class="pr-help">${gente.map(a=>h(a)).join(', ')}</p>
+      <div class="pr-liga-acc">${l.creador===_porraSesion.user.id
+        ? `<button class="btn-ghost pr-borrar" onclick="porraBorrarLiga('${l.id}')">${tx('Borrar liga','Liga ezabatu')}</button>`
+        : `<button class="btn-ghost pr-borrar" onclick="porraSalirLiga('${l.id}')">${tx('Salir de la liga','Ligatik irten')}</button>`}</div>
+    </div>`;
+  else cuerpo = '<div id="prSub"><div class="cart-loading">⟳</div></div>';
+  panel.innerHTML = `
+    <button class="pr-volver" onclick="porraCerrarLiga()">‹ ${tx('Mis ligas','Nire ligak')}</button>
+    <div class="pr-liga-top"><h4>${h(l.nombre)}</h4><span class="an-muted">${gente.length}/20</span></div>
+    <div class="pr-help">${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</div>
+    <div class="pr-barra">${htmlSubtabs(subs, _porraLigaSub, 'porraSetLigaSub')}</div>
+    ${cuerpo}`;
+  const sub = panel.querySelector('#prSub');
+  if(_porraLigaSub==='clasificacion'){ sub.innerHTML = '<div id="prClasif"></div>'; porraPintarClasif(sub.firstChild, {liga: id}); }
+  else if(_porraLigaSub==='pronosticar') porraPintarPronosticar(sub, {liga: id});
 }
 
 function porraPintarSeries(){
@@ -466,17 +528,19 @@ async function porraCrearLiga(ev){
   const serie = document.querySelector('input[name="prSerie"]:checked')?.value;
   const alcance = !g.series ? [...g.nombres] : serie==='A' ? [g.A] : serie==='B' ? [g.B] : [g.A, g.B];
   const nombre = document.getElementById('prLigaNombre').value.trim();
-  const {error} = await _sb.rpc('porra_crear_liga', {nombre, alcance});
+  const {data, error} = await _sb.rpc('porra_crear_liga', {nombre, alcance});
   if(error){ document.getElementById('prLigaMsg').textContent = error.message; return; }
   await porraCargarLigas();
+  _porraLigaSel = data?.[0]?.id || null; _porraLigaSub = 'info';
   porraRender();
 }
 
 async function porraUnirse(ev){
   ev.preventDefault();
-  const {error} = await _sb.rpc('porra_unirse', {codigo: document.getElementById('prCodigo').value});
+  const {data: lid, error} = await _sb.rpc('porra_unirse', {codigo: document.getElementById('prCodigo').value});
   if(error){ alert(error.message); return; }
   await porraCargarLigas();
+  _porraLigaSel = lid; _porraLigaSub = 'pronosticar';
   porraRender();
 }
 
@@ -485,6 +549,7 @@ async function porraSalirLiga(id){
   const {error} = await _sb.from('porra_miembros').delete().eq('liga', id).eq('usuario', _porraSesion.user.id);
   if(error){ alert(error.message); return; }
   await porraCargarLigas();
+  _porraLigaSel = null;
   porraRender();
 }
 
@@ -493,6 +558,7 @@ async function porraBorrarLiga(id){
   const {error} = await _sb.from('porra_ligas').delete().eq('id', id);
   if(error){ alert(error.message); return; }
   await porraCargarLigas();
+  _porraLigaSel = null;
   porraRender();
 }
 
