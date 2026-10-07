@@ -409,6 +409,30 @@ class Web(unittest.TestCase):
         self.assertGreater(pg.locator('.an-fron-anios > div').count(), 2)
         self.assertGreater(pg.locator('.an-fron-stats tbody tr').count(), 10)
 
+    def test_filtro_del_fronton(self):
+        pg = self.pagina('#/frontones')
+        # La pestaña solo tiene el buscador: sin filtros de modalidad ni año
+        self.assertEqual(pg.locator('#pillsFron, #yearPillsFron').count(), 0)
+        pg.evaluate("abrirFronton('LABRIT')")
+        pg.wait_for_selector('.fr-filtro')
+        total = int(pg.locator('#frontonDetail .an-kpi-v').first.inner_text())
+        self.assertFalse(pg.locator('.fr-filtro-c').is_visible())        # plegado hasta pulsar «Filtro»
+        pg.click('.fr-filtro summary')
+        pg.select_option('.fr-filtro-c select >> nth=0', 'LASO')
+        pg.wait_for_selector('.fr-pel-balance')
+        con_laso = int(pg.locator('#frontonDetail .an-kpi-v').first.inner_text())
+        self.assertLess(con_laso, total)
+        self.assertIn('LASO', pg.locator('.fr-pel-balance').inner_text())
+        anio = pg.eval_on_selector_all('.fr-filtro-c select >> nth=1 >> option', 'os => os.map(o => o.value)')[1]
+        pg.select_option('.fr-filtro-c select >> nth=1', anio)
+        self.assertEqual(pg.locator('.fr-filtro-n').inner_text(), '2')
+        pg.click('.fr-filtro-c .btn-ghost')
+        self.assertEqual(int(pg.locator('#frontonDetail .an-kpi-v').first.inner_text()), total)
+        # Al abrir otro frontón el filtro se vacía
+        pg.select_option('.fr-filtro-c select >> nth=0', 'LASO')
+        pg.evaluate("abrirFronton('ADARRAGA')")
+        self.assertEqual(pg.locator('.fr-filtro-n').count(), 0)
+
     def test_comparar_temporadas(self):
         pg = self.pagina('#/pelotari/laso')
         pg.wait_for_selector('#pfTemporadas')

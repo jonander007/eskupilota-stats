@@ -995,18 +995,48 @@ function htmlExtremosForma(jugadores){
 // ════════════════════════════════════════════════════════════
 // FICHA DE FRONTÓN
 // ════════════════════════════════════════════════════════════
+// Filtro de la ficha del frontón (pelotari, año, modalidad): se vacía al cambiar de frontón
+let _fronFiltro = {pel:'', anio:'', mod:''};
+function setFronFiltro(k, v){ _fronFiltro[k] = v; _fronFiltroAbierto = true; abrirFronton(_frontonActual, false, false); }
+function limpiarFronFiltro(){ _fronFiltro = {pel:'', anio:'', mod:''}; abrirFronton(_frontonActual, false, false); }
+let _fronFiltroAbierto = false;
+
+function htmlFiltroFronton(todos){
+  const f = _fronFiltro;
+  const n = Object.values(f).filter(Boolean).length;
+  const pelotaris = [...new Set(todos.flatMap(p=>[...pels(p.equipo1), ...pels(p.equipo2)]))].sort((a,b)=>a.localeCompare(b));
+  const anios = [...new Set(todos.map(getYear))].sort().reverse();
+  const MOD = {parejas:tx('Parejas','Binaka'), mano:tx('Mano a mano','Buruz buru'), cuatro:tx('4 y medio',"Lau t'erdi")};
+  const mods = [...new Set(todos.map(p=>p.modalidad).filter(Boolean))];
+  const sel = (k, etiqueta, opciones) => `<label class="fg"><span class="flabel">${etiqueta}</span>
+    <select onchange="setFronFiltro('${k}', this.value)"><option value="">${tx('Todos','Guztiak')}</option>
+      ${opciones.map(([v,l])=>`<option value="${h(v)}"${f[k]===v?' selected':''}>${h(l)}</option>`).join('')}</select></label>`;
+  return `<details class="fr-filtro"${_fronFiltroAbierto || n ? ' open' : ''} ontoggle="_fronFiltroAbierto=this.open">
+    <summary class="btn-filtrar">${tx('Filtro','Iragazkia')}${n ? ` <span class="fr-filtro-n">${n}</span>` : ''}</summary>
+    <div class="fr-filtro-c">
+      ${sel('pel', tx('Pelotari','Pilotaria'), pelotaris.map(x=>[x, x]))}
+      ${sel('anio', tx('Año','Urtea'), anios.map(a=>[a, a]))}
+      ${sel('mod', tx('Modalidad','Modalitatea'), mods.map(m=>[m, MOD[m]||m]))}
+      ${n ? `<button class="btn-ghost" onclick="limpiarFronFiltro()">${tx('Quitar filtro','Iragazkia kendu')}</button>` : ''}
+    </div></details>`;
+}
+
 function abrirFronton(nombre, scroll=true, navegar=true){
   if(navegar && !document.getElementById('sec-frontones').classList.contains('active')){
     const btn = secBtn('frontones'); if(btn) showSec('frontones', btn, true);
   }
   const det = document.getElementById('frontonDetail');
-  const parts = PARTIDOS.filter(p=>p.fronton===nombre);
-  if(!det || !parts.length) return;
+  const todos = PARTIDOS.filter(p=>p.fronton===nombre);
+  if(!det || !todos.length) return;
+  if(nombre!==_frontonActual){ _fronFiltro = {pel:'', anio:'', mod:''}; _fronFiltroAbierto = false; }
   _frontonActual = nombre;
+  const f = _fronFiltro;
+  const parts = todos.filter(p=>(!f.pel || [...pels(p.equipo1), ...pels(p.equipo2)].includes(f.pel))
+    && (!f.anio || getYear(p)===f.anio) && (!f.mod || p.modalidad===f.mod));
   setHash('#/fronton/'+slugify(nombre));
 
-  const info = Object.values(CAT_FRONTONES).find(f=>(f.nombre||'').toUpperCase()===nombre.toUpperCase()) || {};
-  const ciudad = parts[0].ciudad || '';
+  const info = Object.values(CAT_FRONTONES).find(x=>(x.nombre||'').toUpperCase()===nombre.toUpperCase()) || {};
+  const ciudad = todos[0].ciudad || '';
   const mapsUrl = info.google_maps_link || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Fronton '+nombre)}`;
   const orden = [...parts].sort((a,b)=>parseDate(a.fecha)-parseDate(b.fecha));
 
@@ -1032,6 +1062,11 @@ function abrirFronton(nombre, scroll=true, navegar=true){
           <button class="btn-ghost" onclick="cerrarFronton()" aria-label="${tx('Cerrar','Itxi')}">✕</button>
         </div>
       </div>
+      ${htmlFiltroFronton(todos)}
+      ${!parts.length ? `<div class="nodata">${tx('Ningún partido con este filtro.','Ez dago partidarik iragazki honekin.')}</div></div>` : `
+      ${f.pel ? (()=>{ const r = parts.reduce((a,p)=>{ const gana = pels(p[p.ganador]).includes(f.pel); a[gana?0:1]++; return a; }, [0,0]);
+        return `<div class="fr-pel-balance"><span class="clk" onclick="goToPel('${esc(f.pel)}')">${h(f.pel)}</span> ${tx('aquí','hemen')}:
+          <b class="an-up">${r[0]} ${t('abbr_v')}</b> · <b class="an-down">${r[1]} ${t('abbr_d')}</b> · ${Math.round(r[0]/parts.length*100)}%</div>`; })() : ''}
       <div class="an-kpis">
         <div><div class="an-kpi-v">${parts.length}</div><div class="an-kpi-l">${tx('Partidos','Partidak')}</div></div>
         <div><div class="an-kpi-v">${oficiales}</div><div class="an-kpi-l">${tx('Oficiales','Ofizialak')}</div></div>
@@ -1057,7 +1092,7 @@ function abrirFronton(nombre, scroll=true, navegar=true){
         </div>
       </div>
     </div>
-    ${htmlEstadisticasFronton(parts)}`;
+    ${htmlEstadisticasFronton(parts)}`}`;
   det.classList.add('active');
   if(scroll) det.scrollIntoView({behavior:'smooth', block:'start'});
 }

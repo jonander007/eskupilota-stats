@@ -1155,3 +1155,13 @@ header :focus-visible{outline-color:#fff;}
 /* Ranking: «Ordenar por» */
 .rk-ordenar{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;margin-bottom:.8rem;}
 .rk-ordenar span{font-size:.72rem;color:var(--muted);margin-right:.2rem;}
+/* Frontón: filtro desplegable de la ficha */
+.fr-filtro{margin:.2rem 0 1rem;}
+.fr-filtro summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;}
+.fr-filtro summary::-webkit-details-marker{display:none;}
+.fr-filtro-n{background:var(--green);color:var(--on-green);border-radius:999px;font-size:.65rem;padding:.05rem .45rem;}
+.fr-filtro-c{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:flex-end;margin-top:.7rem;padding:.8rem 1rem;
+  background:var(--surface2);border:1px solid var(--border);border-radius:10px;}
+.fr-filtro-c .fg{display:flex;flex-direction:column;gap:.2rem;min-width:140px;}
+.fr-filtro-c select{padding:.45rem .5rem;border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;}
+.fr-pel-balance{margin:-.2rem 0 1rem;font-size:.9rem;}
