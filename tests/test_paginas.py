@@ -7,7 +7,7 @@ import re
 import unittest
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
-CARPETAS = ('pelotari', 'competicion', 'fronton')
+CARPETAS = ('pelotari', 'competicion', 'fronton', 'privacidad')
 
 
 class PaginasEstaticas(unittest.TestCase):

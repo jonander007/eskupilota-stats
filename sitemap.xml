@@ -842,6 +842,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/pelotari/zubizarreta-iv/"/>
   </url>
   <url>
+    <loc>https://www.eskupilotastats.com/privacidad/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/privacidad/"/>
+  </url>
+  <url>
+    <loc>https://www.eskupilotastats.com/eu/privacidad/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/privacidad/"/>
+  </url>
+  <url>
     <loc>https://www.eskupilotastats.com/competicion/</loc>
     <changefreq>daily</changefreq>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/competicion/"/>
