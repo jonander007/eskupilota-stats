@@ -1075,3 +1075,27 @@ header :focus-visible{outline-color:#fff;}
 .pr-admin{background:var(--green-soft);border:1px solid var(--green);border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;display:flex;flex-direction:column;gap:.4rem;font-size:.85rem;}
 .pr-admin label{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;}
 .pr-admin select{padding:.35rem .5rem;border:1.5px solid var(--border-strong);border-radius:6px;background:var(--surface);color:var(--text);font:inherit;}
+/* Porra: ámbitos (general y ligas) */
+.pr-partido{display:block;}
+.pr-fila{display:flex;flex-direction:column;gap:.45rem;margin-top:.5rem;}
+.pr-fila + .pr-fila{border-top:1px dashed var(--border);padding-top:.6rem;}
+.pr-pie{display:flex;justify-content:space-between;align-items:center;gap:.5rem;}
+.pr-ambitos{display:flex;flex-wrap:wrap;gap:.25rem;margin-top:.15rem;}
+.pr-ambitos span{font-size:.62rem;font-weight:700;letter-spacing:.03em;padding:.12rem .45rem;border-radius:999px;}
+.pr-gen{background:var(--green-soft);color:var(--green);}
+.pr-liga{background:#fdf3d7;color:#8a6500;}
+.pr-mismo{display:flex;align-items:center;gap:.45rem;font-size:.82rem;margin:.3rem 0 .2rem;cursor:pointer;}
+.pr-mismo input{accent-color:var(--green);width:16px;height:16px;}
+.pr-sel-liga{padding:.3rem .5rem;border:1.5px solid var(--green);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:.75rem;font-weight:700;}
+.pr-liga-top{display:flex;justify-content:space-between;align-items:baseline;}
+.pr-liga-top h4{text-transform:none;letter-spacing:0;font-size:1rem;color:var(--text);margin:0 0 .2rem;}
+.pr-codigo{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;margin:.6rem 0;font-size:.9rem;}
+.pr-codigo b{font-family:var(--mono);font-size:1.1rem;letter-spacing:.12em;}
+.pr-codigo .btn-ghost,.pr-liga-acc .btn-ghost{padding:.35rem .8rem;font-size:.72rem;text-decoration:none;}
+.pr-liga-acc{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem;}
+.pr-crear{display:flex;flex-direction:column;gap:.6rem;}
+.pr-crear input,.pr-crear select{padding:.6rem .8rem;border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;}
+.pr-crear .btn{align-self:flex-start;}
+.pr-series{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.85rem;}
+.pr-series input{accent-color:var(--green);}
+@media (prefers-color-scheme:dark){.pr-liga{background:#3a2f10;color:#f0c75e;}}
