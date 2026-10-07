@@ -84,6 +84,7 @@ def partidos_cartelera(cartelera):
                 'fase': p.get('fase') or v.get('fase'),
                 'fronton': v.get('fronton'),
                 'modalidad': p.get('modalidad'),
+                'categoria': p.get('categoria'),       # el modo «oficiales» deja fuera los festivales
                 'eq1': eq1,
                 'eq2': eq2,
                 'estado': 'abierto',      # si vuelve a anunciarse tras un cambio de cartel, se reabre

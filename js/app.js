@@ -791,6 +791,8 @@ function showSec(id, btn, fromHistory){
   if(id==='frontones'){ renderFrontones(); setTimeout(()=>{ initFrontonMap(); renderFrontonMarkers(); },100); }
   if(id==='campeonatos') renderCampeonato(_campActual);
   if(id==='porra') porraInit();
+  // Las cifras generales no pintan nada en la porra
+  document.getElementById('kpiRow').style.display = id==='porra' ? 'none' : '';
   // Sincronizar el drawer
   syncDrawerActive(id);
 }

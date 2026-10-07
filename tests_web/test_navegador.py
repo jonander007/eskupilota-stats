@@ -510,7 +510,7 @@ class Web(unittest.TestCase):
 
 
     # ── Porra (Supabase simulado) ──
-    def pagina_porra(self, con_sesion, ancho=1300):
+    def pagina_porra(self, con_sesion, ancho=1300, admin=False):
         import base64
         import json as _json
         from datetime import datetime, timedelta, timezone
@@ -527,9 +527,13 @@ class Web(unittest.TestCase):
         inicio = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
         self.porra_envios = []
         respuestas = {
-            'perfiles': [{'alias': 'Jon'}],
-            'porra_partidos': [{'id': 'p1', 'inicio': inicio, 'competicion': 'Campeonato Manomanista Serie A 2026', 'fase': 'final',
-                                'fronton': 'Bizkaia', 'eq1': ['LASO'], 'eq2': ['ALTUNA III'], 'estado': 'abierto'}],
+            'perfiles': [{'alias': 'Jon', 'admin': admin}],
+            'porra_abiertos': [{'id': 'p1', 'inicio': inicio, 'competicion': 'Campeonato Manomanista Serie A 2026', 'fase': 'final',
+                                'fronton': 'Bizkaia', 'eq1': ['LASO'], 'eq2': ['ALTUNA III'], 'categoria': 'campeonato',
+                                'activo': None, 'pronosticable': True}]
+                              + ([{'id': 'p2', 'inicio': inicio, 'competicion': 'Festival', 'fronton': 'Bizkaia', 'eq1': ['JAKA'],
+                                   'eq2': ['DARIO'], 'categoria': 'festival', 'activo': None, 'pronosticable': False}] if admin else []),
+            'porra_config': [{'modo': 'oficiales'}],
             'porra_pronosticos': [],
             'porra_puntuados': [{'usuario': uid, 'partido': 'p0', 'ganador': 1, 'tantos_perdedor': 18, 'inicio': inicio,
                                  'eq1': ['LASO'], 'eq2': ['JAKA'], 'estado': 'jugado', 'puntos1': 22, 'puntos2': 18, 'puntos': 6}],
@@ -543,6 +547,9 @@ class Web(unittest.TestCase):
             if req.method == 'POST' and tabla == 'porra_pronosticos':
                 self.porra_envios.append(_json.loads(req.post_data))
                 return route.fulfill(status=201, body='')
+            if req.method == 'PATCH':
+                self.porra_envios.append((tabla, req.url.split('?')[1], _json.loads(req.post_data)))
+                return route.fulfill(status=204, body='')
             return route.fulfill(status=200, content_type='application/json', body=_json.dumps(respuestas.get(tabla, [])))
 
         pg = ctx.new_page()
@@ -565,6 +572,8 @@ class Web(unittest.TestCase):
     def test_porra_pronosticar(self):
         pg = self.pagina_porra(True, ancho=390)
         pg.wait_for_selector('.pr-partido')
+        self.assertFalse(pg.locator('#kpiRow').is_visible())
+        self.assertEqual(pg.locator('.pr-admin').count(), 0)
         self.assertIn('Jon', pg.locator('.pr-user').inner_text())
         self.assertTrue(pg.locator('.pr-tantos select').is_disabled())
         pg.locator('.pr-eq').nth(1).click()
@@ -580,6 +589,19 @@ class Web(unittest.TestCase):
         self.assertIn('Jon', pg.locator('.pr-yo').inner_text())
         sin_desborde = pg.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
         self.assertTrue(sin_desborde)
+
+    def test_porra_administrador(self):
+        pg = self.pagina_porra(True, admin=True)
+        pg.wait_for_selector('.pr-admin')
+        self.assertEqual(pg.locator('.pr-partido').count(), 2)
+        festival = pg.locator('.pr-partido.pr-cerrado')
+        self.assertTrue(festival.locator('.pr-eq').first.is_disabled())
+        festival.locator('.pr-switch input').check()
+        pg.wait_for_function('document.querySelectorAll(".pr-partido").length === 2')
+        self.assertIn(('porra_partidos', 'id=eq.p2', {'activo': True}), self.porra_envios)
+        pg.select_option('.pr-admin select', 'todos')
+        pg.wait_for_timeout(300)
+        self.assertIn(('porra_config', 'id=eq.1', {'modo': 'todos'}), self.porra_envios)
 
 
 if __name__ == '__main__':
