@@ -520,6 +520,15 @@ function ordenarRk(col){
   buildRanking();
 }
 
+// Botones «Ordenar por» (más claros que pulsar la cabecera, sobre todo en el móvil)
+function ordenarRkPor(col){ _rkOrden = {col, asc:false}; buildRanking(); }
+function htmlOrdenRk(cols){
+  const nombres = {pg: tx('Victorias','Garaipenak'), pct: tx('% victorias','Garaipen %'), pj: tx('Partidos','Partidak'),
+                   dif: tx('Dif. tantos','Tanto aldea'), elo: 'Elo'};
+  return `<div class="rk-ordenar"><span>${tx('Ordenar por','Ordenatu')}:</span>${cols.map(c=>
+    `<button class="pill${_rkOrden.col===c?' on':''}" onclick="ordenarRkPor('${c}')">${nombres[c]}</button>`).join('')}</div>`;
+}
+
 function htmlRankingTabla(parts, activos){
   const st = calcStats(parts);
   const filas = Object.entries(st)
@@ -551,6 +560,7 @@ function htmlRankingTabla(parts, activos){
     <td class="an-num">${f.elo===null?'—':Math.round(f.elo)}</td>
     <td class="rk-forma">${chipsForma(formaReciente(f.nombre,5))}</td></tr>`;
   return `<div class="ch-card">
+    ${htmlOrdenRk(['pg', 'pct', 'pj', 'dif', 'elo'])}
     <p class="an-nota">${tx(`Pulsa en una columna para ordenar. Al ordenar por %, los que tienen menos de ${RK_MIN_PCT} partidos van al final. El Elo y la forma (últimos 5) tienen en cuenta todos los partidos.`,
       `Sakatu zutabe batean ordenatzeko. %-ka ordenatzean, ${RK_MIN_PCT} partida baino gutxiago dituztenak amaieran doaz. Eloak eta formak (azken 5ak) partida guztiak hartzen dituzte kontuan.`)}</p>
     <div class="an-table-wrap"><table class="comp-table rk-tabla">

@@ -289,6 +289,21 @@ class Web(unittest.TestCase):
         pj = [int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts()]
         self.assertEqual(pj, sorted(pj))
 
+    def test_ranking_por_porcentaje(self):
+        pg = self.pagina('#/ranking')
+        pg.click('.rk-ordenar .pill:has-text("% victorias")')
+        filas = [(int(pj), int(pct.rstrip('%'))) for pj, pct in zip(
+            pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts(),
+            pg.locator('.rk-tabla tbody tr td:nth-child(6)').all_inner_texts())]
+        con_minimo = [pct for pj, pct in filas if pj >= 10]
+        self.assertEqual(con_minimo, sorted(con_minimo, reverse=True))
+        self.assertTrue(all(pj >= 10 for pj, _ in filas[:len(con_minimo)]))     # los de pocos partidos, al final
+        # También en Del vs Zag
+        pg.click('#rktab-roles')
+        pg.click('.rk-ordenar .pill:has-text("% victorias")')
+        pcts = [int(x.rstrip('%')) for x in pg.locator('.rk-card').first.locator('.rk-stat.pg').all_inner_texts()]
+        self.assertEqual(pcts, sorted(pcts, reverse=True))
+
     def test_ranking_por_categoria(self):
         pg = self.pagina('#/ranking')
         total = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
