@@ -1,62 +1,11 @@
 {
-  "actualizado": "06/10/2026 03:54",
+  "actualizado": "07/10/2026 00:35",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "06/10/2026",
-      "hora": "17:30",
-      "fronton": "Lezao",
-      "ciudad": "Agurain/Salvatierra",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ALBERDI II – GASKUE // ZUBIZARRETA IV – LIZEAGA",
-        "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3014139/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "GASKUE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "LIZEAGA"
-          ],
-          "raw": "ALBERDI II – GASKUE // ZUBIZARRETA IV – LIZEAGA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ALTUNA III",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ALTUNA III – MARTIJA // ARTOLA – MARIEZKURRENA II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "09/10/2026",
       "hora": "18:00",
@@ -65,8 +14,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "AGIRRE // XX (Serie B)",
-        "BAKAIKOA // XX (Serie B)",
+        "AGIRRE // ZUBIZARRETA III (Serie B)",
+        "BAKAIKOA // ALBERDI II (Serie B)",
         "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II"
       ],
       "precio": "20.00",
@@ -79,32 +28,30 @@
             "AGIRRE"
           ],
           "eq2": [
-            "?"
+            "ZUBIZARRETA III"
           ],
-          "raw": "AGIRRE // XX (Serie B)",
+          "raw": "AGIRRE // ZUBIZARRETA III (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
             "BAKAIKOA"
           ],
           "eq2": [
-            "?"
+            "ALBERDI II"
           ],
-          "raw": "BAKAIKOA // XX (Serie B)",
+          "raw": "BAKAIKOA // ALBERDI II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -134,7 +81,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "ZABALA – BIKUÑA // AMIANO – IMAZ",
-        "ELORDI // XX (Serie A)"
+        "ELORDI // LARRAZABAL (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -162,16 +109,15 @@
             "ELORDI"
           ],
           "eq2": [
-            "?"
+            "LARRAZABAL"
           ],
-          "raw": "ELORDI // XX (Serie A)",
+          "raw": "ELORDI // LARRAZABAL (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         }
       ],
       "fuente": "baiko"
@@ -184,8 +130,8 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "SALABERRIA // XX (Serie B)",
-        "LASO // XX (Serie A)",
+        "EGIGUREN V // SALABERRIA (Serie B)",
+        "JAKA // LASO (Serie A)",
         "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
       ],
       "precio": "20.00",
@@ -195,35 +141,33 @@
       "partidos": [
         {
           "eq1": [
-            "SALABERRIA"
+            "EGIGUREN V"
           ],
           "eq2": [
-            "?"
+            "SALABERRIA"
           ],
-          "raw": "SALABERRIA // XX (Serie B)",
+          "raw": "EGIGUREN V // SALABERRIA (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
-            "LASO"
+            "JAKA"
           ],
           "eq2": [
-            "?"
+            "LASO"
           ],
-          "raw": "LASO // XX (Serie A)",
+          "raw": "JAKA // LASO (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
@@ -253,7 +197,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "DARÍO // XX",
+        "DARÍO // SENAR",
         "(Serie A)"
       ],
       "precio": "30.00",
@@ -282,16 +226,15 @@
             "DARÍO"
           ],
           "eq2": [
-            "?"
+            "SENAR"
           ],
-          "raw": "DARÍO // XX (Serie A)",
+          "raw": "DARÍO // SENAR (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         }
       ],
       "fuente": "baiko"
@@ -304,9 +247,9 @@
       "fase": "Octavos de final",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "APEZETXEA II // XX (Serie B)",
-        "ARTOLA // XX (Serie A)",
-        "XX – UGARTEMENDIA // XX – BIKUÑA"
+        "ESKIROZ // APEZETXEA II (Serie B)",
+        "ARTOLA // PEÑA II (Serie A)",
+        "AGIRRE – UGARTEMENDIA // ALBERDI II – BIKUÑA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -315,52 +258,49 @@
       "partidos": [
         {
           "eq1": [
-            "APEZETXEA II"
+            "ESKIROZ"
           ],
           "eq2": [
-            "?"
+            "APEZETXEA II"
           ],
-          "raw": "APEZETXEA II // XX (Serie B)",
+          "raw": "ESKIROZ // APEZETXEA II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
             "ARTOLA"
           ],
           "eq2": [
-            "?"
+            "PEÑA II"
           ],
-          "raw": "ARTOLA // XX (Serie A)",
+          "raw": "ARTOLA // PEÑA II (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
-          "fase": "octavos",
-          "pendiente": true
+          "fase": "octavos"
         },
         {
           "eq1": [
-            "?",
+            "AGIRRE",
             "UGARTEMENDIA"
           ],
           "eq2": [
-            "?",
+            "ALBERDI II",
             "BIKUÑA"
           ],
-          "raw": "XX – UGARTEMENDIA // XX – BIKUÑA",
+          "raw": "AGIRRE – UGARTEMENDIA // ALBERDI II – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -373,7 +313,7 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
+        "AMIANO // ZUBIZARRETA IV (Serie B)",
         "XX – LANDA // XX – GABIRONDO"
       ],
       "precio": "25.00",
@@ -383,20 +323,19 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "AMIANO"
           ],
           "eq2": [
-            "?"
+            "ZUBIZARRETA IV"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "AMIANO // ZUBIZARRETA IV (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
@@ -426,8 +365,8 @@
       "fase": "Final laurdenak (1.Jardunaldia)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "MURUA // REKALDE (Serie B)",
+        "EZKURDIA // P.ETXEBERRIA (Serie A)",
         "XX – MORGAETXEBARRIA // XX – BIKUÑA"
       ],
       "precio": "20.00",
@@ -437,37 +376,35 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "MURUA"
           ],
           "eq2": [
-            "?"
+            "REKALDE"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "MURUA // REKALDE (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?"
+            "EZKURDIA"
           ],
           "eq2": [
-            "?"
+            "P.ETXEBERRIA"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "EZKURDIA // P.ETXEBERRIA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
@@ -622,7 +559,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "ALTUNA III // ZABALA (Serie A)",
         "XX – XX // XX – XX"
       ],
       "precio": "25.00",
@@ -649,20 +586,19 @@
         },
         {
           "eq1": [
-            "?"
+            "ALTUNA III"
           ],
           "eq2": [
-            "?"
+            "ZABALA"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ALTUNA III // ZABALA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
@@ -692,8 +628,8 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "AMIANO // XX (Serie B)",
+        "P.ETXEBERRIA // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
       "precio": "30.00",
@@ -703,12 +639,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "AMIANO"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "AMIANO // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -720,12 +656,12 @@
         },
         {
           "eq1": [
-            "?"
+            "P.ETXEBERRIA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "P.ETXEBERRIA // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -763,8 +699,8 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "MURUA // XX (Serie B)",
+        "EZKURDIA // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
       "precio": "20.00",
@@ -774,12 +710,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "MURUA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "MURUA // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -791,12 +727,12 @@
         },
         {
           "eq1": [
-            "?"
+            "EZKURDIA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "EZKURDIA // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -835,7 +771,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX – XX // XX – XX",
-        "XX // XX (Serie A)"
+        "ALTUNA III // XX (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -861,12 +797,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ALTUNA III"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ALTUNA III // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -887,7 +823,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
+        "ZUBIZARRETA IV // XX (Serie B)",
         "XX – LANDA // XX – ALBISU"
       ],
       "precio": "10.00",
@@ -897,12 +833,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "ZUBIZARRETA IV"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "ZUBIZARRETA IV // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -940,8 +876,8 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "REKALDE // XX (Serie B)",
+        "ZABALA // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
       "precio": "20.00",
@@ -951,12 +887,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "REKALDE"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "REKALDE // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -968,12 +904,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ZABALA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ZABALA // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",

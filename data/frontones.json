@@ -135,6 +135,7 @@
 {"id":"FRO165","nombre":"REMONTIVAL","ciudad_id":"CIU094","lat":42.6718,"lon":-2.0323,"partidos_count":21,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20REMONTIVAL"},
 {"id":"FRO166","nombre":"RETEGUI","ciudad_id":"CIU023","lat":42.8028,"lon":-1.6795,"partidos_count":14,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20RETEGUI"},
 {"id":"FRO167","nombre":"SAHATSAGA","ciudad_id":"CIU070","lat":43.299,"lon":-2.202,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20SAHATSAGA"},
+{"id":"FRO235","nombre":"SALVATIERRA","ciudad_id":"CIU162","partidos_count":2},
 {"id":"FRO212","nombre":"SAN LORENZO","ciudad_id":"CIU062","lat":42.3628,"lon":-3.0119,"partidos_count":2},
 {"id":"FRO168","nombre":"SANTA MARÍA DE LAS HOYAS","ciudad_id":"CIU120","lat":41.7715,"lon":-3.1417,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20SANTA%20MAR%C3%8DA%20DE%20LAS%20HOYAS"},
 {"id":"FRO169","nombre":"SANTANAPE","ciudad_id":"CIU069","lat":43.314,"lon":-2.681,"partidos_count":12,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20SANTANAPE"},
