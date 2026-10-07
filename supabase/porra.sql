@@ -86,15 +86,17 @@ end $$;
 create index if not exists porra_pronosticos_partido on public.porra_pronosticos (partido);
 
 -- ── Funciones de apoyo para las reglas ──────────────────────────────
--- Partidos aún abiertos (futuros) y si cuentan para la general
+-- Partidos aún abiertos y si cuentan para la general. Se pronostica hasta
+-- 1 hora antes del inicio de la velada (columna «cierre»).
 drop view if exists public.porra_abiertos cascade;
 create view public.porra_abiertos with (security_invoker = true) as
-select p.id, p.inicio, p.competicion, p.fase, p.fronton, p.modalidad, p.categoria, p.eq1, p.eq2, p.activo,
+select p.id, p.inicio, p.inicio - interval '1 hour' as cierre, p.competicion, p.fase, p.fronton, p.modalidad, p.categoria,
+       p.eq1, p.eq2, p.activo,
        coalesce(p.activo, case c.modo when 'todos' then true
                                       when 'oficiales' then coalesce(p.categoria, '') <> 'festival'
                                       else false end) as pronosticable
 from public.porra_partidos p cross join public.porra_config c
-where p.estado = 'abierto' and p.inicio > now();
+where p.estado = 'abierto' and p.inicio - interval '1 hour' > now();
 
 create or replace function public.porra_es_admin()
 returns boolean language sql stable security definer set search_path = '' as $$
@@ -162,12 +164,12 @@ drop policy if exists "miembros: salir" on public.porra_miembros;
 create policy "miembros: ver"   on public.porra_miembros for select to authenticated using (public.porra_soy_miembro(liga));
 create policy "miembros: salir" on public.porra_miembros for delete to authenticated using (usuario = auth.uid());
 
--- Pronósticos: los ajenos solo se ven cuando el partido ha empezado (y los
--- de una liga, solo sus miembros); se pronostica antes de la hora de inicio.
+-- Pronósticos: los ajenos solo se ven cuando se cierra el partido (y los de
+-- una liga, solo sus miembros); se pronostica hasta 1 hora antes del inicio.
 drop policy if exists "pronosticos: ver" on public.porra_pronosticos;
 create policy "pronosticos: ver" on public.porra_pronosticos for select using (
   usuario = auth.uid()
-  or (exists (select 1 from public.porra_partidos p where p.id = partido and p.inicio <= now())
+  or (exists (select 1 from public.porra_partidos p where p.id = partido and p.inicio - interval '1 hour' <= now())
       and (liga is null or public.porra_soy_miembro(liga))));
 create policy "pronosticos: crear" on public.porra_pronosticos for insert to authenticated with check (
   usuario = auth.uid() and public.porra_pronosticable(partido, liga));
@@ -238,6 +240,106 @@ end $$;
 revoke execute on function public.porra_crear_liga(text, text[]), public.porra_unirse(text) from public, anon;
 grant execute on function public.porra_crear_liga(text, text[]), public.porra_unirse(text) to authenticated;
 
+-- ── Podios de los torneos individuales (mano a mano y 4 y medio) ────
+-- Se pronostican campeón, subcampeón y los dos semifinalistas, hasta 1 hora
+-- antes del primer partido del torneo. Los resultados los sube el workflow.
+create table if not exists public.porra_podio_resultados (
+  competicion text primary key,
+  campeon     text not null,
+  subcampeon  text not null,
+  semis       text[] not null default '{}',              -- los que perdieron en semifinales
+  actualizado timestamptz not null default now()
+);
+create table if not exists public.porra_podios (
+  usuario     uuid not null default auth.uid() references public.perfiles (id) on delete cascade,
+  competicion text not null,
+  liga        uuid references public.porra_ligas (id) on delete cascade,   -- null = general
+  campeon     text not null,
+  subcampeon  text not null,
+  semi1       text,
+  semi2       text,
+  actualizado timestamptz not null default now(),
+  constraint porra_podios_unico unique nulls not distinct (usuario, competicion, liga),
+  constraint porra_podios_distintos check (campeon <> subcampeon)
+);
+
+-- Nombres comparables: «P. Etxeberria» = «P.ETXEBERRIA»
+create or replace function public.porra_clave(t text)
+returns text language sql immutable set search_path = '' as $$
+  select regexp_replace(lower(translate(coalesce(t, ''), 'ÁÉÍÓÚÜÑáéíóúüñ', 'AEIOUUNaeiouun')), '[^a-z0-9]', '', 'g')
+$$;
+
+-- Torneos con podio y su cierre (1 hora antes del primer partido subido)
+drop view if exists public.porra_podio_torneos cascade;
+create view public.porra_podio_torneos with (security_invoker = true) as
+select competicion, min(inicio) - interval '1 hour' as cierre
+from public.porra_partidos
+where modalidad in ('mano', 'cuatro') and categoria in ('campeonato', 'torneo') and competicion is not null
+group by competicion;
+
+create or replace function public.porra_podio_abierto(comp text, lid uuid default null)
+returns boolean language sql stable security definer set search_path = '' as $$
+  select exists (select 1 from public.porra_podio_torneos t where t.competicion = comp and t.cierre > now())
+     and (lid is null or exists (select 1 from public.porra_ligas l
+                                 join public.porra_miembros m on m.liga = l.id and m.usuario = auth.uid()
+                                 where l.id = lid and comp = any(l.alcance)))
+$$;
+create or replace function public.porra_podio_cerrado(comp text)
+returns boolean language sql stable security definer set search_path = '' as $$
+  select exists (select 1 from public.porra_podio_torneos t where t.competicion = comp and t.cierre <= now())
+$$;
+
+alter table public.porra_podios           enable row level security;
+alter table public.porra_podio_resultados enable row level security;
+drop policy if exists "podios: ver"     on public.porra_podios;
+drop policy if exists "podios: crear"   on public.porra_podios;
+drop policy if exists "podios: cambiar" on public.porra_podios;
+drop policy if exists "podios: borrar"  on public.porra_podios;
+create policy "podios: ver" on public.porra_podios for select using (
+  usuario = auth.uid()
+  or (public.porra_podio_cerrado(competicion) and (liga is null or public.porra_soy_miembro(liga))));
+create policy "podios: crear" on public.porra_podios for insert to authenticated with check (
+  usuario = auth.uid() and public.porra_podio_abierto(competicion, liga));
+create policy "podios: cambiar" on public.porra_podios for update to authenticated
+  using (usuario = auth.uid())
+  with check (usuario = auth.uid() and public.porra_podio_abierto(competicion, liga));
+create policy "podios: borrar" on public.porra_podios for delete to authenticated using (
+  usuario = auth.uid() and public.porra_podio_abierto(competicion, liga));
+drop policy if exists "podio resultados: ver" on public.porra_podio_resultados;
+create policy "podio resultados: ver" on public.porra_podio_resultados for select using (true);
+
+revoke all on public.porra_podios, public.porra_podio_resultados from anon, authenticated;
+grant select on public.porra_podios, public.porra_podio_resultados, public.porra_podio_torneos to anon, authenticated;
+grant insert (competicion, liga, campeon, subcampeon, semi1, semi2),
+      update (competicion, liga, campeon, subcampeon, semi1, semi2), delete on public.porra_podios to authenticated;
+grant all on public.porra_podios, public.porra_podio_resultados to service_role;
+revoke execute on function public.porra_podio_abierto(text, uuid) from public, anon;
+grant execute on function public.porra_podio_abierto(text, uuid) to authenticated;
+revoke execute on function public.porra_podio_cerrado(text) from public;
+grant execute on function public.porra_podio_cerrado(text) to anon, authenticated;
+
+-- Puntos del podio: campeón 15, subcampeón 9, finalista en el puesto cambiado 5,
+-- cada semifinalista 3 y +6 por el pleno (los cuatro en su sitio). Máximo 36.
+drop view if exists public.porra_podios_puntuados;
+create view public.porra_podios_puntuados with (security_invoker = true) as
+select po.usuario, po.competicion, po.liga, po.campeon, po.subcampeon, po.semi1, po.semi2,
+       r.campeon as real_campeon, r.subcampeon as real_subcampeon, r.semis as real_semis,
+       case when r.competicion is null then null else
+           (case when k.c = k.rc then 15 when k.c = k.rs then 5 else 0 end)
+         + (case when k.s = k.rs then 9 when k.s = k.rc then 5 else 0 end)
+         + (case when k.s1 <> '' and k.s1 = any(k.rsemis) then 3 else 0 end)
+         + (case when k.s2 <> '' and k.s2 <> k.s1 and k.s2 = any(k.rsemis) then 3 else 0 end)
+         + (case when k.c = k.rc and k.s = k.rs and k.s1 <> k.s2
+                  and k.s1 = any(k.rsemis) and k.s2 = any(k.rsemis) then 6 else 0 end)
+       end as puntos
+from public.porra_podios po
+left join public.porra_podio_resultados r on r.competicion = po.competicion
+cross join lateral (select public.porra_clave(po.campeon) as c, public.porra_clave(po.subcampeon) as s,
+                           public.porra_clave(po.semi1) as s1, public.porra_clave(po.semi2) as s2,
+                           public.porra_clave(r.campeon) as rc, public.porra_clave(r.subcampeon) as rs,
+                           (select coalesce(array_agg(public.porra_clave(x)), '{}') from unnest(r.semis) x) as rsemis) k;
+grant select on public.porra_podios_puntuados to anon, authenticated;
+
 -- ── Puntuación ──────────────────────────────────────────────────────
 -- 3 puntos por acertar el ganador; si además se acierta el tanteo del
 -- perdedor, +3 (exacto) o +1 (a 2 tantos o menos). Máximo 6.
@@ -271,21 +373,35 @@ create or replace function public.porra_clasificacion(liga uuid default null, co
                                                       mes text default null)
 returns table (usuario uuid, alias text, puntos bigint, oficiales bigint, jugados bigint, aciertos bigint, exactos bigint)
 language sql stable security invoker set search_path = '' as $$
+  with partidos as (
+    select pu.usuario, sum(pu.puntos) as pts,
+           coalesce(sum(pu.puntos) filter (where coalesce(pu.categoria, '') <> 'festival'), 0) as ofi,   -- desempate
+           count(*) as jug, count(*) filter (where pu.puntos >= 3) as aci, count(*) filter (where pu.puntos = 6) as exa
+    from public.porra_puntuados pu
+    where pu.liga is not distinct from porra_clasificacion.liga and pu.puntos is not null
+      and (porra_clasificacion.competiciones is null or pu.competicion = any(porra_clasificacion.competiciones))
+      and (porra_clasificacion.mes is null
+           or to_char(pu.inicio at time zone 'Europe/Madrid', 'YYYY-MM') = porra_clasificacion.mes)
+    group by pu.usuario
+  ), podios as (
+    -- El podio suma en la porra de su torneo y en las ligas, no en los meses
+    select pp.usuario, sum(pp.puntos) as pts
+    from public.porra_podios_puntuados pp
+    where pp.puntos is not null and pp.liga is not distinct from porra_clasificacion.liga
+      and porra_clasificacion.mes is null
+      and (porra_clasificacion.liga is not null or porra_clasificacion.competiciones is not null)
+      and (porra_clasificacion.competiciones is null or pp.competicion = any(porra_clasificacion.competiciones))
+    group by pp.usuario
+  )
   select pe.id, pe.alias,
-         coalesce(sum(pu.puntos), 0),
-         coalesce(sum(pu.puntos) filter (where coalesce(pu.categoria, '') <> 'festival'), 0),   -- desempate
-         count(pu.puntos), count(*) filter (where pu.puntos >= 3), count(*) filter (where pu.puntos = 6)
+         coalesce(pa.pts, 0) + coalesce(po.pts, 0), coalesce(pa.ofi, 0) + coalesce(po.pts, 0),
+         coalesce(pa.jug, 0), coalesce(pa.aci, 0), coalesce(pa.exa, 0)
   from public.perfiles pe
-  left join public.porra_puntuados pu
-         on pu.usuario = pe.id and pu.liga is not distinct from porra_clasificacion.liga
-        and pu.puntos is not null
-        and (porra_clasificacion.competiciones is null or pu.competicion = any(porra_clasificacion.competiciones))
-        and (porra_clasificacion.mes is null
-             or to_char(pu.inicio at time zone 'Europe/Madrid', 'YYYY-MM') = porra_clasificacion.mes)
-  where case when porra_clasificacion.liga is null then pu.usuario is not null
+  left join partidos pa on pa.usuario = pe.id
+  left join podios po on po.usuario = pe.id
+  where case when porra_clasificacion.liga is null then pa.usuario is not null or po.usuario is not null
              else exists (select 1 from public.porra_miembros m
                           where m.liga = porra_clasificacion.liga and m.usuario = pe.id) end
-  group by pe.id, pe.alias
   order by 3 desc, 4 desc, 6 desc, 7 desc, 5 asc, 2 asc
 $$;
 grant execute on function public.porra_clasificacion(uuid, text[], text) to anon, authenticated;

@@ -524,19 +524,26 @@ class Web(unittest.TestCase):
             sesion = {'access_token': jwt, 'refresh_token': 'r', 'token_type': 'bearer', 'expires_in': 2592000, 'expires_at': exp,
                       'user': {'id': uid, 'email': 'jon@example.com', 'aud': 'authenticated', 'role': 'authenticated'}}
             ctx.add_init_script(f"localStorage.setItem('sb-nckeadvyeymewibrqpuj-auth-token', {_json.dumps(_json.dumps(sesion))})")
-        inicio = (datetime.now(timezone.utc) + timedelta(minutes=10)).isoformat()   # en el mes en curso
+        ahora = datetime.now(timezone.utc)
+        inicio = (ahora + timedelta(minutes=70)).isoformat()            # se cierra 1 h antes: aún abierto
+        cierre = (ahora + timedelta(minutes=10)).isoformat()
+        pasado = (ahora - timedelta(hours=3)).isoformat()
         self.porra_envios = []
         self.porra_rpc = []
         respuestas = {
             'perfiles': [{'alias': 'Jon', 'admin': admin}],
             'porra_abiertos': [{'id': 'p1', 'inicio': inicio, 'competicion': 'Campeonato Manomanista Serie A 2026', 'fase': 'final',
                                 'fronton': 'Bizkaia', 'eq1': ['LASO'], 'eq2': ['ALTUNA III'], 'categoria': 'campeonato',
-                                'activo': None, 'pronosticable': True}]
+                                'activo': None, 'pronosticable': True, 'cierre': cierre}]
                               + ([{'id': 'p2', 'inicio': inicio, 'competicion': 'Festival', 'fronton': 'Bizkaia', 'eq1': ['JAKA'],
                                    'eq2': ['DARIO'], 'categoria': 'festival', 'activo': None, 'pronosticable': False}] if admin else []),
             'porra_config': [{'modo': 'oficiales'}],
-            'porra_partidos': [{'competicion': 'Campeonato Manomanista Serie A 2026', 'categoria': 'campeonato', 'inicio': inicio},
-                               {'competicion': 'Festival', 'categoria': 'festival', 'inicio': inicio}],
+            'porra_partidos': [{'id': 'p0', 'competicion': 'Campeonato Manomanista Serie A 2026', 'categoria': 'campeonato',
+                                'inicio': pasado, 'eq1': ['LASO'], 'eq2': ['JAKA'], 'estado': 'jugado', 'puntos1': 22, 'puntos2': 18},
+                               {'id': 'f0', 'competicion': 'Festival', 'categoria': 'festival', 'inicio': pasado,
+                                'eq1': ['A'], 'eq2': ['B'], 'estado': 'abierto'}],
+            'porra_podio_torneos': [{'competicion': 'Campeonato Manomanista Serie A 2026', 'cierre': cierre}],
+            'porra_podios_puntuados': [],
             'porra_ligas': list(ligas),
             'porra_miembros': [{'liga': l['id'], 'usuario': uid, 'perfiles': {'alias': 'Jon'}} for l in ligas],
             'porra_crear_liga': [{'id': 'nueva', 'codigo': 'XYZ789'}],
@@ -553,6 +560,9 @@ class Web(unittest.TestCase):
             tabla = req.url.split('?')[0].rstrip('/').split('/')[-1]
             if req.method == 'POST' and tabla in ('porra_crear_liga', 'porra_unirse'):
                 self.porra_envios.append((tabla, _json.loads(req.post_data)))
+            elif req.method == 'POST' and tabla == 'porra_podios':
+                self.porra_envios.append((tabla, _json.loads(req.post_data)))
+                return route.fulfill(status=201, body='')
             elif req.method == 'POST' and tabla == 'porra_pronosticos':
                 self.porra_envios.append(_json.loads(req.post_data))
                 return route.fulfill(status=201, body='')
@@ -642,10 +652,10 @@ class Web(unittest.TestCase):
         pg.wait_for_function('document.querySelectorAll(".pr-eq.on").length === 1 && document.querySelectorAll(".pr-eq")[1].classList.contains("on")')
         self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': 'L1', 'ganador': 2, 'tantos_perdedor': None}])
         # Clasificación de la liga e invitación
-        pg.click('.pr-subtabs .pill >> nth=1')
+        pg.click('.pr-subtabs .pill >> nth=2')
         pg.wait_for_selector('.pr-clasif')
         self.assertEqual(self.porra_rpc[-1][1]['liga'], 'L1')
-        pg.click('.pr-subtabs .pill >> nth=2')
+        pg.click('.pr-subtabs .pill >> nth=3')
         pg.wait_for_selector('.pr-codigo')
         self.assertIn('ABC123', pg.locator('.pr-codigo').inner_text())
         self.assertIn('liga%3DABC123', pg.locator('.pr-codigo a').get_attribute('href').replace('=', '%3D'))
@@ -681,12 +691,43 @@ class Web(unittest.TestCase):
         pg.wait_for_function('document.querySelector(".pr-vistas") && document.querySelector(".pr-vistas").textContent.includes("orokorra")')
         pg.wait_for_selector('.pr-partido')
         texto = pg.locator('#porraContent').text_content()
-        for es in ('Pronosticar', 'Clasificación', 'Mis ligas', 'Resultado', 'Todas las', 'final'):
+        for es in ('Pronosticar', 'Clasificación', 'Mis ligas', 'Resultado', 'Todas las', 'Campeonato', 'entero'):
             self.assertNotIn(es, texto)
         self.assertIn('Finala', pg.locator('.pr-comp').first.inner_text())
         mes = pg.evaluate('porraMesActual()')
         opcion = pg.locator(f'.pr-sel-porra option[value="mes:{mes}"]').inner_text()
         self.assertRegex(opcion, r'^20\d\dko [a-z]+ · martxan$')
+
+    def test_porra_podio_y_cerrados(self):
+        liga = {'id': 'L1', 'nombre': 'Cuadrilla', 'codigo': 'ABC123', 'creador': '00000000-0000-0000-0000-00000000000a',
+                'alcance': ['Campeonato Manomanista Serie A 2026']}
+        pg = self.pagina_porra(True, ligas=[liga])
+        pg.wait_for_selector('.pr-partido')
+        self.assertIn('Cierra', pg.locator('.pr-velada').first.inner_text())
+        # Porra del torneo individual: tarjeta del podio
+        pg.select_option('.pr-sel-porra', 'comp:Campeonato Manomanista Serie A 2026')
+        pg.wait_for_selector('.pr-podio')
+        pg.select_option('.pr-podio select[data-rol="campeon"]', 'LASO')
+        pg.select_option('.pr-podio select[data-rol="subcampeon"]', 'LASO')
+        pg.click('.pr-podio .btn')
+        self.assertIn('No repitas', pg.locator('.pr-podio .pr-ok').inner_text())
+        pg.select_option('.pr-podio select[data-rol="subcampeon"]', 'JAKA')
+        pg.click('.pr-podio .btn')
+        pg.wait_for_function('document.querySelector(".pr-podio .pr-ok").textContent.includes("✓")')
+        tabla, filas = self.porra_envios[-1]
+        self.assertEqual(tabla, 'porra_podios')
+        self.assertEqual([(f['liga'], f['campeon'], f['subcampeon']) for f in filas], [(None, 'LASO', 'JAKA'), ('L1', 'LASO', 'JAKA')])
+        # Liga → Cerrados: el partido ya cerrado y lo que puso cada uno
+        pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
+        pg.click('.pr-liga-item')
+        pg.wait_for_selector('.pr-subtabs')
+        pg.click('.pr-subtabs .pill >> nth=1')
+        pg.wait_for_selector('.pr-cerrado-item')
+        self.assertEqual(pg.locator('.pr-cerrado-item').count(), 1)          # el festival no es de la liga
+        pg.click('.pr-cerrado-item summary')
+        pg.wait_for_selector('.pr-cerrado-lista td')
+        self.assertIn('Jon', pg.locator('.pr-cerrado-lista').inner_text())
+        self.assertIn('+6', pg.locator('.pr-cerrado-lista').inner_text())
 
     def test_porra_administrador(self):
         pg = self.pagina_porra(True, admin=True)

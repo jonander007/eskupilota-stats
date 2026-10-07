@@ -132,6 +132,30 @@ def decidir(abiertos, cartelera_ids, veladas, idx, ahora):
     return cambios
 
 
+def resultados_podio(partidos, pelotaris, competiciones):
+    """Podio de los torneos individuales con la final jugada:
+    [{competicion, campeon, subcampeon, semis}] con los nombres del catálogo."""
+    nombre = {p['id']: p['nombre'] for p in pelotaris}
+    comp = {c['id']: c for c in competiciones}
+    por_comp = {}
+    for p in partidos:
+        c = comp.get(p['competicion_id']) or {}
+        if c.get('categoria') not in ('campeonato', 'torneo') or p.get('modalidad') not in ('mano', 'cuatro'):
+            continue
+        por_comp.setdefault(c['nombre'], []).append(p)
+    salida = []
+    for nom, ps in sorted(por_comp.items()):
+        final = next((p for p in ps if p.get('fase') == 'final' and p.get('ganador')), None)
+        if not final:
+            continue
+        uno = lambda p, k: nombre.get(p[k].get('del_id'))
+        perdedor = lambda p: uno(p, 'equipo2' if p['ganador'] == 'equipo1' else 'equipo1')
+        semis = sorted({perdedor(p) for p in ps if p.get('fase') == 'semifinal' and p.get('ganador')} - {None})
+        salida.append({'competicion': nom, 'campeon': uno(final, final['ganador']), 'subcampeon': perdedor(final),
+                       'semis': semis})
+    return salida
+
+
 class Supabase:
     def __init__(self, clave_secreta):
         self.s = requests.Session()
@@ -144,6 +168,10 @@ class Supabase:
 
     def subir(self, partidos):
         self._ok(self.s.post(f'{SUPABASE_URL}/rest/v1/porra_partidos?on_conflict=id', data=json.dumps(partidos),
+                             headers={'Prefer': 'resolution=merge-duplicates,return=minimal'}, timeout=30))
+
+    def subir_podios(self, podios):
+        self._ok(self.s.post(f'{SUPABASE_URL}/rest/v1/porra_podio_resultados?on_conflict=competicion', data=json.dumps(podios),
                              headers={'Prefer': 'resolution=merge-duplicates,return=minimal'}, timeout=30))
 
     def abiertos(self):
@@ -179,7 +207,10 @@ def main():
     for pid, c in cambios:
         db.cambiar(pid, c)
         print(f"  {c['estado']:8} {pid} {c.get('puntos1', '')}{'-' if 'puntos1' in c else ''}{c.get('puntos2', '')}")
-    print(f'✓ Porra: {len(futuros)} partidos de la cartelera subidos, {len(cambios)} actualizados')
+    podios = resultados_podio(cargar('partidos'), cargar('pelotaris'), cargar('competiciones'))
+    if podios:
+        db.subir_podios(podios)
+    print(f'✓ Porra: {len(futuros)} partidos de la cartelera subidos, {len(cambios)} actualizados, {len(podios)} podios')
     return 0
 
 

@@ -1123,3 +1123,22 @@ header :focus-visible{outline-color:#fff;}
 .pr-marca .pr-22{font-family:var(--display);font-size:1.5rem;color:var(--green);line-height:1;}
 .pr-marca select{font-family:var(--display);font-size:1.15rem;font-weight:700;padding:.2rem .4rem;min-width:4.2rem;text-align:center;
   border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);width:auto;max-width:5.5rem;}
+/* Porra: cierre, podio y pronósticos cerrados de las ligas */
+.pr-cierre{float:right;color:var(--muted);font-size:.68rem;text-transform:none;letter-spacing:0;}
+.pr-podio{border-left:4px solid #d4a017;}
+.pr-podio-top{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem;}
+.pr-podio-top h4{margin:0;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--text);}
+.pr-podio-top .pr-cierre{float:none;}
+.pr-podio-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.5rem .8rem;}
+.pr-podio-f{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);}
+.pr-podio-f select{padding:.45rem .5rem;border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;font-size:.85rem;}
+.pr-podio .pr-pie{margin-top:.7rem;flex-wrap:wrap;}
+.pr-podio .pr-pie .btn{padding:.45rem 1rem;font-size:.75rem;}
+.pr-podio-res{margin-top:.7rem;font-size:.82rem;display:flex;justify-content:space-between;gap:.5rem;align-items:center;}
+.pr-sub-h{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:1rem 0 .4rem;}
+.pr-cerrado-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;margin-bottom:.45rem;}
+.pr-cerrado-item summary{display:grid;grid-template-columns:auto 1fr auto;gap:.6rem;align-items:center;padding:.6rem .8rem;cursor:pointer;font-size:.85rem;list-style:none;}
+.pr-cerrado-item summary::-webkit-details-marker{display:none;}
+.pr-cerrado-item[open] summary{border-bottom:1px solid var(--border);}
+.pr-cerrado-lista{padding:.3rem .8rem .6rem;}
+@media (max-width:600px){.pr-cerrado-item summary{grid-template-columns:1fr auto;} .pr-cerrado-item summary .pr-f{grid-column:1/-1;}}
