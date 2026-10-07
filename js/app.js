@@ -1456,11 +1456,17 @@ function buildRanking(){
   else if(activeRkTab === 'roles'){
     const parsParejas = parts.filter(p=>['campeonato-a','campeonato-b','festival'].includes(p.tipo));
     const st = calcStats(parsParejas);
-    const dels = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='delantero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
-    const zags = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='zaguero').sort((a,b)=>b[1].pg-a[1].pg)).slice(0,15);
-    const sf = s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
-    const ec = s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
-    el.innerHTML = mkGrid([
+    // Por victorias o por % (con un mínimo de partidos, como en la clasificación)
+    const porPct = _rkOrden.col==='pct';
+    const orden = (a,b)=> porPct ? (b[1].pg/b[1].pj - a[1].pg/a[1].pj) || (b[1].pj-a[1].pj) : (b[1].pg-a[1].pg);
+    const minimo = ([,s])=> !porPct || s.pj>=RK_MIN_PCT;
+    const dels = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='delantero').filter(minimo).sort(orden)).slice(0,15);
+    const zags = filterActive(Object.entries(st).filter(([n])=>getRol(n)==='zaguero').filter(minimo).sort(orden)).slice(0,15);
+    const sf = porPct ? s=>({val:s.pg/s.pj*100, lbl:Math.round(s.pg/s.pj*100)+'%'}) : s=>({val:s.pg, lbl:s.pg+t('abbr_v')});
+    const ec = porPct
+      ? s=>`<div class="rk-stat">${s.pg}${t('abbr_v')}</div><div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div>`
+      : s=>`<div class="rk-stat" style="color:var(--red)">${s.pp}${t('abbr_d')}</div><div class="rk-stat">${s.pj}${t('abbr_pj')}</div><div class="rk-stat">${Math.round(s.pg/s.pj*100)}%</div>`;
+    el.innerHTML = htmlOrdenRk(['pg', 'pct']) + (porPct ? `<p class="an-nota">${tx(`Con al menos ${RK_MIN_PCT} partidos.`, `Gutxienez ${RK_MIN_PCT} partidarekin.`)}</p>` : '') + mkGrid([
       mkRkCard(t('rk_delanteros'), dels, sf, ec),
       mkRkCard(t('rk_zagueros'), zags, sf, ec, 'azul')
     ]);

@@ -1152,3 +1152,6 @@ header :focus-visible{outline-color:#fff;}
 .pr-anadir-c{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;}
 .pr-anadir-c h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 .5rem;}
 .pr-anadir-c form + h4{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border);}
+/* Ranking: «Ordenar por» */
+.rk-ordenar{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;margin-bottom:.8rem;}
+.rk-ordenar span{font-size:.72rem;color:var(--muted);margin-right:.2rem;}
