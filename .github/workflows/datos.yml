@@ -102,9 +102,18 @@ jobs:
             git push
           fi
 
+      # Porra: sube la cartelera a Supabase y cierra los partidos jugados.
+      # Sin el secreto SUPABASE_SECRET_KEY solo muestra lo que haría.
+      - name: Porra
+        id: porra
+        run: python tools/porra.py
+        continue-on-error: true
+        env:
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+
       # Marca la ejecución en rojo si algún scraper falló, tras guardar lo que sí funcionó
       - name: Comprobar scrapers
-        if: steps.cartelera.outcome == 'failure' || steps.resultados.outcome == 'failure'
+        if: steps.cartelera.outcome == 'failure' || steps.resultados.outcome == 'failure' || steps.porra.outcome == 'failure'
         run: |
-          echo "cartelera: ${{ steps.cartelera.outcome }} · resultados: ${{ steps.resultados.outcome }}"
+          echo "cartelera: ${{ steps.cartelera.outcome }} · resultados: ${{ steps.resultados.outcome }} · porra: ${{ steps.porra.outcome }}"
           exit 1

@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v32';
+const CACHE = 'eskupilota-v33';
 const PREFS = 'eskupilota-prefs';   // pelotaris seguidos y avisos ya dados (los escribe la web)
 
 // Todo lo necesario para que la web arranque sin conexión
@@ -8,6 +8,7 @@ const PRECACHE = [
   '/css/app.css',
   '/js/app.js',
   '/js/analisis.js',
+  '/js/porra.js',
   '/data/partidos.json',
   '/data/pelotaris.json',
   '/data/frontones.json',
@@ -57,6 +58,8 @@ function networkFirst(request, fallbackUrl) {
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
   const url = new URL(e.request.url);
+  // La porra (Supabase) siempre en directo: nunca de la caché
+  if (url.hostname.endsWith('.supabase.co')) return;
 
   // Datos, HTML, CSS y JS propios: red primero, para que las actualizaciones lleguen rápido
   if (url.origin === self.location.origin &&

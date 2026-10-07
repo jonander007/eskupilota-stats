@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=32">
+<link rel="stylesheet" href="css/app.css?v=33">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -67,6 +67,7 @@
       <button data-i18n="nav_frontones" onclick="showSec('frontones',this)">Frontones</button>
       <button data-i18n="nav_ranking" onclick="showSec('ranking',this)">Ranking</button>
       <button data-i18n="nav_campeonatos" onclick="showSec('campeonatos',this)">Campeonatos</button>
+      <button data-i18n="nav_porra" onclick="showSec('porra',this)">Porra</button>
       <button data-i18n="nav_contacto" onclick="showSec('contacto',this)">Contacto</button>
     </nav>
     <div id="langToggle" style="display:flex;gap:.25rem;">
@@ -91,7 +92,8 @@
     <button data-i18n="nav_frontones" onclick="showSecFromDrawer('frontones',4)">Frontones</button>
     <button data-i18n="nav_ranking" onclick="showSecFromDrawer('ranking',5)">Ranking</button>
     <button data-i18n="nav_campeonatos" onclick="showSecFromDrawer('campeonatos',6)">Campeonatos</button>
-    <button data-i18n="nav_contacto" onclick="showSecFromDrawer('contacto',7)">Contacto</button>
+    <button data-i18n="nav_porra" onclick="showSecFromDrawer('porra',7)">Porra</button>
+    <button data-i18n="nav_contacto" onclick="showSecFromDrawer('contacto',8)">Contacto</button>
   </nav>
   <!-- Instalar la app: solo en el navegador (no dentro de la app instalada) -->
   <div class="drawer-app">
@@ -395,6 +397,12 @@
   <div id="carteleraContainer"><div class="cart-loading" data-i18n="cart_cargando">⟳ Cargando cartelera…</div></div>
 </div>
 
+<!-- ══ PORRA ═══════════════════════════════════════════════════════════ -->
+<div class="section" id="sec-porra">
+  <div class="sec-title"><span data-i18n="sec_porra">Porra</span></div>
+  <div id="porraContent"></div>
+</div>
+
 <!-- ══ CONTACTO ══════════════════════════════════════════════════════════ -->
 <div class="section" id="sec-contacto">
   <div class="sec-title"><span data-i18n="sec_contacto">Contacto</span></div>
@@ -431,8 +439,9 @@
 
 </main>
 <footer class="site-footer"><details class="nota-datos"><summary><span aria-hidden="true">ⓘ</span> <span data-i18n="nota_datos_t">Sobre los datos</span></summary><p data-i18n="nota_datos">Los datos empiezan el 22 de noviembre de 2022. Los partidos, las estadísticas y las txapelas anteriores a esa fecha no están incluidos.</p></details><span class="derechos">© 2022-2026 EskupilotaStats · <span data-i18n="derechos">Todos los derechos reservados</span></span> <a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a> · <a id="lnkComps" href="/competicion/" data-i18n="lbl_comps">Competiciones</a> · <a id="lnkFros" href="/fronton/" data-i18n="lbl_fros">Frontones</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=32"></script>
-<script src="js/analisis.js?v=32"></script>
+<script src="js/app.js?v=33"></script>
+<script src="js/analisis.js?v=33"></script>
+<script src="js/porra.js?v=33"></script>
 <script>loadData();</script>
 
 <script>

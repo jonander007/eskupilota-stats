@@ -209,7 +209,7 @@ const I18N = {
     nav_frontones: 'Frontones',
     nav_ranking: 'Ranking',
     nav_campeonatos: 'Campeonatos',
-    nav_contacto: 'Contacto',
+    nav_contacto: 'Contacto', nav_porra: 'Porra', sec_porra: 'Porra',
     // KPIs
     kpi_partidos: 'Partidos', kpi_registrados: 'registrados',
     kpi_pelotaris: 'Pelotaris', kpi_distintos: 'distintos',
@@ -365,7 +365,7 @@ const I18N = {
     nav_frontones: 'Frontoiak',
     nav_ranking: 'Sailkapena',
     nav_campeonatos: 'Txapelketak',
-    nav_contacto: 'Kontaktua',
+    nav_contacto: 'Kontaktua', nav_porra: 'Porra', sec_porra: 'Porra',
     kpi_partidos: 'Partidak', kpi_registrados: 'erregistratuta',
     kpi_pelotaris: 'Pilotariak', kpi_distintos: 'desberdinak',
     kpi_frontones: 'Frontoiak',
@@ -775,6 +775,8 @@ function init(){
   applyI18N();
   buildCampeonatos();
   initRouter();
+  // Vuelta del inicio de sesión de la porra (/?porra=1&code=…)
+  if(_porraVuelta) showSec('porra', secBtn('porra'));
 }
 
 function showSec(id, btn, fromHistory){
@@ -788,6 +790,7 @@ function showSec(id, btn, fromHistory){
   if(id==='cartelera') loadCartelera();
   if(id==='frontones'){ renderFrontones(); setTimeout(()=>{ initFrontonMap(); renderFrontonMarkers(); },100); }
   if(id==='campeonatos') renderCampeonato(_campActual);
+  if(id==='porra') porraInit();
   // Sincronizar el drawer
   syncDrawerActive(id);
 }
@@ -847,7 +850,7 @@ function showSecFromDrawer(id, idx){
   closeDrawer();
 }
 function syncDrawerActive(id){
-  const map = {cartelera:0, partidos:1, comparador:2, pelotaris:3, frontones:4, ranking:5, campeonatos:6, contacto:7};
+  const map = {cartelera:0, partidos:1, comparador:2, pelotaris:3, frontones:4, ranking:5, campeonatos:6, porra:7, contacto:8};
   const idx = map[id];
   if (idx === undefined) return;
   document.querySelectorAll('.drawer-nav button').forEach((b,i) => {

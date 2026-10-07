@@ -509,5 +509,78 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.evaluate('document.documentElement.lang'), 'eu')
 
 
+    # ── Porra (Supabase simulado) ──
+    def pagina_porra(self, con_sesion, ancho=1300):
+        import base64
+        import json as _json
+        from datetime import datetime, timedelta, timezone
+        ctx = self.navegador.new_context(viewport={'width': ancho, 'height': 900})
+        self.addCleanup(ctx.close)
+        uid = '00000000-0000-0000-0000-00000000000a'
+        if con_sesion:
+            b64 = lambda d: base64.urlsafe_b64encode(_json.dumps(d).encode()).decode().rstrip('=')
+            exp = int((datetime.now(timezone.utc) + timedelta(days=30)).timestamp())
+            jwt = b64({'alg': 'HS256', 'typ': 'JWT'}) + '.' + b64({'sub': uid, 'exp': exp, 'role': 'authenticated', 'aud': 'authenticated'}) + '.firma'
+            sesion = {'access_token': jwt, 'refresh_token': 'r', 'token_type': 'bearer', 'expires_in': 2592000, 'expires_at': exp,
+                      'user': {'id': uid, 'email': 'jon@example.com', 'aud': 'authenticated', 'role': 'authenticated'}}
+            ctx.add_init_script(f"localStorage.setItem('sb-nckeadvyeymewibrqpuj-auth-token', {_json.dumps(_json.dumps(sesion))})")
+        inicio = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
+        self.porra_envios = []
+        respuestas = {
+            'perfiles': [{'alias': 'Jon'}],
+            'porra_partidos': [{'id': 'p1', 'inicio': inicio, 'competicion': 'Campeonato Manomanista Serie A 2026', 'fase': 'final',
+                                'fronton': 'Bizkaia', 'eq1': ['LASO'], 'eq2': ['ALTUNA III'], 'estado': 'abierto'}],
+            'porra_pronosticos': [],
+            'porra_puntuados': [{'usuario': uid, 'partido': 'p0', 'ganador': 1, 'tantos_perdedor': 18, 'inicio': inicio,
+                                 'eq1': ['LASO'], 'eq2': ['JAKA'], 'estado': 'jugado', 'puntos1': 22, 'puntos2': 18, 'puntos': 6}],
+            'porra_clasificacion': [{'usuario': uid, 'alias': 'Jon', 'puntos': 6, 'jugados': 1, 'aciertos': 1, 'exactos': 1},
+                                    {'usuario': 'otro', 'alias': 'Miren', 'puntos': 3, 'jugados': 1, 'aciertos': 1, 'exactos': 0}],
+        }
+
+        def supabase(route):
+            req = route.request
+            tabla = req.url.split('?')[0].rstrip('/').split('/')[-1]
+            if req.method == 'POST' and tabla == 'porra_pronosticos':
+                self.porra_envios.append(_json.loads(req.post_data))
+                return route.fulfill(status=201, body='')
+            return route.fulfill(status=200, content_type='application/json', body=_json.dumps(respuestas.get(tabla, [])))
+
+        pg = ctx.new_page()
+        pg.set_default_timeout(15000)
+        self.errores = []
+        pg.on('pageerror', lambda e: self.errores.append(str(e)))
+        pg.route(EXTERNO, lambda r: r.abort())
+        pg.route(re.compile(r'^https://nckeadvyeymewibrqpuj\.supabase\.co/'), supabase)
+        pg.goto(self.url + '#/porra', wait_until='networkidle')
+        return pg
+
+    def test_porra_sin_sesion(self):
+        pg = self.pagina_porra(False)
+        self.assertEqual(self.seccion(pg), 'sec-porra')
+        pg.wait_for_selector('.pr-google')
+        pg.wait_for_selector('#prClasifPublica .pr-clasif')
+        self.assertIn('Miren', pg.locator('#prClasifPublica').inner_text())
+        self.assertTrue(pg.locator('.pr-normas').is_visible())
+
+    def test_porra_pronosticar(self):
+        pg = self.pagina_porra(True, ancho=390)
+        pg.wait_for_selector('.pr-partido')
+        self.assertIn('Jon', pg.locator('.pr-user').inner_text())
+        self.assertTrue(pg.locator('.pr-tantos select').is_disabled())
+        pg.locator('.pr-eq').nth(1).click()
+        pg.wait_for_selector('.pr-eq.on')
+        self.assertEqual(self.porra_envios[-1], {'partido': 'p1', 'ganador': 2, 'tantos_perdedor': None})
+        pg.select_option('.pr-tantos select', '20')
+        pg.wait_for_function('document.querySelector(".pr-ok").textContent.length > 0')
+        self.assertEqual(self.porra_envios[-1], {'partido': 'p1', 'ganador': 2, 'tantos_perdedor': 20})
+        pg.click('#porraContent .rk-tab >> nth=1')
+        pg.wait_for_selector('.pr-pts.p6')
+        pg.click('#porraContent .rk-tab >> nth=2')
+        pg.wait_for_selector('.pr-clasif .pr-yo')
+        self.assertIn('Jon', pg.locator('.pr-yo').inner_text())
+        sin_desborde = pg.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
+        self.assertTrue(sin_desborde)
+
+
 if __name__ == '__main__':
     unittest.main()
