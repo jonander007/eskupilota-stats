@@ -18,11 +18,11 @@ jobs:
         run: python -m unittest discover tests -v
       - name: Validar datos
         run: python tools/validar_datos.py
-      # Las páginas de pelotaris tienen que estar al día con los datos
-      - name: Páginas de pelotaris al día
+      # Las páginas estáticas (pelotaris, competiciones, frontones) tienen que estar al día con los datos
+      - name: Páginas estáticas al día
         run: |
           python tools/generar_paginas.py
-          cambios=$(git status --porcelain -- pelotari/ eu/ sitemap.xml)
+          cambios=$(git status --porcelain -- pelotari/ competicion/ fronton/ eu/ sitemap.xml)
           if [ -n "$cambios" ]; then
             echo "$cambios"
             echo "::error::Faltan por regenerar las páginas: python tools/generar_paginas.py"
