@@ -10,8 +10,8 @@ const PORRA = {
 };
 let _sb = null, _porraSesion = null, _porraPerfil = undefined;
 let _porraVista = 'general', _porraSub = 'pronosticar', _porraLigaSub = 'pronosticar';
-let _porraLigaSel = null, _porraComp = '', _porraClasif = 'general', _porraClasifCtx = {};
-let _porraComps = null;          // competiciones de la porra (filtro de la general)
+let _porraLigaSel = null, _porraSel = null, _porraClasifCtx = {};
+let _porraOpc = null;            // meses, años y torneos con partidos en la porra
 let _porraLigas = [];            // mis ligas: {id, nombre, codigo, alcance, creador}
 // Vuelta del inicio de sesión (Google o enlace del correo): /?porra=1&code=…
 const _porraVuelta = /[?&](porra|code|liga)=/.test(location.search);
@@ -107,38 +107,72 @@ function htmlSubtabs(subs, actual, fn){
 }
 
 // ── Porra general ───────────────────────────────────────────
-// Competiciones con partidos en la porra (sin festivales): cada una es como una liga pública
-async function porraCompeticiones(){
-  if(_porraComps) return _porraComps;
-  const {data} = await _sb.from('porra_partidos').select('competicion,categoria').limit(3000);
-  const nombres = [...new Set((data||[]).filter(p=>p.competicion && p.categoria!=='festival').map(p=>p.competicion))];
+// Meses (hora de España) y nombres
+function porraMesDe(iso){ return new Date(iso).toLocaleDateString('sv-SE', {timeZone: 'Europe/Madrid'}).slice(0, 7); }
+function porraMesActual(){ return porraMesDe(new Date().toISOString()); }
+function porraNombreMes(m){
+  const [y, mm] = m.split('-');
+  const t = new Date(+y, +mm - 1, 15).toLocaleDateString(LANG==='eu' ? 'eu' : 'es-ES', {month: 'long', year: 'numeric'});
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+function porraNombreComp(c){ return `${tComp(c)} ${(c.match(/\b20\d\d\b/)||[''])[0]}`.trim(); }
+function porraNombreAlcance(a){ return a.startsWith('mes:') ? porraNombreMes(a.slice(4)) : porraNombreComp(a); }
+const SERIE = /\bSerie [AB]\b/;
+
+// Porras de la general: ranking anual, una por mes y una por torneo (serie A, B o entero)
+async function porraOpciones(){
+  if(_porraOpc) return _porraOpc;
+  const {data} = await _sb.from('porra_partidos').select('competicion,categoria,inicio').limit(5000);
+  const meses = new Set([porraMesActual()]), comps = new Set();
+  (data||[]).forEach(p=>{ meses.add(porraMesDe(p.inicio)); if(p.competicion && p.categoria!=='festival') comps.add(p.competicion); });
   const anio = n => (n.match(/\b(20\d\d)\b/)||[0,''])[1];
-  _porraComps = nombres.sort((a,b)=>anio(b).localeCompare(anio(a)) || a.localeCompare(b));
-  return _porraComps;
+  const grupos = {};
+  [...comps].forEach(c=>{ const base = c.replace(SERIE, '').replace(/\s+/g, ' ').trim(); (grupos[base] = grupos[base] || []).push(c); });
+  const torneos = [];
+  Object.keys(grupos).sort((a,b)=>anio(b).localeCompare(anio(a)) || a.localeCompare(b)).forEach(base=>{
+    const cs = grupos[base];
+    if(SERIE.test(cs[0])){
+      const A = cs[0].replace(SERIE, 'Serie A'), B = cs[0].replace(SERIE, 'Serie B');
+      torneos.push({v: 'comp:'+A, l: porraNombreComp(A)}, {v: 'comp:'+B, l: porraNombreComp(B)},
+                   {v: 'comp:'+A+'|'+B, l: `${porraNombreComp(base)} · ${tx('entero (A y B)','osoa (A eta B)')}`});
+    } else cs.forEach(c=>torneos.push({v: 'comp:'+c, l: porraNombreComp(c)}));
+  });
+  const ms = [...meses].sort().reverse();
+  _porraOpc = {meses: ms, anios: [...new Set(ms.map(m=>m.slice(0, 4)))], torneos};
+  return _porraOpc;
 }
 
-function htmlSelComp(comps, fn){
-  if(!comps.length) return '';
-  return `<select class="pr-sel-liga" onchange="${fn}(this.value)" aria-label="${tx('Competición','Txapelketa')}">
-    <option value="">${tx('Todas las competiciones','Txapelketa guztiak')}</option>
-    ${comps.map(c=>`<option value="${h(c)}"${c===_porraComp?' selected':''}>${h(tComp(c))} ${h((c.match(/\b20\d\d\b/)||[''])[0])}</option>`).join('')}</select>`;
+function porraSelActual(){ return _porraSel || 'mes:' + porraMesActual(); }
+function porraSelCtx(sel){
+  const [tipo, ...resto] = sel.split(':'); const v = resto.join(':');
+  return tipo==='mes' ? {mes: v} : tipo==='anual' ? {anio: +v} : {comps: v.split('|')};
+}
+
+function htmlSelPorra(opc, fn){
+  const sel = porraSelActual(), actual = porraMesActual();
+  const op = (v, l) => `<option value="${h(v)}"${v===sel?' selected':''}>${h(l)}</option>`;
+  return `<select class="pr-sel-liga pr-sel-porra" onchange="${fn}(this.value)" aria-label="Porra">
+    <optgroup label="${tx('Porras por mes','Hilabeteko porrak')}">${opc.meses.map(m=>op('mes:'+m, porraNombreMes(m) + (m===actual ? tx(' · en curso',' · martxan') : ''))).join('')}</optgroup>
+    <optgroup label="${tx('Ranking anual','Urteko sailkapena')}">${opc.anios.map(a=>op('anual:'+a, tx('Ranking anual ','Urteko sailkapena ') + a)).join('')}</optgroup>
+    ${opc.torneos.length ? `<optgroup label="${tx('Porras por torneo','Txapelketako porrak')}">${opc.torneos.map(t=>op(t.v, t.l)).join('')}</optgroup>` : ''}
+  </select>`;
 }
 
 async function porraPintarGeneral(panel){
-  const comps = await porraCompeticiones();
-  if(_porraComp && !comps.includes(_porraComp)) _porraComp = '';
+  const opc = await porraOpciones();
   const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')],
                 ['mios', tx('Mis pronósticos','Nire iragarpenak')]];
   panel.innerHTML = `<div class="pr-barra">${htmlSubtabs(subs, _porraSub, 'porraSetSub')}
-      ${_porraSub!=='mios' ? htmlSelComp(comps, 'porraSetComp') : ''}</div>
+      ${_porraSub!=='mios' ? htmlSelPorra(opc, 'porraSetSel') : ''}</div>
     <div id="prSub"><div class="cart-loading">⟳</div></div>`;
   const sub = panel.querySelector('#prSub');
-  if(_porraSub==='clasificacion'){ sub.innerHTML = '<div id="prClasif"></div>'; porraPintarClasif(sub.firstChild, {comp: _porraComp}); }
+  const ctx = porraSelCtx(porraSelActual());
+  if(_porraSub==='clasificacion'){ sub.innerHTML = '<div id="prClasif"></div>'; porraPintarClasif(sub.firstChild, ctx); }
   else if(_porraSub==='mios') porraPintarMios(sub);
-  else porraPintarPronosticar(sub, {liga: null, comp: _porraComp});
+  else porraPintarPronosticar(sub, {liga: null, ...ctx});
 }
 function porraSetSub(k){ _porraSub = k; porraPintarGeneral(porraPanel()); }
-function porraSetComp(c){ _porraComp = c; porraPintarGeneral(porraPanel()); }
+function porraSetSel(v){ _porraSel = v; porraPintarGeneral(porraPanel()); }
 
 // ── Entrar ──────────────────────────────────────────────────
 function htmlPorraEntrar(){
@@ -220,10 +254,12 @@ async function porraCargarLigas(){
   _porraLigas = data || [];
 }
 
+function porraEnLiga(l, p){ const a = l.alcance || []; return a.includes(p.competicion) || a.includes('mes:' + porraMesDe(p.inicio)); }
+
 // Dónde cuenta un partido: la general (si está abierto en ella) y mis ligas de esa competición
 function porraAmbitos(p){
   const amb = p.pronosticable ? [{liga: null, nombre: tx('General','Orokorra')}] : [];
-  _porraLigas.forEach(l=>{ if((l.alcance||[]).includes(p.competicion)) amb.push({liga: l.id, nombre: l.nombre}); });
+  _porraLigas.forEach(l=>{ if(porraEnLiga(l, p)) amb.push({liga: l.id, nombre: l.nombre}); });
   return amb;
 }
 
@@ -235,8 +271,8 @@ async function porraPintarPronosticar(panel, ctx){
   const admin = !!_porraPerfil?.admin && !liga;
   const {data, error} = await _sb.from('porra_abiertos').select('*').order('inicio').limit(100);
   if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
-  const partidos = data.filter(p=> liga ? (liga.alcance||[]).includes(p.competicion)
-    : (admin || p.pronosticable) && (!ctx.comp || p.competicion===ctx.comp));
+  const partidos = data.filter(p=> liga ? porraEnLiga(liga, p)
+    : (admin || p.pronosticable) && (ctx.mes ? porraMesDe(p.inicio)===ctx.mes : ctx.comps ? ctx.comps.includes(p.competicion) : true));
   let html = admin ? await htmlPorraAdmin() : '';
   if(!partidos.length){
     panel.innerHTML = html + `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
@@ -378,44 +414,54 @@ async function porraPintarMios(panel){
 }
 
 // ── Clasificación ───────────────────────────────────────────
-function porraDesde(){
-  const d = new Date(); d.setHours(0,0,0,0);
-  if(_porraClasif==='semana') d.setDate(d.getDate() - ((d.getDay()+6)%7));      // lunes
-  else if(_porraClasif==='mes') d.setDate(1);
-  else return null;
-  return d.toISOString();
-}
 
-function porraSetClasif(k){ _porraClasif = k; porraPintarClasif(_porraClasifCtx.id, _porraClasifCtx); }
-function porraSetCompPublica(c){ _porraComp = c; porraPintarClasif(_porraClasifCtx.id, _porraClasifCtx); }
+function porraSetSelPublica(v){ _porraSel = v; porraPintarClasif(_porraClasifCtx.id, {publico: true}); }
 
-// ctx: {liga, comp, publico}. En la vista sin cuenta se elige la competición aquí mismo.
+// ctx: {liga} | {mes} | {comps} | {anio} | {publico} (sin cuenta: se elige la porra aquí mismo)
 async function porraPintarClasif(id, ctx){
   const cont = typeof id === 'string' ? document.getElementById(id) : id;
   if(!cont) return;
   _porraClasifCtx = {...ctx, id: cont};
-  const filtros = [['general', tx('Temporada','Denboraldia')], ['mes', tx('Este mes','Hilabete hau')], ['semana', tx('Esta semana','Aste hau')]];
-  const selComp = ctx.publico ? htmlSelComp(await porraCompeticiones(), 'porraSetCompPublica') : '';
-  cont.innerHTML = `<div class="pr-filtros">${selComp}${filtros.map(([k,l])=>
-    `<button class="pill${_porraClasif===k?' on':''}" onclick="porraSetClasif('${k}')">${l}</button>`).join('')}</div>
-    <div class="cart-loading">⟳</div>`;
-  const comp = ctx.publico ? _porraComp : ctx.comp;
-  const args = {desde: porraDesde(), liga: ctx.liga || null};
-  if(comp) args.competicion = comp;
-  const {data, error} = await _sb.rpc('porra_clasificacion', args);
+  if(ctx.publico) ctx = porraSelCtx(porraSelActual());
+  const sel = _porraClasifCtx.publico ? `<div class="pr-filtros">${htmlSelPorra(await porraOpciones(), 'porraSetSelPublica')}</div>` : '';
+  const anual = !!ctx.anio;
+  const nota = anual
+    ? tx('Cada mes, los 50 primeros de la porra del mes suman de 50 a 1 puntos. Cuentan los meses ya cerrados.',
+         'Hilero, hilabeteko porrako lehen 50ek 50etik 1era puntu batzen dituzte. Itxitako hilabeteak kontatzen dira.')
+    : ctx.mes ? tx('Al cerrar el mes, los 50 primeros suman de 50 a 1 puntos al ranking anual (columna 🏆). Los empates los deshacen los puntos en partidos oficiales.',
+                   'Hilabetea ixtean, lehen 50ek 50etik 1era puntu batzen dituzte urteko sailkapenean (🏆 zutabea). Berdinketak partida ofizialetako puntuek hausten dituzte.')
+    : tx('Los empates los deshacen los puntos en partidos oficiales (sin festivales).','Berdinketak partida ofizialetako puntuek hausten dituzte (jaialdirik gabe).');
+  cont.innerHTML = `${sel}${nota ? `<p class="pr-help">${nota}</p>` : ''}<div class="cart-loading">⟳</div>`;
+  const {data, error} = anual
+    ? await _sb.rpc('porra_ranking_anual', {anio: ctx.anio})
+    : await _sb.rpc('porra_clasificacion', {liga: ctx.liga || null, competiciones: ctx.comps || null, mes: ctx.mes || null});
   const tabla = cont.querySelector('.cart-loading');
+  if(!tabla) return;
   if(error){ tabla.outerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
   if(!data.length){ tabla.outerHTML = `<div class="nodata">${tx('Aún no hay partidos puntuados aquí.','Oraindik ez dago puntuatutako partidarik hemen.')}</div>`; return; }
   const yo = _porraSesion?.user?.id;
   let pos = 0, prev = null;
-  tabla.outerHTML = `<div class="pr-wrap"><table class="pr-tabla pr-clasif">
-    <thead><tr><th>#</th><th>${tx('Nombre','Izena')}</th><th class="pr-n">${tx('Pts','Ptu')}</th>
-      <th class="pr-n" title="${tx('Ganadores acertados','Asmatutako irabazleak')}">✓</th>
-      <th class="pr-n" title="${tx('Resultados exactos','Emaitza zehatzak')}">🎯</th><th class="pr-n">PJ</th></tr></thead>
+  const medalla = p => p<=3 ? ['🥇','🥈','🥉'][p-1] : p;
+  const cab = anual
+    ? `<th>#</th><th>${tx('Nombre','Izena')}</th><th class="pr-n">${tx('Pts','Ptu')}</th>
+       <th class="pr-n" title="${tx('Meses ganados','Irabazitako hilabeteak')}">🏆</th>
+       <th class="pr-n" title="${tx('Mejor puesto en un mes','Hilabete bateko posturik onena')}">${tx('Mejor','Onena')}</th>
+       <th class="pr-n" title="${tx('Meses jugados','Jokatutako hilabeteak')}">${tx('Meses','Hil.')}</th>`
+    : `<th>#</th><th>${tx('Nombre','Izena')}</th><th class="pr-n">${tx('Pts','Ptu')}</th>
+       <th class="pr-n" title="${tx('Ganadores acertados','Asmatutako irabazleak')}">✓</th>
+       <th class="pr-n" title="${tx('Resultados exactos','Emaitza zehatzak')}">🎯</th><th class="pr-n">PJ</th>
+       ${ctx.mes ? `<th class="pr-n" title="${tx('Puntos para el ranking anual','Urteko sailkapenerako puntuak')}">🏆</th>` : ''}`;
+  tabla.outerHTML = `<div class="pr-wrap"><table class="pr-tabla pr-clasif"><thead><tr>${cab}</tr></thead>
     <tbody>${data.map((r,i)=>{
-      if(r.puntos!==prev){ pos = i+1; prev = r.puntos; }
-      return `<tr class="${r.usuario===yo?'pr-yo':''}"><td>${pos<=3?['🥇','🥈','🥉'][pos-1]:pos}</td><td>${h(r.alias)}</td>
-        <td class="pr-n"><b>${r.puntos}</b></td><td class="pr-n">${r.aciertos}</td><td class="pr-n">${r.exactos}</td><td class="pr-n">${r.jugados}</td></tr>`;
+      // Empate a puntos: decide lo sumado en partidos oficiales
+      const clave = anual ? r.puntos : `${r.puntos}|${r.oficiales ?? ''}`;
+      if(clave!==prev){ pos = i+1; prev = clave; }
+      const celdas = anual
+        ? `<td class="pr-n">${r.ganados}</td><td class="pr-n">${r.mejor}º</td><td class="pr-n">${r.meses}</td>`
+        : `<td class="pr-n">${r.aciertos}</td><td class="pr-n">${r.exactos}</td><td class="pr-n">${r.jugados}</td>
+           ${ctx.mes ? `<td class="pr-n pr-anual">${pos<=50 ? '+'+(51-pos) : ''}</td>` : ''}`;
+      return `<tr class="${r.usuario===yo?'pr-yo':''}"><td>${medalla(pos)}</td><td>${h(r.alias)}</td>
+        <td class="pr-n"><b>${r.puntos}</b></td>${celdas}</tr>`;
     }).join('')}</tbody></table></div>`;
 }
 
@@ -456,7 +502,7 @@ async function porraPintarMisLigas(panel){
   const lista = _porraLigas.length
     ? `<div class="pr-ligas">${_porraLigas.map(l=>`
         <button class="pr-liga-item" onclick="porraAbrirLiga('${l.id}')">
-          <b>${h(l.nombre)}</b><span>${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</span><span class="pr-flecha" aria-hidden="true">›</span>
+          <b>${h(l.nombre)}</b><span>${(l.alcance||[]).map(c=>h(porraNombreAlcance(c))).join(' · ')}</span><span class="pr-flecha" aria-hidden="true">›</span>
         </button>`).join('')}</div>`
     : `<p class="pr-help">${tx('Juega con tu cuadrilla: crea una liga privada de una competición (hasta 20 personas) o únete con un código.',
         'Jokatu zure koadrilarekin: sortu txapelketa bateko liga pribatu bat (20 lagun arte) edo batu kode batekin.')}</p>`;
@@ -468,14 +514,19 @@ async function porraPintarMisLigas(panel){
         <input id="prCodigo" required maxlength="6" placeholder="ABC123" aria-label="${tx('Código','Kodea')}" style="text-transform:uppercase">
         <button class="btn" type="submit">${tx('Unirme','Batu')}</button></form></div>
     <div class="pr-card"><h4>${tx('Crear una liga','Liga bat sortu')}</h4>
-      ${grupos.length ? `<form class="pr-crear" onsubmit="porraCrearLiga(event)">
+      <form class="pr-crear" onsubmit="porraCrearLiga(event)">
         <input id="prLigaNombre" required minlength="3" maxlength="40" placeholder="${tx('Nombre de la liga','Ligaren izena')}" aria-label="${tx('Nombre de la liga','Ligaren izena')}">
+        <div class="pr-series" role="radiogroup">
+          <label><input type="radio" name="prLigaTipo" value="torneo" checked onchange="porraPintarSeries()"> ${tx('De un torneo','Txapelketa batekoa')}</label>
+          <label><input type="radio" name="prLigaTipo" value="mes" onchange="porraPintarSeries()"> ${tx('De un mes','Hilabete batekoa')}</label>
+        </div>
         <select id="prLigaComp" onchange="porraPintarSeries()" aria-label="${tx('Competición','Txapelketa')}">
-          ${grupos.map((g,i)=>`<option value="${i}">${h(tComp(g.base))}</option>`).join('')}</select>
+          ${grupos.map((g,i)=>`<option value="${i}">${h(porraNombreComp(g.base))}</option>`).join('')}</select>
+        <select id="prLigaMes" aria-label="${tx('Mes','Hilabetea')}" hidden>
+          ${porraProximosMeses().map(m=>`<option value="${m}">${h(porraNombreMes(m))}</option>`).join('')}</select>
         <div id="prLigaSeries" class="pr-series"></div>
         <button class="btn" type="submit">${tx('Crear liga','Liga sortu')}</button>
-        <p class="pr-help" id="prLigaMsg"></p></form>`
-      : `<p class="pr-help">${tx('Ahora mismo no hay ninguna competición en juego o por empezar.','Une honetan ez dago txapelketarik jokoan edo hastear.')}</p>`}
+        <p class="pr-help" id="prLigaMsg"></p></form>
     </div>`;
   porraPintarSeries();
 }
@@ -505,7 +556,7 @@ async function porraPintarLiga(panel, id){
   panel.innerHTML = `
     <button class="pr-volver" onclick="porraCerrarLiga()">‹ ${tx('Mis ligas','Nire ligak')}</button>
     <div class="pr-liga-top"><h4>${h(l.nombre)}</h4><span class="an-muted">${gente.length}/20</span></div>
-    <div class="pr-help">${(l.alcance||[]).map(c=>h(tComp(c))).join(' · ')}</div>
+    <div class="pr-help">${(l.alcance||[]).map(c=>h(porraNombreAlcance(c))).join(' · ')}</div>
     <div class="pr-barra">${htmlSubtabs(subs, _porraLigaSub, 'porraSetLigaSub')}</div>
     ${cuerpo}`;
   const sub = panel.querySelector('#prSub');
@@ -513,20 +564,34 @@ async function porraPintarLiga(panel, id){
   else if(_porraLigaSub==='pronosticar') porraPintarPronosticar(sub, {liga: id});
 }
 
+// Este mes y los dos siguientes
+function porraProximosMeses(){
+  const [y, m] = porraMesActual().split('-').map(Number);
+  return [0, 1, 2].map(i=>{ const d = new Date(y, m - 1 + i, 1); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`; });
+}
+
 function porraPintarSeries(){
   const cont = document.getElementById('prLigaSeries');
-  const sel = document.getElementById('prLigaComp');
+  const sel = document.getElementById('prLigaComp'), mes = document.getElementById('prLigaMes');
   if(!cont || !sel) return;
+  const porMes = document.querySelector('input[name="prLigaTipo"]:checked')?.value === 'mes';
+  sel.hidden = porMes || !window._porraGrupos.length; mes.hidden = !porMes;
   const g = window._porraGrupos[+sel.value];
-  cont.innerHTML = g.series ? [['A', tx('Serie A','A seriea')], ['B', tx('Serie B','B seriea')], ['AB', tx('Entero (A y B)','Osoa (A eta B)')]]
+  cont.innerHTML = !porMes && g?.series ? [['A', tx('Serie A','A seriea')], ['B', tx('Serie B','B seriea')], ['AB', tx('Entero (A y B)','Osoa (A eta B)')]]
     .map(([k,l],i)=>`<label><input type="radio" name="prSerie" value="${k}"${i===0?' checked':''}> ${l}</label>`).join('') : '';
 }
 
 async function porraCrearLiga(ev){
   ev.preventDefault();
-  const g = window._porraGrupos[+document.getElementById('prLigaComp').value];
-  const serie = document.querySelector('input[name="prSerie"]:checked')?.value;
-  const alcance = !g.series ? [...g.nombres] : serie==='A' ? [g.A] : serie==='B' ? [g.B] : [g.A, g.B];
+  const porMes = document.querySelector('input[name="prLigaTipo"]:checked')?.value === 'mes';
+  let alcance;
+  if(porMes) alcance = ['mes:' + document.getElementById('prLigaMes').value];
+  else {
+    const g = window._porraGrupos[+document.getElementById('prLigaComp').value];
+    if(!g){ document.getElementById('prLigaMsg').textContent = tx('No hay torneos en juego: crea una liga de un mes.','Ez dago txapelketarik jokoan: sortu hilabete bateko liga.'); return; }
+    const serie = document.querySelector('input[name="prSerie"]:checked')?.value;
+    alcance = !g.series ? [...g.nombres] : serie==='A' ? [g.A] : serie==='B' ? [g.B] : [g.A, g.B];
+  }
   const nombre = document.getElementById('prLigaNombre').value.trim();
   const {data, error} = await _sb.rpc('porra_crear_liga', {nombre, alcance});
   if(error){ document.getElementById('prLigaMsg').textContent = error.message; return; }
@@ -574,8 +639,14 @@ function htmlPorraNormas(conCuenta){
                'Jaialdiaren hasiera ordura arte iragarri eta alda daiteke. Besteen iragarpenak hasten denean ikusten dira.')}</li>
       <li>${tx('Si cambia el cartel o el partido no se juega, ese pronóstico se anula y no cuenta.',
                'Kartela aldatzen bada edo partida ez bada jokatzen, iragarpen hori baliogabetu egiten da eta ez da kontatzen.')}</li>
-      <li>${tx('Hay una clasificación general y puedes crear ligas privadas de una competición (hasta 20 personas). Puedes pronosticar lo mismo para todas o distinto en cada una.',
-               'Sailkapen orokor bat dago eta txapelketa bateko liga pribatuak sor ditzakezu (20 lagun arte). Guztietarako gauza bera edo bakoitzean desberdina iragar dezakezu.')}</li>
+      <li>${tx('En la porra general hay una porra por mes y una por torneo (serie A, B o entero). Un mismo pronóstico cuenta para las dos.',
+               'Porra orokorrean hilabeteko porra bat eta txapelketako bat daude (A, B seriea edo osoa). Iragarpen berak bietan balio du.')}</li>
+      <li>${tx('<b>Ranking anual:</b> al cerrar cada mes, los 50 primeros de la porra del mes suman de 50 a 1 puntos (1º 50, 2º 49…).',
+               '<b>Urteko sailkapena:</b> hilabete bakoitza ixtean, hilabeteko porrako lehen 50ek 50etik 1era puntu batzen dituzte (1.a 50, 2.a 49…; berdinduek, berdin).')}</li>
+      <li>${tx('<b>Empates:</b> a igualdad de puntos, va delante quien más puntos tenga en partidos oficiales (campeonatos, torneos y desafíos, sin festivales).',
+               '<b>Berdinketak:</b> puntu berdinekin, partida ofizialetan (txapelketak, torneoak eta desafioak, jaialdirik gabe) puntu gehien dituena doa aurretik.')}</li>
+      <li>${tx('Puedes crear ligas privadas de un torneo o de un mes (hasta 20 personas) y pronosticar lo mismo que en la general o distinto.',
+               'Txapelketa edo hilabete bateko liga pribatuak sor ditzakezu (20 lagun arte) eta orokorrean bezala edo desberdin iragarri.')}</li>
       <li>${tx('Es un juego gratuito entre aficionados: no hay apuestas ni dinero.','Zaleen arteko doako jokoa da: ez dago apusturik ez dirurik.')}</li>
     </ul>
     <h4>${tx('Tus datos','Zure datuak')}</h4>
