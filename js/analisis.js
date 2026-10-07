@@ -85,9 +85,10 @@ function chipsForma(forma){
 
 // Cara a cara entre dos equipos: cuenta partidos en los que todos los de eq1
 // jugaron juntos contra todos los de eq2
-function caraACara(eq1, eq2){
+function caraACara(eq1, eq2, filtro=null){
   let g1=0, g2=0;
   PARTIDOS.forEach(p=>{
+    if(filtro && !filtro(p)) return;
     const a = pels(p.equipo1), b = pels(p.equipo2);
     const incl = (eq, lado) => eq.every(n=>lado.includes(n));
     if(incl(eq1,a) && incl(eq2,b)){ p.ganador==='equipo1'?g1++:g2++; }
@@ -933,7 +934,15 @@ function htmlPrevia(p){
   const eq1 = (p.eq1||[]).map(resolverPelotari), eq2 = (p.eq2||[]).map(resolverPelotari);
   if(!eq1.length || !eq2.length || eq1.includes(null) || eq2.includes(null)) return '';
   const prob = probVictoria(eq1, eq2);
-  const cc = caraACara(eq1, eq2);
+  // Mano a mano o 4 y medio: el cara a cara solo en esa modalidad, y solo si
+  // se han enfrentado en ella
+  const individual = eq1.length===1 && eq2.length===1 && (p.modalidad==='mano' || p.modalidad==='cuatro');
+  const cc = individual ? caraACara(eq1, eq2, x => x.modalidad===p.modalidad) : caraACara(eq1, eq2);
+  const nombreMod = p.modalidad==='cuatro' ? '4½' : tx('mano a mano','buruz buru');
+  const filaCC = individual
+    ? (cc.g1+cc.g2 ? `<div class="an-previa-row"><span class="an-prob-l">${tx('Cara a cara','Aurrez aurre')} (${nombreMod})</span><span><b>${cc.g1}</b> – <b>${cc.g2}</b></span></div>` : '')
+    : `<div class="an-previa-row"><span class="an-prob-l">${tx('Cara a cara','Aurrez aurre')}</span>
+      <span>${cc.g1+cc.g2 ? `<b>${cc.g1}</b> – <b>${cc.g2}</b>` : tx('Nunca se han enfrentado','Ez dira inoiz aurrez aurre aritu')}</span></div>`;
   const forma = eq => chipsForma(formaReciente(eq[0],5));
   const p1 = prob==null ? null : Math.round(prob*100);
   return `<div class="an-previa">
@@ -943,8 +952,7 @@ function htmlPrevia(p){
       <span class="an-prob-bar" aria-hidden="true"><span style="width:${p1}%"></span></span>
       <span class="an-prob-n">${100-p1}%</span>
     </div>`}
-    <div class="an-previa-row"><span class="an-prob-l">${tx('Cara a cara','Aurrez aurre')}</span>
-      <span>${cc.g1+cc.g2 ? `<b>${cc.g1}</b> – <b>${cc.g2}</b>` : tx('Nunca se han enfrentado','Ez dira inoiz aurrez aurre aritu')}</span></div>
+    ${filaCC}
     ${eq1.length + eq2.length > 2
       // Parejas: solo el mejor y el peor en forma de los cuatro
       ? htmlExtremosForma([...eq1, ...eq2])
@@ -1616,4 +1624,67 @@ function limpiarFiltrosPerfil(){
   pfExtra = {fronton:'', comp:'', rival:''};
   sincronizarFiltrosPelotaris();
   openPerfil(_perfilNombre);
+}
+
+
+// ════════════════════════════════════════════════════════════
+// DUELO INDIVIDUAL (al pulsar «Estadísticas» en un mano a mano o 4 y medio
+// de la cartelera): enfrentamientos a 4½, a mano, la trayectoria de cada uno
+// en la competición que se juega y, debajo, el cara a cara general
+// ════════════════════════════════════════════════════════════
+let _h2hContexto = null;   // {p1, p2, modalidad, competicion}
+
+function htmlDueloIndividual(p1, p2, ctx){
+  const solo = p => pels(p.equipo1).length===1 && pels(p.equipo2).length===1;
+  const enfr = mod => PARTIDOS.filter(p => solo(p) && p.modalidad===mod && (
+    (pels(p.equipo1)[0]===p1 && pels(p.equipo2)[0]===p2) || (pels(p.equipo1)[0]===p2 && pels(p.equipo2)[0]===p1)));
+  const gana = (p, n) => pels(p[p.ganador])[0]===n;
+  const bloque = (titulo, ps, cls) => {
+    if(!ps.length) return '';
+    const w1 = ps.filter(p=>gana(p,p1)).length, w2 = ps.length-w1;
+    const pt = (p, n) => pels(p.equipo1)[0]===n ? p.puntos1 : p.puntos2;
+    return `<div class="ch-card duelo-bloque ${cls}">
+      <h3>${titulo} <span class="an-muted">· ${nPartidos(ps.length)}</span></h3>
+      <div class="duelo-marcador">
+        <div class="${w1>=w2?'an-up':''}"><span>${h(p1)}</span><b>${w1}</b></div>
+        <div class="an-muted">–</div>
+        <div class="${w2>=w1?'an-up':''}"><span>${h(p2)}</span><b>${w2}</b></div>
+      </div>
+      <div class="an-table-wrap"><table class="comp-table an-partidos"><tbody>${ps.slice(0,8).map(p=>`<tr>
+        <td class="an-fecha">${p.fecha}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td>
+        <td><span class="tag ${etiquetaPartido(p).cls}">${etiquetaPartido(p).lbl}</span></td>
+        <td class="an-fron">${h(p.fronton)}</td>
+        <td class="an-num an-marcador"><span class="${gana(p,p1)?'an-win':''}">${pt(p,p1)}</span>–<span class="${gana(p,p2)?'an-win':''}">${pt(p,p2)}</span></td></tr>`).join('')}</tbody></table></div>
+    </div>`;
+  };
+  // Trayectoria de cada uno en la competición (todas sus ediciones)
+  let compHtml = '';
+  const comp = ctx.competicion && !/^festival/i.test(ctx.competicion) ? ctx.competicion : null;
+  if(comp){
+    const base = baseComp(comp), anio = anioComp(comp);
+    const deComp = PARTIDOS.filter(p => p.competicion && baseComp(p.competicion)===base);
+    const fila = n => {
+      const suyos = deComp.filter(p => pels(p.equipo1).includes(n) || pels(p.equipo2).includes(n));
+      const v = suyos.filter(p => pels(p[p.ganador]).includes(n)).length;
+      const est = suyos.filter(p => anioComp(p.competicion)===anio);
+      const ve = est.filter(p => pels(p[p.ganador]).includes(n)).length;
+      const tit = suyos.filter(p => p.fase==='final' && pels(p[p.ganador]).includes(n)).map(p => anioComp(p.competicion));
+      return `<tr><td><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></td>
+        <td class="an-num"><b class="an-up">${v}</b>–<span class="an-down">${suyos.length-v}</span></td>
+        <td class="an-num">${suyos.length ? Math.round(v/suyos.length*100)+'%' : '—'}</td>
+        <td class="an-num">${est.length ? `${ve}–${est.length-ve}` : '—'}</td>
+        <td class="rk-titulos">${tit.length ? tit.map(a=>`<span class="rk-txapela camp">🏆 ${a}</span>`).join('') : '<span class="an-muted">—</span>'}</td></tr>`;
+    };
+    compHtml = `<div class="ch-card duelo-bloque">
+      <h3>${h(tComp(comp.replace(/\s*\b20\d\d\b/, '')))} <span class="an-muted">· ${tx('todas las ediciones','edizio guztiak')}</span></h3>
+      <div class="an-table-wrap"><table class="comp-table">
+        <thead><tr><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">${t('abbr_v')}–${t('abbr_d')}</th><th class="an-num">%</th><th class="an-num">${anio||tx('Esta edición','Edizio hau')}</th><th>${tx('Txapelas','Txapelak')}</th></tr></thead>
+        <tbody>${fila(p1)}${fila(p2)}</tbody></table></div>
+    </div>`;
+  }
+  const cuatro = bloque(tx('Enfrentamientos a 4 y medio',"Lau t'erdiko norgehiagokak"), enfr('cuatro'), 'cuatro');
+  const mano = bloque(tx('Enfrentamientos a mano','Buruz buruko norgehiagokak'), enfr('mano'), 'mano');
+  const nada = !cuatro && !mano ? `<div class="ch-card duelo-bloque"><p class="an-muted" style="margin:0">${tx('No se han enfrentado nunca en individual (4 y medio ni mano a mano).',"Ez dira inoiz banaka aritu (lau t'erdian ez buruz buru).")}</p></div>` : '';
+  return `<div class="duelo">${cuatro}${mano}${nada}${compHtml}
+    <div class="duelo-general">${tx('Cara a cara general · todas las modalidades','Aurrez aurre orokorra · modalitate guztiak')}</div></div>`;
 }
