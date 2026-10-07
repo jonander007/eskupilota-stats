@@ -182,7 +182,7 @@ function htmlSelPorra(opc, fn){
 async function porraPintarGeneral(panel){
   const opc = await porraOpciones();
   const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')],
-                ['mios', tx('Mis pronósticos','Nire iragarpenak')]];
+                ['mios', tx('Cerrados','Itxitakoak')]];
   panel.innerHTML = `<div class="pr-barra">${htmlSubtabs(subs, _porraSub, 'porraSetSub')}
       ${_porraSub!=='mios' ? htmlSelPorra(opc, 'porraSetSel') : ''}</div>
     <div id="prSub"><div class="cart-loading">⟳</div></div>`;
@@ -501,18 +501,27 @@ async function porraTantos(sel){
 }
 
 // ── Mis pronósticos ─────────────────────────────────────────
+// Mis pronósticos ya cerrados de la porra general (los de cada liga se ven en su liga)
 async function porraPintarMios(panel){
+  const limite = new Date(Date.now() + 3600e3).toISOString();      // se cierran 1 hora antes
   const {data, error} = await _sb.from('porra_puntuados').select('*')
-    .eq('usuario', _porraSesion.user.id).order('inicio', {ascending: false}).limit(80);
+    .eq('usuario', _porraSesion.user.id).is('liga', null).lte('inicio', limite)
+    .order('inicio', {ascending: false}).limit(80);
   if(error){ panel.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
-  const ligas = Object.fromEntries(_porraLigas.map(l=>[l.id, l.nombre]));
-  const {data: pods} = await _sb.from('porra_podios_puntuados').select('*').eq('usuario', _porraSesion.user.id);
-  const htmlPods = (pods||[]).length ? `<h4 class="pr-sub-h">🏆 ${tx('Mis podios','Nire podioak')}</h4>
+  const ligas = {};
+  const opc = await porraOpciones();
+  const {data: todos} = await _sb.from('porra_podios_puntuados').select('*').eq('usuario', _porraSesion.user.id).is('liga', null);
+  const pods = (todos||[]).filter(x=>opc.podios[x.competicion] && new Date(opc.podios[x.competicion]) <= new Date());
+  if(!data.length && !pods.length){
+    panel.innerHTML = `<div class="nodata">${tx('Todavía no tienes pronósticos cerrados en la porra general.','Oraindik ez duzu iragarpen itxirik porra orokorrean.')}</div>`;
+    return;
+  }
+  const htmlPods = (pods||[]).length ? `<h4 class="pr-sub-h">🏆 ${tx('Podios','Podioak')}</h4>
     <div class="pr-wrap"><table class="pr-tabla"><tbody>${pods.map(x=>`<tr>
-      <td>${h(porraNombreComp(x.competicion))}<div class="pr-ambitos"><span class="${x.liga?'pr-liga':'pr-gen'}">${h(x.liga ? (ligas[x.liga]||'Liga') : tx('General','Orokorra'))}</span></div></td>
+      <td>${h(porraNombreComp(x.competicion))}</td>
       <td>🥇 ${h(x.campeon)} · 🥈 ${h(x.subcampeon)}${x.semi1||x.semi2 ? ` · 🥉 ${[x.semi1, x.semi2].filter(Boolean).map(h).join(', ')}` : ''}</td>
       <td class="pr-n">${x.puntos===null ? `<span class="an-muted">${tx('Pendiente','Zain')}</span>` : `<b class="pr-pts">+${x.puntos}</b>`}</td></tr>`).join('')}</tbody></table></div>
-    <h4 class="pr-sub-h">${tx('Mis partidos','Nire partidak')}</h4>` : '';
+    <h4 class="pr-sub-h">${tx('Partidos','Partidak')}</h4>` : '';
   const general = data.filter(x=>!x.liga);
   const total = general.reduce((s,x)=>s+(x.puntos||0), 0);
   const jugados = general.filter(x=>x.puntos!==null);
@@ -531,8 +540,7 @@ async function porraPintarMios(panel){
       const tantos = x.tantos_perdedor!==null ? ` (22–${x.tantos_perdedor})` : '';
       return `<tr><td class="pr-f">${h(porraFecha(x.inicio))}</td>
         <td><span class="${x.ganador===1?'pr-elegido':''}">${porraEquipo(x.eq1)}</span> <span class="an-muted">vs</span>
-            <span class="${x.ganador===2?'pr-elegido':''}">${porraEquipo(x.eq2)}</span><span class="an-muted">${tantos}</span>
-            <div class="pr-ambitos"><span class="${x.liga?'pr-liga':'pr-gen'}">${h(x.liga ? (ligas[x.liga]||tx('Liga','Liga')) : tx('General','Orokorra'))}</span></div></td>
+            <span class="${x.ganador===2?'pr-elegido':''}">${porraEquipo(x.eq2)}</span><span class="an-muted">${tantos}</span></td>
         <td class="pr-n">${res}</td><td class="pr-n">${estado}</td></tr>`;
     }).join('')}</tbody></table></div>`;
 }
@@ -795,8 +803,8 @@ function htmlPorraNormas(conCuenta){
       <li>${tx('<b>3 puntos</b> por acertar el ganador.','<b>3 puntu</b> irabazlea asmatzeagatik.')}</li>
       <li>${tx('<b>+3</b> si además aciertas los tantos exactos del perdedor (6 en total), o <b>+1</b> si te quedas a 2 tantos o menos.',
                '<b>+3</b> galtzailearen tanto zehatzak ere asmatzen badituzu (6 guztira), edo <b>+1</b> 2 tanto edo gutxiagora geratzen bazara.')}</li>
-      <li>${tx('Se puede pronosticar y cambiar hasta <b>1 hora antes</b> del inicio. Entonces el partido pasa a «Mis pronósticos» y, en las ligas, a «Cerrados», donde se ve lo que puso cada uno.',
-               'Hasiera baino <b>ordubete lehenago</b> arte iragarri eta alda daiteke. Orduan partida «Nire iragarpenak» atalera pasatzen da eta, ligetan, «Itxitakoak» atalera, non bakoitzak jarritakoa ikusten den.')}</li>
+      <li>${tx('Se puede pronosticar y cambiar hasta <b>1 hora antes</b> del inicio. Entonces el partido pasa a «Cerrados»: en la general ves lo que pusiste tú y, en cada liga, lo que puso cada miembro.',
+               'Hasiera baino <b>ordubete lehenago</b> arte iragarri eta alda daiteke. Orduan partida «Itxitakoak» atalera pasatzen da: orokorrean zuk jarritakoa ikusten duzu eta, liga bakoitzean, kide bakoitzak jarritakoa.')}</li>
       <li>${tx('<b>Podio</b> en los torneos de mano a mano y 4 y medio (hasta 1 hora antes del primer partido): campeón 15, subcampeón 9, finalista en el puesto cambiado 5, cada semifinalista 3 y +6 por el pleno. Suma en la porra del torneo y en sus ligas.',
                '<b>Podioa</b> buruz buruko eta lau t\'erdiko txapelketetan (lehen partida baino ordubete lehenago arte): txapelduna 15, txapeldunordea 9, finalista trukatua 5, finalerdilari bakoitza 3 eta +6 betea. Txapelketako porran eta bere ligetan batzen da.')}</li>
       <li>${tx('Si cambia el cartel o el partido no se juega, ese pronóstico se anula y no cuenta.',
