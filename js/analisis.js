@@ -101,7 +101,7 @@ function caraACara(eq1, eq2, filtro=null){
 // ENLACES DIRECTOS (#/pelotari/jaka, #/campeonato/COMP026…)
 // ════════════════════════════════════════════════════════════
 const SEC_SLUG = {partidos:'resultados', cartelera:'cartelera', comparador:'comparador', pelotaris:'pelotaris',
-  frontones:'frontones', ranking:'ranking', campeonatos:'campeonatos', contacto:'contacto'};
+  frontones:'frontones', ranking:'ranking', campeonatos:'campeonatos', porra:'porra', contacto:'contacto'};
 const SLUG_SEC = Object.fromEntries(Object.entries(SEC_SLUG).map(([k,v])=>[v,k]));
 let _routing = false;
 
