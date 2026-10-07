@@ -524,7 +524,7 @@ class Web(unittest.TestCase):
             sesion = {'access_token': jwt, 'refresh_token': 'r', 'token_type': 'bearer', 'expires_in': 2592000, 'expires_at': exp,
                       'user': {'id': uid, 'email': 'jon@example.com', 'aud': 'authenticated', 'role': 'authenticated'}}
             ctx.add_init_script(f"localStorage.setItem('sb-nckeadvyeymewibrqpuj-auth-token', {_json.dumps(_json.dumps(sesion))})")
-        inicio = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
+        inicio = (datetime.now(timezone.utc) + timedelta(minutes=10)).isoformat()   # en el mes en curso
         self.porra_envios = []
         self.porra_rpc = []
         respuestas = {
@@ -535,11 +535,12 @@ class Web(unittest.TestCase):
                               + ([{'id': 'p2', 'inicio': inicio, 'competicion': 'Festival', 'fronton': 'Bizkaia', 'eq1': ['JAKA'],
                                    'eq2': ['DARIO'], 'categoria': 'festival', 'activo': None, 'pronosticable': False}] if admin else []),
             'porra_config': [{'modo': 'oficiales'}],
-            'porra_partidos': [{'competicion': 'Campeonato Manomanista Serie A 2026', 'categoria': 'campeonato'},
-                               {'competicion': 'Festival', 'categoria': 'festival'}],
+            'porra_partidos': [{'competicion': 'Campeonato Manomanista Serie A 2026', 'categoria': 'campeonato', 'inicio': inicio},
+                               {'competicion': 'Festival', 'categoria': 'festival', 'inicio': inicio}],
             'porra_ligas': list(ligas),
             'porra_miembros': [{'liga': l['id'], 'usuario': uid, 'perfiles': {'alias': 'Jon'}} for l in ligas],
             'porra_crear_liga': [{'id': 'nueva', 'codigo': 'XYZ789'}],
+            'porra_ranking_anual': [{'usuario': uid, 'alias': 'Jon', 'puntos': 99, 'meses': 2, 'ganados': 1, 'mejor': 1}],
             'porra_pronosticos': [],
             'porra_puntuados': [{'usuario': uid, 'partido': 'p0', 'ganador': 1, 'tantos_perdedor': 18, 'inicio': inicio,
                                  'eq1': ['LASO'], 'eq2': ['JAKA'], 'estado': 'jugado', 'puntos1': 22, 'puntos2': 18, 'puntos': 6}],
@@ -555,7 +556,7 @@ class Web(unittest.TestCase):
             elif req.method == 'POST' and tabla == 'porra_pronosticos':
                 self.porra_envios.append(_json.loads(req.post_data))
                 return route.fulfill(status=201, body='')
-            if req.method == 'POST' and tabla == 'porra_clasificacion':
+            if req.method == 'POST' and tabla in ('porra_clasificacion', 'porra_ranking_anual'):
                 self.porra_rpc.append((tabla, _json.loads(req.post_data)))
             if req.method == 'PATCH':
                 self.porra_envios.append((tabla, req.url.split('?')[1], _json.loads(req.post_data)))
@@ -596,11 +597,21 @@ class Web(unittest.TestCase):
         pg.wait_for_selector('.pr-pts.p6')
         pg.click('.pr-subtabs .pill >> nth=1')
         pg.wait_for_selector('.pr-clasif .pr-yo')
-        # Filtro por competición en la general
-        pg.select_option('.pr-barra .pr-sel-liga', 'Campeonato Manomanista Serie A 2026')
-        pg.wait_for_selector('.pr-clasif')
-        self.assertIn(('porra_clasificacion', {'desde': None, 'liga': None, 'competicion': 'Campeonato Manomanista Serie A 2026'}),
-                      self.porra_rpc)
+        # Por defecto, la porra del mes en curso (con los puntos para el ranking anual)
+        mes = pg.evaluate('porraMesActual()')
+        self.assertEqual(self.porra_rpc[-1], ('porra_clasificacion', {'liga': None, 'competiciones': None, 'mes': mes}))
+        self.assertEqual(pg.locator('.pr-yo .pr-anual').inner_text(), '+50')
+        # Porra de un torneo: serie A, B o entero
+        valores = pg.eval_on_selector_all('.pr-sel-porra option', 'os => os.map(o => o.value)')
+        self.assertIn('comp:Campeonato Manomanista Serie A 2026|Campeonato Manomanista Serie B 2026', valores)
+        pg.select_option('.pr-sel-porra', 'comp:Campeonato Manomanista Serie A 2026|Campeonato Manomanista Serie B 2026')
+        pg.wait_for_function('document.querySelector(".pr-clasif")')
+        self.assertEqual(self.porra_rpc[-1][1]['competiciones'],
+                         ['Campeonato Manomanista Serie A 2026', 'Campeonato Manomanista Serie B 2026'])
+        # Ranking anual
+        pg.select_option('.pr-sel-porra', 'anual:' + mes[:4])
+        pg.wait_for_function('document.querySelector(".pr-clasif td") && document.querySelector(".pr-clasif").innerText.includes("99")')
+        self.assertEqual(self.porra_rpc[-1], ('porra_ranking_anual', {'anio': int(mes[:4])}))
         self.assertIn('Jon', pg.locator('.pr-yo').inner_text())
         sin_desborde = pg.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
         self.assertTrue(sin_desborde)
@@ -649,6 +660,16 @@ class Web(unittest.TestCase):
         anio = pg.evaluate('new Date().getFullYear()')
         self.assertIn(('porra_crear_liga', {'nombre': 'Los del 4 y medio', 'alcance': [
             f'Campeonato 4 y Medio Serie A {anio}', f'Campeonato 4 y Medio Serie B {anio}']}), self.porra_envios)
+        # Liga de un mes
+        pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
+        pg.wait_for_selector('#prLigaNombre')
+        pg.fill('#prLigaNombre', 'Noviembre cuadrilla')
+        pg.check('input[name="prLigaTipo"][value="mes"]')
+        mes = pg.eval_on_selector_all('#prLigaMes option', 'os => os.map(o => o.value)')[1]
+        pg.select_option('#prLigaMes', mes)
+        pg.click('.pr-crear button[type="submit"]')
+        pg.wait_for_timeout(500)
+        self.assertIn(('porra_crear_liga', {'nombre': 'Noviembre cuadrilla', 'alcance': ['mes:' + mes]}), self.porra_envios)
 
     def test_porra_administrador(self):
         pg = self.pagina_porra(True, admin=True)

@@ -53,7 +53,7 @@ create table if not exists public.porra_ligas (
   nombre  text not null check (char_length(nombre) between 3 and 40),
   codigo  text not null unique,                    -- para unirse: 6 letras/números
   creador uuid not null references public.perfiles (id) on delete cascade,
-  alcance text[] not null check (cardinality(alcance) between 1 and 10),   -- competiciones que cuentan
+  alcance text[] not null check (cardinality(alcance) between 1 and 10),   -- competiciones que cuentan, o 'mes:2026-11'
   creada  timestamptz not null default now()
 );
 create table if not exists public.porra_miembros (
@@ -118,7 +118,9 @@ returns boolean language sql stable security definer set search_path = '' as $$
     else exists (select 1 from public.porra_abiertos a
                  join public.porra_ligas l on l.id = lid
                  join public.porra_miembros m on m.liga = l.id and m.usuario = auth.uid()
-                 where a.id = pid and a.competicion = any(l.alcance))
+                 where a.id = pid
+                   and (a.competicion = any(l.alcance)
+                        or 'mes:' || to_char(a.inicio at time zone 'Europe/Madrid', 'YYYY-MM') = any(l.alcance)))
   end
 $$;
 
@@ -242,10 +244,11 @@ grant execute on function public.porra_crear_liga(text, text[]), public.porra_un
 drop function if exists public.porra_clasificacion(timestamptz);
 drop function if exists public.porra_clasificacion(timestamptz, uuid);
 drop function if exists public.porra_clasificacion(timestamptz, uuid, text);
+drop function if exists public.porra_clasificacion(uuid, text[], text);
 drop view if exists public.porra_puntuados;
 create view public.porra_puntuados with (security_invoker = true) as
 select pr.usuario, pr.partido, pr.liga, pr.ganador, pr.tantos_perdedor,
-       pa.inicio, pa.competicion, pa.fronton, pa.eq1, pa.eq2, pa.estado, pa.puntos1, pa.puntos2,
+       pa.inicio, pa.competicion, pa.fronton, pa.eq1, pa.eq2, pa.estado, pa.puntos1, pa.puntos2, pa.categoria,
        case
          when pa.estado <> 'jugado' or pa.puntos1 is null or pa.puntos2 is null then null
          when pr.ganador <> (case when pa.puntos1 > pa.puntos2 then 1 else 2 end) then 0
@@ -260,28 +263,59 @@ from public.porra_pronosticos pr
 join public.porra_partidos pa on pa.id = pr.partido;
 grant select on public.porra_puntuados to anon, authenticated;
 
--- Clasificación de la general (liga null) o de una liga, desde una fecha (null = todo)
--- y, si se indica, solo de una competición. En una liga salen todos sus miembros,
--- aunque aún no tengan puntos.
-create or replace function public.porra_clasificacion(desde timestamptz default null, liga uuid default null,
-                                                      competicion text default null)
-returns table (usuario uuid, alias text, puntos bigint, jugados bigint, aciertos bigint, exactos bigint)
+-- Empates a puntos: los deshacen los puntos en partidos oficiales (sin festivales).
+-- Clasificación de la general (liga null) o de una liga; en la general, de unas
+-- competiciones (un torneo: serie A, B o las dos) o de un mes ('2026-11', hora de
+-- España). En una liga salen todos sus miembros, aunque aún no tengan puntos.
+create or replace function public.porra_clasificacion(liga uuid default null, competiciones text[] default null,
+                                                      mes text default null)
+returns table (usuario uuid, alias text, puntos bigint, oficiales bigint, jugados bigint, aciertos bigint, exactos bigint)
 language sql stable security invoker set search_path = '' as $$
   select pe.id, pe.alias,
-         coalesce(sum(pu.puntos), 0), count(pu.puntos), count(*) filter (where pu.puntos >= 3),
-         count(*) filter (where pu.puntos = 6)
+         coalesce(sum(pu.puntos), 0),
+         coalesce(sum(pu.puntos) filter (where coalesce(pu.categoria, '') <> 'festival'), 0),   -- desempate
+         count(pu.puntos), count(*) filter (where pu.puntos >= 3), count(*) filter (where pu.puntos = 6)
   from public.perfiles pe
   left join public.porra_puntuados pu
          on pu.usuario = pe.id and pu.liga is not distinct from porra_clasificacion.liga
-        and pu.puntos is not null and (desde is null or pu.inicio >= desde)
-        and (porra_clasificacion.competicion is null or pu.competicion = porra_clasificacion.competicion)
+        and pu.puntos is not null
+        and (porra_clasificacion.competiciones is null or pu.competicion = any(porra_clasificacion.competiciones))
+        and (porra_clasificacion.mes is null
+             or to_char(pu.inicio at time zone 'Europe/Madrid', 'YYYY-MM') = porra_clasificacion.mes)
   where case when porra_clasificacion.liga is null then pu.usuario is not null
              else exists (select 1 from public.porra_miembros m
                           where m.liga = porra_clasificacion.liga and m.usuario = pe.id) end
   group by pe.id, pe.alias
-  order by 3 desc, 5 desc, 6 desc, 4 asc, 2 asc
+  order by 3 desc, 4 desc, 6 desc, 7 desc, 5 asc, 2 asc
 $$;
-grant execute on function public.porra_clasificacion(timestamptz, uuid, text) to anon, authenticated;
+grant execute on function public.porra_clasificacion(uuid, text[], text) to anon, authenticated;
+
+-- Ranking anual: al cerrarse cada mes, los 50 primeros de la general de ese mes
+-- reciben de 50 a 1 puntos. Los empates se deshacen con los puntos en partidos
+-- oficiales; si aún empatan, reciben los mismos. Solo cuentan meses cerrados.
+drop function if exists public.porra_ranking_anual(int);
+create or replace function public.porra_ranking_anual(anio int)
+returns table (usuario uuid, alias text, puntos bigint, meses bigint, ganados bigint, mejor int)
+language sql stable security invoker set search_path = '' as $$
+  with mensual as (
+    select pu.usuario, to_char(pu.inicio at time zone 'Europe/Madrid', 'YYYY-MM') as mes, sum(pu.puntos) as pts,
+           coalesce(sum(pu.puntos) filter (where coalesce(pu.categoria, '') <> 'festival'), 0) as ofi
+    from public.porra_puntuados pu
+    join public.perfiles pe on pe.id = pu.usuario                -- sin los perfiles ocultos
+    where pu.liga is null and pu.puntos is not null
+      and extract(year from pu.inicio at time zone 'Europe/Madrid') = anio
+      and date_trunc('month', pu.inicio at time zone 'Europe/Madrid') < date_trunc('month', now() at time zone 'Europe/Madrid')
+    group by 1, 2
+  ), puestos as (
+    select usuario, mes, rank() over (partition by mes order by pts desc, ofi desc) as puesto from mensual
+  )
+  select pe.id, pe.alias, sum(greatest(0, 51 - p.puesto))::bigint, count(*), count(*) filter (where p.puesto = 1),
+         min(p.puesto)::int
+  from puestos p join public.perfiles pe on pe.id = p.usuario
+  group by pe.id, pe.alias
+  order by 3 desc, 5 desc, 6 asc, 2 asc
+$$;
+grant execute on function public.porra_ranking_anual(int) to anon, authenticated;
 
 -- Cuántos han elegido a cada equipo en la general (cuando el partido ha empezado)
 create or replace function public.porra_reparto(ids text[])
