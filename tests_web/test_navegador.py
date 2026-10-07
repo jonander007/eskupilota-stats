@@ -586,11 +586,14 @@ class Web(unittest.TestCase):
         self.assertFalse(pg.locator('#kpiRow').is_visible())
         self.assertEqual(pg.locator('.pr-admin').count(), 0)
         self.assertIn('Jon', pg.locator('.pr-user').inner_text())
-        self.assertTrue(pg.locator('.pr-tantos select').is_disabled())
+        self.assertEqual(pg.locator('.pr-marca select').count(), 0)     # sin ganador, sin tantos
         pg.locator('.pr-eq').nth(1).click()
         pg.wait_for_selector('.pr-eq.on')
         self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': None, 'ganador': 2, 'tantos_perdedor': None}])
-        pg.select_option('.pr-tantos select', '20')
+        # 22 debajo del ganador y el selector de tantos debajo del otro
+        self.assertEqual(pg.locator('.pr-marca').nth(1).inner_text(), '22')
+        self.assertEqual(pg.locator('.pr-marca').nth(0).locator('select').count(), 1)
+        pg.select_option('.pr-marca select', '20')
         pg.wait_for_function('document.querySelector(".pr-ok").textContent.length > 0')
         self.assertEqual(self.porra_envios[-1], [{'partido': 'p1', 'liga': None, 'ganador': 2, 'tantos_perdedor': 20}])
         pg.click('.pr-subtabs .pill >> nth=2')

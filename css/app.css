@@ -1118,3 +1118,8 @@ header :focus-visible{outline-color:#fff;}
 .pr-liga-top h4{font-family:var(--display);font-size:1.4rem;}
 .pr-normas-det{margin-top:1.5rem;}
 .pr-normas-det summary{cursor:pointer;color:var(--muted);font-size:.85rem;margin-bottom:.6rem;}
+/* Porra: marcador debajo de cada equipo */
+.pr-marca{display:flex;justify-content:center;min-height:2rem;align-items:center;}
+.pr-marca .pr-22{font-family:var(--display);font-size:1.5rem;color:var(--green);line-height:1;}
+.pr-marca select{font-family:var(--display);font-size:1.15rem;font-weight:700;padding:.2rem .4rem;min-width:4.2rem;text-align:center;
+  border:1.5px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--text);width:auto;max-width:5.5rem;}

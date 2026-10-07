@@ -297,17 +297,15 @@ async function porraPintarPronosticar(panel, ctx){
     const prob = probVictoria(p.eq1.map(resolverPelotari).filter(Boolean), p.eq2.map(resolverPelotari).filter(Boolean));
     const pct = prob===null ? null : Math.round(prob*100);
     const nombreComp = p.categoria==='festival' ? tx('Festival','Jaialdia') : tComp(p.competicion||'');
-    const interruptor = admin ? `<label class="pr-switch" title="${tx('Abierto en la general','Orokorrean irekita')}">
+    const interruptor = admin ? `<label class="pr-switch" title="${tx('Solo lo ves tú (administrador): abre o cierra este partido en la porra general','Zuk bakarrik ikusten duzu (administratzailea): partida hau porra orokorrean ireki edo itxi')}">
         <input type="checkbox"${p.pronosticable?' checked':''} onchange="porraActivar('${esc(p.id)}',this.checked)">
-        <span>${tx('En la general','Orokorrean')}</span></label>` : '';
+        <span>⚙️ ${tx('Abierto','Irekita')}</span></label>` : '';
     // Con «mismo pronóstico», una fila que guarda en todos los ámbitos; si no, solo el de esta vista
     const propio = amb.filter(a=>a.liga===aqui);
     const grupos = [mismo ? amb : propio];
     const filas = grupos.map(g=>{
       const m = g.map(a=>mio[p.id+'|'+(a.liga||'')]).find(Boolean) || {};
       const cerrado = !g.length;
-      const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
-        `<option value="${i}"${m.tantos_perdedor===i?' selected':''}>22 – ${i}</option>`)).join('');
       const etiqueta = g.length > 1
         ? `<div class="pr-ambitos">${g.map(a=>`<span class="${a.liga?'pr-liga':'pr-gen'}">${h(a.nombre)}</span>`).join('')}</div>` : '';
       return `<div class="pr-fila" data-partido="${h(p.id)}" data-ligas="${h(g.map(a=>a.liga||'').join(','))}">
@@ -316,9 +314,10 @@ async function porraPintarPronosticar(panel, ctx){
           <button class="pr-eq${m.ganador===1?' on':''}" onclick="porraElegir(this,1)"${cerrado?' disabled':''}>${porraEquipo(p.eq1)}${pct!==null?`<small>Elo ${pct}%</small>`:''}</button>
           <span class="an-muted">vs</span>
           <button class="pr-eq${m.ganador===2?' on':''}" onclick="porraElegir(this,2)"${cerrado?' disabled':''}>${porraEquipo(p.eq2)}${pct!==null?`<small>Elo ${100-pct}%</small>`:''}</button>
+          <div class="pr-marca">${porraMarca(1, m.ganador, m.tantos_perdedor, cerrado)}</div><span></span>
+          <div class="pr-marca">${porraMarca(2, m.ganador, m.tantos_perdedor, cerrado)}</div>
         </div>
-        <div class="pr-pie"><label class="pr-tantos">${tx('Resultado','Emaitza')}
-          <select onchange="porraTantos(this)"${m.ganador && !cerrado?'':' disabled'}>${opciones}</select></label>
+        <div class="pr-pie"><span class="pr-help">${m.ganador || cerrado ? '' : tx('Pulsa quién gana y luego los tantos del otro.','Sakatu nork irabazten duen eta gero bestearen tantoak.')}</span>
           <span class="pr-ok" aria-live="polite"></span></div>
       </div>`;
     }).join('');
@@ -358,6 +357,14 @@ async function porraActivar(id, activo){
   porraPintarGeneral(porraPanel());
 }
 
+function porraMarca(lado, ganador, tantos, cerrado){
+  if(!ganador) return '';
+  if(lado===ganador) return '<b class="pr-22">22</b>';
+  const opciones = ['<option value="">—</option>'].concat([...Array(22).keys()].map(i=>
+    `<option value="${i}"${tantos===i?' selected':''}>${i}</option>`)).join('');
+  return `<select onchange="porraTantos(this)" aria-label="${tx('Tantos del perdedor','Galtzailearen tantoak')}"${cerrado?' disabled':''}>${opciones}</select>`;
+}
+
 async function porraGuardar(fila, ganador, tantos){
   const partido = fila.dataset.partido;
   const filas = fila.dataset.ligas.split(',').map(l=>({partido, liga: l || null, ganador, tantos_perdedor: tantos}));
@@ -370,10 +377,12 @@ async function porraGuardar(fila, ganador, tantos){
 
 async function porraElegir(btn, ganador){
   const fila = btn.closest('.pr-fila');
-  const sel = fila.querySelector('select');
-  if(await porraGuardar(fila, ganador, sel.value==='' ? null : +sel.value)){
+  const sel = fila.querySelector('.pr-marca select');
+  const tantos = sel && sel.value!=='' ? +sel.value : null;
+  if(await porraGuardar(fila, ganador, tantos)){
     fila.querySelectorAll('.pr-eq').forEach((b,i)=>b.classList.toggle('on', i+1===ganador));
-    sel.disabled = false;
+    fila.querySelectorAll('.pr-marca').forEach((c,i)=>{ c.innerHTML = porraMarca(i+1, ganador, tantos, false); });
+    const ayuda = fila.querySelector('.pr-pie .pr-help'); if(ayuda) ayuda.textContent = '';
   }
 }
 
