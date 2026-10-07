@@ -59,6 +59,22 @@ class Porra(unittest.TestCase):
             '2026-10-11_cambiado': {'estado': 'anulado'},
         })
 
+    def test_resultados_podio(self):
+        comps = [{'id': 'C1', 'nombre': 'Campeonato Manomanista Serie A 2026', 'categoria': 'campeonato'},
+                 {'id': 'C2', 'nombre': 'Campeonato Parejas Serie A 2026', 'categoria': 'campeonato'}]
+        j = lambda i: {'del_id': i}
+        partidos = [
+            {'competicion_id': 'C1', 'modalidad': 'mano', 'fase': 'final', 'ganador': 'equipo2', 'equipo1': j('P1'), 'equipo2': j('P3')},
+            {'competicion_id': 'C1', 'modalidad': 'mano', 'fase': 'semifinal', 'ganador': 'equipo1', 'equipo1': j('P1'), 'equipo2': j('P2')},
+            {'competicion_id': 'C1', 'modalidad': 'mano', 'fase': 'semifinal', 'ganador': 'equipo2', 'equipo1': j('P4'), 'equipo2': j('P3')},
+            {'competicion_id': 'C2', 'modalidad': 'parejas', 'fase': 'final', 'ganador': 'equipo1', 'equipo1': j('P1'), 'equipo2': j('P2')},
+        ]
+        self.assertEqual(porra.resultados_podio(partidos, PELOTARIS, comps), [
+            {'competicion': 'Campeonato Manomanista Serie A 2026', 'campeon': 'LASO', 'subcampeon': 'P. Etxeberria',
+             'semis': ['ALBISU', 'MARIEZKURRENA II']}])
+        # Sin final jugada, todavía no hay podio
+        self.assertEqual(porra.resultados_podio(partidos[1:3], PELOTARIS, comps), [])
+
 
 if __name__ == '__main__':
     unittest.main()

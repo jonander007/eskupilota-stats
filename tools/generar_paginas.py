@@ -883,10 +883,11 @@ pelotari, ranking Elo, campeonatos, frontones y cartelera. La <b>porra</b> es la
 pronostican los partidos de la cartelera y compiten entre ellos por acertar más.</p></section>
 <section class="card"><h2>Cómo funciona</h2>
 <ul class="pal">
-<li>Antes de cada partido eliges quién gana y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de inicio.</li>
+<li>Antes de cada partido eliges quién gana y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta <b>1 hora antes</b> del inicio; después, en las ligas se ve lo que puso cada uno.</li>
 <li><b>3 puntos</b> por acertar el ganador y <b>+3</b> si aciertas el resultado exacto (o <b>+1</b> si te quedas a 2 tantos o menos).</li>
 <li>Hay una <b>porra por cada mes</b> y una <b>por cada torneo</b> (por ejemplo, el Campeonato de 4 y medio, serie A, B o entero).</li>
 <li><b>Ranking anual:</b> al cerrar cada mes, los 50 primeros suman de 50 a 1 puntos. Los empates se deshacen con los puntos en partidos oficiales.</li>
+<li>En los torneos de <b>mano a mano y 4 y medio</b> se pronostica también el <b>podio</b> (campeón 15, subcampeón 9, finalista cambiado 5, cada semifinalista 3 y +6 por el pleno).</li>
 <li><b>Ligas privadas</b> de hasta 20 personas, de un torneo o de un mes, para jugar con tu cuadrilla.</li>
 <li>Los resultados se recogen automáticamente y la clasificación se actualiza sola.</li>
 </ul></section>
@@ -909,10 +910,11 @@ fitxak, Elo sailkapena, txapelketak, frontoiak eta kartelera. <b>Porra</b> zalee
 eta gehiago asmatzeko lehiatzen diren atala da.</p></section>
 <section class="card"><h2>Nola funtzionatzen du</h2>
 <ul class="pal">
-<li>Partida bakoitzaren aurretik nork irabaziko duen aukeratzen duzu eta, nahi baduzu, galtzailearen tantoak. Hasiera ordura arte alda dezakezu.</li>
+<li>Partida bakoitzaren aurretik nork irabaziko duen aukeratzen duzu eta, nahi baduzu, galtzailearen tantoak. Hasiera baino <b>ordubete lehenago</b> arte alda dezakezu; gero, ligetan bakoitzak jarritakoa ikusten da.</li>
 <li><b>3 puntu</b> irabazlea asmatzeagatik eta <b>+3</b> emaitza zehatza asmatzen baduzu (edo <b>+1</b> 2 tanto edo gutxiagora geratzen bazara).</li>
 <li><b>Hilabete bakoitzeko</b> porra bat dago eta <b>txapelketa bakoitzeko</b> beste bat (adibidez, Lau t'erdiko Txapelketa, A, B seriea edo osoa).</li>
 <li><b>Urteko sailkapena:</b> hilabete bakoitza ixtean, lehen 50ek 50etik 1era puntu batzen dituzte. Berdinketak partida ofizialetako puntuek hausten dituzte.</li>
+<li><b>Buruz buruko eta lau t'erdiko</b> txapelketetan <b>podioa</b> ere iragartzen da (txapelduna 15, txapeldunordea 9, finalista trukatua 5, finalerdilari bakoitza 3 eta +6 betea).</li>
 <li>20 lagun arteko <b>liga pribatuak</b>, txapelketa edo hilabete batekoak, zure koadrilarekin jokatzeko.</li>
 <li>Emaitzak automatikoki jasotzen dira eta sailkapena berez eguneratzen da.</li>
 </ul></section>

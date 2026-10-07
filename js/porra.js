@@ -149,14 +149,17 @@ async function porraOpciones(){
   const torneos = [];
   Object.keys(grupos).sort((a,b)=>anio(b).localeCompare(anio(a)) || a.localeCompare(b)).forEach(base=>{
     const cs = grupos[base];
+    // La etiqueta se calcula al pintar, en el idioma de ese momento
     if(SERIE.test(cs[0])){
       const A = cs[0].replace(SERIE, 'Serie A'), B = cs[0].replace(SERIE, 'Serie B');
-      torneos.push({v: 'comp:'+A, l: porraNombreComp(A)}, {v: 'comp:'+B, l: porraNombreComp(B)},
-                   {v: 'comp:'+A+'|'+B, l: `${porraNombreComp(base)} · ${tx('entero (A y B)','osoa (A eta B)')}`});
-    } else cs.forEach(c=>torneos.push({v: 'comp:'+c, l: porraNombreComp(c)}));
+      torneos.push({v: 'comp:'+A, l: ()=>porraNombreComp(A)}, {v: 'comp:'+B, l: ()=>porraNombreComp(B)},
+                   {v: 'comp:'+A+'|'+B, l: ()=>`${porraNombreComp(base)} · ${tx('entero (A y B)','osoa (A eta B)')}`});
+    } else cs.forEach(c=>torneos.push({v: 'comp:'+c, l: ()=>porraNombreComp(c)}));
   });
   const ms = [...meses].sort().reverse();
-  _porraOpc = {meses: ms, anios: [...new Set(ms.map(m=>m.slice(0, 4)))], torneos};
+  const {data: pod} = await _sb.from('porra_podio_torneos').select('competicion,cierre');
+  _porraOpc = {meses: ms, anios: [...new Set(ms.map(m=>m.slice(0, 4)))], torneos,
+               podios: Object.fromEntries((pod||[]).map(t=>[t.competicion, t.cierre]))};
   return _porraOpc;
 }
 
@@ -172,7 +175,7 @@ function htmlSelPorra(opc, fn){
   return `<select class="pr-sel-liga pr-sel-porra" onchange="${fn}(this.value)" aria-label="Porra">
     <optgroup label="${tx('Porras por mes','Hilabeteko porrak')}">${opc.meses.map(m=>op('mes:'+m, porraNombreMes(m) + (m===actual ? tx(' · en curso',' · martxan') : ''))).join('')}</optgroup>
     <optgroup label="${tx('Ranking anual','Urteko sailkapena')}">${opc.anios.map(a=>op('anual:'+a, tx('Ranking anual ','Urteko sailkapena ') + a)).join('')}</optgroup>
-    ${opc.torneos.length ? `<optgroup label="${tx('Porras por torneo','Txapelketako porrak')}">${opc.torneos.map(t=>op(t.v, t.l)).join('')}</optgroup>` : ''}
+    ${opc.torneos.length ? `<optgroup label="${tx('Porras por torneo','Txapelketako porrak')}">${opc.torneos.map(t=>op(t.v, t.l())).join('')}</optgroup>` : ''}
   </select>`;
 }
 
@@ -264,6 +267,7 @@ async function porraGuardarAlias(ev){
 // ── Pronosticar ─────────────────────────────────────────────
 function porraEquipo(eq){ return eq.map(n=>h(n)).join(' – '); }
 const DIAS_EU = ['ig.','al.','ar.','az.','og.','or.','lr.'];
+function porraHora(iso){ return new Date(iso).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'}); }
 function porraFecha(iso){
   const d = new Date(iso);
   const hora = d.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'});
@@ -300,6 +304,9 @@ async function porraPintarPronosticar(panel, ctx){
   const partidos = data.filter(p=> liga ? porraEnLiga(liga, p)
     : (admin || p.pronosticable) && (ctx.mes ? porraMesDe(p.inicio)===ctx.mes : ctx.comps ? ctx.comps.includes(p.competicion) : true));
   let html = admin ? await htmlPorraAdmin() : '';
+  const opc = await porraOpciones();
+  const compsPodio = (liga ? (liga.alcance||[]) : (ctx.comps||[])).filter(c=>opc.podios[c]);
+  if(compsPodio.length) html += await htmlPodios(ctx, compsPodio);
   if(!partidos.length){
     panel.innerHTML = html + `<div class="nodata">${tx('Ahora mismo no hay partidos abiertos. Vuelve cuando salga la próxima cartelera.','Une honetan ez dago partida irekirik. Itzuli hurrengo kartelera ateratzen denean.')}</div>`;
     return;
@@ -308,7 +315,7 @@ async function porraPintarPronosticar(panel, ctx){
     .eq('usuario', _porraSesion.user.id).in('partido', partidos.map(p=>p.id));
   const mio = Object.fromEntries((mios||[]).map(x=>[x.partido+'|'+(x.liga||''), x]));
   const mismo = porraLeer('porra_mismo', '1') === '1';
-  html += `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta la hora de la velada.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Jaialdiaren ordura arte alda dezakezu.')}</p>`;
+  html += `<p class="pr-help">${tx('Elige el ganador y, si quieres, los tantos del perdedor. Puedes cambiarlo hasta 1 hora antes de que empiece.','Aukeratu irabazlea eta, nahi baduzu, galtzailearen tantoak. Hasi baino ordubete lehenago arte alda dezakezu.')}</p>`;
   if(_porraLigas.length) html += `<label class="pr-mismo"><input type="checkbox"${mismo?' checked':''} onchange="porraSetMismo(this.checked)">
     ${tx('Mismo pronóstico para la general y mis ligas','Iragarpen bera orokorrerako eta nire ligetarako')}</label>`;
   const aqui = liga ? liga.id : null;
@@ -317,7 +324,8 @@ async function porraPintarPronosticar(panel, ctx){
     const v = p.inicio + p.fronton;
     if(v !== velada){
       velada = v;
-      html += `<div class="pr-velada">${h(porraFecha(p.inicio))} · ${h(p.fronton||'')}</div>`;
+      html += `<div class="pr-velada">${h(porraFecha(p.inicio))} · ${h(p.fronton||'')}
+        <span class="pr-cierre">${tx('Cierra','Ixtea')} ${h(porraHora(p.cierre || p.inicio))}</span></div>`;
     }
     const amb = porraAmbitos(p);
     const prob = probVictoria(p.eq1.map(resolverPelotari).filter(Boolean), p.eq2.map(resolverPelotari).filter(Boolean));
@@ -353,6 +361,80 @@ async function porraPintarPronosticar(panel, ctx){
     </div>`;
   });
   panel.innerHTML = html;
+}
+
+// ── Podio de los torneos individuales ───────────────────────
+// Campeón, subcampeón y los dos semifinalistas, hasta 1 hora antes del primer partido.
+function porraCandidatos(comp){
+  const en = new Set();
+  PARTIDOS.filter(p=>p.competicion===comp).forEach(p=>{ [p.equipo1.delantero, p.equipo2.delantero].forEach(n=>n && en.add(n)); });
+  (window._porraEnCartel?.[comp] || []).forEach(n=>en.add(n));
+  const resto = Object.keys(PELOTARIS).filter(n=>!en.has(n)).sort((a,b)=>(ELO[b]||0)-(ELO[a]||0));
+  return {en: [...en].sort((a,b)=>(ELO[b]||0)-(ELO[a]||0)), resto};
+}
+
+function htmlSelPelotari(cand, valor, rol, cerrado){
+  const op = n => `<option value="${h(n)}"${porraClaveN(n)===porraClaveN(valor)?' selected':''}>${h(n)}</option>`;
+  const extra = valor && ![...cand.en, ...cand.resto].some(n=>porraClaveN(n)===porraClaveN(valor)) ? op(valor) : '';
+  return `<select data-rol="${rol}"${cerrado?' disabled':''}><option value="">—</option>${extra}
+    ${cand.en.length ? `<optgroup label="${tx('En el torneo','Txapelketan')}">${cand.en.map(op).join('')}</optgroup>` : ''}
+    <optgroup label="${tx('Otros','Besteak')}">${cand.resto.map(op).join('')}</optgroup></select>`;
+}
+function porraClaveN(n){ return (n||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]/g,''); }
+
+async function htmlPodios(ctx, comps){
+  const opc = await porraOpciones();
+  const mismo = porraLeer('porra_mismo', '1') === '1';
+  const {data: mios} = await _sb.from('porra_podios_puntuados').select('*').eq('usuario', _porraSesion.user.id).in('competicion', comps);
+  // Pelotaris anunciados en la cartelera de cada torneo (para la lista)
+  const {data: cartel} = await _sb.from('porra_partidos').select('competicion,eq1,eq2').in('competicion', comps);
+  window._porraEnCartel = {};
+  (cartel||[]).forEach(p=>[...p.eq1, ...p.eq2].forEach(n=>{
+    const r = resolverPelotari(n); if(r) (window._porraEnCartel[p.competicion] = window._porraEnCartel[p.competicion] || new Set()).add(r);
+  }));
+  return comps.map(comp=>{
+    const cierre = opc.podios[comp], cerrado = new Date(cierre) <= new Date();
+    // Dónde se guarda: este ámbito y, con «mismo pronóstico», también la general y las ligas de este torneo
+    const aqui = ctx.liga || null;
+    let ligas = [aqui];
+    if(mismo) ligas = [...new Set([null, ..._porraLigas.filter(l=>(l.alcance||[]).includes(comp)).map(l=>l.id), aqui])];
+    const m = (mios||[]).find(x=>(x.liga||null)===aqui) || (mios||[]).find(x=>ligas.includes(x.liga||null)) || {};
+    const cand = porraCandidatos(comp);
+    const fila = (rol, etiqueta, valor) => `<label class="pr-podio-f"><span>${etiqueta}</span>${htmlSelPelotari(cand, valor, rol, cerrado)}</label>`;
+    const puntos = m.puntos!==null && m.puntos!==undefined
+      ? `<div class="pr-podio-res">${tx('Podio real','Benetako podioa')}: 🥇 ${h(m.real_campeon)} · 🥈 ${h(m.real_subcampeon)}${(m.real_semis||[]).length ? ` · ${(m.real_semis||[]).map(h).join(', ')}` : ''}
+          <b class="pr-pts p${m.puntos>=15?6:m.puntos>0?3:0}">+${m.puntos}</b></div>` : '';
+    return `<div class="pr-card pr-podio" data-comp="${h(comp)}" data-ligas="${h(ligas.map(l=>l||'').join(','))}">
+      <div class="pr-podio-top"><h4>🏆 ${tx('Podio','Podioa')} · ${h(porraNombreComp(comp))}</h4>
+        <span class="pr-cierre">${cerrado ? tx('Cerrado','Itxita') : `${tx('Cierra','Ixtea')} ${h(porraFecha(cierre))}`}</span></div>
+      <div class="pr-podio-g">
+        ${fila('campeon', '🥇 ' + tx('Campeón','Txapelduna'), m.campeon)}
+        ${fila('subcampeon', '🥈 ' + tx('Subcampeón','Txapeldunordea'), m.subcampeon)}
+        ${fila('semi1', '🥉 ' + tx('Semifinalista','Finalerdilaria'), m.semi1)}
+        ${fila('semi2', '🥉 ' + tx('Semifinalista','Finalerdilaria'), m.semi2)}
+      </div>
+      ${cerrado ? '' : `<div class="pr-pie"><span class="pr-help">${tx('Campeón 15 · subcampeón 9 · finalista cambiado 5 · semifinalista 3 · pleno +6',
+        'Txapelduna 15 · txapeldunordea 9 · finalista trukatua 5 · finalerdilaria 3 · betea +6')}</span>
+        <button class="btn" onclick="porraGuardarPodio(this)">${tx('Guardar podio','Podioa gorde')}</button></div>
+        <span class="pr-ok" aria-live="polite"></span>`}
+      ${puntos}
+    </div>`;
+  }).join('');
+}
+
+async function porraGuardarPodio(btn){
+  const card = btn.closest('.pr-podio');
+  const v = r => card.querySelector(`select[data-rol="${r}"]`).value || null;
+  const [c, s, s1, s2] = ['campeon', 'subcampeon', 'semi1', 'semi2'].map(v);
+  const ok = card.querySelector('.pr-ok');
+  const nombres = [c, s, s1, s2].filter(Boolean).map(porraClaveN);
+  if(!c || !s){ ok.textContent = tx('Elige al menos campeón y subcampeón.','Aukeratu gutxienez txapelduna eta txapeldunordea.'); ok.classList.add('mal'); return; }
+  if(new Set(nombres).size !== nombres.length){ ok.textContent = tx('No repitas pelotari.','Ez errepikatu pilotaria.'); ok.classList.add('mal'); return; }
+  const filas = card.dataset.ligas.split(',').map(l=>({competicion: card.dataset.comp, liga: l || null,
+    campeon: c, subcampeon: s, semi1: s1, semi2: s2}));
+  const {error} = await _sb.from('porra_podios').upsert(filas, {onConflict: 'usuario,competicion,liga'});
+  ok.textContent = error ? tx('✗ Cerrado o sin conexión','✗ Itxita edo konexiorik gabe') : tx('✓ Podio guardado','✓ Podioa gordeta');
+  ok.classList.toggle('mal', !!error);
 }
 
 // ── Administración: qué partidos entran en la porra ─────────
@@ -423,8 +505,14 @@ async function porraPintarMios(panel){
   const {data, error} = await _sb.from('porra_puntuados').select('*')
     .eq('usuario', _porraSesion.user.id).order('inicio', {ascending: false}).limit(80);
   if(error){ panel.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
-  if(!data.length){ panel.innerHTML = `<div class="nodata">${tx('Todavía no has pronosticado ningún partido.','Oraindik ez duzu partidarik iragarri.')}</div>`; return; }
   const ligas = Object.fromEntries(_porraLigas.map(l=>[l.id, l.nombre]));
+  const {data: pods} = await _sb.from('porra_podios_puntuados').select('*').eq('usuario', _porraSesion.user.id);
+  const htmlPods = (pods||[]).length ? `<h4 class="pr-sub-h">🏆 ${tx('Mis podios','Nire podioak')}</h4>
+    <div class="pr-wrap"><table class="pr-tabla"><tbody>${pods.map(x=>`<tr>
+      <td>${h(porraNombreComp(x.competicion))}<div class="pr-ambitos"><span class="${x.liga?'pr-liga':'pr-gen'}">${h(x.liga ? (ligas[x.liga]||'Liga') : tx('General','Orokorra'))}</span></div></td>
+      <td>🥇 ${h(x.campeon)} · 🥈 ${h(x.subcampeon)}${x.semi1||x.semi2 ? ` · 🥉 ${[x.semi1, x.semi2].filter(Boolean).map(h).join(', ')}` : ''}</td>
+      <td class="pr-n">${x.puntos===null ? `<span class="an-muted">${tx('Pendiente','Zain')}</span>` : `<b class="pr-pts">+${x.puntos}</b>`}</td></tr>`).join('')}</tbody></table></div>
+    <h4 class="pr-sub-h">${tx('Mis partidos','Nire partidak')}</h4>` : '';
   const general = data.filter(x=>!x.liga);
   const total = general.reduce((s,x)=>s+(x.puntos||0), 0);
   const jugados = general.filter(x=>x.puntos!==null);
@@ -434,6 +522,7 @@ async function porraPintarMios(panel){
       <div><div class="an-kpi-v">${total}</div><div class="an-kpi-l">${tx('Puntos en la general','Puntuak orokorrean')}</div></div>
       <div><div class="an-kpi-v">${aciertos}/${jugados.length}</div><div class="an-kpi-l">${tx('Ganadores acertados','Asmatutako irabazleak')}</div></div>
     </div>
+    ${htmlPods}
     <div class="pr-wrap"><table class="pr-tabla"><tbody>${data.map(x=>{
       const estado = x.estado==='anulado' ? `<span class="an-muted">${tx('Anulado','Baliogabea')}</span>`
         : x.puntos===null ? `<span class="an-muted">${tx('Pendiente','Zain')}</span>`
@@ -575,7 +664,8 @@ async function porraPintarLiga(panel, id){
   const {data: miembros} = await _sb.from('porra_miembros').select('usuario,perfiles(alias)').eq('liga', id);
   const gente = (miembros||[]).map(m=>m.perfiles?.alias || '—');
   const texto = encodeURIComponent(tx(`Únete a mi liga «${l.nombre}» en la porra de EskupilotaStats: `, `Batu nire «${l.nombre}» ligara EskupilotaStatsen porran: `) + porraEnlaceLiga(l.codigo));
-  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['clasificacion', tx('Clasificación','Sailkapena')], ['info', tx('Invitar y miembros','Gonbidatu eta kideak')]];
+  const subs = [['pronosticar', tx('Pronosticar','Iragarri')], ['cerrados', tx('Cerrados','Itxitakoak')],
+                ['clasificacion', tx('Clasificación','Sailkapena')], ['info', tx('Invitar y miembros','Gonbidatu eta kideak')]];
   let cuerpo;
   if(_porraLigaSub==='info') cuerpo = `<div class="pr-card pr-liga-card">
       <div class="pr-codigo">${tx('Código','Kodea')}: <b>${h(l.codigo)}</b>
@@ -597,6 +687,41 @@ async function porraPintarLiga(panel, id){
   const sub = panel.querySelector('#prSub');
   if(_porraLigaSub==='clasificacion'){ sub.innerHTML = '<div id="prClasif"></div>'; porraPintarClasif(sub.firstChild, {liga: id}); }
   else if(_porraLigaSub==='pronosticar') porraPintarPronosticar(sub, {liga: id});
+  else if(_porraLigaSub==='cerrados') porraPintarCerrados(sub, l, miembros||[]);
+}
+
+// Partidos ya cerrados de la liga; al pulsar uno, lo que puso cada miembro
+async function porraPintarCerrados(panel, l, miembros){
+  const limite = new Date(Date.now() + 3600e3).toISOString();
+  const {data, error} = await _sb.from('porra_partidos').select('*').lte('inicio', limite).neq('estado', 'anulado')
+    .order('inicio', {ascending: false}).limit(300);
+  if(error){ panel.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
+  const ps = data.filter(p=>porraEnLiga(l, p)).slice(0, 60);
+  window._porraAlias = Object.fromEntries(miembros.map(m=>[m.usuario, m.perfiles?.alias || '—']));
+  if(!ps.length){ panel.innerHTML = `<div class="nodata">${tx('Todavía no se ha cerrado ningún partido de esta liga.','Oraindik ez da liga honetako partidarik itxi.')}</div>`; return; }
+  panel.innerHTML = `<p class="pr-help">${tx('Pulsa un partido para ver lo que puso cada uno.','Sakatu partida bat bakoitzak zer jarri zuen ikusteko.')}</p>` + ps.map(p=>`
+    <details class="pr-cerrado-item" ontoggle="if(this.open) porraVerPronosticos(this, '${l.id}', '${esc(p.id)}')">
+      <summary><span class="pr-f">${h(porraFecha(p.inicio))}</span>
+        <span>${porraEquipo(p.eq1)} <span class="an-muted">vs</span> ${porraEquipo(p.eq2)}</span>
+        <b class="pr-n">${p.estado==='jugado' ? `${p.puntos1}–${p.puntos2}` : `<span class="an-muted">${tx('Pendiente','Zain')}</span>`}</b></summary>
+      <div class="pr-cerrado-lista"><div class="cart-loading">⟳</div></div>
+    </details>`).join('');
+}
+
+async function porraVerPronosticos(det, liga, partido){
+  const cont = det.querySelector('.pr-cerrado-lista');
+  if(cont.dataset.cargado) return;
+  const {data, error} = await _sb.from('porra_puntuados').select('usuario,ganador,tantos_perdedor,puntos,eq1,eq2')
+    .eq('liga', liga).eq('partido', partido);
+  if(error){ cont.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
+  cont.dataset.cargado = '1';
+  if(!data.length){ cont.innerHTML = `<p class="pr-help">${tx('Nadie lo pronosticó.','Inork ez zuen iragarri.')}</p>`; return; }
+  const yo = _porraSesion.user.id;
+  data.sort((a,b)=>(b.puntos??-1)-(a.puntos??-1) || (window._porraAlias[a.usuario]||'').localeCompare(window._porraAlias[b.usuario]||''));
+  cont.innerHTML = `<table class="pr-tabla"><tbody>${data.map(x=>`
+    <tr class="${x.usuario===yo?'pr-yo':''}"><td>${h(window._porraAlias[x.usuario] || '—')}</td>
+      <td>${porraEquipo(x.ganador===1 ? x.eq1 : x.eq2)}${x.tantos_perdedor!==null ? ` <span class="an-muted">(22–${x.tantos_perdedor})</span>` : ''}</td>
+      <td class="pr-n">${x.puntos===null ? '' : `<b class="pr-pts p${x.puntos}">+${x.puntos}</b>`}</td></tr>`).join('')}</tbody></table>`;
 }
 
 // Este mes y los dos siguientes
@@ -670,8 +795,10 @@ function htmlPorraNormas(conCuenta){
       <li>${tx('<b>3 puntos</b> por acertar el ganador.','<b>3 puntu</b> irabazlea asmatzeagatik.')}</li>
       <li>${tx('<b>+3</b> si además aciertas los tantos exactos del perdedor (6 en total), o <b>+1</b> si te quedas a 2 tantos o menos.',
                '<b>+3</b> galtzailearen tanto zehatzak ere asmatzen badituzu (6 guztira), edo <b>+1</b> 2 tanto edo gutxiagora geratzen bazara.')}</li>
-      <li>${tx('Se puede pronosticar y cambiar hasta la hora de inicio de la velada. Los pronósticos de los demás se ven cuando empieza.',
-               'Jaialdiaren hasiera ordura arte iragarri eta alda daiteke. Besteen iragarpenak hasten denean ikusten dira.')}</li>
+      <li>${tx('Se puede pronosticar y cambiar hasta <b>1 hora antes</b> del inicio. Entonces el partido pasa a «Mis pronósticos» y, en las ligas, a «Cerrados», donde se ve lo que puso cada uno.',
+               'Hasiera baino <b>ordubete lehenago</b> arte iragarri eta alda daiteke. Orduan partida «Nire iragarpenak» atalera pasatzen da eta, ligetan, «Itxitakoak» atalera, non bakoitzak jarritakoa ikusten den.')}</li>
+      <li>${tx('<b>Podio</b> en los torneos de mano a mano y 4 y medio (hasta 1 hora antes del primer partido): campeón 15, subcampeón 9, finalista en el puesto cambiado 5, cada semifinalista 3 y +6 por el pleno. Suma en la porra del torneo y en sus ligas.',
+               '<b>Podioa</b> buruz buruko eta lau t\'erdiko txapelketetan (lehen partida baino ordubete lehenago arte): txapelduna 15, txapeldunordea 9, finalista trukatua 5, finalerdilari bakoitza 3 eta +6 betea. Txapelketako porran eta bere ligetan batzen da.')}</li>
       <li>${tx('Si cambia el cartel o el partido no se juega, ese pronóstico se anula y no cuenta.',
                'Kartela aldatzen bada edo partida ez bada jokatzen, iragarpen hori baliogabetu egiten da eta ez da kontatzen.')}</li>
       <li>${tx('En la porra general hay una porra por mes y una por torneo (serie A, B o entero). Un mismo pronóstico cuenta para las dos.',
