@@ -1,5 +1,5 @@
 {
-  "actualizado": "07/10/2026 02:05",
+  "actualizado": "07/10/2026 12:16",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -505,7 +505,7 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX // XX – XX",
+        "XX – MARIEZKURRENA II // XX – REZUSTA",
         "XX // XX (Serie A)"
       ],
       "precio": "25.00",
@@ -516,13 +516,13 @@
         {
           "eq1": [
             "?",
-            "?"
+            "MARIEZKURRENA II"
           ],
           "eq2": [
             "?",
-            "?"
+            "REZUSTA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "XX – MARIEZKURRENA II // XX – REZUSTA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -628,9 +628,9 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "AMIANO // XX (Serie B)",
+        "XX – XX // XX – XX",
         "P.ETXEBERRIA // XX (Serie A)",
-        "XX – XX // XX – XX"
+        "AMIANO // XX (Serie B)"
       ],
       "precio": "30.00",
       "agotado": false,
@@ -639,19 +639,19 @@
       "partidos": [
         {
           "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
+            "?",
             "?"
           ],
-          "raw": "AMIANO // XX (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 2,
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
           "pendiente": true
         },
         {
@@ -673,19 +673,19 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "AMIANO"
           ],
           "eq2": [
-            "?",
             "?"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
+          "raw": "AMIANO // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2,
           "pendiente": true
         }
       ],
