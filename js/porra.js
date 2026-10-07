@@ -71,7 +71,7 @@ async function porraRender(){
     // select('*'): no depende de columnas nuevas que la base de datos aún no tenga
     const {data, error} = await _sb.from('perfiles').select('*').eq('id', _porraSesion.user.id).maybeSingle();
     if(error){
-      cont.innerHTML = `<div class="nodata">${tx('No se ha podido cargar tu perfil: ','Ezin izan da zure profila kargatu: ')}${h(error.message)}</div>`;
+      cont.innerHTML = `<div class="nodata">${tx('No se ha podido cargar tu perfil: ','Ezin izan da zure profila kargatu: ')}${h(porraError(error))}</div>`;
       return;
     }
     _porraPerfil = data;
@@ -83,7 +83,7 @@ async function porraRender(){
   if(pendiente){
     try{ localStorage.removeItem('porra_liga_pendiente'); }catch(e){}
     const {data: lid, error} = await _sb.rpc('porra_unirse', {codigo: pendiente});
-    if(error) alert(error.message);
+    if(error) alert(porraError(error));
     else { await porraCargarLigas(); _porraVista = 'ligas'; _porraLigaSel = lid; _porraLigaSub = 'pronosticar'; }
   }
   const vistas = [['general', tx('Porra general','Porra orokorra')],
@@ -110,10 +110,28 @@ function htmlSubtabs(subs, actual, fn){
 // Meses (hora de España) y nombres
 function porraMesDe(iso){ return new Date(iso).toLocaleDateString('sv-SE', {timeZone: 'Europe/Madrid'}).slice(0, 7); }
 function porraMesActual(){ return porraMesDe(new Date().toISOString()); }
+const MESES_EU = ['urtarrila','otsaila','martxoa','apirila','maiatza','ekaina','uztaila','abuztua','iraila','urria','azaroa','abendua'];
 function porraNombreMes(m){
   const [y, mm] = m.split('-');
-  const t = new Date(+y, +mm - 1, 15).toLocaleDateString(LANG==='eu' ? 'eu' : 'es-ES', {month: 'long', year: 'numeric'});
+  if(LANG==='eu') return `${y}ko ${MESES_EU[+mm - 1]}`;
+  const t = new Date(+y, +mm - 1, 15).toLocaleDateString('es-ES', {month: 'long', year: 'numeric'});
   return t.charAt(0).toUpperCase() + t.slice(1);
+}
+// Fase del partido en el idioma de la web («octavos» → «Final-zortzirenak»)
+function porraFase(f){ const k = 'fase_' + f, v = t(k); return v===k ? f : v; }
+
+// Mensajes de la base de datos (en castellano) traducidos al euskera
+const PORRA_ERRORES_EU = {
+  'Primero elige tu alias': 'Lehenik aukeratu zure aliasa',
+  'Como mucho puedes crear 10 ligas': 'Gehienez 10 liga sor ditzakezu',
+  'No existe ninguna liga con ese código': 'Ez dago kode hori duen ligarik',
+  'La liga está completa (20 personas)': 'Liga beteta dago (20 lagun)',
+};
+function porraError(e){
+  const m = e?.message || String(e);
+  if(LANG!=='eu') return m;
+  const k = Object.keys(PORRA_ERRORES_EU).find(x=>m.includes(x));
+  return k ? PORRA_ERRORES_EU[k] : m;
 }
 function porraNombreComp(c){ return `${tComp(c)} ${(c.match(/\b20\d\d\b/)||[''])[0]}`.trim(); }
 function porraNombreAlcance(a){ return a.startsWith('mes:') ? porraNombreMes(a.slice(4)) : porraNombreComp(a); }
@@ -245,8 +263,16 @@ async function porraGuardarAlias(ev){
 
 // ── Pronosticar ─────────────────────────────────────────────
 function porraEquipo(eq){ return eq.map(n=>h(n)).join(' – '); }
+const DIAS_EU = ['ig.','al.','ar.','az.','og.','or.','lr.'];
 function porraFecha(iso){
-  return new Date(iso).toLocaleString(LANG==='eu'?'eu-ES':'es-ES', {weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
+  const d = new Date(iso);
+  const hora = d.toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'});
+  if(LANG==='eu'){
+    const [y, m, dd] = d.toLocaleDateString('sv-SE', {timeZone:'Europe/Madrid'}).split('-');
+    const dia = DIAS_EU[new Date(+y, +m - 1, +dd).getDay()];
+    return `${dia} ${MESES_EU[+m - 1]}k ${+dd}, ${hora}`;
+  }
+  return d.toLocaleString('es-ES', {weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit', timeZone:'Europe/Madrid'});
 }
 
 async function porraCargarLigas(){
@@ -270,7 +296,7 @@ async function porraPintarPronosticar(panel, ctx){
   const liga = ctx.liga ? _porraLigas.find(l=>l.id===ctx.liga) : null;
   const admin = !!_porraPerfil?.admin && !liga;
   const {data, error} = await _sb.from('porra_abiertos').select('*').order('inicio').limit(100);
-  if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
+  if(error){ panel.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
   const partidos = data.filter(p=> liga ? porraEnLiga(liga, p)
     : (admin || p.pronosticable) && (ctx.mes ? porraMesDe(p.inicio)===ctx.mes : ctx.comps ? ctx.comps.includes(p.competicion) : true));
   let html = admin ? await htmlPorraAdmin() : '';
@@ -322,7 +348,7 @@ async function porraPintarPronosticar(panel, ctx){
       </div>`;
     }).join('');
     html += `<div class="pr-partido${amb.length?'':' pr-cerrado'}" data-id="${h(p.id)}">
-      <div class="pr-comp"><span>${h(nombreComp)}${p.fase?` · ${h(p.fase)}`:''}</span>${interruptor}</div>
+      <div class="pr-comp"><span>${h(nombreComp)}${p.fase?` · ${h(porraFase(p.fase))}`:''}</span>${interruptor}</div>
       ${filas}
     </div>`;
   });
@@ -340,20 +366,20 @@ async function htmlPorraAdmin(){
     <b>⚙️ ${tx('Administración','Administrazioa')}</b>
     <label>${tx('Partidos en la porra','Porrako partidak')}
       <select onchange="porraSetModo(this.value)">${modos.map(([k,l])=>`<option value="${k}"${k===modo?' selected':''}>${l}</option>`).join('')}</select></label>
-    <p class="pr-help">${tx('Con el interruptor «En la porra» de cada partido lo abres o lo cierras aunque el modo diga otra cosa. Solo tú ves este panel y los partidos cerrados.',
-      'Partida bakoitzeko «Porran» etengailuarekin ireki edo itxi egiten duzu, moduak beste zerbait esan arren. Zuk bakarrik ikusten dituzu panel hau eta itxitako partidak.')}</p>
+    <p class="pr-help">${tx('Con el interruptor «⚙️ Abierto» de cada partido lo abres o lo cierras aunque el modo diga otra cosa. Solo tú ves este panel y los partidos cerrados.',
+      'Partida bakoitzeko «⚙️ Irekita» etengailuarekin ireki edo itxi egiten duzu, moduak beste zerbait esan arren. Zuk bakarrik ikusten dituzu panel hau eta itxitako partidak.')}</p>
   </div>`;
 }
 
 async function porraSetModo(modo){
   const {error} = await _sb.from('porra_config').update({modo}).eq('id', 1);
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   porraPintarGeneral(porraPanel());
 }
 
 async function porraActivar(id, activo){
   const {error} = await _sb.from('porra_partidos').update({activo}).eq('id', id);
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   porraPintarGeneral(porraPanel());
 }
 
@@ -396,7 +422,7 @@ async function porraTantos(sel){
 async function porraPintarMios(panel){
   const {data, error} = await _sb.from('porra_puntuados').select('*')
     .eq('usuario', _porraSesion.user.id).order('inicio', {ascending: false}).limit(80);
-  if(error){ panel.innerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
+  if(error){ panel.innerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
   if(!data.length){ panel.innerHTML = `<div class="nodata">${tx('Todavía no has pronosticado ningún partido.','Oraindik ez duzu partidarik iragarri.')}</div>`; return; }
   const ligas = Object.fromEntries(_porraLigas.map(l=>[l.id, l.nombre]));
   const general = data.filter(x=>!x.liga);
@@ -446,7 +472,7 @@ async function porraPintarClasif(id, ctx){
     : await _sb.rpc('porra_clasificacion', {liga: ctx.liga || null, competiciones: ctx.comps || null, mes: ctx.mes || null});
   const tabla = cont.querySelector('.cart-loading');
   if(!tabla) return;
-  if(error){ tabla.outerHTML = `<div class="nodata">${h(error.message)}</div>`; return; }
+  if(error){ tabla.outerHTML = `<div class="nodata">${h(porraError(error))}</div>`; return; }
   if(!data.length){ tabla.outerHTML = `<div class="nodata">${tx('Aún no hay partidos puntuados aquí.','Oraindik ez dago puntuatutako partidarik hemen.')}</div>`; return; }
   const yo = _porraSesion?.user?.id;
   let pos = 0, prev = null;
@@ -466,7 +492,7 @@ async function porraPintarClasif(id, ctx){
       const clave = anual ? r.puntos : `${r.puntos}|${r.oficiales ?? ''}`;
       if(clave!==prev){ pos = i+1; prev = clave; }
       const celdas = anual
-        ? `<td class="pr-n">${r.ganados}</td><td class="pr-n">${r.mejor}º</td><td class="pr-n">${r.meses}</td>`
+        ? `<td class="pr-n">${r.ganados}</td><td class="pr-n">${r.mejor}${LANG==='eu'?'.':'º'}</td><td class="pr-n">${r.meses}</td>`
         : `<td class="pr-n">${r.aciertos}</td><td class="pr-n">${r.exactos}</td><td class="pr-n">${r.jugados}</td>
            ${ctx.mes ? `<td class="pr-n pr-anual">${pos<=50 ? '+'+(51-pos) : ''}</td>` : ''}`;
       return `<tr class="${r.usuario===yo?'pr-yo':''}"><td>${medalla(pos)}</td><td>${h(r.alias)}</td>
@@ -603,7 +629,7 @@ async function porraCrearLiga(ev){
   }
   const nombre = document.getElementById('prLigaNombre').value.trim();
   const {data, error} = await _sb.rpc('porra_crear_liga', {nombre, alcance});
-  if(error){ document.getElementById('prLigaMsg').textContent = error.message; return; }
+  if(error){ document.getElementById('prLigaMsg').textContent = porraError(error); return; }
   await porraCargarLigas();
   _porraLigaSel = data?.[0]?.id || null; _porraLigaSub = 'info';
   porraRender();
@@ -612,7 +638,7 @@ async function porraCrearLiga(ev){
 async function porraUnirse(ev){
   ev.preventDefault();
   const {data: lid, error} = await _sb.rpc('porra_unirse', {codigo: document.getElementById('prCodigo').value});
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   await porraCargarLigas();
   _porraLigaSel = lid; _porraLigaSub = 'pronosticar';
   porraRender();
@@ -621,7 +647,7 @@ async function porraUnirse(ev){
 async function porraSalirLiga(id){
   if(!confirm(tx('¿Salir de la liga? Tus pronósticos de esta liga dejarán de contar.','Ligatik irten? Liga honetako zure iragarpenek ez dute balioko.'))) return;
   const {error} = await _sb.from('porra_miembros').delete().eq('liga', id).eq('usuario', _porraSesion.user.id);
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   await porraCargarLigas();
   _porraLigaSel = null;
   porraRender();
@@ -630,7 +656,7 @@ async function porraSalirLiga(id){
 async function porraBorrarLiga(id){
   if(!confirm(tx('¿Borrar la liga para todos sus miembros? No se puede deshacer.','Liga kide guztientzat ezabatu? Ezin da desegin.'))) return;
   const {error} = await _sb.from('porra_ligas').delete().eq('id', id);
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   await porraCargarLigas();
   _porraLigaSel = null;
   porraRender();
@@ -671,6 +697,6 @@ async function porraBorrarCuenta(){
   if(!confirm(tx('¿Seguro? Se borrarán tu cuenta, tu nombre y todos tus pronósticos. No se puede deshacer.',
                  'Ziur zaude? Zure kontua, izena eta iragarpen guztiak ezabatuko dira. Ezin da desegin.'))) return;
   const {error} = await _sb.rpc('porra_borrar_cuenta');
-  if(error){ alert(error.message); return; }
+  if(error){ alert(porraError(error)); return; }
   await porraSalir();
 }

@@ -510,6 +510,7 @@ function setLang(lang){
   // Los nombres de ciudad dependen del idioma: se recalculan los partidos
   if (RAW_PARTIDOS.length) PARTIDOS = RAW_PARTIDOS.map(partidoFromCatalogo);
   applyI18N();
+  if (document.getElementById('sec-porra')?.classList.contains('active') && typeof porraRender === 'function') porraRender();
 }
 
 function idiomaGuardado(){

@@ -674,6 +674,20 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(500)
         self.assertIn(('porra_crear_liga', {'nombre': 'Noviembre cuadrilla', 'alcance': ['mes:' + mes]}), self.porra_envios)
 
+    def test_porra_en_euskera(self):
+        pg = self.pagina_porra(True, ancho=390)
+        pg.wait_for_selector('.pr-partido')
+        pg.click('#langEu')
+        pg.wait_for_function('document.querySelector(".pr-vistas") && document.querySelector(".pr-vistas").textContent.includes("orokorra")')
+        pg.wait_for_selector('.pr-partido')
+        texto = pg.locator('#porraContent').text_content()
+        for es in ('Pronosticar', 'Clasificación', 'Mis ligas', 'Resultado', 'Todas las', 'final'):
+            self.assertNotIn(es, texto)
+        self.assertIn('Finala', pg.locator('.pr-comp').first.inner_text())
+        mes = pg.evaluate('porraMesActual()')
+        opcion = pg.locator(f'.pr-sel-porra option[value="mes:{mes}"]').inner_text()
+        self.assertRegex(opcion, r'^20\d\dko [a-z]+ · martxan$')
+
     def test_porra_administrador(self):
         pg = self.pagina_porra(True, admin=True)
         pg.wait_for_selector('.pr-admin')
