@@ -66,7 +66,12 @@ async function porraRender(){
   if(!cont || !_sb) return;
   if(!_porraSesion){ cont.innerHTML = htmlPorraEntrar(); porraPintarClasif('prClasifPublica'); return; }
   if(_porraPerfil === undefined){
-    const {data} = await _sb.from('perfiles').select('alias,admin').eq('id', _porraSesion.user.id).maybeSingle();
+    // select('*'): no depende de columnas nuevas que la base de datos aún no tenga
+    const {data, error} = await _sb.from('perfiles').select('*').eq('id', _porraSesion.user.id).maybeSingle();
+    if(error){
+      cont.innerHTML = `<div class="nodata">${tx('No se ha podido cargar tu perfil: ','Ezin izan da zure profila kargatu: ')}${h(error.message)}</div>`;
+      return;
+    }
     _porraPerfil = data;
   }
   if(!_porraPerfil){ cont.innerHTML = htmlPorraAlias(); return; }
