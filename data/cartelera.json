@@ -1,5 +1,5 @@
 {
-  "actualizado": "09/10/2026 02:46",
+  "actualizado": "09/10/2026 16:50",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -878,7 +878,7 @@
       "cartel": [
         "REKALDE // XX (Serie B)",
         "ZABALA // XX (Serie A)",
-        "XX – XX // XX – XX"
+        "XX – SALAVERRI II // XX – LOZA"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -922,6 +922,42 @@
         {
           "eq1": [
             "?",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "?",
+            "LOZA"
+          ],
+          "raw": "XX – SALAVERRI II // XX – LOZA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "30/10/2026",
+      "hora": "18:00",
+      "fronton": "Baztan",
+      "ciudad": "Elizondo",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX -XX"
+      ],
+      "precio": "30.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3027269/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
             "?"
           ],
           "eq2": [
@@ -929,6 +965,128 @@
             "?"
           ],
           "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX -XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "30/10/2026",
+      "hora": "21:00",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045498/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX (Serie A)",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "31/10/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX (Serie A)",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "31/10/2026",
+      "hora": "17:15",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045533/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX (Serie A)",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
