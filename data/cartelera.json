@@ -1,77 +1,11 @@
 {
-  "actualizado": "09/10/2026 16:50",
+  "actualizado": "09/10/2026 19:59",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "09/10/2026",
-      "hora": "18:00",
-      "fronton": "Lorenzo Goikoa",
-      "ciudad": "Atarrabia – Villava",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "AGIRRE // ZUBIZARRETA III (Serie B)",
-        "BAKAIKOA // ALBERDI II (Serie B)",
-        "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3009286/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III"
-          ],
-          "raw": "AGIRRE // ZUBIZARRETA III (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "octavos"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ALBERDI II"
-          ],
-          "raw": "BAKAIKOA // ALBERDI II (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "octavos"
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "EZKURDIA – ALBISU // P.ETXEBERRIA – MARIEZKURRENA II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "09/10/2026",
       "hora": "21:00",
