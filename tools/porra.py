@@ -209,7 +209,14 @@ def main():
         print(f"  {c['estado']:8} {pid} {c.get('puntos1', '')}{'-' if 'puntos1' in c else ''}{c.get('puntos2', '')}")
     podios = resultados_podio(cargar('partidos'), cargar('pelotaris'), cargar('competiciones'))
     if podios:
-        db.subir_podios(podios)
+        try:
+            db.subir_podios(podios)
+        except RuntimeError as e:
+            # Sin la tabla (falta ejecutar supabase/porra.sql) se avisa sin tumbar la ejecución
+            if 'PGRST205' not in str(e):
+                raise
+            print('⚠ Falta la tabla porra_podio_resultados: ejecuta supabase/porra.sql en Supabase')
+            podios = []
     print(f'✓ Porra: {len(futuros)} partidos de la cartelera subidos, {len(cambios)} actualizados, {len(podios)} podios')
     return 0
 
