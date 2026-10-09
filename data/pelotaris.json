@@ -1,6 +1,6 @@
 [
 {"id":"PEL001","nombre":"JAKA","rol":"delantero","partidos_count":213},
-{"id":"PEL002","nombre":"LARRAZABAL","rol":"delantero","partidos_count":212},
+{"id":"PEL002","nombre":"LARRAZABAL","rol":"delantero","partidos_count":213},
 {"id":"PEL004","nombre":"EZKURDIA","rol":"delantero","partidos_count":206},
 {"id":"PEL003","nombre":"PEÑA II","rol":"delantero","partidos_count":206},
 {"id":"PEL007","nombre":"P.ETXEBERRIA","rol":"delantero","partidos_count":193},
@@ -12,8 +12,8 @@
 {"id":"PEL006","nombre":"ESKIROZ","rol":"zaguero","partidos_count":181},
 {"id":"PEL013","nombre":"IMAZ","rol":"zaguero","partidos_count":181},
 {"id":"PEL016","nombre":"IZTUETA","rol":"zaguero","partidos_count":176},
+{"id":"PEL014","nombre":"ELORDI","rol":"delantero","partidos_count":175},
 {"id":"PEL015","nombre":"ZUBIZARRETA III","rol":"delantero","partidos_count":175},
-{"id":"PEL014","nombre":"ELORDI","rol":"delantero","partidos_count":174},
 {"id":"PEL005","nombre":"AGIRRE","rol":"delantero","partidos_count":169},
 {"id":"PEL018","nombre":"ZABALETA","rol":"zaguero","partidos_count":169},
 {"id":"PEL017","nombre":"MARTIJA","rol":"zaguero","partidos_count":165},

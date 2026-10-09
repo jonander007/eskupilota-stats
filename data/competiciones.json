@@ -3,6 +3,7 @@
 {"id":"COMP006","nombre":"Campeonato 4 y Medio Serie A 2023","tipo":"cuatro-medio-a","partidos_count":15,"categoria":"campeonato"},
 {"id":"COMP001","nombre":"Campeonato 4 y Medio Serie A 2024","tipo":"cuatro-medio-a","partidos_count":36,"categoria":"campeonato"},
 {"id":"COMP002","nombre":"Campeonato 4 y Medio Serie A 2025","tipo":"cuatro-medio-a","partidos_count":19,"categoria":"campeonato"},
+{"id":"COMP255","nombre":"Campeonato 4 y Medio Serie A 2026","tipo":"cuatro-medio-a","categoria":"campeonato","partidos_count":1},
 {"id":"COMP007","nombre":"Campeonato 4 y Medio Serie B 2023","tipo":"cuatro-medio-b","partidos_count":12,"categoria":"campeonato"},
 {"id":"COMP003","nombre":"Campeonato 4 y Medio Serie B 2024","tipo":"cuatro-medio-b","partidos_count":28,"categoria":"campeonato"},
 {"id":"COMP004","nombre":"Campeonato 4 y Medio Serie B 2025","tipo":"cuatro-medio-b","partidos_count":19,"categoria":"campeonato"},

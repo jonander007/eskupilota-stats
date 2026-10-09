@@ -69,7 +69,7 @@
 {"id":"FRO085","nombre":"ETXELEBERT","ciudad_id":"CIU055","lat":43.1547,"lon":-1.4367,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ETXELEBERT"},
 {"id":"FRO086","nombre":"EUGI","ciudad_id":"CIU061","lat":42.9771,"lon":-1.5131,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EUGI"},
 {"id":"FRO088","nombre":"EZKABARTE","ciudad_id":"CIU063","lat":42.8553,"lon":-1.635,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EZKABARTE"},
-{"id":"FRO089","nombre":"EZKURDI","ciudad_id":"CIU045","lat":43.22,"lon":-2.636,"partidos_count":14,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EZKURDI"},
+{"id":"FRO089","nombre":"EZKURDI","ciudad_id":"CIU045","lat":43.22,"lon":-2.636,"partidos_count":15,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EZKURDI"},
 {"id":"FRO221","nombre":"EZTEGARA","ciudad_id":"CIU029","lat":43.275,"lon":-1.6856,"partidos_count":5},
 {"id":"FRO090","nombre":"FERNANDO GARAITA","ciudad_id":"CIU089","lat":42.978,"lon":-2.643,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20FERNANDO%20GARAITA"},
 {"id":"FRO091","nombre":"FRESNO","ciudad_id":"CIU064","partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20FRESNO"},
