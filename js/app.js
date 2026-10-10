@@ -2178,9 +2178,26 @@ async function loadCartelera(){
   }
 }
 
+// Quita de la cartelera los partidos que ya tienen resultado registrado (misma
+// fecha y mismos pelotaris) y las veladas que se quedan sin partidos.
+function quitarJugados(eventos){
+  const equipo = eq => eq.filter(Boolean).map(n=>normNombre(resolverPelotari(n) || n)).sort().join('+');
+  const jugados = new Set();
+  PARTIDOS.forEach(p=>{
+    const a = equipo([p.equipo1.delantero, p.equipo1.zaguero]), b = equipo([p.equipo2.delantero, p.equipo2.zaguero]);
+    jugados.add(`${p.fecha}|${a}|${b}`); jugados.add(`${p.fecha}|${b}|${a}`);
+  });
+  return eventos.map(ev=>{
+    const ps = ev.partidos || [];
+    if(!ps.length) return ev;
+    const quedan = ps.filter(p=>!jugados.has(`${ev.fecha}|${equipo(p.eq1||[])}|${equipo(p.eq2||[])}`));
+    return quedan.length===ps.length ? ev : quedan.length ? {...ev, partidos: quedan} : null;
+  }).filter(Boolean);
+}
+
 function renderCartelera(data){
   const el = document.getElementById('carteleraContainer');
-  const eventos = data.partidos || [];
+  const eventos = quitarJugados(data.partidos || []);
   document.getElementById('carteleraBadge').textContent = eventos.length + ' ' + t('cart_eventos');
   if(!eventos.length){
     el.innerHTML=`<div class="nodata"><div class="ic">📅</div>${t('cart_no_partidos')}</div>`;
