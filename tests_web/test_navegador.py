@@ -409,6 +409,22 @@ class Web(unittest.TestCase):
         self.assertGreater(pg.locator('.an-fron-anios > div').count(), 2)
         self.assertGreater(pg.locator('.an-fron-stats tbody tr').count(), 10)
 
+    def test_cartelera_sin_partidos_jugados(self):
+        pg = self.pagina('#/cartelera')
+        r = pg.evaluate("""(() => {
+          const p = PARTIDOS[0];
+          const eq = e => [e.delantero, e.zaguero].filter(Boolean).map(n => n.toUpperCase());
+          const jugado = {eq1: eq(p.equipo2), eq2: eq(p.equipo1)};          // al revés: da igual el orden
+          const pendiente = {eq1: ['NADIE'], eq2: ['NINGUNO']};
+          const ev = (ps) => ({fecha: p.fecha, hora: '18:00', fronton: p.fronton, partidos: ps});
+          return {
+            mixta: quitarJugados([ev([jugado, pendiente])]).map(e => e.partidos.length),
+            toda_jugada: quitarJugados([ev([jugado])]).length,
+            otro_dia: quitarJugados([{...ev([jugado]), fecha: '01/01/2099'}]).length,
+          };
+        })()""")
+        self.assertEqual(r, {'mixta': [1], 'toda_jugada': 0, 'otro_dia': 1})
+
     def test_filtro_del_fronton(self):
         pg = self.pagina('#/frontones')
         # La pestaña solo tiene el buscador: sin filtros de modalidad ni año
