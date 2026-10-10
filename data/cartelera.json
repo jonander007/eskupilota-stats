@@ -1,61 +1,11 @@
 {
-  "actualizado": "10/10/2026 02:04",
+  "actualizado": "10/10/2026 15:46",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "09/10/2026",
-      "hora": "21:00",
-      "fronton": "Ezkurdi",
-      "ciudad": "Durango",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ZABALA – BIKUÑA // AMIANO – IMAZ",
-        "ELORDI // LARRAZABAL (Serie A)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3016977/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZABALA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "IMAZ"
-          ],
-          "raw": "ZABALA – BIKUÑA // AMIANO – IMAZ",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ELORDI"
-          ],
-          "eq2": [
-            "LARRAZABAL"
-          ],
-          "raw": "ELORDI // LARRAZABAL (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "octavos"
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "10/10/2026",
       "hora": "17:15",
@@ -66,7 +16,7 @@
       "cartel": [
         "EGIGUREN V // SALABERRIA (Serie B)",
         "JAKA // LASO (Serie A)",
-        "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
+        "ALBERDI II – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -105,14 +55,14 @@
         },
         {
           "eq1": [
-            "MURUA",
+            "ALBERDI II",
             "ALDABE"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
             "SALAVERRI II"
           ],
-          "raw": "MURUA – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
+          "raw": "ALBERDI II – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -131,7 +81,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "DARÍO // SENAR",
+        "SENAR // MURUA",
         "(Serie A)"
       ],
       "precio": "30.00",
@@ -157,12 +107,12 @@
         },
         {
           "eq1": [
-            "DARÍO"
-          ],
-          "eq2": [
             "SENAR"
           ],
-          "raw": "DARÍO // SENAR (Serie A)",
+          "eq2": [
+            "MURUA"
+          ],
+          "raw": "SENAR // MURUA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -368,7 +318,7 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
+        "ZUBIZARRETA III // XX (Serie B)",
         "XX // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
@@ -379,12 +329,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "ZUBIZARRETA III"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "ZUBIZARRETA III // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -440,7 +390,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX – MARIEZKURRENA II // XX – REZUSTA",
-        "XX // XX (Serie A)"
+        "ELORDI // XX (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -466,12 +416,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ELORDI"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ELORDI // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
@@ -492,7 +442,7 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
+        "BAKAIKOA // XX (Serie B)",
         "ALTUNA III // ZABALA (Serie A)",
         "XX – XX // XX – XX"
       ],
@@ -503,12 +453,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "BAKAIKOA"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "BAKAIKOA // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
