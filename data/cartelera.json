@@ -1,5 +1,5 @@
 {
-  "actualizado": "10/10/2026 15:46",
+  "actualizado": "10/10/2026 19:06",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -10,49 +10,17 @@
       "fecha": "10/10/2026",
       "hora": "17:15",
       "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "ciudad": "Iruñea-Pamplona",
+      "fase": null,
+      "competicion": null,
       "cartel": [
-        "EGIGUREN V // SALABERRIA (Serie B)",
-        "JAKA // LASO (Serie A)",
-        "ALBERDI II – ALDABE // ZUBIZARRETA IV – SALAVERRI II"
+        "Alberdi II - Aldabe // Zubizarreta IV - Salaverri II"
       ],
-      "precio": "20.00",
+      "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V"
-          ],
-          "eq2": [
-            "SALABERRIA"
-          ],
-          "raw": "EGIGUREN V // SALABERRIA (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "octavos"
-        },
-        {
-          "eq1": [
-            "JAKA"
-          ],
-          "eq2": [
-            "LASO"
-          ],
-          "raw": "JAKA // LASO (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "octavos"
-        },
         {
           "eq1": [
             "ALBERDI II",
@@ -62,7 +30,7 @@
             "ZUBIZARRETA IV",
             "SALAVERRI II"
           ],
-          "raw": "ALBERDI II – ALDABE // ZUBIZARRETA IV – SALAVERRI II",
+          "raw": "Alberdi II - Aldabe // Zubizarreta IV - Salaverri II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -70,7 +38,7 @@
           "serie": null
         }
       ],
-      "fuente": "baiko"
+      "fuente": "aspe"
     },
     {
       "fecha": "11/10/2026",
@@ -198,7 +166,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "AMIANO // ZUBIZARRETA IV (Serie B)",
-        "XX – LANDA // XX – GABIRONDO"
+        "JAKA – LANDA // LARRAZABAL – GABIRONDO"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -223,20 +191,19 @@
         },
         {
           "eq1": [
-            "?",
+            "JAKA",
             "LANDA"
           ],
           "eq2": [
-            "?",
+            "LARRAZABAL",
             "GABIRONDO"
           ],
-          "raw": "XX – LANDA // XX – GABIRONDO",
+          "raw": "JAKA – LANDA // LARRAZABAL – GABIRONDO",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -318,8 +285,8 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "ZUBIZARRETA III // XX (Serie B)",
-        "XX // XX (Serie A)",
+        "SALABERRIA // ZUBIZARRETA III (Serie B)",
+        "LASO // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
       "precio": "25.00",
@@ -329,29 +296,28 @@
       "partidos": [
         {
           "eq1": [
-            "ZUBIZARRETA III"
+            "SALABERRIA"
           ],
           "eq2": [
-            "?"
+            "ZUBIZARRETA III"
           ],
-          "raw": "ZUBIZARRETA III // XX (Serie B)",
+          "raw": "SALABERRIA // ZUBIZARRETA III (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?"
+            "LASO"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "LASO // XX (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",

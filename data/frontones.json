@@ -103,7 +103,7 @@
 {"id":"FRO210","nombre":"KIRRU","ciudad_id":"CIU056","lat":43.3167,"lon":-2.7167,"partidos_count":2},
 {"id":"FRO122","nombre":"LA JUVENTUD","ciudad_id":"CIU126","lat":41.7667,"lon":-2.483,"partidos_count":10,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LA%20JUVENTUD"},
 {"id":"FRO123","nombre":"LABASTIDA","ciudad_id":"CIU083","lat":42.6058,"lon":-2.8019,"partidos_count":17,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LABASTIDA"},
-{"id":"FRO124","nombre":"LABRIT","ciudad_id":"CIU118","lat":42.8125,"lon":-1.6458,"partidos_count":255,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"},
+{"id":"FRO124","nombre":"LABRIT","ciudad_id":"CIU118","lat":42.8125,"lon":-1.6458,"partidos_count":258,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LABRIT"},
 {"id":"FRO125","nombre":"LANCIEGO","ciudad_id":"CIU084","lat":42.5626,"lon":-2.5121,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LANCIEGO"},
 {"id":"FRO126","nombre":"LARRAINTZAR","ciudad_id":"CIU085","lat":42.9244,"lon":-1.7122,"partidos_count":8,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20LARRAINTZAR"},
 {"id":"FRO211","nombre":"LAS LLANAS","ciudad_id":"CIU124","lat":43.3097,"lon":-3.0094,"partidos_count":9},
