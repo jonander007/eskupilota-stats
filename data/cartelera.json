@@ -1,45 +1,11 @@
 {
-  "actualizado": "10/10/2026 19:06",
+  "actualizado": "10/10/2026 19:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "10/10/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea-Pamplona",
-      "fase": null,
-      "competicion": null,
-      "cartel": [
-        "Alberdi II - Aldabe // Zubizarreta IV - Salaverri II"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3018853/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "ALDABE"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV",
-            "SALAVERRI II"
-          ],
-          "raw": "Alberdi II - Aldabe // Zubizarreta IV - Salaverri II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "aspe"
-    },
     {
       "fecha": "11/10/2026",
       "hora": "17:15",
