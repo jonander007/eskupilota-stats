@@ -1,62 +1,11 @@
 {
-  "actualizado": "11/10/2026 16:10",
+  "actualizado": "11/10/2026 19:19",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "11/10/2026",
-      "hora": "17:15",
-      "fronton": "Jaian Jai",
-      "ciudad": "Lekunberri",
-      "fase": "Octavos de final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-        "SENAR // MURUA",
-        "(Serie A)"
-      ],
-      "precio": "30.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3008387/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "ALBISU"
-          ],
-          "eq2": [
-            "ALTUNA III",
-            "IMAZ"
-          ],
-          "raw": "EZKURDIA – ALBISU // ALTUNA III – IMAZ",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "SENAR"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "SENAR // MURUA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "octavos"
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "12/10/2026",
       "hora": "17:15",
