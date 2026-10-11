@@ -1,5 +1,5 @@
 {
-  "actualizado": "11/10/2026 01:33",
+  "actualizado": "11/10/2026 16:10",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -184,7 +184,7 @@
       "cartel": [
         "MURUA // REKALDE (Serie B)",
         "EZKURDIA // P.ETXEBERRIA (Serie A)",
-        "XX – MORGAETXEBARRIA // XX – BIKUÑA"
+        "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – BIKUÑA"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -225,20 +225,19 @@
         },
         {
           "eq1": [
-            "?",
+            "AGIRRE",
             "MORGAETXEBARRIA"
           ],
           "eq2": [
-            "?",
+            "EGIGUREN V",
             "BIKUÑA"
           ],
-          "raw": "XX – MORGAETXEBARRIA // XX – BIKUÑA",
+          "raw": "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
