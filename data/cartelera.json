@@ -1,5 +1,5 @@
 {
-  "actualizado": "13/10/2026 03:21",
+  "actualizado": "13/10/2026 17:24",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -72,7 +72,7 @@
       "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3019605/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
@@ -135,12 +135,12 @@
       "cartel": [
         "SALABERRIA // ZUBIZARRETA III (Serie B)",
         "LASO // PEÑA II (Serie A)",
-        "XX – XX // XX – XX"
+        "ALBERDI II – EROSTARBE // SENAR – UGARTEMENDIA"
       ],
       "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
@@ -176,20 +176,19 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ALBERDI II",
+            "EROSTARBE"
           ],
           "eq2": [
-            "?",
-            "?"
+            "SENAR",
+            "UGARTEMENDIA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ALBERDI II – EROSTARBE // SENAR – UGARTEMENDIA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -202,7 +201,7 @@
       "fase": "Cuartos de final (1ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – MARIEZKURRENA II // XX – REZUSTA",
+        "ARTOLA – REZUSTA // LARRAZABAL – MARIEZKURRENA II",
         "ELORDI // MURUA (Serie A)"
       ],
       "precio": "25.00",
@@ -212,20 +211,19 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "?",
+            "ARTOLA",
             "REZUSTA"
           ],
-          "raw": "XX – MARIEZKURRENA II // XX – REZUSTA",
+          "eq2": [
+            "LARRAZABAL",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ARTOLA – REZUSTA // LARRAZABAL – MARIEZKURRENA II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
@@ -256,7 +254,7 @@
       "cartel": [
         "BAKAIKOA // ESKIROZ (Serie B)",
         "ALTUNA III // ZABALA (Serie A)",
-        "XX – XX // XX – XX"
+        "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -297,20 +295,19 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "ESKUZA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -394,7 +391,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "MURUA // XX (Serie B)",
+        "APEZETXEA II // XX (Serie B)",
         "EZKURDIA // XX (Serie A)",
         "XX – XX // XX – XX"
       ],
@@ -405,12 +402,12 @@
       "partidos": [
         {
           "eq1": [
-            "MURUA"
+            "APEZETXEA II"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "MURUA // XX (Serie B)",
+          "raw": "APEZETXEA II // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
