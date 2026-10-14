@@ -1,5 +1,5 @@
 {
-  "actualizado": "14/10/2026 14:55",
+  "actualizado": "14/10/2026 19:09",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -320,7 +320,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX // XX – XX",
+        "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
         "P.ETXEBERRIA // XX (Serie A)",
         "AMIANO // XX (Serie B)"
       ],
@@ -331,20 +331,19 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "EROSTARBE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
@@ -393,7 +392,7 @@
       "cartel": [
         "APEZETXEA II // XX (Serie B)",
         "EZKURDIA // XX (Serie A)",
-        "XX – XX // XX – XX"
+        "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -436,20 +435,19 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "IMAZ"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "LIZEAGA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -516,7 +514,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "ZUBIZARRETA IV // XX (Serie B)",
-        "XX – LANDA // XX – ALBISU"
+        "ARTOLA – LANDA // SENAR – ALBISU"
       ],
       "precio": "10.00",
       "agotado": false,
@@ -542,20 +540,19 @@
         },
         {
           "eq1": [
-            "?",
+            "ARTOLA",
             "LANDA"
           ],
           "eq2": [
-            "?",
+            "SENAR",
             "ALBISU"
           ],
-          "raw": "XX – LANDA // XX – ALBISU",
+          "raw": "ARTOLA – LANDA // SENAR – ALBISU",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -570,7 +567,7 @@
       "cartel": [
         "REKALDE // XX (Serie B)",
         "ZABALA // XX (Serie A)",
-        "XX – SALAVERRI II // XX – LOZA"
+        "ALBERDI II – LOZA // SENAR – SALAVERRI II"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -613,20 +610,19 @@
         },
         {
           "eq1": [
-            "?",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "?",
+            "ALBERDI II",
             "LOZA"
           ],
-          "raw": "XX – SALAVERRI II // XX – LOZA",
+          "eq2": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "raw": "ALBERDI II – LOZA // SENAR – SALAVERRI II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -639,8 +635,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX -XX"
+        "EGIGUREN V – ALDABE // SENAR – MORGAETXEBARRIA",
+        "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU"
       ],
       "precio": "30.00",
       "agotado": false,
@@ -649,37 +645,35 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "ALDABE"
           ],
           "eq2": [
-            "?",
-            "?"
+            "SENAR",
+            "MORGAETXEBARRIA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EGIGUREN V – ALDABE // SENAR – MORGAETXEBARRIA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "JAKA",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ARTOLA",
+            "ALBISU"
           ],
-          "raw": "XX – XX // XX -XX",
+          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
