@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/10/2026 01:12",
+  "actualizado": "15/10/2026 14:43",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -460,7 +460,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX // XX – XX",
+        "EGIGUREN V – ZABALETA // ALBERDI II – REZUSTA",
         "ALTUNA III // XX (Serie A)"
       ],
       "precio": "25.00",
@@ -470,20 +470,19 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "ZABALETA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ALBERDI II",
+            "REZUSTA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EGIGUREN V – ZABALETA // ALBERDI II – REZUSTA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
