@@ -7,7 +7,7 @@
 {"id":"FRO006","nombre":"AIZARNAZABAL","ciudad_id":"CIU004","lat":43.2636,"lon":-2.2564,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AIZARNAZABAL"},
 {"id":"FRO007","nombre":"AIZPURUTXO","ciudad_id":"CIU020","lat":43.1747,"lon":-2.314,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AIZPURUTXO"},
 {"id":"FRO010","nombre":"AMEZKETA","ciudad_id":"CIU008","lat":43.1142,"lon":-2.0744,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AMEZKETA"},
-{"id":"FRO011","nombre":"AMOREBIETA IV","ciudad_id":"CIU009","lat":43.2181,"lon":-2.7303,"partidos_count":35,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AMOREBIETA%20IV"},
+{"id":"FRO011","nombre":"AMOREBIETA IV","ciudad_id":"CIU009","lat":43.2181,"lon":-2.7303,"partidos_count":36,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AMOREBIETA%20IV"},
 {"id":"FRO012","nombre":"AMURRIO","ciudad_id":"CIU010","lat":42.9958,"lon":-3.0022,"partidos_count":8,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AMURRIO"},
 {"id":"FRO013","nombre":"ANTZIZAR","ciudad_id":"CIU027","lat":43.0502,"lon":-2.2009,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ANTZIZAR"},
 {"id":"FRO015","nombre":"ARAIA","ciudad_id":"CIU012","lat":42.8908,"lon":-2.3153,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ARAIA"},
