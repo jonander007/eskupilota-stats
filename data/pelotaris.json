@@ -1,9 +1,9 @@
 [
 {"id":"PEL001","nombre":"JAKA","rol":"delantero","partidos_count":215},
 {"id":"PEL002","nombre":"LARRAZABAL","rol":"delantero","partidos_count":214},
-{"id":"PEL004","nombre":"EZKURDIA","rol":"delantero","partidos_count":207},
+{"id":"PEL004","nombre":"EZKURDIA","rol":"delantero","partidos_count":208},
 {"id":"PEL003","nombre":"PEÑA II","rol":"delantero","partidos_count":207},
-{"id":"PEL007","nombre":"P.ETXEBERRIA","rol":"delantero","partidos_count":193},
+{"id":"PEL007","nombre":"P.ETXEBERRIA","rol":"delantero","partidos_count":194},
 {"id":"PEL011","nombre":"MARIEZKURRENA II","rol":"zaguero","partidos_count":192},
 {"id":"PEL009","nombre":"ALTUNA III","rol":"delantero","partidos_count":188},
 {"id":"PEL008","nombre":"ALBISU","rol":"zaguero","partidos_count":184},
