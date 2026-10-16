@@ -30,7 +30,7 @@
 {"id":"FRO036","nombre":"BARBERITO I","ciudad_id":"CIU026","lat":42.3353,"lon":-2.761,"partidos_count":10,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BARBERITO%20I"},
 {"id":"FRO037","nombre":"BARCELONA","ciudad_id":"CIU024","lat":41.3851,"lon":2.1734,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BARCELONA"},
 {"id":"FRO039","nombre":"BAZTAN","ciudad_id":"CIU053","lat":43.1497,"lon":-1.5167,"partidos_count":12,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BAZTAN"},
-{"id":"FRO041","nombre":"BEAR ZANA","ciudad_id":"CIU007","lat":43.2003,"lon":-2.0022,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEAR%20ZANA"},
+{"id":"FRO041","nombre":"BEAR ZANA","ciudad_id":"CIU007","lat":43.2003,"lon":-2.0022,"partidos_count":7,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEAR%20ZANA"},
 {"id":"FRO043","nombre":"BEKOERROTABERRI","ciudad_id":"CIU104","lat":43.352,"lon":-2.846,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEKOERROTABERRI"},
 {"id":"FRO044","nombre":"BELOKI","ciudad_id":"CIU148","lat":43.084,"lon":-2.306,"partidos_count":11,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BELOKI"},
 {"id":"FRO045","nombre":"BELORADO","ciudad_id":"CIU028","lat":42.4161,"lon":-3.1911,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BELORADO"},
