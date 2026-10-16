@@ -1,5 +1,5 @@
 {
-  "actualizado": "16/10/2026 01:00",
+  "actualizado": "16/10/2026 14:36",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -777,6 +777,179 @@
           "modalidad": "parejas",
           "categoria": "festival",
           "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "06/11/2026",
+      "hora": "21:00",
+      "fronton": "Igarondo",
+      "ciudad": "Idiazabal",
+      "fase": "Semifinales",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX // XX (Serie B)",
+        "XX // XX (Serie B)",
+        "XX – XX // XX – XX"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3027271/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "semifinal",
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "semifinal",
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "07/11/2026",
+      "hora": "17:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)"
+      ],
+      "precio": "35.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "semifinal",
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "08/11/2026",
+      "hora": "17:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Semifinal",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX // XX (Serie A)"
+      ],
+      "precio": "35.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051415/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "XX // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "semifinal",
           "pendiente": true
         }
       ],
