@@ -375,6 +375,51 @@ class OrdinalDistintoEnCartelera(unittest.TestCase):
         self.assertFalse(_mismo_pelotari('ELORD', 'ELORDI'))
 
 
+class WebContradiceCartelera(unittest.TestCase):
+    """Baiko y Aspe publicaron Elordi–Murua (17/10/2026, Gurea) como
+    'Campeonato Manomanista Serie A 2026'; era de los cuartos del 4 y medio."""
+
+    EVENTO = {
+        'fecha': '17/10/2026', 'hora': '18:30', 'fronton': 'Gurea', 'ciudad': 'Azkoitia',
+        'fase': 'Cuartos de final (1ª Jornada)', 'competicion': 'Campeonato 4 1/2 Eusko Label',
+        'cartel': ['ELORDI // MURUA (Serie A)'],
+        'partidos': [{'eq1': ['ELORDI'], 'eq2': ['MURUA'], 'raw': 'ELORDI // MURUA (Serie A)', 'serie': 'a'}],
+    }
+
+    def clasificar(self, texto_web, eventos=None):
+        from competiciones import Cartelera, clasificar_partido
+        from scraper import textos_clasificacion
+        d = Cartelera(eventos if eventos is not None else [self.EVENTO]).buscar_detalle(
+            '17/10/2026', 'GUREA (AZKOITIA)', ['ELORDI', None, 'MURUA', None])
+        texto, serie, fases = textos_clasificacion(texto_web, d)
+        return clasificar_partido(texto, '17/10/2026', False, serie, None, fases)
+
+    def test_modalidad_distinta_manda_la_cartelera(self):
+        c = self.clasificar('Campeonato Manomanista Serie A 2026')
+        self.assertEqual((c['competicion'], c['modalidad'], c['fase'], c['jornada']),
+                         ('Campeonato 4 y Medio Serie A 2026', 'cuatro', 'cuartos', 1))
+
+    def test_festival_en_la_web_manda_la_cartelera(self):
+        c = self.clasificar('Festival')
+        self.assertEqual(c['competicion'], 'Campeonato 4 y Medio Serie A 2026')
+
+    def test_misma_modalidad_manda_la_web(self):
+        from scraper import contradice_cartelera
+        self.assertFalse(contradice_cartelera('Campeonato 4 y Medio Serie B 2026', 'Campeonato 4 1/2 Eusko Label'))
+        self.assertFalse(contradice_cartelera('Campeonato Parejas Serie A 2026', 'Festival'))
+
+    def test_la_cartelera_guarda_los_eventos_recientes(self):
+        from datetime import date
+        from scraper_cartelera import eventos_recientes
+        festival = {'fecha': '17/10/2026', 'fronton': 'Azkoitia', 'partidos': [
+            {'eq1': ['ARTOLA', 'REZUSTA'], 'eq2': ['LARRAZABAL', 'MARIEZKURRENA II']}]}
+        viejo = dict(self.EVENTO, fecha='10/10/2026')
+        # Baiko ya no anuncia el evento; Aspe solo el festival de esa tarde
+        rec = eventos_recientes([self.EVENTO, festival, viejo], [festival], date(2026, 10, 17))
+        self.assertEqual(rec, [self.EVENTO])
+        self.assertEqual(self.clasificar('Campeonato Manomanista Serie A 2026', [festival] + rec)['modalidad'], 'cuatro')
+
+
 class WebSoloConFase(unittest.TestCase):
     """La web de resultados pone solo 'Final'; la competición está en la
     cartelera (finales del Torneo San Mateo del 27/09/2026 en Adarraga)."""

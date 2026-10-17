@@ -31,7 +31,7 @@ from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 
 from competiciones import (Cartelera, HistorialSeries, categoria_de_competicion, clasificar_partido,
-                           es_texto_competicion)
+                           es_texto_competicion, _txt)
 from jsonio import guardar_json
 from roles import aplicar_roles
 from red import descargar
@@ -775,7 +775,9 @@ def cargar_cartelera():
         return Cartelera()
     try:
         with open(CARTELERA_FILE, 'r', encoding='utf-8') as f:
-            return Cartelera(json.load(f).get('partidos', []))
+            d = json.load(f)
+        # 'recientes': eventos ya pasados que las webs han quitado de la cartelera
+        return Cartelera(d.get('partidos', []) + d.get('recientes', []))
     except (ValueError, AttributeError):
         return Cartelera()
 
@@ -793,9 +795,34 @@ def textos_clasificacion(texto_web, detalle_cartelera):
     textos_fase = (texto_web,) if texto_web and not texto else ()
     if detalle_cartelera:
         textos_fase += tuple(detalle_cartelera['textos_fase'])
-        if not texto:
+        if not texto or contradice_cartelera(texto, detalle_cartelera['texto']):
             texto, serie = detalle_cartelera['texto'], detalle_cartelera['serie']
     return texto, serie, textos_fase
+
+
+def _modalidad_explicita(texto):
+    t = _txt(texto)
+    for mod, claves in (('cuatro', ('4 1/2', '4 y medio', 'lau t')), ('parejas', ('parejas', 'binaka')),
+                        ('mano', ('manomanista', 'buruz buru'))):
+        if any(k in t for k in claves):
+            return mod
+    return None
+
+
+def contradice_cartelera(texto_web, texto_cartelera):
+    """¿Manda la cartelera sobre la web de resultados? Las webs de resultados
+    ponen a veces una competición genérica o equivocada: 'Festival' en los
+    cuartos del 4 y medio (Rekalde–Apezetxea II, 16/10/2026) o 'Campeonato
+    Manomanista' en un partido del 4 y medio (Elordi–Murua, 17/10/2026).
+    La cartelera, que anuncia el evento con su campeonato, es más fiable."""
+    tc = _txt(texto_cartelera)
+    if not tc or 'festival' in tc or 'jaialdi' in tc:
+        return False
+    tw = _txt(texto_web)
+    if 'festival' in tw or 'jaialdi' in tw:
+        return True
+    mw, mc = _modalidad_explicita(texto_web), _modalidad_explicita(texto_cartelera)
+    return bool(mw and mc and mw != mc)
 
 
 def clasificar_partidos(planos, existentes, cats, cart=None):
