@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/10/2026 13:29",
+  "actualizado": "17/10/2026 17:44",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -9,52 +9,18 @@
     {
       "fecha": "17/10/2026",
       "hora": "17:15",
-      "fronton": "Bizkaia Frontoia",
-      "ciudad": "Bilbao",
-      "fase": "Cuartos de final (1ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fronton": "Bilbo",
+      "ciudad": "Bilbo",
+      "fase": null,
+      "competicion": null,
       "cartel": [
-        "SALABERRIA // ZUBIZARRETA III (Serie B)",
-        "LASO // PEÑA II (Serie A)",
-        "ALBERDI II – EROSTARBE // SENAR – UGARTEMENDIA"
+        "Alberdi II - Erostarbe // Senar - Ugartemendia"
       ],
-      "precio": "25.00",
+      "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3014155/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "SALABERRIA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA III"
-          ],
-          "raw": "SALABERRIA // ZUBIZARRETA III (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "LASO"
-          ],
-          "eq2": [
-            "PEÑA II"
-          ],
-          "raw": "LASO // PEÑA II (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 1
-        },
         {
           "eq1": [
             "ALBERDI II",
@@ -64,7 +30,7 @@
             "SENAR",
             "UGARTEMENDIA"
           ],
-          "raw": "ALBERDI II – EROSTARBE // SENAR – UGARTEMENDIA",
+          "raw": "Alberdi II - Erostarbe // Senar - Ugartemendia",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -72,7 +38,7 @@
           "serie": null
         }
       ],
-      "fuente": "baiko"
+      "fuente": "aspe"
     },
     {
       "fecha": "17/10/2026",
@@ -271,31 +237,30 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "APEZETXEA II // XX (Serie B)",
+        "SALABERRIA // APEZETXEA II (Serie B)",
         "EZKURDIA // XX (Serie A)",
         "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA"
       ],
-      "precio": "20.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "APEZETXEA II"
+            "SALABERRIA"
           ],
           "eq2": [
-            "?"
+            "APEZETXEA II"
           ],
-          "raw": "APEZETXEA II // XX (Serie B)",
+          "raw": "SALABERRIA // APEZETXEA II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
@@ -445,7 +410,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "REKALDE // XX (Serie B)",
+        "ZUBIZARRETA III // REKALDE (Serie B)",
         "ZABALA // XX (Serie A)",
         "ALBERDI II – LOZA // SENAR – SALAVERRI II"
       ],
@@ -456,20 +421,19 @@
       "partidos": [
         {
           "eq1": [
-            "REKALDE"
+            "ZUBIZARRETA III"
           ],
           "eq2": [
-            "?"
+            "REKALDE"
           ],
-          "raw": "REKALDE // XX (Serie B)",
+          "raw": "ZUBIZARRETA III // REKALDE (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
@@ -706,8 +670,8 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "APEZETXEA II // XX (Serie B)",
-        "REKALDE // XX (Serie B)"
+        "ZUBIZARRETA III // APEZETXEA II (Serie B)",
+        "SALABERRIA // REKALDE (Serie B)"
       ],
       "precio": "15.00",
       "agotado": false,
@@ -716,37 +680,35 @@
       "partidos": [
         {
           "eq1": [
-            "APEZETXEA II"
+            "ZUBIZARRETA III"
           ],
           "eq2": [
-            "?"
+            "APEZETXEA II"
           ],
-          "raw": "APEZETXEA II // XX (Serie B)",
+          "raw": "ZUBIZARRETA III // APEZETXEA II (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         },
         {
           "eq1": [
-            "REKALDE"
+            "SALABERRIA"
           ],
           "eq2": [
-            "?"
+            "REKALDE"
           ],
-          "raw": "REKALDE // XX (Serie B)",
+          "raw": "SALABERRIA // REKALDE (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
