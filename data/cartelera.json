@@ -1,130 +1,11 @@
 {
-  "actualizado": "17/10/2026 01:03",
+  "actualizado": "17/10/2026 13:29",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "16/10/2026",
-      "hora": "19:30",
-      "fronton": "Bear Zana",
-      "ciudad": "Villabona",
-      "fase": "Cuartos de final (1ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "AMIANO // ZUBIZARRETA IV (Serie B)",
-        "JAKA – LANDA // LARRAZABAL – GABIRONDO"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021280/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "AMIANO // ZUBIZARRETA IV (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "JAKA",
-            "LANDA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "GABIRONDO"
-          ],
-          "raw": "JAKA – LANDA // LARRAZABAL – GABIRONDO",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "16/10/2026",
-      "hora": "21:00",
-      "fronton": "Amorebieta IV",
-      "ciudad": "Amorebieta IV",
-      "fase": "Final laurdenak (1.Jardunaldia)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "REKALDE // APEZETXEA (Serie B)",
-        "EZKURDIA // P.ETXEBERRIA (Serie A)",
-        "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – BIKUÑA"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3019605/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "REKALDE"
-          ],
-          "eq2": [
-            "APEZETXEA"
-          ],
-          "raw": "REKALDE // APEZETXEA (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "EZKURDIA"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA"
-          ],
-          "raw": "EZKURDIA // P.ETXEBERRIA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "BIKUÑA"
-          ],
-          "raw": "AGIRRE – MORGAETXEBARRIA // EGIGUREN V – BIKUÑA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "17/10/2026",
       "hora": "17:15",
@@ -825,8 +706,8 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "XX // XX (Serie B)"
+        "APEZETXEA II // XX (Serie B)",
+        "REKALDE // XX (Serie B)"
       ],
       "precio": "15.00",
       "agotado": false,
@@ -835,12 +716,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "APEZETXEA II"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "APEZETXEA II // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -852,12 +733,12 @@
         },
         {
           "eq1": [
-            "?"
+            "REKALDE"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "REKALDE // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
