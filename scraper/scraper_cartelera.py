@@ -24,7 +24,7 @@ import json
 import os
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from bs4 import BeautifulSoup
 
@@ -378,6 +378,39 @@ def fusionar_eventos(por_fuente):
     return todos
 
 
+DIAS_RECIENTES = 3
+
+
+def eventos_recientes(anteriores, actuales, hoy):
+    """Eventos de los últimos días que las webs ya han quitado de la cartelera.
+    Se guardan aparte (clave 'recientes') para que scraper.py pueda clasificar
+    los resultados que llegan tarde: Baiko quitó el evento del 4 y medio de
+    Elordi–Murua (17/10/2026) antes de publicar el resultado, y sin él el
+    partido se quedó con la competición equivocada de la web de resultados."""
+    jugadores = lambda p: frozenset(_clave(n) for n in p["eq1"] + p["eq2"] if n != "?")
+    vigentes = {(e["fecha"], jugadores(p)) for e in actuales for p in e.get("partidos", [])}
+    salida = []
+    for ev in anteriores:
+        try:
+            f = datetime.strptime(ev["fecha"], "%d/%m/%Y").date()
+        except (KeyError, ValueError):
+            continue
+        if not (hoy - timedelta(days=DIAS_RECIENTES) <= f <= hoy):
+            continue
+        if any((ev["fecha"], jugadores(p)) not in vigentes for p in ev.get("partidos", [])):
+            salida.append(ev)
+    return salida
+
+
+def leer_anterior():
+    try:
+        with open(CARTELERA_FILE, encoding="utf-8") as fh:
+            d = json.load(fh)
+        return d.get("partidos", []) + d.get("recientes", [])
+    except (OSError, ValueError, AttributeError):
+        return []
+
+
 FUENTES = [
     ("baiko", URL_BAIKO, eventos_baiko),
     ("aspe", aspe.URL_CARTELERA, aspe.cartelera_aspe),
@@ -405,6 +438,7 @@ def main():
         "fuente": URL_BAIKO,
         "fuentes": [url for n, url, _ in FUENTES if n not in fallos],
         "partidos": eventos,
+        "recientes": eventos_recientes(leer_anterior(), eventos, datetime.now().date()),
     }
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(CARTELERA_FILE, "w", encoding="utf-8") as fh:
