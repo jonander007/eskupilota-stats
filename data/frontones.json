@@ -80,7 +80,7 @@
 {"id":"FRO095","nombre":"GALLARTA","ciudad_id":"CIU067","lat":43.3094,"lon":-3.0714,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20GALLARTA"},
 {"id":"FRO096","nombre":"GAUTEGIZ-ARTEAGA","ciudad_id":"CIU068","lat":43.3647,"lon":-2.6508,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20GAUTEGIZ-ARTEAGA"},
 {"id":"FRO207","nombre":"GOIZUETA","ciudad_id":"CIU151","lat":43.1719,"lon":-1.8641,"partidos_count":3},
-{"id":"FRO099","nombre":"GUREA","ciudad_id":"CIU020","lat":43.1747,"lon":-2.313,"partidos_count":29,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20GUREA"},
+{"id":"FRO099","nombre":"GUREA","ciudad_id":"CIU020","lat":43.1747,"lon":-2.313,"partidos_count":30,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20GUREA"},
 {"id":"FRO100","nombre":"GURUTZEAGA","ciudad_id":"CIU144","lat":43.24,"lon":-2.258,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20GURUTZEAGA"},
 {"id":"FRO101","nombre":"HARO","ciudad_id":"CIU071","lat":42.5764,"lon":-2.8497,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20HARO"},
 {"id":"FRO102","nombre":"HENDAIA","ciudad_id":"CIU072","lat":43.3547,"lon":-1.7733,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20HENDAIA"},
