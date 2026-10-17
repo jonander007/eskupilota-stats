@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/10/2026 18:01",
+  "actualizado": "17/10/2026 19:00",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -43,35 +43,19 @@
     {
       "fecha": "17/10/2026",
       "hora": "18:30",
-      "fronton": "Gurea",
+      "fronton": "Azkoitia",
       "ciudad": "Azkoitia",
-      "fase": "Cuartos de final (1ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": null,
+      "competicion": "Serie A",
       "cartel": [
-        "ARTOLA – REZUSTA // LARRAZABAL – MARIEZKURRENA II",
-        "ELORDI // MURUA (Serie A)"
+        "Serie A",
+        "Elordi // Murua"
       ],
-      "precio": "25.00",
+      "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021092/select?viewCode=",
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ARTOLA – REZUSTA // LARRAZABAL – MARIEZKURRENA II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
         {
           "eq1": [
             "ELORDI"
@@ -79,17 +63,15 @@
           "eq2": [
             "MURUA"
           ],
-          "raw": "ELORDI // MURUA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
+          "raw": "Elordi // Murua",
+          "tipo": "manomanista-a",
+          "competicion": "Campeonato Manomanista Serie A 2026",
+          "modalidad": "mano",
           "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 1
+          "serie": "a"
         }
       ],
-      "fuente": "baiko"
+      "fuente": "aspe"
     },
     {
       "fecha": "18/10/2026",

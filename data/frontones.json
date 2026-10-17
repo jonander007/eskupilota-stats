@@ -40,7 +40,7 @@
 {"id":"FRO051","nombre":"BERRIZ","ciudad_id":"CIU033","lat":43.1667,"lon":-2.5667,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BERRIZ"},
 {"id":"FRO220","nombre":"BETI ALAI","ciudad_id":"CIU112","lat":43.0561,"lon":-2.1758,"partidos_count":7},
 {"id":"FRO053","nombre":"BIARRITZ","ciudad_id":"CIU035","lat":43.4801,"lon":-1.5556,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BIARRITZ"},
-{"id":"FRO055","nombre":"BIZKAIA FRONTOIA","ciudad_id":"CIU036","lat":43.2569,"lon":-2.9236,"partidos_count":132,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BIZKAIA%20FRONTOIA"},
+{"id":"FRO055","nombre":"BIZKAIA FRONTOIA","ciudad_id":"CIU036","lat":43.2569,"lon":-2.9236,"partidos_count":133,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BIZKAIA%20FRONTOIA"},
 {"id":"FRO056","nombre":"BRIONES","ciudad_id":"CIU037","lat":42.5481,"lon":-2.7789,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BRIONES"},
 {"id":"FRO058","nombre":"BURUNDA","ciudad_id":"CIU006","lat":42.9,"lon":-2.1652,"partidos_count":20,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BURUNDA"},
 {"id":"FRO059","nombre":"BUÑUEL","ciudad_id":"CIU039","lat":41.9781,"lon":-1.4564,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BU%C3%91UEL"},
