@@ -345,6 +345,36 @@ class Clasificacion(unittest.TestCase):
         self.assertEqual((ps[0]['categoria'], ps[0]['serie'], ps[0]['fase']), ('torneo', 'b', 'final'))
 
 
+class OrdinalDistintoEnCartelera(unittest.TestCase):
+    """La cartelera pone 'APEZETXEA' y los resultados 'APEZETXEA II' (cuartos
+    del 4 y medio Serie B, 16/10/2026 en Amorebieta): es el mismo partido."""
+
+    EVENTO = {
+        'fecha': '16/10/2026', 'hora': '21:00', 'fronton': 'Amorebieta IV',
+        'fase': 'Final laurdenak (1.Jardunaldia)', 'competicion': 'Campeonato 4 1/2 Eusko Label',
+        'cartel': ['REKALDE // APEZETXEA (Serie B)', 'EZKURDIA // P.ETXEBERRIA (Serie A)'],
+        'partidos': [
+            {'eq1': ['REKALDE'], 'eq2': ['APEZETXEA'], 'raw': 'REKALDE // APEZETXEA (Serie B)', 'serie': 'b'},
+            {'eq1': ['EZKURDIA'], 'eq2': ['P.ETXEBERRIA'], 'raw': 'EZKURDIA // P.ETXEBERRIA (Serie A)', 'serie': 'a'},
+        ],
+    }
+
+    def test_mismo_partido(self):
+        from competiciones import Cartelera, clasificar_partido
+        from scraper import textos_clasificacion
+        d = Cartelera([self.EVENTO]).buscar_detalle('16/10/2026', 'AMOREBIETA IV', ['REKALDE', None, 'APEZETXEA II', None])
+        self.assertIsNotNone(d)
+        texto, serie, fases = textos_clasificacion(None, d)
+        c = clasificar_partido(texto, '16/10/2026', False, serie, None, fases)
+        self.assertEqual((c['competicion'], c['modalidad'], c['fase']), ('Campeonato 4 y Medio Serie B 2026', 'cuatro', 'cuartos'))
+
+    def test_ordinales_distintos_no_coinciden(self):
+        from competiciones import _mismo_pelotari
+        self.assertTrue(_mismo_pelotari('APEZETXEA', 'APEZETXEAII'))
+        self.assertFalse(_mismo_pelotari('ZUBIZARRETAIII', 'ZUBIZARRETAIV'))
+        self.assertFalse(_mismo_pelotari('ELORD', 'ELORDI'))
+
+
 class WebSoloConFase(unittest.TestCase):
     """La web de resultados pone solo 'Final'; la competición está en la
     cartelera (finales del Torneo San Mateo del 27/09/2026 en Adarraga)."""
