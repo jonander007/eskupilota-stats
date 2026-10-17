@@ -311,6 +311,22 @@ def _nombre_pel(s):
     return re.sub(r'[^A-Z0-9]', '', sin_tildes(s.upper()))
 
 
+_SUFIJOS = ('II', 'III', 'IV', 'V', 'VI', 'VII')
+
+
+def _mismo_pelotari(a, b):
+    """'APEZETXEA' (cartelera) = 'APEZETXEAII' (resultados): una web pone el
+    ordinal y la otra no. Pero 'ZUBIZARRETAIII' ≠ 'ZUBIZARRETAIV'."""
+    if a == b:
+        return True
+    corto, largo = sorted((a, b), key=len)
+    return largo.startswith(corto) and largo[len(corto):] in _SUFIJOS
+
+
+def _coincidencias(nombres, del_cartel):
+    return sum(1 for n in nombres if any(_mismo_pelotari(n, c) for c in del_cartel))
+
+
 class Cartelera:
     """Índice de los eventos de una o varias cartelera.json."""
 
@@ -369,7 +385,7 @@ class Cartelera:
             minimo = min(2, len(nombres)) if mismo_fronton else min(3, len(nombres))
             for p in ev.get('partidos') or []:
                 del_cartel = {_nombre_pel(j) for j in (p.get('eq1') or []) + (p.get('eq2') or [])}
-                if nombres and len(nombres & del_cartel) >= minimo:
+                if nombres and _coincidencias(nombres, del_cartel) >= minimo:
                     if self.es_apertura(ev, p):
                         return {'texto': 'Festival 4 1/2' if '4 1/2' in _txt(p.get('raw')) else 'Festival',
                                 'serie': None, 'textos_fase': ()}
