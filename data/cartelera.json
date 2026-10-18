@@ -1,45 +1,11 @@
 {
-  "actualizado": "18/10/2026 18:21",
+  "actualizado": "18/10/2026 19:12",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "18/10/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": null,
-      "competicion": null,
-      "cartel": [
-        "Agirre - Lizeaga // Egiguren V - Eskuza"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "raw": "Agirre - Lizeaga // Egiguren V - Eskuza",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "aspe"
-    },
     {
       "fecha": "23/10/2026",
       "hora": "20:00",
@@ -763,6 +729,40 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "18/10/2026",
+      "hora": "17:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": null,
+      "competicion": null,
+      "cartel": [
+        "Agirre - Lizeaga // Egiguren V - Eskuza"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
+      "tv": true,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "ESKUZA"
+          ],
+          "raw": "Agirre - Lizeaga // Egiguren V - Eskuza",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "aspe"
+    },
     {
       "fecha": "18/10/2026",
       "hora": "17:15",
