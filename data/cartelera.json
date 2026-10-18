@@ -1,79 +1,10 @@
 {
-  "actualizado": "18/10/2026 13:48",
+  "actualizado": "18/10/2026 17:49",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
-    "https://www.baikopilota.eus/entradas/",
-    "https://aspepelota.eus/cartelera/"
+    "https://www.baikopilota.eus/entradas/"
   ],
   "partidos": [
-    {
-      "fecha": "18/10/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Cuartos de final (1ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "BAKAIKOA // ESKIROZ (Serie B)",
-        "ALTUNA III // ZABALA (Serie A)",
-        "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ESKIROZ"
-          ],
-          "raw": "BAKAIKOA // ESKIROZ (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "ALTUNA III // ZABALA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "23/10/2026",
       "hora": "20:00",
@@ -84,7 +15,7 @@
       "cartel": [
         "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
         "P.ETXEBERRIA // MURUA (Serie A)",
-        "AMIANO // XX (Serie B)"
+        "ESKIROZ // AMIANO (Serie B)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -125,20 +56,19 @@
         },
         {
           "eq1": [
-            "AMIANO"
+            "ESKIROZ"
           ],
           "eq2": [
-            "?"
+            "AMIANO"
           ],
-          "raw": "AMIANO // XX (Serie B)",
+          "raw": "ESKIROZ // AMIANO (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -220,7 +150,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "EGIGUREN V – ZABALETA // ALBERDI II – REZUSTA",
-        "ALTUNA III // XX (Serie A)"
+        "ALTUNA III // LASO (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -248,17 +178,16 @@
             "ALTUNA III"
           ],
           "eq2": [
-            "?"
+            "LASO"
           ],
-          "raw": "ALTUNA III // XX (Serie A)",
+          "raw": "ALTUNA III // LASO (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -271,7 +200,7 @@
       "fase": "Cuartos de final (2ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "ZUBIZARRETA IV // XX (Serie B)",
+        "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
         "ARTOLA – LANDA // SENAR – ALBISU"
       ],
       "precio": "10.00",
@@ -281,20 +210,19 @@
       "partidos": [
         {
           "eq1": [
-            "ZUBIZARRETA IV"
+            "BAKAIKOA"
           ],
           "eq2": [
-            "?"
+            "ZUBIZARRETA IV"
           ],
-          "raw": "ZUBIZARRETA IV // XX (Serie B)",
+          "raw": "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
@@ -324,7 +252,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "ZUBIZARRETA III // REKALDE (Serie B)",
-        "ZABALA // XX (Serie A)",
+        "PEÑA II // ZABALA (Serie A)",
         "ALBERDI II – LOZA // SENAR – SALAVERRI II"
       ],
       "precio": "20.00",
@@ -350,20 +278,19 @@
         },
         {
           "eq1": [
-            "ZABALA"
+            "PEÑA II"
           ],
           "eq2": [
-            "?"
+            "ZABALA"
           ],
-          "raw": "ZABALA // XX (Serie A)",
+          "raw": "PEÑA II // ZABALA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
@@ -800,5 +727,74 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": []
+  "recientes": [
+    {
+      "fecha": "18/10/2026",
+      "hora": "17:15",
+      "fronton": "Ogueta",
+      "ciudad": "Vitoria-Gasteiz",
+      "fase": "Cuartos de final (1ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "BAKAIKOA // ESKIROZ (Serie B)",
+        "ALTUNA III // ZABALA (Serie A)",
+        "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
+            "ESKIROZ"
+          ],
+          "raw": "BAKAIKOA // ESKIROZ (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 1
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "ALTUNA III // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 1
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "ESKUZA"
+          ],
+          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    }
+  ]
 }

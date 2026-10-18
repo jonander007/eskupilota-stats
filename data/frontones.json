@@ -125,7 +125,7 @@
 {"id":"FRO152","nombre":"NAVARRA ARENA","ciudad_id":"CIU118","lat":42.7953,"lon":-1.6384,"partidos_count":41,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20NAVARRA%20ARENA"},
 {"id":"FRO229","nombre":"NEPAS","ciudad_id":"CIU158","lat":41.5264,"lon":-2.3987,"partidos_count":1},
 {"id":"FRO151","nombre":"NÁJERA","ciudad_id":"CIU108","lat":42.4182,"lon":-2.7287,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20N%C3%81JERA"},
-{"id":"FRO153","nombre":"OGUETA","ciudad_id":"CIU139","lat":42.8469,"lon":-2.6731,"partidos_count":83,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"},
+{"id":"FRO153","nombre":"OGUETA","ciudad_id":"CIU139","lat":42.8469,"lon":-2.6731,"partidos_count":85,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OGUETA"},
 {"id":"FRO155","nombre":"OION","ciudad_id":"CIU110","lat":42.5057,"lon":-2.4364,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OION"},
 {"id":"FRO156","nombre":"OLAZ","ciudad_id":"CIU111","lat":42.816,"lon":-1.598,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OLAZ"},
 {"id":"FRO157","nombre":"OLAZAR","ciudad_id":"CIU140","lat":43.19,"lon":-2.53,"partidos_count":8,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20OLAZAR"},
