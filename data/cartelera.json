@@ -1,5 +1,5 @@
 {
-  "actualizado": "18/10/2026 00:38",
+  "actualizado": "18/10/2026 13:48",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -83,7 +83,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
-        "P.ETXEBERRIA // XX (Serie A)",
+        "P.ETXEBERRIA // MURUA (Serie A)",
         "AMIANO // XX (Serie B)"
       ],
       "precio": "20.00",
@@ -112,17 +112,16 @@
             "P.ETXEBERRIA"
           ],
           "eq2": [
-            "?"
+            "MURUA"
           ],
-          "raw": "P.ETXEBERRIA // XX (Serie A)",
+          "raw": "P.ETXEBERRIA // MURUA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
@@ -153,7 +152,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "SALABERRIA // APEZETXEA II (Serie B)",
-        "EZKURDIA // XX (Serie A)",
+        "EZKURDIA // ELORDI (Serie A)",
         "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA"
       ],
       "precio": "30.00",
@@ -182,17 +181,16 @@
             "EZKURDIA"
           ],
           "eq2": [
-            "?"
+            "ELORDI"
           ],
-          "raw": "EZKURDIA // XX (Serie A)",
+          "raw": "EZKURDIA // ELORDI (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "cuartos",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
