@@ -1021,7 +1021,34 @@ header :focus-visible{outline-color:#fff;}
 .duelo-marcador{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:.8rem;margin:.2rem 0 .8rem;text-align:center;}
 .duelo-marcador > div{display:flex;flex-direction:column;align-items:center;min-width:0;}
 .duelo-marcador span{font-family:var(--sans);font-weight:700;font-size:.85rem;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
-.duelo-marcador b{font-family:var(--display);font-size:2.4rem;line-height:1;}
+.duelo-marcador b{font-family:var(--display);font-size:2.6rem;line-height:1;opacity:.55;}
+.duelo-marcador .dm-1 span,.duelo-marcador .dm-1 b{color:var(--red);}
+.duelo-marcador .dm-2 span,.duelo-marcador .dm-2 b{color:var(--blue);}
+.duelo-marcador .lider b{opacity:1;}
+.duelo-barra{height:6px;border-radius:3px;background:var(--blue);overflow:hidden;margin:0 0 1rem;}
+.duelo-barra span{display:block;height:100%;background:var(--red);border-right:2px solid var(--surface);}
+.duelo-partidos{display:flex;flex-direction:column;gap:.5rem;}
+.duelo-partido{display:grid;grid-template-columns:7.5rem minmax(0,1fr) auto;align-items:center;gap:1rem;padding:.7rem .9rem;border:1px solid var(--border);border-radius:10px;background:var(--surface2,var(--surface));}
+.dp-fecha{display:flex;flex-direction:column;gap:.2rem;}
+.dp-fecha b{font-family:var(--mono);font-size:.78rem;}
+.dp-info{display:flex;flex-direction:column;gap:.3rem;min-width:0;}
+.dp-comp{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-size:.76rem;font-weight:600;}
+.dp-fron{font-size:.8rem;color:var(--text-soft);}
+.dp-fron span{color:var(--muted);}
+.dp-marcador{display:flex;align-items:baseline;gap:.4rem;font-family:var(--display);white-space:nowrap;}
+.dp-marcador b{font-size:1.9rem;line-height:1;color:var(--muted);font-weight:600;}
+.dp-marcador b.w1{color:var(--red);font-weight:800;}
+.dp-marcador b.w2{color:var(--blue);font-weight:800;}
+.dp-marcador span{color:var(--muted);font-size:1.1rem;}
+.duelo-mas{margin-top:.5rem;}
+.duelo-mas summary{cursor:pointer;font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:.3rem 0;}
+.duelo-mas[open] summary{margin-bottom:.5rem;}
+.duelo .comp-table th.an-num,.duelo .comp-table td.an-num{text-align:center;}
+.duelo-marcador > .an-muted{font-family:var(--display);font-size:1.6rem;align-self:center;padding-top:1rem;}
+@media(max-width:600px){
+  .duelo-partido{grid-template-columns:minmax(0,1fr) auto;gap:.4rem .8rem;}
+  .dp-info{grid-column:1 / -1;grid-row:2;}
+}
 .duelo .rk-titulos{min-width:6rem;}
 .duelo-general{font-family:var(--mono);font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border-top:2px solid var(--border);padding-top:.8rem;margin-top:.4rem;}
 
