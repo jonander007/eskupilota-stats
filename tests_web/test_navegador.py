@@ -389,13 +389,22 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
-    def test_resultados_en_el_movil_con_filtros_plegados(self):
+    def test_resultados_por_festivales(self):
         pg = self.pagina('', ancho=390)
-        pg.wait_for_selector('#mCards .m-card-row')
-        # Los filtros (salvo el buscador) no se ven hasta pulsar «Filtrar»
+        pg.wait_for_selector('#partVeladas .velada')
+        # Por defecto, los 10 últimos festivales y sin filtros ni lista
+        self.assertEqual(pg.locator('#partVeladas .velada').count(), 10)
         self.assertFalse(pg.locator('#fComp').is_visible())
+        self.assertFalse(pg.locator('#mCards').is_visible())
+        # «Todos los partidos»: la lista completa
+        pg.click('.part-modos .seg-btn[data-modo="todos"]')
+        self.assertTrue(pg.locator('#mCards .m-card-row').first.is_visible())
+        self.assertFalse(pg.locator('#partVeladas').is_visible())
+        # «Filtrar»: los filtros sobre todos los partidos
+        pg.click('.part-modos .seg-btn[data-modo="veladas"]')
         pg.click('#btnFiltrarPart')
         self.assertTrue(pg.locator('#fComp').is_visible())
+        self.assertTrue(pg.locator('#mCards').is_visible())
         pg.select_option('#fCat', 'festival')
         self.assertEqual(pg.inner_text('#btnFiltrarPart .btn-filtrar-n'), '1')
 

@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=58">
+<link rel="stylesheet" href="css/app.css?v=59">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -112,48 +112,54 @@
 <div class="section active" id="sec-partidos">
   <div class="sec-title"><span data-i18n="sec_partidos">Partidos</span></div>
 
-  <!-- Filtros: el buscador siempre a la vista; el resto, en el móvil, tras «Filtrar» -->
-  <div class="filter-panel part-filtros">
-    <div class="filter-row part-top">
-      <div class="fg part-buscar"><label class="flabel" for="sInput" data-i18n="flabel_pelotari">Pelotari</label><input type="text" class="wide" id="sInput" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderTabla()"></div>
-      <button class="btn-filtrar part-btn" id="btnFiltrarPart" onclick="toggleFiltrosPart()" aria-expanded="false" aria-controls="partExtra">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-        <span data-i18n="btn_filtrar">Filtrar</span><b class="btn-filtrar-n" hidden></b>
-      </button>
+  <!-- Por defecto, los últimos festivales (veladas); arriba, ver todos los partidos o filtrarlos -->
+  <div class="part-modos">
+    <div class="seg" role="group">
+      <button class="seg-btn on" data-modo="veladas" onclick="setModoPart('veladas')" aria-pressed="true" data-i18n="part_ultimos">Últimos festivales</button>
+      <button class="seg-btn" data-modo="todos" onclick="setModoPart('todos')" aria-pressed="false" data-i18n="part_todos">Todos los partidos</button>
     </div>
-    <div class="part-extra" id="partExtra">
-      <div class="filter-row">
-        <div class="fg"><span class="flabel" data-i18n="flabel_modalidad">Modalidad</span>
-          <div class="tipo-pills" id="pillsPartidos"></div>
-        </div>
+    <button class="btn-filtrar" id="btnFiltrarPart" onclick="toggleFiltrosPart()" aria-expanded="false" aria-controls="partFiltros">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+      <span data-i18n="btn_filtrar">Filtrar</span><b class="btn-filtrar-n" hidden></b>
+    </button>
+  </div>
+  <div class="filter-panel part-filtros" id="partFiltros" hidden>
+    <div class="filter-row">
+      <div class="fg part-buscar"><label class="flabel" for="sInput" data-i18n="flabel_pelotari">Pelotari</label><input type="text" class="wide" id="sInput" placeholder="Buscar pelotari…" data-i18n-ph="ph_buscar_pelotari" oninput="renderTabla()"></div>
+    </div>
+    <div class="filter-row">
+      <div class="fg"><span class="flabel" data-i18n="flabel_modalidad">Modalidad</span>
+        <div class="tipo-pills" id="pillsPartidos"></div>
       </div>
-      <div class="filter-row">
-        <div class="fg"><label class="flabel" for="fDesde" data-i18n="flabel_desde">Desde</label><input type="date" id="fDesde" onchange="renderTabla()"></div>
-        <div class="fg"><label class="flabel" for="fHasta" data-i18n="flabel_hasta">Hasta</label><input type="date" id="fHasta" onchange="renderTabla()"></div>
-        <div class="fg"><label class="flabel" for="fComp" data-i18n="flabel_competicion">Competición</label><select id="fComp" onchange="renderTabla()"><option value="" data-i18n="sel_todas">Todas</option></select></div>
-        <div class="fg"><label class="flabel" for="fFron" data-i18n="flabel_fronton">Frontón</label><select id="fFron" onchange="renderTabla()"><option value="" data-i18n="sel_todos">Todos</option></select></div>
-        <div class="fg"><label class="flabel" for="fCat" data-i18n="flabel_categoria">Categoría</label><select id="fCat" onchange="renderTabla()">
-          <option value="" data-i18n="sel_todas">Todas</option>
-          <option value="campeonato" data-i18n="cat_campeonatos">Campeonatos</option>
-          <option value="torneo" data-i18n="cat_torneos">Torneos</option>
-          <option value="desafio" data-i18n="cat_desafios">Desafíos</option>
-          <option value="festival" data-i18n="cat_festivales">Festivales</option>
-        </select></div>
-        <div class="fg"><label class="flabel" for="fFase" data-i18n="flabel_fase">Fase</label><select id="fFase" onchange="renderTabla()">
-          <option value="" data-i18n="sel_todas">Todas</option>
-          <option value="final" data-i18n="fase_final">Final</option>
-          <option value="tercero" data-i18n="fase_tercero">Tercer puesto</option>
-          <option value="semifinal" data-i18n="fase_semifinal">Semifinal</option>
-          <option value="cuartos" data-i18n="fase_cuartos">Cuartos</option>
-          <option value="octavos" data-i18n="fase_octavos">Octavos</option>
-          <option value="eliminatoria" data-i18n="fase_eliminatoria">Eliminatoria</option>
-          <option value="liga" data-i18n="fase_liga">Liguilla</option>
-        </select></div>
-        <div class="fg" style="justify-content:flex-end"><button class="btn-ghost" onclick="resetFiltros()" data-i18n="btn_limpiar">Limpiar</button></div>
-      </div>
+    </div>
+    <div class="filter-row">
+      <div class="fg"><label class="flabel" for="fDesde" data-i18n="flabel_desde">Desde</label><input type="date" id="fDesde" onchange="renderTabla()"></div>
+      <div class="fg"><label class="flabel" for="fHasta" data-i18n="flabel_hasta">Hasta</label><input type="date" id="fHasta" onchange="renderTabla()"></div>
+      <div class="fg"><label class="flabel" for="fComp" data-i18n="flabel_competicion">Competición</label><select id="fComp" onchange="renderTabla()"><option value="" data-i18n="sel_todas">Todas</option></select></div>
+      <div class="fg"><label class="flabel" for="fFron" data-i18n="flabel_fronton">Frontón</label><select id="fFron" onchange="renderTabla()"><option value="" data-i18n="sel_todos">Todos</option></select></div>
+      <div class="fg"><label class="flabel" for="fCat" data-i18n="flabel_categoria">Categoría</label><select id="fCat" onchange="renderTabla()">
+        <option value="" data-i18n="sel_todas">Todas</option>
+        <option value="campeonato" data-i18n="cat_campeonatos">Campeonatos</option>
+        <option value="torneo" data-i18n="cat_torneos">Torneos</option>
+        <option value="desafio" data-i18n="cat_desafios">Desafíos</option>
+        <option value="festival" data-i18n="cat_festivales">Festivales</option>
+      </select></div>
+      <div class="fg"><label class="flabel" for="fFase" data-i18n="flabel_fase">Fase</label><select id="fFase" onchange="renderTabla()">
+        <option value="" data-i18n="sel_todas">Todas</option>
+        <option value="final" data-i18n="fase_final">Final</option>
+        <option value="tercero" data-i18n="fase_tercero">Tercer puesto</option>
+        <option value="semifinal" data-i18n="fase_semifinal">Semifinal</option>
+        <option value="cuartos" data-i18n="fase_cuartos">Cuartos</option>
+        <option value="octavos" data-i18n="fase_octavos">Octavos</option>
+        <option value="eliminatoria" data-i18n="fase_eliminatoria">Eliminatoria</option>
+        <option value="liga" data-i18n="fase_liga">Liguilla</option>
+      </select></div>
+      <div class="fg" style="justify-content:flex-end"><button class="btn-ghost" onclick="resetFiltros()" data-i18n="btn_limpiar">Limpiar</button></div>
     </div>
   </div>
 
+  <div id="partVeladas"></div>
+  <div id="partLista" hidden>
   <div class="twrap">
     <table>
       <thead><tr>
@@ -170,6 +176,7 @@
   </div>
   <div id="tCount" style="font-family:var(--mono);font-size:.6rem;color:var(--muted);margin-top:.7rem;"></div>
   <div class="m-card" id="mCards"></div>
+  </div>
 </div>
 
 <!-- ══ PELOTARIS ══════════════════════════════════════════════════════════ -->
@@ -444,9 +451,9 @@
 
 </main>
 <footer class="site-footer"><details class="nota-datos"><summary><span aria-hidden="true">ⓘ</span> <span data-i18n="nota_datos_t">Sobre los datos</span></summary><p data-i18n="nota_datos">Los datos empiezan el 22 de noviembre de 2022. Los partidos, las estadísticas y las txapelas anteriores a esa fecha no están incluidos.</p></details><span class="derechos">© 2022-2026 EskupilotaStats · <span data-i18n="derechos">Todos los derechos reservados</span></span> <a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a> · <a id="lnkComps" href="/competicion/" data-i18n="lbl_comps">Competiciones</a> · <a id="lnkFros" href="/fronton/" data-i18n="lbl_fros">Frontones</a> · <a id="lnkPorraInfo" href="/porra/" data-i18n="lbl_porra_info">La porra</a> · <a id="lnkPriv" href="/privacidad/" data-i18n="lbl_priv">Privacidad</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=58"></script>
-<script src="js/analisis.js?v=58"></script>
-<script src="js/porra.js?v=58"></script>
+<script src="js/app.js?v=59"></script>
+<script src="js/analisis.js?v=59"></script>
+<script src="js/porra.js?v=59"></script>
 <script>loadData();</script>
 
 <script>
