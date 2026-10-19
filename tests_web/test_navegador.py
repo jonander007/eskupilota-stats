@@ -389,6 +389,22 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_frontones_por_provincia_y_comarca(self):
+        pg = self.pagina('#/frontones')
+        pg.wait_for_selector('#frontonGrid .fronton-card')
+        total = pg.locator('#frontonGrid .fronton-card').count()
+        pg.click('#provPillsFron button:has-text("Gipuzkoa")')
+        gipuzkoa = pg.locator('#frontonGrid .fronton-card').count()
+        self.assertTrue(0 < gipuzkoa < total)
+        # Con una provincia principal salen sus comarcas
+        pg.click('#comPillsFron button:has-text("Goierri")')
+        nombres = pg.locator('#frontonGrid .fname').all_inner_texts()
+        self.assertTrue(0 < len(nombres) < gipuzkoa)
+        self.assertTrue(pg.evaluate("n => n.every(f => geoFronton(f).comarca === 'Goierri')", nombres))
+        pg.click('#provPillsFron button:has-text("Otras")')
+        self.assertEqual(pg.locator('#comPillsFron').count(), 0)
+        self.assertGreater(pg.locator('#frontonGrid .fronton-card').count(), 0)
+
     def test_filtro_por_empresa_en_pelotaris(self):
         pg = self.pagina('#/pelotaris')
         pg.wait_for_selector('#pCards .pcard')

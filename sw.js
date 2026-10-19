@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v54';
+const CACHE = 'eskupilota-v55';
 const PREFS = 'eskupilota-prefs';   // pelotaris seguidos y avisos ya dados (los escribe la web)
 
 // Todo lo necesario para que la web arranque sin conexión
