@@ -1710,6 +1710,9 @@ function htmlDueloIndividual(p1, p2, ctx){
       const est = suyos.filter(p => anioComp(p.competicion)===anio);
       const ve = est.filter(p => pels(p[p.ganador]).includes(n)).length;
       const tit = suyos.filter(p => p.fase==='final' && pels(p[p.ganador]).includes(n)).map(p => anioComp(p.competicion));
+      // El resto de sus txapelas (otros campeonatos y torneos), de la más reciente
+      const otras = PARTIDOS.filter(p => p.fase==='final' && (p.categoria==='campeonato' || p.categoria==='torneo')
+        && baseComp(p.competicion)!==base && pels(p[p.ganador]).includes(n)).sort((a,b)=>parseDate(b.fecha)-parseDate(a.fecha));
       const dato = (lbl, val) => `<div class="dc-dato"><span>${lbl}</span><b>${val}</b></div>`;
       return `<div class="duelo-comp-card ${lado}">
         <div class="dc-nombre"><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></div>
@@ -1718,7 +1721,8 @@ function htmlDueloIndividual(p1, p2, ctx){
           ${dato(tx('% victorias','% garaipenak'), suyos.length ? Math.round(v/suyos.length*100)+'%' : '—')}
           ${dato(anio||tx('Esta edición','Edizio hau'), est.length ? `${ve}–${est.length-ve}` : '—')}
         </div>
-        <div class="dc-txapelas">${tit.length ? tit.map(a=>`<span class="rk-txapela camp">🏆 ${a}</span>`).join('') : `<span class="an-muted">${tx('Sin txapelas','Txapelarik ez')}</span>`}</div>
+        <div class="dc-txapelas"><span class="dc-lbl">${tx('Txapelas','Txapelak')}</span>${tit.length ? tit.map(a=>`<span class="rk-txapela camp">🏆 ${h(nombreCortoComp(comp.replace(/\s*\b20\d\d\b/, '')))} ${a}</span>`).join('') : `<span class="an-muted">${tx('Ninguna en este campeonato','Bat ere ez txapelketa honetan')}</span>`}</div>
+        ${otras.length ? `<div class="dc-txapelas"><span class="dc-lbl">${tx('Otras','Beste batzuk')}</span>${otras.map(p => `<span class="rk-txapela ${p.categoria==='campeonato'?'camp':'torn'}" title="${h(tComp(p.competicion))} · ${p.fecha}">${h(nombreCortoComp(p.competicion))}</span>`).join('')}</div>` : ''}
       </div>`;
     };
     compHtml = `<div class="ch-card duelo-bloque">

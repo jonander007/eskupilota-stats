@@ -1070,7 +1070,8 @@ header :focus-visible{outline-color:#fff;}
 .dc-dato span{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);}
 .dc-dato b{font-family:var(--display);font-size:1.6rem;line-height:1;}
 .dc-dato i{font-style:normal;}
-.dc-txapelas{display:flex;flex-wrap:wrap;gap:.3rem;font-size:.72rem;}
+.dc-txapelas{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;font-size:.72rem;margin-top:.3rem;}
+.dc-lbl{font-family:var(--mono);font-size:.56rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);min-width:4.2rem;}
 @media(max-width:700px){
   .pc-card{grid-template-columns:minmax(0,1fr);gap:.5rem;}
   .pc-res{grid-row:2;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);}
