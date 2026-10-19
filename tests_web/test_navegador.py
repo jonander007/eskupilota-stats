@@ -401,6 +401,13 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.locator('#pCards .pcard .logo-emp.aspe').count(), len(nombres))
         pg.click('#empPillsPel [data-emp="todas"]')
         self.assertEqual(pg.locator('#pCards .pcard').count(), total)
+        # Estado (por defecto en activo) y posición
+        pg.click('#estPillsPel [data-est="todos"]')
+        todos = pg.locator('#pCards .pcard').count()
+        pg.click('#estPillsPel [data-est="retirados"]')
+        self.assertEqual(total + pg.locator('#pCards .pcard').count(), todos)
+        pg.click('#posPillsPel [data-pos="zaguero"]')
+        self.assertEqual(pg.locator('.pel-group-header.del').count(), 0)
 
     def test_duelo_individual_desde_la_cartelera(self):
         pg = self.pagina('#/cartelera')

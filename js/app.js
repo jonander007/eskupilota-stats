@@ -10,11 +10,8 @@ function setActivosTab(scope, activos, btn){
   filterActivos = activos;
   // Actualizar las dos pestañas (en pelotaris y en ranking) para que estén sincronizadas
   document.querySelectorAll('.ah-tab').forEach(b=>b.classList.remove('on'));
-  document.getElementById('ahtab-pel-act').classList.toggle('on', activos);
-  document.getElementById('ahtab-pel-hist').classList.toggle('on', !activos);
   document.getElementById('ahtab-rk-act').classList.toggle('on', activos);
   document.getElementById('ahtab-rk-hist').classList.toggle('on', !activos);
-  renderPCards();
   buildRanking();
 }
 
@@ -373,6 +370,7 @@ const I18N = {
     abbr_tantos: 'Pts',
     // Categorías y fases (ver scraper/competiciones.py)
     flabel_categoria: 'Categoría', flabel_empresa: 'Empresa', flabel_fase: 'Fase',
+    flabel_estado: 'Estado', est_actuales: 'En activo', est_retirados: 'Retirados', flabel_posicion: 'Posición',
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
     tag_torneo: 'Torneo', tag_desafio: 'Desafío', tag_parejas: 'Parejas',
     fase_liga: 'Liguilla', fase_eliminatoria: 'Eliminatoria', fase_octavos: 'Octavos',
@@ -506,6 +504,7 @@ const I18N = {
     map_creditos: 'Maparen kredituak', map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
     flabel_categoria: 'Kategoria', flabel_empresa: 'Enpresa', flabel_fase: 'Fasea',
+    flabel_estado: 'Egoera', est_actuales: 'Aktibo', est_retirados: 'Erretiratuak', flabel_posicion: 'Postua',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
     tag_torneo: 'Torneoa', tag_desafio: 'Desafioa', tag_parejas: 'Binaka',
     fase_liga: 'Liga', fase_eliminatoria: 'Kanporaketa', fase_octavos: 'Final-zortzirenak',
@@ -1152,23 +1151,28 @@ function toggleMCard(header){
 // ════════════════════════════════════════════════════════════
 // PELOTARIS
 // ════════════════════════════════════════════════════════════
-let activeEmpPel = 'todas';   // todas | aspe | baiko
-function setEmpPel(emp){
-  activeEmpPel = emp;
-  document.querySelectorAll('#empPillsPel .ypill').forEach(b=>{ b.classList.toggle('on', b.dataset.emp===emp); b.setAttribute('aria-pressed', b.dataset.emp===emp); });
-  renderPCards();
+// Filtros de la pestaña Pelotaris: estado, empresa y posición
+let activeEmpPel = 'todas';        // todas | aspe | baiko
+let activeEstadoPel = 'actuales';  // actuales | retirados | todos
+let activePosPel = 'todas';        // todas | delantero | zaguero
+function marcarPills(id, attr, valor){
+  document.querySelectorAll(`#${id} .ypill`).forEach(b=>{ const on = b.dataset[attr]===valor; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
 }
+function setEmpPel(emp){ activeEmpPel = emp; marcarPills('empPillsPel', 'emp', emp); renderPCards(); }
+function setEstadoPel(est){ activeEstadoPel = est; marcarPills('estPillsPel', 'est', est); renderPCards(); }
+function setPosPel(pos){ activePosPel = pos; marcarPills('posPillsPel', 'pos', pos); renderPCards(); }
 
 function renderPCards(){
   const q=(document.getElementById('pSearch').value||'').toLowerCase();
   closePerfil();
   const parts=partidosFiltroPelotaris();
   const st=calcStats(parts);
-  const activePlayers = filterActivos ? getActivePlayers() : null;
+  const activePlayers = activeEstadoPel!=='todos' ? getActivePlayers() : null;
   let ns=Object.keys(st).filter(n=>{
     if(q&&!n.toLowerCase().includes(q)) return false;
-    if(activePlayers&&!activePlayers.has(n.toUpperCase())) return false;
+    if(activePlayers && activePlayers.has(n.toUpperCase()) !== (activeEstadoPel==='actuales')) return false;
     if(!deEmpresa(n, activeEmpPel)) return false;
+    if(activePosPel!=='todas' && getRol(n)!==activePosPel) return false;
     return true;
   });
   ns.sort((a,b)=>st[b].pg-st[a].pg);
