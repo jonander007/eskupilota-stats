@@ -1687,20 +1687,6 @@ function htmlDueloIndividual(p1, p2, ctx){
   const bloque = (titulo, ps, cls) => {
     if(!ps.length) return '';
     const w1 = ps.filter(p=>gana(p,p1)).length, w2 = ps.length-w1;
-    const pt = (p, n) => pels(p.equipo1)[0]===n ? p.puntos1 : p.puntos2;
-    const fila = p => {
-      const ti = etiquetaPartido(p), g1 = gana(p,p1), g2 = gana(p,p2);
-      const comp = p.competicion && !/^festival/i.test(p.competicion) ? tComp(p.competicion) : '';
-      return `<div class="duelo-partido">
-        <div class="dp-fecha"><b>${p.fecha}</b>${p.fase?`<span class="fase-lbl">${textoFase(p)}</span>`:''}</div>
-        <div class="dp-info">
-          <div class="dp-comp"><span class="tag ${ti.cls}">${ti.lbl}</span>${comp?`<span>${h(comp)}</span>`:''}</div>
-          <div class="dp-fron">📍 ${h(p.fronton)}${p.ciudad?` <span>· ${h(p.ciudad)}</span>`:''}</div>
-        </div>
-        <div class="dp-marcador"><b class="${g1?'w1':'l'}">${pt(p,p1)}</b><span>–</span><b class="${g2?'w2':'l'}">${pt(p,p2)}</b></div>
-      </div>`;
-    };
-    const MAX = 5;
     return `<div class="ch-card duelo-bloque ${cls}">
       <h3>${titulo} <span class="an-muted">· ${nPartidos(ps.length)}</span></h3>
       <div class="duelo-marcador">
@@ -1709,9 +1695,7 @@ function htmlDueloIndividual(p1, p2, ctx){
         <div class="dm-2${w2>w1?' lider':''}"><span>${h(p2)}</span><b>${w2}</b></div>
       </div>
       <div class="duelo-barra" aria-hidden="true"><span style="width:${Math.round(w1/ps.length*100)}%"></span></div>
-      <div class="duelo-partidos">${ps.slice(0,MAX).map(fila).join('')}</div>
-      ${ps.length>MAX?`<details class="duelo-mas"><summary>${tx(`Ver ${ps.length-MAX} más`,`Ikusi beste ${ps.length-MAX}`)}</summary>
-        <div class="duelo-partidos">${ps.slice(MAX).map(fila).join('')}</div></details>`:''}
+      ${listaTarjetas(ps, p => pels(p.equipo1)[0]===p1)}
     </div>`;
   };
   // Trayectoria de cada uno en la competición (todas sus ediciones)
@@ -1720,23 +1704,26 @@ function htmlDueloIndividual(p1, p2, ctx){
   if(comp){
     const base = baseComp(comp), anio = anioComp(comp);
     const deComp = PARTIDOS.filter(p => p.competicion && baseComp(p.competicion)===base);
-    const fila = n => {
+    const tarjeta = (n, lado) => {
       const suyos = deComp.filter(p => pels(p.equipo1).includes(n) || pels(p.equipo2).includes(n));
       const v = suyos.filter(p => pels(p[p.ganador]).includes(n)).length;
       const est = suyos.filter(p => anioComp(p.competicion)===anio);
       const ve = est.filter(p => pels(p[p.ganador]).includes(n)).length;
       const tit = suyos.filter(p => p.fase==='final' && pels(p[p.ganador]).includes(n)).map(p => anioComp(p.competicion));
-      return `<tr><td><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></td>
-        <td class="an-num"><b class="an-up">${v}</b>–<span class="an-down">${suyos.length-v}</span></td>
-        <td class="an-num">${suyos.length ? Math.round(v/suyos.length*100)+'%' : '—'}</td>
-        <td class="an-num">${est.length ? `${ve}–${est.length-ve}` : '—'}</td>
-        <td class="rk-titulos">${tit.length ? tit.map(a=>`<span class="rk-txapela camp">🏆 ${a}</span>`).join('') : '<span class="an-muted">—</span>'}</td></tr>`;
+      const dato = (lbl, val) => `<div class="dc-dato"><span>${lbl}</span><b>${val}</b></div>`;
+      return `<div class="duelo-comp-card ${lado}">
+        <div class="dc-nombre"><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span></div>
+        <div class="dc-datos">
+          ${dato(tx('Histórico','Guztira'), suyos.length ? `<i class="an-up">${v}</i>–<i class="an-down">${suyos.length-v}</i>` : '—')}
+          ${dato(tx('% victorias','% garaipenak'), suyos.length ? Math.round(v/suyos.length*100)+'%' : '—')}
+          ${dato(anio||tx('Esta edición','Edizio hau'), est.length ? `${ve}–${est.length-ve}` : '—')}
+        </div>
+        <div class="dc-txapelas">${tit.length ? tit.map(a=>`<span class="rk-txapela camp">🏆 ${a}</span>`).join('') : `<span class="an-muted">${tx('Sin txapelas','Txapelarik ez')}</span>`}</div>
+      </div>`;
     };
     compHtml = `<div class="ch-card duelo-bloque">
       <h3>${h(tComp(comp.replace(/\s*\b20\d\d\b/, '')))} <span class="an-muted">· ${tx('todas las ediciones','edizio guztiak')}</span></h3>
-      <div class="an-table-wrap"><table class="comp-table">
-        <thead><tr><th>${tx('Pelotari','Pilotaria')}</th><th class="an-num">${t('abbr_v')}–${t('abbr_d')}</th><th class="an-num">%</th><th class="an-num">${anio||tx('Esta edición','Edizio hau')}</th><th>${tx('Txapelas','Txapelak')}</th></tr></thead>
-        <tbody>${fila(p1)}${fila(p2)}</tbody></table></div>
+      <div class="duelo-comp">${tarjeta(p1,'r')}${tarjeta(p2,'a')}</div>
     </div>`;
   }
   const cuatro = bloque(tx('Enfrentamientos a 4 y medio',"Lau t'erdiko norgehiagokak"), enfr('cuatro'), 'cuatro');
