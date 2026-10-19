@@ -389,6 +389,16 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_resultados_en_el_movil_con_filtros_plegados(self):
+        pg = self.pagina('', ancho=390)
+        pg.wait_for_selector('#mCards .m-card-row')
+        # Los filtros (salvo el buscador) no se ven hasta pulsar «Filtrar»
+        self.assertFalse(pg.locator('#fComp').is_visible())
+        pg.click('#btnFiltrarPart')
+        self.assertTrue(pg.locator('#fComp').is_visible())
+        pg.select_option('#fCat', 'festival')
+        self.assertEqual(pg.inner_text('#btnFiltrarPart .btn-filtrar-n'), '1')
+
     def test_cara_a_cara_filtros_de_cada_pelotari(self):
         pg = self.pagina('#/comparador')
         pg.wait_for_selector('#h2hFil1 .ypill')

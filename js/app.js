@@ -1009,7 +1009,21 @@ function resetFiltros(){
 // ════════════════════════════════════════════════════════════
 function sortT(f){if(sortFld===f)sortAsc=!sortAsc;else{sortFld=f;sortAsc=false;}renderTabla();}
 
+// Móvil: los filtros de Resultados (salvo el buscador) se abren con «Filtrar»
+function toggleFiltrosPart(){
+  const el = document.getElementById('partExtra'), b = document.getElementById('btnFiltrarPart');
+  const abierto = el.classList.toggle('abierto');
+  b.setAttribute('aria-expanded', abierto); b.classList.toggle('on', abierto);
+}
+function contarFiltrosPart(){
+  const n = ['fDesde','fHasta','fComp','fFron','fCat','fFase'].filter(id => document.getElementById(id)?.value).length
+    + (activeTipo!=='todos' ? 1 : 0);
+  const b = document.querySelector('#btnFiltrarPart .btn-filtrar-n');
+  if(b){ b.textContent = n; b.hidden = !n; }
+}
+
 function renderTabla(){
+  contarFiltrosPart();
   const q=(document.getElementById('sInput').value||'').toLowerCase();
   const comp=document.getElementById('fComp').value;
   const fron=document.getElementById('fFron').value;
