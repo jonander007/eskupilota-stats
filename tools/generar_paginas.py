@@ -50,6 +50,7 @@ TXT = {
         'partido': 'Partido', 'res': 'Resultado', 'v': 'V', 'd': 'D',
         'companeros': 'Compañeros más habituales', 'frontones': 'Frontones donde más ha jugado',
         'pj': 'PJ', 'ficha': 'Ver la ficha completa: gráficos, comparador y cara a cara →',
+        'foto': 'Foto', 'autor_desc': 'autor desconocido',
         'actualizado': 'Datos actualizados el {f}. Fuente: resultados de Baiko Pilota y Aspe.',
         'derechos': '© 2022-2026 EskupilotaStats · Todos los derechos reservados',
         'todos': 'Todos los pelotaris', 'indice_titulo': 'Pelotaris: estadísticas de pelota a mano | EskupilotaStats',
@@ -94,6 +95,7 @@ TXT = {
         'partido': 'Partida', 'res': 'Emaitza', 'v': 'G', 'd': 'P',
         'companeros': 'Bikotekide ohikoenak', 'frontones': 'Gehien jokatu duen frontoiak',
         'pj': 'PJ', 'ficha': 'Fitxa osoa ikusi: grafikoak, konparatzailea eta aurrez aurrekoak →',
+        'foto': 'Argazkia', 'autor_desc': 'egile ezezaguna',
         'actualizado': 'Datuak {f}an eguneratuak. Iturria: Baiko Pilota eta Aspe-ren emaitzak.',
         'derechos': '© 2022-2026 EskupilotaStats · Eskubide guztiak erreserbatuta',
         'todos': 'Pilotari guztiak', 'indice_titulo': 'Pilotariak: esku pilotako estatistikak | EskupilotaStats',
@@ -294,6 +296,14 @@ ul.pal{margin:0;padding-left:1.1rem}.lista{columns:3 180px;padding-left:1.1rem}
 footer{color:var(--muted);font-size:.75rem;margin-top:1.5rem}
 @media (max-width:600px){table.ult th:nth-child(3),table.ult td:nth-child(3),table.ult2 th:nth-child(2),table.ult2 td:nth-child(2){display:none}h1{font-size:1.6rem}}
 .kpi b.s{font-size:1.05rem;padding-top:.45rem}
+.cab{display:flex;align-items:flex-start;gap:1rem}.cab>div{min-width:0}
+.foto{position:relative;margin:.3rem 0 0;flex:0 0 112px;width:112px}
+.foto img,.ini{display:block;width:112px;height:112px;border-radius:50%}
+.foto img{position:absolute;top:0;left:0;object-fit:cover;object-position:50% 20%;background:var(--border)}
+.ini{display:flex;align-items:center;justify-content:center;background:var(--green);color:#fff;font-size:3rem;font-weight:700}
+.foto figcaption{font-size:.68rem;line-height:1.4;color:var(--muted);margin-top:.4rem;overflow-wrap:anywhere}.foto figcaption a{color:inherit}
+.foto.sin img,.foto.sin figcaption{display:none}
+@media (max-width:600px){.foto{flex-basis:84px;width:84px}.foto img,.ini{width:84px;height:84px;font-size:2.2rem}}
 """
 
 
@@ -337,12 +347,27 @@ def barra(lang, alt_url):
 """
 
 
+def html_foto(n, foto, lang):
+    """Foto de Wikimedia Commons con el crédito debajo (autor · licencia ·
+    Commons, con enlaces); sin foto, o si no carga, la inicial."""
+    ini = f'<span class="ini" aria-hidden="true">{e(n.strip()[:1])}</span>'
+    if not foto:
+        return f'<figure class="foto sin">{ini}</figure>'
+    T = TXT[lang]
+    a = lambda url, txt: f'<a href="{e(url)}" rel="noopener">{e(txt)}</a>' if url else e(txt)
+    return (f'<figure class="foto">{ini}<img src="{e(foto["url"])}" alt="{e(n)}" width="112" height="112" '
+            f'referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'sin\')">'
+            f'<figcaption>{T["foto"]}: {a(foto.get("autor_url"), foto.get("autor") or T["autor_desc"])} · '
+            f'{a(foto.get("licencia_url"), foto["licencia"])} · {a(foto["commons"], "Wikimedia Commons")}</figcaption></figure>')
+
+
 def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, hoy, eq):
     T = TXT[lang]
     slug = slugs[n]
     url_es, url_eu = f'{WEB}/pelotari/{slug}/', f'{WEB}/eu/pelotari/{slug}/'
     url = url_es if lang == 'es' else url_eu
-    rol_id = next((p.get('rol') for p in pel.values() if p['nombre'] == n), 'delantero')
+    yo = next((p for p in pel.values() if p['nombre'] == n), {})
+    rol_id = yo.get('rol', 'delantero')
     rol = T['rol_zag'] if rol_id == 'zaguero' else T['rol_del']
     pct = round(s['pg'] / s['pj'] * 100) if s['pj'] else 0
     dif = s['tf'] - s['tc']
@@ -353,6 +378,10 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
 
     ld = {'@context': 'https://schema.org', '@type': 'Person', 'name': n, 'jobTitle': 'Pelotari',
           'url': url, 'description': desc}
+    if yo.get('foto'):
+        ld['image'] = yo['foto']['url']
+    if yo.get('wikidata'):
+        ld['sameAs'] = f"https://www.wikidata.org/wiki/{yo['wikidata']}"
     extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
 
     kpis = [(s['pj'], T['partidos'], ''), (s['pg'], T['victorias'], 'g'), (s['pj'] - s['pg'], T['derrotas'], 'r'),
@@ -399,9 +428,11 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
     th = f"<th></th><th style=text-align:right>{T['pj']}</th><th style=text-align:right>{T['v']}</th><th style=text-align:right>%</th>"
 
     return cabecera(lang, titulo, desc, url, url_es, url_eu, extra) + barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
+<div class="cab">{html_foto(n, yo.get('foto'), lang)}<div>
 <h1>{e(n)}</h1>
 <p class="sub">{e(rol.capitalize())} · {T['partidos'].lower()}: {s['pj']}</p>
 <a class="cta" href="{ficha}">{T['ficha']}</a>
+</div></div>
 <section class="card"><div class="kpis">{kpis_html}</div></section>
 <div class="grid2">
 <section class="card"><h2>{T['modalidad']}</h2><div class="tw"><table><thead><tr>{th}</tr></thead><tbody>{mods}</tbody></table></div></section>

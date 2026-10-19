@@ -43,6 +43,8 @@ tools/
                         campeonato de Baiko (HTML guardado o URL; lista en
                         data/historial_baiko.json, workflow «Historial de Baiko»)
   recalcular_contadores.py  Recalcula partidos_count y roles
+  fotos_wikidata.py     Foto de cada pelotari desde Wikidata (P18, Wikimedia Commons),
+                        con autor y licencia; solo licencias libres (workflow «Fotos»)
   ...                   Scripts de limpieza puntuales (migración, auditorías)
 ```
 

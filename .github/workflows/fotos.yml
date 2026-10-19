@@ -1,0 +1,53 @@
+name: 📷 Fotos de los pelotaris
+
+# Pone a cada pelotari la foto de Wikidata (P18, Wikimedia Commons) con su
+# autor y licencia; solo fotos con licencia libre. Se lanza a mano desde
+# GitHub (Actions); con «aplicar» desmarcado solo muestra el informe.
+on:
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: 'Guardar los cambios (si no, solo el informe)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Informe (sin cambios)
+        if: ${{ !inputs.aplicar }}
+        run: python tools/fotos_wikidata.py --dry-run
+
+      - name: Aplicar
+        if: ${{ inputs.aplicar }}
+        run: |
+          python tools/fotos_wikidata.py
+          python tools/validar_datos.py
+          python tools/generar_paginas.py
+
+      - name: Guardar cambios
+        if: ${{ inputs.aplicar }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ pelotari/ competicion/ fronton/ privacidad/ porra/ eu/ sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Sin cambios"
+          else
+            git commit -m "📷 Fotos de los pelotaris"
+            git push
+          fi

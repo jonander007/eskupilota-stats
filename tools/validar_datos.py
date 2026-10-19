@@ -20,6 +20,7 @@ Errores:
     competición; campeonato sin serie; festival o desafío con serie
   - nombres duplicados en un catálogo (iguales sin tildes, guiones ni espacios)
   - contadores partidos_count desactualizados
+  - foto de un pelotari que no es de Wikimedia Commons o sin licencia libre
 
 Avisos:
   - tanteos poco habituales, nombres muy parecidos, frontones sin
@@ -40,6 +41,7 @@ from datetime import date, timedelta
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'scraper'))
 from competiciones import CATEGORIAS, FASES, _tipo, categoria_de_competicion  # noqa: E402
+from fotos_wikidata import licencia_libre  # noqa: E402
 
 DATA_DIR = 'data'
 
@@ -121,6 +123,15 @@ def main():
     for p in pelotaris.values():
         if p.get('rol') not in ('delantero', 'zaguero'):
             aviso(f"pelotari {p['id']} {p['nombre']}: rol '{p.get('rol')}'")
+        if 'wikidata' in p and not re.fullmatch(r'Q\d+', str(p['wikidata'])):
+            error(f"pelotari {p['id']} {p['nombre']}: wikidata '{p['wikidata']}' no es un Q…")
+        foto = p.get('foto')
+        if foto is not None:
+            if not re.match(r'https://(upload|thumb)\.wikimedia\.org/', str(foto.get('url', ''))) or \
+                    not str(foto.get('commons', '')).startswith('https://commons.wikimedia.org/'):
+                error(f"pelotari {p['id']} {p['nombre']}: la foto no es de Wikimedia Commons")
+            if not licencia_libre(foto.get('licencia')):
+                error(f"pelotari {p['id']} {p['nombre']}: foto sin licencia libre ('{foto.get('licencia')}')")
 
     manana = date.today() + timedelta(days=1)
     vistos = {}

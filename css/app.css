@@ -304,6 +304,14 @@ tr:hover td{background:var(--surface2);}
   border-radius:var(--r-lg);box-shadow:var(--shadow);
 }
 .pf-nombre{font-family:var(--display);font-weight:700;font-size:2.1rem;letter-spacing:.02em;text-transform:uppercase;}
+/* Foto de Wikimedia Commons con el crédito debajo; sin foto, la inicial */
+.pf-foto{position:relative;margin:0 0 .9rem;}
+.pf-foto img,.pf-inicial{display:block;width:112px;height:112px;border-radius:50%;border:3px solid rgba(255,255,255,.85);}
+.pf-foto img{position:absolute;top:0;left:0;object-fit:cover;object-position:50% 20%;background:var(--green-dark);}
+.pf-inicial{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.16);font-family:var(--display);font-weight:700;font-size:3rem;line-height:1;}
+.pf-foto figcaption{font-family:var(--mono);font-size:.56rem;line-height:1.45;opacity:.85;margin-top:.45rem;overflow-wrap:anywhere;}
+.pf-foto figcaption a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+.pf-foto.sin-foto img,.pf-foto.sin-foto figcaption{display:none;}
 .pf-sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;background:var(--surface);border:1px solid var(--border);padding:1.1rem;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);}
 .pf-s{text-align:center;}
 .pf-s .v{font-family:var(--display);font-weight:700;font-size:1.7rem;}.pf-s .v.g{color:var(--green);}.pf-s .v.r{color:var(--red);}

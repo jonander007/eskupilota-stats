@@ -16,6 +16,7 @@ Están separadas de tests/ (scrapers) para que el workflow nocturno no
 necesite el navegador.
 """
 
+import base64
 import functools
 import http.server
 import os
@@ -221,6 +222,31 @@ class Web(unittest.TestCase):
         txapelas = int(pg.locator('.pf-palm-cifras b').first.inner_text())
         self.assertGreaterEqual(txapelas, 2)
         self.assertEqual(pg.locator('.pf-palmares .rk-txapela.camp, .pf-palmares .rk-txapela.torn').count(), txapelas)
+
+    def test_foto_con_credito_y_sin_foto_la_inicial(self):
+        pg = self.pagina('#/pelotari/laso')
+        # Las peticiones a otros dominios están bloqueadas: la foto se da en línea
+        with open(os.path.join(RAIZ, 'icon-192.png'), 'rb') as f:
+            png = 'data:image/png;base64,' + base64.b64encode(f.read()).decode()
+        foto = {'url': png,
+                'autor': 'Ane', 'autor_url': 'https://commons.wikimedia.org/wiki/User:Ane',
+                'licencia': 'CC BY-SA 4.0', 'licencia_url': 'https://creativecommons.org/licenses/by-sa/4.0',
+                'commons': 'https://commons.wikimedia.org/wiki/File:Laso.jpg'}
+        pg.evaluate("f => { FOTO_POR_NOMBRE['LASO'] = f; openPerfil(_perfilNombre); }", foto)
+        pg.wait_for_function("document.querySelector('.pf-foto img').complete")
+        self.assertTrue(pg.locator('.pf-foto img').is_visible())
+        self.assertEqual(pg.inner_text('.pf-foto figcaption'), 'Foto: Ane · CC BY-SA 4.0 · Wikimedia Commons')
+        self.assertEqual(pg.locator('.pf-foto figcaption a').evaluate_all('as => as.map(a => a.href)'),
+                         [foto['autor_url'], foto['licencia_url'], foto['commons']])
+        # Si la foto no carga, se queda la inicial y no se ve el crédito
+        pg.evaluate("f => { FOTO_POR_NOMBRE['LASO'] = {...f, url: 'https://upload.wikimedia.org/no-carga.jpg'}; openPerfil(_perfilNombre); }", foto)
+        pg.wait_for_selector('.pf-foto.sin-foto', state='attached')
+        self.assertEqual(pg.inner_text('.pf-inicial'), 'L')
+        self.assertFalse(pg.locator('.pf-foto figcaption').is_visible())
+        # Sin foto, la inicial
+        pg.evaluate("delete FOTO_POR_NOMBRE['LASO']; openPerfil(_perfilNombre)")
+        self.assertEqual(pg.locator('.pf-foto img').count(), 0)
+        self.assertTrue(pg.locator('.pf-inicial').is_visible())
 
     def test_seguir_pelotari_y_cartelera(self):
         pg = self.pagina('#/cartelera')

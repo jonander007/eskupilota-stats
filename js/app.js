@@ -58,6 +58,19 @@ let ROL_POR_NOMBRE = {};
 let EMPRESA_POR_NOMBRE = {};   // 'baiko' | 'aspe' (data/pelotaris.json, ver tools/empresas.py)
 function getEmpresa(nombre){ return EMPRESA_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
 const NOMBRE_EMPRESA = {baiko:'Baiko', aspe:'Aspe'};
+// Foto de Wikimedia Commons con su autor y licencia (data/pelotaris.json, ver tools/fotos_wikidata.py)
+let FOTO_POR_NOMBRE = {};
+function getFoto(nombre){ return FOTO_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
+
+// Foto del pelotari con el crédito debajo; sin foto (o si no carga), su inicial
+function htmlFotoPerfil(nombre){
+  const f = getFoto(nombre);
+  const inicial = `<span class="pf-inicial" aria-hidden="true">${h((nombre||'?').trim().charAt(0))}</span>`;
+  if(!f) return `<figure class="pf-foto sin-foto">${inicial}</figure>`;
+  const a = (url, txt) => url ? `<a href="${h(url)}" target="_blank" rel="noopener">${h(txt)}</a>` : h(txt);
+  return `<figure class="pf-foto">${inicial}<img src="${h(f.url)}" alt="${h(nombre)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.pf-foto').classList.add('sin-foto')">
+    <figcaption>${t('lbl_foto')}: ${a(f.autor_url, f.autor||t('lbl_autor_desc'))} · ${a(f.licencia_url, f.licencia)} · ${a(f.commons, 'Wikimedia Commons')}</figcaption></figure>`;
+}
 function getRol(nombre){
   const rol = ROL_POR_NOMBRE[(nombre||'').toUpperCase()];
   return (rol==='delantero'||rol==='zaguero') ? rol : 'otro';
@@ -338,7 +351,7 @@ const I18N = {
     rk_tab_elo: 'Elo',
     lbl_pelotari1: 'Pelotari 1', lbl_pelotari2: 'Pelotari 2',
     cont_ph_email: 'tu@email.com',
-    lbl_pelota_mano: 'Pelota a mano',
+    lbl_pelota_mano: 'Pelota a mano', lbl_foto: 'Foto', lbl_autor_desc: 'autor desconocido',
     th_compañero: 'Compañero', th_rival: 'Rival',
     abbr_v: 'V', abbr_d: 'D', abbr_pj: 'PJ',
     sin_datos: 'Sin datos suficientes',
@@ -472,7 +485,7 @@ const I18N = {
     aria_menu: 'Menua', aria_cerrar: 'Itxi', aria_mapa: 'Frontoien mapa', aria_saltar: 'Edukira joan',
     lbl_pelotari1: '1. pilotaria', lbl_pelotari2: '2. pilotaria',
     cont_ph_email: 'zure@helbidea.eus',
-    lbl_pelota_mano: 'Esku pilota',
+    lbl_pelota_mano: 'Esku pilota', lbl_foto: 'Argazkia', lbl_autor_desc: 'egile ezezaguna',
     th_compañero: 'Bikotekidea', th_rival: 'Aurkaria',
     abbr_v: 'G', abbr_d: 'P', abbr_pj: 'PJ',
     sin_datos: 'Ez dago datu nahikorik',
@@ -633,6 +646,7 @@ async function loadData(){
       CAT_PELOTARIS     = Object.fromEntries(pels.map(o=>[o.id,o]));
       ROL_POR_NOMBRE    = Object.fromEntries(pels.map(o=>[(o.nombre||'').toUpperCase(), o.rol]));
       EMPRESA_POR_NOMBRE = Object.fromEntries(pels.filter(o=>o.empresa).map(o=>[(o.nombre||'').toUpperCase(), o.empresa]));
+      FOTO_POR_NOMBRE   = Object.fromEntries(pels.filter(o=>o.foto).map(o=>[(o.nombre||'').toUpperCase(), o.foto]));
       CAT_CIUDADES      = Object.fromEntries(ciu .map(o=>[o.id,o]));
       CAT_FRONTONES     = Object.fromEntries(fro .map(o=>[o.id,o]));
       CAT_COMPETICIONES = Object.fromEntries(cmp .map(o=>[o.id,o]));
@@ -1253,7 +1267,7 @@ function openPerfil(nombre){
 
   document.getElementById('pfWrap').innerHTML=`
     <div>
-      <div class="pf-header"><div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
+      <div class="pf-header">${htmlFotoPerfil(nombre)}<div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
       <div class="pf-sgrid">
         <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
         <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">${t('lbl_derrotas')}</div></div>
