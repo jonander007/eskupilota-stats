@@ -1688,18 +1688,30 @@ function htmlDueloIndividual(p1, p2, ctx){
     if(!ps.length) return '';
     const w1 = ps.filter(p=>gana(p,p1)).length, w2 = ps.length-w1;
     const pt = (p, n) => pels(p.equipo1)[0]===n ? p.puntos1 : p.puntos2;
+    const fila = p => {
+      const ti = etiquetaPartido(p), g1 = gana(p,p1), g2 = gana(p,p2);
+      const comp = p.competicion && !/^festival/i.test(p.competicion) ? tComp(p.competicion) : '';
+      return `<div class="duelo-partido">
+        <div class="dp-fecha"><b>${p.fecha}</b>${p.fase?`<span class="fase-lbl">${textoFase(p)}</span>`:''}</div>
+        <div class="dp-info">
+          <div class="dp-comp"><span class="tag ${ti.cls}">${ti.lbl}</span>${comp?`<span>${h(comp)}</span>`:''}</div>
+          <div class="dp-fron">📍 ${h(p.fronton)}${p.ciudad?` <span>· ${h(p.ciudad)}</span>`:''}</div>
+        </div>
+        <div class="dp-marcador"><b class="${g1?'w1':'l'}">${pt(p,p1)}</b><span>–</span><b class="${g2?'w2':'l'}">${pt(p,p2)}</b></div>
+      </div>`;
+    };
+    const MAX = 5;
     return `<div class="ch-card duelo-bloque ${cls}">
       <h3>${titulo} <span class="an-muted">· ${nPartidos(ps.length)}</span></h3>
       <div class="duelo-marcador">
-        <div class="${w1>=w2?'an-up':''}"><span>${h(p1)}</span><b>${w1}</b></div>
+        <div class="dm-1${w1>w2?' lider':''}"><span>${h(p1)}</span><b>${w1}</b></div>
         <div class="an-muted">–</div>
-        <div class="${w2>=w1?'an-up':''}"><span>${h(p2)}</span><b>${w2}</b></div>
+        <div class="dm-2${w2>w1?' lider':''}"><span>${h(p2)}</span><b>${w2}</b></div>
       </div>
-      <div class="an-table-wrap"><table class="comp-table an-partidos"><tbody>${ps.slice(0,8).map(p=>`<tr>
-        <td class="an-fecha">${p.fecha}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td>
-        <td><span class="tag ${etiquetaPartido(p).cls}">${etiquetaPartido(p).lbl}</span></td>
-        <td class="an-fron">${h(p.fronton)}</td>
-        <td class="an-num an-marcador"><span class="${gana(p,p1)?'an-win':''}">${pt(p,p1)}</span>–<span class="${gana(p,p2)?'an-win':''}">${pt(p,p2)}</span></td></tr>`).join('')}</tbody></table></div>
+      <div class="duelo-barra" aria-hidden="true"><span style="width:${Math.round(w1/ps.length*100)}%"></span></div>
+      <div class="duelo-partidos">${ps.slice(0,MAX).map(fila).join('')}</div>
+      ${ps.length>MAX?`<details class="duelo-mas"><summary>${tx(`Ver ${ps.length-MAX} más`,`Ikusi beste ${ps.length-MAX}`)}</summary>
+        <div class="duelo-partidos">${ps.slice(MAX).map(fila).join('')}</div></details>`:''}
     </div>`;
   };
   // Trayectoria de cada uno en la competición (todas sus ediciones)
