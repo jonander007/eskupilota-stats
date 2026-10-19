@@ -1225,11 +1225,13 @@ header :focus-visible{outline-color:#fff;}
 /* Logos de las empresas (Aspe, Baiko): sobre blanco para que se lean en modo oscuro */
 .logo-emp{display:inline-block;height:20px;width:auto;vertical-align:middle;background:#fff;border-radius:4px;padding:2px 4px;}
 .emp-pills .ypill{display:inline-flex;align-items:center;}
-.emp-pills .ypill{padding-top:.25rem;padding-bottom:.25rem;}
-.emp-pills .ypill .logo-emp{height:30px;}
-.emp-pills .ypill .logo-emp.baiko{height:26px;}
+.emp-pills .ypill{padding-top:0;padding-bottom:0;height:28px;}
+.emp-pills .ypill .logo-emp{height:24px;padding:1px 4px;}
+.emp-pills .ypill .logo-emp.baiko{height:21px;}
 .emp-pills .ypill.on .logo-emp{box-shadow:0 0 0 2px var(--green);}
 .pname{display:flex;align-items:center;justify-content:space-between;gap:.4rem;}
 .pcard-emp{display:inline-flex;gap:.2rem;flex-shrink:0;}
 .pcard-emp .logo-emp{height:24px;padding:1px 3px;}
 .pcard-emp .logo-emp.baiko{height:20px;}
+.pel-filtros-top{gap:1.6rem;flex-wrap:wrap;align-items:flex-start;}
+.pel-filtros-top .ypill{height:28px;display:inline-flex;align-items:center;}

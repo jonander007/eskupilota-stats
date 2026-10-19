@@ -47,7 +47,7 @@
 <title>Eskupilota Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=53">
+<link rel="stylesheet" href="css/app.css?v=54">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -168,25 +168,29 @@
 <div class="section" id="sec-pelotaris">
   <div class="sec-title"><span data-i18n="sec_pelotaris">Pelotaris</span> <span class="badge bg" id="badgeIndividual" data-i18n="lbl_individual">Individual</span></div>
 
-  <!-- Pestañas Activos / Histórico -->
-  <div class="ah-tabs">
-    <button class="ah-tab on" id="ahtab-pel-act"  onclick="setActivosTab('pel', true, this)" data-i18n="tab_activos">⚡ Activos</button>
-    <button class="ah-tab"    id="ahtab-pel-hist" onclick="setActivosTab('pel', false, this)" data-i18n="tab_historico">📜 Histórico</button>
-  </div>
-
   <div class="filter-panel">
-    <div class="filter-row">
-      <div class="fg"><span class="flabel" data-i18n="flabel_modalidad">Modalidad</span><div class="tipo-pills" id="pillsPel"></div></div>
-    </div>
-    <div class="filter-row">
-      <div class="fg"><span class="flabel" data-i18n="flabel_año">Año</span><div class="year-pills" id="yearPillsPel"></div></div>
-    </div>
-    <div class="filter-row">
+    <div class="filter-row pel-filtros-top">
+      <div class="fg"><span class="flabel" data-i18n="flabel_estado">Estado</span><div class="year-pills" id="estPillsPel" role="group">
+        <button class="ypill on" data-est="actuales" onclick="setEstadoPel('actuales')" aria-pressed="true" data-i18n="est_actuales">En activo</button>
+        <button class="ypill" data-est="retirados" onclick="setEstadoPel('retirados')" aria-pressed="false" data-i18n="est_retirados">Retirados</button>
+        <button class="ypill" data-est="todos" onclick="setEstadoPel('todos')" aria-pressed="false" data-i18n="sel_todos">Todos</button>
+      </div></div>
       <div class="fg"><span class="flabel" data-i18n="flabel_empresa">Empresa</span><div class="year-pills emp-pills" id="empPillsPel" role="group">
         <button class="ypill on" data-emp="todas" onclick="setEmpPel('todas')" aria-pressed="true" data-i18n="sel_todas">Todas</button>
         <button class="ypill" data-emp="aspe" onclick="setEmpPel('aspe')" aria-pressed="false"><img class="logo-emp aspe" src="img/aspe.png" alt="Aspe"></button>
         <button class="ypill" data-emp="baiko" onclick="setEmpPel('baiko')" aria-pressed="false"><img class="logo-emp baiko" src="img/baiko.png" alt="Baiko"></button>
       </div></div>
+      <div class="fg"><span class="flabel" data-i18n="flabel_posicion">Posición</span><div class="year-pills" id="posPillsPel" role="group">
+        <button class="ypill on" data-pos="todas" onclick="setPosPel('todas')" aria-pressed="true" data-i18n="sel_todas">Todas</button>
+        <button class="ypill" data-pos="delantero" onclick="setPosPel('delantero')" aria-pressed="false" data-i18n="rk_delanteros">Delanteros</button>
+        <button class="ypill" data-pos="zaguero" onclick="setPosPel('zaguero')" aria-pressed="false" data-i18n="rk_zagueros">Zagueros</button>
+      </div></div>
+    </div>
+    <div class="filter-row">
+      <div class="fg"><span class="flabel" data-i18n="flabel_modalidad">Modalidad</span><div class="tipo-pills" id="pillsPel"></div></div>
+    </div>
+    <div class="filter-row">
+      <div class="fg"><span class="flabel" data-i18n="flabel_año">Año</span><div class="year-pills" id="yearPillsPel"></div></div>
     </div>
     <div class="filter-row">
       <div class="fg" style="gap:.5rem;flex-direction:row;flex-wrap:wrap;align-items:center;">
@@ -442,9 +446,9 @@
 
 </main>
 <footer class="site-footer"><details class="nota-datos"><summary><span aria-hidden="true">ⓘ</span> <span data-i18n="nota_datos_t">Sobre los datos</span></summary><p data-i18n="nota_datos">Los datos empiezan el 22 de noviembre de 2022. Los partidos, las estadísticas y las txapelas anteriores a esa fecha no están incluidos.</p></details><span class="derechos">© 2022-2026 EskupilotaStats · <span data-i18n="derechos">Todos los derechos reservados</span></span> <a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a> · <a id="lnkComps" href="/competicion/" data-i18n="lbl_comps">Competiciones</a> · <a id="lnkFros" href="/fronton/" data-i18n="lbl_fros">Frontones</a> · <a id="lnkPorraInfo" href="/porra/" data-i18n="lbl_porra_info">La porra</a> · <a id="lnkPriv" href="/privacidad/" data-i18n="lbl_priv">Privacidad</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=53"></script>
-<script src="js/analisis.js?v=53"></script>
-<script src="js/porra.js?v=53"></script>
+<script src="js/app.js?v=54"></script>
+<script src="js/analisis.js?v=54"></script>
+<script src="js/porra.js?v=54"></script>
 <script>loadData();</script>
 
 <script>
