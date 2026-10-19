@@ -251,6 +251,7 @@ const I18N = {
     th_equipo1: 'Equipo 1', th_marcador: 'Marcador', th_equipo2: 'Equipo 2', th_comp: 'Competición',
     // Secciones
     sec_partidos: 'Partidos', sec_pelotaris: 'Pelotaris', sec_ranking: 'Ranking',
+    part_ultimos: 'Últimos festivales', part_todos: 'Todos los partidos',
     sec_comparador: 'Comparador', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
     sec_contacto: 'Contacto',
     // Pelotaris
@@ -404,6 +405,7 @@ const I18N = {
     th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
     sec_partidos: 'Partidak', sec_pelotaris: 'Pilotariak', sec_ranking: 'Sailkapena',
+    part_ultimos: 'Azken jaialdiak', part_todos: 'Partida guztiak',
     sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
     sec_contacto: 'Kontaktua',
     lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
@@ -1009,7 +1011,69 @@ function resetFiltros(){
 // ════════════════════════════════════════════════════════════
 function sortT(f){if(sortFld===f)sortAsc=!sortAsc;else{sortFld=f;sortAsc=false;}renderTabla();}
 
+// Resultados: por defecto los últimos festivales (veladas: misma fecha y
+// frontón); «Todos los partidos» enseña la lista y «Filtrar» sus filtros
+const N_VELADAS = 10;
+let modoPart = 'veladas';
+function setModoPart(modo){
+  modoPart = modo;
+  document.querySelectorAll('.part-modos .seg-btn').forEach(b => { const on = b.dataset.modo===modo; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+  document.getElementById('partVeladas').hidden = modo==='todos';
+  document.getElementById('partLista').hidden = modo!=='todos';
+  if(modo!=='todos') abrirFiltrosPart(false);
+  if(modo==='veladas') renderVeladas();
+}
+function abrirFiltrosPart(abrir){
+  const el = document.getElementById('partFiltros'), b = document.getElementById('btnFiltrarPart');
+  el.hidden = !abrir;
+  b.setAttribute('aria-expanded', abrir); b.classList.toggle('on', abrir);
+}
+function toggleFiltrosPart(){
+  const abrir = document.getElementById('partFiltros').hidden;
+  if(abrir && modoPart!=='todos') setModoPart('todos');
+  abrirFiltrosPart(abrir);
+}
+function renderVeladas(){
+  const el = document.getElementById('partVeladas'); if(!el) return;
+  const grupos = new Map();
+  PARTIDOS.forEach(p => {
+    const k = p.fecha + '|' + p.fronton;
+    if(!grupos.has(k)) grupos.set(k, []);
+    grupos.get(k).push(p);
+  });
+  const veladas = [...grupos.values()].sort((a,b) => parseDate(b[0].fecha) - parseDate(a[0].fecha)).slice(0, N_VELADAS);
+  const dia = f => { try { return parseDate(f).toLocaleDateString(LANG==='eu' ? 'eu' : 'es', {weekday:'long'}); } catch(e){ return ''; } };
+  el.innerHTML = veladas.map(ps => {
+    const p0 = ps[0];
+    const filas = ps.map(p => {
+      const ti = etiquetaPartido(p), w1 = p.ganador==='equipo1', w2 = p.ganador==='equipo2';
+      return `<div class="vl-partido">
+        <div class="vl-tipo"><span class="tag ${ti.cls}">${ti.lbl}</span>${p.fase?`<span class="fase-lbl">${textoFase(p)}</span>`:''}</div>
+        <div class="vl-eq r${w1?' gana':''}">${pels(p.equipo1).map(n=>`<span>${n}</span>`).join('')}</div>
+        <div class="vl-marcador"><b class="${w1?'w1':'l'}">${p.puntos1}</b><span>–</span><b class="${w2?'w2':'l'}">${p.puntos2}</b></div>
+        <div class="vl-eq a${w2?' gana':''}">${pels(p.equipo2).map(n=>`<span>${n}</span>`).join('')}</div>
+      </div>`;
+    }).join('');
+    return `<div class="velada">
+      <div class="vl-head">
+        <div class="vl-fecha"><span>${dia(p0.fecha)}</span><b>${p0.fecha}</b></div>
+        <div class="vl-fron">📍 ${p0.fronton}${p0.ciudad?` <span>· ${p0.ciudad}</span>`:''}</div>
+        <div class="vl-n">${nPartidos(ps.length)}</div>
+      </div>
+      <div class="vl-partidos">${filas}</div>
+    </div>`;
+  }).join('');
+}
+
+function contarFiltrosPart(){
+  const n = ['fDesde','fHasta','fComp','fFron','fCat','fFase'].filter(id => document.getElementById(id)?.value).length
+    + (activeTipo!=='todos' ? 1 : 0);
+  const b = document.querySelector('#btnFiltrarPart .btn-filtrar-n');
+  if(b){ b.textContent = n; b.hidden = !n; }
+}
+
 function renderTabla(){
+  contarFiltrosPart();
   const q=(document.getElementById('sInput').value||'').toLowerCase();
   const comp=document.getElementById('fComp').value;
   const fron=document.getElementById('fFron').value;
@@ -1054,6 +1118,7 @@ function renderTabla(){
   }).join('');
   document.getElementById('tCount').textContent=`${data.length} / ${PARTIDOS.length} ${t('kpi_partidos').toLowerCase()}`;
   renderMobileCards(data);
+  if(modoPart==='veladas') renderVeladas();
 }
 
 let _mCardBlockId = 0;
@@ -2142,6 +2207,7 @@ function filtrarPorFronton(fronton){
   goToNav('partidos');
   setTimeout(()=>{
     document.getElementById('fFron').value=fronton;
+    setModoPart('todos'); abrirFiltrosPart(true);
     renderTabla();
   },80);
 }
