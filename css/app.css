@@ -1238,3 +1238,17 @@ header :focus-visible{outline-color:#fff;}
 .filter-panel .filter-row.zona-fron{flex-direction:column;align-items:flex-start;gap:.4rem;}
 .zona-fron .year-pills{margin-bottom:.4rem;}
 .zona-fron:empty{display:none;}
+
+/* Cara a cara: tarjeta de cada pelotari con su selector y sus filtros */
+.h2h-sels{align-items:stretch;}
+.h2h-sel-card{border:1px solid var(--border);border-top:4px solid var(--red);border-radius:12px;padding:.8rem .9rem;background:var(--surface);display:flex;flex-direction:column;gap:.5rem;min-width:0;}
+.h2h-sel-card.a{border-top-color:var(--blue);}
+.h2h-sel-tit{font-family:var(--display);font-weight:700;font-size:1.35rem;text-transform:uppercase;letter-spacing:.02em;color:var(--red);}
+.h2h-sel-card.a .h2h-sel-tit{color:var(--blue);}
+.h2h-sel-card select{font-size:1rem;font-weight:600;}
+.h2h-sel-filtros{display:flex;flex-direction:column;gap:.3rem;}
+.h2h-sel-filtros .year-pills{margin:0;gap:.25rem;}
+.h2h-sel-filtros .ypill{font-size:.6rem;padding:.15rem .5rem;height:24px;display:inline-flex;align-items:center;}
+.h2h-sel-filtros .logo-emp{height:18px;padding:1px 3px;}
+.h2h-sel-filtros .logo-emp.baiko{height:15px;}
+.h2h-n{font-family:var(--mono);font-size:.58rem;color:var(--muted);}
