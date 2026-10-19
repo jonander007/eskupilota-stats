@@ -11,6 +11,8 @@ del catálogo ('P. Etxeberria' = 'P.ETXEBERRIA', 'Peña II' = 'PEÑA II').
     esa empresa no se toca.
   - Un pelotari que sale en las dos (fichaje, noticia...) no se cambia y se avisa.
   - A los que no salen en ninguna se les deja la que tenían.
+  - La empresa ya puesta (a mano) no se cambia: solo se avisa si la web dice
+    otra. 'ambas' = ha estado en las dos.
 
 Uso:
     python tools/empresas.py --dry-run
@@ -94,7 +96,11 @@ def main(dry):
     for p in pelotaris:
         suyas = [e for e, hs in en.items() if p['nombre'] in hs]
         antes = p.get('empresa')
-        if len(suyas) == 1:
+        if antes:
+            # La empresa puesta a mano manda: solo se avisa si la web dice otra
+            if len(suyas) == 1 and suyas[0] != antes and antes != 'ambas':
+                print(f"  ? {p['nombre']}: la web de {suyas[0]} lo tiene; se deja {antes}")
+        elif len(suyas) == 1:
             if antes != suyas[0]:
                 print(f"  {p['nombre']}: {antes or '—'} -> {suyas[0]}")
                 p['empresa'] = suyas[0]

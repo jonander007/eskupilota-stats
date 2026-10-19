@@ -57,7 +57,17 @@ function getActivePlayers(){
 let ROL_POR_NOMBRE = {};
 let EMPRESA_POR_NOMBRE = {};   // 'baiko' | 'aspe' (data/pelotaris.json, ver tools/empresas.py)
 function getEmpresa(nombre){ return EMPRESA_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
-const NOMBRE_EMPRESA = {baiko:'Baiko', aspe:'Aspe'};
+const NOMBRE_EMPRESA = {baiko:'Baiko', aspe:'Aspe', ambas:'Aspe · Baiko'};
+// ¿Es de esa empresa? Los que han estado en las dos salen con cualquiera
+function deEmpresa(nombre, emp){
+  if(emp==='todas') return true;
+  const e = getEmpresa(nombre);
+  return e===emp || e==='ambas';
+}
+function htmlLogoEmpresa(emp, cls){
+  const uno = e => `<img class="logo-emp ${e} ${cls||''}" src="img/${e}.png" alt="${NOMBRE_EMPRESA[e]}">`;
+  return emp==='ambas' ? uno('aspe')+uno('baiko') : emp ? uno(emp) : '';
+}
 // Foto de Wikimedia Commons con su autor y licencia (data/pelotaris.json, ver tools/fotos_wikidata.py)
 let FOTO_POR_NOMBRE = {};
 function getFoto(nombre){ return FOTO_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
@@ -1142,6 +1152,13 @@ function toggleMCard(header){
 // ════════════════════════════════════════════════════════════
 // PELOTARIS
 // ════════════════════════════════════════════════════════════
+let activeEmpPel = 'todas';   // todas | aspe | baiko
+function setEmpPel(emp){
+  activeEmpPel = emp;
+  document.querySelectorAll('#empPillsPel .ypill').forEach(b=>{ b.classList.toggle('on', b.dataset.emp===emp); b.setAttribute('aria-pressed', b.dataset.emp===emp); });
+  renderPCards();
+}
+
 function renderPCards(){
   const q=(document.getElementById('pSearch').value||'').toLowerCase();
   closePerfil();
@@ -1151,6 +1168,7 @@ function renderPCards(){
   let ns=Object.keys(st).filter(n=>{
     if(q&&!n.toLowerCase().includes(q)) return false;
     if(activePlayers&&!activePlayers.has(n.toUpperCase())) return false;
+    if(!deEmpresa(n, activeEmpPel)) return false;
     return true;
   });
   ns.sort((a,b)=>st[b].pg-st[a].pg);
@@ -1158,7 +1176,7 @@ function renderPCards(){
   function mkCard(n){
     const s=st[n];const pct=s.pj>0?Math.round(s.pg/s.pj*100):0;
     return`<div class="pcard" onclick="openPerfil('${esc(n)}')">
-      <div class="pname">${n}</div>
+      <div class="pname">${n}<span class="pcard-emp">${htmlLogoEmpresa(getEmpresa(n))}</span></div>
       <div class="pstats">
         <div class="ps"><span class="val" style="color:var(--green)">${s.pg}</span><span class="lbl">${t('lbl_victorias')}</span></div>
         <div class="ps"><span class="val">${s.pj}</span><span class="lbl">${t('lbl_partidos')}</span></div>
@@ -1458,7 +1476,7 @@ function buildRanking(){
   // Empresa: se deja solo a los pelotaris de Baiko o de Aspe
   if(activeEmpRk!=='todas'){
     const base = _activePlayers || new Set(Object.keys(PELOTARIS).map(n=>n.toUpperCase()));
-    _activePlayers = new Set([...base].filter(n=>EMPRESA_POR_NOMBRE[n]===activeEmpRk));
+    _activePlayers = new Set([...base].filter(n=>deEmpresa(n, activeEmpRk)));
   }
   function filterActive(entries){ return _activePlayers ? entries.filter(([n])=>_activePlayers.has(n.toUpperCase())) : entries; }
 
