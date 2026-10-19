@@ -389,6 +389,21 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_cara_a_cara_filtros_de_cada_pelotari(self):
+        pg = self.pagina('#/comparador')
+        pg.wait_for_selector('#h2hFil1 .ypill')
+        n = lambda i: pg.locator(f'#h2hP{i} option').count() - 1
+        antes = n(1)
+        pg.click('#h2hFil1 button:has-text("Zagueros")')
+        self.assertTrue(0 < n(1) < antes)
+        self.assertEqual(n(2), antes)    # el otro selector no cambia
+        opciones = pg.eval_on_selector_all('#h2hP1 option', 'os => os.slice(1).map(o => o.value)')
+        self.assertTrue(pg.evaluate("ns => ns.every(n => getRol(n) === 'zaguero')", opciones))
+        # El elegido sigue en la lista aunque cambie el filtro
+        pg.select_option('#h2hP1', opciones[0])
+        pg.click('#h2hFil1 button:has-text("Delanteros")')
+        self.assertEqual(pg.eval_on_selector('#h2hP1', 's => s.value'), opciones[0])
+
     def test_frontones_por_provincia_y_comarca(self):
         pg = self.pagina('#/frontones')
         pg.wait_for_selector('#frontonGrid .fronton-card')

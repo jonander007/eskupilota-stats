@@ -598,6 +598,8 @@ function applyI18N(){
   document.querySelector('.leaflet-control-zoom-out')?.setAttribute('title', t('map_alejar'));
   // Contenido que se pinta desde el JS
   buildKPIs();
+  [1,2].forEach(i => { renderFiltrosH2H(i); llenarSelH2H(i); });
+  renderFiltroZona();
   rebuildCompFilter();
   renderTabla();
   renderPCards();
@@ -1614,14 +1616,33 @@ function setCompType(type,btn){
 // ════════════════════════════════════════════════════════════
 // H2H — Head to Head (1 vs 1)
 // ════════════════════════════════════════════════════════════
-function buildH2HSels(){
-  const ns=Object.keys(PELOTARIS).sort();
-  ['h2hP1','h2hP2'].forEach(id=>{
-    const s=document.getElementById(id);
-    if(!s) return;
-    while(s.options.length>1) s.remove(1);
-    ns.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
-  });
+// Cada pelotari tiene sus filtros (estado, empresa y posición) para acortar
+// su lista; el elegido se queda en la lista aunque no pase el filtro
+const _h2hFil = {1:{est:'actuales', emp:'todas', pos:'todas'}, 2:{est:'actuales', emp:'todas', pos:'todas'}};
+function buildH2HSels(){ [1,2].forEach(i => { llenarSelH2H(i); renderFiltrosH2H(i); }); }
+function llenarSelH2H(i){
+  const s = document.getElementById('h2hP'+i); if(!s) return;
+  const f = _h2hFil[i], actual = s.value;
+  const activos = f.est!=='todos' ? getActivePlayers() : null;
+  const ns = Object.keys(PELOTARIS).sort().filter(n => n===actual || (
+    (!activos || activos.has(n.toUpperCase())===(f.est==='actuales')) &&
+    deEmpresa(n, f.emp) && (f.pos==='todas' || getRol(n)===f.pos)));
+  while(s.options.length>1) s.remove(1);
+  ns.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  s.value = actual;
+  const c = document.getElementById('h2hFil'+i)?.querySelector('.h2h-n');
+  if(c) c.textContent = nPelotaris(ns.length);
+}
+function nPelotaris(n){ return `${n} ${n===1 ? tx('pelotari','pilotari') : tx('pelotaris','pilotari')}`; }
+function setFiltroH2H(i, k, v){ _h2hFil[i][k] = v; renderFiltrosH2H(i); llenarSelH2H(i); }
+function renderFiltrosH2H(i){
+  const el = document.getElementById('h2hFil'+i); if(!el) return;
+  const f = _h2hFil[i];
+  const pill = (k, v, txt) => `<button type="button" class="ypill${f[k]===v?' on':''}" aria-pressed="${f[k]===v}" onclick="setFiltroH2H(${i},'${k}','${v}')">${txt}</button>`;
+  el.innerHTML = `<div class="year-pills" role="group" aria-label="${t('flabel_estado')}">${pill('est','actuales',t('est_actuales'))}${pill('est','retirados',t('est_retirados'))}${pill('est','todos',t('sel_todos'))}</div>
+    <div class="year-pills emp-pills" role="group" aria-label="${t('flabel_empresa')}">${pill('emp','todas',t('sel_todas'))}${pill('emp','aspe',htmlLogoEmpresa('aspe'))}${pill('emp','baiko',htmlLogoEmpresa('baiko'))}</div>
+    <div class="year-pills" role="group" aria-label="${t('flabel_posicion')}">${pill('pos','todas',t('sel_todas'))}${pill('pos','delantero',t('rk_delanteros'))}${pill('pos','zaguero',t('rk_zagueros'))}</div>
+    <span class="h2h-n"></span>`;
 }
 
 function setH2HMod(mod){
@@ -2373,6 +2394,10 @@ function goToComparadorFromPartido(p){
     if(!nombre || nombre==='?') return;
     const sel=document.getElementById(selId); if(!sel) return;
     const norm=nombre.toUpperCase().trim();
+    const i = selId==='h2hP1' ? 1 : selId==='h2hP2' ? 2 : 0;
+    if(i && ![...sel.options].some(o=>o.value.toUpperCase()===norm)){
+      _h2hFil[i] = {est:'todos', emp:'todas', pos:'todas'}; renderFiltrosH2H(i); llenarSelH2H(i);
+    }
     let found=[...sel.options].find(o=>o.value.toUpperCase()===norm);
     if(!found) found=[...sel.options].find(o=>o.value.toUpperCase().startsWith(norm.split(' ')[0]));
     if(found){ sel.value=found.value; sel.dispatchEvent(new Event('change')); }
