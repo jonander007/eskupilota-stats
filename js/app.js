@@ -370,7 +370,7 @@ const I18N = {
     abbr_tantos: 'Pts',
     // Categorías y fases (ver scraper/competiciones.py)
     flabel_categoria: 'Categoría', flabel_empresa: 'Empresa', flabel_fase: 'Fase',
-    flabel_provincia: 'Provincia', flabel_comarca: 'Comarca', prov_otras: 'Otras',
+    flabel_provincia: 'Provincia', flabel_comarca: 'Comarca',
     flabel_estado: 'Estado', est_actuales: 'En activo', est_retirados: 'Retirados', flabel_posicion: 'Posición',
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
     tag_torneo: 'Torneo', tag_desafio: 'Desafío', tag_parejas: 'Parejas',
@@ -505,7 +505,7 @@ const I18N = {
     map_creditos: 'Maparen kredituak', map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
     flabel_categoria: 'Kategoria', flabel_empresa: 'Enpresa', flabel_fase: 'Fasea',
-    flabel_provincia: 'Probintzia', flabel_comarca: 'Eskualdea', prov_otras: 'Besteak',
+    flabel_provincia: 'Probintzia', flabel_comarca: 'Eskualdea',
     flabel_estado: 'Egoera', est_actuales: 'Aktibo', est_retirados: 'Erretiratuak', flabel_posicion: 'Postua',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
     tag_torneo: 'Torneoa', tag_desafio: 'Desafioa', tag_parejas: 'Binaka',
@@ -2017,7 +2017,8 @@ const PROVINCIAS = {
   rioja:['La Rioja','Errioxa'], burgos:['Burgos','Burgos'], soria:['Soria','Soria'], segovia:['Segovia','Segovia'],
   salamanca:['Salamanca','Salamanca'], valladolid:['Valladolid','Valladolid'], barcelona:['Barcelona','Bartzelona'], lapurdi:['Lapurdi','Lapurdi'],
 };
-const PROV_PRINCIPALES = ['gipuzkoa','bizkaia','navarra','araba'];
+// Con comarcas: las cuatro principales y La Rioja; del resto solo la provincia
+const PROV_CON_COMARCAS = ['gipuzkoa','bizkaia','navarra','araba','rioja'];
 // Las comarcas van con su nombre en euskera salvo estas
 const COMARCAS_ES = {'Bilbo Handia':'Gran Bilbao', 'Lautada':'Llanada Alavesa', 'Errioxa':'Rioja Alavesa',
   'Aiaraldea':'Ayala', 'Iruñerria':'Comarca de Pamplona'};
@@ -2034,21 +2035,25 @@ function geoFronton(nombre){
 function frontonEnZona(nombre){
   if(activeProvFron==='todas') return true;
   const g = geoFronton(nombre);
-  if(activeProvFron==='otras') return !PROV_PRINCIPALES.includes(g.provincia);
   return g.provincia===activeProvFron && (activeComFron==='todas' || g.comarca===activeComFron);
+}
+function provinciasFron(){
+  const n = {};
+  Object.values(CAT_FRONTONES).forEach(f => { const p = (CAT_CIUDADES[f.ciudad_id]||{}).provincia; if(p) n[p] = (n[p]||0) + 1; });
+  const resto = Object.keys(n).filter(p => !PROV_CON_COMARCAS.includes(p)).sort((a,b) => n[b]-n[a] || a.localeCompare(b));
+  return [...PROV_CON_COMARCAS.filter(p => n[p]), ...resto];
 }
 function setProvFron(prov){ activeProvFron = prov; activeComFron = 'todas'; renderFiltroZona(); renderFrontones(); renderFrontonMarkers(true); }
 function setComFron(com){ activeComFron = com; renderFiltroZona(); renderFrontones(); renderFrontonMarkers(true); }
-// Provincias: las cuatro principales y «Otras» (La Rioja, Soria, Iparralde…);
-// en las principales, sus comarcas con frontones
+// Provincias con frontones (primero las que tienen comarcas, luego el resto
+// por número de frontones); en las de PROV_CON_COMARCAS, sus comarcas
 function renderFiltroZona(){
   const el = document.getElementById('zonaFron'); if(!el) return;
   const pill = (on, onclick, txt) => `<button class="ypill${on?' on':''}" aria-pressed="${on}" onclick="${onclick}">${txt}</button>`;
   let html = `<div class="fg"><span class="flabel">${t('flabel_provincia')}</span><div class="year-pills" id="provPillsFron" role="group">
     ${pill(activeProvFron==='todas', "setProvFron('todas')", t('sel_todas'))}
-    ${PROV_PRINCIPALES.map(k => pill(activeProvFron===k, `setProvFron('${k}')`, nombreProvincia(k))).join('')}
-    ${pill(activeProvFron==='otras', "setProvFron('otras')", t('prov_otras'))}</div></div>`;
-  if(PROV_PRINCIPALES.includes(activeProvFron)){
+    ${provinciasFron().map(k => pill(activeProvFron===k, `setProvFron('${k}')`, nombreProvincia(k))).join('')}</div></div>`;
+  if(PROV_CON_COMARCAS.includes(activeProvFron)){
     const coms = [...new Set(Object.values(CAT_FRONTONES).map(f => CAT_CIUDADES[f.ciudad_id]||{})
       .filter(c => c.provincia===activeProvFron && c.comarca).map(c => c.comarca))]
       .sort((a,b) => nombreComarca(a).localeCompare(nombreComarca(b)));

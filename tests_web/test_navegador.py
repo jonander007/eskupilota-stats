@@ -401,7 +401,10 @@ class Web(unittest.TestCase):
         nombres = pg.locator('#frontonGrid .fname').all_inner_texts()
         self.assertTrue(0 < len(nombres) < gipuzkoa)
         self.assertTrue(pg.evaluate("n => n.every(f => geoFronton(f).comarca === 'Goierri')", nombres))
-        pg.click('#provPillsFron button:has-text("Otras")')
+        # La Rioja también tiene comarcas; el resto, solo la provincia
+        pg.click('#provPillsFron button:has-text("La Rioja")')
+        self.assertGreater(pg.locator('#comPillsFron button').count(), 2)
+        pg.click('#provPillsFron button:has-text("Soria")')
         self.assertEqual(pg.locator('#comPillsFron').count(), 0)
         self.assertGreater(pg.locator('#frontonGrid .fronton-card').count(), 0)
 
