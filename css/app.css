@@ -1235,3 +1235,6 @@ header :focus-visible{outline-color:#fff;}
 .pcard-emp .logo-emp.baiko{height:20px;}
 .pel-filtros-top{gap:1.6rem;flex-wrap:wrap;align-items:flex-start;}
 .pel-filtros-top .ypill{height:28px;display:inline-flex;align-items:center;}
+.filter-panel .filter-row.zona-fron{flex-direction:column;align-items:flex-start;gap:.4rem;}
+.zona-fron .year-pills{margin-bottom:.4rem;}
+.zona-fron:empty{display:none;}

@@ -370,6 +370,7 @@ const I18N = {
     abbr_tantos: 'Pts',
     // Categorías y fases (ver scraper/competiciones.py)
     flabel_categoria: 'Categoría', flabel_empresa: 'Empresa', flabel_fase: 'Fase',
+    flabel_provincia: 'Provincia', flabel_comarca: 'Comarca', prov_otras: 'Otras',
     flabel_estado: 'Estado', est_actuales: 'En activo', est_retirados: 'Retirados', flabel_posicion: 'Posición',
     cat_campeonatos: 'Campeonatos', cat_torneos: 'Torneos', cat_desafios: 'Desafíos', cat_festivales: 'Festivales',
     tag_torneo: 'Torneo', tag_desafio: 'Desafío', tag_parejas: 'Parejas',
@@ -504,6 +505,7 @@ const I18N = {
     map_creditos: 'Maparen kredituak', map_acercar: 'Hurbildu', map_alejar: 'Urrundu',
     abbr_tantos: 'Tanto',
     flabel_categoria: 'Kategoria', flabel_empresa: 'Enpresa', flabel_fase: 'Fasea',
+    flabel_provincia: 'Probintzia', flabel_comarca: 'Eskualdea', prov_otras: 'Besteak',
     flabel_estado: 'Egoera', est_actuales: 'Aktibo', est_retirados: 'Erretiratuak', flabel_posicion: 'Postua',
     cat_campeonatos: 'Txapelketak', cat_torneos: 'Torneoak', cat_desafios: 'Desafioak', cat_festivales: 'Jaialdiak',
     tag_torneo: 'Torneoa', tag_desafio: 'Desafioa', tag_parejas: 'Binaka',
@@ -1165,7 +1167,9 @@ function setPosPel(pos){ activePosPel = pos; marcarPills('posPillsPel', 'pos', p
 function renderPCards(){
   const q=(document.getElementById('pSearch').value||'').toLowerCase();
   closePerfil();
-  const parts=partidosFiltroPelotaris();
+  // Las tarjetas cuentan todos sus partidos; los filtros de modalidad, año y
+  // fechas están en la ficha de cada uno
+  const parts=PARTIDOS;
   const st=calcStats(parts);
   const activePlayers = activeEstadoPel!=='todos' ? getActivePlayers() : null;
   let ns=Object.keys(st).filter(n=>{
@@ -2007,7 +2011,56 @@ function renderC4(){
 // ════════════════════════════════════════════════════════════
 // FRONTONES
 // ════════════════════════════════════════════════════════════
+// ── Provincia y comarca de cada frontón (data/ciudades.json) ──
+const PROVINCIAS = {
+  gipuzkoa:['Gipuzkoa','Gipuzkoa'], bizkaia:['Bizkaia','Bizkaia'], navarra:['Navarra','Nafarroa'], araba:['Araba','Araba'],
+  rioja:['La Rioja','Errioxa'], burgos:['Burgos','Burgos'], soria:['Soria','Soria'], segovia:['Segovia','Segovia'],
+  salamanca:['Salamanca','Salamanca'], valladolid:['Valladolid','Valladolid'], barcelona:['Barcelona','Bartzelona'], lapurdi:['Lapurdi','Lapurdi'],
+};
+const PROV_PRINCIPALES = ['gipuzkoa','bizkaia','navarra','araba'];
+// Las comarcas van con su nombre en euskera salvo estas
+const COMARCAS_ES = {'Bilbo Handia':'Gran Bilbao', 'Lautada':'Llanada Alavesa', 'Errioxa':'Rioja Alavesa',
+  'Aiaraldea':'Ayala', 'Iruñerria':'Comarca de Pamplona'};
+const COMARCAS_EU = {'Noroeste':'Ipar-mendebaldea', 'Pirineo':'Pirinioak', 'Tierra Estella':'Lizarraldea',
+  'Zona Media':'Erdialdea', 'Ribera':'Erribera', 'Gasteiz':'Gasteiz'};
+const nombreProvincia = k => (PROVINCIAS[k]||[k,k])[LANG==='eu'?1:0];
+const nombreComarca = c => LANG==='eu' ? (COMARCAS_EU[c]||c) : (COMARCAS_ES[c]||c);
+let activeProvFron = 'todas', activeComFron = 'todas';
+function geoFronton(nombre){
+  const fr = Object.values(CAT_FRONTONES).find(f => f && (f.nombre||'').toUpperCase().trim()===(nombre||'').toUpperCase().trim());
+  const ciu = fr ? (CAT_CIUDADES[fr.ciudad_id]||{}) : {};
+  return {provincia: ciu.provincia||null, comarca: ciu.comarca||null};
+}
+function frontonEnZona(nombre){
+  if(activeProvFron==='todas') return true;
+  const g = geoFronton(nombre);
+  if(activeProvFron==='otras') return !PROV_PRINCIPALES.includes(g.provincia);
+  return g.provincia===activeProvFron && (activeComFron==='todas' || g.comarca===activeComFron);
+}
+function setProvFron(prov){ activeProvFron = prov; activeComFron = 'todas'; renderFiltroZona(); renderFrontones(); renderFrontonMarkers(true); }
+function setComFron(com){ activeComFron = com; renderFiltroZona(); renderFrontones(); renderFrontonMarkers(true); }
+// Provincias: las cuatro principales y «Otras» (La Rioja, Soria, Iparralde…);
+// en las principales, sus comarcas con frontones
+function renderFiltroZona(){
+  const el = document.getElementById('zonaFron'); if(!el) return;
+  const pill = (on, onclick, txt) => `<button class="ypill${on?' on':''}" aria-pressed="${on}" onclick="${onclick}">${txt}</button>`;
+  let html = `<div class="fg"><span class="flabel">${t('flabel_provincia')}</span><div class="year-pills" id="provPillsFron" role="group">
+    ${pill(activeProvFron==='todas', "setProvFron('todas')", t('sel_todas'))}
+    ${PROV_PRINCIPALES.map(k => pill(activeProvFron===k, `setProvFron('${k}')`, nombreProvincia(k))).join('')}
+    ${pill(activeProvFron==='otras', "setProvFron('otras')", t('prov_otras'))}</div></div>`;
+  if(PROV_PRINCIPALES.includes(activeProvFron)){
+    const coms = [...new Set(Object.values(CAT_FRONTONES).map(f => CAT_CIUDADES[f.ciudad_id]||{})
+      .filter(c => c.provincia===activeProvFron && c.comarca).map(c => c.comarca))]
+      .sort((a,b) => nombreComarca(a).localeCompare(nombreComarca(b)));
+    html += `<div class="fg"><span class="flabel">${t('flabel_comarca')}</span><div class="year-pills" id="comPillsFron" role="group">
+      ${pill(activeComFron==='todas', "setComFron('todas')", t('sel_todas'))}
+      ${coms.map(c => pill(activeComFron===c, `setComFron('${esc(c)}')`, nombreComarca(c))).join('')}</div></div>`;
+  }
+  el.innerHTML = html;
+}
+
 function renderFrontones(){
+  renderFiltroZona();
   const q=(document.getElementById('frontonSearch')?.value||'').toLowerCase();
   const parts=PARTIDOS.filter(p=>
     tipoMatch(p.tipo,activeTipoFron)&&
@@ -2023,7 +2076,7 @@ function renderFrontones(){
   });
 
   const lista=Object.entries(stats)
-    .filter(([f,s])=>!q||f.toLowerCase().includes(q)||s.ciudad.toLowerCase().includes(q))
+    .filter(([f,s])=>(!q||f.toLowerCase().includes(q)||s.ciudad.toLowerCase().includes(q)) && frontonEnZona(f))
     .sort((a,b)=>b[1].partidos-a[1].partidos);
 
   document.getElementById('frontonesCount').textContent=lista.length;
@@ -2491,7 +2544,7 @@ function renderFrontonMarkers(encuadrar){
   const marcadores = [];
   Object.entries(stats).forEach(([f, s]) => {
     const info = FRO_BY_NAME[f.toUpperCase().trim()];
-    if(!info || info.lat==null || info.lon==null) return;
+    if(!info || info.lat==null || info.lon==null || !frontonEnZona(f)) return;
     // Tamaño según los partidos jugados en él
     const tam = Math.round(12 + Math.min(14, Math.sqrt(s.count) * 1.6));
     const icon = L.divIcon({className: 'fmap-pin' + (s.count >= 20 ? ' grande' : ''), iconSize: [tam, tam]});
