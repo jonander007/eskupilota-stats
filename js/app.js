@@ -1648,26 +1648,6 @@ function renderH2H(){
     if((p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2'))w1++;else w2++;
   });
 
-  const esMano=h2hMod==='manomanista' && h2hSerie!=='todas';
-  const filas=enfs.map(p=>{
-    const e1=pels(p.equipo1),p1enE1=e1.includes(p1);
-    const a=p1enE1?p.puntos1:p.puntos2,b=p1enE1?p.puntos2:p.puntos1;
-    const gP1=(p1enE1&&p.ganador==='equipo1')||(!p1enE1&&p.ganador==='equipo2');
-    const cP1=(p1enE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==p1).join('/')||'—';
-    const cP2=(p1enE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==p2).join('/')||'—';
-    const ti=etiquetaPartido(p);
-    return`<tr>
-      <td style="font-family:var(--mono);font-size:.66rem">${p.fecha}</td>
-      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
-      <td>${p.fronton}</td>
-      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP1}</td>`}
-      <td style="color:var(--green);font-weight:${gP1?800:400};font-family:var(--mono)">${a}</td>
-      <td style="color:var(--muted);text-align:center">—</td>
-      <td style="color:var(--green-dark);font-weight:${!gP1?800:400};font-family:var(--mono)">${b}</td>
-      ${esMano?'':`<td style="font-size:.7rem;color:var(--muted)">${cP2}</td>`}
-    </tr>`;
-  }).join('');
-
   const filtroImg = [h2hMod!=='todas'?modLbl:'', h2hSerie!=='todas'?serieLbl:'', activeYearH2H!=='todos'?activeYearH2H:''].filter(Boolean).join(' · ');
   _h2hUltimo = {p1, p2, enfs, filtro: filtroImg || tx('Todos los partidos','Partida guztiak')};
   const duelo = _h2hContexto && [p1,p2].sort().join('|')===[_h2hContexto.p1,_h2hContexto.p2].sort().join('|')
@@ -1675,17 +1655,11 @@ function renderH2H(){
   el.innerHTML=duelo+`
     <div class="an-head" style="margin-bottom:.8rem"><div style="font-family:var(--mono);font-size:.62rem;color:var(--muted);">${modLbl} · ${serieLbl}${activeYearH2H!=='todos'?' · '+activeYearH2H:''} · ${nPartidos(enfs.length)}</div>${botonImagen('compartirH2H()')}</div>
     <div class="comp-bar">
-      <div><div class="comp-nm" style="color:var(--green)">${p1}</div><div class="comp-wins izq">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
+      <div><div class="comp-nm" style="color:var(--red)">${p1}</div><div class="comp-wins izq" style="color:var(--red)">${w1}</div><div class="comp-sb">${(pf1/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
       <div><div class="comp-pj">${enfs.length} ${t('abbr_pj')}</div></div>
-      <div><div class="comp-nm" style="color:var(--green-dark)">${p2}</div><div class="comp-wins der" style="color:var(--green-dark)">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
+      <div><div class="comp-nm" style="color:var(--blue)">${p2}</div><div class="comp-wins der" style="color:var(--blue)">${w2}</div><div class="comp-sb">${(pf2/enfs.length).toFixed(1)} ${t('h2h_pts_partido')}</div></div>
     </div>
-    <div class="twrap"><table><thead><tr>
-      <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-      ${esMano?'':`<th>${t('comp_abbr')} ${p1}</th>`}
-      <th>${p1}</th><th></th><th>${p2}</th>
-      ${esMano?'':`<th>${t('comp_abbr')} ${p2}</th>`}
-    </tr></thead><tbody>${filas}</tbody></table></div>
-    <div class="m-card">${renderMobileCardsHTML(enfs, {paginated:true, initial:5, step:5})}</div>`;
+    ${listaTarjetas(enfs, p => pels(p.equipo1).includes(p1))}`;
 }
 
 // Alias por compatibilidad
@@ -1772,96 +1746,51 @@ function c4Partidos(d1,z1,d2,z2,partsBase){
   });
 }
 
-function c4FilaPartido(p, pivotCol, pivotAz){
-  const e1=pels(p.equipo1);
-  const colEnE1=e1.includes(pivotCol);
-  const ptCol=colEnE1?p.puntos1:p.puntos2;
-  const ptAz=colEnE1?p.puntos2:p.puntos1;
-  const compCol=(colEnE1?pels(p.equipo1):pels(p.equipo2)).filter(n=>n!==pivotCol).join('/')||'—';
-  const compAz=(colEnE1?pels(p.equipo2):pels(p.equipo1)).filter(n=>n!==pivotAz).join('/')||'—';
-  const ganCol=(colEnE1&&p.ganador==='equipo1')||(!colEnE1&&p.ganador==='equipo2');
-  const ti=etiquetaPartido(p);
-  return`<tr>
-    <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
-    <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
-    <td style="font-size:.74rem">${p.fronton}</td>
-    <td style="font-size:.7rem;color:var(--red)">${compCol}</td>
-    <td style="font-family:var(--display);font-size:1.3rem;color:${ganCol?'var(--red)':'var(--muted)'}">${ptCol}</td>
-    <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-    <td style="font-family:var(--display);font-size:1.3rem;color:${!ganCol?'var(--blue)':'var(--muted)'}">${ptAz}</td>
-    <td style="font-size:.7rem;color:var(--blue)">${compAz}</td>
-  </tr>`;
+// Tarjeta de un partido, la misma en todas las listas (cara a cara, duelo,
+// comparador de parejas): fecha y fase, competición y frontón, y el marcador
+// con cada lado en su color. rojoEsE1(p): ¿va equipo1 a la izquierda (rojo)?
+function tarjetaPartido(p, rojoEsE1, opts){
+  opts = opts || {};
+  const izq = rojoEsE1(p);
+  const [eR, eA] = izq ? [p.equipo1, p.equipo2] : [p.equipo2, p.equipo1];
+  const [ptR, ptA] = izq ? [p.puntos1, p.puntos2] : [p.puntos2, p.puntos1];
+  const gR = p.ganador === (izq ? 'equipo1' : 'equipo2');
+  const nom = opts.nombre || (n => `<span>${n}</span>`);
+  const ti = etiquetaPartido(p);
+  const comp = p.competicion && !/^festival/i.test(p.competicion) ? tComp(p.competicion) : '';
+  const extra = opts.extra ? opts.extra(p) : '';
+  return `<div class="pc-card">
+    <div class="pc-fecha"><b>${p.fecha}</b>${p.fase?`<span class="fase-lbl">${textoFase(p)}</span>`:''}</div>
+    <div class="pc-info">
+      <div class="pc-comp"><span class="tag ${ti.cls}">${ti.lbl}</span>${comp?`<span>${comp}</span>`:''}</div>
+      <div class="pc-fron">📍 ${p.fronton}${p.ciudad?` <span>· ${p.ciudad}</span>`:''}${extra?` <em class="pc-extra">${extra}</em>`:''}</div>
+    </div>
+    <div class="pc-res">
+      <div class="pc-eq r${gR?' gana':''}">${pels(eR).map(nom).join('')}</div>
+      <div class="pc-marcador"><b class="${gR?'w1':'l'}">${ptR}</b><span>–</span><b class="${gR?'l':'w2'}">${ptA}</b></div>
+      <div class="pc-eq a${gR?'':' gana'}">${pels(eA).map(nom).join('')}</div>
+    </div>
+  </div>`;
 }
 
-let _c4BlockId = 0;
+function listaTarjetas(partidos, rojoEsE1, opts){
+  const MAX = 5, tarjeta = p => tarjetaPartido(p, rojoEsE1, opts);
+  return `<div class="pc-lista">${partidos.slice(0, MAX).map(tarjeta).join('')}</div>${partidos.length > MAX
+    ? `<details class="pc-mas"><summary>${t('c4_ver_mas').replace('{n}', partidos.length - MAX)}</summary>
+      <div class="pc-lista">${partidos.slice(MAX).map(tarjeta).join('')}</div></details>` : ''}`;
+}
+
 function c4TablaPartidos(partidos, pivotCol, pivotAz, colLabel, azLabel){
   if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_enfrentamientos')}</div>`;
-  const MAX = 3;
-  const id = 'c4b' + (++_c4BlockId);
-  const thead = `<thead><tr>
-    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-    <th style="color:var(--red)">${t('comp_abbr')}</th>
-    <th style="color:var(--red)">${colLabel}</th><th></th>
-    <th style="color:var(--blue)">${azLabel}</th>
-    <th style="color:var(--blue)">${t('comp_abbr')}</th>
-  </tr></thead>`;
-  const filas = partidos.map(p => c4FilaPartido(p, pivotCol, pivotAz));
-  const visibles = filas.slice(0, MAX).join('');
-  const ocultos = filas.slice(MAX).join('');
-  const btnVerMas = ocultos ? `<tr id="${id}-btn"><td colspan="8" style="text-align:center;padding:.5rem">
-    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
-      ${t('c4_ver_mas').replace('{n}', partidos.length - MAX)}
-    </button></td></tr>` : '';
-  const filasOcultas = ocultos ? `<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>` : '';
-  return`<div class="twrap"><table>${thead}
-    <tbody>${visibles}</tbody>
-    ${filasOcultas}
-    <tbody>${btnVerMas}</tbody>
-  </table></div><div class="m-card">${renderMobileCardsHTML(partidos, {paginated:true, initial:5, step:5})}</div>`;
+  return listaTarjetas(partidos, p => pels(p.equipo1).includes(pivotCol));
 }
 
 
 function c4TablaSoloPareja(partidos, pivotD, pivotZ, parejaLabel, color){
   if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_partidos')}</div>`;
-  const MAX=3; const id='c4b'+(++_c4BlockId);
-  const colorMain = color==='col'?'var(--red)':'var(--blue)';
-  const thead=`<thead><tr>
-    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-    <th style="color:${colorMain}">${parejaLabel}</th>
-    <th style="color:${colorMain}">${t('abbr_tantos')}</th><th></th>
-    <th style="color:var(--muted)">${t('th_rival')}</th>
-    <th style="color:var(--muted)">${t('abbr_tantos')}</th>
-  </tr></thead>`;
-  const filas = partidos.map(p=>{
-    const e1=pels(p.equipo1), e2=pels(p.equipo2);
-    const pInE1 = e1.includes(pivotD)&&(!pivotZ||e1.includes(pivotZ));
-    const pSide = pInE1?e1:e2;
-    const rSide = pInE1?e2:e1;
-    const ptP = pInE1?p.puntos1:p.puntos2;
-    const ptR = pInE1?p.puntos2:p.puntos1;
-    const gano = (pInE1&&p.ganador==='equipo1')||(!pInE1&&p.ganador==='equipo2');
-    const compP = pSide.filter(n=>n!==pivotD).join('/')||'—';
-    const compR = rSide.join('/')||'—';
-    const ti=etiquetaPartido(p);const tiTag=`<span class="tag ${ti.cls}">${ti.lbl}</span>`;
-    return`<tr>
-      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
-      <td>${tiTag}</td>
-      <td style="font-size:.74rem">${p.fronton}</td>
-      <td style="font-size:.7rem;color:${colorMain}">${compP}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${colorMain};font-weight:${gano?800:400}">${ptP}</td>
-      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-      <td style="font-size:.7rem;color:var(--muted);font-weight:${!gano?700:400}">${compR}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:var(--muted);font-weight:${!gano?800:400}">${ptR}</td>
-    </tr>`;
-  });
-  const visibles=filas.slice(0,MAX).join('');
-  const ocultos=filas.slice(MAX).join('');
-  const btnVerMas=ocultos?`<tr id="${id}-btn"><td colspan="8" style="text-align:center;padding:.5rem">
-    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
-      ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
-    </button></td></tr>`:'';
-  const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
-  return`<div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div><div class="m-card">${renderMobileCardsHTML(partidos, {paginated:true, initial:5, step:5})}</div>`;
+  // La pareja a su lado (colorada a la izquierda, azul a la derecha)
+  const enE1 = p => { const e1 = pels(p.equipo1); return e1.includes(pivotD) && (!pivotZ || e1.includes(pivotZ)); };
+  return listaTarjetas(partidos, p => color === 'col' ? enE1(p) : !enE1(p));
 }
 
 // Partidos con 3 de los 4 pelotaris elegidos: una de las dos parejas juega
@@ -1882,64 +1811,21 @@ function c4TresDeCuatro(cuatro, partsBase){
 
 function c4TablaTresDeCuatro(partidos, d1, z1, d2, z2){
   if(!partidos.length) return`<div class="nodata" style="padding:1.5rem"><div class="ic">📭</div>${t('sin_partidos')}</div>`;
-  const MAX=3; const id='c4b'+(++_c4BlockId);
   const cuatro=[d1,z1,d2,z2];
   // Los cuatro elegidos en su color; quien entra por el que falta, en gris
   const nombre=n=>{
     const c=(n===d1||n===z1)?'var(--red)':(n===d2||n===z2)?'var(--blue)':null;
-    return c?`<span style="color:${c};font-weight:600">${n}</span>`:`<span style="color:var(--muted);font-style:italic">${n}</span>`;
+    return c?`<span style="color:${c}">${n}</span>`:`<span style="color:var(--muted);font-style:italic">${n}</span>`;
   };
-  const thead=`<thead><tr>
-    <th>${t('th_fecha')}</th><th>${t('th_tipo')}</th><th>${t('th_fronton')}</th>
-    <th style="color:var(--red)">${t('eq_colorada')}</th><th>${t('abbr_tantos')}</th><th></th>
-    <th>${t('abbr_tantos')}</th><th style="color:var(--blue)">${t('eq_azul')}</th>
-    <th>${t('c4_sin')}</th>
-  </tr></thead>`;
   // A la izquierda (en rojo) el lado con más pelotaris de la pareja colorada
   const rojos=e=>pels(e).filter(n=>n===d1||n===z1).length;
-  const orientados=partidos.map(p=>{
-    const izq1=rojos(p.equipo1)>rojos(p.equipo2)||(rojos(p.equipo1)===rojos(p.equipo2)&&!pels(p.equipo2).includes(d1));
-    return izq1?p:{...p, equipo1:p.equipo2, equipo2:p.equipo1, puntos1:p.puntos2, puntos2:p.puntos1,
-      ganador:p.ganador==='equipo1'?'equipo2':'equipo1'};
-  });
-  const filas=orientados.map(p=>{
-    const e1=pels(p.equipo1), e2=pels(p.equipo2);
-    const [eI,eD,ptI,ptD]=[e1,e2,p.puntos1,p.puntos2];
-    const ganaI=p.ganador==='equipo1';
-    const falta=cuatro.find(n=>!e1.includes(n)&&!e2.includes(n));
-    const ti=etiquetaPartido(p);
-    return`<tr>
-      <td style="font-family:var(--mono);font-size:.66rem;white-space:nowrap">${p.fecha}</td>
-      <td><span class="tag ${ti.cls}">${ti.lbl}</span></td>
-      <td style="font-size:.74rem">${p.fronton}</td>
-      <td style="font-size:.7rem">${eI.map(nombre).join(' / ')}</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${ganaI?'var(--red)':'var(--muted)'}">${ptI}</td>
-      <td style="color:var(--muted);text-align:center;font-family:var(--mono)">—</td>
-      <td style="font-family:var(--display);font-size:1.3rem;color:${!ganaI?'var(--blue)':'var(--muted)'}">${ptD}</td>
-      <td style="font-size:.7rem">${eD.map(nombre).join(' / ')}</td>
-      <td style="font-size:.66rem;color:var(--muted);white-space:nowrap">${falta}</td>
-    </tr>`;
-  });
-  const visibles=filas.slice(0,MAX).join('');
-  const ocultos=filas.slice(MAX).join('');
-  const btnVerMas=ocultos?`<tr id="${id}-btn"><td colspan="9" style="text-align:center;padding:.5rem">
-    <button class="btn-ghost" onclick="c4VerMas('${id}')" style="font-size:.6rem;padding:.3rem .9rem">
-      ${t('c4_ver_mas').replace('{n}',partidos.length-MAX)}
-    </button></td></tr>`:'';
-  const filasOcultas=ocultos?`<tbody id="${id}-extra" style="display:none">${ocultos}</tbody>`:'';
+  const izq1=p=>rojos(p.equipo1)>rojos(p.equipo2)||(rojos(p.equipo1)===rojos(p.equipo2)&&!pels(p.equipo2).includes(d1));
+  const falta=p=>cuatro.find(n=>!pels(p.equipo1).includes(n)&&!pels(p.equipo2).includes(n));
   // Cuántos partidos sin cada uno de los cuatro
   const sinCada=cuatro.map(n=>[n,partidos.filter(p=>!pels(p.equipo1).includes(n)&&!pels(p.equipo2).includes(n)).length])
     .filter(([,k])=>k).map(([n,k])=>`<span class="c4-sin-chip">${t('c4_sin_pel').replace('{n}',n)}: ${k}</span>`).join('');
   return`<div class="c4-sin-chips">${sinCada}</div>
-    <div class="twrap"><table>${thead}<tbody>${visibles}</tbody>${filasOcultas}<tbody>${btnVerMas}</tbody></table></div>
-    <div class="m-card">${renderMobileCardsHTML(orientados, {paginated:true, initial:5, step:5})}</div>`;
-}
-
-function c4VerMas(id){
-  const extra = document.getElementById(id+'-extra');
-  const btn = document.getElementById(id+'-btn');
-  if(extra) extra.style.display='';
-  if(btn) btn.style.display='none';
+    ${listaTarjetas(partidos, izq1, {nombre, extra: p => t('c4_sin_pel').replace('{n}', falta(p))})}`;
 }
 
 function c4Bar(partidos, pivot_col, pivot_az, label, soloColor){
@@ -2048,7 +1934,6 @@ function renderC4(){
   // Partidos con 3 de los 4 (el cuarto sustituido por otro pelotari)
   const tresDeCuatro = z1&&z2 ? c4TresDeCuatro([d1,z1,d2,z2], partsBase) : [];
 
-  _c4BlockId = 0; // reset IDs
   _c4Ultimo = {d1, z1, d2, z2, exactos, anio: activeYearC4};
 
   const mkBloque = (emoji,titulo,n,bar,tabla) => `

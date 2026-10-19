@@ -126,7 +126,7 @@ class Web(unittest.TestCase):
         pg.evaluate('renderC4()')
         ultimo = pg.locator('.c4-bloque').last
         self.assertIn('3', ultimo.locator('.c4-bloque-title').inner_text())
-        self.assertGreater(ultimo.locator('.twrap tbody tr').count(), 0)
+        self.assertGreater(ultimo.locator('.pc-card').count(), 0)
         self.assertTrue(ultimo.locator('.c4-sin-chip').count() >= 2)
         # Siempre una de las parejas completa y enfrente uno de la otra: no vale
         # Ezkurdia / Iztueta contra Elordi / Albisu para Ezkurdia-Albisu vs Zabala-Iztueta
@@ -380,6 +380,9 @@ class Web(unittest.TestCase):
         pg.wait_for_selector('#h2hRes .duelo')
         self.assertEqual(pg.evaluate('h2hMod'), 'todas')
         self.assertTrue(pg.locator('#h2hRes .duelo-general').is_visible())
+        # Los partidos van en la misma tarjeta que en el resto de listas
+        self.assertGreater(pg.locator('#h2hRes .pc-card').count(), 0)
+        self.assertEqual(pg.locator('#h2hRes table').count(), 0)
 
     def test_partido_de_la_cartelera_como_imagen(self):
         pg = self.pagina('#/cartelera', descargas=True)
