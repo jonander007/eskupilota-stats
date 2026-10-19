@@ -389,6 +389,19 @@ class Web(unittest.TestCase):
         pg.wait_for_timeout(400)
         self.assertEqual(pg.evaluate('location.hash'), '#/comparador')
 
+    def test_filtro_por_empresa_en_pelotaris(self):
+        pg = self.pagina('#/pelotaris')
+        pg.wait_for_selector('#pCards .pcard')
+        total = pg.locator('#pCards .pcard').count()
+        pg.click('#empPillsPel [data-emp="aspe"]')
+        nombres = pg.locator('#pCards .pname').all_inner_texts()
+        self.assertTrue(0 < len(nombres) < total)
+        # Todos de Aspe (o de las dos) y con su logo
+        self.assertTrue(pg.evaluate("n => n.every(x => ['aspe','ambas'].includes(getEmpresa(x.trim())))", nombres))
+        self.assertEqual(pg.locator('#pCards .pcard .logo-emp.aspe').count(), len(nombres))
+        pg.click('#empPillsPel [data-emp="todas"]')
+        self.assertEqual(pg.locator('#pCards .pcard').count(), total)
+
     def test_duelo_individual_desde_la_cartelera(self):
         pg = self.pagina('#/cartelera')
         pg.wait_for_timeout(500)

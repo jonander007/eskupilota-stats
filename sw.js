@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v52';
+const CACHE = 'eskupilota-v53';
 const PREFS = 'eskupilota-prefs';   // pelotaris seguidos y avisos ya dados (los escribe la web)
 
 // Todo lo necesario para que la web arranque sin conexión
@@ -20,6 +20,8 @@ const PRECACHE = [
   '/icon-192.png',
   '/icon-512.png',
   '/logo-header.png',
+  '/img/aspe.png',
+  '/img/baiko.png',
 ];
 
 self.addEventListener('install', e => {
