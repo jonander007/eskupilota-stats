@@ -1,5 +1,5 @@
 {
-  "actualizado": "20/10/2026 01:34",
+  "actualizado": "20/10/2026 14:45",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -86,7 +86,7 @@
         "EZKURDIA // ELORDI (Serie A)",
         "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA"
       ],
-      "precio": "30.00",
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
       "tv": false,
@@ -202,7 +202,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
-        "ARTOLA – LANDA // SENAR – ALBISU"
+        "ARTOLA – LANDA // SENAR – IZTUETA"
       ],
       "precio": "10.00",
       "agotado": false,
@@ -232,9 +232,9 @@
           ],
           "eq2": [
             "SENAR",
-            "ALBISU"
+            "IZTUETA"
           ],
-          "raw": "ARTOLA – LANDA // SENAR – ALBISU",
+          "raw": "ARTOLA – LANDA // SENAR – IZTUETA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -722,6 +722,42 @@
           "categoria": "campeonato",
           "serie": "a",
           "fase": "semifinal",
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "14/11/2026",
+      "hora": "17:15",
+      "fronton": "Uranzu",
+      "ciudad": "Irun",
+      "fase": "Final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "Final (Serie B)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
           "pendiente": true
         }
       ],
