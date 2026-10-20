@@ -423,6 +423,19 @@ class Web(unittest.TestCase):
         pg.click('#h2hFil1 button:has-text("Delanteros")')
         self.assertEqual(pg.eval_on_selector('#h2hP1', 's => s.value'), opciones[0])
 
+    def test_comparador_parejas_filtros_de_cada_pareja(self):
+        pg = self.pagina('#/comparador')
+        pg.click('[onclick*="setCompType(\'parejas\'"]')
+        pg.wait_for_selector('#c4Fil1 .ypill')
+        n = lambda id: pg.locator(f'#{id} option').count() - 1
+        dels, zags = n('c4d1'), n('c4z1')
+        pg.click('#c4Fil1 .emp-pills button:nth-child(2)')    # Aspe
+        self.assertTrue(0 < n('c4d1') < dels)
+        self.assertTrue(0 < n('c4z1') < zags)
+        self.assertEqual(n('c4d2'), dels)    # la otra pareja no cambia
+        opciones = pg.eval_on_selector_all('#c4d1 option', 'os => os.slice(1).map(o => o.value)')
+        self.assertTrue(pg.evaluate("ns => ns.every(n => ['aspe','ambas'].includes(getEmpresa(n)))", opciones))
+
     def test_frontones_por_provincia_y_comarca(self):
         pg = self.pagina('#/frontones')
         pg.wait_for_selector('#frontonGrid .fronton-card')

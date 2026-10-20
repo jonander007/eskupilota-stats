@@ -600,7 +600,7 @@ function applyI18N(){
   document.querySelector('.leaflet-control-zoom-out')?.setAttribute('title', t('map_alejar'));
   // Contenido que se pinta desde el JS
   buildKPIs();
-  [1,2].forEach(i => { renderFiltrosH2H(i); llenarSelH2H(i); });
+  [1,2].forEach(i => { renderFiltrosH2H(i); llenarSelH2H(i); renderFiltrosC4(i); });
   renderFiltroZona();
   rebuildCompFilter();
   renderTabla();
@@ -1794,36 +1794,41 @@ function renderH2HUnificado(){ renderH2H(); }
 // ════════════════════════════════════════════════════════════
 // COMPARADOR 4
 // ════════════════════════════════════════════════════════════
-function populateC4Sels(){
-  // Comparador obsoleto
-  if(!document.getElementById('c4d1')) return;
-  // Solo delanteros conocidos que además tienen partidos en el JSON
-  const delants=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
-    .filter(Boolean)
-    .filter(n=>getRol(n)==='delantero')
-    .sort();
-  ['c4d1','c4d2'].forEach(id=>{
-    const s=document.getElementById(id);
-    delants.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
-  });
-  // Zagueros para los selects de zaguero (habilitados desde el inicio)
-  const zagueros=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
-    .filter(Boolean)
-    .filter(n=>getRol(n)==='zaguero')
-    .sort();
-  ['c4z1','c4z2'].forEach(id=>{
-    const s=document.getElementById(id);
-    s.disabled=false;
-    s.innerHTML=`<option value="" data-i18n="sel_zaguero_any">${t('sel_zaguero_any')}</option>`;
-    zagueros.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
-  });
+// Filtros de cada pareja (estado y empresa) para acortar las listas de
+// delanteros y zagueros; el elegido se queda aunque no pase el filtro
+const _c4Fil = {1:{est:'actuales', emp:'todas'}, 2:{est:'actuales', emp:'todas'}};
+function pasaFiltroC4(i, n, activos){
+  const f = _c4Fil[i];
+  return (!activos || activos.has(n.toUpperCase())===(f.est==='actuales')) && deEmpresa(n, f.emp);
 }
-
-function c4DelanteroChange(num){
-  if(!document.getElementById('c4d'+num)) return;
-  const del=document.getElementById('c4d'+num).value;
-  const zagSel=document.getElementById('c4z'+num);
-  // Contar partidos jugados con este delantero para mostrar frecuencia
+function delanterosC4(){
+  // Solo delanteros conocidos que además tienen partidos en el JSON
+  return [...new Set(PARTIDOS.flatMap(p=>[p.equipo1.delantero,p.equipo2.delantero]))]
+    .filter(Boolean).filter(n=>getRol(n)==='delantero').sort();
+}
+function zaguerosC4(){
+  return [...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
+    .filter(Boolean).filter(n=>getRol(n)==='zaguero').sort();
+}
+function populateC4Sels(){
+  if(!document.getElementById('c4d1')) return;
+  [1,2].forEach(i => { llenarDelC4(i); llenarZagC4(i); renderFiltrosC4(i); });
+}
+function llenarDelC4(i){
+  const s = document.getElementById('c4d'+i), actual = s.value;
+  const activos = _c4Fil[i].est!=='todos' ? getActivePlayers() : null;
+  while(s.options.length>1) s.remove(1);
+  delanterosC4().filter(n => n===actual || pasaFiltroC4(i, n, activos))
+    .forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;s.appendChild(o);});
+  s.value = actual;
+}
+// Zagueros: primero los que han jugado con el delantero elegido (por
+// frecuencia), luego el resto
+function llenarZagC4(i){
+  const del = document.getElementById('c4d'+i).value;
+  const zagSel = document.getElementById('c4z'+i), actual = zagSel.value;
+  const activos = _c4Fil[i].est!=='todos' ? getActivePlayers() : null;
+  const vale = z => z===actual || pasaFiltroC4(i, z, activos);
   const comps=new Map();
   const partsYear=activeYearC4==='todos'?PARTIDOS:PARTIDOS.filter(p=>getYear(p)===activeYearC4);
   if(del){
@@ -1835,14 +1840,10 @@ function c4DelanteroChange(num){
       if(z)comps.set(z,(comps.get(z)||0)+1);
     });
   }
-  // Siempre mostrar todos los zagueros conocidos, con frecuencia si aplica
   zagSel.disabled=false;
   zagSel.innerHTML=`<option value="" data-i18n="sel_zaguero_any">${t('sel_zaguero_any')}</option>`;
-  const todosZag=[...new Set(PARTIDOS.flatMap(p=>[p.equipo1.zaguero,p.equipo2.zaguero]))]
-    .filter(Boolean).filter(n=>getRol(n)==='zaguero').sort();
-  // Primero los que han jugado con este delantero (por frecuencia), luego el resto
-  const conHistorial=[...comps.entries()].sort((a,b)=>b[1]-a[1]).map(([z])=>z);
-  const sinHistorial=todosZag.filter(z=>!comps.has(z));
+  const conHistorial=[...comps.entries()].sort((a,b)=>b[1]-a[1]).map(([z])=>z).filter(vale);
+  const sinHistorial=zaguerosC4().filter(z=>!comps.has(z)).filter(vale);
   if(conHistorial.length){
     const gr1=document.createElement('optgroup');gr1.label=t('c4_con_hist');
     conHistorial.forEach(z=>{
@@ -1852,13 +1853,26 @@ function c4DelanteroChange(num){
     zagSel.appendChild(gr1);
   }
   if(sinHistorial.length){
-    const gr2=document.createElement('optgroup');gr2.label=t('c4_sin_hist');
+    const gr2=document.createElement('optgroup');gr2.label=del?t('c4_sin_hist'):t('lbl_zaguero');
     sinHistorial.forEach(z=>{
       const o=document.createElement('option');o.value=z;o.textContent=z;gr2.appendChild(o);
     });
     zagSel.appendChild(gr2);
   }
+  zagSel.value = actual;
+}
+function c4DelanteroChange(num){
+  if(!document.getElementById('c4d'+num)) return;
+  llenarZagC4(num);
   renderC4();
+}
+function setFiltroC4(i, k, v){ _c4Fil[i][k] = v; renderFiltrosC4(i); llenarDelC4(i); llenarZagC4(i); }
+function renderFiltrosC4(i){
+  const el = document.getElementById('c4Fil'+i); if(!el) return;
+  const f = _c4Fil[i];
+  const pill = (k, v, txt) => `<button type="button" class="ypill${f[k]===v?' on':''}" aria-pressed="${f[k]===v}" onclick="setFiltroC4(${i},'${k}','${v}')">${txt}</button>`;
+  el.innerHTML = `<div class="year-pills" role="group" aria-label="${t('flabel_estado')}">${pill('est','actuales',t('est_actuales'))}${pill('est','retirados',t('est_retirados'))}${pill('est','todos',t('sel_todos'))}</div>
+    <div class="year-pills emp-pills" role="group" aria-label="${t('flabel_empresa')}">${pill('emp','todas',t('sel_todas'))}${pill('emp','aspe',htmlLogoEmpresa('aspe'))}${pill('emp','baiko',htmlLogoEmpresa('baiko'))}</div>`;
 }
 
 function c4Partidos(d1,z1,d2,z2,partsBase){
@@ -2463,6 +2477,11 @@ function goToComparadorFromPartido(p){
     const i = selId==='h2hP1' ? 1 : selId==='h2hP2' ? 2 : 0;
     if(i && ![...sel.options].some(o=>o.value.toUpperCase()===norm)){
       _h2hFil[i] = {est:'todos', emp:'todas', pos:'todas'}; renderFiltrosH2H(i); llenarSelH2H(i);
+    }
+    // Comparador de parejas: igual, quitando los filtros de esa pareja
+    const k = (selId.match(/^c4[dz]([12])$/)||[])[1];
+    if(k && ![...sel.options].some(o=>o.value.toUpperCase()===norm)){
+      _c4Fil[k] = {est:'todos', emp:'todas'}; renderFiltrosC4(k); llenarDelC4(k); llenarZagC4(k);
     }
     let found=[...sel.options].find(o=>o.value.toUpperCase()===norm);
     if(!found) found=[...sel.options].find(o=>o.value.toUpperCase().startsWith(norm.split(' ')[0]));
