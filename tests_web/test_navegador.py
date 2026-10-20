@@ -283,8 +283,31 @@ class Web(unittest.TestCase):
             pg.click('button[onclick^="descargarFicha"]')
         self.assertEqual(d.value.suggested_filename, 'ficha-laso-campeonato-2025.jpg')
 
+    def test_ranking_oficial(self):
+        pg = self.pagina('#/ranking')
+        pg.wait_for_selector('#rk2 .rk2-pod')
+        self.assertEqual(pg.locator('#rk2 .rk2-pod').count(), 3)
+        self.assertGreater(pg.locator('#rk2 .rk2-fila').count(), 10)
+        # Ordenado por Elo, de mayor a menor
+        elos = [int(x) for x in pg.locator('#rk2 .rk2-elo').all_inner_texts()]
+        self.assertEqual(elos, sorted(elos, reverse=True))
+        self.assertEqual(pg.locator('#rk2 .rk2-bump .rk2-linea').count(), 10)
+        self.assertEqual(pg.locator('#rk2 .rk2-rec').count(), 5)
+        # Zagueros: solo zagueros
+        pg.click('#rk2Tabs [data-tipo="zaguero"]')
+        nombres = pg.locator('#rk2 .rk2-nom .clk').all_inner_texts()
+        self.assertTrue(nombres and pg.evaluate("ns => ns.every(n => getRol(n) === 'zaguero')", nombres))
+        # Empresa
+        pg.click('#rk2Filtros .emp-pills button:nth-child(3)')    # Baiko
+        nombres = pg.locator('#rk2 .rk2-nom .clk').all_inner_texts()
+        self.assertTrue(pg.evaluate("ns => ns.every(n => ['baiko','ambas'].includes(getEmpresa(n)))", nombres))
+        # Las tablas de antes siguen en «Más estadísticas»
+        pg.click('#rk2Mas summary')
+        self.assertTrue(pg.locator('#rkContent').is_visible())
+
     def test_ranking_de_parejas(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         pg.click('#rktab-parejas')
         self.assertEqual(pg.locator('.rk-card').count(), 2)
         # Cada pelotari de la pareja enlaza a su perfil
@@ -294,6 +317,7 @@ class Web(unittest.TestCase):
 
     def test_ranking_elo(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         pg.click('#rktab-elo')
         self.assertGreaterEqual(pg.locator('#rkContent tbody tr').count(), 10)
         # Gráfico con la evolución de los cinco primeros
@@ -302,6 +326,7 @@ class Web(unittest.TestCase):
 
     def test_ranking_tabla_ordenable(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         filas = pg.locator('.rk-tabla tbody tr')
         self.assertGreater(filas.count(), 20)
         victorias = lambda: [int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(4)').all_inner_texts()]
@@ -317,6 +342,7 @@ class Web(unittest.TestCase):
 
     def test_ranking_por_porcentaje(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         pg.click('.rk-ordenar .pill:has-text("% victorias")')
         filas = [(int(pj), int(pct.rstrip('%'))) for pj, pct in zip(
             pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts(),
@@ -332,6 +358,7 @@ class Web(unittest.TestCase):
 
     def test_ranking_por_categoria(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         total = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
         pg.click('#catPillsRk [data-cat="oficial"]')
         oficiales = sum(int(x) for x in pg.locator('.rk-tabla tbody tr td:nth-child(3)').all_inner_texts())
@@ -342,6 +369,7 @@ class Web(unittest.TestCase):
 
     def test_ranking_titulos(self):
         pg = self.pagina('#/ranking')
+        pg.click('#rk2Mas summary')
         pg.click('#ahtab-rk-hist')
         pg.click('#rktab-titulos')
         self.assertGreater(pg.locator('.rk-tabla tbody tr').count(), 5)

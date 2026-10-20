@@ -251,7 +251,7 @@ const I18N = {
     th_equipo1: 'Equipo 1', th_marcador: 'Marcador', th_equipo2: 'Equipo 2', th_comp: 'Competición',
     // Secciones
     sec_partidos: 'Partidos', sec_pelotaris: 'Pelotaris', sec_ranking: 'Ranking',
-    part_ultimos: 'Últimos festivales', part_todos: 'Todos los partidos',
+    part_ultimos: 'Últimos festivales', part_todos: 'Todos los partidos', rk2_mas: 'Más estadísticas',
     sec_comparador: 'Comparador', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
     sec_contacto: 'Contacto',
     // Pelotaris
@@ -405,7 +405,7 @@ const I18N = {
     th_fecha: 'Data', th_tipo: 'Mota', th_fronton: 'Frontoia',
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
     sec_partidos: 'Partidak', sec_pelotaris: 'Pilotariak', sec_ranking: 'Sailkapena',
-    part_ultimos: 'Azken jaialdiak', part_todos: 'Partida guztiak',
+    part_ultimos: 'Azken jaialdiak', part_todos: 'Partida guztiak', rk2_mas: 'Estatistika gehiago',
     sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
     sec_contacto: 'Kontaktua',
     lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
@@ -601,6 +601,7 @@ function applyI18N(){
   // Contenido que se pinta desde el JS
   buildKPIs();
   [1,2].forEach(i => { renderFiltrosH2H(i); llenarSelH2H(i); renderFiltrosC4(i); });
+  if(typeof renderRanking2==='function') renderRanking2();
   renderFiltroZona();
   rebuildCompFilter();
   renderTabla();
@@ -802,6 +803,7 @@ function init(){
   populateC4Sels();
   renderFrontones();
   buildRanking();
+  renderRanking2();
   applyI18N();
   buildCampeonatos();
   initRouter();
