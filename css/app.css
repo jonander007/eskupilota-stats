@@ -1300,3 +1300,10 @@ header :focus-visible{outline-color:#fff;}
   .kpi-value{font-size:1.15rem;}
   .kpi-sub{display:none;}
 }
+/* Ordenador: dos festivales por fila y partidos más compactos */
+@media(min-width:900px){
+  #partVeladas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;align-items:start;}
+  .vl-head{padding:.55rem .9rem;}
+  .vl-partido{grid-template-columns:6.5rem minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;padding:.5rem .9rem;}
+  .vl-marcador b{font-size:1.5rem;}
+}
