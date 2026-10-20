@@ -1307,3 +1307,10 @@ header :focus-visible{outline-color:#fff;}
   .vl-partido{grid-template-columns:6.5rem minmax(0,1fr) auto minmax(0,1fr);gap:.6rem;padding:.5rem .9rem;}
   .vl-marcador b{font-size:1.5rem;}
 }
+
+/* Comparador de parejas: filtros de cada pareja y selectores a todo el ancho */
+.c4-fil{margin:.2rem 0 .5rem;}
+.c4-eq select{width:100%;}
+.c4-eq .eq-title{font-size:1.3rem;}
+.c4-eq.colorado .eq-title{color:var(--red);}
+.c4-eq.azul .eq-title{color:var(--blue);}
