@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v61';
+const CACHE = 'eskupilota-v62';
 const PREFS = 'eskupilota-prefs';   // pelotaris seguidos y avisos ya dados (los escribe la web)
 
 // Todo lo necesario para que la web arranque sin conexión
@@ -8,6 +8,7 @@ const PRECACHE = [
   '/css/app.css',
   '/js/app.js',
   '/js/analisis.js',
+  '/js/ranking.js',
   '/js/porra.js',
   '/data/partidos.json',
   '/data/pelotaris.json',
