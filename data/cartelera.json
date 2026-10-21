@@ -1,5 +1,5 @@
 {
-  "actualizado": "21/10/2026 01:16",
+  "actualizado": "21/10/2026 14:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -86,7 +86,7 @@
         "EZKURDIA // ELORDI (Serie A)",
         "AGIRRE – IMAZ // LARRAZABAL – LIZEAGA"
       ],
-      "precio": "20.00",
+      "precio": "38.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021329/select?viewCode=",
       "tv": false,
@@ -723,6 +723,40 @@
           "serie": "a",
           "fase": "semifinal",
           "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "13/11/2026",
+      "hora": "18:00",
+      "fronton": "Lanciego",
+      "ciudad": "Lanciego",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "DARÍO – LOZA // LARRAZABAL – LANDA"
+      ],
+      "precio": "0",
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "LANDA"
+          ],
+          "raw": "DARÍO – LOZA // LARRAZABAL – LANDA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
       ],
       "fuente": "baiko"
