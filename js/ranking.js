@@ -5,8 +5,8 @@
 // ════════════════════════════════════════════════════════════
 const RK2_TIPOS = {
   general:   {es:'General',      eu:'Orokorra',     filtro:()=>true,                        min:10},
-  mano:      {es:'Manomanista',  eu:'Buruz burukoa', filtro:p=>p.modalidad==='mano',        min:5},
-  cuatro:    {es:'4 y Medio',    eu:"Lau t'erdi",   filtro:p=>p.modalidad==='cuatro',       min:5},
+  mano:      {es:'Manomanista',  eu:'Buruz burukoa', filtro:p=>p.modalidad==='mano',        min:5, ajuste:true},
+  cuatro:    {es:'4 y Medio',    eu:"Lau t'erdi",   filtro:p=>p.modalidad==='cuatro',       min:5, ajuste:true},
   delantero: {es:'Delanteros',   eu:'Aurrelariak',  filtro:p=>p.modalidad==='parejas',      min:10, rol:'delantero'},
   zaguero:   {es:'Zagueros',     eu:'Atzelariak',   filtro:p=>p.modalidad==='parejas',      min:10, rol:'zaguero'},
 };
@@ -14,24 +14,46 @@ const RK2_COLORES = ['#1b7f4b','#2471a3','#c8102e','#d99a00','#8a5cc7','#1aa3a3'
 let rk2Tipo = 'general', rk2Estado = 'activos', rk2Emp = 'todas';
 let _rk2Cache = {};
 
-// Elo, historial y resultados con solo los partidos de una especialidad
+// Elo, historial y resultados de una especialidad.
+// - Parejas (delanteros / zagueros) y general: Elo con solo esos partidos.
+// - Mano y 4 y medio (`ajuste`): Elo general + un ajuste que solo mueven los
+//   partidos de la especialidad. Con un Elo propio, los de la Serie B, que
+//   casi solo juegan entre ellos, inflaban su nota (Bakaikoa salía 2º en las
+//   dos); el general mezcla a todos en los festivales y los pone en su sitio.
+//   Probado con los partidos desde 2025: predice igual o mejor que el Elo
+//   propio en mano y 4 y medio, y peor en parejas (por eso allí no se usa).
 function rk2Datos(tipo){
   if(_rk2Cache[tipo] && _rk2Cache[tipo].n === PARTIDOS.length) return _rk2Cache[tipo];
-  const filtro = RK2_TIPOS[tipo].filtro;
-  const ps = PARTIDOS.filter(p => p.ganador && filtro(p)).sort((a,b) => parseDate(a.fecha)-parseDate(b.fecha));
+  const cfg = RK2_TIPOS[tipo], filtro = cfg.filtro;
+  const todos = PARTIDOS.filter(p => p.ganador).sort((a,b) => parseDate(a.fecha)-parseDate(b.fecha));
+  const ps = todos.filter(filtro);
   const elo = {}, hist = {}, res = {}, racha = {}, mejorRacha = {}, fronRacha = {}, mejorFron = {};
-  const r = n => elo[n] ?? ELO_BASE;
-  ps.forEach(p => {
+  const gen = {}, aj = {};            // solo con `ajuste`: Elo general y ajuste de la especialidad
+  const r = n => cfg.ajuste ? (gen[n] ?? ELO_BASE) + (aj[n] ?? 0) : (elo[n] ?? ELO_BASE);
+  const media = (t, fn) => t.reduce((s,n)=>s+fn(n),0)/t.length;
+  (cfg.ajuste ? todos : ps).forEach(p => {
     const t1 = pels(p.equipo1), t2 = pels(p.equipo2);
     if(!t1.length || !t2.length) return;
-    const R1 = t1.reduce((s,n)=>s+r(n),0)/t1.length, R2 = t2.reduce((s,n)=>s+r(n),0)/t2.length;
-    const E = 1/(1+Math.pow(10,(R2-R1)/400));
     const S = p.ganador==='equipo1' ? 1 : 0;
     const K = (p.tipo||'').startsWith('festival') ? ELO_K/2 : ELO_K;
-    const d = K*(S-E), f = parseDate(p.fecha);
+    const f = parseDate(p.fecha), esp = !cfg.ajuste || filtro(p);
+    let d = 0;
+    if(esp){
+      const E = 1/(1+Math.pow(10,(media(t2,r)-media(t1,r))/400));
+      d = K*(S-E);
+    }
+    if(cfg.ajuste){
+      // El general se mueve con todos los partidos; el ajuste, con los de la especialidad
+      const g = n => gen[n] ?? ELO_BASE;
+      const dg = K*(S - 1/(1+Math.pow(10,(media(t2,g)-media(t1,g))/400)));
+      t1.forEach(n => { gen[n] = g(n) + dg; if(esp) aj[n] = (aj[n] ?? 0) + d; });
+      t2.forEach(n => { gen[n] = g(n) - dg; if(esp) aj[n] = (aj[n] ?? 0) - d; });
+      // Su nota cambia también con los partidos de otras modalidades (no cuentan como jugados aquí)
+      [...t1, ...t2].forEach(n => { if(aj[n] !== undefined){ elo[n] = r(n); (hist[n] = hist[n] || []).push([f, elo[n], esp]); } });
+      if(!esp) return;
+    }
     [[t1, d, S===1], [t2, -d, S===0]].forEach(([eq, delta, gana]) => eq.forEach(n => {
-      elo[n] = r(n) + delta;
-      (hist[n] = hist[n] || []).push([f, elo[n]]);
+      if(!cfg.ajuste){ elo[n] = r(n) + delta; (hist[n] = hist[n] || []).push([f, elo[n]]); }
       (res[n] = res[n] || []).push(gana ? 'V' : 'D');
       // Rachas de victorias (en general y en cada frontón)
       if(gana){
@@ -51,7 +73,7 @@ function rk2Datos(tipo){
 // Elo al terminar el día `fecha` y partidos jugados hasta entonces
 function rk2EloEn(D, n, fecha){
   let v = null, k = 0;
-  for(const [f, e] of (D.hist[n]||[])){ if(f > fecha) break; v = e; k++; }
+  for(const [f, e, esp] of (D.hist[n]||[])){ if(f > fecha) break; v = e; if(esp !== false) k++; }
   return {elo:v, pj:k};
 }
 
@@ -66,7 +88,7 @@ function rk2Candidatos(D, tipo){
 function rk2Ranking(D, tipo, fecha){
   const min = RK2_TIPOS[tipo].min;
   return rk2Candidatos(D, tipo).map(n => {
-    const x = fecha ? rk2EloEn(D, n, fecha) : {elo:D.elo[n], pj:D.hist[n].length};
+    const x = fecha ? rk2EloEn(D, n, fecha) : {elo:D.elo[n], pj:(D.res[n]||[]).length};
     return {n, elo:x.elo, pj:x.pj};
   }).filter(x => x.elo!=null && x.pj>=min).sort((a,b) => b.elo-a.elo);
 }
@@ -205,8 +227,8 @@ function renderRanking2(){
   </div>`;
 
   el.innerHTML = `
-    <p class="an-nota rk2-nota">${tx(`Ranking por Elo con solo los partidos de ${rk2Tipo==='general'?'todas las modalidades':'esta especialidad'}: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Mínimo ${RK2_TIPOS[rk2Tipo].min} partidos. ▲▼: puestos ganados o perdidos en los últimos 30 días.`,
-      `Elo bidezko sailkapena, ${rk2Tipo==='general'?'modalitate guztietako':'espezialitate honetako'} partidekin bakarrik: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Gutxienez ${RK2_TIPOS[rk2Tipo].min} partida. ▲▼: azken 30 egunetan irabazitako edo galdutako postuak.`)}</p>
+    <p class="an-nota rk2-nota">${tx(`${rk2Tipo==='general' ? 'Ranking por Elo con todos los partidos' : RK2_TIPOS[rk2Tipo].ajuste ? 'Ranking por Elo: el general de cada uno más lo que rinde en esta especialidad (así los de la Serie B no se inflan ganándose entre ellos)' : 'Ranking por Elo con solo los partidos de esta especialidad'}: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Mínimo ${RK2_TIPOS[rk2Tipo].min} partidos. ▲▼: puestos ganados o perdidos en los últimos 30 días.`,
+      `${rk2Tipo==='general' ? 'Elo bidezko sailkapena, partida guztiekin' : RK2_TIPOS[rk2Tipo].ajuste ? 'Elo bidezko sailkapena: bakoitzaren Elo orokorra gehi espezialitate honetan ematen duena' : 'Elo bidezko sailkapena, espezialitate honetako partidekin bakarrik'}: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Gutxienez ${RK2_TIPOS[rk2Tipo].min} partida. ▲▼: azken 30 egunetan irabazitako edo galdutako postuak.`)}</p>
     ${podio}
     ${momento}
     ${lista}
