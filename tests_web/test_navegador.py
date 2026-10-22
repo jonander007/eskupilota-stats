@@ -464,6 +464,15 @@ class Web(unittest.TestCase):
         opciones = pg.eval_on_selector_all('#c4d1 option', 'os => os.slice(1).map(o => o.value)')
         self.assertTrue(pg.evaluate("ns => ns.every(n => ['aspe','ambas'].includes(getEmpresa(n)))", opciones))
 
+    def test_nombre_completo(self):
+        pg = self.pagina('#/pelotaris')
+        pg.wait_for_selector('#pCards .pcard')
+        pg.fill('#pSearch', 'jokin')
+        self.assertEqual(pg.locator('#pCards .pname').first.inner_text().split('\n')[0].strip(), 'ALTUNA III')
+        pg.locator('#pCards .pcard').first.click()
+        pg.wait_for_selector('.pf-completo')
+        self.assertEqual(pg.inner_text('.pf-completo'), 'Jokin Altuna')
+
     def test_frontones_por_provincia_y_comarca(self):
         pg = self.pagina('#/frontones')
         pg.wait_for_selector('#frontonGrid .fronton-card')

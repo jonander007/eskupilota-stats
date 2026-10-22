@@ -53,6 +53,7 @@ function getActivePlayers(){
 // los puestos en los que juega por parejas)
 let ROL_POR_NOMBRE = {};
 let EMPRESA_POR_NOMBRE = {};   // 'baiko' | 'aspe' (data/pelotaris.json, ver tools/empresas.py)
+let NOMBRE_COMPLETO = {};      // 'ALTUNA III' → 'Jokin Altuna' (data/pelotaris.json)
 function getEmpresa(nombre){ return EMPRESA_POR_NOMBRE[(nombre||'').toUpperCase()] || null; }
 const NOMBRE_EMPRESA = {baiko:'Baiko', aspe:'Aspe', ambas:'Aspe · Baiko'};
 // ¿Es de esa empresa? Los que han estado en las dos salen con cualquiera
@@ -664,6 +665,7 @@ async function loadData(){
       CAT_PELOTARIS     = Object.fromEntries(pels.map(o=>[o.id,o]));
       ROL_POR_NOMBRE    = Object.fromEntries(pels.map(o=>[(o.nombre||'').toUpperCase(), o.rol]));
       EMPRESA_POR_NOMBRE = Object.fromEntries(pels.filter(o=>o.empresa).map(o=>[(o.nombre||'').toUpperCase(), o.empresa]));
+      NOMBRE_COMPLETO = Object.fromEntries(pels.filter(o=>o.nombre_completo).map(o=>[(o.nombre||'').toUpperCase(), o.nombre_completo]));
       FOTO_POR_NOMBRE   = Object.fromEntries(pels.filter(o=>o.foto).map(o=>[(o.nombre||'').toUpperCase(), o.foto]));
       CAT_CIUDADES      = Object.fromEntries(ciu .map(o=>[o.id,o]));
       CAT_FRONTONES     = Object.fromEntries(fro .map(o=>[o.id,o]));
@@ -1244,7 +1246,7 @@ function renderPCards(){
   const st=calcStats(parts);
   const activePlayers = activeEstadoPel!=='todos' ? getActivePlayers() : null;
   let ns=Object.keys(st).filter(n=>{
-    if(q&&!n.toLowerCase().includes(q)) return false;
+    if(q&&!n.toLowerCase().includes(q)&&!(NOMBRE_COMPLETO[n.toUpperCase()]||'').toLowerCase().includes(q)) return false;
     if(activePlayers && activePlayers.has(n.toUpperCase()) !== (activeEstadoPel==='actuales')) return false;
     if(!deEmpresa(n, activeEmpPel)) return false;
     if(activePosPel!=='todas' && getRol(n)!==activePosPel) return false;
@@ -1364,7 +1366,7 @@ function openPerfil(nombre){
 
   document.getElementById('pfWrap').innerHTML=`
     <div>
-      <div class="pf-header">${htmlFotoPerfil(nombre)}<div class="pf-nombre">${nombre}</div><div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
+      <div class="pf-header">${htmlFotoPerfil(nombre)}<div class="pf-nombre">${nombre}</div>${NOMBRE_COMPLETO[nombre.toUpperCase()]?`<div class="pf-completo">${h(NOMBRE_COMPLETO[nombre.toUpperCase()])}</div>`:''}<div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
       <div class="pf-sgrid">
         <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
         <div class="pf-s"><div class="v r">${s.pp}</div><div class="l">${t('lbl_derrotas')}</div></div>
