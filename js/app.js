@@ -638,6 +638,10 @@ function nPartidos(n){ return t(n === 1 ? 'n_partido' : 'n_partidos').replace('{
 // CATÁLOGOS MAESTROS (v2 — datos normalizados con IDs)
 // ════════════════════════════════════════════════════════════
 let CAT_PELOTARIS = {}, CAT_FRONTONES = {}, CAT_CIUDADES = {}, CAT_COMPETICIONES = {};
+// Dentro de una app empaquetada (Capacitor: capacitor://, file://) los datos
+// se piden siempre a la web, que es donde se actualizan cada hora
+const ORIGEN_DATOS = (window.Capacitor || /^(capacitor|file|ionic):$/.test(location.protocol)) ? 'https://www.eskupilotastats.com/' : '';
+const datosUrl = f => ORIGEN_DATOS + 'data/' + f;
 // Partidos tal y como vienen del JSON (con IDs), para re-resolver nombres al cambiar de idioma
 let RAW_PARTIDOS = [];
 
@@ -654,11 +658,11 @@ async function loadData(){
   // Intentar cargar modelo nuevo (catálogos). Si falla, caer al antiguo.
   try{
     const [pels, ciu, fro, cmp, par] = await Promise.all([
-      fetch('data/pelotaris.json').then(r=>r.json()),
-      fetch('data/ciudades.json').then(r=>r.json()),
-      fetch('data/frontones.json').then(r=>r.json()),
-      fetch('data/competiciones.json').then(r=>r.json()),
-      fetch('data/partidos.json').then(r=>r.json()),
+      fetch(datosUrl('pelotaris.json')).then(r=>r.json()),
+      fetch(datosUrl('ciudades.json')).then(r=>r.json()),
+      fetch(datosUrl('frontones.json')).then(r=>r.json()),
+      fetch(datosUrl('competiciones.json')).then(r=>r.json()),
+      fetch(datosUrl('partidos.json')).then(r=>r.json()),
     ]);
     // Verificar que es el formato nuevo (partidos con del_id)
     if (par.length && par[0].equipo1 && 'del_id' in par[0].equipo1) {
@@ -679,7 +683,7 @@ async function loadData(){
   } catch(e) {
     console.warn('Fallback a partidos.json plano:', e);
     try{
-      const r = await fetch('data/partidos.json');
+      const r = await fetch(datosUrl('partidos.json'));
       PARTIDOS = (await r.json()).map(normPartido);
     } catch { PARTIDOS = []; }
   }
@@ -838,14 +842,17 @@ function showSec(id, btn, fromHistory){
 // ════════════════════════════════════════════════════════════
 function toggleDrawer(){
   const abierto = document.getElementById('drawer').classList.toggle('open');
+  // Una entrada en el historial para que el botón «atrás» (Android) cierre el menú
+  if(abierto) history.pushState({menu:1}, '', location.href);
   document.getElementById('drawerBackdrop').classList.toggle('open', abierto);
   const btn = document.getElementById('hamburgerBtn');
   btn.classList.toggle('open', abierto);
   btn.setAttribute('aria-expanded', abierto);
   if(abierto) document.querySelector('.drawer-nav button')?.focus();
 }
-function closeDrawer(){
+function closeDrawer(desdeAtras){
   const estabaAbierto = document.getElementById('drawer').classList.contains('open');
+  if(estabaAbierto && !desdeAtras && history.state && history.state.menu) history.back();
   document.getElementById('drawer').classList.remove('open');
   document.getElementById('drawerBackdrop').classList.remove('open');
   const btn = document.getElementById('hamburgerBtn');
@@ -853,6 +860,10 @@ function closeDrawer(){
   btn.setAttribute('aria-expanded', 'false');
   if(estabaAbierto && document.getElementById('drawer').contains(document.activeElement)) btn.focus();
 }
+
+window.addEventListener('popstate', () => {
+  if(document.getElementById('drawer')?.classList.contains('open')) closeDrawer(true);
+});
 
 // ── Accesibilidad ──
 // Los elementos con onclick que no son botones ni enlaces (tarjetas, nombres,
@@ -2249,7 +2260,7 @@ async function loadCartelera(){
   const el = document.getElementById('carteleraContainer');
   el.innerHTML = `<div class="cart-loading">${t('cart_cargando')}</div>`;
   try{
-    const r = await fetch('data/cartelera.json?_='+Date.now());
+    const r = await fetch(datosUrl('cartelera.json?_='+Date.now()));
     if(!r.ok) throw new Error('HTTP '+r.status);
     const data = await r.json();
     _carteleraData = data;
@@ -2720,7 +2731,7 @@ function enLaApp(){
     if(document.referrer.startsWith('android-app://')) sessionStorage.setItem('eskupilota-app', '1');
     if(sessionStorage.getItem('eskupilota-app')) return true;
   }catch(e){}
-  return (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+  return !!window.Capacitor || (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
 }
 const esIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 const esAndroid = () => /android/i.test(navigator.userAgent);

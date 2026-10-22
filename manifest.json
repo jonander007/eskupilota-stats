@@ -1,7 +1,7 @@
 {
   "name": "EskupilotaStats",
   "short_name": "EskupilotaStats",
-  "description": "Estadísticas de pelota vasca a mano profesional",
+  "description": "Estadísticas de pelota vasca a mano profesional (Baiko y Aspe): resultados, ranking Elo, fichas de pelotaris, comparador, cartelera y porra.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -13,13 +13,111 @@
       "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "lang": "es",
+  "dir": "ltr",
+  "categories": [
+    "sports"
+  ],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "shortcuts": [
+    {
+      "name": "Cartelera",
+      "short_name": "Cartelera",
+      "url": "/#/cartelera",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Resultados",
+      "short_name": "Resultados",
+      "url": "/#/resultados",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Ranking",
+      "short_name": "Ranking",
+      "url": "/#/ranking",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Porra",
+      "short_name": "Porra",
+      "url": "/#/porra",
+      "icons": [
+        {
+          "src": "icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "img/capturas/movil-resultados.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Últimos festivales y resultados"
+    },
+    {
+      "src": "img/capturas/movil-ranking.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Ranking Elo por especialidad"
+    },
+    {
+      "src": "img/capturas/movil-cartelera.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Cartelera con probabilidades"
+    },
+    {
+      "src": "img/capturas/escritorio-resultados.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Resultados en el ordenador"
     }
   ]
 }

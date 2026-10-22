@@ -1,4 +1,4 @@
-const CACHE = 'eskupilota-v67';
+const CACHE = 'eskupilota-v68';
 const PREFS = 'eskupilota-prefs';   // pelotaris seguidos y avisos ya dados (los escribe la web)
 
 // Todo lo necesario para que la web arranque sin conexión
@@ -20,6 +20,8 @@ const PRECACHE = [
   '/favicon-32.png',
   '/icon-192.png',
   '/icon-512.png',
+  '/icon-maskable-192.png',
+  '/icon-maskable-512.png',
   '/logo-header.png',
   '/img/aspe.png',
   '/img/baiko.png',
