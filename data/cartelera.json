@@ -1,5 +1,5 @@
 {
-  "actualizado": "21/10/2026 23:59",
+  "actualizado": "22/10/2026 00:28",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -798,108 +798,5 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": [
-    {
-      "fecha": "18/10/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": null,
-      "competicion": null,
-      "cartel": [
-        "Agirre - Lizeaga // Egiguren V - Eskuza"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "raw": "Agirre - Lizeaga // Egiguren V - Eskuza",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "aspe"
-    },
-    {
-      "fecha": "18/10/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Cuartos de final (1ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "BAKAIKOA // ESKIROZ (Serie B)",
-        "ALTUNA III // ZABALA (Serie A)",
-        "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021099/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ESKIROZ"
-          ],
-          "raw": "BAKAIKOA // ESKIROZ (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "ALTUNA III // ZABALA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "ESKUZA"
-          ],
-          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – ESKUZA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    }
-  ]
+  "recientes": []
 }
