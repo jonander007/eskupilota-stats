@@ -14,10 +14,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="EskupilotaStats">
 
-  <meta name="description" content="Estadísticas de pelota vasca a mano profesional. Resultados, rankings, comparador H2H y cartelera de partidos de Baiko Pilota. Eskupilota stats, pilota estatistikak.">
-  <meta name="keywords" content="pelota vasca, eskupilota, estadísticas, resultados, rankings, Baiko Pilota, pilota, manomanista, parejas, 4 y medio, pilota estatistikak, euskal pilota">
+  <meta name="description" content="Estadísticas de pelota vasca a mano profesional (Baiko y Aspe): resultados de todos los partidos desde 2022, ranking Elo, fichas de cada pelotari, comparador cara a cara, campeonatos, frontones y cartelera. Eskupilota estatistikak.">
+  <meta name="keywords" content="pelota vasca, pelota a mano, eskupilota, estadísticas, resultados, rankings, Baiko Pilota, Aspe, pilota, manomanista, parejas, 4 y medio, pilota estatistikak, euskal pilota">
   <meta name="author" content="EskupilotaStats">
-  <meta property="og:title" content="EskupilotaStats">
+  <meta property="og:title" content="EskupilotaStats · Estadísticas de pelota vasca a mano">
   <meta property="og:description" content="Estadísticas de pelota vasca a mano profesional. Resultados, rankings, comparador H2H y cartelera.">
   <meta property="og:url" content="https://www.eskupilotastats.com">
   <meta property="og:type" content="website">
@@ -29,9 +29,20 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="EskupilotaStats: estadísticas de pelota a mano profesional">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EskupilotaStats">
+  <meta name="twitter:title" content="EskupilotaStats · Estadísticas de pelota vasca a mano">
   <meta name="twitter:description" content="Estadísticas de pelota vasca a mano profesional.">
   <meta name="twitter:image" content="https://www.eskupilotastats.com/og-image.jpg">
+  <!-- Datos estructurados para los buscadores -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://www.eskupilotastats.com/#web","url":"https://www.eskupilotastats.com/","name":"EskupilotaStats",
+     "alternateName":["Eskupilota Stats","Estadísticas de pelota vasca"],"inLanguage":["es","eu"],
+     "description":"Estadísticas de pelota vasca a mano profesional: resultados, ranking Elo, fichas de pelotaris, campeonatos, frontones y cartelera.",
+     "publisher":{"@id":"https://www.eskupilotastats.com/#org"}},
+    {"@type":"Organization","@id":"https://www.eskupilotastats.com/#org","name":"EskupilotaStats","url":"https://www.eskupilotastats.com/",
+     "logo":"https://www.eskupilotastats.com/icon-512.png","email":"euskopilotastats@gmail.com"}
+  ]}
+  </script>
   <link rel="canonical" href="https://www.eskupilotastats.com/">
   <link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/">
   <link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/?lang=eu">
@@ -41,13 +52,14 @@
     if (/[?&]lang=eu\b/.test(location.search)) {
       document.documentElement.lang = 'eu';
       document.querySelector('link[rel=canonical]').href = 'https://www.eskupilotastats.com/?lang=eu';
+      document.title = 'Esku pilota estatistikak: emaitzak, sailkapena eta kartelera | EskupilotaStats';
     }
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eskupilota Stats</title>
+<title>Estadísticas de pelota vasca a mano: resultados, ranking y cartelera | EskupilotaStats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app.css?v=62">
+<link rel="stylesheet" href="css/app.css?v=63">
 </head>
 <body>
 <a class="skip-link" href="#contenido" onclick="event.preventDefault();document.getElementById('contenido').focus()" data-i18n="aria_saltar">Saltar al contenido</a>
@@ -106,6 +118,11 @@
 </aside>
 
 <main id="contenido" tabindex="-1">
+<!-- Presentación: le dice a quien llega (y a los buscadores) de qué va la web -->
+<div class="intro-web">
+  <h1 data-i18n="intro_h1">Estadísticas de pelota vasca a mano</h1>
+  <p data-i18n="intro_p">Resultados de todos los partidos de Baiko y Aspe desde 2022, ranking Elo, fichas de cada pelotari, comparador cara a cara, campeonatos, frontones y cartelera.</p>
+</div>
 <div class="kpi-row" id="kpiRow"></div>
 
 <!-- ══ PARTIDOS ══════════════════════════════════════════════════════════ -->
@@ -468,10 +485,10 @@
 
 </main>
 <footer class="site-footer"><details class="nota-datos"><summary><span aria-hidden="true">ⓘ</span> <span data-i18n="nota_datos_t">Sobre los datos</span></summary><p data-i18n="nota_datos">Los datos empiezan el 22 de noviembre de 2022. Los partidos, las estadísticas y las txapelas anteriores a esa fecha no están incluidos.</p></details><span class="derechos">© 2022-2026 EskupilotaStats · <span data-i18n="derechos">Todos los derechos reservados</span></span> <a id="lnkFichas" href="/pelotari/" data-i18n="lbl_fichas">Fichas de todos los pelotaris</a> · <a id="lnkComps" href="/competicion/" data-i18n="lbl_comps">Competiciones</a> · <a id="lnkFros" href="/fronton/" data-i18n="lbl_fros">Frontones</a> · <a id="lnkPorraInfo" href="/porra/" data-i18n="lbl_porra_info">La porra</a> · <a id="lnkPriv" href="/privacidad/" data-i18n="lbl_priv">Privacidad</a><button type="button" class="app-instalar" hidden onclick="instalarApp()" data-i18n="app_instalar">Instalar la app</button><a class="app-apk" hidden rel="noopener" data-i18n="app_android">App para Android</a></footer>
-<script src="js/app.js?v=62"></script>
-<script src="js/analisis.js?v=62"></script>
-<script src="js/ranking.js?v=62"></script>
-<script src="js/porra.js?v=62"></script>
+<script src="js/app.js?v=63"></script>
+<script src="js/analisis.js?v=63"></script>
+<script src="js/ranking.js?v=63"></script>
+<script src="js/porra.js?v=63"></script>
 <script>loadData();</script>
 
 <script>

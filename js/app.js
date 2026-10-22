@@ -252,6 +252,7 @@ const I18N = {
     // Secciones
     sec_partidos: 'Partidos', sec_pelotaris: 'Pelotaris', sec_ranking: 'Ranking',
     part_ultimos: 'Últimos festivales', part_todos: 'Todos los partidos', rk2_mas: 'Más estadísticas',
+    intro_h1: 'Estadísticas de pelota vasca a mano', intro_p: 'Resultados de todos los partidos de Baiko y Aspe desde 2022, ranking Elo, fichas de cada pelotari, comparador cara a cara, campeonatos, frontones y cartelera.',
     sec_comparador: 'Comparador', sec_frontones: 'Frontones', sec_cartelera: 'Cartelera',
     sec_contacto: 'Contacto',
     // Pelotaris
@@ -406,6 +407,7 @@ const I18N = {
     th_equipo1: '1. Taldea', th_marcador: 'Markagailua', th_equipo2: '2. Taldea', th_comp: 'Lehiaketa',
     sec_partidos: 'Partidak', sec_pelotaris: 'Pilotariak', sec_ranking: 'Sailkapena',
     part_ultimos: 'Azken jaialdiak', part_todos: 'Partida guztiak', rk2_mas: 'Estatistika gehiago',
+    intro_h1: 'Esku pilota estatistikak', intro_p: 'Baiko eta Asperen partida guztien emaitzak 2022tik, Elo sailkapena, pilotari bakoitzaren fitxa, aurrez aurrekoen konparatzailea, txapelketak, pilotalekuak eta kartelera.',
     sec_comparador: 'Konparatzailea', sec_frontones: 'Frontoiak', sec_cartelera: 'Kartelera',
     sec_contacto: 'Kontaktua',
     lbl_victorias: 'Garaipenak', lbl_partidos: 'Partidak', lbl_pct_vic: '% Garaip.',
