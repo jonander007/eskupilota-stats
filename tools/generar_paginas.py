@@ -393,6 +393,14 @@ def html_foto(n, foto, lang):
             f'{a(foto.get("licencia_url"), foto["licencia"])} · {a(foto["commons"], "Wikimedia Commons")}</figcaption></figure>')
 
 
+def nombre_buscable(n, completo):
+    """'Jokin Altuna (ALTUNA III)', 'Unai Laso' (si el apodo es el apellido) o el apodo."""
+    if not completo:
+        return n
+    sin_tilde = lambda x: unicodedata.normalize('NFD', x).encode('ascii', 'ignore').decode().upper()
+    return completo if sin_tilde(completo.split()[-1]) == sin_tilde(n) else f'{completo} ({n})'
+
+
 def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, hoy, eq):
     T = TXT[lang]
     slug = slugs[n]
@@ -403,18 +411,21 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
     rol = T['rol_zag'] if rol_id == 'zaguero' else T['rol_del']
     pct = round(s['pg'] / s['pj'] * 100) if s['pj'] else 0
     dif = s['tf'] - s['tc']
-    titulo = T['titulo'].format(n=n)
+    completo = yo.get('nombre_completo')
+    titulo = T['titulo'].format(n=nombre_buscable(n, completo))
     pos = ranking.index(n) + 1 if n in ranking else None
     p0, k0 = s['ultimos'][0]
     o0 = 'equipo2' if k0 == 'equipo1' else 'equipo1'
     ult = T['desc_ult'].format(f=fecha_es(p0['fecha']), r=T['gano'] if p0['ganador'] == k0 else T['perdio'],
                                pts=f"{p0['puntos1' if k0 == 'equipo1' else 'puntos2']}-{p0['puntos2' if k0 == 'equipo1' else 'puntos1']}",
                                rival=' / '.join(eq(p0, o0)))
-    desc = T['desc'].format(n=n, rol=rol, pj=s['pj'], pg=s['pg'], pct=pct,
+    desc = T['desc'].format(n=nombre_buscable(n, completo), rol=rol, pj=s['pj'], pg=s['pg'], pct=pct,
                             pos=T['desc_pos'].format(k=pos) if pos else '', ult=ult)
     ficha = f"/#/pelotari/{slug}" if lang == 'es' else f"/?lang=eu#/pelotari/{slug}"
 
-    persona = {'@type': 'Person', 'name': n, 'jobTitle': 'Pelotari', 'url': url, 'description': desc}
+    persona = {'@type': 'Person', 'name': completo or n, 'jobTitle': 'Pelotari', 'url': url, 'description': desc}
+    if completo:
+        persona['alternateName'] = n
     if yo.get('foto'):
         persona['image'] = yo['foto']['url']
     if yo.get('wikidata'):
@@ -471,7 +482,7 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
         barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
 <div class="cab">{html_foto(n, yo.get('foto'), lang)}<div>
 <h1>{e(n)}</h1>
-<p class="sub">{e(rol.capitalize())} · {T['partidos'].lower()}: {s['pj']}</p>
+<p class="sub">{e(completo) + ' · ' if completo else ''}{e(rol.capitalize())} · {T['partidos'].lower()}: {s['pj']}</p>
 <a class="cta" href="{ficha}">{T['ficha']}</a>
 </div></div>
 <section class="card"><div class="kpis">{kpis_html}</div></section>
@@ -498,7 +509,9 @@ def pagina_indice(st, lang, elo, slugs, hoy):
     url_es, url_eu = f'{WEB}/pelotari/', f'{WEB}/eu/pelotari/'
     url = url_es if lang == 'es' else url_eu
     base = '/pelotari/' if lang == 'es' else '/eu/pelotari/'
-    items = ''.join(f"<li><a href=\"{base}{slugs[n]}/\">{e(n)}</a> <span style=\"color:var(--muted)\">· {s['pj']}</span></li>"
+    completos = {p['nombre']: p.get('nombre_completo') for p in cargar('pelotaris')}
+    items = ''.join(f"<li><a href=\"{base}{slugs[n]}/\">{e(n)}</a> <span style=\"color:var(--muted)\">· "
+                    f"{e(completos[n]) + ' · ' if completos.get(n) else ''}{s['pj']}</span></li>"
                     for n, s in sorted(st.items()))
     return cabecera(lang, T['indice_titulo'], T['indice_desc'].format(n=len(st)), url, url_es, url_eu,
                     ruta=[(T['indice_h1'], url)]) + \
