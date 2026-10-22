@@ -1,5 +1,5 @@
 {
-  "actualizado": "22/10/2026 01:13",
+  "actualizado": "22/10/2026 14:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -777,6 +777,95 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "15/11/2026",
+      "hora": "17:15",
+      "fronton": "Uarkape",
+      "ciudad": "Arrasate/Mondragón",
+      "fase": "3º / 4º puesto",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "3º / 4º puesto (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3053035/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "21/11/2026",
+      "hora": "17:15",
+      "fronton": "Zubikoa",
+      "ciudad": "Oñati",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3053063/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
         {
           "eq1": [
             "?",
