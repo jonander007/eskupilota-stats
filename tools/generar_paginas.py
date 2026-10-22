@@ -26,7 +26,8 @@ import re
 import shutil
 import unicodedata
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DATA = os.path.join(RAIZ, 'data')
@@ -38,8 +39,14 @@ ELO_BASE, ELO_K = 1500, 24
 TXT = {
     'es': {
         'titulo': '{n}: estadísticas de pelota a mano | EskupilotaStats',
-        'desc': '{n}, pelotari profesional ({rol}): {pj} partidos, {pg} victorias ({pct}%). '
-                'Elo, palmarés, últimos resultados, compañeros y frontones.',
+        'desc': '{n}, pelotari profesional ({rol}): {pg} victorias en {pj} partidos ({pct}%){pos}. '
+                'Último partido: {ult}. Elo, palmarés, compañeros y frontones.',
+        'desc_pos': ', {k}º del ranking Elo', 'desc_ult': '{f}, {r} {pts} contra {rival}',
+        'gano': 'ganó', 'perdio': 'perdió',
+        'cartelera': 'Cartelera', 'cart_titulo': 'Cartelera de pelota a mano: próximos partidos y entradas | EskupilotaStats',
+        'cart_desc': 'Próximos partidos de pelota a mano profesional (Baiko y Aspe): {n} veladas con fecha, hora, frontón, pelotaris y entradas.',
+        'cart_ficha': 'Ver la cartelera con estadísticas y probabilidades →', 'cart_entradas': 'Entradas', 'cart_agotado': 'Agotado',
+        'cart_vacia': 'No hay partidos anunciados ahora mismo.',
         'rol_del': 'delantero', 'rol_zag': 'zaguero',
         'partidos': 'Partidos', 'victorias': 'Victorias', 'derrotas': 'Derrotas', 'pct': '% victorias',
         'dif': 'Diferencia de tantos', 'elo': 'Elo', 'elo_max': 'Elo máximo', 'ranking': 'Ranking Elo',
@@ -83,8 +90,14 @@ TXT = {
     },
     'eu': {
         'titulo': '{n}: esku pilotako estatistikak | EskupilotaStats',
-        'desc': '{n}, pilotari profesionala ({rol}): {pj} partida, {pg} garaipen (%{pct}). '
-                'Elo, palmaresa, azken emaitzak, bikotekideak eta frontoiak.',
+        'desc': '{n}, pilotari profesionala ({rol}): {pj} partidatik {pg} garaipen (%{pct}){pos}. '
+                'Azken partida: {ult}. Elo, palmaresa, bikotekideak eta frontoiak.',
+        'desc_pos': ', Elo sailkapeneko {k}.a', 'desc_ult': '{f}, {pts} {rival}(r)en aurka ({r})',
+        'gano': 'irabazi', 'perdio': 'galdu',
+        'cartelera': 'Kartelera', 'cart_titulo': 'Esku pilotako kartelera: hurrengo partidak eta sarrerak | EskupilotaStats',
+        'cart_desc': 'Esku pilota profesionaleko hurrengo partidak (Baiko eta Aspe): {n} jaialdi, data, ordua, frontoia, pilotariak eta sarrerekin.',
+        'cart_ficha': 'Kartelera ikusi estatistika eta probabilitateekin →', 'cart_entradas': 'Sarrerak', 'cart_agotado': 'Agortuta',
+        'cart_vacia': 'Une honetan ez dago partidarik iragarrita.',
         'rol_del': 'aurrelaria', 'rol_zag': 'atzelaria',
         'partidos': 'Partidak', 'victorias': 'Garaipenak', 'derrotas': 'Porrotak', 'pct': 'Garaipen %',
         'dif': 'Tanto aldea', 'elo': 'Elo', 'elo_max': 'Elo gorena', 'ranking': 'Elo sailkapena',
@@ -217,6 +230,8 @@ def main():
             elo_max[n] = max(elo_max.get(n, 0), elo[n])
 
     ultima = max(date.fromisoformat(p['fecha']) for p in partidos)
+    global MODIFICADO
+    MODIFICADO = ultima.isoformat()
     corte = menos_seis_meses(ultima).isoformat()
     activos = {n for p in partidos if p['fecha'] >= corte for k in ('equipo1', 'equipo2') for n in eq(p, k)}
     ranking = sorted((n for n in elo if n in activos), key=lambda n: -elo[n])
@@ -266,6 +281,7 @@ def main():
     sl_fro = generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima)
     generar_privacidad(ultima)
     generar_porra_info(ultima)
+    generar_cartelera(ultima)
     escribir_sitemap(sorted(slugs.values()), sl_comp, sl_fro)
     print(f'✓ {len(st)} pelotaris, {len(sl_comp)} competiciones y {len(sl_fro)} frontones × 2 idiomas; sitemap.xml actualizado')
 
@@ -307,7 +323,22 @@ footer{color:var(--muted);font-size:.75rem;margin-top:1.5rem}
 """
 
 
-def cabecera(lang, titulo, desc, url, alt_es, alt_eu, extra=''):
+# Fecha del último partido: «última modificación» de las páginas (la fija main)
+MODIFICADO = None
+
+
+def migas(lang, items):
+    """Migas de pan para los buscadores: EskupilotaStats › Pelotaris › Laso."""
+    inicio = f'{WEB}/' if lang == 'es' else f'{WEB}/?lang=eu'
+    lista = [('EskupilotaStats', inicio)] + list(items)
+    ld = {'@context': 'https://schema.org', '@type': 'BreadcrumbList',
+          'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u} for i, (n, u) in enumerate(lista)]}
+    return f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
+
+
+def cabecera(lang, titulo, desc, url, alt_es, alt_eu, extra='', ruta=None):
+    if ruta:
+        extra = (extra + '\n' if extra else '') + migas(lang, ruta)
     return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -323,7 +354,8 @@ def cabecera(lang, titulo, desc, url, alt_es, alt_eu, extra=''):
 <meta property="og:site_name" content="EskupilotaStats">
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:url" content="{url}">
+<meta property="og:url" content="{url}">{f'''
+<meta property="og:updated_time" content="{MODIFICADO}">''' if MODIFICADO else ''}
 <meta property="og:image" content="{WEB}/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#007A3D">
@@ -342,7 +374,7 @@ def barra(lang, alt_url):
     pre = '/' if lang == 'es' else '/eu/'
     return f"""<header><div class="in">
   <a href="{inicio}"><img src="/logo-header.png" alt="EskupilotaStats" width="126" height="40"></a>
-  <nav><a href="{pre}pelotari/">{T['indice_h1']}</a><a href="{pre}competicion/">{T['menu_comp']}</a><a href="{pre}fronton/">{T['menu_fro']}</a><a href="{alt_url}" lang="{'eu' if lang == 'es' else 'es'}">{T['otro_idioma']}</a></nav>
+  <nav><a href="{pre}pelotari/">{T['indice_h1']}</a><a href="{pre}competicion/">{T['menu_comp']}</a><a href="{pre}fronton/">{T['menu_fro']}</a><a href="{pre}cartelera/">{T['cartelera']}</a><a href="{alt_url}" lang="{'eu' if lang == 'es' else 'es'}">{T['otro_idioma']}</a></nav>
 </div></header>
 """
 
@@ -372,17 +404,25 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
     pct = round(s['pg'] / s['pj'] * 100) if s['pj'] else 0
     dif = s['tf'] - s['tc']
     titulo = T['titulo'].format(n=n)
-    desc = T['desc'].format(n=n, rol=rol, pj=s['pj'], pg=s['pg'], pct=pct)
     pos = ranking.index(n) + 1 if n in ranking else None
+    p0, k0 = s['ultimos'][0]
+    o0 = 'equipo2' if k0 == 'equipo1' else 'equipo1'
+    ult = T['desc_ult'].format(f=fecha_es(p0['fecha']), r=T['gano'] if p0['ganador'] == k0 else T['perdio'],
+                               pts=f"{p0['puntos1' if k0 == 'equipo1' else 'puntos2']}-{p0['puntos2' if k0 == 'equipo1' else 'puntos1']}",
+                               rival=' / '.join(eq(p0, o0)))
+    desc = T['desc'].format(n=n, rol=rol, pj=s['pj'], pg=s['pg'], pct=pct,
+                            pos=T['desc_pos'].format(k=pos) if pos else '', ult=ult)
     ficha = f"/#/pelotari/{slug}" if lang == 'es' else f"/?lang=eu#/pelotari/{slug}"
 
-    ld = {'@context': 'https://schema.org', '@type': 'Person', 'name': n, 'jobTitle': 'Pelotari',
-          'url': url, 'description': desc}
+    persona = {'@type': 'Person', 'name': n, 'jobTitle': 'Pelotari', 'url': url, 'description': desc}
     if yo.get('foto'):
-        ld['image'] = yo['foto']['url']
+        persona['image'] = yo['foto']['url']
     if yo.get('wikidata'):
-        ld['sameAs'] = f"https://www.wikidata.org/wiki/{yo['wikidata']}"
+        persona['sameAs'] = f"https://www.wikidata.org/wiki/{yo['wikidata']}"
+    ld = {'@context': 'https://schema.org', '@type': 'ProfilePage', 'url': url, 'inLanguage': lang,
+          'dateModified': MODIFICADO, 'mainEntity': persona}
     extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
+    base_idx = f'{WEB}/pelotari/' if lang == 'es' else f'{WEB}/eu/pelotari/'
 
     kpis = [(s['pj'], T['partidos'], ''), (s['pg'], T['victorias'], 'g'), (s['pj'] - s['pg'], T['derrotas'], 'r'),
             (f'{pct}%', T['pct'], 'g' if pct >= 50 else 'r'), (f"{'+' if dif > 0 else ''}{dif}", T['dif'], 'g' if dif >= 0 else 'r')]
@@ -427,7 +467,8 @@ def pagina_pelotari(n, s, lang, pel, fro, comp, elo, elo_max, ranking, slugs, ho
                     for f, pj in s['fro'].most_common(6))
     th = f"<th></th><th style=text-align:right>{T['pj']}</th><th style=text-align:right>{T['v']}</th><th style=text-align:right>%</th>"
 
-    return cabecera(lang, titulo, desc, url, url_es, url_eu, extra) + barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
+    return cabecera(lang, titulo, desc, url, url_es, url_eu, extra, [(T['indice_h1'], base_idx), (n, url)]) + \
+        barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
 <div class="cab">{html_foto(n, yo.get('foto'), lang)}<div>
 <h1>{e(n)}</h1>
 <p class="sub">{e(rol.capitalize())} · {T['partidos'].lower()}: {s['pj']}</p>
@@ -459,7 +500,8 @@ def pagina_indice(st, lang, elo, slugs, hoy):
     base = '/pelotari/' if lang == 'es' else '/eu/pelotari/'
     items = ''.join(f"<li><a href=\"{base}{slugs[n]}/\">{e(n)}</a> <span style=\"color:var(--muted)\">· {s['pj']}</span></li>"
                     for n, s in sorted(st.items()))
-    return cabecera(lang, T['indice_titulo'], T['indice_desc'].format(n=len(st)), url, url_es, url_eu) + \
+    return cabecera(lang, T['indice_titulo'], T['indice_desc'].format(n=len(st)), url, url_es, url_eu,
+                    ruta=[(T['indice_h1'], url)]) + \
         barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
 <h1>{T['indice_h1']}</h1>
 <p class="sub">{T['indice_desc'].format(n=len(st))}</p>
@@ -476,12 +518,14 @@ def escribir_sitemap(slugs, sl_comp=(), sl_fro=()):
         alt = (f'    <xhtml:link rel="alternate" hreflang="es" href="{es}"/>\n'
                f'    <xhtml:link rel="alternate" hreflang="eu" href="{eu}"/>\n'
                f'    <xhtml:link rel="alternate" hreflang="x-default" href="{es}"/>\n')
-        return ''.join(f'  <url>\n    <loc>{loc}</loc>\n    <changefreq>{freq}</changefreq>\n{alt}  </url>\n'
+        mod = f'    <lastmod>{MODIFICADO}</lastmod>\n' if MODIFICADO and freq != 'monthly' else ''
+        return ''.join(f'  <url>\n    <loc>{loc}</loc>\n{mod}    <changefreq>{freq}</changefreq>\n{alt}  </url>\n'
                        for loc in (es, eu))
     cuerpo = url(f'{WEB}/', f'{WEB}/?lang=eu') + url(f'{WEB}/pelotari/', f'{WEB}/eu/pelotari/')
     cuerpo += ''.join(url(f'{WEB}/pelotari/{s}/', f'{WEB}/eu/pelotari/{s}/') for s in slugs)
     cuerpo += url(f'{WEB}/privacidad/', f'{WEB}/eu/privacidad/', 'monthly')
     cuerpo += url(f'{WEB}/porra/', f'{WEB}/eu/porra/', 'monthly')
+    cuerpo += url(f'{WEB}/cartelera/', f'{WEB}/eu/cartelera/', 'hourly')
     for tipo, lista in (('competicion', sl_comp), ('fronton', sl_fro)):
         cuerpo += url(f'{WEB}/{tipo}/', f'{WEB}/eu/{tipo}/')
         cuerpo += ''.join(url(f'{WEB}/{tipo}/{s}/', f'{WEB}/eu/{tipo}/{s}/', 'weekly') for s in lista)
@@ -648,7 +692,9 @@ def generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima):
             otras = [x for x in ediciones[base_comp(c['nombre'])] if x['id'] != c['id']]
             otras_html = ''.join(f"<li>{enlace_comp(x, lang)}</li>" for x in reversed(otras))
             ficha = f"/#/campeonato/{c['id']}" if lang == 'es' else f"/?lang=eu#/campeonato/{c['id']}"
-            escribir(carpeta, slug, cabecera(lang, T['comp_titulo'].format(c=nom), desc, url, url_es, url_eu, extra)
+            idx = f'{WEB}/competicion/' if lang == 'es' else f'{WEB}/eu/competicion/'
+            escribir(carpeta, slug, cabecera(lang, T['comp_titulo'].format(c=nom), desc, url, url_es, url_eu, extra,
+                                             [(T['menu_comp'], idx), (nom, url)])
                      + barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
 <h1>{e(nom)}</h1>
 {podio}
@@ -677,7 +723,8 @@ def generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima):
                 secciones += (f'<section class="card"><h2>{tit}</h2><div class="tw"><table><thead><tr><th></th>'
                               f"<th>{T['campeones']}</th><th style=text-align:right>{T['pj']}</th></tr></thead>"
                               f'<tbody>{filas}</tbody></table></div></section>')
-        escribir(carpeta, None, cabecera(lang, T['comp_idx_titulo'], T['comp_idx_desc'], url_es if lang == 'es' else url_eu, url_es, url_eu)
+        escribir(carpeta, None, cabecera(lang, T['comp_idx_titulo'], T['comp_idx_desc'], url_es if lang == 'es' else url_eu, url_es, url_eu,
+                                         ruta=[(T['menu_comp'], url_es if lang == 'es' else url_eu)])
                  + barra(lang, url_eu if lang == 'es' else url_es)
                  + f"<main>\n<h1>{T['menu_comp']}</h1>\n<p class=\"sub\">{T['comp_idx_desc']}</p>\n{secciones}\n" + pie(lang, hoy))
     return sorted(sl.values())
@@ -727,7 +774,9 @@ def generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima):
             mapa = f.get('google_maps_link') or ''
             ficha = f"/#/fronton/{slug}" if lang == 'es' else f"/?lang=eu#/fronton/{slug}"
             titulo_h1 = f'Frontón {nom}' if lang == 'es' else f'{nom} frontoia'
-            escribir(carpeta, slug, cabecera(lang, T['fro_titulo'].format(f=nom, c=f', {loc}' if loc else ''), desc, url, url_es, url_eu, extra)
+            idx = f'{WEB}/fronton/' if lang == 'es' else f'{WEB}/eu/fronton/'
+            escribir(carpeta, slug, cabecera(lang, T['fro_titulo'].format(f=nom, c=f', {loc}' if loc else ''), desc, url, url_es, url_eu, extra,
+                                             [(T['menu_fro'], idx), (titulo_h1, url)])
                      + barra(lang, url_eu if lang == 'es' else url_es) + f"""<main>
 <h1>{e(titulo_h1)}</h1>
 <p class="sub">{e(loc)}{' · ' if loc and mapa else ''}{f'<a href="{e(mapa)}" rel="noopener">{T["mapa"]}</a>' if mapa else ''}</p>
@@ -746,7 +795,8 @@ def generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima):
         filas = ''.join(f"<tr><td>{enlace_fro(f, lang)}</td><td>{e(ciudad(f, lang))}</td><td class=n>{len(por_fro[f['id']])}</td></tr>"
                         for f in sorted(fs, key=lambda f: -len(por_fro[f['id']])))
         desc = T['fro_idx_desc'].format(n=len(fs))
-        escribir(carpeta, None, cabecera(lang, T['fro_idx_titulo'], desc, url_es if lang == 'es' else url_eu, url_es, url_eu)
+        escribir(carpeta, None, cabecera(lang, T['fro_idx_titulo'], desc, url_es if lang == 'es' else url_eu, url_es, url_eu,
+                                         ruta=[(T['menu_fro'], url_es if lang == 'es' else url_eu)])
                  + barra(lang, url_eu if lang == 'es' else url_es)
                  + f"<main>\n<h1>{T['menu_fro']}</h1>\n<p class=\"sub\">{desc}</p>\n<section class=\"card\"><div class=\"tw\"><table>"
                  f"<thead><tr><th>{T['fronton']}</th><th>{T['localidad']}</th><th style=text-align:right>{T['pj']}</th></tr></thead>"
@@ -965,7 +1015,8 @@ def generar_porra_info(ultima):
     for lang in ('es', 'eu'):
         titulo, desc, h1, cuerpo = PORRA_INFO[lang]
         carpeta = limpiar('porra', lang)
-        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu)
+        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu,
+                                         ruta=[(h1, url_es if lang == 'es' else url_eu)])
                  + barra(lang, url_eu if lang == 'es' else url_es)
                  + f'<main>\n<h1>{h1}</h1>\n{cuerpo}\n' + pie(lang, fecha_hoy(ultima, lang)))
 
@@ -975,9 +1026,107 @@ def generar_privacidad(ultima):
     for lang in ('es', 'eu'):
         titulo, desc, h1, cuerpo = PRIVACIDAD[lang]
         carpeta = limpiar('privacidad', lang)
-        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu)
+        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu,
+                                         ruta=[(h1, url_es if lang == 'es' else url_eu)])
                  + barra(lang, url_eu if lang == 'es' else url_es)
                  + f'<main>\n<h1>{h1}</h1>\n{cuerpo}\n' + pie(lang, fecha_hoy(ultima, lang)))
+
+
+# ─────────────────────────────────────────────────────────────────
+# CARTELERA: próximos partidos como eventos (SportsEvent) para que los
+# buscadores puedan enseñar fecha, frontón y entradas
+# ─────────────────────────────────────────────────────────────────
+MADRID = ZoneInfo('Europe/Madrid')
+ORGANIZADOR = {'baiko': 'Baiko Pilota', 'aspe': 'Aspe'}
+
+
+def _valido(eq):
+    return bool(eq) and all(n and not re.fullmatch(r'\?+|X+', n.strip(), re.I) for n in eq)
+
+
+def eventos_cartelera(cart, lang):
+    """[(velada, [(partido, json-ld)])] de los partidos con cartel completo."""
+    # Iparralde (Lapurdi) está en Francia
+    try:
+        francia = {(c.get(k) or '').upper() for c in cargar('ciudades') if c.get('provincia') == 'lapurdi'
+                   for k in ('nombre', 'nombre_es', 'nombre_eu')} - {''}
+    except (OSError, ValueError):
+        francia = set()
+    salida = []
+    for v in cart.get('partidos', []):
+        try:
+            d, m, y = v['fecha'].split('/')
+            hh, mm = (v.get('hora') or '00:00').split(':')
+            inicio = datetime(int(y), int(m), int(d), int(hh), int(mm), tzinfo=MADRID)
+        except (KeyError, ValueError):
+            continue
+        ps = []
+        for p in v.get('partidos', []):
+            if not (_valido(p.get('eq1')) and _valido(p.get('eq2'))):
+                continue
+            nom = f"{' / '.join(p['eq1'])} vs {' / '.join(p['eq2'])}"
+            comp = p.get('competicion') or v.get('competicion') or 'Festival'
+            equipo = lambda eq: ({'@type': 'Person', 'name': eq[0]} if len(eq) == 1
+                                 else {'@type': 'SportsTeam', 'name': ' / '.join(eq),
+                                       'athlete': [{'@type': 'Person', 'name': n} for n in eq]})
+            ld = {'@type': 'SportsEvent', 'name': f'{nom} · {t_comp(comp, lang)}', 'sport': 'Pelota vasca',
+                  'startDate': inicio.isoformat(), 'eventStatus': 'https://schema.org/EventScheduled',
+                  'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+                  'location': {'@type': 'Place', 'name': f"Frontón {v.get('fronton') or ''}".strip(),
+                               'address': {'@type': 'PostalAddress', 'addressLocality': v.get('ciudad') or v.get('fronton') or '',
+                                           'addressCountry': 'FR' if (v.get('ciudad') or '').upper() in francia else 'ES'}},
+                  'competitor': [equipo(p['eq1']), equipo(p['eq2'])],
+                  'image': f'{WEB}/og-image.jpg',
+                  'description': f"{t_comp(comp, lang)}{' · ' + v['fase'] if v.get('fase') else ''}"}
+            if v.get('fuente') in ORGANIZADOR:
+                ld['organizer'] = {'@type': 'Organization', 'name': ORGANIZADOR[v['fuente']]}
+            if v.get('url'):
+                oferta = {'@type': 'Offer', 'url': v['url'],
+                          'availability': 'https://schema.org/SoldOut' if v.get('agotado') else 'https://schema.org/InStock'}
+                try:
+                    oferta['price'], oferta['priceCurrency'] = f"{float(v['precio']):.2f}", 'EUR'
+                except (KeyError, TypeError, ValueError):
+                    pass
+                ld['offers'] = oferta
+            ps.append((p, ld))
+        if ps:
+            salida.append((v, ps))
+    return salida
+
+
+def generar_cartelera(ultima):
+    try:
+        cart = cargar('cartelera')
+    except (OSError, ValueError):
+        cart = {}
+    url_es, url_eu = f'{WEB}/cartelera/', f'{WEB}/eu/cartelera/'
+    for lang in ('es', 'eu'):
+        T = TXT[lang]
+        url = url_es if lang == 'es' else url_eu
+        veladas = eventos_cartelera(cart, lang)
+        desc = T['cart_desc'].format(n=len(veladas))
+        ld = {'@context': 'https://schema.org', '@graph': [ld for _, ps in veladas for _, ld in ps]}
+        extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>' if veladas else ''
+        bloques = ''
+        for v, ps in veladas:
+            filas = ''.join(f"<tr><td>{e(t_comp(p.get('competicion') or 'Festival', lang))}</td>"
+                            f"<td>{e(' / '.join(p['eq1']))} <span style=\"color:var(--muted)\">vs</span> {e(' / '.join(p['eq2']))}</td></tr>"
+                            for p, _ in ps)
+            entradas = ''
+            if v.get('url'):
+                entradas = (f'<span class="r">{T["cart_agotado"]}</span>' if v.get('agotado')
+                            else f'<a href="{e(v["url"])}" rel="noopener nofollow">{T["cart_entradas"]}'
+                                 f'{" · " + e(v["precio"]) + " €" if v.get("precio") else ""}</a>')
+            bloques += (f'<section class="card"><h2>{e(v["fecha"])} · {e(v.get("hora") or "")} · '
+                        f'{e(v.get("fronton") or "")}{" (" + e(v["ciudad"]) + ")" if v.get("ciudad") else ""}</h2>'
+                        f'<div class="tw"><table><tbody>{filas}</tbody></table></div>'
+                        f'{f"<p>{entradas}</p>" if entradas else ""}</section>')
+        ficha = '/#/cartelera' if lang == 'es' else '/?lang=eu#/cartelera'
+        carpeta = limpiar('cartelera', lang)
+        escribir(carpeta, None, cabecera(lang, T['cart_titulo'], desc, url, url_es, url_eu, extra, [(T['cartelera'], url)])
+                 + barra(lang, url_eu if lang == 'es' else url_es)
+                 + f'<main>\n<h1>{T["cartelera"]}</h1>\n<p class="sub">{e(desc)}</p>\n<a class="cta" href="{ficha}">{T["cart_ficha"]}</a>\n'
+                 + (bloques or f'<section class="card"><p>{T["cart_vacia"]}</p></section>') + '\n' + pie(lang, fecha_hoy(ultima, lang)))
 
 
 if __name__ == '__main__':
