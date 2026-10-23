@@ -1,5 +1,5 @@
 {
-  "actualizado": "23/10/2026 01:12",
+  "actualizado": "23/10/2026 14:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -408,7 +408,7 @@
       "cartel": [
         "XX – XX (Serie A)"
       ],
-      "precio": "20.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
       "tv": false,
@@ -885,6 +885,76 @@
         }
       ],
       "fuente": "baiko"
+    },
+    {
+      "fecha": "22/11/2026",
+      "hora": "17:00",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Final",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "Final (Serie A)"
+      ],
+      "precio": "43.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "24/11/2026",
+      "hora": "17:15",
+      "fronton": "Bilbo",
+      "ciudad": "Bilbo",
+      "fase": null,
+      "competicion": "Eusko Label 4 1/2 Finala",
+      "cartel": [
+        "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "final",
+          "pendiente": true
+        }
+      ],
+      "fuente": "aspe"
     }
   ],
   "recientes": []
