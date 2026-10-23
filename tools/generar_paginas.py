@@ -281,6 +281,7 @@ def main():
     sl_fro = generar_frontones(partidos, pel, fro, comp, slugs, eq, ultima)
     generar_privacidad(ultima)
     generar_porra_info(ultima)
+    generar_borrar_cuenta(ultima)
     generar_cartelera(ultima)
     escribir_sitemap(sorted(slugs.values()), sl_comp, sl_fro)
     print(f'✓ {len(st)} pelotaris, {len(sl_comp)} competiciones y {len(sl_fro)} frontones × 2 idiomas; sitemap.xml actualizado')
@@ -538,6 +539,7 @@ def escribir_sitemap(slugs, sl_comp=(), sl_fro=()):
     cuerpo += ''.join(url(f'{WEB}/pelotari/{s}/', f'{WEB}/eu/pelotari/{s}/') for s in slugs)
     cuerpo += url(f'{WEB}/privacidad/', f'{WEB}/eu/privacidad/', 'monthly')
     cuerpo += url(f'{WEB}/porra/', f'{WEB}/eu/porra/', 'monthly')
+    cuerpo += url(f'{WEB}/borrar-cuenta/', f'{WEB}/eu/borrar-cuenta/', 'monthly')
     cuerpo += url(f'{WEB}/cartelera/', f'{WEB}/eu/cartelera/', 'hourly')
     for tipo, lista in (('competicion', sl_comp), ('fronton', sl_fro)):
         cuerpo += url(f'{WEB}/{tipo}/', f'{WEB}/eu/{tipo}/')
@@ -881,7 +883,7 @@ sobrescriben en un plazo máximo de 30 días.</p></section>
 <section class="card"><h2>8. Tus derechos y cómo borrar tus datos</h2>
 <ul class="pal">
 <li><b>Borrar tu cuenta y todos tus datos</b> tú mismo, cuando quieras: en la porra, abre «Normas, puntuación y tus
-datos» y pulsa <b>«Borrar mi cuenta»</b>.</li>
+datos» y pulsa <b>«Borrar mi cuenta»</b> (<a href="/borrar-cuenta/">paso a paso</a>).</li>
 <li>Pedirnos <b>acceso, rectificación, supresión, limitación, portabilidad u oposición</b> escribiendo a
 <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a>. Respondemos en un mes como máximo.</li>
 <li>Quitar el acceso de EskupilotaStats a tu cuenta de Google en
@@ -951,7 +953,7 @@ aliasa, iragarpenak, ligak eta kidetzak. Hornitzailearen segurtasun-kopia teknik
 <section class="card"><h2>8. Zure eskubideak eta datuak nola ezabatu</h2>
 <ul class="pal">
 <li><b>Zure kontua eta datu guztiak ezabatu</b> zeuk, nahi duzunean: porran, ireki «Arauak, puntuazioa eta zure datuak» eta
-sakatu <b>«Nire kontua ezabatu»</b>.</li>
+sakatu <b>«Nire kontua ezabatu»</b> (<a href="/eu/borrar-cuenta/">urratsez urrats</a>).</li>
 <li><b>Sarbidea, zuzenketa, ezabaketa, mugaketa, eramangarritasuna edo aurkaratzea</b> eskatu
 <a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a> helbidera idatzita. Gehienez hilabeteko epean erantzuten dugu.</li>
 <li>EskupilotaStatsek zure Google kontura duen sarbidea kendu
@@ -1021,6 +1023,56 @@ guztiak <a href="/eu/privacidad/">pribatutasun politikan</a>.</p></section>
 <p><a href="mailto:euskopilotastats@gmail.com">euskopilotastats@gmail.com</a></p></section>
 """),
 }
+
+
+# ─────────────────────────────────────────────────────────────────
+# BORRAR LA CUENTA: página pública que piden Google Play y la App Store
+# ─────────────────────────────────────────────────────────────────
+BORRAR_CUENTA = {
+    'es': ('Borrar tu cuenta de la porra | EskupilotaStats',
+           'Cómo borrar tu cuenta de la porra de EskupilotaStats y todos tus datos, desde la web o la app, o pidiéndolo por correo.',
+           'Borrar tu cuenta', """
+<p class="sub">Para usar la web y la app no hace falta cuenta. Solo tienes cuenta si entraste en la porra.</p>
+<section class="card"><h2>Desde la web o la app</h2>
+<ol><li>Entra en <a href="/#/porra">Porra</a> con tu cuenta.</li>
+<li>Abre <b>«Normas, puntuación y tus datos»</b>.</li>
+<li>Pulsa <b>«Borrar mi cuenta»</b> y confírmalo.</li></ol>
+<p>Se borran al momento tu cuenta, tu correo, tu nombre de jugador, tus pronósticos y tu participación en las ligas.
+Las ligas que creaste se borran también. No se puede deshacer.</p></section>
+<section class="card"><h2>Por correo</h2>
+<p>Si no puedes entrar, escribe a <a href="mailto:euskopilotastats@gmail.com?subject=Borrar%20mi%20cuenta">euskopilotastats@gmail.com</a>
+desde el correo con el que entraste, con el asunto «Borrar mi cuenta». La borramos en un plazo máximo de 30 días.</p></section>
+<section class="card"><h2>Qué se guarda y qué no</h2>
+<p>No se conserva ningún dato tuyo después de borrar la cuenta. Más detalles en la <a href="/privacidad/">política de privacidad</a>.</p></section>
+"""),
+    'eu': ('Porrako kontua ezabatu | EskupilotaStats',
+           'EskupilotaStatseko porrako kontua eta zure datu guztiak nola ezabatu, webgunetik edo aplikaziotik, edo posta bidez eskatuta.',
+           'Zure kontua ezabatu', """
+<p class="sub">Webgunea eta aplikazioa erabiltzeko ez da konturik behar. Porran sartu bazara bakarrik duzu kontua.</p>
+<section class="card"><h2>Webgunetik edo aplikaziotik</h2>
+<ol><li>Sartu <a href="/?lang=eu#/porra">Porran</a> zure kontuarekin.</li>
+<li>Ireki <b>«Arauak, puntuazioa eta zure datuak»</b>.</li>
+<li>Sakatu <b>«Nire kontua ezabatu»</b> eta baieztatu.</li></ol>
+<p>Berehala ezabatzen dira zure kontua, posta, jokalari izena, iragarpenak eta ligetako parte-hartzea.
+Sortu dituzun ligak ere ezabatzen dira. Ezin da desegin.</p></section>
+<section class="card"><h2>Posta bidez</h2>
+<p>Ezin baduzu sartu, idatzi <a href="mailto:euskopilotastats@gmail.com?subject=Borrar%20mi%20cuenta">euskopilotastats@gmail.com</a>
+helbidera sartzeko erabili zenuen postatik, «Borrar mi cuenta» gaiarekin. Gehienez 30 eguneko epean ezabatuko dugu.</p></section>
+<section class="card"><h2>Zer gordetzen den eta zer ez</h2>
+<p>Kontua ezabatu ondoren ez da zure daturik gordetzen. Xehetasun gehiago <a href="/eu/privacidad/">pribatutasun politikan</a>.</p></section>
+"""),
+}
+
+
+def generar_borrar_cuenta(ultima):
+    url_es, url_eu = f'{WEB}/borrar-cuenta/', f'{WEB}/eu/borrar-cuenta/'
+    for lang in ('es', 'eu'):
+        titulo, desc, h1, cuerpo = BORRAR_CUENTA[lang]
+        carpeta = limpiar('borrar-cuenta', lang)
+        escribir(carpeta, None, cabecera(lang, titulo, desc, url_es if lang == 'es' else url_eu, url_es, url_eu,
+                                         ruta=[(h1, url_es if lang == 'es' else url_eu)])
+                 + barra(lang, url_eu if lang == 'es' else url_es)
+                 + f'<main>\n<h1>{h1}</h1>\n{cuerpo}\n' + pie(lang, fecha_hoy(ultima, lang)))
 
 
 def generar_porra_info(ultima):

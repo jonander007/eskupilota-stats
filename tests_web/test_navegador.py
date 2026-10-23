@@ -464,6 +464,15 @@ class Web(unittest.TestCase):
         opciones = pg.eval_on_selector_all('#c4d1 option', 'os => os.slice(1).map(o => o.value)')
         self.assertTrue(pg.evaluate("ns => ns.every(n => ['aspe','ambas'].includes(getEmpresa(n)))", opciones))
 
+    def test_atras_cierra_el_menu(self):
+        pg = self.pagina('#/ranking', ancho=390)
+        pg.click('#hamburgerBtn')
+        self.assertTrue(pg.locator('#drawer.open').count())
+        pg.go_back()
+        pg.wait_for_timeout(300)
+        self.assertEqual(pg.locator('#drawer.open').count(), 0)
+        self.assertEqual(self.seccion(pg), 'sec-ranking')     # sigue en la misma sección
+
     def test_nombre_completo(self):
         pg = self.pagina('#/pelotaris')
         pg.wait_for_selector('#pCards .pcard')

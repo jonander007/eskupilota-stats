@@ -990,6 +990,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/porra/"/>
   </url>
   <url>
+    <loc>https://www.eskupilotastats.com/borrar-cuenta/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/borrar-cuenta/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/borrar-cuenta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/borrar-cuenta/"/>
+  </url>
+  <url>
+    <loc>https://www.eskupilotastats.com/eu/borrar-cuenta/</loc>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.eskupilotastats.com/borrar-cuenta/"/>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://www.eskupilotastats.com/eu/borrar-cuenta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.eskupilotastats.com/borrar-cuenta/"/>
+  </url>
+  <url>
     <loc>https://www.eskupilotastats.com/cartelera/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>hourly</changefreq>
