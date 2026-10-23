@@ -60,7 +60,7 @@
 {"id":"FRO222","nombre":"ELEXALDE","ciudad_id":"CIU155","lat":43.2167,"lon":-2.8667,"partidos_count":1},
 {"id":"FRO073","nombre":"ELGETA","ciudad_id":"CIU051","lat":43.1592,"lon":-2.5153,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELGETA"},
 {"id":"FRO076","nombre":"ELORRI","ciudad_id":"CIU005","lat":43.1011,"lon":-2.0972,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELORRI"},
-{"id":"FRO077","nombre":"ERETA","ciudad_id":"CIU128","lat":42.5284,"lon":-1.6737,"partidos_count":20,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ERETA"},
+{"id":"FRO077","nombre":"ERETA","ciudad_id":"CIU128","lat":42.5284,"lon":-1.6737,"partidos_count":21,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ERETA"},
 {"id":"FRO227","nombre":"ERGIZAROTZ","ciudad_id":"CIU034","lat":43.0041,"lon":-1.7723,"partidos_count":6},
 {"id":"FRO078","nombre":"ERMUA","ciudad_id":"CIU054","lat":43.1833,"lon":-2.5,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ERMUA"},
 {"id":"FRO081","nombre":"ETXARRI ARANATZ","ciudad_id":"CIU057","lat":42.9036,"lon":-2.0647,"partidos_count":5,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ETXARRI%20ARANATZ"},
