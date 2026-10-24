@@ -1,5 +1,5 @@
 {
-  "actualizado": "24/10/2026 20:29",
+  "actualizado": "24/10/2026 21:20",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -683,40 +683,6 @@
         }
       ],
       "fuente": "baiko"
-    },
-    {
-      "fecha": "22/11/2026",
-      "hora": "17:15",
-      "fronton": "Bilbo",
-      "ciudad": "Bilbo",
-      "fase": null,
-      "competicion": "Eusko Label 4 1/2 Finala",
-      "cartel": [
-        "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?"
-          ],
-          "eq2": [
-            "?"
-          ],
-          "raw": "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "final",
-          "pendiente": true
-        }
-      ],
-      "fuente": "aspe"
     }
   ],
   "recientes": [
