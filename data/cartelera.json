@@ -1,61 +1,11 @@
 {
-  "actualizado": "24/10/2026 18:30",
+  "actualizado": "24/10/2026 19:13",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
-    "https://www.baikopilota.eus/entradas/"
+    "https://www.baikopilota.eus/entradas/",
+    "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "24/10/2026",
-      "hora": "18:30",
-      "fronton": "Auzoeta",
-      "ciudad": "Ataun",
-      "fase": "Cuartos de final (2ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
-        "ARTOLA – LANDA // SENAR – IZTUETA"
-      ],
-      "precio": "10.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3034454/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 2
-        },
-        {
-          "eq1": [
-            "ARTOLA",
-            "LANDA"
-          ],
-          "eq2": [
-            "SENAR",
-            "IZTUETA"
-          ],
-          "raw": "ARTOLA – LANDA // SENAR – IZTUETA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "25/10/2026",
       "hora": "17:15",
@@ -733,9 +683,94 @@
         }
       ],
       "fuente": "baiko"
+    },
+    {
+      "fecha": "24/11/2026",
+      "hora": "17:15",
+      "fronton": "Bilbo",
+      "ciudad": "Bilbo",
+      "fase": null,
+      "competicion": "Eusko Label 4 1/2 Finala",
+      "cartel": [
+        "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "Eusko Label 4 1/2 Finala // Final Eusko Label 4 1/2",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "final",
+          "pendiente": true
+        }
+      ],
+      "fuente": "aspe"
     }
   ],
   "recientes": [
+    {
+      "fecha": "24/10/2026",
+      "hora": "18:30",
+      "fronton": "Auzoeta",
+      "ciudad": "Ataun",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
+        "ARTOLA – LANDA // SENAR – IZTUETA"
+      ],
+      "precio": "10.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3034454/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV"
+          ],
+          "raw": "BAKAIKOA // ZUBIZARRETA IV (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "LANDA"
+          ],
+          "eq2": [
+            "SENAR",
+            "IZTUETA"
+          ],
+          "raw": "ARTOLA – LANDA // SENAR – IZTUETA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "24/10/2026",
       "hora": "17:15",
