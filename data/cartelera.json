@@ -1,5 +1,5 @@
 {
-  "actualizado": "25/10/2026 14:55",
+  "actualizado": "25/10/2026 18:36",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -11,34 +11,18 @@
       "hora": "17:15",
       "fronton": "Adarraga",
       "ciudad": "Logroño",
-      "fase": "Cuartos de final (2ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": null,
+      "competicion": "Serie A",
       "cartel": [
-        "ZUBIZARRETA III // REKALDE (Serie B)",
-        "PEÑA II // ZABALA (Serie A)",
-        "ALBERDI II – LOZA // SENAR – SALAVERRI II"
+        "Serie A",
+        "Peña II // Zabala",
+        "Alberdi II - Loza // Senar - Salaverri II"
       ],
-      "precio": "20.00",
+      "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037985/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "ZUBIZARRETA III // REKALDE (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 2
-        },
         {
           "eq1": [
             "PEÑA II"
@@ -46,14 +30,12 @@
           "eq2": [
             "ZABALA"
           ],
-          "raw": "PEÑA II // ZABALA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
+          "raw": "Peña II // Zabala",
+          "tipo": "manomanista-a",
+          "competicion": "Campeonato Manomanista Serie A 2026",
+          "modalidad": "mano",
           "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 2
+          "serie": "a"
         },
         {
           "eq1": [
@@ -64,7 +46,7 @@
             "SENAR",
             "SALAVERRI II"
           ],
-          "raw": "ALBERDI II – LOZA // SENAR – SALAVERRI II",
+          "raw": "Alberdi II - Loza // Senar - Salaverri II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -72,7 +54,7 @@
           "serie": null
         }
       ],
-      "fuente": "baiko"
+      "fuente": "aspe"
     },
     {
       "fecha": "30/10/2026",
@@ -170,7 +152,7 @@
       "cartel": [
         "XX – XX (Serie A)"
       ],
-      "precio": "20.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
       "tv": false,
@@ -686,6 +668,74 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "25/10/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": "Cuartos de final (2ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "ZUBIZARRETA III // REKALDE (Serie B)",
+        "PEÑA II // ZABALA (Serie A)",
+        "ALBERDI II – LOZA // SENAR – SALAVERRI II"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037985/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
+          "eq2": [
+            "REKALDE"
+          ],
+          "raw": "ZUBIZARRETA III // REKALDE (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 2
+        },
+        {
+          "eq1": [
+            "PEÑA II"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "PEÑA II // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 2
+        },
+        {
+          "eq1": [
+            "ALBERDI II",
+            "LOZA"
+          ],
+          "eq2": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "raw": "ALBERDI II – LOZA // SENAR – SALAVERRI II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "24/10/2026",
       "hora": "18:30",
