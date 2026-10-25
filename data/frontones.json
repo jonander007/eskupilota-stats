@@ -1,6 +1,6 @@
 [
 {"id":"FRO001","nombre":"ABADIÑO","ciudad_id":"CIU001","lat":43.1511,"lon":-2.6094,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ABADI%C3%91O"},
-{"id":"FRO002","nombre":"ADARRAGA","ciudad_id":"CIU097","lat":42.4667,"lon":-2.4494,"partidos_count":121,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"},
+{"id":"FRO002","nombre":"ADARRAGA","ciudad_id":"CIU097","lat":42.4667,"lon":-2.4494,"partidos_count":122,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ADARRAGA"},
 {"id":"FRO003","nombre":"AGONCILLO","ciudad_id":"CIU002","lat":42.4361,"lon":-2.3633,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AGONCILLO"},
 {"id":"FRO004","nombre":"AIEGI","ciudad_id":"CIU003","lat":42.6563,"lon":-2.0386,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AIEGI"},
 {"id":"FRO005","nombre":"AITZURI","ciudad_id":"CIU147","lat":43.298,"lon":-2.254,"partidos_count":11,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AITZURI"},

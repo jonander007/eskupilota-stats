@@ -1,5 +1,5 @@
 {
-  "actualizado": "25/10/2026 18:36",
+  "actualizado": "25/10/2026 19:26",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -12,10 +12,8 @@
       "fronton": "Adarraga",
       "ciudad": "Logroño",
       "fase": null,
-      "competicion": "Serie A",
+      "competicion": null,
       "cartel": [
-        "Serie A",
-        "Peña II // Zabala",
         "Alberdi II - Loza // Senar - Salaverri II"
       ],
       "precio": null,
@@ -23,20 +21,6 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037985/select?viewCode=",
       "tv": true,
       "partidos": [
-        {
-          "eq1": [
-            "PEÑA II"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "Peña II // Zabala",
-          "tipo": "manomanista-a",
-          "competicion": "Campeonato Manomanista Serie A 2026",
-          "modalidad": "mano",
-          "categoria": "campeonato",
-          "serie": "a"
-        },
         {
           "eq1": [
             "ALBERDI II",
@@ -152,7 +136,7 @@
       "cartel": [
         "XX – XX (Serie A)"
       ],
-      "precio": "30.00",
+      "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
       "tv": false,
@@ -668,6 +652,56 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "25/10/2026",
+      "hora": "17:15",
+      "fronton": "Adarraga",
+      "ciudad": "Logroño",
+      "fase": null,
+      "competicion": "Serie A",
+      "cartel": [
+        "Serie A",
+        "Peña II // Zabala",
+        "Alberdi II - Loza // Senar - Salaverri II"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3037985/select?viewCode=",
+      "tv": true,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "Peña II // Zabala",
+          "tipo": "manomanista-a",
+          "competicion": "Campeonato Manomanista Serie A 2026",
+          "modalidad": "mano",
+          "categoria": "campeonato",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "ALBERDI II",
+            "LOZA"
+          ],
+          "eq2": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "raw": "Alberdi II - Loza // Senar - Salaverri II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "aspe"
+    },
     {
       "fecha": "25/10/2026",
       "hora": "17:15",
