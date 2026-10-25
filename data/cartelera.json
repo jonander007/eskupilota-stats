@@ -1,5 +1,5 @@
 {
-  "actualizado": "25/10/2026 20:37",
+  "actualizado": "25/10/2026 21:19",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -14,8 +14,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "EGIGUREN V – ALDABE // SENAR – MORGAETXEBARRIA",
-        "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU"
+        "ALBERDI II – EROSTARBE // SENAR – MORGAETXEBARRIA",
+        "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA"
       ],
       "precio": "30.00",
       "agotado": false,
@@ -24,14 +24,14 @@
       "partidos": [
         {
           "eq1": [
-            "EGIGUREN V",
-            "ALDABE"
+            "ALBERDI II",
+            "EROSTARBE"
           ],
           "eq2": [
             "SENAR",
             "MORGAETXEBARRIA"
           ],
-          "raw": "EGIGUREN V – ALDABE // SENAR – MORGAETXEBARRIA",
+          "raw": "ALBERDI II – EROSTARBE // SENAR – MORGAETXEBARRIA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -45,9 +45,9 @@
           ],
           "eq2": [
             "ARTOLA",
-            "ALBISU"
+            "IZTUETA"
           ],
-          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU",
+          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -65,7 +65,8 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX (Serie A)"
+        "EGIGUREN V – MARTIJA // LARRAZABAL – IMAZ",
+        "ALTUNA III // PEÑA II (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -74,20 +75,35 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "MARTIJA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "IMAZ"
           ],
-          "raw": "XX – XX (Serie A)",
+          "raw": "EGIGUREN V – MARTIJA // LARRAZABAL – IMAZ",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "PEÑA II"
+          ],
+          "raw": "ALTUNA III // PEÑA II (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -100,29 +116,62 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX (Serie A)"
+        "ESKIROZ // ZUBIZARRETA IV (Serie B)",
+        "LASO // ZABALA (Serie A)",
+        "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE"
       ],
-      "precio": "20.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ESKIROZ"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV"
           ],
-          "raw": "XX – XX (Serie A)",
+          "raw": "ESKIROZ // ZUBIZARRETA IV (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "LASO // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "GASKUE"
+          ],
+          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -135,7 +184,9 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX (Serie A)"
+        "BAKAIKOA // AMIANO (Serie B)",
+        "ELORDI // P.ETXEBERRIA (Serie A)",
+        "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -144,20 +195,51 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "BAKAIKOA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "AMIANO"
           ],
-          "raw": "XX – XX (Serie A)",
+          "raw": "BAKAIKOA // AMIANO (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "ELORDI"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA"
+          ],
+          "raw": "ELORDI // P.ETXEBERRIA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "LARRAZABAL",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "BIKUÑA"
+          ],
+          "raw": "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -170,7 +252,8 @@
       "fase": "Cuartos de final (3ª Jornada)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX (Serie A)"
+        "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
+        "EZKURDIA – MURUA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -179,14 +262,30 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ALBERDI II",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "SENAR",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "MURUA"
           ],
           "eq2": [
             "?",
             "?"
           ],
-          "raw": "XX – XX (Serie A)",
+          "raw": "EZKURDIA – MURUA (Serie A)",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
