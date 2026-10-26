@@ -1,5 +1,5 @@
 {
-  "actualizado": "26/10/2026 03:38",
+  "actualizado": "26/10/2026 17:15",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -14,7 +14,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "ALBERDI II – EROSTARBE // SENAR – MORGAETXEBARRIA",
+        "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
         "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA"
       ],
       "precio": "30.00",
@@ -29,9 +29,9 @@
           ],
           "eq2": [
             "SENAR",
-            "MORGAETXEBARRIA"
+            "SALAVERRI II"
           ],
-          "raw": "ALBERDI II – EROSTARBE // SENAR – MORGAETXEBARRIA",
+          "raw": "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -68,7 +68,7 @@
         "EGIGUREN V – MARTIJA // LARRAZABAL – IMAZ",
         "ALTUNA III // PEÑA II (Serie A)"
       ],
-      "precio": "25.00",
+      "precio": "28.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045498/select?viewCode=",
       "tv": false,
@@ -356,7 +356,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX // XX (Serie B)",
-        "XX // XX (Serie B)",
+        "ZUBIZARRETA III // XX (Serie B)",
         "XX – XX // XX – XX"
       ],
       "precio": "25.00",
@@ -382,12 +382,12 @@
         },
         {
           "eq1": [
-            "?"
+            "ZUBIZARRETA III"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "ZUBIZARRETA III // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -634,8 +634,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX"
+        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
+        "DARÍO – BIKUÑA // LASO – LANDA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -644,37 +644,35 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "APEZETXEA II",
+            "EROSTARBE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "DARÍO",
+            "BIKUÑA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LASO",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "DARÍO – BIKUÑA // LASO – LANDA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
