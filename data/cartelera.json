@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/10/2026 04:03",
+  "actualizado": "27/10/2026 16:22",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -71,7 +71,7 @@
       "precio": "28.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045498/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
@@ -191,7 +191,7 @@
       "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045533/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
