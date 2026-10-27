@@ -1,5 +1,5 @@
 {
-  "actualizado": "26/10/2026 22:56",
+  "actualizado": "27/10/2026 00:21",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -1031,74 +1031,6 @@
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a",
-          "fase": "cuartos",
-          "jornada": 2
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "23/10/2026",
-      "hora": "20:00",
-      "fronton": "Ereta",
-      "ciudad": "Tafalla",
-      "fase": "Cuartos de final (2ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
-        "P.ETXEBERRIA // MURUA (Serie A)",
-        "ESKIROZ // AMIANO (Serie B)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3021336/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "EROSTARBE"
-          ],
-          "raw": "AGIRRE – UGARTEMENDIA // EGIGUREN V – EROSTARBE",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "P.ETXEBERRIA"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "P.ETXEBERRIA // MURUA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 2
-        },
-        {
-          "eq1": [
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "ESKIROZ // AMIANO (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
           "fase": "cuartos",
           "jornada": 2
         }
