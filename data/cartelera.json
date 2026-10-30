@@ -1,62 +1,11 @@
 {
-  "actualizado": "30/10/2026 16:59",
+  "actualizado": "30/10/2026 20:14",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "30/10/2026",
-      "hora": "18:00",
-      "fronton": "Baztan",
-      "ciudad": "Elizondo",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
-        "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA"
-      ],
-      "precio": "30.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3027269/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "EROSTARBE"
-          ],
-          "eq2": [
-            "SENAR",
-            "SALAVERRI II"
-          ],
-          "raw": "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "IZTUETA"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "30/10/2026",
       "hora": "21:00",
@@ -120,7 +69,7 @@
         "LASO // ZABALA (Serie A)",
         "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE"
       ],
-      "precio": "20.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
       "tv": false,
@@ -714,5 +663,57 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": []
+  "recientes": [
+    {
+      "fecha": "30/10/2026",
+      "hora": "18:00",
+      "fronton": "Baztan",
+      "ciudad": "Elizondo",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
+        "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA"
+      ],
+      "precio": "30.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3027269/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALBERDI II",
+            "EROSTARBE"
+          ],
+          "eq2": [
+            "SENAR",
+            "SALAVERRI II"
+          ],
+          "raw": "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ARTOLA",
+            "IZTUETA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    }
+  ]
 }
