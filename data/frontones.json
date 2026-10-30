@@ -34,7 +34,7 @@
 {"id":"FRO043","nombre":"BEKOERROTABERRI","ciudad_id":"CIU104","lat":43.352,"lon":-2.846,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEKOERROTABERRI"},
 {"id":"FRO044","nombre":"BELOKI","ciudad_id":"CIU148","lat":43.084,"lon":-2.306,"partidos_count":11,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BELOKI"},
 {"id":"FRO045","nombre":"BELORADO","ciudad_id":"CIU028","lat":42.4161,"lon":-3.1911,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BELORADO"},
-{"id":"FRO046","nombre":"BEOTIBAR","ciudad_id":"CIU129","lat":43.1358,"lon":-2.0789,"partidos_count":122,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"},
+{"id":"FRO046","nombre":"BEOTIBAR","ciudad_id":"CIU129","lat":43.1358,"lon":-2.0789,"partidos_count":123,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BEOTIBAR"},
 {"id":"FRO048","nombre":"BERGARA","ciudad_id":"CIU030","lat":43.1189,"lon":-2.4194,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BERGARA"},
 {"id":"FRO050","nombre":"BERRIOZAR","ciudad_id":"CIU032","lat":42.8307,"lon":-1.6665,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BERRIOZAR"},
 {"id":"FRO051","nombre":"BERRIZ","ciudad_id":"CIU033","lat":43.1667,"lon":-2.5667,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BERRIZ"},
