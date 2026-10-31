@@ -1,147 +1,11 @@
 {
-  "actualizado": "31/10/2026 16:00",
+  "actualizado": "31/10/2026 19:37",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "31/10/2026",
-      "hora": "17:15",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "Cuartos de final (3ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ESKIROZ // ZUBIZARRETA IV (Serie B)",
-        "LASO // ZABALA (Serie A)",
-        "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE"
-      ],
-      "precio": "38.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "ESKIROZ // ZUBIZARRETA IV (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 3
-        },
-        {
-          "eq1": [
-            "LASO"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "LASO // ZABALA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 3
-        },
-        {
-          "eq1": [
-            "AGIRRE",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "GASKUE"
-          ],
-          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "31/10/2026",
-      "hora": "17:15",
-      "fronton": "Bizkaia Frontoia",
-      "ciudad": "Bilbao",
-      "fase": "Cuartos de final (3ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "BAKAIKOA // AMIANO (Serie B)",
-        "ELORDI // P.ETXEBERRIA (Serie A)",
-        "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045533/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "BAKAIKOA"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "BAKAIKOA // AMIANO (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 3
-        },
-        {
-          "eq1": [
-            "ELORDI"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA"
-          ],
-          "raw": "ELORDI // P.ETXEBERRIA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 3
-        },
-        {
-          "eq1": [
-            "LARRAZABAL",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "BIKUÑA"
-          ],
-          "raw": "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "01/11/2026",
       "hora": "17:15",
@@ -253,8 +117,8 @@
       "fase": "Semifinales",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX // XX (Serie B)",
-        "ZUBIZARRETA III // XX (Serie B)",
+        "AMIANO // XX (Serie B)",
+        "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
         "XX – XX // XX – XX"
       ],
       "precio": "25.00",
@@ -264,12 +128,12 @@
       "partidos": [
         {
           "eq1": [
-            "?"
+            "AMIANO"
           ],
           "eq2": [
             "?"
           ],
-          "raw": "XX // XX (Serie B)",
+          "raw": "AMIANO // XX (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
@@ -283,16 +147,15 @@
             "ZUBIZARRETA III"
           ],
           "eq2": [
-            "?"
+            "ZUBIZARRETA IV"
           ],
-          "raw": "ZUBIZARRETA III // XX (Serie B)",
+          "raw": "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "semifinal",
-          "pendiente": true
+          "fase": "semifinal"
         },
         {
           "eq1": [
@@ -613,6 +476,142 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "31/10/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "ESKIROZ // ZUBIZARRETA IV (Serie B)",
+        "LASO // ZABALA (Serie A)",
+        "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE"
+      ],
+      "precio": "38.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045495/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV"
+          ],
+          "raw": "ESKIROZ // ZUBIZARRETA IV (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "LASO"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "LASO // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "AGIRRE",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "GASKUE"
+          ],
+          "raw": "AGIRRE – LIZEAGA // EGIGUREN V – GASKUE",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "31/10/2026",
+      "hora": "17:15",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "BAKAIKOA // AMIANO (Serie B)",
+        "ELORDI // P.ETXEBERRIA (Serie A)",
+        "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045533/select?viewCode=",
+      "tv": true,
+      "partidos": [
+        {
+          "eq1": [
+            "BAKAIKOA"
+          ],
+          "eq2": [
+            "AMIANO"
+          ],
+          "raw": "BAKAIKOA // AMIANO (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "ELORDI"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA"
+          ],
+          "raw": "ELORDI // P.ETXEBERRIA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "LARRAZABAL",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "BIKUÑA"
+          ],
+          "raw": "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "30/10/2026",
       "hora": "21:00",
