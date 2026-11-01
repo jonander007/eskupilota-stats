@@ -1,114 +1,11 @@
 {
-  "actualizado": "01/11/2026 17:04",
+  "actualizado": "01/11/2026 19:57",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "01/11/2026",
-      "hora": "17:15",
-      "fronton": "Remontival",
-      "ciudad": "Estella/Lizarra",
-      "fase": "Cuartos de final (3ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
-        "EZKURDIA – MURUA (Serie A)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051476/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "REZUSTA"
-          ],
-          "eq2": [
-            "SENAR",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "MURUA"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "EZKURDIA – MURUA (Serie A)",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "01/11/2026",
-      "hora": "18:00",
-      "fronton": "Ibarreta",
-      "ciudad": "Zeanuri",
-      "fase": "Cuartos de final (3ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ZUBIZARRETA III // APEZETXEA II (Serie B)",
-        "SALABERRIA // REKALDE (Serie B)"
-      ],
-      "precio": "15.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3027270/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "APEZETXEA II"
-          ],
-          "raw": "ZUBIZARRETA III // APEZETXEA II (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 3
-        },
-        {
-          "eq1": [
-            "SALABERRIA"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "SALABERRIA // REKALDE (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "cuartos",
-          "jornada": 3
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "06/11/2026",
       "hora": "21:00",
@@ -117,7 +14,7 @@
       "fase": "Semifinales",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "AMIANO // XX (Serie B)",
+        "AMIANO // REKALDE (Serie B)",
         "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
         "XX – XX // XX – XX"
       ],
@@ -131,16 +28,15 @@
             "AMIANO"
           ],
           "eq2": [
-            "?"
+            "REKALDE"
           ],
-          "raw": "AMIANO // XX (Serie B)",
+          "raw": "AMIANO // REKALDE (Serie B)",
           "tipo": "cuatro-medio-b",
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "b",
-          "fase": "semifinal",
-          "pendiente": true
+          "fase": "semifinal"
         },
         {
           "eq1": [
@@ -476,6 +372,109 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "01/11/2026",
+      "hora": "17:15",
+      "fronton": "Remontival",
+      "ciudad": "Estella/Lizarra",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
+        "EZKURDIA – MURUA (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051476/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALBERDI II",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "SENAR",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "ALBERDI II – REZUSTA // SENAR – MARIEZKURRENA II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "MURUA"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "EZKURDIA – MURUA (Serie A)",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "01/11/2026",
+      "hora": "18:00",
+      "fronton": "Ibarreta",
+      "ciudad": "Zeanuri",
+      "fase": "Cuartos de final (3ª Jornada)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "ZUBIZARRETA III // APEZETXEA II (Serie B)",
+        "SALABERRIA // REKALDE (Serie B)"
+      ],
+      "precio": "15.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3027270/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
+          "eq2": [
+            "APEZETXEA II"
+          ],
+          "raw": "ZUBIZARRETA III // APEZETXEA II (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "SALABERRIA"
+          ],
+          "eq2": [
+            "REKALDE"
+          ],
+          "raw": "SALABERRIA // REKALDE (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "cuartos",
+          "jornada": 3
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "31/10/2026",
       "hora": "17:15",
