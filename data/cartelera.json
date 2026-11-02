@@ -1,5 +1,5 @@
 {
-  "actualizado": "02/11/2026 04:51",
+  "actualizado": "02/11/2026 20:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -16,7 +16,7 @@
       "cartel": [
         "AMIANO // REKALDE (Serie B)",
         "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
-        "XX – XX // XX – XX"
+        "PEÑA II – UGARTEMENDIA // SALABERRIA – ALDABE"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -55,20 +55,19 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "PEÑA II",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "SALABERRIA",
+            "ALDABE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "PEÑA II – UGARTEMENDIA // SALABERRIA – ALDABE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -78,49 +77,65 @@
       "hora": "17:15",
       "fronton": "Atano III",
       "ciudad": "Donostia/San Sebastián",
-      "fase": "Semifinal",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/3 - 16:30",
+      "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX // XX (Serie A)"
+        "Semifinal",
+        "Campeonato 4 1/2 Eusko Label",
+        "EZKURDIA – BIKUÑA // JAKA – LANDA",
+        "ALTUNA III // P.ETXEBERRIA (Serie A)",
+        "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE"
       ],
-      "precio": "35.00",
+      "precio": "38.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
       "tv": false,
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "EZKURDIA",
+            "BIKUÑA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "JAKA",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "EZKURDIA – BIKUÑA // JAKA – LANDA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
-            "?"
+            "ALTUNA III"
           ],
           "eq2": [
-            "?"
+            "P.ETXEBERRIA"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ALTUNA III // P.ETXEBERRIA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a",
-          "fase": "semifinal",
-          "pendiente": true
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -130,11 +145,14 @@
       "hora": "17:15",
       "fronton": "Ogueta",
       "ciudad": "Vitoria-Gasteiz",
-      "fase": "Semifinal",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/4 - 11:00",
+      "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX // XX (Serie A)"
+        "Semifinal",
+        "Campeonato 4 1/2 Eusko Label",
+        "ELORDI – REZUSTA // LARRAZABAL – IMAZ",
+        "ZABALA // MURUA (Serie A)",
+        "BAKAIKOA – ARANGUREN // EGIGUREN V – LOZA"
       ],
       "precio": "35.00",
       "agotado": false,
@@ -143,36 +161,49 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ELORDI",
+            "REZUSTA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ELORDI – REZUSTA // LARRAZABAL – IMAZ",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
-            "?"
+            "ZABALA"
           ],
           "eq2": [
-            "?"
+            "MURUA"
           ],
-          "raw": "XX // XX (Serie A)",
+          "raw": "ZABALA // MURUA (Serie A)",
           "tipo": "cuatro-medio-a",
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a",
-          "fase": "semifinal",
-          "pendiente": true
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "BAKAIKOA",
+            "ARANGUREN"
+          ],
+          "eq2": [
+            "EGIGUREN V",
+            "LOZA"
+          ],
+          "raw": "BAKAIKOA – ARANGUREN // EGIGUREN V – LOZA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
         }
       ],
       "fuente": "baiko"
@@ -216,9 +247,11 @@
       "hora": "17:15",
       "fronton": "Uranzu",
       "ciudad": "Irun",
-      "fase": "Final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/10 - 11:00",
+      "competicion": null,
       "cartel": [
+        "Final",
+        "Campeonato 4 1/2 Eusko Label",
         "XX – XX // XX – XX",
         "Final (Serie B)"
       ],
