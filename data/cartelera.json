@@ -1,5 +1,5 @@
 {
-  "actualizado": "02/11/2026 23:46",
+  "actualizado": "03/11/2026 00:47",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -635,108 +635,6 @@
             "BIKUÑA"
           ],
           "raw": "LARRAZABAL – MORGAETXEBARRIA // ALBERDI II – BIKUÑA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "30/10/2026",
-      "hora": "21:00",
-      "fronton": "Beotibar",
-      "ciudad": "Tolosa",
-      "fase": "Cuartos de final (3ª Jornada)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "EGIGUREN V – MARTIJA // LARRAZABAL – IMAZ",
-        "ALTUNA III // PEÑA II (Serie A)"
-      ],
-      "precio": "28.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3045498/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "EGIGUREN V",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "IMAZ"
-          ],
-          "raw": "EGIGUREN V – MARTIJA // LARRAZABAL – IMAZ",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "PEÑA II"
-          ],
-          "raw": "ALTUNA III // PEÑA II (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "cuartos",
-          "jornada": 3
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "30/10/2026",
-      "hora": "18:00",
-      "fronton": "Baztan",
-      "ciudad": "Elizondo",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
-        "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA"
-      ],
-      "precio": "30.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3027269/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALBERDI II",
-            "EROSTARBE"
-          ],
-          "eq2": [
-            "SENAR",
-            "SALAVERRI II"
-          ],
-          "raw": "ALBERDI II – EROSTARBE // SENAR – SALAVERRI II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "eq2": [
-            "ARTOLA",
-            "IZTUETA"
-          ],
-          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – IZTUETA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
