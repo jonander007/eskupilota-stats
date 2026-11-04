@@ -1,5 +1,5 @@
 {
-  "actualizado": "04/11/2026 05:12",
+  "actualizado": "04/11/2026 18:33",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -77,11 +77,9 @@
       "hora": "17:15",
       "fronton": "Atano III",
       "ciudad": "Donostia/San Sebastián",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/3 - 16:30",
-      "competicion": null,
+      "fase": "Semifinal",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Semifinal",
-        "Campeonato 4 1/2 Eusko Label",
         "EZKURDIA – BIKUÑA // JAKA – LANDA",
         "ALTUNA III // P.ETXEBERRIA (Serie A)",
         "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE"
@@ -119,7 +117,8 @@
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "semifinal"
         },
         {
           "eq1": [
@@ -145,12 +144,10 @@
       "hora": "17:15",
       "fronton": "Ogueta",
       "ciudad": "Vitoria-Gasteiz",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/4 - 11:00",
-      "competicion": null,
+      "fase": "Semifinal",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Semifinal",
-        "Campeonato 4 1/2 Eusko Label",
-        "ELORDI – REZUSTA // LARRAZABAL – IMAZ",
+        "ARTOLA – IMAZ // ELORDI – REZUSTA",
         "ZABALA // MURUA (Serie A)",
         "BAKAIKOA – ARANGUREN // EGIGUREN V – LOZA"
       ],
@@ -161,14 +158,14 @@
       "partidos": [
         {
           "eq1": [
+            "ARTOLA",
+            "IMAZ"
+          ],
+          "eq2": [
             "ELORDI",
             "REZUSTA"
           ],
-          "eq2": [
-            "LARRAZABAL",
-            "IMAZ"
-          ],
-          "raw": "ELORDI – REZUSTA // LARRAZABAL – IMAZ",
+          "raw": "ARTOLA – IMAZ // ELORDI – REZUSTA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -187,7 +184,8 @@
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "semifinal"
         },
         {
           "eq1": [
