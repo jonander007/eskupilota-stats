@@ -20,6 +20,7 @@
 {"id":"COMP024","nombre":"Campeonato Parejas Serie A 2024","tipo":"campeonato-a","partidos_count":64,"categoria":"campeonato"},
 {"id":"COMP025","nombre":"Campeonato Parejas Serie A 2025","tipo":"campeonato-a","partidos_count":65,"categoria":"campeonato"},
 {"id":"COMP026","nombre":"Campeonato Parejas Serie A 2026","tipo":"campeonato-a","partidos_count":67,"categoria":"campeonato"},
+{"id":"COMP256","nombre":"Campeonato Parejas Serie A 2027","tipo":"campeonato-a","categoria":"campeonato","partidos_count":0},
 {"id":"COMP028","nombre":"Campeonato Parejas Serie B 2023","tipo":"campeonato-b","partidos_count":49,"categoria":"campeonato"},
 {"id":"COMP029","nombre":"Campeonato Parejas Serie B 2024","tipo":"campeonato-b","partidos_count":57,"categoria":"campeonato"},
 {"id":"COMP030","nombre":"Campeonato Parejas Serie B 2025","tipo":"campeonato-b","partidos_count":56,"categoria":"campeonato"},
