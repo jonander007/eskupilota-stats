@@ -89,7 +89,7 @@
 {"id":"FRO107","nombre":"HUÉRCANOS","ciudad_id":"CIU075","lat":42.4819,"lon":-2.7419,"partidos_count":8,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20HU%C3%89RCANOS"},
 {"id":"FRO209","nombre":"IBAETA","ciudad_id":"CIU076","lat":43.3986,"lon":-2.6622,"partidos_count":4},
 {"id":"FRO236","nombre":"IBARRETA","ciudad_id":"CIU143","partidos_count":1},
-{"id":"FRO110","nombre":"IGARONDO","ciudad_id":"CIU077","lat":43.06,"lon":-2.226,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20IGARONDO"},
+{"id":"FRO110","nombre":"IGARONDO","ciudad_id":"CIU077","lat":43.06,"lon":-2.226,"partidos_count":10,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20IGARONDO"},
 {"id":"FRO213","nombre":"IGEA","ciudad_id":"CIU153","lat":42.0678,"lon":-2.0109,"partidos_count":1},
 {"id":"FRO228","nombre":"IKASTOLA","ciudad_id":"CIU052","lat":43.2136,"lon":-2.4158,"partidos_count":12},
 {"id":"FRO113","nombre":"IRURZUN","ciudad_id":"CIU080","lat":42.9083,"lon":-1.8267,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20IRURZUN"},
