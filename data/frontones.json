@@ -23,7 +23,7 @@
 {"id":"FRO225","nombre":"ASKATASUNA","ciudad_id":"CIU038","lat":42.8256,"lon":-1.6167,"partidos_count":2},
 {"id":"FRO025","nombre":"ASTEASU","ciudad_id":"CIU017","lat":43.1944,"lon":-2.0982,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ASTEASU"},
 {"id":"FRO026","nombre":"ASTELENA","ciudad_id":"CIU046","lat":43.1856,"lon":-2.4703,"partidos_count":115,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ASTELENA"},
-{"id":"FRO028","nombre":"ATANO III","ciudad_id":"CIU044","lat":43.3181,"lon":-1.9819,"partidos_count":113,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"},
+{"id":"FRO028","nombre":"ATANO III","ciudad_id":"CIU044","lat":43.3181,"lon":-1.9819,"partidos_count":115,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ATANO%20III"},
 {"id":"FRO030","nombre":"AUZOETA","ciudad_id":"CIU019","lat":43.0061,"lon":-2.1766,"partidos_count":12,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20AUZOETA"},
 {"id":"FRO215","nombre":"BARAKALDES","ciudad_id":"CIU022","lat":43.2978,"lon":-2.9931,"partidos_count":6},
 {"id":"FRO034","nombre":"BARATZE","ciudad_id":"CIU123","lat":43.088,"lon":-2.285,"partidos_count":10,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20BARATZE"},

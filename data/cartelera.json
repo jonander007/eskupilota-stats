@@ -1,5 +1,5 @@
 {
-  "actualizado": "07/11/2026 16:47",
+  "actualizado": "07/11/2026 19:43",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -10,35 +10,19 @@
       "fecha": "07/11/2026",
       "hora": "17:15",
       "fronton": "Atano III",
-      "ciudad": "Donostia/San Sebastián",
-      "fase": "Semifinal",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "ciudad": "Donostia-San Sebastian",
+      "fase": null,
+      "competicion": "Serie A",
       "cartel": [
-        "EZKURDIA – BIKUÑA // JAKA – LANDA",
-        "ALTUNA III // P.ETXEBERRIA (Serie A)",
-        "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE"
+        "Serie A",
+        "Altuna III // P.Etxeberria",
+        "Senar - Lizeaga // Apezetxea II - Erostarbe"
       ],
-      "precio": "38.00",
+      "precio": null,
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
-      "tv": true,
+      "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "EZKURDIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "JAKA",
-            "LANDA"
-          ],
-          "raw": "EZKURDIA – BIKUÑA // JAKA – LANDA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
         {
           "eq1": [
             "ALTUNA III"
@@ -46,13 +30,12 @@
           "eq2": [
             "P.ETXEBERRIA"
           ],
-          "raw": "ALTUNA III // P.ETXEBERRIA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
+          "raw": "Altuna III // P.Etxeberria",
+          "tipo": "manomanista-a",
+          "competicion": "Campeonato Manomanista Serie A 2026",
+          "modalidad": "mano",
           "categoria": "campeonato",
-          "serie": "a",
-          "fase": "semifinal"
+          "serie": "a"
         },
         {
           "eq1": [
@@ -63,15 +46,15 @@
             "APEZETXEA II",
             "EROSTARBE"
           ],
-          "raw": "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE",
-          "tipo": "festival",
-          "competicion": "Festival",
+          "raw": "Senar - Lizeaga // Apezetxea II - Erostarbe",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
+          "categoria": "campeonato",
+          "serie": "a"
         }
       ],
-      "fuente": "baiko"
+      "fuente": "aspe"
     },
     {
       "fecha": "08/11/2026",
@@ -322,7 +305,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX – XX // XX – XX",
-        "Final (Serie A)"
+        "P. ETXEBERRIA // XX (Serie A)"
       ],
       "precio": "43.00",
       "agotado": false,
@@ -345,12 +328,95 @@
           "categoria": "festival",
           "serie": null,
           "pendiente": true
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "P. ETXEBERRIA // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "final",
+          "pendiente": true
         }
       ],
       "fuente": "baiko"
     }
   ],
   "recientes": [
+    {
+      "fecha": "07/11/2026",
+      "hora": "17:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "Semifinal",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "EZKURDIA – BIKUÑA // JAKA – LANDA",
+        "ALTUNA III // P.ETXEBERRIA (Serie A)",
+        "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE"
+      ],
+      "precio": "38.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
+      "tv": true,
+      "partidos": [
+        {
+          "eq1": [
+            "EZKURDIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "JAKA",
+            "LANDA"
+          ],
+          "raw": "EZKURDIA – BIKUÑA // JAKA – LANDA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA"
+          ],
+          "raw": "ALTUNA III // P.ETXEBERRIA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "semifinal"
+        },
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "06/11/2026",
       "hora": "21:00",
