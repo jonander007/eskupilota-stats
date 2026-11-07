@@ -1,61 +1,11 @@
 {
-  "actualizado": "07/11/2026 19:43",
+  "actualizado": "07/11/2026 20:39",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
     "https://aspepelota.eus/cartelera/"
   ],
   "partidos": [
-    {
-      "fecha": "07/11/2026",
-      "hora": "17:15",
-      "fronton": "Atano III",
-      "ciudad": "Donostia-San Sebastian",
-      "fase": null,
-      "competicion": "Serie A",
-      "cartel": [
-        "Serie A",
-        "Altuna III // P.Etxeberria",
-        "Senar - Lizeaga // Apezetxea II - Erostarbe"
-      ],
-      "precio": null,
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "P.ETXEBERRIA"
-          ],
-          "raw": "Altuna III // P.Etxeberria",
-          "tipo": "manomanista-a",
-          "competicion": "Campeonato Manomanista Serie A 2026",
-          "modalidad": "mano",
-          "categoria": "campeonato",
-          "serie": "a"
-        },
-        {
-          "eq1": [
-            "SENAR",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "Senar - Lizeaga // Apezetxea II - Erostarbe",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a"
-        }
-      ],
-      "fuente": "aspe"
-    },
     {
       "fecha": "08/11/2026",
       "hora": "17:15",
@@ -350,6 +300,56 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "07/11/2026",
+      "hora": "17:15",
+      "fronton": "Atano III",
+      "ciudad": "Donostia-San Sebastian",
+      "fase": null,
+      "competicion": "Serie A",
+      "cartel": [
+        "Serie A",
+        "Altuna III // P.Etxeberria",
+        "Senar - Lizeaga // Apezetxea II - Erostarbe"
+      ],
+      "precio": null,
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051407/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA"
+          ],
+          "raw": "Altuna III // P.Etxeberria",
+          "tipo": "manomanista-a",
+          "competicion": "Campeonato Manomanista Serie A 2026",
+          "modalidad": "mano",
+          "categoria": "campeonato",
+          "serie": "a"
+        },
+        {
+          "eq1": [
+            "SENAR",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "Senar - Lizeaga // Apezetxea II - Erostarbe",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a"
+        }
+      ],
+      "fuente": "aspe"
+    },
     {
       "fecha": "07/11/2026",
       "hora": "17:15",
