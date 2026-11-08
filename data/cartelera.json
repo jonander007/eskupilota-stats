@@ -1,11 +1,250 @@
 {
-  "actualizado": "08/11/2026 16:59",
+  "actualizado": "08/11/2026 20:02",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
-    "https://www.baikopilota.eus/entradas/",
-    "https://aspepelota.eus/cartelera/"
+    "https://www.baikopilota.eus/entradas/"
   ],
   "partidos": [
+    {
+      "fecha": "13/11/2026",
+      "hora": "18:00",
+      "fronton": "Lanciego",
+      "ciudad": "Lanciego",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "DARÍO – LOZA // LARRAZABAL – LANDA"
+      ],
+      "precio": "0",
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "LANDA"
+          ],
+          "raw": "DARÍO – LOZA // LARRAZABAL – LANDA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "14/11/2026",
+      "hora": "17:15",
+      "fronton": "Uranzu",
+      "ciudad": "Irun",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/10 - 11:00",
+      "competicion": null,
+      "cartel": [
+        "Final (Serie B)",
+        "Campeonato 4 1/2 Eusko Label",
+        "XX – XX // XX – XX",
+        "ZUBIZARRETA III // AMIANO (Serie B)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "ZUBIZARRETA III"
+          ],
+          "eq2": [
+            "AMIANO"
+          ],
+          "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
+          "tipo": "cuatro-medio-b",
+          "competicion": "Campeonato 4 y Medio Serie B 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "b"
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "15/11/2026",
+      "hora": "17:15",
+      "fronton": "Uarkape",
+      "ciudad": "Arrasate/Mondragón",
+      "fase": "3º / 4º puesto (Serie A)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "ALTUNA III // MURUA (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3053035/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "MURUA"
+          ],
+          "raw": "ALTUNA III // MURUA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a"
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "21/11/2026",
+      "hora": "17:15",
+      "fronton": "Zubikoa",
+      "ciudad": "Oñati",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
+        "DARÍO – BIKUÑA // LASO – LANDA"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3053063/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "LASO",
+            "LANDA"
+          ],
+          "raw": "DARÍO – BIKUÑA // LASO – LANDA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "22/11/2026",
+      "hora": "17:00",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Final (Serie A)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "P. ETXEBERRIA // ZABALA (Serie A)"
+      ],
+      "precio": "43.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "P. ETXEBERRIA // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "final"
+        }
+      ],
+      "fuente": "baiko"
+    }
+  ],
+  "recientes": [
     {
       "fecha": "08/11/2026",
       "hora": "17:15",
@@ -73,248 +312,6 @@
       ],
       "fuente": "baiko"
     },
-    {
-      "fecha": "13/11/2026",
-      "hora": "18:00",
-      "fronton": "Lanciego",
-      "ciudad": "Lanciego",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "DARÍO – LOZA // LARRAZABAL – LANDA"
-      ],
-      "precio": "0",
-      "agotado": false,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO",
-            "LOZA"
-          ],
-          "eq2": [
-            "LARRAZABAL",
-            "LANDA"
-          ],
-          "raw": "DARÍO – LOZA // LARRAZABAL – LANDA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "14/11/2026",
-      "hora": "17:15",
-      "fronton": "Uranzu",
-      "ciudad": "Irun",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/10 - 11:00",
-      "competicion": null,
-      "cartel": [
-        "Final",
-        "Campeonato 4 1/2 Eusko Label",
-        "XX – XX // XX – XX",
-        "ZUBIZARRETA III // AMIANO (Serie B)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
-          "pendiente": true
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b"
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "15/11/2026",
-      "hora": "17:15",
-      "fronton": "Uarkape",
-      "ciudad": "Arrasate/Mondragón",
-      "fase": "3º / 4º puesto",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "XX – XX // XX – XX",
-        "ALTUNA III // XX (Serie A)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3053035/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
-          "pendiente": true
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "?"
-          ],
-          "raw": "ALTUNA III // XX (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "21/11/2026",
-      "hora": "17:15",
-      "fronton": "Zubikoa",
-      "ciudad": "Oñati",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
-        "DARÍO – BIKUÑA // LASO – LANDA"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3053063/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "DARÍO – BIKUÑA // LASO – LANDA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "22/11/2026",
-      "hora": "17:00",
-      "fronton": "Bizkaia Frontoia",
-      "ciudad": "Bilbao",
-      "fase": "Final",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "XX – XX // XX – XX",
-        "P. ETXEBERRIA // XX (Serie A)"
-      ],
-      "precio": "43.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null,
-          "pendiente": true
-        },
-        {
-          "eq1": [
-            "P. ETXEBERRIA"
-          ],
-          "eq2": [
-            "?"
-          ],
-          "raw": "P. ETXEBERRIA // XX (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "final",
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    }
-  ],
-  "recientes": [
     {
       "fecha": "07/11/2026",
       "hora": "17:15",
