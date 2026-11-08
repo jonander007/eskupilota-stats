@@ -1,5 +1,5 @@
 {
-  "actualizado": "08/11/2026 04:53",
+  "actualizado": "08/11/2026 16:59",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/",
@@ -168,7 +168,7 @@
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
         "XX – XX // XX – XX",
-        "3º / 4º puesto (Serie A)"
+        "ALTUNA III // XX (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -190,6 +190,21 @@
           "modalidad": "parejas",
           "categoria": "festival",
           "serie": null,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "ALTUNA III"
+          ],
+          "eq2": [
+            "?"
+          ],
+          "raw": "ALTUNA III // XX (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
           "pendiente": true
         }
       ],
