@@ -1,5 +1,5 @@
 {
-  "actualizado": "09/11/2026 08:08",
+  "actualizado": "09/11/2026 21:23",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -13,7 +13,7 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "DARÍO – LOZA // LARRAZABAL – LANDA"
+        "DARÍO – LOZA // PEÑA II – LANDA"
       ],
       "precio": "0",
       "agotado": false,
@@ -26,10 +26,10 @@
             "LOZA"
           ],
           "eq2": [
-            "LARRAZABAL",
+            "PEÑA II",
             "LANDA"
           ],
-          "raw": "DARÍO – LOZA // LARRAZABAL – LANDA",
+          "raw": "DARÍO – LOZA // PEÑA II – LANDA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -49,30 +49,29 @@
       "cartel": [
         "Final (Serie B)",
         "Campeonato 4 1/2 Eusko Label",
-        "XX – XX // XX – XX",
+        "ARTOLA – ESKIROZ // ELORDI – ESKUZA",
         "ZUBIZARRETA III // AMIANO (Serie B)"
       ],
       "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
-      "tv": false,
+      "tv": true,
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ARTOLA",
+            "ESKIROZ"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ELORDI",
+            "ESKUZA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ARTOLA – ESKIROZ // ELORDI – ESKUZA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
@@ -96,10 +95,12 @@
       "hora": "17:15",
       "fronton": "Uarkape",
       "ciudad": "Arrasate/Mondragón",
-      "fase": "3º / 4º puesto (Serie A)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/12 - 13:00",
+      "competicion": null,
       "cartel": [
-        "XX – XX // XX – XX",
+        "3º / 4º puesto (Serie A)",
+        "Campeonato 4 1/2 Eusko Label",
+        "SENAR – IZTUETA // REKALDE – REZUSTA",
         "ALTUNA III // MURUA (Serie A)"
       ],
       "precio": "20.00",
@@ -109,20 +110,19 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SENAR",
+            "IZTUETA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "REKALDE",
+            "REZUSTA"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "SENAR – IZTUETA // REKALDE – REZUSTA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
@@ -149,8 +149,8 @@
       "fase": "Festival",
       "competicion": null,
       "cartel": [
-        "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
-        "DARÍO – BIKUÑA // LASO – LANDA"
+        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
+        "EZKURDIA – BIKUÑA // LASO – LANDA"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -160,13 +160,13 @@
         {
           "eq1": [
             "ZUBIZARRETA IV",
-            "LIZEAGA"
+            "MORGAETXEBARRIA"
           ],
           "eq2": [
             "APEZETXEA II",
             "EROSTARBE"
           ],
-          "raw": "ZUBIZARRETA IV – LIZEAGA // APEZETXEA II – EROSTARBE",
+          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -175,14 +175,14 @@
         },
         {
           "eq1": [
-            "DARÍO",
+            "EZKURDIA",
             "BIKUÑA"
           ],
           "eq2": [
             "LASO",
             "LANDA"
           ],
-          "raw": "DARÍO – BIKUÑA // LASO – LANDA",
+          "raw": "EZKURDIA – BIKUÑA // LASO – LANDA",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
@@ -200,7 +200,7 @@
       "fase": "Final (Serie A)",
       "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "XX – XX // XX – XX",
+        "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
         "P. ETXEBERRIA // ZABALA (Serie A)"
       ],
       "precio": "43.00",
@@ -210,20 +210,19 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "DARÍO",
+            "ZABALETA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "JAKA",
+            "MARIEZKURRENA II"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
           "categoria": "festival",
-          "serie": null,
-          "pendiente": true
+          "serie": null
         },
         {
           "eq1": [
