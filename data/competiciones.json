@@ -25,6 +25,7 @@
 {"id":"COMP029","nombre":"Campeonato Parejas Serie B 2024","tipo":"campeonato-b","partidos_count":57,"categoria":"campeonato"},
 {"id":"COMP030","nombre":"Campeonato Parejas Serie B 2025","tipo":"campeonato-b","partidos_count":56,"categoria":"campeonato"},
 {"id":"COMP031","nombre":"Campeonato Parejas Serie B 2026","tipo":"campeonato-b","partidos_count":68,"categoria":"campeonato"},
+{"id":"COMP257","nombre":"Campeonato Parejas Serie B 2027","tipo":"campeonato-b","categoria":"campeonato","partidos_count":0},
 {"id":"COMP032","nombre":"Desafio Urzante","tipo":"festival-mano","partidos_count":3,"categoria":"desafio"},
 {"id":"COMP245","nombre":"Desafio Urzante 2026","tipo":"festival-cuatro","partidos_count":3,"categoria":"desafio"},
 {"id":"COMP033","nombre":"Desafio Urzante San Fermin 2024","tipo":"festival-cuatro","partidos_count":1,"categoria":"desafio"},
