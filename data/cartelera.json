@@ -1,5 +1,5 @@
 {
-  "actualizado": "09/11/2026 23:53",
+  "actualizado": "10/11/2026 00:32",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -419,72 +419,6 @@
             "EROSTARBE"
           ],
           "raw": "SENAR – LIZEAGA // APEZETXEA II – EROSTARBE",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "06/11/2026",
-      "hora": "21:00",
-      "fronton": "Igarondo",
-      "ciudad": "Idiazabal",
-      "fase": "Semifinales",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "AMIANO // REKALDE (Serie B)",
-        "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
-        "PEÑA II – UGARTEMENDIA // SALABERRIA – ALDABE"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3027271/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AMIANO"
-          ],
-          "eq2": [
-            "REKALDE"
-          ],
-          "raw": "AMIANO // REKALDE (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "semifinal"
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "ZUBIZARRETA IV"
-          ],
-          "raw": "ZUBIZARRETA III // ZUBIZARRETA IV (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "semifinal"
-        },
-        {
-          "eq1": [
-            "PEÑA II",
-            "UGARTEMENDIA"
-          ],
-          "eq2": [
-            "SALABERRIA",
-            "ALDABE"
-          ],
-          "raw": "PEÑA II – UGARTEMENDIA // SALABERRIA – ALDABE",
           "tipo": "festival",
           "competicion": "Festival",
           "modalidad": "parejas",
