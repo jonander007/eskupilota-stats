@@ -1,5 +1,5 @@
 {
-  "actualizado": "10/11/2026 06:18",
+  "actualizado": "10/11/2026 18:34",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -8,8 +8,8 @@
     {
       "fecha": "13/11/2026",
       "hora": "18:00",
-      "fronton": "Lanciego",
-      "ciudad": "Lanciego",
+      "fronton": "Lantziego",
+      "ciudad": "Lantziego",
       "fase": "Festival",
       "competicion": null,
       "cartel": [
@@ -44,11 +44,9 @@
       "hora": "17:15",
       "fronton": "Uranzu",
       "ciudad": "Irun",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/10 - 11:00",
-      "competicion": null,
+      "fase": "Final (Serie B)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Final (Serie B)",
-        "Campeonato 4 1/2 Eusko Label",
         "ARTOLA – ESKIROZ // ELORDI – ESKUZA",
         "ZUBIZARRETA III // AMIANO (Serie B)"
       ],
@@ -85,7 +83,8 @@
           "competicion": "Campeonato 4 y Medio Serie B 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "b"
+          "serie": "b",
+          "fase": "final"
         }
       ],
       "fuente": "baiko"
@@ -197,9 +196,11 @@
       "hora": "17:00",
       "fronton": "Bizkaia Frontoia",
       "ciudad": "Bilbao",
-      "fase": "Final (Serie A)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/17 - 11:00",
+      "competicion": null,
       "cartel": [
+        "Final (Serie A)",
+        "Campeonato 4 1/2 Eusko Label",
         "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
         "P. ETXEBERRIA // ZABALA (Serie A)"
       ],
@@ -236,8 +237,537 @@
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
+          "serie": "a"
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "27/11/2026",
+      "hora": "19:30",
+      "fronton": "Barberito I",
+      "ciudad": "Baños Río Tobía",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie B)"
+      ],
+      "precio": "15.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073950/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "27/11/2026",
+      "hora": "20:45",
+      "fronton": "Club Deportivo",
+      "ciudad": "Bilbao",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX -XX (Serie B)",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "22.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073949/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX -XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
           "serie": "a",
-          "fase": "final"
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "28/11/2026",
+      "hora": "17:15",
+      "fronton": "Remontival",
+      "ciudad": "Estella/Lizarra",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX -XX (Serie B)",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073951/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX -XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "29/11/2026",
+      "hora": "17:15",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX -XX (Serie B)",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073912/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX -XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "30/11/2026",
+      "hora": "17:15",
+      "fronton": "Astelena",
+      "ciudad": "Eibar",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX -XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073921/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX -XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "04/12/2026",
+      "hora": "20:45",
+      "fronton": "Atano III",
+      "ciudad": "Donostia/San Sebastián",
+      "fase": "2ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073923/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "06/12/2026",
+      "hora": "17:15",
+      "fronton": "Bastida/Labastida",
+      "ciudad": "Bastida/Labastida",
+      "fase": "2ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX -XX // XX- XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073924/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX -XX // XX- XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "08/12/2026",
+      "hora": "17:15",
+      "fronton": "Beotibar",
+      "ciudad": "Tolosa",
+      "fase": "2ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073925/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "12/12/2026",
+      "hora": "19:00",
+      "fronton": "Munitibar",
+      "ciudad": "Munitibar",
+      "fase": "3ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie B)"
+      ],
+      "precio": "10.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3074693/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "13/12/2026",
+      "hora": "18:00",
+      "fronton": "Ederrena",
+      "ciudad": "Urretxu",
+      "fase": "3ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX Parejas Serie A"
+      ],
+      "precio": "35.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073926/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "XX Parejas Serie A"
+          ],
+          "raw": "XX – XX // XX – XX Parejas Serie A",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
         }
       ],
       "fuente": "baiko"
