@@ -1,5 +1,5 @@
 {
-  "actualizado": "11/11/2026 05:02",
+  "actualizado": "11/11/2026 18:32",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -15,8 +15,8 @@
       "cartel": [
         "DARÍO – LOZA // PEÑA II – LANDA"
       ],
-      "precio": "0",
-      "agotado": false,
+      "precio": null,
+      "agotado": true,
       "url": null,
       "tv": false,
       "partidos": [
@@ -347,7 +347,7 @@
         "XX – XX // XX -XX (Serie B)",
         "XX – XX // XX – XX (Serie A)"
       ],
-      "precio": "25.00",
+      "precio": "35.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073951/select?viewCode=",
       "tv": false,
