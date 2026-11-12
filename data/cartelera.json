@@ -1,5 +1,5 @@
 {
-  "actualizado": "11/11/2026 23:16",
+  "actualizado": "12/11/2026 00:18",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -773,73 +773,5 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": [
-    {
-      "fecha": "08/11/2026",
-      "hora": "17:15",
-      "fronton": "Ogueta",
-      "ciudad": "Vitoria-Gasteiz",
-      "fase": "Semifinal",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ARTOLA – IMAZ // ELORDI – REZUSTA",
-        "ZABALA // MURUA (Serie A)",
-        "BAKAIKOA – ARANGUREN // EGIGUREN V – LOZA"
-      ],
-      "precio": "35.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3051415/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "IMAZ"
-          ],
-          "eq2": [
-            "ELORDI",
-            "REZUSTA"
-          ],
-          "raw": "ARTOLA – IMAZ // ELORDI – REZUSTA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ZABALA"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "ZABALA // MURUA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "semifinal"
-        },
-        {
-          "eq1": [
-            "BAKAIKOA",
-            "ARANGUREN"
-          ],
-          "eq2": [
-            "EGIGUREN V",
-            "LOZA"
-          ],
-          "raw": "BAKAIKOA – ARANGUREN // EGIGUREN V – LOZA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    }
-  ]
+  "recientes": []
 }
