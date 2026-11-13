@@ -56,7 +56,7 @@
 {"id":"FRO068","nombre":"EDERRENA","ciudad_id":"CIU132","lat":43.089,"lon":-2.398,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EDERRENA"},
 {"id":"FRO070","nombre":"EL VILLAR DE ARNEDO","ciudad_id":"CIU048","lat":42.3161,"lon":-2.0871,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20EL%20VILLAR%20DE%20ARNEDO"},
 {"id":"FRO071","nombre":"ELBURGO","ciudad_id":"CIU049","lat":42.847,"lon":-2.543,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELBURGO"},
-{"id":"FRO069","nombre":"ELCIEGO","ciudad_id":"CIU047","lat":42.5157,"lon":-2.619,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELCIEGO"},
+{"id":"FRO069","nombre":"ELCIEGO","ciudad_id":"CIU047","lat":42.5157,"lon":-2.619,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELCIEGO"},
 {"id":"FRO222","nombre":"ELEXALDE","ciudad_id":"CIU155","lat":43.2167,"lon":-2.8667,"partidos_count":1},
 {"id":"FRO073","nombre":"ELGETA","ciudad_id":"CIU051","lat":43.1592,"lon":-2.5153,"partidos_count":6,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELGETA"},
 {"id":"FRO076","nombre":"ELORRI","ciudad_id":"CIU005","lat":43.1011,"lon":-2.0972,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ELORRI"},
