@@ -1,5 +1,5 @@
 {
-  "actualizado": "14/11/2026 02:54",
+  "actualizado": "14/11/2026 05:20",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -767,9 +767,9 @@
         "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
-      "precio": "35.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073926/select?viewCode=",
+      "precio": null,
+      "agotado": true,
+      "url": null,
       "tv": false,
       "partidos": [
         {
