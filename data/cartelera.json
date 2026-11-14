@@ -1,5 +1,5 @@
 {
-  "actualizado": "14/11/2026 05:20",
+  "actualizado": "14/11/2026 16:56",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -529,6 +529,63 @@
       "fuente": "baiko"
     },
     {
+      "fecha": "05/12/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "2ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077915/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 2,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
       "fecha": "06/12/2026",
       "hora": "17:15",
       "fronton": "Bastida/Labastida",
@@ -536,7 +593,7 @@
       "fase": "2ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX -XX // XX- XX",
+        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "25.00",
@@ -553,7 +610,7 @@
             "?",
             "?"
           ],
-          "raw": "XX -XX // XX- XX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
@@ -676,6 +733,63 @@
       "precio": "20.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3075643/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "12/12/2026",
+      "hora": "17:15",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "3ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077916/select?viewCode=",
       "tv": false,
       "partidos": [
         {
