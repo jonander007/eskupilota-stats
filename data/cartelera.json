@@ -1,5 +1,5 @@
 {
-  "actualizado": "15/11/2026 02:23",
+  "actualizado": "15/11/2026 05:15",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -813,6 +813,63 @@
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "13/12/2026",
+      "hora": "17:15",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "3ª Jornada - Pilota Jaia",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077933/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
           "fase": "liga",
           "jornada": 3,
           "pendiente": true
