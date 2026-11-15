@@ -148,7 +148,7 @@
 {"id":"FRO179","nombre":"TOKI EDER","ciudad_id":"CIU011","lat":42.7897,"lon":-1.3694,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20TOKI%20EDER"},
 {"id":"FRO180","nombre":"TROBIKA","ciudad_id":"CIU104","lat":43.352,"lon":-2.846,"partidos_count":13,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20TROBIKA"},
 {"id":"FRO234","nombre":"TXOMIÑENEA","ciudad_id":"CIU018","partidos_count":4,"lat":43.2817,"lon":-1.9463},
-{"id":"FRO181","nombre":"UARKAPE","ciudad_id":"CIU015","lat":43.0631,"lon":-2.491,"partidos_count":32,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20UARKAPE"},
+{"id":"FRO181","nombre":"UARKAPE","ciudad_id":"CIU015","lat":43.0631,"lon":-2.491,"partidos_count":33,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20UARKAPE"},
 {"id":"FRO182","nombre":"URANZU","ciudad_id":"CIU079","lat":43.339,"lon":-1.7894,"partidos_count":15,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20URANZU"},
 {"id":"FRO203","nombre":"URBELTZ","ciudad_id":"CIU088","lat":43.0519,"lon":-2.3342,"partidos_count":9,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20URBELTZ"},
 {"id":"FRO183","nombre":"URDULIZ","ciudad_id":"CIU130","lat":43.3706,"lon":-2.9206,"partidos_count":2,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20URDULIZ"},
