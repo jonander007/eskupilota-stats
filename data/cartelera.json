@@ -1,5 +1,5 @@
 {
-  "actualizado": "16/11/2026 05:13",
+  "actualizado": "16/11/2026 20:54",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -61,7 +61,7 @@
       "hora": "17:00",
       "fronton": "Bizkaia Frontoia",
       "ciudad": "Bilbao",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/17 - 11:00",
+      "fase": "Elección ⚾ Aukeraketa 2026/11/19 - 11:00",
       "competicion": null,
       "cartel": [
         "Final (Serie A)",
@@ -115,6 +115,7 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
+        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie B)"
       ],
       "precio": "15.00",
@@ -122,6 +123,25 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073950/select?viewCode=",
       "tv": false,
       "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
         {
           "eq1": [
             "?",
@@ -323,7 +343,7 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX -XX",
+        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "25.00",
@@ -340,7 +360,7 @@
             "?",
             "?"
           ],
-          "raw": "XX – XX // XX -XX",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
@@ -628,7 +648,6 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "20.00",
@@ -636,25 +655,6 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3075643/select?viewCode=",
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
-        },
         {
           "eq1": [
             "?",
@@ -685,7 +685,6 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "25.00",
@@ -693,25 +692,6 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077916/select?viewCode=",
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
-        },
         {
           "eq1": [
             "?",
@@ -779,7 +759,6 @@
       "fase": "3ª Jornada - Pilota Jaia",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": "20.00",
@@ -787,25 +766,6 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077933/select?viewCode=",
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
-        },
         {
           "eq1": [
             "?",
@@ -836,7 +796,6 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
         "XX – XX // XX – XX (Serie A)"
       ],
       "precio": null,
@@ -844,25 +803,6 @@
       "url": null,
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
-        },
         {
           "eq1": [
             "?",
