@@ -1,5 +1,5 @@
 {
-  "actualizado": "16/11/2026 23:54",
+  "actualizado": "17/11/2026 00:38",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -922,40 +922,6 @@
           "categoria": "campeonato",
           "serie": "b",
           "fase": "final"
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "13/11/2026",
-      "hora": "18:00",
-      "fronton": "Lantziego",
-      "ciudad": "Lantziego",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "DARÍO – LOZA // PEÑA II – LANDA"
-      ],
-      "precio": null,
-      "agotado": true,
-      "url": null,
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO",
-            "LOZA"
-          ],
-          "eq2": [
-            "PEÑA II",
-            "LANDA"
-          ],
-          "raw": "DARÍO – LOZA // PEÑA II – LANDA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
         }
       ],
       "fuente": "baiko"
