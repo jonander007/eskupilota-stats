@@ -1,5 +1,5 @@
 {
-  "actualizado": "17/11/2026 23:44",
+  "actualizado": "18/11/2026 00:47",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -872,56 +872,6 @@
           "modalidad": "cuatro",
           "categoria": "campeonato",
           "serie": "a"
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "14/11/2026",
-      "hora": "17:15",
-      "fronton": "Uranzu",
-      "ciudad": "Irun",
-      "fase": "Final (Serie B)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "ARTOLA – ESKIROZ // ELORDI – ESKUZA",
-        "ZUBIZARRETA III // AMIANO (Serie B)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3052399/select?viewCode=",
-      "tv": true,
-      "partidos": [
-        {
-          "eq1": [
-            "ARTOLA",
-            "ESKIROZ"
-          ],
-          "eq2": [
-            "ELORDI",
-            "ESKUZA"
-          ],
-          "raw": "ARTOLA – ESKIROZ // ELORDI – ESKUZA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ZUBIZARRETA III"
-          ],
-          "eq2": [
-            "AMIANO"
-          ],
-          "raw": "ZUBIZARRETA III // AMIANO (Serie B)",
-          "tipo": "cuatro-medio-b",
-          "competicion": "Campeonato 4 y Medio Serie B 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "final"
         }
       ],
       "fuente": "baiko"
