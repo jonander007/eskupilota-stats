@@ -1,5 +1,5 @@
 {
-  "actualizado": "18/11/2026 23:15",
+  "actualizado": "19/11/2026 00:04",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -826,55 +826,5 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": [
-    {
-      "fecha": "15/11/2026",
-      "hora": "17:15",
-      "fronton": "Uarkape",
-      "ciudad": "Arrasate/Mondragón",
-      "fase": "3º / 4º puesto (Serie A)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "SENAR – IZTUETA // REKALDE – REZUSTA",
-        "ALTUNA III // MURUA (Serie A)"
-      ],
-      "precio": "20.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3053035/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "SENAR",
-            "IZTUETA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "REZUSTA"
-          ],
-          "raw": "SENAR – IZTUETA // REKALDE – REZUSTA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "ALTUNA III"
-          ],
-          "eq2": [
-            "MURUA"
-          ],
-          "raw": "ALTUNA III // MURUA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a"
-        }
-      ],
-      "fuente": "baiko"
-    }
-  ]
+  "recientes": []
 }
