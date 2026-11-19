@@ -1,5 +1,5 @@
 {
-  "actualizado": "19/11/2026 06:20",
+  "actualizado": "19/11/2026 19:26",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -61,11 +61,9 @@
       "hora": "17:00",
       "fronton": "Bizkaia Frontoia",
       "ciudad": "Bilbao",
-      "fase": "Elección ⚾ Aukeraketa 2026/11/19 - 11:00",
-      "competicion": null,
+      "fase": "Final (Serie A)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
       "cartel": [
-        "Final (Serie A)",
-        "Campeonato 4 1/2 Eusko Label",
         "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
         "P. ETXEBERRIA // ZABALA (Serie A)"
       ],
@@ -102,7 +100,8 @@
           "competicion": "Campeonato 4 y Medio Serie A 2026",
           "modalidad": "cuatro",
           "categoria": "campeonato",
-          "serie": "a"
+          "serie": "a",
+          "fase": "final"
         }
       ],
       "fuente": "baiko"
@@ -820,6 +819,43 @@
           "serie": "a",
           "fase": "liga",
           "jornada": 3,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "19/12/2026",
+      "hora": "19:30",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "4ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077917/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
           "pendiente": true
         }
       ],
