@@ -32,7 +32,7 @@ jobs:
   # La web en un navegador de verdad: rutas, idiomas, comparadores,
   # campeonatos, mapa, cartelera, móvil, modo oscuro y teclado
   navegador:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # Playwright 1.56 no soporta aún Ubuntu 26.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
