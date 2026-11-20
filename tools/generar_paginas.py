@@ -659,6 +659,25 @@ def generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima):
     for c in cs:
         ediciones[base_comp(c['nombre'])].append(c)
 
+    ciu = {c['id']: c for c in cargar('ciudades')}
+
+    def lugares(parts, lang):
+        """Frontones donde se jugó (de más a menos partidos), como Place de schema.org."""
+        cuenta = defaultdict(int)
+        for p in parts:
+            if p.get('fronton_id') in fro:
+                cuenta[p['fronton_id']] += 1
+        sitios = []
+        for fid in sorted(cuenta, key=lambda k: -cuenta[k]):
+            f = fro[fid]
+            c = ciu.get(f.get('ciudad_id')) or {}
+            loc = c.get('nombre_eu' if lang == 'eu' else 'nombre_es') or bonito(c.get('nombre') or f['nombre'])
+            sitios.append({'@type': 'Place', 'name': f"Frontón {bonito(f['nombre'])}",
+                           'url': f"{WEB}/{'eu/' if lang == 'eu' else ''}fronton/{slugify(f['nombre'])}/",
+                           'address': {'@type': 'PostalAddress', 'addressLocality': loc,
+                                       'addressCountry': 'FR' if c.get('provincia') == 'lapurdi' else 'ES'}})
+        return sitios[0] if len(sitios) == 1 else sitios
+
     for lang in ('es', 'eu'):
         T = TXT[lang]
         hoy = fecha_hoy(ultima, lang)
@@ -678,7 +697,21 @@ def generar_competiciones(partidos, pel, fro, comp, slugs, eq, ultima):
             desc = T['comp_desc'].format(c=nom, pj=len(parts), camp=T['comp_desc_camp'].format(n=camp) if camp else '')
             ld = {'@context': 'https://schema.org', '@type': 'SportsEvent', 'name': nom, 'sport': 'Pelota vasca',
                   'url': url, 'description': desc,
-                  'startDate': min(p['fecha'] for p in parts), 'endDate': max(p['fecha'] for p in parts)}
+                  'startDate': min(p['fecha'] for p in parts), 'endDate': max(p['fecha'] for p in parts),
+                  'eventStatus': 'https://schema.org/EventScheduled',
+                  'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+                  'image': f'{WEB}/og-image.jpg',
+                  'location': lugares(parts, lang)}
+            # los campeonatos los organiza la Liga de Empresas; los torneos, la empresa que los programa
+            if c['nombre'].lower().startswith('campeonato'):
+                orgs = ['LEP.M (Liga de Empresas de Pelota a Mano)']
+            else:
+                orgs = sorted({ORGANIZADOR[(p.get('fuente') or '').split('-')[0]] for p in parts
+                               if (p.get('fuente') or '').split('-')[0] in ORGANIZADOR})
+            if orgs:
+                ld['organizer'] = [{'@type': 'Organization', 'name': o} for o in orgs]
+                if len(orgs) == 1:
+                    ld['organizer'] = ld['organizer'][0]
             extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
             fechas = f"{fecha_es(ld['startDate'])} – {fecha_es(ld['endDate'])}"
             kpis = [(len(parts), T['partidos'], ''), (fechas, T['fechas'], 's')]
