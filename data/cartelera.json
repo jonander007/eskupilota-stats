@@ -1,5 +1,5 @@
 {
-  "actualizado": "20/11/2026 03:52",
+  "actualizado": "20/11/2026 06:04",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -819,43 +819,6 @@
           "serie": "a",
           "fase": "liga",
           "jornada": 3,
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "19/12/2026",
-      "hora": "19:30",
-      "fronton": "Labrit",
-      "ciudad": "Iruñea/Pamplona",
-      "fase": "4ª Jornada",
-      "competicion": "Campeonato Parejas",
-      "cartel": [
-        "XX – XX // XX – XX (Serie A)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077917/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 4,
           "pendiente": true
         }
       ],
