@@ -1,61 +1,10 @@
 {
-  "actualizado": "21/11/2026 17:55",
+  "actualizado": "21/11/2026 21:17",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
   ],
   "partidos": [
-    {
-      "fecha": "21/11/2026",
-      "hora": "17:15",
-      "fronton": "Zubikoa",
-      "ciudad": "Oñati",
-      "fase": "Festival",
-      "competicion": null,
-      "cartel": [
-        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
-        "EZKURDIA – BIKUÑA // LASO – LANDA"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3053063/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA IV",
-            "MORGAETXEBARRIA"
-          ],
-          "eq2": [
-            "APEZETXEA II",
-            "EROSTARBE"
-          ],
-          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "EZKURDIA",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "LASO",
-            "LANDA"
-          ],
-          "raw": "EZKURDIA – BIKUÑA // LASO – LANDA",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "22/11/2026",
       "hora": "17:00",
@@ -1014,5 +963,57 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": []
+  "recientes": [
+    {
+      "fecha": "21/11/2026",
+      "hora": "17:15",
+      "fronton": "Zubikoa",
+      "ciudad": "Oñati",
+      "fase": "Festival",
+      "competicion": null,
+      "cartel": [
+        "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
+        "EZKURDIA – BIKUÑA // LASO – LANDA"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/51925/session/3053063/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA IV",
+            "MORGAETXEBARRIA"
+          ],
+          "eq2": [
+            "APEZETXEA II",
+            "EROSTARBE"
+          ],
+          "raw": "ZUBIZARRETA IV – MORGAETXEBARRIA // APEZETXEA II – EROSTARBE",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "EZKURDIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "LASO",
+            "LANDA"
+          ],
+          "raw": "EZKURDIA – BIKUÑA // LASO – LANDA",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        }
+      ],
+      "fuente": "baiko"
+    }
+  ]
 }
