@@ -162,6 +162,6 @@
 {"id":"FRO192","nombre":"VILLAVA","ciudad_id":"CIU138","lat":42.8323,"lon":-1.6074,"partidos_count":7,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20VILLAVA"},
 {"id":"FRO196","nombre":"ZEANURI","ciudad_id":"CIU143","lat":43.1039,"lon":-2.7369,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ZEANURI"},
 {"id":"FRO198","nombre":"ZIERBENA","ciudad_id":"CIU145","lat":43.36,"lon":-3.0594,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ZIERBENA"},
-{"id":"FRO199","nombre":"ZUBIKOA","ciudad_id":"CIU117","lat":43.0326,"lon":-2.41,"partidos_count":3,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ZUBIKOA"},
+{"id":"FRO199","nombre":"ZUBIKOA","ciudad_id":"CIU117","lat":43.0326,"lon":-2.41,"partidos_count":4,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ZUBIKOA"},
 {"id":"FRO200","nombre":"ZUGARRAMURDI","ciudad_id":"CIU146","lat":43.2696,"lon":-1.5411,"partidos_count":1,"direccion":"","google_maps_link":"https://www.google.com/maps/search/?api=1&query=Fronton%20ZUGARRAMURDI"}
 ]

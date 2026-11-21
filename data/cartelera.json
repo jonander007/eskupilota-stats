@@ -1,5 +1,5 @@
 {
-  "actualizado": "21/11/2026 05:57",
+  "actualizado": "21/11/2026 17:55",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -819,6 +819,195 @@
           "serie": "a",
           "fase": "liga",
           "jornada": 3,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "18/12/2026",
+      "hora": "20:00",
+      "fronton": "Nájera",
+      "ciudad": "Nájera",
+      "fase": "4ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie B)"
+      ],
+      "precio": "15.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079514/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 4,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "18/12/2026",
+      "hora": "20:45",
+      "fronton": "Santanape",
+      "ciudad": "Gernika",
+      "fase": "4ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079527/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "19/12/2026",
+      "hora": "17:15",
+      "fronton": "Frontó Egora Olimpics Vall d'Hebron",
+      "ciudad": "Bartzelona",
+      "fase": "4ª Jornada Campionat Má Parelles",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "XX – XX // XX – XX (",
+        "Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079532/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "XX ("
+          ],
+          "raw": "XX – XX // XX – XX (",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "19/12/2026",
+      "hora": "18:30",
+      "fronton": "Labrit",
+      "ciudad": "Iruñea/Pamplona",
+      "fase": "4ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077917/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4,
           "pendiente": true
         }
       ],
