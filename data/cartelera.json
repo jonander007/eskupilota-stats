@@ -1,60 +1,10 @@
 {
-  "actualizado": "22/11/2026 05:31",
+  "actualizado": "22/11/2026 18:27",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
   ],
   "partidos": [
-    {
-      "fecha": "22/11/2026",
-      "hora": "17:00",
-      "fronton": "Bizkaia Frontoia",
-      "ciudad": "Bilbao",
-      "fase": "Final (Serie A)",
-      "competicion": "Campeonato 4 1/2 Eusko Label",
-      "cartel": [
-        "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
-        "P. ETXEBERRIA // ZABALA (Serie A)"
-      ],
-      "precio": "43.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "DARÍO",
-            "ZABALETA"
-          ],
-          "eq2": [
-            "JAKA",
-            "MARIEZKURRENA II"
-          ],
-          "raw": "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
-          "tipo": "festival",
-          "competicion": "Festival",
-          "modalidad": "parejas",
-          "categoria": "festival",
-          "serie": null
-        },
-        {
-          "eq1": [
-            "P. ETXEBERRIA"
-          ],
-          "eq2": [
-            "ZABALA"
-          ],
-          "raw": "P. ETXEBERRIA // ZABALA (Serie A)",
-          "tipo": "cuatro-medio-a",
-          "competicion": "Campeonato 4 y Medio Serie A 2026",
-          "modalidad": "cuatro",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "final"
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "27/11/2026",
       "hora": "19:30",
@@ -964,6 +914,56 @@
     }
   ],
   "recientes": [
+    {
+      "fecha": "22/11/2026",
+      "hora": "17:00",
+      "fronton": "Bizkaia Frontoia",
+      "ciudad": "Bilbao",
+      "fase": "Final (Serie A)",
+      "competicion": "Campeonato 4 1/2 Eusko Label",
+      "cartel": [
+        "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
+        "P. ETXEBERRIA // ZABALA (Serie A)"
+      ],
+      "precio": "43.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/59984/session/3055248/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "raw": "DARÍO – ZABALETA // JAKA – MARIEZKURRENA II",
+          "tipo": "festival",
+          "competicion": "Festival",
+          "modalidad": "parejas",
+          "categoria": "festival",
+          "serie": null
+        },
+        {
+          "eq1": [
+            "P. ETXEBERRIA"
+          ],
+          "eq2": [
+            "ZABALA"
+          ],
+          "raw": "P. ETXEBERRIA // ZABALA (Serie A)",
+          "tipo": "cuatro-medio-a",
+          "competicion": "Campeonato 4 y Medio Serie A 2026",
+          "modalidad": "cuatro",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "final"
+        }
+      ],
+      "fuente": "baiko"
+    },
     {
       "fecha": "21/11/2026",
       "hora": "17:15",
