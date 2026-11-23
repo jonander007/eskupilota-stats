@@ -125,7 +125,7 @@ function route(){
     if(tipo==='pelotari' && arg){
       const nombre = Object.keys(PELOTARIS).find(n=>slugify(n)===arg);
       irASeccion('pelotaris');
-      if(nombre) openPerfil(nombre); else closePerfil();
+      if(nombre) openPerfil(nombre, partes[2] || 'resumen'); else closePerfil();
     } else if(tipo==='fronton' && arg){
       const nombre = [...new Set(PARTIDOS.map(p=>p.fronton))].find(f=>slugify(f)===arg);
       irASeccion('frontones');
@@ -390,27 +390,6 @@ function mostrarTip(ev, html){
 }
 function ocultarTip(){ const el=document.getElementById('anTip'); if(el) el.style.display='none'; }
 
-// Barras verticales: datos [{etiqueta, valor(0-100), detalle}]
-function graficoBarras(datos){
-  if(!datos.length) return `<div class="an-muted">${tx('Sin datos','Daturik ez')}</div>`;
-  const W=Math.max(260, datos.length*56), H=170, m={t:18,r:8,b:24,l:30};
-  const iw=W-m.l-m.r, ih=H-m.t-m.b, bw=Math.min(28, iw/datos.length*0.55);
-  const y=v=>m.t+ih-(v/100)*ih;
-  const grid=[0,50,100].map(v=>`<line x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}" class="an-grid${v===50?' mid':''}"/><text x="${m.l-6}" y="${y(v)+3}" class="an-axis" text-anchor="end">${v}%</text>`).join('');
-  const bars=datos.map((d,i)=>{
-    const cx=m.l+iw*(i+0.5)/datos.length, top=y(d.valor), hgt=Math.max(0,m.t+ih-top);
-    const r=Math.min(4,hgt/2, bw/2);
-    const path=`M${cx-bw/2},${m.t+ih} V${top+r} Q${cx-bw/2},${top} ${cx-bw/2+r},${top} H${cx+bw/2-r} Q${cx+bw/2},${top} ${cx+bw/2},${top+r} V${m.t+ih} Z`;
-    const tip=`<b>${h(d.etiqueta)}</b><br>${Math.round(d.valor)}% · ${h(d.detalle)}`;
-    return `<g class="an-hit" onmousemove="mostrarTip(event,'${h(esc(tip))}')" onmouseleave="ocultarTip()">
-      <rect x="${cx-iw/datos.length/2}" y="${m.t}" width="${iw/datos.length}" height="${ih}" fill="transparent"/>
-      <path d="${path}" class="an-bar"/>
-      <text x="${cx}" y="${top-5}" class="an-val" text-anchor="middle">${Math.round(d.valor)}%</text>
-      <text x="${cx}" y="${H-8}" class="an-axis" text-anchor="middle">${h(d.etiqueta)}</text></g>`;
-  }).join('');
-  return `<div class="an-chart-scroll"><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${tx('Porcentaje de victorias por temporada','Garaipen ehunekoa denboraldika')}">${grid}${bars}</svg></div>`;
-}
-
 // Línea temporal: puntos [[fecha dd/mm/yyyy, valor]]
 function graficoLinea(puntos, etiqueta){
   if(puntos.length<2) return `<div class="an-muted">${tx('Pocos partidos todavía','Partida gutxiegi oraindik')}</div>`;
@@ -429,7 +408,9 @@ function graficoLinea(puntos, etiqueta){
   const datos=encodeURIComponent(JSON.stringify(puntos.map((p,i)=>[X(xs[i]),Y(vs[i]),p[0],Math.round(vs[i])])));
   return `<div class="an-chart-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-line-svg" role="img" aria-label="${h(etiqueta)}"
       data-puntos="${datos}" onmousemove="tipLinea(event,this)" onmouseleave="tipLineaFuera(this)">
-    ${ticksY}${ticksX}<path d="${d}" class="an-line"/>
+    <defs><linearGradient id="anArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="an-area-a"/><stop offset="1" class="an-area-b"/></linearGradient></defs>
+    ${ticksY}${ticksX}<path d="${d} L${X(xs[xs.length-1]).toFixed(1)},${m.t+ih} L${X(xs[0]).toFixed(1)},${m.t+ih} Z" fill="url(#anArea)"/><path d="${d}" class="an-line"/>
+    <circle cx="${X(xs[xs.length-1]).toFixed(1)}" cy="${Y(vs[vs.length-1]).toFixed(1)}" r="4" class="an-fin"/>
     <line class="an-cross" y1="${m.t}" y2="${m.t+ih}" x1="-10" x2="-10"/><circle class="an-dot" r="4.5" cx="-10" cy="-10"/>
     <rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/></svg></div>`;
 }
@@ -446,67 +427,362 @@ function tipLinea(ev, svg){
 function tipLineaFuera(svg){ ocultarTip(); svg.querySelector('.an-dot')?.setAttribute('cx',-10); svg.querySelector('.an-cross')?.setAttribute('x1',-10); svg.querySelector('.an-cross')?.setAttribute('x2',-10); }
 
 // ════════════════════════════════════════════════════════════
-// PERFIL: evolución, forma, mejor frontón
+// PERFIL EN PESTAÑAS: resumen, parejas, rivales, partidos, frontones,
+// años y buscador. Todo respeta los filtros de la ficha (botón «Filtrar»),
+// salvo la evolución del Elo, que es la de toda su carrera.
 // ════════════════════════════════════════════════════════════
-function htmlEvolucionPerfil(nombre){
-  const suyos = PARTIDOS.filter(p=>pels(p.equipo1).includes(nombre)||pels(p.equipo2).includes(nombre));
-  const gano = p => (pels(p.equipo1).includes(nombre)&&p.ganador==='equipo1')||(pels(p.equipo2).includes(nombre)&&p.ganador==='equipo2');
+const PF_ICONOS = {
+  resumen:'<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>',
+  parejas:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  rivales:'<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>',
+  partidos:'<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/>',
+  frontones:'<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+  anios:'<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  buscar:'<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+};
+function nombrePestana(k){
+  return {resumen:tx('Resumen','Laburpena'), parejas:tx('Parejas','Bikoteak'), rivales:tx('Rivales','Aurkariak'),
+    partidos:tx('Partidos','Partidak'), frontones:tx('Frontones','Frontoiak'), anios:tx('Años','Urteak'),
+    buscar:tx('Buscar','Bilatu')}[k];
+}
 
-  const porAnio = {};
-  suyos.forEach(p=>{ const a=getYear(p); porAnio[a]=porAnio[a]||{pj:0,pg:0}; porAnio[a].pj++; if(gano(p)) porAnio[a].pg++; });
-  const barras = Object.keys(porAnio).sort().map(a=>({etiqueta:a, valor:porAnio[a].pg/porAnio[a].pj*100,
-    detalle:`${porAnio[a].pg}${t('abbr_v')}–${porAnio[a].pj-porAnio[a].pg}${t('abbr_d')}`}));
+function htmlPestanasPerfil(){
+  return `<div class="pf-tabs" role="tablist" aria-label="${tx('Secciones de la ficha','Fitxaren atalak')}">${PF_TABS.map(k=>`
+    <button type="button" role="tab" id="pfTab-${k}" class="pf-tab ${k===_pfTab?'on':''}" data-tab="${k}"
+      aria-selected="${k===_pfTab}" aria-controls="pfPanel" tabindex="${k===_pfTab?0:-1}"
+      onclick="setPfTab('${k}')" onkeydown="teclaPfTab(event)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${PF_ICONOS[k]}</svg>
+      <span>${nombrePestana(k)}</span></button>`).join('')}</div>`;
+}
 
-  // Rendimiento por frontón: todos con al menos 2 partidos, de más a menos jugados
-  const porFronton = {};
-  suyos.forEach(p=>{ const f=porFronton[p.fronton]=porFronton[p.fronton]||{pj:0,pg:0,tf:0,tc:0};
-    const en1=pels(p.equipo1).includes(nombre); f.pj++; if(gano(p)) f.pg++;
-    f.tf+=en1?p.puntos1:p.puntos2; f.tc+=en1?p.puntos2:p.puntos1; });
-  const frontones = Object.entries(porFronton).filter(([,s])=>s.pj>=2).sort((a,b)=>b[1].pj-a[1].pj||b[1].pg-a[1].pg);
-  const conMin = frontones.filter(([,s])=>s.pj>=5);
-  const pctF = s=>s.pg/s.pj;
-  const mejorF = conMin.length>1 ? [...conMin].sort((a,b)=>pctF(b[1])-pctF(a[1])||b[1].pj-a[1].pj)[0] : null;
-  const peorF = conMin.length>1 ? [...conMin].sort((a,b)=>pctF(a[1])-pctF(b[1])||b[1].pj-a[1].pj)[0] : null;
-  const VISIBLES = 8;
-  const filaF = ([f,s],i)=>{ const pc=Math.round(pctF(s)*100);
-    return `<tr class="${i>=VISIBLES?'an-fr-extra':''}"><td><span class="clk" onclick="abrirFronton('${esc(f)}')">${h(f)}</span>${mejorF&&mejorF[0]===f?' ▲':''}${peorF&&peorF[0]===f?' ▼':''}</td>
-      <td class="an-num">${s.pj}</td><td class="an-num an-up">${s.pg}</td><td class="an-num an-down">${s.pj-s.pg}</td>
-      <td class="an-num" style="white-space:nowrap"><span class="an-fr-bar ${pc<50?'bajo':''}" style="width:${Math.max(4,pc*0.5)}px" aria-hidden="true"></span>${pc}%</td>
-      <td class="an-num ${s.tf-s.tc>=0?'an-up':'an-down'}">${s.tf-s.tc>0?'+':''}${s.tf-s.tc}</td></tr>`; };
+function setPfTab(k){
+  if(!PF_TABS.includes(k)) return;
+  _pfTab = k;
+  document.querySelectorAll('.pf-tab').forEach(b=>{
+    const on = b.dataset.tab===k;
+    b.classList.toggle('on', on); b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1;
+  });
+  centrarPfTab();
+  document.getElementById('pfPanel')?.setAttribute('aria-labelledby', 'pfTab-'+k);
+  pintarPanelPerfil();
+  setHash('#/pelotari/'+slugify(_perfilNombre)+(k!=='resumen'?'/'+k:''));
+}
 
-  const hist = ELO_HIST[nombre]||[];
-  const elo = ELO[nombre];
+// Flechas izquierda/derecha entre pestañas (patrón ARIA de tabs)
+function teclaPfTab(ev){
+  const i = PF_TABS.indexOf(_pfTab);
+  const j = ev.key==='ArrowRight' ? (i+1)%PF_TABS.length : ev.key==='ArrowLeft' ? (i-1+PF_TABS.length)%PF_TABS.length
+    : ev.key==='Home' ? 0 : ev.key==='End' ? PF_TABS.length-1 : -1;
+  if(j<0) return;
+  ev.preventDefault(); setPfTab(PF_TABS[j]); document.getElementById('pfTab-'+PF_TABS[j])?.focus();
+}
+
+// Desliza la barra de pestañas (en móvil) para que se vea la activa, sin mover la página
+function centrarPfTab(){
+  const bar = document.querySelector('.pf-tabs'), b = bar?.querySelector('.pf-tab.on');
+  if(b && bar.scrollWidth > bar.clientWidth) bar.scrollLeft = b.offsetLeft - (bar.clientWidth - b.offsetWidth)/2;
+}
+
+function pintarPanelPerfil(){
+  const el = document.getElementById('pfPanel');
+  if(!el) return;
+  const n = _perfilNombre, parts = partidosPerfil(n);
+  const pintar = {resumen:panelResumen, parejas:panelParejas, rivales:panelRivales, partidos:panelPartidos,
+    frontones:panelFrontones, anios:panelAnios, buscar:panelBuscar}[_pfTab] || panelResumen;
+  el.innerHTML = pintar(n, parts);
+  if(_pfTab==='partidos') renderPerfilPartidos();
+  if(_pfTab==='buscar') buscarEnPerfil(document.getElementById('pfBuscar')?.value || '');
+}
+
+// ── Utilidades ──
+const pfLado = (p, n) => pels(p.equipo1).includes(n) ? 'equipo1' : 'equipo2';
+const pfGana = (p, n) => p.ganador === pfLado(p, n);
+const pfTantos = (p, n) => pfLado(p, n)==='equipo1' ? [p.puntos1, p.puntos2] : [p.puntos2, p.puntos1];
+
+// Agrupa los partidos por clave (compañero, rival, frontón...): {clave: {pj, pg, tf, tc, ult}}
+function pfAgrupar(parts, n, claves){
+  const g = {};
+  parts.forEach(p=>{   // del más reciente al más antiguo: el primero que aparece es el último partido
+    const [tf, tc] = pfTantos(p, n), ok = pfGana(p, n);
+    claves(p).forEach(k=>{
+      const s = g[k] = g[k] || {pj:0, pg:0, tf:0, tc:0, ult:p.fecha};
+      s.pj++; if(ok) s.pg++; s.tf += tf; s.tc += tc;
+    });
+  });
+  return g;
+}
+const pfCompaneros = (parts, n) => pfAgrupar(parts, n, p=>pels(p[pfLado(p,n)]).filter(x=>x!==n));
+const pfRivales = (parts, n) => pfAgrupar(parts, n, p=>pels(p[pfLado(p,n)==='equipo1'?'equipo2':'equipo1']));
+const pfFrontones = (parts, n) => pfAgrupar(parts, n, p=>[p.fronton]);
+const pfPct = s => s.pj ? s.pg/s.pj : 0;
+
+// Rachas: la actual (del último partido hacia atrás) y la mejor de victorias
+function pfRachas(parts, n){
+  let actual = 0, tipo = null, mejor = 0, run = 0;
+  parts.forEach((p, i)=>{
+    const ok = pfGana(p, n);
+    if(i===0) tipo = ok;
+    if(ok===tipo && actual===i) actual++;
+  });
+  [...parts].reverse().forEach(p=>{ run = pfGana(p, n) ? run+1 : 0; mejor = Math.max(mejor, run); });
+  return {actual, gana: tipo, mejor};
+}
+
+// Orden y «ver todos» de cada lista
+let _pfOrden = {parejas:'pj', rivales:'pj', frontones:'pj'};
+let _pfTodo = {};
+const PF_MIN = {parejas:5, rivales:3, frontones:3};
+const PF_VISIBLES = 10;
+function ordenarPf(tab, k){ _pfOrden[tab] = k; pintarPanelPerfil(); }
+function verTodoPf(tab){ _pfTodo[tab] = true; pintarPanelPerfil(); }
+
+function pfOrdenar(tab, grupos){
+  const o = _pfOrden[tab], min = PF_MIN[tab];
+  let lista = Object.entries(grupos);
+  if(o==='pj') return lista.sort((a,b)=>b[1].pj-a[1].pj || pfPct(b[1])-pfPct(a[1]) || a[0].localeCompare(b[0]));
+  lista = lista.filter(([,s])=>s.pj>=min);
+  return lista.sort((a,b)=>(o==='peor' ? pfPct(a[1])-pfPct(b[1]) : pfPct(b[1])-pfPct(a[1])) || b[1].pj-a[1].pj);
+}
+
+function htmlOrdenPf(tab, opciones){
+  return `<div class="seg pf-orden" role="group" aria-label="${tx('Ordenar','Ordenatu')}">${opciones.map(([k,l])=>
+    `<button type="button" class="seg-btn ${_pfOrden[tab]===k?'on':''}" aria-pressed="${_pfOrden[tab]===k}" onclick="ordenarPf('${tab}','${k}')">${l}</button>`).join('')}</div>`;
+}
+
+// Barras de victorias (verde) y derrotas (rojo), con la longitud según los partidos
+function htmlBarrasVD(tab, lista, {click, sub}={}){
+  if(!lista.length) return `<p class="an-muted pf-vacio">${_pfOrden[tab]!=='pj'
+    ? tx(`Nadie llega al mínimo de ${PF_MIN[tab]} partidos con estos filtros.`, `Inor ez da ${PF_MIN[tab]} partidara iristen iragazki hauekin.`)
+    : tx('Sin datos con estos filtros.','Daturik ez iragazki hauekin.')}</p>`;
+  const max = Math.max(...lista.map(([,s])=>s.pj));
+  const todo = _pfTodo[tab] || lista.length <= PF_VISIBLES+2;
+  const filas = (todo ? lista : lista.slice(0, PF_VISIBLES)).map(([k,s], i)=>{
+    const pc = Math.round(pfPct(s)*100), dif = s.tf-s.tc;
+    const etq = tx(`${s.pg} victorias y ${s.pj-s.pg} derrotas`, `${s.pg} garaipen eta ${s.pj-s.pg} porrot`);
+    return `<li class="vd-row">
+      <span class="vd-pos">${i+1}</span>
+      <div class="vd-info">
+        <div class="vd-name">${click ? `<span class="clk" onclick="${click(k)}">${h(k)}</span>` : h(k)}
+          <small>${nPartidos(s.pj)}${sub ? ' · '+sub(k,s) : ''} · <span class="${dif>=0?'an-up':'an-down'}">${dif>0?'+':''}${dif}</span></small></div>
+        <div class="vd-bar" role="img" aria-label="${etq}">
+          <span class="vd-v" style="width:${s.pg/max*100}%"></span><span class="vd-d" style="width:${(s.pj-s.pg)/max*100}%"></span>
+        </div>
+      </div>
+      <div class="vd-num"><b class="${pc>=50?'g':'r'}">${pc}%</b><small>${s.pg}–${s.pj-s.pg}</small></div>
+    </li>`;
+  }).join('');
+  return `<ol class="vd-lista">${filas}</ol>
+    ${todo ? '' : `<button type="button" class="btn-ghost pf-ver-mas" onclick="verTodoPf('${tab}')">${tx('Ver todos','Denak ikusi')} (${lista.length})</button>`}`;
+}
+
+// Donut de victorias/derrotas con el % en el centro
+function htmlDonut(pg, pp){
+  const tot = pg+pp, r = 44, C = 2*Math.PI*r, v = tot ? pg/tot : 0;
+  return `<svg class="pf-donut" viewBox="0 0 120 120" role="img" aria-label="${tx(`${pg} victorias y ${pp} derrotas`,`${pg} garaipen eta ${pp} porrot`)}">
+    <circle cx="60" cy="60" r="${r}" class="pf-donut-d"/>
+    ${tot ? `<circle cx="60" cy="60" r="${r}" class="pf-donut-v" stroke-dasharray="${(v*C).toFixed(1)} ${C.toFixed(1)}" transform="rotate(-90 60 60)"/>` : ''}
+    <text x="60" y="60" class="pf-donut-n" text-anchor="middle">${tot ? Math.round(v*100)+'%' : '—'}</text>
+    <text x="60" y="78" class="pf-donut-l" text-anchor="middle">${tx('victorias','garaipen')}</text></svg>`;
+}
+
+function htmlDestacado(icono, titulo, valor, detalle, cls=''){
+  return `<div class="pf-dest ${cls}"><div class="pf-dest-ic" aria-hidden="true">${icono}</div>
+    <div><div class="pf-dest-t">${titulo}</div><div class="pf-dest-v">${valor}</div><div class="pf-dest-d">${detalle}</div></div></div>`;
+}
+
+// ── Resumen ──
+function panelResumen(n, parts){
+  const pg = parts.filter(p=>pfGana(p,n)).length, pp = parts.length-pg;
+  const comp = pfOrdenarFijo(pfCompaneros(parts, n), PF_MIN.parejas, 'mejor');
+  const bestia = pfOrdenarFijo(pfRivales(parts, n), PF_MIN.rivales, 'peor');
+  const fron = pfOrdenarFijo(pfFrontones(parts, n), PF_MIN.frontones, 'mejor');
+  const ra = pfRachas(parts, n);
+  const enlace = (k, fn) => `<span class="clk" onclick="${fn}('${h(esc(k))}')">${h(k)}</span>`;
+  const reg = s => `${s.pg}–${s.pj-s.pg} · ${Math.round(pfPct(s)*100)}%`;
+  const hist = ELO_HIST[n] || [], elo = ELO[n];
   const maxElo = hist.length ? Math.max(...hist.map(x=>x[1])) : null;
   const activos = getActivePlayers();
-  const rankingElo = Object.keys(ELO).filter(n=>activos.has(n.toUpperCase())).sort((a,b)=>ELO[b]-ELO[a]);
-  const pos = rankingElo.indexOf(nombre);
-
+  const pos = Object.keys(ELO).filter(x=>activos.has(x.toUpperCase())).sort((a,b)=>ELO[b]-ELO[a]).indexOf(n);
   return `
-    <div class="ch-card an-perfil">
-      <div class="an-head">
-        <h3>${tx('Evolución histórica','Bilakaera historikoa')}</h3>
-        ${botonCompartir(nombre)}
+    <div class="ch-card pf-resumen">
+      <div class="an-head"><h3>${tx('De un vistazo','Begirada batean')}</h3>${botonCompartir(n)}</div>
+      <div class="pf-vistazo">
+        ${htmlDonut(pg, pp)}
+        <div class="pf-dests">
+          ${htmlDestacado('🤝', tx('Mejor pareja','Bikote onena'), comp ? enlace(comp[0],'openPerfil') : '—', comp ? reg(comp[1]) : tx(`mín. ${PF_MIN.parejas} partidos juntos`,`gutx. ${PF_MIN.parejas} partida elkarrekin`))}
+          ${htmlDestacado('⚔️', tx('Rival más duro','Aurkari gogorrena'), bestia ? enlace(bestia[0],'openPerfil') : '—', bestia ? reg(bestia[1]) : tx(`mín. ${PF_MIN.rivales} partidos`,`gutx. ${PF_MIN.rivales} partida`))}
+          ${htmlDestacado('📍', tx('Frontón talismán','Frontoi kuttuna'), fron ? enlace(fron[0],'abrirFronton') : '—', fron ? reg(fron[1]) : tx(`mín. ${PF_MIN.frontones} partidos`,`gutx. ${PF_MIN.frontones} partida`))}
+          ${htmlDestacado(ra.gana ? '🔥' : '❄️', tx('Racha actual','Uneko bolada'),
+            ra.actual ? `${ra.actual} ${ra.gana ? tx(ra.actual===1?'victoria':'victorias','garaipen') : tx(ra.actual===1?'derrota':'derrotas','porrot')}` : '—',
+            tx(`Mejor racha: ${ra.mejor} victorias seguidas`,`Bolada onena: ${ra.mejor} garaipen jarraian`), ra.gana ? 'up' : 'down')}
+        </div>
       </div>
+    </div>
+    <div class="ch-card an-perfil">
+      <h3>${tx('Evolución del Elo','Eloaren bilakaera')} <span class="an-help" title="${tx('Puntuación de fuerza: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Todos empiezan en 1500. Es la de toda su carrera, sin filtros.','Indar puntuazioa: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Denek 1500ean hasten dute. Ibilbide osokoa da, iragazkirik gabe.')}">?</span></h3>
       <div class="an-kpis">
         <div><div class="an-kpi-v">${elo?Math.round(elo):'—'}</div><div class="an-kpi-l">${tx('Elo actual','Oraingo Elo')}</div></div>
         <div><div class="an-kpi-v">${maxElo?Math.round(maxElo):'—'}</div><div class="an-kpi-l">${tx('Elo máximo','Elo gorena')}</div></div>
         <div><div class="an-kpi-v">${pos>=0?pos+1+'º':'—'}</div><div class="an-kpi-l">${tx('Ranking Elo (activos)','Elo sailkapena (aktiboak)')}</div></div>
-        <div><div class="an-kpi-v">${chipsForma(formaReciente(nombre,10))}</div><div class="an-kpi-l">${tx('Últimos 10','Azken 10ak')}</div></div>
+        <div><div class="an-kpi-v">${chipsForma(formaReciente(n,10))}</div><div class="an-kpi-l">${tx('Últimos 10','Azken 10ak')}</div></div>
       </div>
-      <div class="an-sub">${tx('Elo a lo largo del tiempo','Elo denboran zehar')} <span class="an-help" title="${tx('Puntuación de fuerza: sube al ganar y baja al perder, más cuanto más fuerte es el rival. Todos empiezan en 1500.','Indar puntuazioa: irabaztean igo eta galtzean jaisten da, arerioa zenbat eta indartsuago orduan eta gehiago. Denek 1500ean hasten dute.')}">?</span></div>
-      ${graficoLinea(hist, tx('Evolución del Elo de ','Elo-aren bilakaera: ')+nombre)}
-      <div class="an-sub">${tx('% de victorias por temporada','Garaipen % denboraldika')}</div>
-      ${graficoBarras(barras)}
+      ${graficoLinea(hist, tx('Evolución del Elo de ','Elo-aren bilakaera: ')+n)}
+    </div>
+    ${htmlPalmares(n, parts)}`;
+}
+function pfOrdenarFijo(grupos, min, modo){
+  const l = Object.entries(grupos).filter(([,s])=>s.pj>=min);
+  return l.sort((a,b)=>(modo==='peor' ? pfPct(a[1])-pfPct(b[1]) : pfPct(b[1])-pfPct(a[1])) || b[1].pj-a[1].pj)[0] || null;
+}
+
+// ── Parejas ──
+function panelParejas(n, parts){
+  const g = pfCompaneros(parts, n);
+  const mejor = pfOrdenarFijo(g, PF_MIN.parejas, 'mejor');
+  return `<div class="ch-card gr pf-lista-card">
+    <div class="an-head"><h3>${tx('Con quién ha jugado','Norekin jokatu du')}</h3>
+      ${htmlOrdenPf('parejas', [['pj',tx('Más partidos','Partida gehien')],['mejor',tx('Mejor %','% onena')]])}</div>
+    ${mejor ? `<div class="pf-mejor">⭐ ${t('lbl_mejor_pareja')}: <span class="clk" onclick="openPerfil('${h(esc(mejor[0]))}')">${h(mejor[0])}</span>
+      · ${mejor[1].pg}${t('abbr_v')}–${mejor[1].pj-mejor[1].pg}${t('abbr_d')} · ${Math.round(pfPct(mejor[1])*100)}%
+      <span class="an-muted">(${t('lbl_min_pj').replace('{n}', PF_MIN.parejas)})</span></div>` : ''}
+    ${Object.keys(g).length ? htmlBarrasVD('parejas', pfOrdenar('parejas', g), {click:k=>`openPerfil('${h(esc(k))}')`})
+      : `<p class="an-muted pf-vacio">${t('nodata_sin_comp')}</p>`}
+  </div>`;
+}
+
+// ── Rivales ──
+function panelRivales(n, parts){
+  const g = pfRivales(parts, n);
+  return `<div class="ch-card pf-lista-card">
+    <div class="an-head"><h3>${tx('Contra quién ha jugado','Noren aurka jokatu du')}</h3>
+      ${htmlOrdenPf('rivales', [['pj',tx('Más enfrentados','Gehien aurkitutakoak')],['mejor',tx('Le domina','Menderatzen ditu')],['peor',tx('Le cuestan','Kostatzen zaizkio')]])}</div>
+    ${htmlBarrasVD('rivales', pfOrdenar('rivales', g), {click:k=>`openPerfil('${h(esc(k))}')`})}
+    <p class="an-nota">${tx(`En «Le domina» y «Le cuestan», mínimo ${PF_MIN.rivales} partidos. El porcentaje es el de victorias de ${h(n)}.`,
+      `«Menderatzen ditu» eta «Kostatzen zaizkio» ataletan, gutxienez ${PF_MIN.rivales} partida. Ehunekoa ${h(n)}-ren garaipenena da.`)}</p>
+  </div>`;
+}
+
+// ── Frontones ──
+function panelFrontones(n, parts){
+  const g = pfFrontones(parts, n);
+  return `<div class="ch-card pf-lista-card pf-frontones">
+    <div class="an-head"><h3>${tx('Rendimiento por frontón','Errendimendua frontoika')}</h3>
+      ${htmlOrdenPf('frontones', [['pj',tx('Más jugados','Gehien jokatuak')],['mejor',tx('Mejor %','% onena')],['peor',tx('Peor %','% txarrena')]])}</div>
+    ${htmlBarrasVD('frontones', pfOrdenar('frontones', g), {click:k=>`abrirFronton('${h(esc(k))}')`})}
+  </div>`;
+}
+
+// ── Partidos: diferencia de tantos de los últimos 30 y la lista ──
+function panelPartidos(n, parts){
+  return `<div class="ch-card pf-ultimos" id="pfUltimos">
+    <h3>${tx('Diferencia de tantos','Tanto aldea')} · ${tx('últimos','azken')} ${Math.min(30, parts.length)}</h3>
+    ${graficoDiferencias(parts.slice(0, 30).reverse(), n)}
+    <div class="an-sub" id="pfUltimosTitle">${t('lbl_ultimos')}</div>
+    <div id="pfPartidosList"></div>
+    <div class="pf-load-more" id="pfLoadMore" style="display:none">
+      <button class="btn-ghost" onclick="loadMorePerfilPartidos()">${t('c4_ver_mas').replace('{n}',10)}</button>
+    </div>
+  </div>`;
+}
+
+function graficoDiferencias(parts, n){
+  if(!parts.length) return `<p class="an-muted">${tx('Sin partidos con estos filtros.','Partidarik ez iragazki hauekin.')}</p>`;
+  const W = 640, H = 150, m = {t:10, r:8, b:10, l:30}, iw = W-m.l-m.r, ih = H-m.t-m.b;
+  const difs = parts.map(p=>{ const [a,b] = pfTantos(p, n); return a-b; });
+  const M = Math.max(5, ...difs.map(Math.abs));
+  const y0 = m.t+ih/2, esc_ = v => v/M*(ih/2), bw = iw/parts.length;
+  const barras = parts.map((p,i)=>{
+    const d = difs[i], hgt = Math.max(2, Math.abs(esc_(d))), x = m.l+i*bw+bw*0.15, w = bw*0.7;
+    const rivales = neq(p[pfLado(p,n)==='equipo1'?'equipo2':'equipo1']);
+    const [a,b] = pfTantos(p, n);
+    const tip = `<b>${h(p.fecha)}</b> · ${h(p.fronton)}<br>${a}–${b} ${tx('contra','-ren aurka')} ${h(rivales)}`;
+    return `<g class="an-hit" onmousemove="mostrarTip(event,'${h(esc(tip))}')" onmouseleave="ocultarTip()">
+      <rect x="${m.l+i*bw}" y="${m.t}" width="${bw}" height="${ih}" fill="transparent"/>
+      <rect x="${x.toFixed(1)}" y="${(d>=0 ? y0-hgt : y0).toFixed(1)}" width="${w.toFixed(1)}" height="${hgt.toFixed(1)}" rx="2" class="${d>=0?'pf-dif-v':'pf-dif-d'}"/></g>`;
+  }).join('');
+  const eje = [M, 0, -M].map(v=>`<line x1="${m.l}" x2="${W-m.r}" y1="${y0-esc_(v)}" y2="${y0-esc_(v)}" class="an-grid${v===0?' mid':''}"/>
+    <text x="${m.l-6}" y="${y0-esc_(v)+3}" class="an-axis" text-anchor="end">${v>0?'+':''}${v}</text>`).join('');
+  return `<div class="an-chart-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-line-svg" role="img"
+    aria-label="${tx('Diferencia de tantos en cada partido, del más antiguo al más reciente','Tanto aldea partida bakoitzean, zaharrenetik berrienera')}">${eje}${barras}</svg></div>`;
+}
+
+// ── Años: partidos y % de victorias por temporada + comparador ──
+function panelAnios(n, parts){
+  const por = {};
+  parts.forEach(p=>{ const a = getYear(p), s = por[a] = por[a] || {pj:0, pg:0}; s.pj++; if(pfGana(p,n)) s.pg++; });
+  const anios = Object.keys(por).sort();
+  return `<div class="ch-card">
+      <h3>${tx('Temporada a temporada','Denboraldiz denboraldi')}</h3>
+      ${graficoAnios(anios.map(a=>[a, por[a]]))}
+      <div class="pf-leyenda"><span><i class="vd-v"></i>${tx('Victorias','Garaipenak')}</span><span><i class="vd-d"></i>${tx('Derrotas','Porrotak')}</span><span><i class="pf-ley-l"></i>% ${tx('victorias','garaipenak')}</span></div>
       <table class="comp-table an-table-sr"><caption>${tx('Victorias por temporada','Garaipenak denboraldika')}</caption>
         <thead><tr><th>${tx('Año','Urtea')}</th><th>${t('abbr_pj')}</th><th>${t('abbr_v')}</th><th>%</th></tr></thead>
-        <tbody>${barras.map(b=>`<tr><td>${b.etiqueta}</td><td>${porAnio[b.etiqueta].pj}</td><td>${porAnio[b.etiqueta].pg}</td><td>${Math.round(b.valor)}%</td></tr>`).join('')}</tbody></table>
-      ${frontones.length?`<div class="an-sub">${tx('Rendimiento por frontón','Errendimendua frontoika')}</div>
-      ${mejorF?`<p class="an-nota">▲ ${tx('Mejor','Onena')}: <b>${h(mejorF[0])}</b> ${Math.round(pctF(mejorF[1])*100)}% · ▼ ${tx('Peor','Txarrena')}: <b>${h(peorF[0])}</b> ${Math.round(pctF(peorF[1])*100)}% <span class="an-muted">(${tx('mín. 5 partidos','gutx. 5 partida')})</span></p>`:''}
-      <div class="an-table-wrap"><table class="comp-table an-fr-tabla">
-        <thead><tr><th>${tx('Frontón','Frontoia')}</th><th class="an-num">${t('abbr_pj')}</th><th class="an-num">${t('abbr_v')}</th><th class="an-num">${t('abbr_d')}</th><th class="an-num">%</th><th class="an-num" title="${tx('Diferencia de tantos','Tanto aldea')}">${tx('Dif','Alde')}</th></tr></thead>
-        <tbody>${frontones.map(filaF).join('')}</tbody></table></div>
-      ${frontones.length>VISIBLES?`<button class="btn-ghost an-fr-mas" onclick="this.previousElementSibling.querySelector('table').classList.add('todos');this.remove()">${t('c4_ver_mas').replace('{n}',frontones.length-VISIBLES)}</button>`:''}`:''}
-    </div>`;
+        <tbody>${anios.map(a=>`<tr><td>${a}</td><td>${por[a].pj}</td><td>${por[a].pg}</td><td>${Math.round(pfPct(por[a])*100)}%</td></tr>`).join('')}</tbody></table>
+    </div>
+    ${htmlTemporadas(n) || `<p class="an-muted pf-vacio">${tx('Hace falta más de una temporada para comparar.','Denboraldi bat baino gehiago behar da alderatzeko.')}</p>`}`;
+}
+
+// Barras apiladas (victorias abajo, derrotas encima) y línea con el % de victorias
+function graficoAnios(datos){
+  if(!datos.length) return `<p class="an-muted">${tx('Sin datos','Daturik ez')}</p>`;
+  const W = Math.max(600, datos.length*70), H = 220, m = {t:22, r:34, b:24, l:30}, iw = W-m.l-m.r, ih = H-m.t-m.b;
+  const maxPj = Math.max(...datos.map(([,s])=>s.pj)), bw = Math.min(34, iw/datos.length*0.55);
+  const Y = v => m.t+ih-v/maxPj*ih, Yp = v => m.t+ih-v*ih;
+  const cx = i => m.l+iw*(i+0.5)/datos.length;
+  const barras = datos.map(([a,s],i)=>{
+    const x = cx(i)-bw/2, yv = Y(s.pg), yd = Y(s.pj), pc = Math.round(pfPct(s)*100);
+    const tip = `<b>${a}</b><br>${s.pg}${t('abbr_v')}–${s.pj-s.pg}${t('abbr_d')} · ${pc}%`;
+    return `<g class="an-hit" onmousemove="mostrarTip(event,'${h(esc(tip))}')" onmouseleave="ocultarTip()">
+      <rect x="${m.l+iw*i/datos.length}" y="${m.t}" width="${iw/datos.length}" height="${ih}" fill="transparent"/>
+      <rect x="${x}" y="${yd}" width="${bw}" height="${Math.max(0,yv-yd)}" rx="3" class="pf-bar-d"/>
+      <rect x="${x}" y="${yv}" width="${bw}" height="${m.t+ih-yv}" rx="3" class="pf-bar-v"/>
+      <text x="${cx(i)}" y="${yd-5}" class="an-val" text-anchor="middle">${s.pj}</text>
+      <text x="${cx(i)}" y="${H-8}" class="an-axis" text-anchor="middle">${a}</text></g>`;
+  }).join('');
+  const linea = datos.map(([,s],i)=>`${i?'L':'M'}${cx(i).toFixed(1)},${Yp(pfPct(s)).toFixed(1)}`).join(' ');
+  const puntos = datos.map(([,s],i)=>`<circle cx="${cx(i)}" cy="${Yp(pfPct(s))}" r="3.5" class="pf-pct-dot"/>`).join('');
+  const ejeP = [0, 50, 100].map(v=>`<text x="${W-m.r+6}" y="${Yp(v/100)+3}" class="an-axis">${v}%</text>`).join('');
+  return `<div class="an-chart-scroll"><svg viewBox="0 0 ${W} ${H}" class="pf-anios-svg" style="min-width:${Math.min(W, datos.length*64+70)}px" role="img" aria-label="${tx('Partidos y porcentaje de victorias por temporada','Partidak eta garaipen ehunekoa denboraldika')}">
+    <line x1="${m.l}" x2="${W-m.r}" y1="${Yp(.5)}" y2="${Yp(.5)}" class="an-grid mid"/>${ejeP}${barras}
+    ${datos.length>1 ? `<path d="${linea}" class="pf-pct-line"/>` : ''}${puntos}</svg></div>`;
+}
+
+// ── Buscador: texto libre sobre todos sus partidos (con los filtros de la ficha) ──
+function panelBuscar(n){
+  return `<div class="ch-card pf-buscar">
+    <h3>${tx('Buscar un partido','Partida bat bilatu')}</h3>
+    <label class="flabel" for="pfBuscar">${tx('Rival, compañero, frontón, competición, año o resultado','Aurkaria, bikotekidea, frontoia, lehiaketa, urtea edo emaitza')}</label>
+    <div class="pf-buscar-caja">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">${PF_ICONOS.buscar}</svg>
+      <input type="search" id="pfBuscar" autocomplete="off" placeholder="${tx('p. ej. Altuna Labrit 2025','adib. Altuna Labrit 2025')}" oninput="buscarEnPerfilDiferido(this.value)">
+    </div>
+    <div class="pf-sugerencias">${[tx('final','final'), 'Labrit', '22-', tx('derrota','porrota')].map(q=>
+      `<button type="button" class="pf-sug" onclick="const i=document.getElementById('pfBuscar');i.value='${h(esc(q))}';buscarEnPerfil(i.value)">${h(q)}</button>`).join('')}</div>
+    <div id="pfBuscarRes" aria-live="polite"></div>
+  </div>`;
+}
+
+const pfNorm = s => String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+let _pfBuscarT;
+function buscarEnPerfilDiferido(q){ clearTimeout(_pfBuscarT); _pfBuscarT = setTimeout(()=>buscarEnPerfil(q), 180); }
+
+function buscarEnPerfil(q){
+  const el = document.getElementById('pfBuscarRes');
+  if(!el) return;
+  const n = _perfilNombre, terms = pfNorm(q).split(/\s+/).filter(Boolean);
+  if(!terms.length){ el.innerHTML = `<p class="an-muted">${tx('Escribe una o varias palabras: se muestran los partidos que las contienen todas.','Idatzi hitz bat edo gehiago: denak dituzten partidak agertuko dira.')}</p>`; return; }
+  const res = partidosPerfil(n).filter(p=>{
+    const [a,b] = pfTantos(p, n), ok = pfGana(p, n);
+    const txt = pfNorm([p.fecha, p.fronton, p.ciudad, p.competicion, tComp(p.competicion), p.fase ? textoFase(p) : '',
+      ...pels(p.equipo1), ...pels(p.equipo2), `${a}-${b}`, `${a}–${b}`, ok ? tx('victoria gana','garaipena irabazi') : tx('derrota pierde','porrota galdu')].join(' | '));
+    return terms.every(w=>txt.includes(w));
+  });
+  const pg = res.filter(p=>pfGana(p,n)).length, MAX = 50;
+  el.innerHTML = res.length
+    ? `<div class="pf-buscar-resumen"><b>${nPartidos(res.length)}</b> · <span class="an-up">${pg} ${t('abbr_v')}</span> – <span class="an-down">${res.length-pg} ${t('abbr_d')}</span></div>
+       <div class="pf-ultimos">${res.slice(0, MAX).map(p=>renderPerfilPartidoRow(p, n)).join('')}</div>
+       ${res.length>MAX ? `<p class="an-nota">${tx(`Se muestran los ${MAX} más recientes. Afina la búsqueda para ver el resto.`,`${MAX} berrienak agertzen dira. Zehaztu bilaketa gainerakoak ikusteko.`)}</p>` : ''}`
+    : `<p class="an-muted">${tx('Ningún partido coincide.','Ez dago bat datorren partidarik.')}</p>`;
 }
 
 // ════════════════════════════════════════════════════════════

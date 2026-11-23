@@ -186,13 +186,44 @@ class Web(unittest.TestCase):
 
     # ── Perfil y ranking ──
     def test_perfil_por_fronton_y_mejor_pareja(self):
-        pg = self.pagina('#/pelotari/laso')
+        pg = self.pagina('#/pelotari/laso/parejas')
         self.assertTrue(pg.locator('.pf-mejor').is_visible())
-        filas = pg.locator('.an-fr-tabla tbody tr')
-        visibles = lambda: sum(filas.nth(i).is_visible() for i in range(filas.count()))
-        self.assertEqual(visibles(), 8)
-        pg.click('.an-fr-mas')
-        self.assertEqual(visibles(), filas.count())
+        self.assertGreater(pg.locator('.vd-row').count(), 3)
+        # Frontones: 10 y el botón «Ver todos»
+        pg.click('#pfTab-frontones')
+        self.assertTrue(pg.evaluate('location.hash').endswith('/laso/frontones'))
+        self.assertEqual(pg.locator('.pf-frontones .vd-row').count(), 10)
+        pg.click('.pf-ver-mas')
+        self.assertGreater(pg.locator('.pf-frontones .vd-row').count(), 10)
+        # Ordenar por mejor %: de mayor a menor
+        pg.click('.pf-orden .seg-btn >> nth=1')
+        pcts = [int(x.rstrip('%')) for x in pg.locator('.pf-frontones .vd-num b').all_inner_texts()]
+        self.assertEqual(pcts, sorted(pcts, reverse=True))
+
+    def test_pestanas_y_buscador_del_perfil(self):
+        pg = self.pagina('#/pelotari/laso')
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'resumen')
+        self.assertTrue(pg.locator('.pf-donut').is_visible())
+        # Con el teclado se pasa a la siguiente pestaña
+        pg.focus('#pfTab-resumen')
+        pg.keyboard.press('ArrowRight')
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'parejas')
+        pg.click('#pfTab-rivales')
+        self.assertGreater(pg.locator('.vd-row').count(), 3)
+        pg.click('#pfTab-partidos')
+        self.assertEqual(pg.locator('#pfPartidosList .m-card-row').count(), 5)
+        # Buscador: todos los resultados son en ese frontón
+        pg.click('#pfTab-buscar')
+        pg.fill('#pfBuscar', 'labrit')
+        pg.wait_for_selector('#pfBuscarRes .m-card-row')
+        fechas = pg.locator('#pfBuscarRes .m-card-fecha').all_inner_texts()
+        self.assertTrue(fechas and all('LABRIT' in f.upper() for f in fechas))
+        pg.fill('#pfBuscar', 'zzzz')
+        pg.wait_for_timeout(300)
+        self.assertEqual(pg.locator('#pfBuscarRes .m-card-row').count(), 0)
+        # Atrás vuelve a la pestaña anterior
+        pg.go_back()
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'partidos')
 
     def test_filtros_en_la_ficha(self):
         pg = self.pagina('#/pelotari/laso')
@@ -611,7 +642,7 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.locator('.fr-filtro-n').count(), 0)
 
     def test_comparar_temporadas(self):
-        pg = self.pagina('#/pelotari/laso')
+        pg = self.pagina('#/pelotari/laso/anios')
         pg.wait_for_selector('#pfTemporadas')
         pg.select_option('#tmpA', '2024')
         pg.select_option('#tmpB', '2025')
