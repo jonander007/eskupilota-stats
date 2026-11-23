@@ -1316,8 +1316,16 @@ function partidosPerfil(nombre){
   });
 }
 
-function openPerfil(nombre){
+// La ficha va en pestañas: resumen, parejas, rivales, partidos, frontones,
+// años y buscador. Los paneles se pintan en analisis.js (pintarPanelPerfil).
+const PF_TABS = ['resumen','parejas','rivales','partidos','frontones','anios','buscar'];
+let _pfTab = 'resumen';
+
+function openPerfil(nombre, tab){
+  const yaAbierto = document.getElementById('perfilSec').style.display==='block';
   if(nombre!==_perfilNombre) pfExtra = {fronton:'', comp:'', rival:''};
+  if(PF_TABS.includes(tab)) _pfTab = tab;
+  else if(!yaAbierto) _pfTab = 'resumen';     // desde fuera de la ficha, siempre el resumen
   document.getElementById('pCards').style.display='none';
   document.getElementById('pSearch').style.display='none';
   // En la ficha los filtros van detrás del botón «Filtrar», junto al nombre
@@ -1334,49 +1342,8 @@ function openPerfil(nombre){
   const pmf=s.pj>0?(s.pf/s.pj).toFixed(1):'—';
   const diff=s.pf-s.pc;
 
-  const comp={};
-  parts.forEach(p=>{
-    const e1=pels(p.equipo1),e2=pels(p.equipo2);
-    const enE1=e1.includes(nombre),enE2=e2.includes(nombre);
-    if(!enE1&&!enE2)return;
-    const mis=enE1?e1:e2,gano=(enE1&&p.ganador==='equipo1')||(enE2&&p.ganador==='equipo2');
-    mis.filter(n=>n!==nombre).forEach(c=>{if(!comp[c])comp[c]={pj:0,pg:0};comp[c].pj++;if(gano)comp[c].pg++;});
-  });
-
-  const riv={};
-  parts.forEach(p=>{
-    const e1=pels(p.equipo1),e2=pels(p.equipo2);
-    const enE1=e1.includes(nombre),enE2=e2.includes(nombre);
-    if(!enE1&&!enE2)return;
-    const ellos=enE1?e2:e1,gano=(enE1&&p.ganador==='equipo1')||(enE2&&p.ganador==='equipo2');
-    ellos.forEach(r=>{if(!riv[r])riv[r]={pj:0,pg:0};riv[r].pj++;if(gano)riv[r].pg++;});
-  });
-
-  // Mejor pareja: más % de victorias con al menos 5 partidos juntos
-  const MIN_PAREJA = 5;
-  const mejorPareja = Object.entries(comp).filter(([,s])=>s.pj>=MIN_PAREJA)
-    .sort((a,b)=>b[1].pg/b[1].pj-a[1].pg/a[1].pj||b[1].pj-a[1].pj)[0];
-  const mejorParejaHtml = mejorPareja ? `<div class="pf-mejor">⭐ ${t('lbl_mejor_pareja')}:
-    <span class="clk" onclick="openPerfil('${esc(mejorPareja[0])}')">${mejorPareja[0]}</span>
-    · ${mejorPareja[1].pg}${t('abbr_v')}–${mejorPareja[1].pj-mejorPareja[1].pg}${t('abbr_d')} · ${Math.round(mejorPareja[1].pg/mejorPareja[1].pj*100)}%
-    <span class="an-muted">(${t('lbl_min_pj').replace('{n}',MIN_PAREJA)})</span></div>` : '';
-  const compRows=Object.entries(comp).sort((a,b)=>b[1].pj-a[1].pj).map(([n,s])=>`
-    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${mejorPareja&&mejorPareja[0]===n?'⭐ ':''}${n}</td>
-    <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
-    <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
-    <td style="font-family:var(--mono);text-align:center">${s.pj}</td>
-    <td style="font-family:var(--mono);text-align:center">${Math.round(s.pg/s.pj*100)}%</td></tr>`
-  ).join('')||`<tr><td colspan="5" class="nodata">${t('nodata_sin_comp')}</td></tr>`;
-
-  const rivRows=Object.entries(riv).sort((a,b)=>b[1].pj-a[1].pj).slice(0,10).map(([n,s])=>`
-    <tr><td class="clk" onclick="openPerfil('${esc(n)}')">${n}</td>
-    <td style="font-family:var(--mono);text-align:center;color:var(--green)">${s.pg}</td>
-    <td style="font-family:var(--mono);text-align:center;color:var(--red)">${s.pj-s.pg}</td>
-    <td style="font-family:var(--mono);text-align:center">${s.pj}</td></tr>`
-  ).join('')||`<tr><td colspan="4" class="nodata">${t('nodata_sin_riv')}</td></tr>`;
-
   document.getElementById('pfWrap').innerHTML=`
-    <div>
+    <div class="pf-side">
       <div class="pf-header">${htmlFotoPerfil(nombre)}<div class="pf-nombre">${nombre}</div>${NOMBRE_COMPLETO[nombre.toUpperCase()]?`<div class="pf-completo">${h(NOMBRE_COMPLETO[nombre.toUpperCase()])}</div>`:''}<div style="font-family:var(--mono);font-size:.62rem;opacity:.8;margin-top:.25rem">${getEmpresa(nombre)?`<span class="pf-empresa ${getEmpresa(nombre)}">${NOMBRE_EMPRESA[getEmpresa(nombre)]}</span> · `:''}${t('lbl_pelota_mano')}</div></div>
       <div class="pf-sgrid">
         <div class="pf-s"><div class="v g">${s.pg}</div><div class="l">${t('lbl_victorias')}</div></div>
@@ -1388,32 +1355,17 @@ function openPerfil(nombre){
       </div>
     </div>
     <div class="pf-main">
-      <div class="ch-card gr">
-        <h3>${t('lbl_compañeros')}</h3>
-        ${mejorParejaHtml}
-        <table class="comp-table"><thead><tr><th>${t('th_compañero')}</th><th>${t('abbr_v')}</th><th>${t('abbr_d')}</th><th>${t('abbr_pj')}</th><th>%</th></tr></thead><tbody>${compRows}</tbody></table>
-      </div>
-      <div class="ch-card">
-        <h3>${t('lbl_rivales')}</h3>
-        <table class="comp-table"><thead><tr><th>${t('th_rival')}</th><th>${t('abbr_v')}</th><th>${t('abbr_d')}</th><th>${t('abbr_pj')}</th></tr></thead><tbody>${rivRows}</tbody></table>
-      </div>
-      <div class="ch-card pf-ultimos" id="pfUltimos">
-        <h3 id="pfUltimosTitle">${t('lbl_ultimos')}</h3>
-        <div id="pfPartidosList"></div>
-        <div class="pf-load-more" id="pfLoadMore" style="display:none">
-          <button class="btn-ghost" onclick="loadMorePerfilPartidos()">${t('c4_ver_mas').replace('{n}',10)}</button>
-        </div>
-      </div>
+      ${htmlPestanasPerfil()}
+      <div id="pfPanel" class="pf-panel" role="tabpanel" aria-labelledby="pfTab-${_pfTab}"></div>
     </div>`;
 
-  // Init recent matches
   _perfilNombre = nombre;
   _perfilPage = 1;
   pintarFiltrosPerfil(nombre);
-  renderPerfilPartidos();
-  document.querySelector('#pfWrap .pf-main').insertAdjacentHTML('afterbegin', htmlPalmares(nombre, parts) + htmlEvolucionPerfil(nombre) + htmlTemporadas(nombre));
+  pintarPanelPerfil();
+  centrarPfTab();
   pintarBotonSeguir();
-  setHash('#/pelotari/'+slugify(nombre));
+  setHash('#/pelotari/'+slugify(nombre)+(_pfTab!=='resumen'?'/'+_pfTab:''));
 }
 
 

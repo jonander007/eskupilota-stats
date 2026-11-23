@@ -33,6 +33,17 @@ RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 EXTERNO = re.compile(r'^https?://(?!127\.0\.0\.1)')
 
 
+def _cartelera_prueba():
+    from datetime import date, timedelta
+    d = date.today() + timedelta(days=3)
+    return {'actualizado': d.strftime('%d/%m/%Y 00:00'), 'partidos': [{
+        'fecha': d.strftime('%d/%m/%Y'), 'hora': '17:00', 'fronton': 'LABRIT', 'ciudad': 'Pamplona', 'fuente': 'baiko',
+        'competicion': 'Festival', 'cartel': ['LASO – IZTUETA // ALTUNA III – MARTIJA'], 'partidos': [{'eq1': ['LASO', 'IZTUETA'], 'eq2': ['ALTUNA III', 'MARTIJA']}]}]}
+
+
+CARTELERA_PRUEBA = _cartelera_prueba()
+
+
 class _Silencioso(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a):
         pass
@@ -56,7 +67,7 @@ class Web(unittest.TestCase):
         cls.pw.stop()
         cls.servidor.shutdown()
 
-    def pagina(self, ruta='', ancho=1300, esquema='light', descargas=False):
+    def pagina(self, ruta='', ancho=1300, esquema='light', descargas=False, cartelera=None):
         ctx = self.navegador.new_context(viewport={'width': ancho, 'height': 900},
                                          color_scheme=esquema, accept_downloads=descargas)
         self.addCleanup(ctx.close)
@@ -65,6 +76,8 @@ class Web(unittest.TestCase):
         self.errores = []
         pg.on('pageerror', lambda e: self.errores.append(str(e)))
         pg.route(EXTERNO, lambda r: r.abort())
+        if cartelera is not None:       # cartelera fija, sin depender de la del día
+            pg.route('**/data/cartelera.json*', lambda r: r.fulfill(json=cartelera))
         pg.goto(self.url + ruta, wait_until='networkidle')
         pg.wait_for_function('typeof PARTIDOS !== "undefined" && PARTIDOS.length > 0')
         return pg
@@ -186,13 +199,44 @@ class Web(unittest.TestCase):
 
     # ── Perfil y ranking ──
     def test_perfil_por_fronton_y_mejor_pareja(self):
-        pg = self.pagina('#/pelotari/laso')
+        pg = self.pagina('#/pelotari/laso/parejas')
         self.assertTrue(pg.locator('.pf-mejor').is_visible())
-        filas = pg.locator('.an-fr-tabla tbody tr')
-        visibles = lambda: sum(filas.nth(i).is_visible() for i in range(filas.count()))
-        self.assertEqual(visibles(), 8)
-        pg.click('.an-fr-mas')
-        self.assertEqual(visibles(), filas.count())
+        self.assertGreater(pg.locator('.vd-row').count(), 3)
+        # Frontones: 10 y el botón «Ver todos»
+        pg.click('#pfTab-frontones')
+        self.assertTrue(pg.evaluate('location.hash').endswith('/laso/frontones'))
+        self.assertEqual(pg.locator('.pf-frontones .vd-row').count(), 10)
+        pg.click('.pf-ver-mas')
+        self.assertGreater(pg.locator('.pf-frontones .vd-row').count(), 10)
+        # Ordenar por mejor %: de mayor a menor
+        pg.click('.pf-orden .seg-btn >> nth=1')
+        pcts = [int(x.rstrip('%')) for x in pg.locator('.pf-frontones .vd-num b').all_inner_texts()]
+        self.assertEqual(pcts, sorted(pcts, reverse=True))
+
+    def test_pestanas_y_buscador_del_perfil(self):
+        pg = self.pagina('#/pelotari/laso')
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'resumen')
+        self.assertTrue(pg.locator('.pf-donut').is_visible())
+        # Con el teclado se pasa a la siguiente pestaña
+        pg.focus('#pfTab-resumen')
+        pg.keyboard.press('ArrowRight')
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'parejas')
+        pg.click('#pfTab-rivales')
+        self.assertGreater(pg.locator('.vd-row').count(), 3)
+        pg.click('#pfTab-partidos')
+        self.assertEqual(pg.locator('#pfPartidosList .m-card-row').count(), 5)
+        # Buscador: todos los resultados son en ese frontón
+        pg.click('#pfTab-buscar')
+        pg.fill('#pfBuscar', 'labrit')
+        pg.wait_for_selector('#pfBuscarRes .m-card-row')
+        fechas = pg.locator('#pfBuscarRes .m-card-fecha').all_inner_texts()
+        self.assertTrue(fechas and all('LABRIT' in f.upper() for f in fechas))
+        pg.fill('#pfBuscar', 'zzzz')
+        pg.wait_for_timeout(300)
+        self.assertEqual(pg.locator('#pfBuscarRes .m-card-row').count(), 0)
+        # Atrás vuelve a la pestaña anterior
+        pg.go_back()
+        self.assertEqual(pg.get_attribute('.pf-tab.on', 'data-tab'), 'partidos')
 
     def test_filtros_en_la_ficha(self):
         pg = self.pagina('#/pelotari/laso')
@@ -249,7 +293,7 @@ class Web(unittest.TestCase):
         self.assertTrue(pg.locator('.pf-inicial').is_visible())
 
     def test_seguir_pelotari_y_cartelera(self):
-        pg = self.pagina('#/cartelera')
+        pg = self.pagina('#/cartelera', cartelera=CARTELERA_PRUEBA)
         pg.wait_for_selector('.cart-evento')
         self.assertTrue(pg.locator('.cart-seg-tip').is_visible())
         # Un pelotari que está en la cartelera
@@ -611,7 +655,7 @@ class Web(unittest.TestCase):
         self.assertEqual(pg.locator('.fr-filtro-n').count(), 0)
 
     def test_comparar_temporadas(self):
-        pg = self.pagina('#/pelotari/laso')
+        pg = self.pagina('#/pelotari/laso/anios')
         pg.wait_for_selector('#pfTemporadas')
         pg.select_option('#tmpA', '2024')
         pg.select_option('#tmpB', '2025')
@@ -875,20 +919,21 @@ class Web(unittest.TestCase):
         pg.wait_for_selector('.pr-codigo')
         self.assertIn('ABC123', pg.locator('.pr-codigo').inner_text())
         self.assertIn('liga%3DABC123', pg.locator('.pr-codigo a').get_attribute('href').replace('=', '%3D'))
-        # Volver a la lista y crear otra liga (4½ entero)
+        # Volver a la lista y crear otra liga (un campeonato entero, A y B).
+        # Uno inventado: los de verdad pueden tener ya la final y no salen.
         pg.click('.pr-volver')
-        pg.evaluate("PARTIDOS.push({competicion: 'Campeonato 4 y Medio Serie A ' + new Date().getFullYear(), categoria: 'campeonato', fase: null})")
+        pg.evaluate("PARTIDOS.push({competicion: 'Campeonato de Prueba Serie A ' + new Date().getFullYear(), categoria: 'campeonato', fase: null})")
         pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
         pg.click('.pr-anadir summary'); pg.wait_for_selector('#prLigaComp')
         pg.fill('#prLigaNombre', 'Los del 4 y medio')
-        valor = pg.evaluate("[...document.querySelectorAll('#prLigaComp option')].find(o => o.textContent.includes('4')).value")
+        valor = pg.evaluate("[...document.querySelectorAll('#prLigaComp option')].find(o => o.textContent.includes('Prueba')).value")
         pg.select_option('#prLigaComp', valor)
         pg.check('input[name="prSerie"][value="AB"]')
         pg.click('.pr-crear button[type="submit"]')
         pg.wait_for_timeout(500)
         anio = pg.evaluate('new Date().getFullYear()')
         self.assertIn(('porra_crear_liga', {'nombre': 'Los del 4 y medio', 'alcance': [
-            f'Campeonato 4 y Medio Serie A {anio}', f'Campeonato 4 y Medio Serie B {anio}']}), self.porra_envios)
+            f'Campeonato de Prueba Serie A {anio}', f'Campeonato de Prueba Serie B {anio}']}), self.porra_envios)
         # Liga de un mes
         pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
         pg.click('.pr-anadir summary'); pg.wait_for_selector('#prLigaNombre')
