@@ -195,7 +195,34 @@ class Web(unittest.TestCase):
 
     def test_clasificacion_de_campeonato(self):
         pg = self.pagina('#/campeonatos')
+        pg.click('#cpTab-clasificacion')
+        self.assertTrue(pg.evaluate('location.hash').endswith('/clasificacion'))
         self.assertGreater(pg.locator('#campContent table tbody tr').count(), 3)
+
+    def test_pestanas_del_campeonato(self):
+        # Parejas Serie A 2026: campeones LASO / ALBISU
+        pg = self.pagina('#/campeonato/COMP026')
+        self.assertIn('fin', pg.get_attribute('.cp-estado', 'class'))
+        self.assertIn('LASO', pg.inner_text('.an-campeon-nombre'))
+        # Partidos: 12 por fase, «Ver todos» y buscador
+        pg.click('#cpTab-partidos')
+        visibles = lambda: pg.locator('#cpPanel .cp-m:visible').count()
+        antes = visibles()
+        pg.click('.cp-mas >> nth=0')
+        self.assertGreater(visibles(), antes)
+        pg.fill('#cpBuscar', 'albisu')
+        self.assertTrue(all('ALBISU' in t for t in pg.locator('#cpPanel .cp-m:visible').all_inner_texts()))
+        pg.click('.cp-fase-f .pf-sug >> text=Final')
+        self.assertEqual(pg.locator('#cpPanel .cp-bloque').count(), 1)
+        # Estadísticas e historial
+        pg.click('#cpTab-estadisticas')
+        self.assertEqual(pg.locator('#cpPanel .an-kpi-v').count(), 4)
+        pg.click('#cpTab-historial')
+        self.assertGreater(pg.locator('.cp-hist-f').count(), 1)
+        self.assertEqual(pg.locator('.cp-hist-f.on').count(), 1)
+        pg.click('.cp-hist-f:not(.on) .cp-hist-anio >> nth=0')
+        self.assertNotIn('COMP026', pg.evaluate('location.hash'))
+        self.assertTrue(pg.evaluate('location.hash').endswith('/historial'))
 
     # ── Perfil y ranking ──
     def test_perfil_por_fronton_y_mejor_pareja(self):
@@ -758,7 +785,7 @@ class Web(unittest.TestCase):
         self.assertIn('Manomanista', pg.locator('h1').inner_text())
         self.assertIn(campeon, pg.locator('main p').first.inner_text())
         pg.click('a.cta')
-        pg.wait_for_selector('#campContent table')
+        pg.wait_for_selector('#campContent .an-campeon')
         self.assertTrue(pg.evaluate('location.hash').startswith('#/campeonato/'))
         pg.goto(f'{self.url}fronton/labrit/')
         self.assertIn('Labrit', pg.locator('h1').inner_text())

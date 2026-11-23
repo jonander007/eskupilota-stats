@@ -132,7 +132,7 @@ function route(){
       if(nombre) abrirFronton(nombre, false);
     } else if(tipo==='campeonato' && arg){
       irASeccion('campeonatos');
-      renderCampeonato(arg);
+      renderCampeonato(arg, partes[2] || 'resumen');
     } else {
       const sec = SLUG_SEC[tipo] || 'partidos';
       irASeccion(sec);
@@ -1029,19 +1029,33 @@ function elegirCompeticion(base){
   if(lista.length) renderCampeonato(lista[0].id);
 }
 
-// Campeones: ganadores de la final (si la conocemos). Si la final se ha
-// deducido (último partido del campeonato), se indica.
+// Campeones: ganadores de la final (si la conocemos), con el marcador de la
+// final y el subcampeón. Si la final se ha deducido, se indica.
 function htmlCampeon(parts){
   const final = parts.find(p=>p.fase==='final');
   if(!final) return '';
-  const gan = final.ganador==='equipo1' ? final.equipo1 : final.equipo2;
+  const lado = eq => eq==='equipo1' ? 'puntos1' : 'puntos2';
+  const gEq = final.ganador, pEq = gEq==='equipo1' ? 'equipo2' : 'equipo1';
+  const nombres = eq => pels(eq).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ');
+  const semis = parts.filter(p=>p.fase==='semifinal').map(p=>p.ganador==='equipo1' ? p.equipo2 : p.equipo1);
   return `<div class="ch-card an-campeon">
-    <div class="an-campeon-ic" aria-hidden="true">🏆</div>
-    <div>
-      <div class="an-kpi-l">${t('lbl_campeones')}</div>
-      <div class="an-campeon-nombre">${pels(gan).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</div>
-      <div class="an-muted">${t('fase_final')} · ${final.fecha} · ${h(final.fronton)} · ${final.puntos1}–${final.puntos2}
+    <div class="cp-podio">
+      <div class="an-campeon-ic" aria-hidden="true">🏆</div>
+      <div class="cp-podio-txt">
+        <div class="an-kpi-l">${t('lbl_campeones')}</div>
+        <div class="an-campeon-nombre">${nombres(final[gEq])}</div>
+        <div class="cp-sub">${tx('Subcampeón','Txapeldunorde')}: ${nombres(final[pEq])}</div>
+        ${semis.length ? `<div class="cp-sub">${tx('Semifinalistas','Finalerdilariak')}: ${semis.map(nombres).join(' · ')}</div>` : ''}
+      </div>
+    </div>
+    <div class="cp-final">
+      <div class="cp-final-tit">${t('fase_final')} · ${final.fecha} · ${h(final.fronton)}
         ${final.fase_deducida?` · <span title="${h(t('lbl_final_deducida'))}">${tx('deducida','ondorioztatua')} ⓘ</span>`:''}</div>
+      <div class="cp-marcador">
+        <span class="cp-eq gana">${h(neq(final[gEq]))}</span>
+        <span class="cp-tantos"><b>${final[lado(gEq)]}</b><i>–</i><span>${final[lado(pEq)]}</span></span>
+        <span class="cp-eq">${h(neq(final[pEq]))}</span>
+      </div>
     </div>
   </div>`;
 }
@@ -1130,87 +1144,291 @@ function htmlCuadro(parts){
 
 function setCampModo(modo){ _campModo = modo; renderCampeonato(_campActual); }
 
-function renderCampeonato(id){
+// ── Campeonato en pestañas: resumen, clasificación, partidos, estadísticas e historial ──
+const CP_TABS = ['resumen','clasificacion','partidos','estadisticas','historial'];
+let _campTab = 'resumen';
+let _cpFase = '';            // filtro de fase en «Partidos»
+const CP_ICONOS = {
+  resumen:'<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/>',
+  clasificacion:'<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>',
+  partidos:PF_ICONOS.partidos,
+  estadisticas:'<path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>',
+  historial:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+};
+const cpNombreTab = k => ({resumen:tx('Resumen','Laburpena'), clasificacion:tx('Clasificación','Sailkapena'),
+  partidos:tx('Partidos','Partidak'), estadisticas:tx('Estadísticas','Estatistikak'), historial:tx('Historial','Historia')}[k]);
+
+function setCampTab(k){
+  if(!CP_TABS.includes(k)) return;
+  _campTab = k;
+  renderCampeonato(_campActual);
+  document.querySelector('.cp-tabs .pf-tab.on')?.focus({preventScroll:true});
+}
+function teclaCampTab(ev){
+  const i = CP_TABS.indexOf(_campTab);
+  const j = ev.key==='ArrowRight' ? (i+1)%CP_TABS.length : ev.key==='ArrowLeft' ? (i-1+CP_TABS.length)%CP_TABS.length
+    : ev.key==='Home' ? 0 : ev.key==='End' ? CP_TABS.length-1 : -1;
+  if(j<0) return;
+  ev.preventDefault(); setCampTab(CP_TABS[j]);
+}
+
+// Ediciones de la misma competición (todas las series y años), con su final
+function cpEdiciones(comp){
+  const base = baseComp(comp.nombre);
+  return (_campBases[base] || []).map(c => {
+    const ps = PARTIDOS.filter(p=>p.competicion===c.nombre);
+    return {c, anio: anioComp(c.nombre), final: ps.find(p=>p.fase==='final'), pj: ps.length};
+  }).sort((a,b)=>b.anio.localeCompare(a.anio));
+}
+
+function renderCampeonato(id, tab){
   const cont = document.getElementById('campContent');
   if(!cont) return;
   if(!document.getElementById('campSel').options.length) buildCampeonatos();
   const comp = CAT_COMPETICIONES[id] || CAT_COMPETICIONES[_campActual];
   if(!comp){ cont.innerHTML = `<div class="nodata">${tx('Sin competiciones','Txapelketarik ez')}</div>`; return; }
+  if(comp.id !== _campActual) _cpFase = '';
+  if(CP_TABS.includes(tab)) _campTab = tab;
   _campActual = comp.id;
   sincronizarFiltrosCamp(comp.id);
   // Sustituye la entrada del historial: así "atrás" vuelve a la sección anterior
-  setHash('#/campeonato/'+comp.id, true);
+  setHash('#/campeonato/'+comp.id+(_campTab!=='resumen'?'/'+_campTab:''), true);
 
   const parts = PARTIDOS.filter(p=>p.competicion===comp.nombre).sort((a,b)=>parseDate(b.fecha)-parseDate(a.fecha));
   if(!parts.length){ cont.innerHTML = `<div class="nodata">${tx('Sin partidos','Partidarik ez')}</div>`; return; }
-  const parejas = parts.some(p=>p.equipo1.zaguero);
-  const modo = parejas ? _campModo : 'pelotaris';
 
-  const tabla = {};
-  const sumar = (clave, integrantes, pf, pc, gana) => {
-    const f = tabla[clave] = tabla[clave] || {integrantes, pj:0, g:0, p:0, tf:0, tc:0};
-    f.pj++; f.tf+=pf; f.tc+=pc; gana?f.g++:f.p++;
-  };
-  parts.forEach(p=>{
-    [['equipo1','puntos1','puntos2'],['equipo2','puntos2','puntos1']].forEach(([eq,a,b])=>{
-      const inte = pels(p[eq]); const gana = p.ganador===eq;
-      if(modo==='equipos') sumar(inte.join(' / '), inte, p[a], p[b], gana);
-      else inte.forEach(n=>sumar(n, [n], p[a], p[b], gana));
-    });
-  });
-  const filas = Object.entries(tabla).sort((x,y)=>y[1].g-x[1].g || (y[1].tf-y[1].tc)-(x[1].tf-x[1].tc) || y[1].tf-x[1].tf);
-
-  const ultimo = parts[0];
-  const ganUlt = ultimo.ganador==='equipo1' ? ultimo.equipo1 : ultimo.equipo2;
-  const fechaIni = parts[parts.length-1].fecha, fechaFin = parts[0].fecha;
-
-  const fila = ([clave,f],i)=>`<tr>
-    <td class="an-num">${i+1}</td>
-    <td>${f.integrantes.map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</td>
-    <td class="an-num">${f.pj}</td><td class="an-num an-up">${f.g}</td><td class="an-num an-down">${f.p}</td>
-    <td class="an-num">${f.tf}</td><td class="an-num">${f.tc}</td>
-    <td class="an-num ${f.tf-f.tc>=0?'an-up':'an-down'}">${f.tf-f.tc>0?'+':''}${f.tf-f.tc}</td></tr>`;
-
+  const pintar = {resumen:cpResumen, clasificacion:cpClasificacion, partidos:cpPartidos,
+    estadisticas:cpEstadisticas, historial:cpHistorial}[_campTab] || cpResumen;
   cont.innerHTML = `
-    <div class="an-head">
+    ${cpCabecera(comp, parts)}
+    <div class="pf-tabs cp-tabs" role="tablist" aria-label="${tx('Secciones del campeonato','Txapelketaren atalak')}">${CP_TABS.map(k=>`
+      <button type="button" role="tab" id="cpTab-${k}" class="pf-tab ${k===_campTab?'on':''}" data-tab="${k}"
+        aria-selected="${k===_campTab}" aria-controls="cpPanel" tabindex="${k===_campTab?0:-1}"
+        onclick="setCampTab('${k}')" onkeydown="teclaCampTab(event)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${CP_ICONOS[k]}</svg>
+        <span>${cpNombreTab(k)}</span></button>`).join('')}</div>
+    <div id="cpPanel" class="pf-panel" role="tabpanel" aria-labelledby="cpTab-${_campTab}">${pintar(comp, parts)}</div>`;
+  const bar = cont.querySelector('.cp-tabs'), b = bar?.querySelector('.pf-tab.on');
+  if(b && bar.scrollWidth > bar.clientWidth) bar.scrollLeft = b.offsetLeft - (bar.clientWidth - b.offsetWidth)/2;
+  if(_campTab==='partidos') cpFiltrarPartidos();
+}
+
+// Cabecera: nombre, estado, fechas y el recorrido por fases
+function cpCabecera(comp, parts){
+  const final = parts.find(p=>p.fase==='final');
+  const cat = comp.categoria || 'campeonato';
+  const fases = ['eliminatoria','octavos','cuartos','semifinal','final'].filter(f=>parts.some(p=>p.fase===f));
+  const actual = parts[0].fase;
+  const serie = (comp.nombre.match(/\bSerie ([AB])\b/)||[])[1];
+  const frontones = new Set(parts.map(p=>p.fronton)).size;
+  return `<div class="cp-hero cat-${h(cat)}">
+    <div class="cp-hero-top">
       <div>
-        <div class="an-camp-nombre">${h(tComp(comp.nombre))} ${(comp.nombre.match(/\b20\d\d\b/)||[''])[0]}</div>
-        <div class="an-muted">${nPartidos(parts.length)} · ${fechaIni} → ${fechaFin}</div>
+        <div class="cp-kicker">${h({campeonato:tx('Campeonato','Txapelketa'), torneo:tx('Torneo','Torneoa'), desafio:tx('Desafío','Desafioa')}[cat]||cat)}${serie?` · ${tx('Serie','Seriea')} ${serie}`:''}
+          <span class="cp-estado ${final?'fin':'vivo'}">${final ? tx('Finalizado','Amaituta') : tx('En juego','Jokoan')}</span></div>
+        <div class="an-camp-nombre">${h(tComp(comp.nombre))} ${anioComp(comp.nombre)}</div>
+        <div class="cp-meta">${nPartidos(parts.length)} · ${parts[parts.length-1].fecha} → ${parts[0].fecha} · ${frontones} ${frontones===1?tx('frontón','frontoi'):tx('frontones','frontoi')}</div>
       </div>
       ${botonCompartir(comp.nombre)}
     </div>
-    ${htmlCampeon(parts)}
+    ${fases.length>1 ? `<ol class="cp-fases" aria-label="${tx('Fases','Faseak')}">${fases.map(f=>{
+      const hecho = final || fases.indexOf(f) < fases.indexOf(actual), ahora = !final && f===actual;
+      return `<li class="${hecho?'hecho':''} ${ahora?'ahora':''}"><span>${h(t('fase_'+f))}</span></li>`; }).join('')}</ol>` : ''}
+  </div>`;
+}
+
+// Tabla de clasificación (por parejas o por pelotari)
+function cpTabla(parts, modo){
+  const tabla = {};
+  parts.forEach(p=>{
+    [['equipo1','puntos1','puntos2'],['equipo2','puntos2','puntos1']].forEach(([eq,a,b])=>{
+      const inte = pels(p[eq]), gana = p.ganador===eq;
+      const claves = modo==='equipos' ? [[inte.join(' / '), inte]] : inte.map(n=>[n,[n]]);
+      claves.forEach(([k, integrantes])=>{
+        const f = tabla[k] = tabla[k] || {integrantes, pj:0, g:0, p:0, tf:0, tc:0};
+        f.pj++; f.tf+=p[a]; f.tc+=p[b]; gana?f.g++:f.p++;
+      });
+    });
+  });
+  return Object.entries(tabla).sort((x,y)=>y[1].g-x[1].g || (y[1].tf-y[1].tc)-(x[1].tf-x[1].tc) || y[1].tf-x[1].tf);
+}
+
+const cpNombres = eq => pels(eq).map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ');
+
+// Tarjeta de partido: fecha, fase y frontón arriba; los dos equipos con su tanteo
+function cpPartido(p){
+  const g1 = p.ganador==='equipo1';
+  return `<div class="cp-m" data-busca="${h(pfNorm([p.fecha, p.fronton, ...pels(p.equipo1), ...pels(p.equipo2), p.fase?textoFase(p):''].join(' ')))}" data-fase="${h(p.fase||'')}">
+    <div class="cp-m-info">${p.fecha} · ${h(p.fronton)}${p.fase?` · <span class="fase-lbl">${h(textoFase(p))}</span>`:''}</div>
+    <div class="cp-m-eq ${g1?'gana':''}"><span>${cpNombres(p.equipo1)}</span><b>${p.puntos1}</b></div>
+    <div class="cp-m-eq ${g1?'':'gana'}"><span>${cpNombres(p.equipo2)}</span><b>${p.puntos2}</b></div>
+  </div>`;
+}
+
+// ── Resumen ──
+function cpResumen(comp, parts){
+  const final = parts.find(p=>p.fase==='final');
+  const dif = p => Math.abs(p.puntos1-p.puntos2);
+  const gan = p => p.ganador==='equipo1' ? p.equipo1 : p.equipo2;
+  const per = p => p.ganador==='equipo1' ? p.equipo2 : p.equipo1;
+  const res = p => `${Math.max(p.puntos1,p.puntos2)}–${Math.min(p.puntos1,p.puntos2)}`;
+  const paliza = [...parts].sort((a,b)=>dif(b)-dif(a) || parseDate(b.fecha)-parseDate(a.fecha))[0];
+  const igualado = [...parts].sort((a,b)=>dif(a)-dif(b) || Math.min(b.puntos1,b.puntos2)-Math.min(a.puntos1,a.puntos2))[0];
+  const parejas = parts.some(p=>p.equipo1.zaguero);
+  const tabla = cpTabla(parts, parejas ? 'equipos' : 'pelotaris');
+  const lider = tabla[0];
+  const ataque = tabla.filter(([,f])=>f.pj>=3).sort((a,b)=>b[1].tf/b[1].pj-a[1].tf/a[1].pj)[0];
+  const ultimos = parts.slice(0, final ? 0 : 3);
+  return `
+    ${final ? htmlCampeon(parts) : `<div class="ch-card cp-vivo">
+      <div class="an-kpi-l">${tx('Líder provisional','Behin-behineko liderra')}</div>
+      <div class="an-campeon-nombre">${lider[1].integrantes.map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}</div>
+      <div class="cp-sub">${lider[1].g} ${tx('victorias','garaipen')} · ${lider[1].p} ${tx('derrotas','porrot')} · ${tx('dif.','aldea')} ${lider[1].tf-lider[1].tc>0?'+':''}${lider[1].tf-lider[1].tc}</div>
+      <div class="an-sub">${tx('Últimos partidos','Azken partidak')}</div>
+      <div class="cp-lista">${ultimos.map(cpPartido).join('')}</div>
+    </div>`}
     ${htmlCuadro(parts)}
-    <div class="ch-card an-ultimo">
-      <h3>${tx('Último partido disputado','Jokatutako azken partida')} · ${ultimo.fecha} · ${h(ultimo.fronton)}${ultimo.fase?' · '+textoFase(ultimo):''}</h3>
-      <div class="an-ultimo-res">
-        <span class="${ultimo.ganador==='equipo1'?'an-win':''}">${h(neq(ultimo.equipo1))}</span>
-        <span class="an-marcador">${ultimo.puntos1} – ${ultimo.puntos2}</span>
-        <span class="${ultimo.ganador==='equipo2'?'an-win':''}">${h(neq(ultimo.equipo2))}</span>
-      </div>
-      <div class="an-muted">${tx('Ganan','Irabazleak')}: <b>${h(neq(ganUlt))}</b></div>
-    </div>
     <div class="ch-card">
-      <div class="an-head"><h3>${tx('Clasificación','Sailkapena')}</h3>
-        ${parejas?`<div class="an-toggle" role="group">
-          <button class="rk-tab ${modo==='equipos'?'on':''}" onclick="setCampModo('equipos')">${tx('Por parejas','Bikoteka')}</button>
-          <button class="rk-tab ${modo==='pelotaris'?'on':''}" onclick="setCampModo('pelotaris')">${tx('Por pelotari','Pilotariko')}</button></div>`:''}
+      <h3>${tx('Destacados','Nabarmenak')}</h3>
+      <div class="pf-dests cp-dests">
+        ${htmlDestacado('💥', tx('Mayor paliza','Jipoirik handiena'), h(res(paliza)), `${cpNombres(gan(paliza))} ${tx('a','-k')} ${cpNombres(per(paliza))} · ${paliza.fecha}`)}
+        ${htmlDestacado('⚖️', tx('Más igualado','Parekatuena'), h(res(igualado)), `${cpNombres(gan(igualado))} ${tx('a','-k')} ${cpNombres(per(igualado))} · ${igualado.fecha}`)}
+        ${htmlDestacado('🥇', tx('Más victorias','Garaipen gehien'), cpNombres({delantero:lider[1].integrantes[0], zaguero:lider[1].integrantes[1]}), `${lider[1].g}–${lider[1].p} · ${nPartidos(lider[1].pj)}`)}
+        ${ataque ? htmlDestacado('🎯', tx('Mejor ataque','Erasorik onena'), cpNombres({delantero:ataque[1].integrantes[0], zaguero:ataque[1].integrantes[1]}),
+          `${(ataque[1].tf/ataque[1].pj).toFixed(1)} ${tx('tantos por partido','tanto partidako')} · ${tx('mín. 3 partidos','gutx. 3 partida')}`) : ''}
       </div>
-      <p class="an-nota">${tx('Ordenada por victorias y, a igualdad, por diferencia de tantos. Incluye todas las fases; las parejas que jugaron con un sustituto aparecen aparte.',
-        'Garaipenen arabera ordenatua eta, berdinketan, tanto diferentziaren arabera. Fase guztiak barne; ordezko batekin jokatu zuten bikoteak bereizita agertzen dira.')}</p>
-      <div class="an-table-wrap"><table class="comp-table">
-        <thead><tr><th>#</th><th>${modo==='equipos'?tx('Pareja','Bikotea'):tx('Pelotari','Pilotaria')}</th><th class="an-num" title="${tx('Partidos jugados','Jokatutako partidak')}">${t('abbr_pj')}</th><th class="an-num" title="${tx('Victorias','Garaipenak')}">${t('abbr_v')}</th><th class="an-num" title="${tx('Derrotas','Porrotak')}">${t('abbr_d')}</th><th class="an-num" title="${tx('Tantos a favor','Aldeko tantoak')}">${tx('TF','AT')}</th><th class="an-num" title="${tx('Tantos en contra','Kontrako tantoak')}">${tx('TC','KT')}</th><th class="an-num" title="${tx('Diferencia','Aldea')}">${tx('Dif','Alde')}</th></tr></thead>
-        <tbody>${filas.map(fila).join('')}</tbody></table></div>
-    </div>
-    <div class="ch-card">
-      <h3>${tx('Partidos','Partidak')}</h3>
-      <div class="an-table-wrap"><table class="comp-table an-partidos">
-        <tbody>${parts.map(p=>`<tr>
-          <td class="an-fecha">${p.fecha}${p.fase?`<br><span class="fase-lbl">${textoFase(p)}</span>`:''}</td><td class="an-fron">${h(p.fronton)}</td>
-          <td class="${p.ganador==='equipo1'?'an-win':''}">${h(neq(p.equipo1))}</td>
-          <td class="an-num an-marcador">${p.puntos1}–${p.puntos2}</td>
-          <td class="${p.ganador==='equipo2'?'an-win':''}">${h(neq(p.equipo2))}</td></tr>`).join('')}</tbody></table></div>
     </div>`;
+}
+
+// ── Clasificación ──
+function cpClasificacion(comp, parts){
+  const parejas = parts.some(p=>p.equipo1.zaguero);
+  const modo = parejas ? _campModo : 'pelotaris';
+  const filas = cpTabla(parts, modo);
+  const maxPj = Math.max(...filas.map(([,f])=>f.pj));
+  const fila = ([,f],i)=>{ const pc = Math.round(f.g/f.pj*100);
+    return `<tr class="${i<3?'cp-top':''}">
+    <td class="an-num"><span class="cp-pos p${i+1}">${i+1}</span></td>
+    <td>${f.integrantes.map(n=>`<span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span>`).join(' / ')}
+      <div class="vd-bar cp-bar" role="img" aria-label="${f.g} ${tx('victorias','garaipen')}, ${f.p} ${tx('derrotas','porrot')}"><span class="vd-v" style="width:${f.g/maxPj*100}%"></span><span class="vd-d" style="width:${f.p/maxPj*100}%"></span></div></td>
+    <td class="an-num">${f.pj}</td><td class="an-num an-up">${f.g}</td><td class="an-num an-down">${f.p}</td>
+    <td class="an-num cp-col-pc">${pc}%</td>
+    <td class="an-num cp-col-t">${f.tf}</td><td class="an-num cp-col-t">${f.tc}</td>
+    <td class="an-num ${f.tf-f.tc>=0?'an-up':'an-down'}">${f.tf-f.tc>0?'+':''}${f.tf-f.tc}</td></tr>`; };
+  return `<div class="ch-card">
+    <div class="an-head"><h3>${tx('Clasificación','Sailkapena')}</h3>
+      ${parejas?`<div class="seg" role="group" aria-label="${tx('Ver por','Ikusi')}">
+        <button type="button" class="seg-btn ${modo==='equipos'?'on':''}" aria-pressed="${modo==='equipos'}" onclick="setCampModo('equipos')">${tx('Por parejas','Bikoteka')}</button>
+        <button type="button" class="seg-btn ${modo==='pelotaris'?'on':''}" aria-pressed="${modo==='pelotaris'}" onclick="setCampModo('pelotaris')">${tx('Por pelotari','Pilotariko')}</button></div>`:''}
+    </div>
+    <div class="an-table-wrap"><table class="comp-table cp-clasif">
+      <thead><tr><th>#</th><th>${modo==='equipos'?tx('Pareja','Bikotea'):tx('Pelotari','Pilotaria')}</th><th class="an-num" title="${tx('Partidos jugados','Jokatutako partidak')}">${t('abbr_pj')}</th><th class="an-num" title="${tx('Victorias','Garaipenak')}">${t('abbr_v')}</th><th class="an-num" title="${tx('Derrotas','Porrotak')}">${t('abbr_d')}</th><th class="an-num cp-col-pc">%</th><th class="an-num cp-col-t" title="${tx('Tantos a favor','Aldeko tantoak')}">${tx('TF','AT')}</th><th class="an-num cp-col-t" title="${tx('Tantos en contra','Kontrako tantoak')}">${tx('TC','KT')}</th><th class="an-num" title="${tx('Diferencia','Aldea')}">${tx('Dif','Alde')}</th></tr></thead>
+      <tbody>${filas.map(fila).join('')}</tbody></table></div>
+    <p class="an-nota">${tx('Ordenada por victorias y, a igualdad, por diferencia de tantos. Incluye todas las fases; las parejas que jugaron con un sustituto aparecen aparte.',
+      'Garaipenen arabera ordenatua eta, berdinketan, tanto diferentziaren arabera. Fase guztiak barne; ordezko batekin jokatu zuten bikoteak bereizita agertzen dira.')}</p>
+  </div>`;
+}
+
+// ── Partidos: por fases, con filtro de fase y buscador ──
+function cpPartidos(comp, parts){
+  const orden = ['final','tercero','semifinal','cuartos','octavos','eliminatoria',''];
+  const fases = orden.filter(f=>parts.some(p=>(p.fase||'')===f));
+  const nombreFase = f => f ? t('fase_'+f) : tx('Sin fase','Fasea gabe');
+  return `<div class="ch-card cp-partidos">
+    <div class="an-head"><h3>${tx('Partidos','Partidak')}</h3></div>
+    <div class="pf-buscar-caja"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">${PF_ICONOS.buscar}</svg>
+      <input type="search" id="cpBuscar" autocomplete="off" aria-label="${tx('Buscar pelotari, frontón o fecha','Bilatu pilotaria, frontoia edo data')}" placeholder="${tx('Buscar pelotari, frontón o fecha','Bilatu pilotaria, frontoia edo data')}" oninput="cpFiltrarPartidos()"></div>
+    ${fases.length>1 ? `<div class="pf-sugerencias cp-fase-f" role="group" aria-label="${tx('Fase','Fasea')}">
+      <button type="button" class="pf-sug ${_cpFase===''?'on':''}" aria-pressed="${_cpFase===''}" onclick="_cpFase='';renderCampeonato(_campActual)">${tx('Todas','Denak')}</button>
+      ${fases.filter(Boolean).map(f=>`<button type="button" class="pf-sug ${_cpFase===f?'on':''}" aria-pressed="${_cpFase===f}" onclick="_cpFase='${f}';renderCampeonato(_campActual)">${h(nombreFase(f))}</button>`).join('')}</div>` : ''}
+    ${fases.filter(f=>!_cpFase || f===_cpFase).map(f=>{ const ps = parts.filter(p=>(p.fase||'')===f);
+      return `<section class="cp-bloque"><div class="an-sub">${h(nombreFase(f))} <span class="an-muted">· ${ps.length}</span></div>
+        <div class="cp-lista">${ps.map(cpPartido).join('')}</div>
+        ${ps.length>CP_VISIBLES ? `<button type="button" class="btn-ghost pf-ver-mas cp-mas" onclick="this.closest('.cp-bloque').classList.add('todo');cpFiltrarPartidos()">${tx('Ver todos','Denak ikusi')} (${ps.length})</button>` : ''}</section>`; }).join('')}
+    <p class="an-muted cp-sin" hidden>${tx('Ningún partido coincide.','Ez dago bat datorren partidarik.')}</p>
+  </div>`;
+}
+
+// Sin búsqueda, cada fase enseña los CP_VISIBLES más recientes y un «Ver todos»
+const CP_VISIBLES = 12;
+function cpFiltrarPartidos(){
+  const q = pfNorm(document.getElementById('cpBuscar')?.value || '').split(/\s+/).filter(Boolean);
+  let vistos = 0;
+  document.querySelectorAll('#cpPanel .cp-bloque').forEach(b=>{
+    let n = 0;
+    const todo = q.length || b.classList.contains('todo');
+    b.querySelectorAll('.cp-m').forEach(m=>{ const ok = q.every(w=>m.dataset.busca.includes(w)); m.hidden = !ok || (!todo && n>=CP_VISIBLES); if(ok) n++; });
+    const mas = b.querySelector('.cp-mas'); if(mas) mas.hidden = !!todo;
+    b.hidden = !n; vistos += n;
+  });
+  const sin = document.querySelector('#cpPanel .cp-sin'); if(sin) sin.hidden = vistos > 0;
+}
+
+// ── Estadísticas: tantos del perdedor, frontones y diferencia por fase ──
+function cpEstadisticas(comp, parts){
+  const perd = p => Math.min(p.puntos1, p.puntos2), dif = p => Math.abs(p.puntos1-p.puntos2);
+  const media = (a, f) => a.length ? a.reduce((s,x)=>s+f(x),0)/a.length : 0;
+  const igualados = parts.filter(p=>dif(p)<=3).length;
+  const hist = {}; parts.forEach(p=>{ const k = perd(p); hist[k] = (hist[k]||0)+1; });
+  const maxT = Math.max(21, ...Object.keys(hist).map(Number));
+  const datos = Array.from({length:maxT+1}, (_,i)=>[i, hist[i]||0]);
+  const W = 640, H = 170, m = {t:16,r:8,b:22,l:26}, iw = W-m.l-m.r, ih = H-m.t-m.b, bw = iw/datos.length;
+  const maxN = Math.max(...datos.map(d=>d[1]));
+  const barras = datos.map(([k,n],i)=>{ const hg = n/maxN*ih;
+    return `<g class="an-hit" onmousemove="mostrarTip(event,'${h(esc(`<b>22–${k}</b><br>${nPartidos(n)}`))}')" onmouseleave="ocultarTip()">
+      <rect x="${m.l+i*bw}" y="${m.t}" width="${bw}" height="${ih}" fill="transparent"/>
+      ${n?`<rect x="${(m.l+i*bw+bw*.15).toFixed(1)}" y="${(m.t+ih-hg).toFixed(1)}" width="${(bw*.7).toFixed(1)}" height="${hg.toFixed(1)}" rx="2" class="${k>=19?'pf-dif-d':'pf-dif-v'}"/>
+      <text x="${m.l+i*bw+bw/2}" y="${m.t+ih-hg-4}" class="an-val" text-anchor="middle">${n}</text>`:''}
+      ${i%3===0||i===datos.length-1?`<text x="${m.l+i*bw+bw/2}" y="${H-6}" class="an-axis" text-anchor="middle">${k}</text>`:''}</g>`; }).join('');
+  const fron = {}; parts.forEach(p=>{ fron[p.fronton] = (fron[p.fronton]||0)+1; });
+  const fl = Object.entries(fron).sort((a,b)=>b[1]-a[1]);
+  const orden = ['eliminatoria','octavos','cuartos','semifinal','final'];
+  const porFase = orden.map(f=>[f, parts.filter(p=>p.fase===f)]).filter(([,ps])=>ps.length);
+  return `<div class="ch-card">
+      <h3>${tx('En cifras','Zenbakitan')}</h3>
+      <div class="an-kpis">
+        <div><div class="an-kpi-v">${media(parts, p=>p.puntos1+p.puntos2).toFixed(1)}</div><div class="an-kpi-l">${tx('Tantos por partido','Tanto partidako')}</div></div>
+        <div><div class="an-kpi-v">${media(parts, perd).toFixed(1)}</div><div class="an-kpi-l">${tx('Tantos del perdedor','Galtzailearen tantoak')}</div></div>
+        <div><div class="an-kpi-v">${Math.round(igualados/parts.length*100)}%</div><div class="an-kpi-l">${tx('Igualados (≤3 tantos)','Parekatuak (≤3 tanto)')}</div></div>
+        <div><div class="an-kpi-v">${fl.length}</div><div class="an-kpi-l">${tx('Frontones','Frontoiak')}</div></div>
+      </div>
+      <div class="an-sub">${tx('Tantos del perdedor','Galtzailearen tantoak')} <span class="an-help" title="${tx('Cuántos partidos acabaron 22–0, 22–1… En rojo, los que se decidieron por 3 tantos o menos.','Zenbat partida amaitu ziren 22–0, 22–1… Gorriz, 3 tanto edo gutxiagoz erabaki zirenak.')}">?</span></div>
+      <div class="an-chart-scroll"><svg viewBox="0 0 ${W} ${H}" class="an-line-svg cp-hist-svg" role="img" aria-label="${tx('Partidos según los tantos del perdedor','Partidak galtzailearen tantoen arabera')}">
+        <line x1="${m.l}" x2="${W-m.r}" y1="${m.t+ih}" y2="${m.t+ih}" class="an-grid"/>${barras}</svg></div>
+    </div>
+    ${porFase.length>1 ? `<div class="ch-card"><h3>${tx('Diferencia media por fase','Batez besteko aldea fasearen arabera')}</h3>
+      <ol class="vd-lista">${porFase.map(([f,ps])=>{ const d = media(ps, dif), mx = Math.max(...porFase.map(([,x])=>media(x,dif)));
+        return `<li class="vd-row cp-fila-f"><span class="vd-pos"></span><div class="vd-info"><div class="vd-name">${h(t('fase_'+f))} <small>${nPartidos(ps.length)}</small></div>
+          <div class="vd-bar"><span class="vd-v" style="width:${d/mx*100}%"></span></div></div><div class="vd-num"><b>${d.toFixed(1)}</b><small>${tx('tantos','tanto')}</small></div></li>`; }).join('')}</ol>
+      <p class="an-nota">${tx('Cuanto más baja, más igualados fueron los partidos de esa fase.','Zenbat eta baxuagoa, orduan eta parekatuagoak izan ziren fase horretako partidak.')}</p></div>` : ''}
+    <div class="ch-card"><h3>${tx('Dónde se jugó','Non jokatu zen')}</h3>
+      <ol class="vd-lista cp-fron">${fl.map(([f,n],i)=>`<li class="vd-row" ${i>=10?'hidden':''}><span class="vd-pos">${i+1}</span><div class="vd-info">
+        <div class="vd-name"><span class="clk" onclick="abrirFronton('${h(esc(f))}')">${h(f)}</span></div>
+        <div class="vd-bar"><span class="vd-v" style="width:${n/fl[0][1]*100}%"></span></div></div>
+        <div class="vd-num"><b>${n}</b><small>${n===1?tx('partido','partida'):tx('partidos','partida')}</small></div></li>`).join('')}</ol>
+      ${fl.length>10 ? `<button type="button" class="btn-ghost pf-ver-mas" onclick="this.previousElementSibling.querySelectorAll('li[hidden]').forEach(l=>l.hidden=false);this.remove()">${tx('Ver todos','Denak ikusi')} (${fl.length})</button>` : ''}
+    </div>`;
+}
+
+// ── Historial: campeones de cada edición y quién tiene más títulos ──
+function cpHistorial(comp){
+  const eds = cpEdiciones(comp);
+  const titulos = {};
+  eds.forEach(e=>{ if(!e.final) return; pels(e.final.ganador==='equipo1'?e.final.equipo1:e.final.equipo2).forEach(n=>{ titulos[n]=(titulos[n]||0)+1; }); });
+  const rk = Object.entries(titulos).sort((a,b)=>b[1]-a[1] || a[0].localeCompare(b[0]));
+  return `<div class="ch-card">
+      <h3>${tx('Campeones de cada edición','Edizio bakoitzeko txapeldunak')}</h3>
+      <div class="cp-hist">${eds.map(e=>{ const f = e.final;
+        const g = f && (f.ganador==='equipo1'?f.equipo1:f.equipo2), p = f && (f.ganador==='equipo1'?f.equipo2:f.equipo1);
+        return `<div class="cp-hist-f ${e.c.id===comp.id?'on':''}">
+          <button type="button" class="cp-hist-anio" onclick="renderCampeonato('${e.c.id}')" aria-label="${h(tComp(e.c.nombre))} ${e.anio}">${e.anio||'—'}</button>
+          <div class="cp-hist-txt">${f ? `<div class="cp-hist-g">🏆 ${cpNombres(g)}</div>
+            <div class="cp-sub">${Math.max(f.puntos1,f.puntos2)}–${Math.min(f.puntos1,f.puntos2)} ${tx('a','-k')} ${cpNombres(p)} · ${h(f.fronton)}</div>`
+            : `<div class="cp-sub">${tx('Sin final registrada','Finalik erregistratu gabe')} · ${nPartidos(e.pj)}</div>`}</div></div>`; }).join('')}</div>
+    </div>
+    ${rk.length ? `<div class="ch-card"><h3>${tx('Más títulos','Txapela gehien')}</h3>
+      <div class="cp-titulos">${rk.map(([n,k],i)=>`<span class="cp-tit ${i===0?'top':''}"><span class="clk" onclick="goToPel('${esc(n)}')">${h(n)}</span><b>${k}</b></span>`).join('')}</div>
+      <p class="an-nota">${tx('Solo las ediciones con la final registrada, desde noviembre de 2022.','Finala erregistratuta duten edizioak bakarrik, 2022ko azarotik aurrera.')}</p></div>` : ''}`;
 }
 
 // ════════════════════════════════════════════════════════════
