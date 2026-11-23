@@ -33,6 +33,17 @@ RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 EXTERNO = re.compile(r'^https?://(?!127\.0\.0\.1)')
 
 
+def _cartelera_prueba():
+    from datetime import date, timedelta
+    d = date.today() + timedelta(days=3)
+    return {'actualizado': d.strftime('%d/%m/%Y 00:00'), 'partidos': [{
+        'fecha': d.strftime('%d/%m/%Y'), 'hora': '17:00', 'fronton': 'LABRIT', 'ciudad': 'Pamplona', 'fuente': 'baiko',
+        'competicion': 'Festival', 'cartel': ['LASO – IZTUETA // ALTUNA III – MARTIJA'], 'partidos': [{'eq1': ['LASO', 'IZTUETA'], 'eq2': ['ALTUNA III', 'MARTIJA']}]}]}
+
+
+CARTELERA_PRUEBA = _cartelera_prueba()
+
+
 class _Silencioso(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a):
         pass
@@ -56,7 +67,7 @@ class Web(unittest.TestCase):
         cls.pw.stop()
         cls.servidor.shutdown()
 
-    def pagina(self, ruta='', ancho=1300, esquema='light', descargas=False):
+    def pagina(self, ruta='', ancho=1300, esquema='light', descargas=False, cartelera=None):
         ctx = self.navegador.new_context(viewport={'width': ancho, 'height': 900},
                                          color_scheme=esquema, accept_downloads=descargas)
         self.addCleanup(ctx.close)
@@ -65,6 +76,8 @@ class Web(unittest.TestCase):
         self.errores = []
         pg.on('pageerror', lambda e: self.errores.append(str(e)))
         pg.route(EXTERNO, lambda r: r.abort())
+        if cartelera is not None:       # cartelera fija, sin depender de la del día
+            pg.route('**/data/cartelera.json*', lambda r: r.fulfill(json=cartelera))
         pg.goto(self.url + ruta, wait_until='networkidle')
         pg.wait_for_function('typeof PARTIDOS !== "undefined" && PARTIDOS.length > 0')
         return pg
@@ -280,7 +293,7 @@ class Web(unittest.TestCase):
         self.assertTrue(pg.locator('.pf-inicial').is_visible())
 
     def test_seguir_pelotari_y_cartelera(self):
-        pg = self.pagina('#/cartelera')
+        pg = self.pagina('#/cartelera', cartelera=CARTELERA_PRUEBA)
         pg.wait_for_selector('.cart-evento')
         self.assertTrue(pg.locator('.cart-seg-tip').is_visible())
         # Un pelotari que está en la cartelera
@@ -906,20 +919,21 @@ class Web(unittest.TestCase):
         pg.wait_for_selector('.pr-codigo')
         self.assertIn('ABC123', pg.locator('.pr-codigo').inner_text())
         self.assertIn('liga%3DABC123', pg.locator('.pr-codigo a').get_attribute('href').replace('=', '%3D'))
-        # Volver a la lista y crear otra liga (4½ entero)
+        # Volver a la lista y crear otra liga (un campeonato entero, A y B).
+        # Uno inventado: los de verdad pueden tener ya la final y no salen.
         pg.click('.pr-volver')
-        pg.evaluate("PARTIDOS.push({competicion: 'Campeonato 4 y Medio Serie A ' + new Date().getFullYear(), categoria: 'campeonato', fase: null})")
+        pg.evaluate("PARTIDOS.push({competicion: 'Campeonato de Prueba Serie A ' + new Date().getFullYear(), categoria: 'campeonato', fase: null})")
         pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
         pg.click('.pr-anadir summary'); pg.wait_for_selector('#prLigaComp')
         pg.fill('#prLigaNombre', 'Los del 4 y medio')
-        valor = pg.evaluate("[...document.querySelectorAll('#prLigaComp option')].find(o => o.textContent.includes('4')).value")
+        valor = pg.evaluate("[...document.querySelectorAll('#prLigaComp option')].find(o => o.textContent.includes('Prueba')).value")
         pg.select_option('#prLigaComp', valor)
         pg.check('input[name="prSerie"][value="AB"]')
         pg.click('.pr-crear button[type="submit"]')
         pg.wait_for_timeout(500)
         anio = pg.evaluate('new Date().getFullYear()')
         self.assertIn(('porra_crear_liga', {'nombre': 'Los del 4 y medio', 'alcance': [
-            f'Campeonato 4 y Medio Serie A {anio}', f'Campeonato 4 y Medio Serie B {anio}']}), self.porra_envios)
+            f'Campeonato de Prueba Serie A {anio}', f'Campeonato de Prueba Serie B {anio}']}), self.porra_envios)
         # Liga de un mes
         pg.click('#porraContent .pr-vistas .rk-tab >> nth=1')
         pg.click('.pr-anadir summary'); pg.wait_for_selector('#prLigaNombre')
