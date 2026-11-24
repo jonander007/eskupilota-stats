@@ -1,5 +1,5 @@
 {
-  "actualizado": "24/11/2026 08:49",
+  "actualizado": "24/11/2026 21:04",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -13,8 +13,8 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie B)"
+        "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
+        "REKALDE – GABIRONDO // APEZETXEA II – LOZA (Serie B)"
       ],
       "precio": "15.00",
       "agotado": false,
@@ -23,41 +23,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "SALAVERRI II"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ALBERDI II",
+            "EROSTARBE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "REKALDE",
+            "GABIRONDO"
           ],
           "eq2": [
-            "?",
-            "?"
+            "APEZETXEA II",
+            "LOZA"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "REKALDE – GABIRONDO // APEZETXEA II – LOZA (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         }
       ],
       "fuente": "baiko"
@@ -70,8 +68,10 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX -XX (Serie B)",
-        "XX – XX // XX – XX (Serie A)"
+        "ZUBIARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
+        "ELORDI – ZABALETA //",
+        "P.ETXEBERRIA",
+        "– MARTIJA (Serie A)"
       ],
       "precio": "22.00",
       "agotado": false,
@@ -80,41 +80,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ZUBIARRETA III",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "AMIANO",
+            "ARANGUREN"
           ],
-          "raw": "XX – XX // XX -XX (Serie B)",
+          "raw": "ZUBIARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ELORDI",
+            "ZABALETA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "P.ETXEBERRIA",
+            "MARTIJA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ELORDI – ZABALETA // P.ETXEBERRIA – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         }
       ],
       "fuente": "baiko"
@@ -127,8 +125,8 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX -XX (Serie B)",
-        "XX – XX // XX – XX (Serie A)"
+        "SALABERRIA – BIKUÑA // MURUA – ESKUZA (Serie B)",
+        "ARTOLA – ALBISU // PEÑA II – IZTUETA (Serie A)"
       ],
       "precio": "35.00",
       "agotado": false,
@@ -137,41 +135,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SALABERRIA",
+            "BIKUÑA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "MURUA",
+            "ESKUZA"
           ],
-          "raw": "XX – XX // XX -XX (Serie B)",
+          "raw": "SALABERRIA – BIKUÑA // MURUA – ESKUZA (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ARTOLA",
+            "ALBISU"
           ],
           "eq2": [
-            "?",
-            "?"
+            "PEÑA II",
+            "IZTUETA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ARTOLA – ALBISU // PEÑA II – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         }
       ],
       "fuente": "baiko"
@@ -184,8 +180,8 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX -XX (Serie B)",
-        "XX – XX // XX – XX (Serie A)"
+        "SENAR – ESKIROZ // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "JAKA – MARIEZKURRENA II // LASO – LANDA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -194,41 +190,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SENAR",
+            "ESKIROZ"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX -XX (Serie B)",
+          "raw": "SENAR – ESKIROZ // ZUBIZARRETA IV – IMAZ (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "JAKA",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LASO",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "JAKA – MARIEZKURRENA II // LASO – LANDA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         }
       ],
       "fuente": "baiko"
@@ -241,8 +235,8 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "BAKAIKOA – UGARTEMENDIA // EGUIGUREN V – ALDABE",
+        "DARÍO – EZKURDIA // ZABALA – REZUSTA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -251,41 +245,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "BAKAIKOA",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "EGUIGUREN V",
+            "ALDABE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "BAKAIKOA – UGARTEMENDIA // EGUIGUREN V – ALDABE",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "DARÍO",
+            "EZKURDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZABALA",
+            "REZUSTA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "DARÍO – EZKURDIA // ZABALA – REZUSTA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
+          "jornada": 1
         }
       ],
       "fuente": "baiko"
@@ -298,8 +290,8 @@
       "fase": "2ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
+        "ALTUNA III – EZKURDIA // P.ETXEBERRIA – MARTIJA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -308,41 +300,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "MURUA",
+            "ESKUZA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "REKALDE",
+            "GABIRONDO"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "MURUA – ESKUZA // REKALDE – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ALTUNA III",
+            "EZKURDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "P.ETXEBERRIA",
+            "MARTIJA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ALTUNA III – EZKURDIA // P.ETXEBERRIA – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -355,8 +345,8 @@
       "fase": "2ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "PEÑA II – LIZEAGA // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "LASO – LANDA // LARRAZABAL – IZTUETA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -365,41 +355,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "PEÑA II",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "PEÑA II – LIZEAGA // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "LASO",
+            "LANDA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "IZTUETA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "LASO – LANDA // LARRAZABAL – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -412,8 +400,8 @@
       "fase": "2ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "DARÍO – LOZA // SALABERRIA – BIKUÑA (Serie B)",
+        "ELORDI – ZABALETA // ZABALA – REZUSTA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -422,41 +410,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "DARÍO",
+            "LOZA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "SALABERRIA",
+            "BIKUÑA"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "DARÍO – LOZA // SALABERRIA – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ELORDI",
+            "ZABALETA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZABALA",
+            "REZUSTA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ELORDI – ZABALETA // ZABALA – REZUSTA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -469,8 +455,8 @@
       "fase": "2ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "SENAR – ESKIROZ // AMIANO – ARANGUREN (Serie B)",
+        "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -479,41 +465,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SENAR",
+            "ESKIROZ"
           ],
           "eq2": [
-            "?",
-            "?"
+            "AMIANO",
+            "ARANGUREN"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "SENAR – ESKIROZ // AMIANO – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "JAKA",
+            "MARIEZKURRENA II"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ARTOLA",
+            "ALBISU"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "JAKA – MARIEZKURRENA II // ARTOLA – ALBISU (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 2,
-          "pendiente": true
+          "jornada": 2
         }
       ],
       "fuente": "baiko"
@@ -546,7 +530,8 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie A)"
+        "XX – XX // XX – XX",
+        "ALTUNA III – EZKURDIA // ELORDI – ZABALETA (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -562,7 +547,7 @@
             "?",
             "?"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
@@ -571,6 +556,24 @@
           "fase": "liga",
           "jornada": 3,
           "pendiente": true
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "EZKURDIA"
+          ],
+          "eq2": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "raw": "ALTUNA III – EZKURDIA // ELORDI – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -583,7 +586,8 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie A)"
+        "PEÑA II – LIZEAGA // SENAR – ESKIROZ (Serie B)",
+        "JAKA – MARIEZKURRENA II // LARRAZABAL – IZTUETA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -592,22 +596,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "PEÑA II",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "SENAR",
+            "ESKIROZ"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "PEÑA II – LIZEAGA // SENAR – ESKIROZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "IZTUETA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // LARRAZABAL – IZTUETA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -620,7 +641,7 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie B)"
+        "DARÍO – LOZA // MURUA – ESKUZA (Serie B)"
       ],
       "precio": "10.00",
       "agotado": false,
@@ -629,22 +650,21 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "DARÍO",
+            "LOZA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "MURUA",
+            "ESKUZA"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "DARÍO – LOZA // MURUA – ESKUZA (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -657,7 +677,8 @@
       "fase": "3ª Jornada - Pilota Jaia",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie A)"
+        "AMIANO – ARANGUREN // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "ARTOLA – ALBISU // LASO – LANDA (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -666,22 +687,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AMIANO",
+            "ARANGUREN"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "AMIANO – ARANGUREN // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "LASO",
+            "LANDA"
+          ],
+          "raw": "ARTOLA – ALBISU // LASO – LANDA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -694,7 +732,8 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie A)"
+        "SALABERRIA – BIKUÑA // REKALDE – GABIRONDO (Serie B)",
+        "P.ETXEBERRIA – MARTIJA // ZABALA – REZUSTA (Serie A)"
       ],
       "precio": null,
       "agotado": true,
@@ -703,22 +742,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SALABERRIA",
+            "BIKUÑA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "REKALDE",
+            "GABIRONDO"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "SALABERRIA – BIKUÑA // REKALDE – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 3
+        },
+        {
+          "eq1": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "ZABALA",
+            "REZUSTA"
+          ],
+          "raw": "P.ETXEBERRIA – MARTIJA // ZABALA – REZUSTA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         }
       ],
       "fuente": "baiko"
@@ -731,7 +787,8 @@
       "fase": "4ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie B)"
+        "XX – XX // XX – XX",
+        "DARÍO – LOZA // SENAR – ESKIROZ (Serie B)"
       ],
       "precio": "15.00",
       "agotado": false,
@@ -747,7 +804,7 @@
             "?",
             "?"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -756,6 +813,24 @@
           "fase": "liga",
           "jornada": 4,
           "pendiente": true
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "SENAR",
+            "ESKIROZ"
+          ],
+          "raw": "DARÍO – LOZA // SENAR – ESKIROZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 4
         }
       ],
       "fuente": "baiko"
@@ -768,8 +843,8 @@
       "fase": "4ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
+        "PEÑA II – LIZEAGA // REKALDE – GABIRONDO (Serie B)",
+        "ALTUNA III – EZKURDIA // LARRAZABAL – IZUTETA (Serie A)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -778,41 +853,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "PEÑA II",
+            "LIZEAGA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "REKALDE",
+            "GABIRONDO"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "PEÑA II – LIZEAGA // REKALDE – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ALTUNA III",
+            "EZKURDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "LARRAZABAL",
+            "IZUTETA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ALTUNA III – EZKURDIA // LARRAZABAL – IZUTETA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
         }
       ],
       "fuente": "baiko"
@@ -825,9 +898,8 @@
       "fase": "4ª Jornada Campionat Má Parelles",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (",
-        "Serie A)"
+        "SALABERRIA – BIKUÑA // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "ELORDI – ZABALETA // LASO – LANDA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -836,41 +908,39 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "SALABERRIA",
+            "BIKUÑA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ZUBIZARRETA IV",
+            "IMAZ"
           ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "SALABERRIA – BIKUÑA // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ELORDI",
+            "ZABALETA"
           ],
           "eq2": [
-            "?",
-            "XX ("
+            "LASO",
+            "LANDA"
           ],
-          "raw": "XX – XX // XX – XX (",
+          "raw": "ELORDI – ZABALETA // LASO – LANDA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
         }
       ],
       "fuente": "baiko"
@@ -883,7 +953,8 @@
       "fase": "4ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie A)"
+        "XX – XX // XX – XX",
+        "ARTOLA – ALBISU // P.ETXEBERRIA – MARTIJA (Serie A)"
       ],
       "precio": "25.00",
       "agotado": false,
@@ -899,44 +970,6 @@
             "?",
             "?"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "19/12/2026",
-      "hora": "18:30",
-      "fronton": "Aitzuri",
-      "ciudad": "Zumaia",
-      "fase": "4ª Jornada",
-      "competicion": "Campeonato Parejas",
-      "cartel": [
-        "XX – XX // XX – XX",
-        "XX – XX // XX – XX (Serie A)"
-      ],
-      "precio": "25.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082645/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
           "raw": "XX – XX // XX – XX",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
@@ -949,22 +982,387 @@
         },
         {
           "eq1": [
-            "?",
-            "?"
+            "ARTOLA",
+            "ALBISU"
           ],
           "eq2": [
-            "?",
-            "?"
+            "P.ETXEBERRIA",
+            "MARTIJA"
           ],
-          "raw": "XX – XX // XX – XX (Serie A)",
+          "raw": "ARTOLA – ALBISU // P.ETXEBERRIA – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "19/12/2026",
+      "hora": "18:30",
+      "fronton": "Aitzuri",
+      "ciudad": "Zumaia",
+      "fase": "4ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "MURUA – ESKUZA // AMIANO – ARANGUREN (Serie B)",
+        "JAKA – MARIEZKURRENA II // ZABALA – REZUSTA (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082645/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ARANGUREN"
+          ],
+          "raw": "MURUA – ESKUZA // AMIANO – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 4
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ZABALA",
+            "REZUSTA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // ZABALA – REZUSTA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 4
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "21/12/2026",
+      "hora": "18:30",
+      "fronton": "Santi Brouard",
+      "ciudad": "Lekeitio",
+      "fase": "5ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "DARÍO – LOZA // AMIANO – ARANGUREN (Serie B)",
+        "JAKA – MARIEZKURRENA II // ALTUNA III – EZKURDIA (Serie A)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082660/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ARANGUREN"
+          ],
+          "raw": "DARÍO – LOZA // AMIANO – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 5
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "ALTUNA III",
+            "EZKURDIA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // ALTUNA III – EZKURDIA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 5
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "23/12/2026",
+      "hora": "19:30",
+      "fronton": "Mimetiz",
+      "ciudad": "Zalla",
+      "fase": "5ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "SENAR – ESKIROZ // MURUA – ESKUZA (Serie B)",
+        "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082663/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "raw": "SENAR – ESKIROZ // MURUA – ESKUZA (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 5
+        },
+        {
+          "eq1": [
+            "ZABALA",
+            "REZUSTA"
+          ],
+          "eq2": [
+            "LARRAZABAL",
+            "IZTUETA"
+          ],
+          "raw": "ZABALA – REZUSTA // LARRAZABAL – IZTUETA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 5
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "25/12/2026",
+      "hora": "17:15",
+      "fronton": "Astelena",
+      "ciudad": "Eibar",
+      "fase": "5ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "PEÑA II – LIZEAGA // SALABERRIA – BIKUÑA (Serie B)",
+        "ARTOLA – ALBISU // ELORDI – ZABALETA (Serie A)"
+      ],
+      "precio": "45.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079534/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "PEÑA II",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "SALABERRIA",
+            "BIKUÑA"
+          ],
+          "raw": "PEÑA II – LIZEAGA // SALABERRIA – BIKUÑA (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 5
+        },
+        {
+          "eq1": [
+            "ARTOLA",
+            "ALBISU"
+          ],
+          "eq2": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "raw": "ARTOLA – ALBISU // ELORDI – ZABALETA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 5
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "26/12/2026",
+      "hora": "17:30",
+      "fronton": "Covaleda",
+      "ciudad": "Covaleda",
+      "fase": "6ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "MURUA – ESKUZA // ZUBIZARRETA III – IMAZ (Serie B)"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082482/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "MURUA",
+            "ESKUZA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA III",
+            "IMAZ"
+          ],
+          "raw": "MURUA – ESKUZA // ZUBIZARRETA III – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 6
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "01/01/2027",
+      "hora": "17:15",
+      "fronton": "Astelena",
+      "ciudad": "Eibar",
+      "fase": "8ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "SENAR – ESKIROZ // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "ELORDI – ZABALETA // P.ETXEBERRIA – MARTIJA (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079537/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "IMAZ"
+          ],
+          "raw": "SENAR – ESKIROZ // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 8
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "ZABALETA"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "raw": "ELORDI – ZABALETA // P.ETXEBERRIA – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 8
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "06/01/2027",
+      "hora": "17:15",
+      "fronton": "Astelena",
+      "ciudad": "Eibar",
+      "fase": "9ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "SENAR – ESKIROZ // AMIANO – ARANGUREN (Serie B)",
+        "ALTUNA III – EZKURDIA // P.ETXEBERRIA – MARTIJA (Serie A)"
+      ],
+      "precio": "25.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079541/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "SENAR",
+            "ESKIROZ"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ARANGUREN"
+          ],
+          "raw": "SENAR – ESKIROZ // AMIANO – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 9
+        },
+        {
+          "eq1": [
+            "ALTUNA III",
+            "EZKURDIA"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "raw": "ALTUNA III – EZKURDIA // P.ETXEBERRIA – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 9
         }
       ],
       "fuente": "baiko"
