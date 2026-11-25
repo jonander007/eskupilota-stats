@@ -1,5 +1,5 @@
 {
-  "actualizado": "25/11/2026 07:24",
+  "actualizado": "25/11/2026 20:26",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -14,7 +14,8 @@
       "competicion": "Campeonato Parejas",
       "cartel": [
         "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
-        "REKALDE – GABIRONDO // APEZETXEA II – LOZA (Serie B)"
+        "DARÍO – LOZA //",
+        "REKALDE – GABIRONDO (Serie B)"
       ],
       "precio": "15.00",
       "agotado": false,
@@ -41,14 +42,14 @@
         },
         {
           "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
             "REKALDE",
             "GABIRONDO"
           ],
-          "eq2": [
-            "APEZETXEA II",
-            "LOZA"
-          ],
-          "raw": "REKALDE – GABIRONDO // APEZETXEA II – LOZA (Serie B)",
+          "raw": "DARÍO – LOZA // REKALDE – GABIRONDO (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -128,7 +129,7 @@
         "SALABERRIA – BIKUÑA // MURUA – ESKUZA (Serie B)",
         "ARTOLA – ALBISU // PEÑA II – IZTUETA (Serie A)"
       ],
-      "precio": "35.00",
+      "precio": "25.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073951/select?viewCode=",
       "tv": false,
@@ -1229,7 +1230,7 @@
       "fase": "6ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "MURUA – ESKUZA // ZUBIZARRETA III – IMAZ (Serie B)"
+        "MURUA – ESKUZA // ZUBIZARRETA IV – IMAZ (Serie B)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -1242,10 +1243,10 @@
             "ESKUZA"
           ],
           "eq2": [
-            "ZUBIZARRETA III",
+            "ZUBIZARRETA IV",
             "IMAZ"
           ],
-          "raw": "MURUA – ESKUZA // ZUBIZARRETA III – IMAZ (Serie B)",
+          "raw": "MURUA – ESKUZA // ZUBIZARRETA IV – IMAZ (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -1253,6 +1254,135 @@
           "serie": "b",
           "fase": "liga",
           "jornada": 6
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "26/12/2026",
+      "hora": "18:00",
+      "fronton": "Retegi",
+      "ciudad": "Barañain",
+      "fase": "6ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX",
+        "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA (Serie A)"
+      ],
+      "precio": "30.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3082467/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 6,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "JAKA",
+            "MARIEZKURRENA II"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "raw": "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 6
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "29/12/2026",
+      "hora": "19:30",
+      "fronton": "Barberito I",
+      "ciudad": "Baños Río Tobía",
+      "fase": "7ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "DARIO – LOZA // ZUBIZARRETA IV – IMAZ Parejas Serie B"
+      ],
+      "precio": "20.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3083651/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "DARIO",
+            "LOZA"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "IMAZ Parejas Serie B"
+          ],
+          "raw": "DARIO – LOZA // ZUBIZARRETA IV – IMAZ Parejas Serie B",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 7
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "30/12/2026",
+      "hora": "18:00",
+      "fronton": "Turtzioz/Trucios",
+      "ciudad": "Turtzioz/Trucios",
+      "fase": "7ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "XX – XX // XX – XX (Serie B)"
+      ],
+      "precio": "0",
+      "agotado": false,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "?",
+            "?"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "XX – XX // XX – XX (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 7,
+          "pendiente": true
         }
       ],
       "fuente": "baiko"
