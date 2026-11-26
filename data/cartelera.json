@@ -1,5 +1,5 @@
 {
-  "actualizado": "26/11/2026 07:13",
+  "actualizado": "26/11/2026 20:04",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -70,7 +70,7 @@
       "competicion": "Campeonato Parejas",
       "cartel": [
         "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
-        "ELORDI – ZABALETA // MURU",
+        "ELORDI – BIKUÑA // MURU",
         "A",
         "– MARTIJA (Serie A)"
       ],
@@ -100,13 +100,13 @@
         {
           "eq1": [
             "ELORDI",
-            "ZABALETA"
+            "BIKUÑA"
           ],
           "eq2": [
             "MURU",
             "?"
           ],
-          "raw": "ELORDI – ZABALETA // MURU",
+          "raw": "ELORDI – BIKUÑA // MURU",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -146,7 +146,7 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "SALABERRIA – BIKUÑA // APEZETXEA II – ESKUZA (Serie B)",
+        "SALABERRIA – GASKUE // APEZETXEA II – ESKUZA (Serie B)",
         "ARTOLA – ALBISU // PEÑA II – IZTUETA (Serie A)"
       ],
       "precio": "25.00",
@@ -157,13 +157,13 @@
         {
           "eq1": [
             "SALABERRIA",
-            "BIKUÑA"
+            "GASKUE"
           ],
           "eq2": [
             "APEZETXEA II",
             "ESKUZA"
           ],
-          "raw": "SALABERRIA – BIKUÑA // APEZETXEA II – ESKUZA (Serie B)",
+          "raw": "SALABERRIA – GASKUE // APEZETXEA II – ESKUZA (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -551,7 +551,7 @@
       "fase": "3ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
+        "ZUBIZARRETA III – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
         "ALTUNA III – EZKURDIA // ELORDI – ZABALETA (Serie A)"
       ],
       "precio": "20.00",
@@ -561,22 +561,21 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "ZUBIZARRETA III",
+            "MORGAETXEBARRIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "APEZETXEA II",
+            "GASKUE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "ZUBIZARRETA III – MORGAETXEBARRIA // APEZETXEA II – GASKUE",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 3,
-          "pendiente": true
+          "jornada": 3
         },
         {
           "eq1": [
@@ -974,7 +973,7 @@
       "fase": "4ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
+        "AGIRRE – UGARTEMENDIA // ALBERDI II – EROSTARBE",
         "ARTOLA – ALBISU // P.ETXEBERRIA – MARTIJA (Serie A)"
       ],
       "precio": "25.00",
@@ -984,22 +983,21 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "UGARTEMENDIA"
           ],
           "eq2": [
-            "?",
-            "?"
+            "ALBERDI II",
+            "EROSTARBE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – UGARTEMENDIA // ALBERDI II – EROSTARBE",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
+          "jornada": 4
         },
         {
           "eq1": [
@@ -1286,7 +1284,7 @@
       "fase": "6ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
+        "AGIRRE – SALAVERRI II // EGIGUREN V – ALDABE",
         "JAKA – MARIEZKURRENA II // P.ETXEBERRIA – MARTIJA (Serie A)"
       ],
       "precio": "30.00",
@@ -1296,22 +1294,21 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AGIRRE",
+            "SALAVERRI II"
           ],
           "eq2": [
-            "?",
-            "?"
+            "EGIGUREN V",
+            "ALDABE"
           ],
-          "raw": "XX – XX // XX – XX",
+          "raw": "AGIRRE – SALAVERRI II // EGIGUREN V – ALDABE",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 6,
-          "pendiente": true
+          "jornada": 6
         },
         {
           "eq1": [
@@ -1342,7 +1339,8 @@
       "fase": "7ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "DARIO – LOZA // ZUBIZARRETA IV – IMAZ Parejas Serie B"
+        "SALABERRIA – BIKUÑA // SENAR – ESKIROZ (Serie B)",
+        "DARÍO – LOZA // ZUBIZARRETA IV – IMAZ (Serie B)"
       ],
       "precio": "20.00",
       "agotado": false,
@@ -1351,19 +1349,37 @@
       "partidos": [
         {
           "eq1": [
-            "DARIO",
+            "SALABERRIA",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "SENAR",
+            "ESKIROZ"
+          ],
+          "raw": "SALABERRIA – BIKUÑA // SENAR – ESKIROZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 7
+        },
+        {
+          "eq1": [
+            "DARÍO",
             "LOZA"
           ],
           "eq2": [
             "ZUBIZARRETA IV",
-            "IMAZ Parejas Serie B"
+            "IMAZ"
           ],
-          "raw": "DARIO – LOZA // ZUBIZARRETA IV – IMAZ Parejas Serie B",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
+          "raw": "DARÍO – LOZA // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
-          "serie": "a",
+          "serie": "b",
           "fase": "liga",
           "jornada": 7
         }
