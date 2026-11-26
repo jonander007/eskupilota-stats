@@ -1,5 +1,5 @@
 {
-  "actualizado": "26/11/2026 04:42",
+  "actualizado": "26/11/2026 07:13",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -69,9 +69,9 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "ZUBIARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
-        "ELORDI – ZABALETA //",
-        "P.ETXEBERRIA",
+        "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
+        "ELORDI – ZABALETA // MURU",
+        "A",
         "– MARTIJA (Serie A)"
       ],
       "precio": "22.00",
@@ -81,14 +81,14 @@
       "partidos": [
         {
           "eq1": [
-            "ZUBIARRETA III",
+            "ZUBIZARRETA III",
             "LIZEAGA"
           ],
           "eq2": [
             "AMIANO",
             "ARANGUREN"
           ],
-          "raw": "ZUBIARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
+          "raw": "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
@@ -103,17 +103,37 @@
             "ZABALETA"
           ],
           "eq2": [
-            "P.ETXEBERRIA",
+            "MURU",
+            "?"
+          ],
+          "raw": "ELORDI – ZABALETA // MURU",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "A",
             "MARTIJA"
           ],
-          "raw": "ELORDI – ZABALETA // P.ETXEBERRIA – MARTIJA (Serie A)",
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "A – MARTIJA (Serie A)",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "a",
           "fase": "liga",
-          "jornada": 1
+          "jornada": 1,
+          "pendiente": true
         }
       ],
       "fuente": "baiko"
@@ -126,7 +146,7 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "SALABERRIA – BIKUÑA // MURUA – ESKUZA (Serie B)",
+        "SALABERRIA – BIKUÑA // APEZETXEA II – ESKUZA (Serie B)",
         "ARTOLA – ALBISU // PEÑA II – IZTUETA (Serie A)"
       ],
       "precio": "25.00",
@@ -140,10 +160,10 @@
             "BIKUÑA"
           ],
           "eq2": [
-            "MURUA",
+            "APEZETXEA II",
             "ESKUZA"
           ],
-          "raw": "SALABERRIA – BIKUÑA // MURUA – ESKUZA (Serie B)",
+          "raw": "SALABERRIA – BIKUÑA // APEZETXEA II – ESKUZA (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
