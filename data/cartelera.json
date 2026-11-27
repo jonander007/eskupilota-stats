@@ -1,5 +1,5 @@
 {
-  "actualizado": "27/11/2026 07:09",
+  "actualizado": "27/11/2026 19:52",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
@@ -256,7 +256,7 @@
       "fase": "1ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "BAKAIKOA – UGARTEMENDIA // EGUIGUREN V – ALDABE",
+        "BAKAIKOA – UGARTEMENDIA // EGIGUREN V – ALDABE",
         "DARÍO – EZKURDIA // ZABALA – REZUSTA (Serie A)"
       ],
       "precio": "25.00",
@@ -270,10 +270,10 @@
             "UGARTEMENDIA"
           ],
           "eq2": [
-            "EGUIGUREN V",
+            "EGIGUREN V",
             "ALDABE"
           ],
-          "raw": "BAKAIKOA – UGARTEMENDIA // EGUIGUREN V – ALDABE",
+          "raw": "BAKAIKOA – UGARTEMENDIA // EGIGUREN V – ALDABE",
           "tipo": "campeonato-a",
           "competicion": "Campeonato Parejas Serie A 2027",
           "modalidad": "parejas",
@@ -609,7 +609,7 @@
         "PEÑA II – LIZEAGA // SENAR – ESKIROZ (Serie B)",
         "JAKA – MARIEZKURRENA II // LARRAZABAL – IZTUETA (Serie A)"
       ],
-      "precio": "25.00",
+      "precio": "30.00",
       "agotado": false,
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3077916/select?viewCode=",
       "tv": false,
@@ -807,7 +807,6 @@
       "fase": "4ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX",
         "DARÍO – LOZA // SENAR – ESKIROZ (Serie B)"
       ],
       "precio": "15.00",
@@ -815,25 +814,6 @@
       "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3079514/select?viewCode=",
       "tv": false,
       "partidos": [
-        {
-          "eq1": [
-            "?",
-            "?"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "XX – XX // XX – XX",
-          "tipo": "campeonato-b",
-          "competicion": "Campeonato Parejas Serie B 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "liga",
-          "jornada": 4,
-          "pendiente": true
-        },
         {
           "eq1": [
             "DARÍO",
@@ -1131,6 +1111,61 @@
       "fuente": "baiko"
     },
     {
+      "fecha": "22/12/2026",
+      "hora": "18:00",
+      "fronton": "Uarkape",
+      "ciudad": "Arrasate/Mondragón",
+      "fase": "5ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "REKALDE – GABIRONDO // ZUBIZARRETA IV – IMAZ (Serie B)",
+        "LASO – LANDA // P.ETXEBERRIA – MARTIJA (Serie A)"
+      ],
+      "precio": null,
+      "agotado": true,
+      "url": null,
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "REKALDE",
+            "GABIRONDO"
+          ],
+          "eq2": [
+            "ZUBIZARRETA IV",
+            "IMAZ"
+          ],
+          "raw": "REKALDE – GABIRONDO // ZUBIZARRETA IV – IMAZ (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 5
+        },
+        {
+          "eq1": [
+            "LASO",
+            "LANDA"
+          ],
+          "eq2": [
+            "P.ETXEBERRIA",
+            "MARTIJA"
+          ],
+          "raw": "LASO – LANDA // P.ETXEBERRIA – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 5
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
       "fecha": "23/12/2026",
       "hora": "19:30",
       "fronton": "Mimetiz",
@@ -1394,7 +1429,7 @@
       "fase": "7ª Jornada",
       "competicion": "Campeonato Parejas",
       "cartel": [
-        "XX – XX // XX – XX (Serie B)"
+        "AMIANO – ARANGUREN // REKALDE – GABIRONDO (Serie B)"
       ],
       "precio": "0",
       "agotado": false,
@@ -1403,22 +1438,21 @@
       "partidos": [
         {
           "eq1": [
-            "?",
-            "?"
+            "AMIANO",
+            "ARANGUREN"
           ],
           "eq2": [
-            "?",
-            "?"
+            "REKALDE",
+            "GABIRONDO"
           ],
-          "raw": "XX – XX // XX – XX (Serie B)",
+          "raw": "AMIANO – ARANGUREN // REKALDE – GABIRONDO (Serie B)",
           "tipo": "campeonato-b",
           "competicion": "Campeonato Parejas Serie B 2027",
           "modalidad": "parejas",
           "categoria": "campeonato",
           "serie": "b",
           "fase": "liga",
-          "jornada": 7,
-          "pendiente": true
+          "jornada": 7
         }
       ],
       "fuente": "baiko"
