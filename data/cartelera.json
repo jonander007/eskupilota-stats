@@ -1,143 +1,10 @@
 {
-  "actualizado": "28/11/2026 04:29",
+  "actualizado": "28/11/2026 06:42",
   "fuente": "https://www.baikopilota.eus/entradas/",
   "fuentes": [
     "https://www.baikopilota.eus/entradas/"
   ],
   "partidos": [
-    {
-      "fecha": "27/11/2026",
-      "hora": "19:30",
-      "fronton": "Barberito I",
-      "ciudad": "Baños Río Tobía",
-      "fase": "1ª Jornada",
-      "competicion": "Campeonato Parejas",
-      "cartel": [
-        "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
-        "DARÍO – LOZA //",
-        "REKALDE – GABIRONDO (Serie B)"
-      ],
-      "precio": "15.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073950/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "AGIRRE",
-            "SALAVERRI II"
-          ],
-          "eq2": [
-            "ALBERDI II",
-            "EROSTARBE"
-          ],
-          "raw": "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
-          "tipo": "campeonato-b",
-          "competicion": "Campeonato Parejas Serie B 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "liga",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "DARÍO",
-            "LOZA"
-          ],
-          "eq2": [
-            "REKALDE",
-            "GABIRONDO"
-          ],
-          "raw": "DARÍO – LOZA // REKALDE – GABIRONDO (Serie B)",
-          "tipo": "campeonato-b",
-          "competicion": "Campeonato Parejas Serie B 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "liga",
-          "jornada": 1
-        }
-      ],
-      "fuente": "baiko"
-    },
-    {
-      "fecha": "27/11/2026",
-      "hora": "20:45",
-      "fronton": "Club Deportivo",
-      "ciudad": "Bilbao",
-      "fase": "1ª Jornada",
-      "competicion": "Campeonato Parejas",
-      "cartel": [
-        "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
-        "ELORDI – BIKUÑA // MURU",
-        "A",
-        "– MARTIJA (Serie A)"
-      ],
-      "precio": "22.00",
-      "agotado": false,
-      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073949/select?viewCode=",
-      "tv": false,
-      "partidos": [
-        {
-          "eq1": [
-            "ZUBIZARRETA III",
-            "LIZEAGA"
-          ],
-          "eq2": [
-            "AMIANO",
-            "ARANGUREN"
-          ],
-          "raw": "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
-          "tipo": "campeonato-b",
-          "competicion": "Campeonato Parejas Serie B 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "liga",
-          "jornada": 1
-        },
-        {
-          "eq1": [
-            "ELORDI",
-            "BIKUÑA"
-          ],
-          "eq2": [
-            "MURU",
-            "?"
-          ],
-          "raw": "ELORDI – BIKUÑA // MURU",
-          "tipo": "campeonato-b",
-          "competicion": "Campeonato Parejas Serie B 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "b",
-          "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
-        },
-        {
-          "eq1": [
-            "A",
-            "MARTIJA"
-          ],
-          "eq2": [
-            "?",
-            "?"
-          ],
-          "raw": "A – MARTIJA (Serie A)",
-          "tipo": "campeonato-a",
-          "competicion": "Campeonato Parejas Serie A 2027",
-          "modalidad": "parejas",
-          "categoria": "campeonato",
-          "serie": "a",
-          "fase": "liga",
-          "jornada": 1,
-          "pendiente": true
-        }
-      ],
-      "fuente": "baiko"
-    },
     {
       "fecha": "28/11/2026",
       "hora": "17:15",
@@ -1568,5 +1435,139 @@
       "fuente": "baiko"
     }
   ],
-  "recientes": []
+  "recientes": [
+    {
+      "fecha": "27/11/2026",
+      "hora": "19:30",
+      "fronton": "Barberito I",
+      "ciudad": "Baños Río Tobía",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
+        "DARÍO – LOZA //",
+        "REKALDE – GABIRONDO (Serie B)"
+      ],
+      "precio": "15.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073950/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "AGIRRE",
+            "SALAVERRI II"
+          ],
+          "eq2": [
+            "ALBERDI II",
+            "EROSTARBE"
+          ],
+          "raw": "AGIRRE – SALAVERRI II // ALBERDI II – EROSTARBE",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1
+        },
+        {
+          "eq1": [
+            "DARÍO",
+            "LOZA"
+          ],
+          "eq2": [
+            "REKALDE",
+            "GABIRONDO"
+          ],
+          "raw": "DARÍO – LOZA // REKALDE – GABIRONDO (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1
+        }
+      ],
+      "fuente": "baiko"
+    },
+    {
+      "fecha": "27/11/2026",
+      "hora": "20:45",
+      "fronton": "Club Deportivo",
+      "ciudad": "Bilbao",
+      "fase": "1ª Jornada",
+      "competicion": "Campeonato Parejas",
+      "cartel": [
+        "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
+        "ELORDI – BIKUÑA // MURU",
+        "A",
+        "– MARTIJA (Serie A)"
+      ],
+      "precio": "22.00",
+      "agotado": false,
+      "url": "https://proticketing.com/pelotaproliga/es_ES/entradas/evento/61679/session/3073949/select?viewCode=",
+      "tv": false,
+      "partidos": [
+        {
+          "eq1": [
+            "ZUBIZARRETA III",
+            "LIZEAGA"
+          ],
+          "eq2": [
+            "AMIANO",
+            "ARANGUREN"
+          ],
+          "raw": "ZUBIZARRETA III – LIZEAGA // AMIANO – ARANGUREN (Serie B)",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1
+        },
+        {
+          "eq1": [
+            "ELORDI",
+            "BIKUÑA"
+          ],
+          "eq2": [
+            "MURU",
+            "?"
+          ],
+          "raw": "ELORDI – BIKUÑA // MURU",
+          "tipo": "campeonato-b",
+          "competicion": "Campeonato Parejas Serie B 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "b",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        },
+        {
+          "eq1": [
+            "A",
+            "MARTIJA"
+          ],
+          "eq2": [
+            "?",
+            "?"
+          ],
+          "raw": "A – MARTIJA (Serie A)",
+          "tipo": "campeonato-a",
+          "competicion": "Campeonato Parejas Serie A 2027",
+          "modalidad": "parejas",
+          "categoria": "campeonato",
+          "serie": "a",
+          "fase": "liga",
+          "jornada": 1,
+          "pendiente": true
+        }
+      ],
+      "fuente": "baiko"
+    }
+  ]
 }
